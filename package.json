@@ -1,17 +1,22 @@
 {
   "name": "node-desktop",
   "version": "1.0.0",
-  "description": "A cross platform library to build native desktop apps. Based on Qt5. ",
-  "main": "index.js",
+  "description": "A cross platform library to build native desktop apps. Based on Qt5.",
+  "main": "dist/index.js",
   "author": "Atul R <atulanand94@gmail.com>",
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "node-gyp": "^4.0.0"
+    "@types/node": "^12.0.1",
+    "node-gyp": "^4.0.0",
+    "nodemon": "^1.19.0",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
   },
   "scripts": {
-    "build": "node-gyp rebuild",
-    "clean": "node-gyp clean"
+    "build": "node-gyp -j 8 rebuild && tsc",
+    "tsc": "tsc",
+    "dev": "nodemon --exec ts-node -- demo.ts"
   },
   "dependencies": {
     "node-addon-api": "^1.6.3"
