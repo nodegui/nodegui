@@ -9,9 +9,10 @@
   "devDependencies": {
     "node-gyp": "^4.0.0"
   },
+  "types": "index.d.ts",
   "scripts": {
     "build": "node-gyp -j 8 rebuild",
-    "dev": "node demo.js"
+    "dev": "qode demo.js"
   },
   "dependencies": {
     "node-addon-api": "^1.6.3"

@@ -1,8 +1,9 @@
 #ifndef QAPPLICATION_WRAP_H
 #define QAPPLICATION_WRAP_H
 
-#include <QApplication>
 #include <napi.h>
+#include <QApplication>
+
 
 class QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
 private:
