@@ -4,6 +4,7 @@ import { Component } from "../../core/Component";
 
 export class QWidget extends Component {
   native: any;
+  layout?: QLayout;
   constructor(parent?: QWidget) {
     super();
     if (parent) {
@@ -24,7 +25,7 @@ export class QWidget extends Component {
   }
   setLayout(parentLayout: QLayout) {
     this.native.setLayout(parentLayout.native);
-    this.parent = parentLayout;
+    this.layout = parentLayout;
   }
   setStyleSheet(style: string) {
     this.native.setStyleSheet(style);

@@ -4,6 +4,7 @@
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 #include "QtWidgets/QLabel/qlabel_wrap.h"
 #include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
+#include "QtWidgets/QPushButton/qpushbutton_wrap.h"
 #include <napi.h>
 
 
@@ -19,6 +20,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QWidgetWrap::init(env, exports);
     QGridLayoutWrap::init(env, exports);
     QMainWindowWrap::init(env,exports);
+    QPushButtonWrap::init(env, exports);
     return QLabelWrap::init(env, exports);
 }
 

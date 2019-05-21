@@ -14,6 +14,7 @@
             "src/cpp/QtWidgets/QLabel/qlabel_wrap.cpp",
             "src/cpp/QtWidgets/QLayout/qlayout_wrap.cpp",
             "src/cpp/QtWidgets/QMainWindow/qmainwindow_wrap.cpp",
+            "src/cpp/QtWidgets/QPushButton/qpushbutton_wrap.cpp"
         ],
         'conditions': [
             ['OS=="mac"', {

@@ -14,8 +14,12 @@ const label2 = new QtWidgets.QLabel();
 label2.setText("Hello12321");
 label2.setStyleSheet("background-color:blue; color:white;");
 
+const button1 = new QtWidgets.QPushButton();
+button1.setText("Yolo");
+
 gridLayout.addWidget(label);
 gridLayout.addWidget(label2);
+gridLayout.addWidget(button1);
 
 view.setLayout(gridLayout);
 
