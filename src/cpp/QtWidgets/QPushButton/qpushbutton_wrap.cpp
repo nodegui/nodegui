@@ -67,3 +67,8 @@ Napi::Value QPushButtonWrap::setText(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+Napi::Value QPushButtonWrap::setEventListener(const Napi::CallbackInfo& info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return env.Null();
+}

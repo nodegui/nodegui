@@ -1,9 +1,12 @@
 import addon from "../../core/addon";
 import { QWidget } from "../../QtGui/QWidget";
-import { Component } from "../../core/Component";
+import { EventComponent } from "../../core/EventComponent";
 
-export class QPushButton extends Component {
+export class QPushButton extends EventComponent {
   native: any;
+  setEventListener(event: string, callback: () => void): void {
+    throw new Error("Method not implemented.");
+  }
   constructor(parent?: QWidget) {
     super();
     if (parent) {

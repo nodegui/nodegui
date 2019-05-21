@@ -16,6 +16,7 @@ class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
   //wrapped methods
   Napi::Value setStyleSheet(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
+  Napi::Value setEventListener(const Napi::CallbackInfo& info);
 };
 
 #endif

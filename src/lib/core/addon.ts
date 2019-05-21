@@ -1,2 +1,2 @@
-const addon = require("../../../build/Release/node_desktop.node");
+const addon = require("../../../../build/Release/node_gui.node");
 export default addon;

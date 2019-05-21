@@ -1,5 +1,5 @@
 {
-  "name": "node_desktop",
+  "name": "node-gui",
   "version": "1.0.0",
   "description": "A cross platform library to build native desktop apps. Based on Qt5.",
   "main": "dist/",
@@ -15,7 +15,7 @@
   "scripts": {
     "build:addon": "node-gyp -j 8 rebuild",
     "build:lib": "rm -rf ./dist/ && tsc",
-    "dev": "qode demo.js"
+    "dev": "yarn build:lib && qode dist/demo.js"
   },
   "dependencies": {
     "node-addon-api": "^1.6.3"

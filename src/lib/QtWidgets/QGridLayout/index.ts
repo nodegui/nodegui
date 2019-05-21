@@ -13,7 +13,7 @@ export class QGridLayout extends Component {
       this.native = new addon.QGridLayout();
     }
   }
-  addWidget(widget: QWidget) {
+  addWidget(widget: Component) {
     this.native.addWidget(widget.native);
     this.children.add(widget);
   }

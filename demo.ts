@@ -1,6 +1,4 @@
-const { QtGui, QtWidgets } = require(".");
-
-// const app = new QtGui.QApplication();
+import { QtGui, QtWidgets } from "./src";
 const win = new QtWidgets.QMainWindow();
 const view = new QtGui.QWidget();
 win.setCentralWidget(view);
@@ -16,6 +14,9 @@ label2.setStyleSheet("background-color:blue; color:white;");
 
 const button1 = new QtWidgets.QPushButton();
 button1.setText("Yolo");
+// button1.setEventListener("click", () => {
+//   console.log("button clicked");
+// });
 
 gridLayout.addWidget(label);
 gridLayout.addWidget(label2);
@@ -26,4 +27,4 @@ view.setLayout(gridLayout);
 win.show();
 // app.exec();
 
-global.win = win; //to keep gc from collecting
+(global as any).win = win; //to keep gc from collecting

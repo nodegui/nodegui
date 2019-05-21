@@ -1,6 +1,6 @@
 {
     "targets": [{
-        "target_name": "node_desktop",
+        "target_name": "node_gui",
         "cflags!": ["-fno-exceptions"],
         "cflags_cc!": ["-fno-exceptions"],
         "sources": [
