@@ -1,2 +1,2 @@
-const addon = require("../../../../build/Release/node_gui.node");
+const addon = require("../../../../build/Release/qtnode.node");
 export default addon;

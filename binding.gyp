@@ -1,6 +1,6 @@
 {
     "targets": [{
-        "target_name": "node_gui",
+        "target_name": "qtnode",
         "cflags!": ["-fno-exceptions"],
         "cflags_cc!": ["-fno-exceptions"],
         "sources": [
