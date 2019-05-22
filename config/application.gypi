@@ -1,0 +1,23 @@
+{
+    "includes": [
+        "./common.gypi"
+    ],
+    "targets": [
+        {
+            "target_name": "qtnode",
+            "sources": [
+                "../src/cpp/main.cpp",
+                # non-wrapped cpps
+                "../src/cpp/Extras/Utils/utils.cpp",
+                # wrapped cpps
+                "../src/cpp/QtGui/QApplication/qapplication_wrap.cpp",
+                "../src/cpp/QtGui/QWidget/qwidget_wrap.cpp",
+                "../src/cpp/QtWidgets/QGridLayout/qgridlayout_wrap.cpp",
+                "../src/cpp/QtWidgets/QLabel/qlabel_wrap.cpp",
+                "../src/cpp/QtWidgets/QLayout/qlayout_wrap.cpp",
+                "../src/cpp/QtWidgets/QMainWindow/qmainwindow_wrap.cpp",
+                "../src/cpp/QtWidgets/QPushButton/qpushbutton_wrap.cpp"
+            ],
+        }
+    ]
+}
