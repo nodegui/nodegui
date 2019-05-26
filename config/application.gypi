@@ -9,6 +9,7 @@
                 "../src/cpp/main.cpp",
                 # non-wrapped cpps
                 "../src/cpp/Extras/Utils/utils.cpp",
+                "../src/cpp/core/FlexLayout/flexlayout.cpp",
                 # wrapped cpps
                 "../src/cpp/QtGui/QApplication/qapplication_wrap.cpp",
                 "../src/cpp/QtGui/QWidget/qwidget_wrap.cpp",
