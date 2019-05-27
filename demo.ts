@@ -9,7 +9,6 @@ const view = new QWidget();
 win.setCentralWidget(view);
 
 const gridLayout = new QGridLayout();
-
 const label = new QLabel();
 label.setText("Testing1234");
 
@@ -19,6 +18,7 @@ label2.setStyleSheet("background-color:blue; color:white;");
 
 const button1 = new QPushButton();
 button1.setText("Yolo");
+
 // button1.setEventListener("click", () => {
 //   console.log("button clicked");
 // });

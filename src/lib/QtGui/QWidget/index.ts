@@ -2,18 +2,10 @@ import addon from "../../core/addon";
 import { QLayout } from "../../QtWidgets/QLayout";
 import { Component } from "../../core/Component";
 
-export class QWidget extends Component {
-  native: any;
-  layout?: QLayout;
-  constructor(parent?: QWidget) {
-    super();
-    if (parent) {
-      this.native = new addon.QWidget(parent.native);
-      this.parent = parent;
-    } else {
-      this.native = new addon.QWidget();
-    }
-  }
+// Implement all native QWidget methods here so that all widgets get access to those aswell
+export abstract class NodeWidget extends Component {
+  abstract native: any;
+  abstract layout?: QLayout;
   show() {
     this.native.show();
   }
@@ -29,5 +21,19 @@ export class QWidget extends Component {
   }
   setStyleSheet(style: string) {
     this.native.setStyleSheet(style);
+  }
+}
+
+export class QWidget extends NodeWidget {
+  layout?: QLayout;
+  native: any;
+  constructor(parent?: QWidget) {
+    super();
+    if (parent) {
+      this.native = new addon.QWidget(parent.native);
+      this.parent = parent;
+    } else {
+      this.native = new addon.QWidget();
+    }
   }
 }

@@ -1,10 +1,11 @@
 import addon from "../../core/addon";
-import { QWidget } from "../../QtGui/QWidget";
-import { Component } from "../../core/Component";
+import { NodeWidget } from "../../QtGui/QWidget";
+import { QLayout } from "../QLayout";
 
-export class QLabel extends Component {
+export class QLabel extends NodeWidget {
   native: any;
-  constructor(parent?: QWidget) {
+  layout?: QLayout;
+  constructor(parent?: NodeWidget) {
     super();
     if (parent) {
       this.native = new addon.QLabel(parent.native);
@@ -18,8 +19,5 @@ export class QLabel extends Component {
   }
   setText(text: string) {
     this.native.setText(text);
-  }
-  setStyleSheet(style: string) {
-    this.native.setStyleSheet(style);
   }
 }

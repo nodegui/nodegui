@@ -1,13 +1,10 @@
 import addon from "../../core/addon";
-import { QWidget } from "../../QtGui/QWidget";
-import { EventComponent } from "../../core/EventComponent";
-
-export class QPushButton extends EventComponent {
+import { NodeWidget } from "../../QtGui/QWidget";
+import { QLayout } from "../QLayout";
+export class QPushButton extends NodeWidget {
+  layout?: QLayout;
   native: any;
-  setEventListener(event: string, callback: () => void): void {
-    throw new Error("Method not implemented.");
-  }
-  constructor(parent?: QWidget) {
+  constructor(parent?: NodeWidget) {
     super();
     if (parent) {
       this.native = new addon.QPushButton(parent.native);
@@ -18,8 +15,5 @@ export class QPushButton extends EventComponent {
   }
   setText(text: string) {
     this.native.setText(text);
-  }
-  setStyleSheet(style: string) {
-    this.native.setStyleSheet(style);
   }
 }

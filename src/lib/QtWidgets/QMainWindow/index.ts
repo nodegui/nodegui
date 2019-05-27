@@ -1,10 +1,10 @@
 import addon from "../../core/addon";
-import { QWidget } from "../../QtGui/QWidget";
-import { Component } from "../../core/Component";
-
-export class QMainWindow extends Component {
+import { NodeWidget } from "../../QtGui/QWidget";
+import { QLayout } from "../QLayout";
+export class QMainWindow extends NodeWidget {
+  layout?: QLayout;
   native: any;
-  constructor(parent?: QWidget) {
+  constructor(parent?: NodeWidget) {
     super();
     if (parent) {
       this.native = new addon.QMainWindow(parent.native);
@@ -13,19 +13,7 @@ export class QMainWindow extends Component {
       this.native = new addon.QMainWindow();
     }
   }
-  setStyleSheet(style: string) {
-    this.native.setStyleSheet(style);
-  }
-  show() {
-    this.native.show();
-  }
-  resize(width: number, height: number) {
-    this.native.resize(width, height);
-  }
-  close() {
-    this.native.close();
-  }
-  setCentralWidget(widget: QWidget) {
+  setCentralWidget(widget: NodeWidget) {
     this.native.setCentralWidget(widget.native);
     this.children.add(widget);
   }
