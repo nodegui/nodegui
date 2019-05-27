@@ -1,6 +1,6 @@
 #include "qwidget_wrap.h"
-#include "../../QtWidgets/QLayout/qlayout_wrap.h"
-#include "../../Extras/Utils/utils.h"
+#include "src/cpp/QtWidgets/QLayout/qlayout_wrap.h"
+#include "src/cpp/Extras/Utils/utils.h"
 
 Napi::FunctionReference QWidgetWrap::constructor;
 

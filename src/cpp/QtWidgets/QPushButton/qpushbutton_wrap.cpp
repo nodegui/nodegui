@@ -1,6 +1,6 @@
 #include "qpushbutton_wrap.h"
-#include "../../QtGui/QWidget/qwidget_wrap.h"
-#include "../../Extras/Utils/utils.h"
+#include "src/cpp/QtGui/QWidget/qwidget_wrap.h"
+#include "src/cpp/Extras/Utils/utils.h"
 
 Napi::FunctionReference QPushButtonWrap::constructor;
 

@@ -1,13 +1,11 @@
-#include "QtGui/QApplication/qapplication_wrap.h"
-#include "QtGui/QWidget/qwidget_wrap.h"
-#include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
-#include "QtWidgets/QLayout/qlayout_wrap.h"
-#include "QtWidgets/QLabel/qlabel_wrap.h"
-#include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
-#include "QtWidgets/QPushButton/qpushbutton_wrap.h"
+#include "src/cpp/QtGui/QApplication/qapplication_wrap.h"
+#include "src/cpp/QtGui/QWidget/qwidget_wrap.h"
+#include "src/cpp/QtWidgets/QGridLayout/qgridlayout_wrap.h"
+#include "src/cpp/QtWidgets/QLayout/qlayout_wrap.h"
+#include "src/cpp/QtWidgets/QLabel/qlabel_wrap.h"
+#include "src/cpp/QtWidgets/QMainWindow/qmainwindow_wrap.h"
+#include "src/cpp/QtWidgets/QPushButton/qpushbutton_wrap.h"
 #include <napi.h>
-
-
 
 //private : will not be accessibe in js
 void InitPrivateHelpers(Napi::Env env){

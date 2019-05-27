@@ -1,7 +1,7 @@
 #ifndef QWIDGET_MACRO_H
 #define QWIDGET_MACRO_H
 
-#include "../../QtWidgets/QLayout/qlayout_wrap.h"
+#include "src/cpp/QtWidgets/QLayout/qlayout_wrap.h"
 
 #define QWIDGET_WRAPPED_METHODS_DECLARATION \
 \
