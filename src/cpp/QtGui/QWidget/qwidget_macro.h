@@ -44,7 +44,15 @@ Napi::Value setStyleSheet(const Napi::CallbackInfo& info) { \
   std::string style = text.Utf8Value(); \
   this->instance->setStyleSheet(style.c_str()); \
   return env.Null(); \
-} 
+} \
+\
+Napi::Value hide(const Napi::CallbackInfo& info) { \
+    Napi::Env env = info.Env(); \
+    Napi::HandleScope scope(env); \
+    this->instance->hide(); \
+    return env.Null(); \
+}
+
 
 #define QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)  \
 \
@@ -53,6 +61,7 @@ Napi::Value setStyleSheet(const Napi::CallbackInfo& info) { \
  InstanceMethod("close",&WidgetWrapName::close), \
  InstanceMethod("setLayout",&WidgetWrapName::setLayout), \
  InstanceMethod("setStyleSheet",&WidgetWrapName::setStyleSheet), \
+ InstanceMethod("hide",&WidgetWrapName::hide), \
 
 
 #endif

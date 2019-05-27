@@ -22,6 +22,9 @@ export abstract class NodeWidget extends Component {
   setStyleSheet(style: string) {
     this.native.setStyleSheet(style);
   }
+  hide() {
+    this.native.hide();
+  }
 }
 
 export class QWidget extends NodeWidget {
