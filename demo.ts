@@ -19,10 +19,6 @@ label2.setStyleSheet("background-color:blue; color:white;");
 const button1 = new QPushButton();
 button1.setText("Yolo");
 
-// button1.setEventListener("click", () => {
-//   console.log("button clicked");
-// });
-
 gridLayout.addWidget(label);
 gridLayout.addWidget(label2);
 gridLayout.addWidget(button1);
