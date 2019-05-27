@@ -8,10 +8,7 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QMainWindow";
   Napi::Function func = DefineClass(env, CLASSNAME, {
-    InstanceMethod("setStyleSheet", &QMainWindowWrap::setStyleSheet),
-    InstanceMethod("show", &QMainWindowWrap::show),
-    InstanceMethod("resize",&QMainWindowWrap::resize),
-    InstanceMethod("close",&QMainWindowWrap::close),
+    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)
     InstanceMethod("setCentralWidget",&QMainWindowWrap::setCentralWidget),
   });
   constructor = Napi::Persistent(func);
@@ -44,46 +41,6 @@ QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
 
 QMainWindowWrap::~QMainWindowWrap() {
   delete this->instance;
-}
-
-Napi::Value QMainWindowWrap::setStyleSheet(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  Napi::String text = info[0].As<Napi::String>();
-  std::string style = text.Utf8Value();
-  this->instance->setStyleSheet(style.c_str()); 
-  
-  return env.Null();
-}
-
-Napi::Value QMainWindowWrap::show(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  this->instance->show();
-
-  return env.Null();
-}
-
-Napi::Value QMainWindowWrap::resize(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  Napi::Number width = info[0].As<Napi::Number>();
-  Napi::Number height = info[1].As<Napi::Number>();
-  this->instance->resize(width.Int32Value(), height.Int32Value());
-
-  return env.Null();
-}
-
-Napi::Value QMainWindowWrap::close(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  this->instance->close();
-
-  return env.Null();
 }
 
 Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info){

@@ -2,6 +2,7 @@
 #define QPUSHBUTTON_WRAP_H
 #include <napi.h>
 #include <QPushButton>
+#include "src/cpp/QtGui/QWidget/qwidget_macro.h"
 
 class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
  private:
@@ -14,9 +15,10 @@ class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
   //class constructor
   static Napi::FunctionReference constructor;
   //wrapped methods
-  Napi::Value setStyleSheet(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
   Napi::Value setEventListener(const Napi::CallbackInfo& info);
+  
+  QWIDGET_WRAPPED_METHODS_DECLARATION
 };
 
 #endif

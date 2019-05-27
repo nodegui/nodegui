@@ -3,6 +3,7 @@
 
 #include <napi.h>
 #include <QMainWindow>
+#include "src/cpp/QtGui/QWidget/qwidget_macro.h"
 
 class QMainWindowWrap : public  Napi::ObjectWrap<QMainWindowWrap>{
 private:
@@ -16,11 +17,9 @@ public:
   //class constructor
   static Napi::FunctionReference constructor;
   //wrapped methods
-  Napi::Value setStyleSheet(const Napi::CallbackInfo& info);
-  Napi::Value show(const Napi::CallbackInfo& info);
-  Napi::Value resize(const Napi::CallbackInfo& info);
-  Napi::Value close(const Napi::CallbackInfo& info);
   Napi::Value setCentralWidget(const Napi::CallbackInfo& info);
+  
+  QWIDGET_WRAPPED_METHODS_DECLARATION
 };
 
 #endif

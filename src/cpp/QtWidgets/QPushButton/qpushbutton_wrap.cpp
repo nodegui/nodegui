@@ -8,8 +8,8 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QPushButton";
   Napi::Function func = DefineClass(env, CLASSNAME, {
-    InstanceMethod("setStyleSheet", &QPushButtonWrap::setStyleSheet),
     InstanceMethod("setText", &QPushButtonWrap::setText),
+    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -43,17 +43,6 @@ QPushButtonWrap::~QPushButtonWrap() {
   delete this->instance;
 }
 
-Napi::Value QPushButtonWrap::setStyleSheet(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  Napi::String text = info[0].As<Napi::String>();
-  std::string style = text.Utf8Value();
-  this->instance->setStyleSheet(style.c_str()); 
-  // this->instance->repaint();
-
-  return env.Null();
-}
 
 Napi::Value QPushButtonWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

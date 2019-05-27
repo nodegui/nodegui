@@ -12,7 +12,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setWordWrap", &QLabelWrap::setWordWrap),
     InstanceMethod("setText", &QLabelWrap::setText),
-    InstanceMethod("setStyleSheet", &QLabelWrap::setStyleSheet)
+    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -67,13 +67,3 @@ Napi::Value QLabelWrap::setText(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value QLabelWrap::setStyleSheet(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  Napi::String text = info[0].As<Napi::String>();
-  std::string style = text.Utf8Value();
-  this->instance->setStyleSheet(style.c_str()); 
-  
-  return env.Null();
-}

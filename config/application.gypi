@@ -5,6 +5,7 @@
     "targets": [
         {
             "target_name": "qtnode",
+            'include_dirs': ['<(module_root_dir)'],
             "sources": [
                 "../src/cpp/main.cpp",
                 # non-wrapped cpps

@@ -2,6 +2,7 @@
 #define QLABEL_WRAP_H
 #include <napi.h>
 #include <QLabel>
+#include "src/cpp/QtGui/QWidget/qwidget_macro.h"
 
 class QLabelWrap : public  Napi::ObjectWrap<QLabelWrap>{
  private:
@@ -16,7 +17,8 @@ class QLabelWrap : public  Napi::ObjectWrap<QLabelWrap>{
   //wrapped methods
   Napi::Value setWordWrap(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
-  Napi::Value setStyleSheet(const Napi::CallbackInfo& info);
+  
+  QWIDGET_WRAPPED_METHODS_DECLARATION
 };
 
 #endif
