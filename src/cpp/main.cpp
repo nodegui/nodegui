@@ -5,6 +5,7 @@
 #include "src/cpp/QtWidgets/QLabel/qlabel_wrap.h"
 #include "src/cpp/QtWidgets/QMainWindow/qmainwindow_wrap.h"
 #include "src/cpp/QtWidgets/QPushButton/qpushbutton_wrap.h"
+#include "src/cpp/QtWidgets/QCheckBox/qcheckbox_wrap.h"
 #include <napi.h>
 
 //private : will not be accessibe in js
@@ -19,6 +20,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QGridLayoutWrap::init(env, exports);
     QMainWindowWrap::init(env,exports);
     QPushButtonWrap::init(env, exports);
+    QCheckBoxWrap::init(env, exports);
     return QLabelWrap::init(env, exports);
 }
 

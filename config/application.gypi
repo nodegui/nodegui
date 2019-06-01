@@ -18,7 +18,8 @@
                 "../src/cpp/QtWidgets/QLabel/qlabel_wrap.cpp",
                 "../src/cpp/QtWidgets/QLayout/qlayout_wrap.cpp",
                 "../src/cpp/QtWidgets/QMainWindow/qmainwindow_wrap.cpp",
-                "../src/cpp/QtWidgets/QPushButton/qpushbutton_wrap.cpp"
+                "../src/cpp/QtWidgets/QPushButton/qpushbutton_wrap.cpp",
+                "../src/cpp/QtWidgets/QCheckBox/qcheckbox_wrap.cpp",
             ],
         }
     ]
