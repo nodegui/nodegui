@@ -6,6 +6,7 @@ import { QPushButton } from "./src/lib/QtWidgets/QPushButton";
 import { QCheckBox } from "./src/lib/QtWidgets/QCheckBox";
 import { QProgressBar } from "./src/lib/QtWidgets/QProgressBar";
 import { QRadioButton } from "./src/lib/QtWidgets/QRadioButton";
+import { QLineEdit } from "./src/lib/QtWidgets/QLineEdit";
 
 const win = new QMainWindow();
 const view = new QWidget();
@@ -29,12 +30,15 @@ const progressbar = new QProgressBar();
 
 const radiobutton = new QRadioButton();
 
+const lineedit = new QLineEdit();
+
 gridLayout.addWidget(label);
 gridLayout.addWidget(label2);
 gridLayout.addWidget(button1);
 gridLayout.addWidget(checkbox);
 gridLayout.addWidget(progressbar);
 gridLayout.addWidget(radiobutton);
+gridLayout.addWidget(lineedit);
 
 view.setLayout(gridLayout);
 
