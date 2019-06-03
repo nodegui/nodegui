@@ -10,20 +10,20 @@ A cross platform library to build native desktop apps. Based on Qt5.
 
 ## Features
 
-[*] - Cross platform. Should work on major Linux flavours, Windows and MacOS
-[*] - Low CPU and memory footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
-[ ] - (Partial support is present) Easily exstensible for creating custom native widgets (like react native).
-[*] - Support for flex box layouting using Yoga.
-[*] - Supports styling using css (includes actual cascading) or atleast useful subset of css properties.
-[*] - Complete Nodejs api support (Currently runs on Node v12 - and is easily upgradable).
-[*] - Can use all node compatible npm modules.
-[ ] - Native widget event listener support.
-[*] - Should be usable for commercial applications aswell.
-[ ] - (Partial) Should have a decent list of stylable native widgets.
-[ ] - Easy build and packaging process.
-[ ] - Good Devtools support (hot reload, live reload, debugging etc).
-[ ] - Good documentation and website.
-[ ] - Good documentation for contributors.
+- [-] Cross platform. Should work on major Linux flavours, Windows and MacOS
+- [-] Low CPU and memory footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
+- [ ] (Partial support is present) Easily exstensible for creating custom native widgets (like react native).
+- [-] Support for flex box layouting using Yoga.
+- [-] Supports styling using css (includes actual cascading) or atleast useful subset of css properties.
+- [-] Complete Nodejs api support (Currently runs on Node v12 - and is easily upgradable).
+- [-] Can use all node compatible npm modules.
+- [ ] Native widget event listener support.
+- [-] Should be usable for commercial applications aswell.
+- [ ] (Partial) Should have a decent list of stylable native widgets.
+- [ ] Easy build and packaging process.
+- [ ] Good Devtools support (hot reload, live reload, debugging etc).
+- [ ] Good documentation and website.
+- [ ] Good documentation for contributors.
 
 ## Development setup and getting started
 
