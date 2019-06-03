@@ -8,10 +8,29 @@ A cross platform library to build native desktop apps. Based on Qt5.
 
 ![linux](https://github.com/master-atul/qtnode-ui/raw/master/assets/screenshots/ubuntu_linux_nodeqt5.png "Linux Screenshot")
 
+## Features
+
+[*] - Cross platform. Should work on major Linux flavours, Windows and MacOS
+[*] - Low CPU and memory footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
+[ ] - (Partial support is present) Easily exstensible for creating custom native widgets (like react native).
+[*] - Support for flex box layouting using Yoga.
+[*] - Supports styling using css (includes actual cascading) or atleast useful subset of css properties.
+[*] - Complete Nodejs api support (Currently runs on Node v12 - and is easily upgradable).
+[*] - Can use all node compatible npm modules.
+[ ] - Native widget event listener support.
+[*] - Should be usable for commercial applications aswell.
+[ ] - (Partial) Should have a decent list of stylable native widgets.
+[ ] - Easy build and packaging process.
+[ ] - Good Devtools support (hot reload, live reload, debugging etc).
+[ ] - Good documentation and website.
+[ ] - Good documentation for contributors.
+
 ## Development setup and getting started
 
-This guide is for setting up `qtnode-ui` for contributors of qtnode-ui.
+This guide is for setting up `node-native-ui` for contributors of node-native-ui.
 The actual getting started guide for users will be added once we reach a bit of stable level.
+
+Make sure you have setup `qode` and installed it globally.
 
 ### MacOSX:
 
@@ -22,17 +41,11 @@ The actual getting started guide for users will be added once we reach a bit of 
 
 **Setting up**
 
-1. Install qt from official qt website. (Recommended version: 5.11.0)
-   or alternatively you can download it from : [http://download.qt.io/official_releases/qt/5.11/5.11.0/](http://download.qt.io/official_releases/qt/5.11/5.11.0/)
-2. Keep note of the install directory of qt. Lets say you installed it at `/Users/username/Desktop/qt/`.<br/>
-   Setup the environment variable: <br/>
-   `export NQ_QT_HOME_DIR="/Users/username/Desktop/qt/5.11.0/clang_64"` <br/>
-   You can even add it to you `.bashrc` or `.zshrc` file.
-3. `git clone` this repo.
-4. `yarn install` -- (if this fails on build part - dont worry about it)
-5. `node ./scripts/darwin/setup.js` - (if this fails: check the previous steps to see if you missed something or try running next step for hints on what went wrong).
-6. `npx jest ./scripts/darwin/check.test.js` - (This runs the basic setup checks to ensure your setup is as expected)
-7. `yarn start`
+1. Install latest version of Qt (5.12) via homebrew only.
+
+```
+brew install qt5
+```
 
 ### Windows:
 
@@ -59,22 +72,46 @@ On Ubuntu: `$ sudo apt-get install pkg-config build-essentials` should install e
 2. Before running `yard build`, do
    `export PKG_CONFIG_PATH="<path to qt installation>/5.11.0/gcc_64/lib/pkgconfig"`
 
-## General Idea
+### Common:
+
+1. Once you have setup the platform specific stuff as mentioned above, follow these:
+
+2. `git clone` this repo.
+
+3. Keep note of the install directory of qt. You should probably find it at `/usr/local/Cellar/qt/5.12.1`. Copy this path and
+   edit the file `config/common.gypi`. <br/>
+   Change the field
+
+   ```
+   'qt_home_dir': '<!(echo $QN_QT_HOME_DIR)',
+   ```
+
+   to
+
+   ```
+   'qt_home_dir': '/usr/local/Cellar/qt/5.12.1',
+   ```
+
+4. `yarn install`
+5. `yarn build:addon`
+6. `yarn dev`
+
+## General Idea for development
 
 1. Create wrappers for each and every Qt class that you will use with N-API (using node-addon-api since it is c++) and export it onto JS side.
-2. Just like the implementation of node-qt
 
 ## Learning Materials:
 
-1. First read this: N-API in nodejs docs
-2. https://www.youtube.com/watch?v=-Oniup60Afs&feature=youtu.be
-3. See samples at https://github.com/nodejs/abi-stable-node-addon-examples/
-   3.1. You can see the readme of https://github.com/nodejs/node-addon-api.git/
-4. See node-qt implementation. It is implemented in Nan (explained in video).
-5. Now try to match the implementation in node-qt and convert to N-API using examples from samples.
-6. Implementations not in node-qt need to be done with effort.
+1. Beginners guide to NodeJS Addon - https://medium.com/@atulanand94/beginners-guide-to-writing-nodejs-addons-using-c-and-n-api-node-addon-api-9b3b718a9a7f
+2. First read this: N-API in nodejs docs
+3. https://www.youtube.com/watch?v=-Oniup60Afs&feature=youtu.be
+4. See samples at https://github.com/nodejs/abi-stable-node-addon-examples/
+   4.1. You can see the readme of https://github.com/nodejs/node-addon-api.git/
+5. See node-qt implementation. It is implemented in Nan (explained in video).
+6. Now try to match the implementation in node-qt and convert to N-API using examples from samples.
+7. Implementations not in node-qt need to be done with effort.
 
-## To create a new class:
+## (OLD README but still helpful) To create a new class:
 
 1. Use the templates given and copy paste.
 2. replace the placeholders with the classnames.
@@ -200,18 +237,6 @@ if (os.platform() === "darwin") {
 }
 ```
 
-# For DOCS
-
-We are using Hugo for static site generation (docs).
-
-To run docs locally,
-
-- 1. Install Hugo on your computer.
-- 2. The docs src files are present in `assets/docsrc`. To make changes edit the files there.
-- 3. `docs` folder contains the built assets - DO NOT MODIFY those.
-- 4. `npm run docs:serve` runs docs in development mode.
-- 5. `npm run docs:build` to build the docs for publishing in `/docs` folder.
-
 ## RUNNING MOC
 
 To run moc:
@@ -224,4 +249,10 @@ moc headername.h -o headername_moc.h
 
 https://medium.com/cameron-nokes/how-to-debug-native-node-addons-in-mac-osx-66f69f81afcb
 
-- Atul R
+### LICENSE
+
+Since we do not in any way modify the code of Qt and only link to it dynamically, I beleive we are in compliance with the LGPL license requirements of QT. And hence this library can be licensed under its own License (for which we have chosen MIT License).
+The links to QT source code and appropriate license notices are attached. We try our best to abide by the software licenses and any non compliance is not by will. If there is some discrepancy please let us know in the issues and we will try and fix it up.
+If you follow the recommended build steps and do not statically link QT libraries on your own you are safe to use this library for commerical puropses (provided you abide by MIT License).
+
+MIT
