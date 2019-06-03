@@ -24,6 +24,7 @@ A cross platform library to build native desktop apps. Based on Qt5.
 - [ ] Good Devtools support (hot reload, live reload, debugging etc).
 - [ ] Good documentation and website.
 - [ ] Good documentation for contributors.
+- [x] Good support for dark mode (Thanks to QT).
 
 ## Development setup and getting started
 
