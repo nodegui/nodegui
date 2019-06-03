@@ -1,11 +1,15 @@
-#ifndef FLEXITEM_H
-#define FLEXITEM_H
+#ifndef FLEX_ITEM_H
+#define FLEX_ITEM_H
 
+#include "deps/yoga/YGNode.h"
 
 class FlexItem
 {
+    YGNodeRef node;
 public:
-    FlexItem();
+     FlexItem();
+     YGNodeRef getFlexNode() const;
+     ~FlexItem();
 };
 
-#endif // FLEXITEM_H
+#endif // FLEX_ITEM_H

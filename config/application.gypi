@@ -11,6 +11,9 @@
                 # non-wrapped cpps
                 "../src/cpp/Extras/Utils/utils.cpp",
                 "../src/cpp/core/FlexLayout/flexlayout.cpp",
+                "../src/cpp/core/FlexLayout/flexitem.cpp",
+                "../src/cpp/core/YogaWidget/nodestyle.cpp",
+                "../src/cpp/core/YogaWidget/yogawidget.cpp",
                 # wrapped cpps
                 "../src/cpp/QtGui/QApplication/qapplication_wrap.cpp",
                 "../src/cpp/QtGui/QWidget/qwidget_wrap.cpp",

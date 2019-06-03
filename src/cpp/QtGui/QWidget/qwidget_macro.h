@@ -3,6 +3,7 @@
 
 #include "src/cpp/QtWidgets/QLayout/qlayout_wrap.h"
 
+#ifndef QWIDGET_WRAPPED_METHODS_DECLARATION
 #define QWIDGET_WRAPPED_METHODS_DECLARATION \
 \
 Napi::Value show(const Napi::CallbackInfo& info) { \
@@ -53,7 +54,10 @@ Napi::Value hide(const Napi::CallbackInfo& info) { \
     return env.Null(); \
 }
 
+#endif //QWIDGET_WRAPPED_METHODS_DECLARATION
 
+
+#ifndef QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 #define QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)  \
 \
  InstanceMethod("show", &WidgetWrapName::show),  \
@@ -64,4 +68,8 @@ Napi::Value hide(const Napi::CallbackInfo& info) { \
  InstanceMethod("hide",&WidgetWrapName::hide), \
 
 
-#endif
+#endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
+
+
+
+#endif // QWIDGET_MACRO_H
