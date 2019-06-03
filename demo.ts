@@ -5,6 +5,7 @@ import { QLabel } from "./src/lib/QtWidgets/QLabel";
 import { QPushButton } from "./src/lib/QtWidgets/QPushButton";
 import { QCheckBox } from "./src/lib/QtWidgets/QCheckBox";
 import { QProgressBar } from "./src/lib/QtWidgets/QProgressBar";
+import { QRadioButton } from "./src/lib/QtWidgets/QRadioButton";
 
 const win = new QMainWindow();
 const view = new QWidget();
@@ -26,11 +27,14 @@ checkbox.setText("Pumpkeen");
 
 const progressbar = new QProgressBar();
 
+const radiobutton = new QRadioButton();
+
 gridLayout.addWidget(label);
 gridLayout.addWidget(label2);
 gridLayout.addWidget(button1);
 gridLayout.addWidget(checkbox);
 gridLayout.addWidget(progressbar);
+gridLayout.addWidget(radiobutton);
 
 view.setLayout(gridLayout);
 
