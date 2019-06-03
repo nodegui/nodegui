@@ -19,7 +19,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-QLabel* QLabelWrap::getInternalInstance() {
+NLabel* QLabelWrap::getInternalInstance() {
   return this->instance;
 }
 
@@ -31,12 +31,12 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QLabelW
     if(info[0].IsObject()){
       Napi::Object object_parent = info[0].As<Napi::Object>();
       QWidgetWrap* w_parent = Napi::ObjectWrap<QWidgetWrap>::Unwrap(object_parent);
-      this->instance = new QLabel(w_parent->getInternalInstance()); //this sets the parent to current widget
+      this->instance = new NLabel(w_parent->getInternalInstance()); //this sets the parent to current widget
     }else{
       extrautils::throwTypeError(env, "Wrong type of arguments");
     }
   }else if (info.Length() == 0){
-    this->instance = new QLabel();
+    this->instance = new NLabel();
   }else {
     extrautils::throwTypeError(env, "Wrong number of arguments");
   }

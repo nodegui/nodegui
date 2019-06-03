@@ -1,17 +1,17 @@
 #ifndef QLABEL_WRAP_H
 #define QLABEL_WRAP_H
 #include <napi.h>
-#include <QLabel>
+#include "nlabel.h"
 #include "src/cpp/QtGui/QWidget/qwidget_macro.h"
 
 class QLabelWrap : public  Napi::ObjectWrap<QLabelWrap>{
  private:
-  QLabel* instance;
+  NLabel* instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QLabelWrap(const Napi::CallbackInfo& info);
   ~QLabelWrap();
-  QLabel* getInternalInstance();
+  NLabel* getInternalInstance();
   //class constructor
   static Napi::FunctionReference constructor;
   //wrapped methods

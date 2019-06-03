@@ -212,6 +212,14 @@ To run docs locally,
 - 4. `npm run docs:serve` runs docs in development mode.
 - 5. `npm run docs:build` to build the docs for publishing in `/docs` folder.
 
+## RUNNING MOC
+
+To run moc:
+
+```sh
+moc headername.h -o headername_moc.h
+```
+
 #DEBUGGING
 
 https://medium.com/cameron-nokes/how-to-debug-native-node-addons-in-mac-osx-66f69f81afcb
