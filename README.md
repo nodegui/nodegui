@@ -26,6 +26,7 @@ Linux and Windows screenshots to be added soon.
 - [ ] Good documentation and website.
 - [ ] Good documentation for contributors.
 - [x] Good support for dark mode (Thanks to QT).
+- [x] Typescript support
 
 ## Development setup and getting started
 
@@ -40,6 +41,7 @@ Make sure you have setup `qode` and installed it globally.
 
 1. Node version: > 9
 2. Python and gcc
+3. Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
 
 **Setting up**
 
@@ -98,10 +100,6 @@ On Ubuntu: `$ sudo apt-get install pkg-config build-essentials` should install e
 5. `yarn build:addon`
 6. `yarn dev`
 
-## General Idea for development
-
-1. Create wrappers for each and every Qt class that you will use with N-API (using node-addon-api since it is c++) and export it onto JS side.
-
 ## Learning Materials:
 
 1. Beginners guide to NodeJS Addon - https://medium.com/@atulanand94/beginners-guide-to-writing-nodejs-addons-using-c-and-n-api-node-addon-api-9b3b718a9a7f
@@ -113,141 +111,104 @@ On Ubuntu: `$ sudo apt-get install pkg-config build-essentials` should install e
 6. Now try to match the implementation in node-qt and convert to N-API using examples from samples.
 7. Implementations not in node-qt need to be done with effort.
 
-## (OLD README but still helpful) To create a new class:
+## What is this library ?
 
-1. Use the templates given and copy paste.
-2. replace the placeholders with the classnames.
-3. Implement methods.
-4. Add it to binding.gyp, qt.cpp and make sure you add the methods to the init block of the class.
+This library aims to be a nodejs addon which can export Qt Widgets to the Javascript world. By doing so one can develop fully fledged cross platform native GUI applications using only Javascript.
 
-## To make a UI wrapper component that has access to event bridge to sent events to JS.
+The library depends on `qode` which is a lightly modified version of NodeJS. The slight modification was needed to make it work with this addon. In essense, we will do `qode your_file.js` instead of `node your_file.js`.
 
-I am taking example of QPushButton
+This library does not modify Qt in any way and only use it as it is. This library also dynamically links to Qt. So it needs Qt libs to be installed in your system to work (This is done to keep in compliance with open source LGPL license of Qt). We can think of exporting the required libs later.
 
-1. create a `cbutton.h`
+## Code Structure
 
-```c++
-#ifndef NQ_CBUTTON_H
-#define NQ_CBUTTON_H
-#include <QPushButton>
-#include <QObject>
-#include <napi.h>
-#include "../../Extras/EventBridge/eventwidget.h"
+```
+.
+├── binding.gyp
+├── config
+├── demo.ts
+├── package.json
+├── src
+│   ├── cpp    <-- C++ source code
+│   └── lib    <-- Typescript source code
+├── tsconfig.json
+└── yarn.lock
+```
 
+The main folder is `src`. It contains
 
-class CButton: public EventWidget, public QPushButton
-{
-   Q_OBJECT;
-   public:
-     CButton(QString btnText);
-   private slots:
-     void handleButtonClick();
-};
+- `cpp` : This folder contains all the C++ source code. Basically all the wrapper code using NAPI to export Qt Widgets and other helper functions to Javascript.
+- `lib` : This folder contains all the Typescript code of the library. This is used to add additonal helper methods and types to exported addon.
 
-#endif
+**Detailed version:**
+
+```
+.
+├── binding.gyp
+├── config
+│   ├── application.gypi
+│   ├── common.gypi
+│   └── yoga.gypi
+├── demo.ts
+├── package.json
+├── src
+│   ├── cpp
+│   │   ├── Extras
+│   │   ├── QtGui         <------ All exported classes found inside Qts Gui dynamic library
+│   │   ├── QtWidgets     <------ All exported classes found inside Qts Widgets dynamic library
+│   │   ├── core
+│   │   └── main.cpp
+│   └── lib
+│       ├── QtGui
+│       ├── QtWidgets
+│       └── core
+├── tsconfig.json
+└── yarn.lock
 
 ```
 
-2. Run qt moc on the file (because it has Q_OBJECT) to get cbutton_moc.h (do not edit anything in this file)
+First step to seeing how everything works is to take a look at `demo.ts` file. This file is basically like a Kitchen application showcasing all the exported widgets currently with the library.
 
-3. create a cbutton.cpp
+Make sure you have read how to write native NodeJS Addons blog first. https://medium.com/@atulanand94/beginners-guide-to-writing-nodejs-addons-using-c-and-n-api-node-addon-api-9b3b718a9a7f
 
-```c++
-#include "cbutton_moc.h"
+Once you have done that check out `src/cpp/main.cpp` and `config/application.gypi` to see the list of exported C++ classes.
 
-CButton::CButton(QString btnText): EventWidget(EVT_WIDGET_CBUTTON_ID) //EVT_WIDGET_CBUTTON_ID is unique WIDGET ID For QPUSHBUTTON
-{
-    this->setText(btnText);
-    QObject::connect(this, SIGNAL (released()), this, SLOT (handleButtonClick()));
-}
+Then maybe you can take a look at `src/cpp/QtWidgets/QLabel/qlabel_wrap.h`. This will show you how to wrap a simple Qt Widget.
+Check the corresponding JS file for the addon here `src/lib/QtWidgets/QLabel/index.ts`.
 
+## General Idea for Wrapping a widget.
 
-void CButton::handleButtonClick()
- {
-    this->addEvent("click","somepayload if needed"); //This addEvent method comes from EventWidget class it takes eventType and payload
- }
+Create wrappers for each and every Qt class that you will use with N-API (using node-addon-api since it is c++) and export it onto JS side.
+
+Taking the example of QLabel, if you look inside the directory `src/cpp/QtWidgets/QLabel`, you should see:
 
 ```
-
-4. Now create a qpushbutton.h C++ wrapper that will be exported to JS. This should implement getHandlerCreationMetadata and also add it to one of the exported methods.
-
-```c++
-#ifndef NQ_QPUSH_BUTTON_H_
-#define NQ_QPUSH_BUTTON_H_
-#include <napi.h>
-#include "cbutton.h"
-
-class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
- public:
-  static Napi::Object init(Napi::Env env, Napi::Object exports);
-  QPushButtonWrap(const Napi::CallbackInfo& info);
-  ~QPushButtonWrap();
-  CButton* getInternalInstance();
-  Napi::Value setStyleSheet(const Napi::CallbackInfo& info);
-  Napi::Value getHandlerCreationMetadata(const Napi::CallbackInfo& info);
- private:
-  CButton* q_;
-  static Napi::FunctionReference constructor;
-};
-
-#endif
+├── QLabel
+│   ├── nlabel.cpp
+│   ├── nlabel.h     <---- Extended QLabel
+│   ├── nlabel_moc.h <--- Autogenerated file by qt moc.
+│   ├── qlabel_wrap.cpp
+│   └── qlabel_wrap.h <--- Wrapper file
 ```
 
-5. In JS Side, after exporting c++ wrapper correctly just wrap QPushButton using connectToEventBridge.
-   connectToEventBridge will add methods like setEventHandler, removeEventHandler, removeAllEventHandler to The QPushButton.
+The idea is :
 
-```js
-const { QPushButton } = require("../../qt");
-const { connectToEventBridge } = require("../../Extras/EventBridge");
+1. We will first extend QLabel class to form NLabel. NLabel is basically QLabel with some extra methods and variables. More on it below.
+2. Then we will use NLabel and wrap it using NAPI and export it to JS side. This is what qlabel_wrap does.
 
-module.exports = connectToEventBridge(QPushButton);
+**NLabel**: Since NLabel has inherited from QLabel we can treat is as QLabel with extra methods and properties. Primary reason to extend QLabel to create NLabel is to add support for Event listeners and CSS styling using Flex.
+So if you take a look at NLabel you will see, it inherits from QLabel and YogaWidget. It would in future inherit from more classes that implement event listeners etc. YogaWidget is a class that contains the magic that enables a regular Qt Widget to have Yoga node. A Yoga node is an instance used by yoga library to calculate a widgets position on the screen. Yoga is a library that will layout the widget on the screen. To do so we will specify the flex properties like alignitems, justify content, margin, paddings etc on the Yoga node of the widget. Apart from adding yoga node, YogaWidget adds support for specifying those yoga properties via Qt's stylesheet. (This is done by using Q_PROPERTY). To make this work we need to use something called as Q_OBJECT inside the class which is a C++ macro. Q_OBJECT will be expanded to relevant code by the compiler. In Qt whenever we add Q_OBJECT to a header file, we need to use a pre compiler called Qt MOC (Meta Object Compiler). The way we use it is
+
 ```
-
-6. Thats it!
-
-## Caveats
-
-1. All files using Q_OBJECT macro needs to be passed through qt moc.
-   Qt moc will generate an extra header file that needs to included (check cbutton under QPushButton).
-   To run the moc /path/to/clang_64/bin/moc cbutton.h -o cbutton_moc.h
-   Now include cbutton_moc.h in the cbutton.cpp file.
-   If you dont do this. Then it will give a symbol not found error.
-
-2. For some cases ui doesnt repaint after changes. So, it better to run this->q\_->repaint();
-   after calling any member function that is supposed to do a UI change.
-
-## Known issues:
-
-**MacOS - cocoa platform not found !**
-To fix this make sure you havent moved the qt folder where you installed it using the installer. If so, I recommend doing a clean install of qt and not to move the folder elsewhere. After installing set the variable QN_QT_HOME_DIR as mentioned above in the setup guide.
-
-or you can also do:
-//TODO
-
-```js
-const path = require("path");
-const os = require("os");
-const qt = require("../build/Release/qtnodeui.node");
-
-if (os.platform() === "darwin") {
-  // Workaround for macos adding plugin to the path
-  const pathForPlugins = path.resolve(
-    __dirname,
-    "../dep/qt-5.11.0/darwin/x64/"
-  );
-  qt.PluginLoader.setPluginPath(pathForPlugins);
-}
-```
-
-## RUNNING MOC
-
-To run moc:
-
-```sh
 moc headername.h -o headername_moc.h
 ```
 
-#DEBUGGING
+This will run moc on `headername.h` and generate `headername_moc.h`. We will include this file instead of `headername.h`. This is the reason we have `nlabel_moc.h`. If you dont do this. Then it will give a symbol not found error.
+
+I hope QLabel's example is enough for now. For more examples and inspirations we can take a look at other wrapped widgets.
+
+# DEBUGGING
+
+https://medium.com/@atulanand94/debugging-nodejs-c-addons-using-vs-code-27e9940fc3ad
 
 https://medium.com/cameron-nokes/how-to-debug-native-node-addons-in-mac-osx-66f69f81afcb
 
