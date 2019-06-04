@@ -117,6 +117,8 @@ This library aims to be a nodejs addon which can export Qt Widgets to the Javasc
 
 The library depends on `qode` which is a lightly modified version of NodeJS. The slight modification was needed to make it work with this addon. In essense, we will do `qode your_file.js` instead of `node your_file.js`.
 
+Qode is inspired by this post by [Cheng Zhao](https://github.com/zcbenz): https://electronjs.org/blog/electron-internals-node-integration
+
 This library does not modify Qt in any way and only use it as it is. This library also dynamically links to Qt. So it needs Qt libs to be installed in your system to work (This is done to keep in compliance with open source LGPL license of Qt). We can think of exporting the required libs later.
 
 ## Code Structure
