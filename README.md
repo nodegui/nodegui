@@ -4,8 +4,8 @@ A cross platform library to build native desktop apps. Based on Qt5.
 
 Mac screenshots:
 
-![mac](https://github.com/master-atul/node-native-ui/raw/master/screens/screenshots/mac_dark_mode.png "Mac OS Dark screenshot")
-![mac](https://github.com/master-atul/node-native-ui/raw/master/screens/screenshots/mac_light_mode.png "Mac OS Light screenshot")
+![mac](https://github.com/master-atul/node-native-ui/raw/master/screens/mac_dark_mode.png "Mac OS Dark screenshot")
+![mac](https://github.com/master-atul/node-native-ui/raw/master/screens/mac_light_mode.png "Mac OS Light screenshot")
 
 Linux and Windows screenshots to be added soon.
 
