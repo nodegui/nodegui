@@ -18,7 +18,7 @@ private:
     NodeContext* getNodeContext(YGNodeRef node) const;
 
 public:
-    FlexLayout(QWidget* parentWidget, YGNodeRef parentNode);
+    FlexLayout(QWidget* parentWidget=nullptr, YGNodeRef parentNode=nullptr);
     ~FlexLayout() override;
     QSize sizeHint() const override;
     void addItem(QLayoutItem *) override;
@@ -27,6 +27,7 @@ public:
     int count() const override;
     void addWidget(QWidget* childWidget, YGNodeRef childNode);
     void setGeometry(const QRect &rect) override;
+    void setYogaNode(YGNodeRef parentNode);
 };
 
 #endif // FLEXLAYOUT_H

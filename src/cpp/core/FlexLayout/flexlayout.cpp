@@ -1,11 +1,14 @@
 #include "flexlayout.h"
 #include <QDebug>
-#include <QPushButton>
+#include <QWidget>
 
 FlexLayout::NodeContext *FlexLayout::getNodeContext(YGNodeRef node) const
 {
+    if(!node){
+        return nullptr;
+    }
     void* childContext = YGNodeGetContext(node);
-    NodeContext *ctx = reinterpret_cast<NodeContext*>(childContext);
+    NodeContext *ctx = static_cast<NodeContext*>(childContext); //because we are managing this at all times
     return ctx;
 }
 
@@ -16,16 +19,24 @@ FlexLayout::FlexLayout(QWidget *parentWidget, YGNodeRef parentNode): QLayout(par
 
 FlexLayout::~FlexLayout()
 {
+    if(!this->node){
+        return;
+    }
     const uint32_t childCount = YGNodeGetChildCount(this->node);
     for (uint32_t i = 0; i < childCount; i++) {
         const YGNodeRef oldChild = YGNodeGetChild(this->node, i);
         NodeContext* ctx = getNodeContext(oldChild);
-        delete ctx->item;
+        if(ctx){
+            delete ctx->item;
+        }
     }
     YGNodeRemoveAllChildren(this->node);
 }
 
 QSize FlexLayout::sizeHint() const{
+    if(!this->node){
+        return QSize(0,0);
+    }
     QSize size;
     int width = static_cast<int>(YGNodeLayoutGetWidth(this->node));
     int height = static_cast<int>(YGNodeLayoutGetHeight(this->node));
@@ -40,14 +51,19 @@ void FlexLayout::addItem(QLayoutItem * item){
 
 QLayoutItem *FlexLayout::itemAt(int index) const
 {
+    if(!this->node){
+        return nullptr;
+    }
     YGNodeRef childNode = YGNodeGetChild(this->node, static_cast<uint>(index));
     NodeContext *ctx = getNodeContext(childNode);
+    if(!ctx){
+        return nullptr;
+    }
     return ctx->item;
 }
 
 QLayoutItem *FlexLayout::takeAt(int index)
 {
-
     YGNodeRef childNode = YGNodeGetChild(this->node, static_cast<uint>(index));
     NodeContext *ctx = getNodeContext(childNode);
     QLayoutItem* childLayoutItem = ctx->item;
@@ -58,12 +74,20 @@ QLayoutItem *FlexLayout::takeAt(int index)
 
 int FlexLayout::count() const
 {
-    return static_cast<int>(YGNodeGetChildCount(this->node));
+    if(!this->node){
+        return 0;
+    }
+    float childCount = YGNodeGetChildCount(this->node);
+    return static_cast<int>(childCount);
 
 }
 
 void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode)
 {
+    if(!this->node){
+        qDebug()<<"Flex layout's parent yoga node not set yet. Child widget will not be added to Flex Layout";
+        return;
+    }
     uint count =  YGNodeGetChildCount(this->node);
     YGNodeInsertChild(this->node,childNode, count);
     QLayoutItem* layoutItem = new QWidgetItem(childWidget);
@@ -73,11 +97,12 @@ void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode)
 
 void FlexLayout::setGeometry(const QRect &rect)
 {
-
+    if(!this->node){
+        return;
+    }
     int availableWidth = rect.width();
     int availableHeight = rect.height();
     YGDirection direction = YGDirection::YGDirectionLTR; //TODO
-
     YGNodeCalculateLayout(this->node,availableWidth,availableHeight,direction);
 
     uint count = YGNodeGetChildCount(this->node);
@@ -90,16 +115,22 @@ void FlexLayout::setGeometry(const QRect &rect)
         int top = static_cast<int>(YGNodeLayoutGetTop(childNode));
 
         QRect childRect(left, top,width, height);
-        NodeContext *ctx =  getNodeContext(childNode);
-        QLayoutItem* childLayoutItem = ctx->item;
-        QWidget* childWidget = childLayoutItem->widget();
-
-        if(childWidget){
-            childWidget->setGeometry(childRect);
-        }else {
-           childLayoutItem->setGeometry(childRect);
+        NodeContext *ctx = getNodeContext(childNode);
+        if(ctx){
+            QLayoutItem* childLayoutItem = ctx->item;
+            QWidget* childWidget = childLayoutItem->widget();
+            if(childWidget){
+                childWidget->setGeometry(childRect);
+            }else {
+                childLayoutItem->setGeometry(childRect);
+            }
         }
     }
-      QLayout::setGeometry(rect);
+    QLayout::setGeometry(rect);
+}
+
+void FlexLayout::setYogaNode(YGNodeRef parentNode)
+{
+    this->node = parentNode;
 }
 
