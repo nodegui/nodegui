@@ -16,6 +16,7 @@
   },
   "scripts": {
     "build:addon": "node-gyp -j 8 build",
+    "rebuild:addon": "node-gyp -j 8 build",
     "build:lib": "rm -rf ./dist/ && tsc",
     "dev": "yarn build:lib && qode dist/demo.js"
   },

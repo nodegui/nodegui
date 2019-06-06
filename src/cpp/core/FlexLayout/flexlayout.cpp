@@ -1,6 +1,7 @@
 #include "flexlayout.h"
 #include <QDebug>
 #include <QWidget>
+#include "spdlog/spdlog.h"
 
 FlexLayout::NodeContext *FlexLayout::getNodeContext(YGNodeRef node) const
 {
@@ -46,7 +47,7 @@ QSize FlexLayout::sizeHint() const{
 }
 
 void FlexLayout::addItem(QLayoutItem * item){
-    qDebug() <<"Unsupported method addItem. item:"<<item<<". Use FlexLayout::addWidget instead";
+    spdlog::warn("Unsupported method addItem. item: {}. Use FlexLayout::addWidget instead", reinterpret_cast<ulong>(item));
 }
 
 QLayoutItem *FlexLayout::itemAt(int index) const
@@ -85,7 +86,7 @@ int FlexLayout::count() const
 void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode)
 {
     if(!this->node){
-        qDebug()<<"Flex layout's parent yoga node not set yet. Set it using setFlexNode. Child widget will not be added to Flex Layout";
+        spdlog::warn("Flex layout's parent yoga node not set yet. Set it using setFlexNode. Child widget will not be added to Flex Layout");
         return;
     }
     uint count =  YGNodeGetChildCount(this->node);

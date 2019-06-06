@@ -2,6 +2,7 @@
     "includes": [],
     "target_defaults": {
         "include_dirs": ['../deps/'],
+        "cflags": ['-DSPDLOG_COMPILED_LIB'],
         "sources": [
             "../deps/yoga/Yoga.cpp",
             "../deps/yoga/YGValue.cpp",
