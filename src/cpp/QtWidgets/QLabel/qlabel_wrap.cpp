@@ -15,6 +15,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("setText", &QLabelWrap::setText),
     InstanceMethod("getFlexNode", &QLabelWrap::getFlexNode),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)
+    YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -69,12 +70,3 @@ Napi::Value QLabelWrap::setText(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-
-  Napi::Value QLabelWrap::getFlexNode(const Napi::CallbackInfo& info) {
-      Napi::EscapableHandleScope scope(info.Env());
-      Napi::Value arg = info[0];
-      Napi::Object flexNodeObject = FlexNodeWrap::constructor.New({ arg });
-      FlexNodeWrap* flexNodeWrap = FlexNodeWrap::Unwrap(flexNodeObject);
-      flexNodeWrap->instance = this->instance->getFlexNode();
-      return scope.Escape(napi_value(flexNodeObject)).ToObject();
-  }

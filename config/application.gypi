@@ -16,6 +16,7 @@
                 "../src/cpp/core/YogaWidget/yogawidget.cpp",
                 # wrapped cpps
                 "../src/cpp/QtGui/QApplication/qapplication_wrap.cpp",
+                "../src/cpp/QtGui/QWidget/nwidget.cpp",
                 "../src/cpp/QtGui/QWidget/qwidget_wrap.cpp",
                 '../src/cpp/core/FlexLayout/flexnode_wrap.cpp',
                 '../src/cpp/core/FlexLayout/flexlayout_wrap.cpp',

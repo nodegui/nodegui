@@ -1,8 +1,9 @@
-#ifndef QLABEL_WRAP_H
-#define QLABEL_WRAP_H
+#pragma once
+
 #include <napi.h>
 #include "nlabel.h"
 #include "src/cpp/QtGui/QWidget/qwidget_macro.h"
+#include "src/cpp/core/YogaWidget/yogawidget_macro.h"
 
 class QLabelWrap : public  Napi::ObjectWrap<QLabelWrap>{
  private:
@@ -17,9 +18,8 @@ class QLabelWrap : public  Napi::ObjectWrap<QLabelWrap>{
   //wrapped methods
   Napi::Value setWordWrap(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
-  Napi::Value getFlexNode(const Napi::CallbackInfo& info);
   
   QWIDGET_WRAPPED_METHODS_DECLARATION
+  YOGAWIDGET_WRAPPED_METHODS_DECLARATION
 };
 
-#endif

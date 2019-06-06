@@ -9,13 +9,14 @@ Napi::Object QWidgetWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QWidget";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QWidgetWrap)
+    YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QWidgetWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
 }
 
-QWidget* QWidgetWrap::getInternalInstance() {
+NWidget* QWidgetWrap::getInternalInstance() {
   return this->instance;
 }
 
@@ -27,12 +28,12 @@ QWidgetWrap::QWidgetWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QWidg
     if(info[0].IsObject()){
       Napi::Object object_parent = info[0].As<Napi::Object>();
       QWidgetWrap* w_parent = Napi::ObjectWrap<QWidgetWrap>::Unwrap(object_parent);
-      this->instance = new QWidget(w_parent->getInternalInstance()); //this sets the parent to current widget
+      this->instance = new NWidget(w_parent->getInternalInstance()); //this sets the parent to current widget
     }else{
       extrautils::throwTypeError(env, "Wrong type of arguments");
     }
   }else if (info.Length() == 0){
-    this->instance = new QWidget();
+    this->instance = new NWidget();
   }else {
     extrautils::throwTypeError(env, "Wrong number of arguments");
   }

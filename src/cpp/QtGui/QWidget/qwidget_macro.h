@@ -3,6 +3,12 @@
 
 #include "src/cpp/QtWidgets/QLayout/qlayout_wrap.h"
 
+/*
+
+    This macro adds common QWidgets exported methods 
+    The exported methods are taken into this macro to avoid writing them in each and every widget we export.
+ */
+
 #ifndef QWIDGET_WRAPPED_METHODS_DECLARATION
 #define QWIDGET_WRAPPED_METHODS_DECLARATION \
 \
