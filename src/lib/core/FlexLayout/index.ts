@@ -1,9 +1,9 @@
 import addon from "../addon";
-import { Component } from "../Component";
 import { QWidget } from "../../QtGui/QWidget";
 import { FlexNode } from "./FlexNode";
+import { NodeLayout } from "../../QtWidgets/QLayout";
 
-export class FlexLayout extends Component {
+export class FlexLayout extends NodeLayout {
   native = new addon.FlexLayout();
   addWidget(childWidget: QWidget, childFlexNode: FlexNode) {
     this.children.add(childWidget);

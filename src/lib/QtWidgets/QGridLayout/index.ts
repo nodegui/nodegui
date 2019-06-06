@@ -1,8 +1,8 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
-import { QLayout } from "../QLayout";
+import { NodeLayout } from "../QLayout";
 
-export class QGridLayout extends QLayout {
+export class QGridLayout extends NodeLayout {
   native: any;
   constructor(parent?: NodeWidget) {
     super();

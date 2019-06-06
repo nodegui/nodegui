@@ -1,11 +1,9 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
-import { QLayout } from "../QLayout";
 import { FlexNode } from "../../core/FlexLayout/FlexNode";
 
 export class QLabel extends NodeWidget {
   native: any;
-  layout?: QLayout;
   constructor(parent?: NodeWidget) {
     super();
     if (parent) {

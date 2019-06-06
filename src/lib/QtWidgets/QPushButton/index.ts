@@ -1,8 +1,6 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
-import { QLayout } from "../QLayout";
 export class QPushButton extends NodeWidget {
-  layout?: QLayout;
   native: any;
   constructor(parent?: NodeWidget) {
     super();

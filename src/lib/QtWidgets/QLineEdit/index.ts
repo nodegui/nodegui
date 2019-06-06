@@ -1,10 +1,8 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
-import { QLayout } from "../QLayout";
 
 export class QLineEdit extends NodeWidget {
   native: any;
-  layout?: QLayout;
   constructor(parent?: NodeWidget) {
     super();
     if (parent) {

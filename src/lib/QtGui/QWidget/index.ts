@@ -1,10 +1,12 @@
 import addon from "../../core/addon";
-import { QLayout } from "../../QtWidgets/QLayout";
 import { YogaWidget } from "../../core/YogaWidget";
+import { NodeLayout } from "../../QtWidgets/QLayout";
 
 // Implement all native QWidget methods here so that all widgets get access to those aswell
+// All Widgets should extend from NodeWidget
 export abstract class NodeWidget extends YogaWidget {
-  abstract layout?: QLayout;
+  type = "widget";
+  layout?: NodeLayout;
   show() {
     this.native.show();
   }
@@ -14,7 +16,7 @@ export abstract class NodeWidget extends YogaWidget {
   close() {
     this.native.close();
   }
-  setLayout(parentLayout: QLayout) {
+  setLayout(parentLayout: NodeLayout) {
     this.native.setLayout(parentLayout.native);
     this.layout = parentLayout;
   }
@@ -27,7 +29,6 @@ export abstract class NodeWidget extends YogaWidget {
 }
 
 export class QWidget extends NodeWidget {
-  layout?: QLayout;
   native: any;
   constructor(parent?: QWidget) {
     super();

@@ -1,6 +1,6 @@
-import { QLayout } from "../../../QtWidgets/QLayout";
+import { Component } from "../../Component";
 
-export class FlexNode extends QLayout {
+export class FlexNode extends Component {
   native: any;
   constructor(nativeNode: any) {
     super();
