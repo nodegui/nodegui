@@ -201,7 +201,13 @@ The idea is :
 So if you take a look at NLabel you will see, it inherits from QLabel and YogaWidget. It would in future inherit from more classes that implement event listeners etc. YogaWidget is a class that contains the magic that enables a regular Qt Widget to have Yoga node. A Yoga node is an instance used by yoga library to calculate a widgets position on the screen. Yoga is a library that will layout the widget on the screen. To do so we will specify the flex properties like alignitems, justify content, margin, paddings etc on the Yoga node of the widget. Apart from adding yoga node, YogaWidget adds support for specifying those yoga properties via Qt's stylesheet. (This is done by using Q_PROPERTY). To make this work we need to use something called as Q_OBJECT inside the class which is a C++ macro. Q_OBJECT will be expanded to relevant code by the compiler. In Qt whenever we add Q_OBJECT to a header file, we need to use a pre compiler called Qt MOC (Meta Object Compiler). The way we use it is
 
 ```
-moc headername.h -o headername_moc.cpp
+moc headername.h -o headername_moc.cpp --include <any_include_file_which_contains_macro>  // example : ../../core/YogaWidget/yogawidget.h
+```
+
+So for nlabel I would run it as:
+
+```
+moc nlabel.h -o nlabel_moc.cpp --include ../../core/YogaWidget/yogawidget.h
 ```
 
 This will run moc on `headername.h` and generate `headername_moc.cpp`. We will include this file instead of `headername.h`. This is the reason we have `nlabel_moc.cpp`. If you dont do this. Then it will give a symbol not found error.
@@ -232,8 +238,8 @@ MIT
 
 **MOC related**
 
-- Qt's moc doesnt work with macros well if used separately. Current work around is to not use a macro in file having Q_OBJECT.
-  This invloves copy pasting a big chunck of code. Need to find a fix for that.
+- ~Qt's moc doesnt work with macros well if used separately. Current work around is to not use a macro in file having Q_OBJECT.
+  This invloves copy pasting a big chunck of code. Need to find a fix for that.~
 - Auto run qt's moc on files having Q_OBJECT
 
 **Debug logs**

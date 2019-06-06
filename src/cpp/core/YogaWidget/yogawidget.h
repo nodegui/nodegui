@@ -18,7 +18,7 @@ All Widgets for which you need to set yoga props via qstylesheet should
 */
 
 
-// This macro is not working so copy paste it for now
+// For this macro to work use moc like this: moc nlabel.h -o nlabel_moc.cpp --include ../../core/YogaWidget/yogawidget.h
 #ifndef SET_YOGA_WIDGET_Q_PROPERTIES
 #define SET_YOGA_WIDGET_Q_PROPERTIES \
     Q_PROPERTY(QString display MEMBER _yDisplay WRITE setYDisplay) \
