@@ -102,7 +102,7 @@ void FlexLayout::setGeometry(const QRect &rect)
     }
     int availableWidth = rect.width();
     int availableHeight = rect.height();
-    YGDirection direction = YGDirection::YGDirectionLTR; //TODO
+    YGDirection direction = YGNodeStyleGetDirection(this->node);
     YGNodeCalculateLayout(this->node,availableWidth,availableHeight,direction);
 
     uint count = YGNodeGetChildCount(this->node);

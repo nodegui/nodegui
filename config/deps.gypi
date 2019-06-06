@@ -1,6 +1,7 @@
 {
     "includes": [],
     "target_defaults": {
+        "include_dirs": ['../deps/'],
         "sources": [
             "../deps/yoga/Yoga.cpp",
             "../deps/yoga/YGValue.cpp",
