@@ -16,12 +16,10 @@
                 "../src/cpp/core/YogaWidget/yogawidget.cpp",
                 # wrapped cpps
                 "../src/cpp/QtGui/QApplication/qapplication_wrap.cpp",
-                "../src/cpp/QtGui/QWidget/nwidget.cpp",
                 "../src/cpp/QtGui/QWidget/qwidget_wrap.cpp",
                 '../src/cpp/core/FlexLayout/flexnode_wrap.cpp',
                 '../src/cpp/core/FlexLayout/flexlayout_wrap.cpp',
                 "../src/cpp/QtWidgets/QGridLayout/qgridlayout_wrap.cpp",
-                "../src/cpp/QtWidgets/QLabel/nlabel.cpp",
                 "../src/cpp/QtWidgets/QLabel/qlabel_wrap.cpp",
                 "../src/cpp/QtWidgets/QLayout/qlayout_wrap.cpp",
                 "../src/cpp/QtWidgets/QMainWindow/qmainwindow_wrap.cpp",
