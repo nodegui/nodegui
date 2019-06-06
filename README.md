@@ -227,25 +227,3 @@ The links to QT source code and appropriate license notices are attached. We try
 If you follow the recommended build steps and do not statically link QT libraries on your own you are safe to use this library for commerical puropses (provided you abide by MIT License).
 
 MIT
-
-### Notes (Personal)
-
-**Yoga related**
-
-- Need to implement YGMeasure for labels and text
-- Need to implement width and height via stylesheet
-- Need to implement custom autoprefixer
-
-**MOC related**
-
-- ~Qt's moc doesnt work with macros well if used separately. Current work around is to not use a macro in file having Q_OBJECT.
-  This invloves copy pasting a big chunck of code. Need to find a fix for that.~
-- Auto run qt's moc on files having Q_OBJECT
-
-**Debug logs**
-
-- Need a setup where we can run the program with debug mode on and it shows logs.
-
-**Seen bugs**
-
-- When there are two windows. Resizing one and then resizing other window causes segmenetation fault. The second window is based on flex.
