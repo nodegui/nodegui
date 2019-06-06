@@ -56,8 +56,7 @@ const testFlexLayout = () => {
   view.setStyleSheet(
     `
       background-color: green;
-      qproperty-alignItems:center;
-      qproperty-justifyContent:center;
+      qproperty-flex: 1;
     `
   );
 
@@ -67,10 +66,21 @@ const testFlexLayout = () => {
   const label = new QLabel();
   label.setText("Hello12321");
   label.setStyleSheet(`
-  background-color:blue; 
-  color:white;
+    background-color:blue; 
+    color:white;
+    qproperty-alignSelf: 'center';
+    qproperty-minWidth: '50%';
   `);
 
+  const label2 = new QLabel();
+  label2.setText("SECOND LABEL");
+  label2.setStyleSheet(`
+    background-color:green; 
+    color:white;
+    qproperty-alignSelf: 'stretch';
+  `);
+
+  flayout.addWidget(label2, label2.getFlexNode());
   flayout.addWidget(label, label.getFlexNode());
 
   view.setLayout(flayout);
@@ -79,5 +89,5 @@ const testFlexLayout = () => {
   return win;
 };
 
-// (global as any).win1 = testGridLayout(); //to keep gc from collecting
+(global as any).win1 = testGridLayout(); //to keep gc from collecting
 (global as any).win2 = testFlexLayout(); //to keep gc from collecting
