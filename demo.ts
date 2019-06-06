@@ -16,6 +16,7 @@ const testGridLayout = () => {
   win.setCentralWidget(view);
 
   const gridLayout = new QGridLayout();
+
   const label = new QLabel();
   label.setText("Testing1234");
   label.setStyleSheet("background-color:blue; color:white;");
@@ -52,21 +53,26 @@ const testFlexLayout = () => {
   const win = new QMainWindow();
   const view = new QWidget();
   win.setCentralWidget(view);
-  const label = new QLabel(win);
-  label.setText("Hello12321");
-  label.setStyleSheet("background-color:blue; color:white;");
-  const flayout = new FlexLayout();
   view.setStyleSheet(
     `
       background-color: green;
       qproperty-flex: 1;
-       qproperty-alignItems: center;
-       qproperty-justifyContent:center;
-       `
+      qproperty-alignItems: center;
+      qproperty-justifyContent:center;
+    `
   );
+
+  const flayout = new FlexLayout();
   flayout.setFlexNode(view.getFlexNode());
+
+  const label = new QLabel();
+  label.setText("Hello12321");
+  label.setStyleSheet("background-color:blue; color:white;");
+
   flayout.addWidget(label, label.getFlexNode());
+
   view.setLayout(flayout);
+
   win.show();
   return win;
 };
