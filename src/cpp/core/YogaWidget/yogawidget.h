@@ -17,6 +17,8 @@ All Widgets for which you need to set yoga props via qstylesheet should
 4. Lastly, since Q_OBJECT is used they should make a call to qt moc.
 */
 
+
+// This macro is not working so copy paste it for now
 #ifndef SET_YOGA_WIDGET_Q_PROPERTIES
 #define SET_YOGA_WIDGET_Q_PROPERTIES \
     Q_PROPERTY(QString display MEMBER _yDisplay WRITE setYDisplay) \
@@ -62,7 +64,7 @@ All Widgets for which you need to set yoga props via qstylesheet should
     Q_PROPERTY(float borderLeft MEMBER _yBorderLeft WRITE setYBorderLeft) \
     Q_PROPERTY(float borderHorizontal MEMBER _yBorderHorizontal WRITE setYBorderHorizontal) \
     Q_PROPERTY(float borderVertical MEMBER _yBorderVertical WRITE setYBorderVertical) \
-    Q_PROPERTY(float border MEMBER _yBorder WRITE setYBorder)
+    Q_PROPERTY(float border MEMBER _yBorder WRITE setYBorder)\
 
 #endif
 

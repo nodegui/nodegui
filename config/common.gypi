@@ -5,8 +5,8 @@
         'qt_home_dir': '<!(echo $QN_QT_HOME_DIR)',
     },
     'target_defaults': {
-        "cflags!": ["-fno-exceptions"],
-        "cflags_cc!": ["-fno-exceptions"],
+        'cflags!': ['-fno-exceptions'],
+        'cflags_cc!': ['-fno-exceptions'],
         'sources': [],
         'includes': [],
         'include_dirs': [
@@ -18,8 +18,12 @@
         'defines': ['NAPI_CPP_EXCEPTIONS'],
         'target_conditions': [
             ['OS=="mac"', {
+                'cflags+': ['-fvisibility=hidden'],
                 'xcode_settings': {
+                    'GCC_SYMBOLS_PRIVATE_EXTERN': 'YES',  # -fvisibility=hidden
                     'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
+                    'CLANG_CXX_LIBRARY': 'libc++',
+                    'MACOSX_DEPLOYMENT_TARGET': '10.7',
                 },
                 'include_dirs': [
                     # install qt via homebrew only
@@ -36,11 +40,6 @@
                     '<(qt_home_dir)/lib/QtWidgets.framework/QtWidgets',
                     '<(qt_home_dir)/lib/QtPrintSupport.framework/QtPrintSupport',
                 ],
-                # 'link_settings': {
-                #     'libraries': [
-                #         '-Wl,-rpath,<(qt_home_dir)/lib/',
-                #     ],
-                # },
             }],
             ['OS=="linux"', {
                 'cflags': [
@@ -56,6 +55,7 @@
             ['OS=="win"', {
                 'msvs_settings': {
                     'VCCLCompilerTool': {
+                        'ExceptionHandling': 1,
                         'AdditionalOptions': [
                             '/GR-',
                             '/MT',

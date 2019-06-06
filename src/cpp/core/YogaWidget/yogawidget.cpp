@@ -7,8 +7,8 @@ void YogaWidget::setYDisplay(QString display){
         YGNodeStyleSetDisplay(this->getFlexNode(),static_cast<YGDisplay>(value));
         this->_yDisplay = display;
         qDebug()<<"Value set display "<<display;
-    }catch(std::exception &e){
-        qDebug()<<"Error: display "<<display<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: display "<<display<<" ";
     }
 }
 void YogaWidget::setYAlignItems(QString alignItems){
@@ -17,8 +17,8 @@ void YogaWidget::setYAlignItems(QString alignItems){
         YGNodeStyleSetAlignItems(this->getFlexNode(),static_cast<YGAlign>(value));
         this->_yAlignItems = alignItems;
         qDebug()<<"Value set alignItems "<<alignItems;
-    }catch(std::exception &e){
-        qDebug()<<"Error: alignItems: "<<alignItems<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: alignItems: "<<alignItems<<" ";
     }
 }
 void YogaWidget::setYAlignContent(QString alignContent){
@@ -27,8 +27,8 @@ void YogaWidget::setYAlignContent(QString alignContent){
         YGNodeStyleSetAlignContent(this->getFlexNode(),static_cast<YGAlign>(value));
         this->_yAlignContent = alignContent;
         qDebug()<<"Value set alignContent "<<alignContent;
-    }catch(std::exception &e){
-        qDebug()<<"Error: alignContent: "<<alignContent<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: alignContent: "<<alignContent<<" ";
     }
 }
 void YogaWidget::setYAlignSelf(QString alignSelf){
@@ -37,8 +37,8 @@ void YogaWidget::setYAlignSelf(QString alignSelf){
         YGNodeStyleSetAlignSelf(this->getFlexNode(),static_cast<YGAlign>(value));
         this->_yAlignSelf = alignSelf;
         qDebug()<<"Value set alignSelf "<<alignSelf;
-    }catch(std::exception &e){
-        qDebug()<<"Error: alignSelf: "<<alignSelf<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: alignSelf: "<<alignSelf<<" ";
     }
 }
 void YogaWidget::setYJustifyContent(QString justifyContent){
@@ -47,8 +47,8 @@ void YogaWidget::setYJustifyContent(QString justifyContent){
         YGNodeStyleSetJustifyContent(this->getFlexNode(),static_cast<YGJustify>(value));
         this->_yJustifyContent = justifyContent;
         qDebug()<<"Value set justifyContent "<<justifyContent;
-    }catch(std::exception &e){
-        qDebug()<<"Error: justifyContent: "<<justifyContent<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: justifyContent: "<<justifyContent<<" ";
     }
 }
 void YogaWidget::setYDirection(QString direction){
@@ -57,8 +57,8 @@ void YogaWidget::setYDirection(QString direction){
         YGNodeStyleSetDirection(this->getFlexNode(),static_cast<YGDirection>(value));
         this->_yDirection = direction;
         qDebug()<<"Value set direction "<<direction;
-    }catch(std::exception &e){
-        qDebug()<<"Error: direction: "<<direction<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: direction: "<<direction<<" ";
     }
 }
 void YogaWidget::setYFlexDirection(QString flexDirection){
@@ -67,8 +67,8 @@ void YogaWidget::setYFlexDirection(QString flexDirection){
         YGNodeStyleSetFlexDirection(this->getFlexNode(),static_cast<YGFlexDirection>(value));
         this->_yFlexDirection = flexDirection;
         qDebug()<<"Value set flexDirection "<<flexDirection;
-    }catch(std::exception &e){
-        qDebug()<<"Error: flexDirection: "<<flexDirection<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: flexDirection: "<<flexDirection<<" ";
     }
 }
 void YogaWidget::setYOverflow(QString overflow){
@@ -77,8 +77,8 @@ void YogaWidget::setYOverflow(QString overflow){
         YGNodeStyleSetOverflow(this->getFlexNode(),static_cast<YGOverflow>(value));
         this->_yOverflow = overflow;
         qDebug()<<"Value set overflow "<<overflow;
-    }catch(std::exception &e){
-        qDebug()<<"Error: overflow: "<<overflow<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: overflow: "<<overflow<<" ";
     }
 }
 void YogaWidget::setYPosition(QString position){
@@ -87,8 +87,8 @@ void YogaWidget::setYPosition(QString position){
         YGNodeStyleSetPositionType(this->getFlexNode(),static_cast<YGPositionType>(value));
         this->_yPosition = position;
         qDebug()<<"Value set positionType "<<position;
-    }catch(std::exception &e){
-        qDebug()<<"Error: positionType: "<<position<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: positionType: "<<position<<" ";
     }
 }
 void YogaWidget::setYFlexWrap(QString flexWrap){
@@ -97,8 +97,8 @@ void YogaWidget::setYFlexWrap(QString flexWrap){
         YGNodeStyleSetFlexWrap(this->getFlexNode(),static_cast<YGWrap>(value));
         this->_yFlexWrap = flexWrap;
         qDebug()<<"Value set flexWrap "<<flexWrap;
-    }catch(std::exception &e){
-        qDebug()<<"Error: flexWrap: "<<flexWrap<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: flexWrap: "<<flexWrap<<" ";
     }
 }
 void YogaWidget::setYFlex(float flex){
@@ -106,8 +106,8 @@ void YogaWidget::setYFlex(float flex){
         YGNodeStyleSetFlex(this->getFlexNode(),flex);
         this->_yFlex = flex;
         qDebug()<<"Value set flex "<<flex;
-    }catch(std::exception &e){
-        qDebug()<<"Error: flex: "<<flex<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: flex: "<<flex<<" ";
     }
 }
 void YogaWidget::setYFlexGrow(float flexGrow){
@@ -115,8 +115,8 @@ void YogaWidget::setYFlexGrow(float flexGrow){
         YGNodeStyleSetFlexGrow(this->getFlexNode(),flexGrow);
         this->_yFlexGrow = flexGrow;
         qDebug()<<"Value set flexGrow "<<flexGrow;
-    }catch(std::exception &e){
-        qDebug()<<"Error: flexGrow: "<<flexGrow<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: flexGrow: "<<flexGrow<<" ";
     }
 }
 void YogaWidget::setYFlexShrink(float flexShrink){
@@ -124,8 +124,8 @@ void YogaWidget::setYFlexShrink(float flexShrink){
         YGNodeStyleSetFlexShrink(this->getFlexNode(),flexShrink);
         this->_yFlexShrink = flexShrink;
         qDebug()<<"Value set flexShrink "<<flexShrink;
-    }catch(std::exception &e){
-        qDebug()<<"Error: flexShrink: "<<flexShrink<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: flexShrink: "<<flexShrink<<" ";
     }
 }
 void YogaWidget::setYAspectRatio(float aspectRatio){
@@ -133,8 +133,8 @@ void YogaWidget::setYAspectRatio(float aspectRatio){
         YGNodeStyleSetAspectRatio(this->getFlexNode(),aspectRatio);
         this->_yAspectRatio = aspectRatio;
         qDebug()<<"Value set aspectRatio "<<aspectRatio;
-    }catch(std::exception &e){
-        qDebug()<<"Error: aspectRatio: "<<aspectRatio<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: aspectRatio: "<<aspectRatio<<" ";
     }
 }
 void YogaWidget::setYNodeTop(QString rawValue){
@@ -144,8 +144,8 @@ void YogaWidget::setYNodeTop(QString rawValue){
                 ? YGNodeStyleSetPositionPercent(this->getFlexNode(), YGEdgeTop,measurement.value)
                 : YGNodeStyleSetPosition(this->getFlexNode(),YGEdgeTop,measurement.value);
         this->_yTop = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: top: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: top: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYNodeRight(QString rawValue){
@@ -155,8 +155,8 @@ void YogaWidget::setYNodeRight(QString rawValue){
                 ? YGNodeStyleSetPositionPercent(this->getFlexNode(), YGEdgeRight,measurement.value)
                 : YGNodeStyleSetPosition(this->getFlexNode(),YGEdgeRight,measurement.value);
         this->_yRight = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: right: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: right: "<<rawValue<<" ";
     }
 }
 
@@ -167,8 +167,8 @@ void YogaWidget::setYNodeBottom(QString rawValue){
                 ? YGNodeStyleSetPositionPercent(this->getFlexNode(), YGEdgeBottom,measurement.value)
                 : YGNodeStyleSetPosition(this->getFlexNode(),YGEdgeBottom,measurement.value);
         this->_yBottom = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: bottom: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: bottom: "<<rawValue<<" ";
     }
 }
 
@@ -179,8 +179,8 @@ void YogaWidget::setYNodeLeft(QString rawValue){
                 ? YGNodeStyleSetPositionPercent(this->getFlexNode(), YGEdgeLeft,measurement.value)
                 : YGNodeStyleSetPosition(this->getFlexNode(),YGEdgeLeft,measurement.value);
         this->_yLeft = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: left: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: left: "<<rawValue<<" ";
     }
 }
 
@@ -195,8 +195,8 @@ void YogaWidget::setYFlexBasis(QString rawValue){
                     : YGNodeStyleSetFlexBasis(this->getFlexNode(),measurement.value);
         }
         this->_yFlexBasis = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: flexBasis: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: flexBasis: "<<rawValue<<" ";
     }
 }
 
@@ -207,8 +207,8 @@ void YogaWidget::setYMinWidth(QString rawValue){
                 ? YGNodeStyleSetMinWidthPercent(this->getFlexNode(), measurement.value)
                 : YGNodeStyleSetMinWidth(this->getFlexNode(), measurement.value);
         this->_yMinWidth = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: minWidth: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: minWidth: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYMinHeight(QString rawValue){
@@ -218,8 +218,8 @@ void YogaWidget::setYMinHeight(QString rawValue){
                 ? YGNodeStyleSetMinHeightPercent(this->getFlexNode(), measurement.value)
                 : YGNodeStyleSetMinHeight(this->getFlexNode(), measurement.value);
         this->_yMinHeight = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: minHeight: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: minHeight: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYMaxWidth(QString rawValue){
@@ -229,8 +229,8 @@ void YogaWidget::setYMaxWidth(QString rawValue){
                 ? YGNodeStyleSetMaxWidthPercent(this->getFlexNode(), measurement.value)
                 : YGNodeStyleSetMaxWidth(this->getFlexNode(), measurement.value);
         this->_yMaxWidth = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: maxWidth: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: maxWidth: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYMaxHeight(QString rawValue){
@@ -240,8 +240,8 @@ void YogaWidget::setYMaxHeight(QString rawValue){
                 ? YGNodeStyleSetMaxHeightPercent(this->getFlexNode(), measurement.value)
                 : YGNodeStyleSetMaxHeight(this->getFlexNode(), measurement.value);
         this->_yMaxHeight = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: maxHeight: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: maxHeight: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYPaddingTop(QString rawValue){
@@ -251,8 +251,8 @@ void YogaWidget::setYPaddingTop(QString rawValue){
                 ? YGNodeStyleSetPaddingPercent(this->getFlexNode(),YGEdgeTop, measurement.value)
                 : YGNodeStyleSetPadding(this->getFlexNode(),YGEdgeTop, measurement.value);
         this->_yPaddingTop = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: paddingTop: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: paddingTop: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYPaddingRight(QString rawValue){
@@ -262,8 +262,8 @@ void YogaWidget::setYPaddingRight(QString rawValue){
                 ? YGNodeStyleSetPaddingPercent(this->getFlexNode(),YGEdgeRight, measurement.value)
                 : YGNodeStyleSetPadding(this->getFlexNode(),YGEdgeRight, measurement.value);
         this->_yPaddingRight = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: paddingRight: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: paddingRight: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYPaddingBottom(QString rawValue){
@@ -273,8 +273,8 @@ void YogaWidget::setYPaddingBottom(QString rawValue){
                 ? YGNodeStyleSetPaddingPercent(this->getFlexNode(),YGEdgeBottom, measurement.value)
                 : YGNodeStyleSetPadding(this->getFlexNode(),YGEdgeBottom, measurement.value);
         this->_yPaddingBottom = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: paddingBottom: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: paddingBottom: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYPaddingLeft(QString rawValue){
@@ -284,8 +284,8 @@ void YogaWidget::setYPaddingLeft(QString rawValue){
                 ? YGNodeStyleSetPaddingPercent(this->getFlexNode(),YGEdgeLeft, measurement.value)
                 : YGNodeStyleSetPadding(this->getFlexNode(), YGEdgeLeft, measurement.value);
         this->_yPaddingLeft = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: paddingLeft: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: paddingLeft: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYPaddingHorizontal(QString rawValue){
@@ -295,8 +295,8 @@ void YogaWidget::setYPaddingHorizontal(QString rawValue){
                 ? YGNodeStyleSetPaddingPercent(this->getFlexNode(), YGEdgeHorizontal, measurement.value)
                 : YGNodeStyleSetPadding(this->getFlexNode(),YGEdgeHorizontal, measurement.value);
         this->_yPaddingHorizontal = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: paddingHorizontal: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: paddingHorizontal: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYPaddingVertical(QString rawValue){
@@ -306,8 +306,8 @@ void YogaWidget::setYPaddingVertical(QString rawValue){
                 ? YGNodeStyleSetPaddingPercent(this->getFlexNode(),YGEdgeVertical, measurement.value)
                 : YGNodeStyleSetPadding(this->getFlexNode(),YGEdgeVertical, measurement.value);
         this->_yPaddingVertical = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: paddingVertical: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: paddingVertical: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYPadding(QString rawValue){
@@ -317,8 +317,8 @@ void YogaWidget::setYPadding(QString rawValue){
                 ? YGNodeStyleSetPaddingPercent(this->getFlexNode(),YGEdgeAll, measurement.value)
                 : YGNodeStyleSetPadding(this->getFlexNode(),YGEdgeAll, measurement.value);
         this->_yPadding = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: padding: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: padding: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYMarginTop(QString rawValue){
@@ -328,8 +328,8 @@ void YogaWidget::setYMarginTop(QString rawValue){
                 ? YGNodeStyleSetMarginPercent(this->getFlexNode(),YGEdgeTop, measurement.value)
                 : YGNodeStyleSetMargin(this->getFlexNode(),YGEdgeTop, measurement.value);
         this->_yMarginTop = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: marginTop: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: marginTop: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYMarginRight(QString rawValue){
@@ -339,8 +339,8 @@ void YogaWidget::setYMarginRight(QString rawValue){
                 ? YGNodeStyleSetMarginPercent(this->getFlexNode(),YGEdgeRight, measurement.value)
                 : YGNodeStyleSetMargin(this->getFlexNode(),YGEdgeRight, measurement.value);
         this->_yMarginRight = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: marginRight: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: marginRight: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYMarginBottom(QString rawValue){
@@ -350,8 +350,8 @@ void YogaWidget::setYMarginBottom(QString rawValue){
                 ? YGNodeStyleSetMarginPercent(this->getFlexNode(),YGEdgeBottom, measurement.value)
                 : YGNodeStyleSetMargin(this->getFlexNode(),YGEdgeBottom, measurement.value);
         this->_yMarginBottom = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: marginBottom: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: marginBottom: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYMarginLeft(QString rawValue){
@@ -361,8 +361,8 @@ void YogaWidget::setYMarginLeft(QString rawValue){
                 ? YGNodeStyleSetMarginPercent(this->getFlexNode(),YGEdgeLeft, measurement.value)
                 : YGNodeStyleSetMargin(this->getFlexNode(), YGEdgeLeft, measurement.value);
         this->_yMarginLeft = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: marginLeft: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: marginLeft: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYMarginHorizontal(QString rawValue){
@@ -372,8 +372,8 @@ void YogaWidget::setYMarginHorizontal(QString rawValue){
                 ? YGNodeStyleSetMarginPercent(this->getFlexNode(), YGEdgeHorizontal, measurement.value)
                 : YGNodeStyleSetMargin(this->getFlexNode(),YGEdgeHorizontal, measurement.value);
         this->_yMarginHorizontal = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: marginHorizontal: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: marginHorizontal: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYMarginVertical(QString rawValue){
@@ -383,8 +383,8 @@ void YogaWidget::setYMarginVertical(QString rawValue){
                 ? YGNodeStyleSetMarginPercent(this->getFlexNode(),YGEdgeVertical, measurement.value)
                 : YGNodeStyleSetMargin(this->getFlexNode(),YGEdgeVertical, measurement.value);
         this->_yMarginVertical = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: marginVertical: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: marginVertical: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYMarginAll(QString rawValue){
@@ -394,8 +394,8 @@ void YogaWidget::setYMarginAll(QString rawValue){
                 ? YGNodeStyleSetMarginPercent(this->getFlexNode(),YGEdgeAll, measurement.value)
                 : YGNodeStyleSetMargin(this->getFlexNode(),YGEdgeAll, measurement.value);
         this->_yMargin = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: margin: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: margin: "<<rawValue<<" ";
     }
 }
 
@@ -403,48 +403,48 @@ void YogaWidget::setYBorderTop(float rawValue){
     try {
         YGNodeStyleSetBorder(this->getFlexNode(),YGEdgeTop, rawValue);
         this->_yBorderTop = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: borderTop: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: borderTop: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYBorderRight(float rawValue){
     try {
         YGNodeStyleSetBorder(this->getFlexNode(),YGEdgeRight, rawValue);
         this->_yBorderRight = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: borderRight: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: borderRight: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYBorderBottom(float rawValue){
     try {
         YGNodeStyleSetBorder(this->getFlexNode(),YGEdgeBottom, rawValue);
         this->_yBorderBottom = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: borderBottom: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: borderBottom: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYBorderLeft(float rawValue){
     try {
         YGNodeStyleSetBorder(this->getFlexNode(), YGEdgeLeft, rawValue);
         this->_yBorderLeft = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: borderLeft: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: borderLeft: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYBorderHorizontal(float rawValue){
     try {
         YGNodeStyleSetBorder(this->getFlexNode(),YGEdgeHorizontal, rawValue);
         this->_yBorderHorizontal = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: borderHorizontal: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: borderHorizontal: "<<rawValue<<" ";
     }
 }
 void YogaWidget::setYBorderVertical(float rawValue){
     try {
         YGNodeStyleSetBorder(this->getFlexNode(),YGEdgeVertical, rawValue);
         this->_yBorderVertical = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: borderVertical: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: borderVertical: "<<rawValue<<" ";
     }
 }
 
@@ -452,7 +452,7 @@ void YogaWidget::setYBorder(float rawValue){
     try {
         YGNodeStyleSetBorder(this->getFlexNode(), YGEdgeAll, rawValue);
         this->_yBorder = rawValue;
-    }catch(std::exception &e){
-        qDebug()<<"Error: border: "<<rawValue<<" "<<e.what();
+    }catch(...){
+        qDebug()<<"Error: border: "<<rawValue<<" ";
     }
 }

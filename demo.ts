@@ -56,8 +56,7 @@ const testFlexLayout = () => {
   view.setStyleSheet(
     `
       background-color: green;
-      qproperty-flex: 1;
-      qproperty-alignItems: center;
+      qproperty-alignItems:center;
       qproperty-justifyContent:center;
     `
   );
@@ -67,7 +66,10 @@ const testFlexLayout = () => {
 
   const label = new QLabel();
   label.setText("Hello12321");
-  label.setStyleSheet("background-color:blue; color:white;");
+  label.setStyleSheet(`
+  background-color:blue; 
+  color:white;
+  `);
 
   flayout.addWidget(label, label.getFlexNode());
 
@@ -77,5 +79,5 @@ const testFlexLayout = () => {
   return win;
 };
 
-(global as any).win1 = testGridLayout(); //to keep gc from collecting
-// (global as any).win2 = testFlexLayout(); //to keep gc from collecting
+// (global as any).win1 = testGridLayout(); //to keep gc from collecting
+(global as any).win2 = testFlexLayout(); //to keep gc from collecting

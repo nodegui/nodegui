@@ -4,7 +4,6 @@
 #include "src/cpp/core/FlexLayout/flexnode_wrap.h"
 #include <QWidget>
 
-
 Napi::FunctionReference QLabelWrap::constructor;
 
 Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {

@@ -8,8 +8,8 @@ class NLabel: public QLabel, public YogaWidget
 {
 
 public:
-    using QLabel::QLabel; //inherit all constructors of QLabel
     SET_YOGA_WIDGET_Q_PROPERTIES
+    using QLabel::QLabel; //inherit all constructors of QLabel
     Q_OBJECT
 };
 
