@@ -210,7 +210,7 @@ So for nlabel I would run it as:
 moc nlabel.h -o nlabel_moc.cpp --include ../../core/YogaWidget/yogawidget.h
 ```
 
-This will run moc on `headername.h` and generate `headername_moc.cpp`. We will include this file instead of `headername.h`. This is the reason we have `nlabel_moc.cpp`. If you dont do this. Then it will give a symbol not found error.
+This will run moc on `headername.h` and generate `headername_moc.cpp`. We will include `headername_moc.cpp` in `config/moc.gypi`. If you dont do this. Then it will give a symbol not found error.
 
 I hope QLabel's example is enough for now. For more examples and inspirations we can take a look at other wrapped widgets.
 
@@ -219,6 +219,11 @@ I hope QLabel's example is enough for now. For more examples and inspirations we
 https://medium.com/@atulanand94/debugging-nodejs-c-addons-using-vs-code-27e9940fc3ad
 
 https://medium.com/cameron-nokes/how-to-debug-native-node-addons-in-mac-osx-66f69f81afcb
+
+# Common errors
+
+1. Segmentation fault: Segmentation fault occurs when you access a Pointer that is pointing to an invalid memory address. One major reason for this can be that JS garbage collector would have garbage collected the addon generated value and you try accessing it after a while. This is mostly the case if you see seg fault happening randomly after some time of startup.
+
 
 ### LICENSE
 
