@@ -7,7 +7,7 @@ void FlexNodeWrap::init(Napi::Env env) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "FlexNode";
   Napi::Function func = DefineClass(env, CLASSNAME, {
-      InstanceMethod("debugValue", &FlexNodeWrap::printValue),
+      InstanceMethod("debugValue", &FlexNodeWrap::debugValue),
   });
   constructor = Napi::Persistent(func);
 }
@@ -23,7 +23,7 @@ FlexNodeWrap::FlexNodeWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<Fle
 
 Napi::Value FlexNodeWrap::debugValue(const Napi::CallbackInfo& info) {
    uint64_t addr = reinterpret_cast<long>(this->getInternalInstance());
-   return info.Env().Null();
+   return Napi::Number::New(info.Env(), addr);
 }
 
 FlexNodeWrap::~FlexNodeWrap() {

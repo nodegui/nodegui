@@ -3,6 +3,11 @@
 
 #include "deps/yoga/YGNode.h"
 
+/*
+    FlexItem class is used to extend regular QWidget Classes to include Yoga/Flex Node in them.
+ */
+
+
 class FlexItem
 {
     YGNodeRef node;

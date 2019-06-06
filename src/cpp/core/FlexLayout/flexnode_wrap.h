@@ -3,6 +3,12 @@
 #include <napi.h>
 #include "deps/yoga/YGNode.h"
 
+/*
+
+  NAPI Wrapper class to export YGNodeRef/Yoga/Flex Node of a Widget
+ */
+
+
 //ABSTRACT CLASS
 class FlexNodeWrap : public  Napi::ObjectWrap<FlexNodeWrap>{
  public:

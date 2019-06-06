@@ -1,7 +1,7 @@
-import addon from "../../core/addon";
-import { Component } from "../../core/Component";
+import addon from "../addon";
+import { Component } from "../Component";
 import { QWidget } from "../../QtGui/QWidget";
-import { FlexNode } from "../../core/FlexLayout/FlexNode";
+import { FlexNode } from "./FlexNode";
 
 export class FlexLayout extends Component {
   native = new addon.FlexLayout();
