@@ -239,3 +239,7 @@ MIT
 **Debug logs**
 
 - Need a setup where we can run the program with debug mode on and it shows logs.
+
+**Seen bugs**
+
+- When there are two windows. Resizing one and then resizing other window causes segmenetation fault. The second window is based on flex.
