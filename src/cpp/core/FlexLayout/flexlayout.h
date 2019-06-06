@@ -27,7 +27,7 @@ public:
     int count() const override;
     void addWidget(QWidget* childWidget, YGNodeRef childNode);
     void setGeometry(const QRect &rect) override;
-    void setYogaNode(YGNodeRef parentNode);
+    void setFlexNode(YGNodeRef parentNode);
 };
 
 #endif // FLEXLAYOUT_H

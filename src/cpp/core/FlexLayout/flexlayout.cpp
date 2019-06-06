@@ -85,7 +85,7 @@ int FlexLayout::count() const
 void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode)
 {
     if(!this->node){
-        qDebug()<<"Flex layout's parent yoga node not set yet. Child widget will not be added to Flex Layout";
+        qDebug()<<"Flex layout's parent yoga node not set yet. Set it using setFlexNode. Child widget will not be added to Flex Layout";
         return;
     }
     uint count =  YGNodeGetChildCount(this->node);
@@ -129,7 +129,7 @@ void FlexLayout::setGeometry(const QRect &rect)
     QLayout::setGeometry(rect);
 }
 
-void FlexLayout::setYogaNode(YGNodeRef parentNode)
+void FlexLayout::setFlexNode(YGNodeRef parentNode)
 {
     this->node = parentNode;
 }

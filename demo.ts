@@ -7,6 +7,7 @@ import { QCheckBox } from "./src/lib/QtWidgets/QCheckBox";
 import { QProgressBar } from "./src/lib/QtWidgets/QProgressBar";
 import { QRadioButton } from "./src/lib/QtWidgets/QRadioButton";
 import { QLineEdit } from "./src/lib/QtWidgets/QLineEdit";
+import { FlexLayout } from "./src/lib/QtWidgets/FlexLayout";
 
 const win = new QMainWindow();
 const view = new QWidget();
@@ -19,6 +20,10 @@ label.setText("Testing1234");
 const label2 = new QLabel();
 label2.setText("Hello12321");
 label2.setStyleSheet("background-color:blue; color:white;");
+const label2FlexNode = label2.getFlexNode();
+label2FlexNode.debugValue();
+const flayout = new FlexLayout();
+flayout.addWidget(label2, label2FlexNode);
 
 const button1 = new QPushButton();
 button1.setText("Yolo");
