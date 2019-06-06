@@ -6,6 +6,11 @@
 #include "src/cpp/core/FlexLayout/flexitem.h"
 
 /*
+    YogaWidget class will be used to extend any regular Qt Widget class to give it Yoga Flex powers.
+    Basically if you extend a widget with this class you can then set yoga properties like justify content etc via qt stylesheet.
+ */
+
+/*
 All Widgets for which you need to set yoga props via qstylesheet should 
 1. inherit from YogaWidget 
 2. should add Q_OBJECT macro so that Q_PROPERTY inside YogaWidget can work.

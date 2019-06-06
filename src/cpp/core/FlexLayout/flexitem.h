@@ -5,6 +5,7 @@
 
 /*
     FlexItem class is used to extend regular QWidget Classes to include Yoga/Flex Node in them.
+    In most cases you will use YogaWidget class instead of this one since it inherits from FlexItem.
  */
 
 

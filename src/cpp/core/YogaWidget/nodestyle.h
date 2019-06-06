@@ -5,6 +5,14 @@
 #include <unordered_map>
 #include "deps/yoga/YGStyle.h"
 
+/*
+
+    NodeStyle is a mapper class. 
+    Its job is to provide maps between string values received via qt stylesheet and convert them to Yoga/Flex Node properties.
+
+ */
+
+
 struct NodeValueUnit{
     YGUnit unit;
     float value;
