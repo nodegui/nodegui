@@ -1,6 +1,4 @@
-import addon from "../../core/addon";
 import { Component } from "../../core/Component";
 
-export class QLayout extends Component {
-  native = new addon.QLayout();
-}
+// All Layouts should extend this abstract class.
+export abstract class QLayout extends Component {}
