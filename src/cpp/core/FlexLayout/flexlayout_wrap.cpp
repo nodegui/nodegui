@@ -11,7 +11,7 @@ Napi::Object FlexLayoutWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "FlexLayout";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("addWidget", &FlexLayoutWrap::addWidget),
-    // InstanceMethod("setFlexNode", &FlexLayoutWrap::setFlexNode)
+    InstanceMethod("setFlexNode", &FlexLayoutWrap::setFlexNode),
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -58,3 +58,13 @@ Napi::Value FlexLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+Napi::Value FlexLayoutWrap::setFlexNode(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object flexNodeObject = info[0].As<Napi::Object>();
+  FlexNodeWrap* flexNodeWrap = Napi::ObjectWrap<FlexNodeWrap>::Unwrap(flexNodeObject);
+  this->instance->setFlexNode(flexNodeWrap->getInternalInstance());
+  
+  return env.Null();
+}

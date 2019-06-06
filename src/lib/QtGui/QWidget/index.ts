@@ -1,10 +1,9 @@
 import addon from "../../core/addon";
 import { QLayout } from "../../QtWidgets/QLayout";
-import { Component } from "../../core/Component";
+import { YogaWidget } from "../../core/YogaWidget";
 
 // Implement all native QWidget methods here so that all widgets get access to those aswell
-export abstract class NodeWidget extends Component {
-  abstract native: any;
+export abstract class NodeWidget extends YogaWidget {
   abstract layout?: QLayout;
   show() {
     this.native.show();

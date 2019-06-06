@@ -1,5 +1,4 @@
-#ifndef YOGAWIDGET_H
-#define  YOGAWIDGET_H
+#pragma once
 #include <QWidget>
 #include <QDebug>
 #include "nodestyle.h"
@@ -163,4 +162,3 @@ public:
 };
 
 
-#endif // YOGAWIDGET_H

@@ -17,7 +17,7 @@ class FlexLayoutWrap : public  Napi::ObjectWrap<FlexLayoutWrap>{
   static Napi::FunctionReference constructor;
   //wrapped methods
   Napi::Value addWidget(const Napi::CallbackInfo& info);
-  // Napi::Value setFlexNode(const Napi::CallbackInfo& info);
+  Napi::Value setFlexNode(const Napi::CallbackInfo& info);
 };
 
 #endif //FLEXLAYOUT_WRAP_H
