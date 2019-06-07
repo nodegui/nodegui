@@ -15,8 +15,8 @@
     "typescript": "^3.4.5"
   },
   "scripts": {
-    "build:addon": "node-gyp -j 8 build",
-    "rebuild:addon": "node-gyp -j 8 build",
+    "build:addon": "npm run automoc && node-gyp -j 8 build",
+    "rebuild:addon": "npm run automoc && node-gyp -j 8 build",
     "build:lib": "rm -rf ./dist/ && tsc",
     "dev": "yarn build:lib && qode dist/demo.js",
     "automoc": "node ./scripts/automoc.js"
