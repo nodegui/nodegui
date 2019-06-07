@@ -1,0 +1,13 @@
+{
+  "include": "src/cpp/core/YogaWidget/yogawidget.h",
+  "headers": [
+    "src/cpp/QtGui/QWidget/nwidget.h",
+    "src/cpp/QtWidgets/QLabel/nlabel.h",
+    "src/cpp/QtWidgets/QCheckBox/ncheckbox.h",
+    "src/cpp/QtWidgets/QLineEdit/nlineedit.h",
+    "src/cpp/QtWidgets/QMainWindow/nmainwindow.h",
+    "src/cpp/QtWidgets/QProgressBar/nprogressbar.h",
+    "src/cpp/QtWidgets/QPushButton/npushbutton.h",
+    "src/cpp/QtWidgets/QRadioButton/nradiobutton.h"
+  ]
+}

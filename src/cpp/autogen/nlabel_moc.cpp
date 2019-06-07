@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'nradiobutton.h'
+** Meta object code from reading C++ file 'nlabel.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "nradiobutton.h"
+#include "../QtWidgets/QLabel/nlabel.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'nradiobutton.h' doesn't include <QObject>."
+#error "The header file 'nlabel.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.12.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -20,82 +20,82 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_NRadioButton_t {
+struct qt_meta_stringdata_NLabel_t {
     QByteArrayData data[45];
-    char stringdata0[490];
+    char stringdata0[484];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_NRadioButton_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_NLabel_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_NRadioButton_t qt_meta_stringdata_NRadioButton = {
+static const qt_meta_stringdata_NLabel_t qt_meta_stringdata_NLabel = {
     {
-QT_MOC_LITERAL(0, 0, 12), // "NRadioButton"
-QT_MOC_LITERAL(1, 13, 7), // "display"
-QT_MOC_LITERAL(2, 21, 10), // "alignItems"
-QT_MOC_LITERAL(3, 32, 12), // "alignContent"
-QT_MOC_LITERAL(4, 45, 9), // "alignSelf"
-QT_MOC_LITERAL(5, 55, 14), // "justifyContent"
-QT_MOC_LITERAL(6, 70, 9), // "direction"
-QT_MOC_LITERAL(7, 80, 13), // "flexDirection"
-QT_MOC_LITERAL(8, 94, 8), // "overflow"
-QT_MOC_LITERAL(9, 103, 8), // "position"
-QT_MOC_LITERAL(10, 112, 8), // "flexWrap"
-QT_MOC_LITERAL(11, 121, 4), // "flex"
-QT_MOC_LITERAL(12, 126, 8), // "flexGrow"
-QT_MOC_LITERAL(13, 135, 10), // "flexShrink"
-QT_MOC_LITERAL(14, 146, 11), // "aspectRatio"
-QT_MOC_LITERAL(15, 158, 3), // "top"
-QT_MOC_LITERAL(16, 162, 5), // "right"
-QT_MOC_LITERAL(17, 168, 6), // "bottom"
-QT_MOC_LITERAL(18, 175, 4), // "left"
-QT_MOC_LITERAL(19, 180, 9), // "flexBasis"
-QT_MOC_LITERAL(20, 190, 8), // "minWidth"
-QT_MOC_LITERAL(21, 199, 9), // "minHeight"
-QT_MOC_LITERAL(22, 209, 8), // "maxWidth"
-QT_MOC_LITERAL(23, 218, 9), // "maxHeight"
-QT_MOC_LITERAL(24, 228, 10), // "paddingTop"
-QT_MOC_LITERAL(25, 239, 12), // "paddingRight"
-QT_MOC_LITERAL(26, 252, 13), // "paddingBottom"
-QT_MOC_LITERAL(27, 266, 11), // "paddingLeft"
-QT_MOC_LITERAL(28, 278, 17), // "paddingHorizontal"
-QT_MOC_LITERAL(29, 296, 15), // "paddingVertical"
-QT_MOC_LITERAL(30, 312, 7), // "padding"
-QT_MOC_LITERAL(31, 320, 9), // "marginTop"
-QT_MOC_LITERAL(32, 330, 11), // "marginRight"
-QT_MOC_LITERAL(33, 342, 12), // "marginBottom"
-QT_MOC_LITERAL(34, 355, 10), // "marginLeft"
-QT_MOC_LITERAL(35, 366, 16), // "marginHorizontal"
-QT_MOC_LITERAL(36, 383, 14), // "marginVertical"
-QT_MOC_LITERAL(37, 398, 6), // "margin"
-QT_MOC_LITERAL(38, 405, 9), // "borderTop"
-QT_MOC_LITERAL(39, 415, 11), // "borderRight"
-QT_MOC_LITERAL(40, 427, 12), // "borderBottom"
-QT_MOC_LITERAL(41, 440, 10), // "borderLeft"
-QT_MOC_LITERAL(42, 451, 16), // "borderHorizontal"
-QT_MOC_LITERAL(43, 468, 14), // "borderVertical"
-QT_MOC_LITERAL(44, 483, 6) // "border"
+QT_MOC_LITERAL(0, 0, 6), // "NLabel"
+QT_MOC_LITERAL(1, 7, 7), // "display"
+QT_MOC_LITERAL(2, 15, 10), // "alignItems"
+QT_MOC_LITERAL(3, 26, 12), // "alignContent"
+QT_MOC_LITERAL(4, 39, 9), // "alignSelf"
+QT_MOC_LITERAL(5, 49, 14), // "justifyContent"
+QT_MOC_LITERAL(6, 64, 9), // "direction"
+QT_MOC_LITERAL(7, 74, 13), // "flexDirection"
+QT_MOC_LITERAL(8, 88, 8), // "overflow"
+QT_MOC_LITERAL(9, 97, 8), // "position"
+QT_MOC_LITERAL(10, 106, 8), // "flexWrap"
+QT_MOC_LITERAL(11, 115, 4), // "flex"
+QT_MOC_LITERAL(12, 120, 8), // "flexGrow"
+QT_MOC_LITERAL(13, 129, 10), // "flexShrink"
+QT_MOC_LITERAL(14, 140, 11), // "aspectRatio"
+QT_MOC_LITERAL(15, 152, 3), // "top"
+QT_MOC_LITERAL(16, 156, 5), // "right"
+QT_MOC_LITERAL(17, 162, 6), // "bottom"
+QT_MOC_LITERAL(18, 169, 4), // "left"
+QT_MOC_LITERAL(19, 174, 9), // "flexBasis"
+QT_MOC_LITERAL(20, 184, 8), // "minWidth"
+QT_MOC_LITERAL(21, 193, 9), // "minHeight"
+QT_MOC_LITERAL(22, 203, 8), // "maxWidth"
+QT_MOC_LITERAL(23, 212, 9), // "maxHeight"
+QT_MOC_LITERAL(24, 222, 10), // "paddingTop"
+QT_MOC_LITERAL(25, 233, 12), // "paddingRight"
+QT_MOC_LITERAL(26, 246, 13), // "paddingBottom"
+QT_MOC_LITERAL(27, 260, 11), // "paddingLeft"
+QT_MOC_LITERAL(28, 272, 17), // "paddingHorizontal"
+QT_MOC_LITERAL(29, 290, 15), // "paddingVertical"
+QT_MOC_LITERAL(30, 306, 7), // "padding"
+QT_MOC_LITERAL(31, 314, 9), // "marginTop"
+QT_MOC_LITERAL(32, 324, 11), // "marginRight"
+QT_MOC_LITERAL(33, 336, 12), // "marginBottom"
+QT_MOC_LITERAL(34, 349, 10), // "marginLeft"
+QT_MOC_LITERAL(35, 360, 16), // "marginHorizontal"
+QT_MOC_LITERAL(36, 377, 14), // "marginVertical"
+QT_MOC_LITERAL(37, 392, 6), // "margin"
+QT_MOC_LITERAL(38, 399, 9), // "borderTop"
+QT_MOC_LITERAL(39, 409, 11), // "borderRight"
+QT_MOC_LITERAL(40, 421, 12), // "borderBottom"
+QT_MOC_LITERAL(41, 434, 10), // "borderLeft"
+QT_MOC_LITERAL(42, 445, 16), // "borderHorizontal"
+QT_MOC_LITERAL(43, 462, 14), // "borderVertical"
+QT_MOC_LITERAL(44, 477, 6) // "border"
 
     },
-    "NRadioButton\0display\0alignItems\0"
-    "alignContent\0alignSelf\0justifyContent\0"
-    "direction\0flexDirection\0overflow\0"
-    "position\0flexWrap\0flex\0flexGrow\0"
-    "flexShrink\0aspectRatio\0top\0right\0"
-    "bottom\0left\0flexBasis\0minWidth\0minHeight\0"
-    "maxWidth\0maxHeight\0paddingTop\0"
-    "paddingRight\0paddingBottom\0paddingLeft\0"
-    "paddingHorizontal\0paddingVertical\0"
-    "padding\0marginTop\0marginRight\0"
-    "marginBottom\0marginLeft\0marginHorizontal\0"
-    "marginVertical\0margin\0borderTop\0"
-    "borderRight\0borderBottom\0borderLeft\0"
-    "borderHorizontal\0borderVertical\0border"
+    "NLabel\0display\0alignItems\0alignContent\0"
+    "alignSelf\0justifyContent\0direction\0"
+    "flexDirection\0overflow\0position\0"
+    "flexWrap\0flex\0flexGrow\0flexShrink\0"
+    "aspectRatio\0top\0right\0bottom\0left\0"
+    "flexBasis\0minWidth\0minHeight\0maxWidth\0"
+    "maxHeight\0paddingTop\0paddingRight\0"
+    "paddingBottom\0paddingLeft\0paddingHorizontal\0"
+    "paddingVertical\0padding\0marginTop\0"
+    "marginRight\0marginBottom\0marginLeft\0"
+    "marginHorizontal\0marginVertical\0margin\0"
+    "borderTop\0borderRight\0borderBottom\0"
+    "borderLeft\0borderHorizontal\0borderVertical\0"
+    "border"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_NRadioButton[] = {
+static const uint qt_meta_data_NLabel[] = {
 
  // content:
        8,       // revision
@@ -157,12 +157,12 @@ static const uint qt_meta_data_NRadioButton[] = {
        0        // eod
 };
 
-void NRadioButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void NLabel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
 
 #ifndef QT_NO_PROPERTIES
     if (_c == QMetaObject::ReadProperty) {
-        auto *_t = static_cast<NRadioButton *>(_o);
+        auto *_t = static_cast<NLabel *>(_o);
         Q_UNUSED(_t)
         void *_v = _a[0];
         switch (_id) {
@@ -213,7 +213,7 @@ void NRadioButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
-        auto *_t = static_cast<NRadioButton *>(_o);
+        auto *_t = static_cast<NLabel *>(_o);
         Q_UNUSED(_t)
         void *_v = _a[0];
         switch (_id) {
@@ -272,34 +272,34 @@ void NRadioButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject NRadioButton::staticMetaObject = { {
-    &QRadioButton::staticMetaObject,
-    qt_meta_stringdata_NRadioButton.data,
-    qt_meta_data_NRadioButton,
+QT_INIT_METAOBJECT const QMetaObject NLabel::staticMetaObject = { {
+    &QLabel::staticMetaObject,
+    qt_meta_stringdata_NLabel.data,
+    qt_meta_data_NLabel,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *NRadioButton::metaObject() const
+const QMetaObject *NLabel::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *NRadioButton::qt_metacast(const char *_clname)
+void *NLabel::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_NRadioButton.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_NLabel.stringdata0))
         return static_cast<void*>(this);
     if (!strcmp(_clname, "YogaWidget"))
         return static_cast< YogaWidget*>(this);
-    return QRadioButton::qt_metacast(_clname);
+    return QLabel::qt_metacast(_clname);
 }
 
-int NRadioButton::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int NLabel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QRadioButton::qt_metacall(_c, _id, _a);
+    _id = QLabel::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     

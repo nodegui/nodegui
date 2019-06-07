@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'ncheckbox.h'
+** Meta object code from reading C++ file 'nwidget.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "ncheckbox.h"
+#include "../QtGui/QWidget/nwidget.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'ncheckbox.h' doesn't include <QObject>."
+#error "The header file 'nwidget.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.12.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -20,65 +20,65 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_NCheckBox_t {
+struct qt_meta_stringdata_NWidget_t {
     QByteArrayData data[45];
-    char stringdata0[487];
+    char stringdata0[485];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_NCheckBox_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_NWidget_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_NCheckBox_t qt_meta_stringdata_NCheckBox = {
+static const qt_meta_stringdata_NWidget_t qt_meta_stringdata_NWidget = {
     {
-QT_MOC_LITERAL(0, 0, 9), // "NCheckBox"
-QT_MOC_LITERAL(1, 10, 7), // "display"
-QT_MOC_LITERAL(2, 18, 10), // "alignItems"
-QT_MOC_LITERAL(3, 29, 12), // "alignContent"
-QT_MOC_LITERAL(4, 42, 9), // "alignSelf"
-QT_MOC_LITERAL(5, 52, 14), // "justifyContent"
-QT_MOC_LITERAL(6, 67, 9), // "direction"
-QT_MOC_LITERAL(7, 77, 13), // "flexDirection"
-QT_MOC_LITERAL(8, 91, 8), // "overflow"
-QT_MOC_LITERAL(9, 100, 8), // "position"
-QT_MOC_LITERAL(10, 109, 8), // "flexWrap"
-QT_MOC_LITERAL(11, 118, 4), // "flex"
-QT_MOC_LITERAL(12, 123, 8), // "flexGrow"
-QT_MOC_LITERAL(13, 132, 10), // "flexShrink"
-QT_MOC_LITERAL(14, 143, 11), // "aspectRatio"
-QT_MOC_LITERAL(15, 155, 3), // "top"
-QT_MOC_LITERAL(16, 159, 5), // "right"
-QT_MOC_LITERAL(17, 165, 6), // "bottom"
-QT_MOC_LITERAL(18, 172, 4), // "left"
-QT_MOC_LITERAL(19, 177, 9), // "flexBasis"
-QT_MOC_LITERAL(20, 187, 8), // "minWidth"
-QT_MOC_LITERAL(21, 196, 9), // "minHeight"
-QT_MOC_LITERAL(22, 206, 8), // "maxWidth"
-QT_MOC_LITERAL(23, 215, 9), // "maxHeight"
-QT_MOC_LITERAL(24, 225, 10), // "paddingTop"
-QT_MOC_LITERAL(25, 236, 12), // "paddingRight"
-QT_MOC_LITERAL(26, 249, 13), // "paddingBottom"
-QT_MOC_LITERAL(27, 263, 11), // "paddingLeft"
-QT_MOC_LITERAL(28, 275, 17), // "paddingHorizontal"
-QT_MOC_LITERAL(29, 293, 15), // "paddingVertical"
-QT_MOC_LITERAL(30, 309, 7), // "padding"
-QT_MOC_LITERAL(31, 317, 9), // "marginTop"
-QT_MOC_LITERAL(32, 327, 11), // "marginRight"
-QT_MOC_LITERAL(33, 339, 12), // "marginBottom"
-QT_MOC_LITERAL(34, 352, 10), // "marginLeft"
-QT_MOC_LITERAL(35, 363, 16), // "marginHorizontal"
-QT_MOC_LITERAL(36, 380, 14), // "marginVertical"
-QT_MOC_LITERAL(37, 395, 6), // "margin"
-QT_MOC_LITERAL(38, 402, 9), // "borderTop"
-QT_MOC_LITERAL(39, 412, 11), // "borderRight"
-QT_MOC_LITERAL(40, 424, 12), // "borderBottom"
-QT_MOC_LITERAL(41, 437, 10), // "borderLeft"
-QT_MOC_LITERAL(42, 448, 16), // "borderHorizontal"
-QT_MOC_LITERAL(43, 465, 14), // "borderVertical"
-QT_MOC_LITERAL(44, 480, 6) // "border"
+QT_MOC_LITERAL(0, 0, 7), // "NWidget"
+QT_MOC_LITERAL(1, 8, 7), // "display"
+QT_MOC_LITERAL(2, 16, 10), // "alignItems"
+QT_MOC_LITERAL(3, 27, 12), // "alignContent"
+QT_MOC_LITERAL(4, 40, 9), // "alignSelf"
+QT_MOC_LITERAL(5, 50, 14), // "justifyContent"
+QT_MOC_LITERAL(6, 65, 9), // "direction"
+QT_MOC_LITERAL(7, 75, 13), // "flexDirection"
+QT_MOC_LITERAL(8, 89, 8), // "overflow"
+QT_MOC_LITERAL(9, 98, 8), // "position"
+QT_MOC_LITERAL(10, 107, 8), // "flexWrap"
+QT_MOC_LITERAL(11, 116, 4), // "flex"
+QT_MOC_LITERAL(12, 121, 8), // "flexGrow"
+QT_MOC_LITERAL(13, 130, 10), // "flexShrink"
+QT_MOC_LITERAL(14, 141, 11), // "aspectRatio"
+QT_MOC_LITERAL(15, 153, 3), // "top"
+QT_MOC_LITERAL(16, 157, 5), // "right"
+QT_MOC_LITERAL(17, 163, 6), // "bottom"
+QT_MOC_LITERAL(18, 170, 4), // "left"
+QT_MOC_LITERAL(19, 175, 9), // "flexBasis"
+QT_MOC_LITERAL(20, 185, 8), // "minWidth"
+QT_MOC_LITERAL(21, 194, 9), // "minHeight"
+QT_MOC_LITERAL(22, 204, 8), // "maxWidth"
+QT_MOC_LITERAL(23, 213, 9), // "maxHeight"
+QT_MOC_LITERAL(24, 223, 10), // "paddingTop"
+QT_MOC_LITERAL(25, 234, 12), // "paddingRight"
+QT_MOC_LITERAL(26, 247, 13), // "paddingBottom"
+QT_MOC_LITERAL(27, 261, 11), // "paddingLeft"
+QT_MOC_LITERAL(28, 273, 17), // "paddingHorizontal"
+QT_MOC_LITERAL(29, 291, 15), // "paddingVertical"
+QT_MOC_LITERAL(30, 307, 7), // "padding"
+QT_MOC_LITERAL(31, 315, 9), // "marginTop"
+QT_MOC_LITERAL(32, 325, 11), // "marginRight"
+QT_MOC_LITERAL(33, 337, 12), // "marginBottom"
+QT_MOC_LITERAL(34, 350, 10), // "marginLeft"
+QT_MOC_LITERAL(35, 361, 16), // "marginHorizontal"
+QT_MOC_LITERAL(36, 378, 14), // "marginVertical"
+QT_MOC_LITERAL(37, 393, 6), // "margin"
+QT_MOC_LITERAL(38, 400, 9), // "borderTop"
+QT_MOC_LITERAL(39, 410, 11), // "borderRight"
+QT_MOC_LITERAL(40, 422, 12), // "borderBottom"
+QT_MOC_LITERAL(41, 435, 10), // "borderLeft"
+QT_MOC_LITERAL(42, 446, 16), // "borderHorizontal"
+QT_MOC_LITERAL(43, 463, 14), // "borderVertical"
+QT_MOC_LITERAL(44, 478, 6) // "border"
 
     },
-    "NCheckBox\0display\0alignItems\0alignContent\0"
+    "NWidget\0display\0alignItems\0alignContent\0"
     "alignSelf\0justifyContent\0direction\0"
     "flexDirection\0overflow\0position\0"
     "flexWrap\0flex\0flexGrow\0flexShrink\0"
@@ -95,7 +95,7 @@ QT_MOC_LITERAL(44, 480, 6) // "border"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_NCheckBox[] = {
+static const uint qt_meta_data_NWidget[] = {
 
  // content:
        8,       // revision
@@ -157,12 +157,12 @@ static const uint qt_meta_data_NCheckBox[] = {
        0        // eod
 };
 
-void NCheckBox::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void NWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
 
 #ifndef QT_NO_PROPERTIES
     if (_c == QMetaObject::ReadProperty) {
-        auto *_t = static_cast<NCheckBox *>(_o);
+        auto *_t = static_cast<NWidget *>(_o);
         Q_UNUSED(_t)
         void *_v = _a[0];
         switch (_id) {
@@ -213,7 +213,7 @@ void NCheckBox::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
-        auto *_t = static_cast<NCheckBox *>(_o);
+        auto *_t = static_cast<NWidget *>(_o);
         Q_UNUSED(_t)
         void *_v = _a[0];
         switch (_id) {
@@ -272,34 +272,34 @@ void NCheckBox::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject NCheckBox::staticMetaObject = { {
-    &QCheckBox::staticMetaObject,
-    qt_meta_stringdata_NCheckBox.data,
-    qt_meta_data_NCheckBox,
+QT_INIT_METAOBJECT const QMetaObject NWidget::staticMetaObject = { {
+    &QWidget::staticMetaObject,
+    qt_meta_stringdata_NWidget.data,
+    qt_meta_data_NWidget,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *NCheckBox::metaObject() const
+const QMetaObject *NWidget::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *NCheckBox::qt_metacast(const char *_clname)
+void *NWidget::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_NCheckBox.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_NWidget.stringdata0))
         return static_cast<void*>(this);
     if (!strcmp(_clname, "YogaWidget"))
         return static_cast< YogaWidget*>(this);
-    return QCheckBox::qt_metacast(_clname);
+    return QWidget::qt_metacast(_clname);
 }
 
-int NCheckBox::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int NWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QCheckBox::qt_metacall(_c, _id, _a);
+    _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     
