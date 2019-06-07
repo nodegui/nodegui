@@ -1,17 +1,17 @@
-#ifndef QPROGRESSBAR_WRAP_H
-#define QPROGRESSBAR_WRAP_H
+#pragma once
+
 #include <napi.h>
-#include <QProgressBar>
+#include "nprogressbar.h"
 #include "src/cpp/QtGui/QWidget/qwidget_macro.h"
 
 class QProgressBarWrap : public  Napi::ObjectWrap<QProgressBarWrap>{
  private:
-  QProgressBar* instance;
+  NProgressBar* instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QProgressBarWrap(const Napi::CallbackInfo& info);
   ~QProgressBarWrap();
-  QProgressBar* getInternalInstance();
+  NProgressBar* getInternalInstance();
   //class constructor
   static Napi::FunctionReference constructor;
   //wrapped methods
@@ -19,4 +19,4 @@ class QProgressBarWrap : public  Napi::ObjectWrap<QProgressBarWrap>{
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };
 
-#endif
+

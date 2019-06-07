@@ -1,17 +1,17 @@
-#ifndef QRADIOBUTTON_WRAP_H
-#define QRADIOBUTTON_WRAP_H
+#pragma once
+
 #include <napi.h>
-#include <QRadioButton>
+#include "nradiobutton.h"
 #include "src/cpp/QtGui/QWidget/qwidget_macro.h"
 
 class QRadioButtonWrap : public  Napi::ObjectWrap<QRadioButtonWrap>{
  private:
-  QRadioButton* instance;
+  NRadioButton* instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QRadioButtonWrap(const Napi::CallbackInfo& info);
   ~QRadioButtonWrap();
-  QRadioButton* getInternalInstance();
+  NRadioButton* getInternalInstance();
   //class constructor
   static Napi::FunctionReference constructor;
   //wrapped methods
@@ -19,4 +19,4 @@ class QRadioButtonWrap : public  Napi::ObjectWrap<QRadioButtonWrap>{
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };
 
-#endif
+ 

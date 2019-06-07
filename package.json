@@ -18,7 +18,8 @@
     "build:addon": "node-gyp -j 8 build",
     "rebuild:addon": "node-gyp -j 8 build",
     "build:lib": "rm -rf ./dist/ && tsc",
-    "dev": "yarn build:lib && qode dist/demo.js"
+    "dev": "yarn build:lib && qode dist/demo.js",
+    "automoc": "node ./scripts/automoc.js"
   },
   "dependencies": {
     "bindings": "^1.5.0",

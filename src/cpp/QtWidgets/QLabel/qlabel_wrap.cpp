@@ -30,13 +30,9 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QLabelW
   Napi::HandleScope scope(env);
 
   if(info.Length() == 1) {
-    if(info[0].IsObject()){
-      Napi::Object object_parent = info[0].As<Napi::Object>();
-      QWidgetWrap* w_parent = Napi::ObjectWrap<QWidgetWrap>::Unwrap(object_parent);
-      this->instance = new NLabel(w_parent->getInternalInstance()); //this sets the parent to current widget
-    }else{
-      extrautils::throwTypeError(env, "Wrong type of arguments");
-    }
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NLabel(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   }else if (info.Length() == 0){
     this->instance = new NLabel();
   }else {

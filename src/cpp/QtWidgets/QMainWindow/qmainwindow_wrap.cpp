@@ -16,7 +16,7 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-QMainWindow* QMainWindowWrap::getInternalInstance() {
+NMainWindow* QMainWindowWrap::getInternalInstance() {
   return this->instance;
 }
 
@@ -25,15 +25,11 @@ QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
   Napi::HandleScope scope(env);
   
   if(info.Length() == 1) {
-    if(info[0].IsObject()){
-      Napi::Object object_parent = info[0].As<Napi::Object>();
-      QWidgetWrap* w_parent = Napi::ObjectWrap<QWidgetWrap>::Unwrap(object_parent);
-      this->instance = new QMainWindow(w_parent->getInternalInstance()); //this sets the parent to current widget
-    }else{
-      extrautils::throwTypeError(env, "Wrong type of arguments");
-    }
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NMainWindow(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   }else if (info.Length() == 0){
-    this->instance = new QMainWindow();
+    this->instance = new NMainWindow();
   }else {
     extrautils::throwTypeError(env, "Wrong number of arguments");
   }

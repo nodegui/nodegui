@@ -1,17 +1,17 @@
-#ifndef QPUSHBUTTON_WRAP_H
-#define QPUSHBUTTON_WRAP_H
+#pragma once
+
 #include <napi.h>
-#include <QPushButton>
+#include "npushbutton.h"
 #include "src/cpp/QtGui/QWidget/qwidget_macro.h"
 
 class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
  private:
-  QPushButton* instance;
+  NPushButton* instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QPushButtonWrap(const Napi::CallbackInfo& info);
   ~QPushButtonWrap();
-  QPushButton* getInternalInstance();
+  NPushButton* getInternalInstance();
   //class constructor
   static Napi::FunctionReference constructor;
   //wrapped methods
@@ -20,4 +20,4 @@ class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };
 
-#endif
+

@@ -27,13 +27,13 @@ FlexLayoutWrap::FlexLayoutWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap
   Napi::HandleScope scope(env);
 
   if(info.Length() == 2) {
-    Napi::Object object_parent = info[0].As<Napi::Object>();
-    QWidgetWrap* w_parent = Napi::ObjectWrap<QWidgetWrap>::Unwrap(object_parent);
-    this->instance = new FlexLayout(w_parent->getInternalInstance());
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    this->instance = new FlexLayout(parentWidgetWrap->getInternalInstance());
   } else if(info.Length() == 1) {
-    Napi::Object object_parent = info[0].As<Napi::Object>();
-    QWidgetWrap* w_parent = Napi::ObjectWrap<QWidgetWrap>::Unwrap(object_parent);
-    this->instance = new FlexLayout(w_parent->getInternalInstance()); //this sets the parent to current widget
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    this->instance = new FlexLayout(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   }else if (info.Length() == 0){
     this->instance = new FlexLayout();
   }else {
