@@ -37,6 +37,7 @@ QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
 }
 
 QPushButtonWrap::~QPushButtonWrap() {
+  this->emitterEmit.release();
   delete this->instance;
 }
 

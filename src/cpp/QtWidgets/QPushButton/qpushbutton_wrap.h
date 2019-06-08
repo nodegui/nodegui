@@ -8,6 +8,7 @@
 class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
  private:
   NPushButton* instance;
+  std::unique_ptr<ThreadSafeCallback> emitterEmit;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QPushButtonWrap(const Napi::CallbackInfo& info);
@@ -20,9 +21,15 @@ class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
    
   Napi::Value setNodeEventEmiiter(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
-    std::unique_ptr<ThreadSafeCallback> emitterEmit = std::make_unique<ThreadSafeCallback>(info[0].As<Napi::Function>());
-    this->instance->setNodeEmitterEmit(emitterEmit);
-    emitterEmit.release();
+    this->emitterEmit = std::make_unique<ThreadSafeCallback>(info[0].As<Napi::Function>());
+   
+    NPushButton::connect(this->instance, &QPushButton::clicked,
+                [=](bool val) { 
+                    this->emitterEmit->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                        args = {  Napi::String::New(env, "clicked"), Napi::Boolean::New(env, val) };
+                    });
+                }
+        );
     return env.Null();
   }
   
