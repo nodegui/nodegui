@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_NPushButton_t {
-    QByteArrayData data[45];
-    char stringdata0[489];
+    QByteArrayData data[47];
+    char stringdata0[503];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,59 +32,61 @@ struct qt_meta_stringdata_NPushButton_t {
 static const qt_meta_stringdata_NPushButton_t qt_meta_stringdata_NPushButton = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "NPushButton"
-QT_MOC_LITERAL(1, 12, 7), // "display"
-QT_MOC_LITERAL(2, 20, 10), // "alignItems"
-QT_MOC_LITERAL(3, 31, 12), // "alignContent"
-QT_MOC_LITERAL(4, 44, 9), // "alignSelf"
-QT_MOC_LITERAL(5, 54, 14), // "justifyContent"
-QT_MOC_LITERAL(6, 69, 9), // "direction"
-QT_MOC_LITERAL(7, 79, 13), // "flexDirection"
-QT_MOC_LITERAL(8, 93, 8), // "overflow"
-QT_MOC_LITERAL(9, 102, 8), // "position"
-QT_MOC_LITERAL(10, 111, 8), // "flexWrap"
-QT_MOC_LITERAL(11, 120, 4), // "flex"
-QT_MOC_LITERAL(12, 125, 8), // "flexGrow"
-QT_MOC_LITERAL(13, 134, 10), // "flexShrink"
-QT_MOC_LITERAL(14, 145, 11), // "aspectRatio"
-QT_MOC_LITERAL(15, 157, 3), // "top"
-QT_MOC_LITERAL(16, 161, 5), // "right"
-QT_MOC_LITERAL(17, 167, 6), // "bottom"
-QT_MOC_LITERAL(18, 174, 4), // "left"
-QT_MOC_LITERAL(19, 179, 9), // "flexBasis"
-QT_MOC_LITERAL(20, 189, 8), // "minWidth"
-QT_MOC_LITERAL(21, 198, 9), // "minHeight"
-QT_MOC_LITERAL(22, 208, 8), // "maxWidth"
-QT_MOC_LITERAL(23, 217, 9), // "maxHeight"
-QT_MOC_LITERAL(24, 227, 10), // "paddingTop"
-QT_MOC_LITERAL(25, 238, 12), // "paddingRight"
-QT_MOC_LITERAL(26, 251, 13), // "paddingBottom"
-QT_MOC_LITERAL(27, 265, 11), // "paddingLeft"
-QT_MOC_LITERAL(28, 277, 17), // "paddingHorizontal"
-QT_MOC_LITERAL(29, 295, 15), // "paddingVertical"
-QT_MOC_LITERAL(30, 311, 7), // "padding"
-QT_MOC_LITERAL(31, 319, 9), // "marginTop"
-QT_MOC_LITERAL(32, 329, 11), // "marginRight"
-QT_MOC_LITERAL(33, 341, 12), // "marginBottom"
-QT_MOC_LITERAL(34, 354, 10), // "marginLeft"
-QT_MOC_LITERAL(35, 365, 16), // "marginHorizontal"
-QT_MOC_LITERAL(36, 382, 14), // "marginVertical"
-QT_MOC_LITERAL(37, 397, 6), // "margin"
-QT_MOC_LITERAL(38, 404, 9), // "borderTop"
-QT_MOC_LITERAL(39, 414, 11), // "borderRight"
-QT_MOC_LITERAL(40, 426, 12), // "borderBottom"
-QT_MOC_LITERAL(41, 439, 10), // "borderLeft"
-QT_MOC_LITERAL(42, 450, 16), // "borderHorizontal"
-QT_MOC_LITERAL(43, 467, 14), // "borderVertical"
-QT_MOC_LITERAL(44, 482, 6) // "border"
+QT_MOC_LITERAL(1, 12, 12), // "handleButton"
+QT_MOC_LITERAL(2, 25, 0), // ""
+QT_MOC_LITERAL(3, 26, 7), // "display"
+QT_MOC_LITERAL(4, 34, 10), // "alignItems"
+QT_MOC_LITERAL(5, 45, 12), // "alignContent"
+QT_MOC_LITERAL(6, 58, 9), // "alignSelf"
+QT_MOC_LITERAL(7, 68, 14), // "justifyContent"
+QT_MOC_LITERAL(8, 83, 9), // "direction"
+QT_MOC_LITERAL(9, 93, 13), // "flexDirection"
+QT_MOC_LITERAL(10, 107, 8), // "overflow"
+QT_MOC_LITERAL(11, 116, 8), // "position"
+QT_MOC_LITERAL(12, 125, 8), // "flexWrap"
+QT_MOC_LITERAL(13, 134, 4), // "flex"
+QT_MOC_LITERAL(14, 139, 8), // "flexGrow"
+QT_MOC_LITERAL(15, 148, 10), // "flexShrink"
+QT_MOC_LITERAL(16, 159, 11), // "aspectRatio"
+QT_MOC_LITERAL(17, 171, 3), // "top"
+QT_MOC_LITERAL(18, 175, 5), // "right"
+QT_MOC_LITERAL(19, 181, 6), // "bottom"
+QT_MOC_LITERAL(20, 188, 4), // "left"
+QT_MOC_LITERAL(21, 193, 9), // "flexBasis"
+QT_MOC_LITERAL(22, 203, 8), // "minWidth"
+QT_MOC_LITERAL(23, 212, 9), // "minHeight"
+QT_MOC_LITERAL(24, 222, 8), // "maxWidth"
+QT_MOC_LITERAL(25, 231, 9), // "maxHeight"
+QT_MOC_LITERAL(26, 241, 10), // "paddingTop"
+QT_MOC_LITERAL(27, 252, 12), // "paddingRight"
+QT_MOC_LITERAL(28, 265, 13), // "paddingBottom"
+QT_MOC_LITERAL(29, 279, 11), // "paddingLeft"
+QT_MOC_LITERAL(30, 291, 17), // "paddingHorizontal"
+QT_MOC_LITERAL(31, 309, 15), // "paddingVertical"
+QT_MOC_LITERAL(32, 325, 7), // "padding"
+QT_MOC_LITERAL(33, 333, 9), // "marginTop"
+QT_MOC_LITERAL(34, 343, 11), // "marginRight"
+QT_MOC_LITERAL(35, 355, 12), // "marginBottom"
+QT_MOC_LITERAL(36, 368, 10), // "marginLeft"
+QT_MOC_LITERAL(37, 379, 16), // "marginHorizontal"
+QT_MOC_LITERAL(38, 396, 14), // "marginVertical"
+QT_MOC_LITERAL(39, 411, 6), // "margin"
+QT_MOC_LITERAL(40, 418, 9), // "borderTop"
+QT_MOC_LITERAL(41, 428, 11), // "borderRight"
+QT_MOC_LITERAL(42, 440, 12), // "borderBottom"
+QT_MOC_LITERAL(43, 453, 10), // "borderLeft"
+QT_MOC_LITERAL(44, 464, 16), // "borderHorizontal"
+QT_MOC_LITERAL(45, 481, 14), // "borderVertical"
+QT_MOC_LITERAL(46, 496, 6) // "border"
 
     },
-    "NPushButton\0display\0alignItems\0"
-    "alignContent\0alignSelf\0justifyContent\0"
-    "direction\0flexDirection\0overflow\0"
-    "position\0flexWrap\0flex\0flexGrow\0"
-    "flexShrink\0aspectRatio\0top\0right\0"
-    "bottom\0left\0flexBasis\0minWidth\0minHeight\0"
-    "maxWidth\0maxHeight\0paddingTop\0"
+    "NPushButton\0handleButton\0\0display\0"
+    "alignItems\0alignContent\0alignSelf\0"
+    "justifyContent\0direction\0flexDirection\0"
+    "overflow\0position\0flexWrap\0flex\0"
+    "flexGrow\0flexShrink\0aspectRatio\0top\0"
+    "right\0bottom\0left\0flexBasis\0minWidth\0"
+    "minHeight\0maxWidth\0maxHeight\0paddingTop\0"
     "paddingRight\0paddingBottom\0paddingLeft\0"
     "paddingHorizontal\0paddingVertical\0"
     "padding\0marginTop\0marginRight\0"
@@ -101,16 +103,20 @@ static const uint qt_meta_data_NPushButton[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
-      44,   14, // properties
+       1,   14, // methods
+      44,   20, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
+ // slots: name, argc, parameters, tag, flags
+       1,    0,   19,    2, 0x08 /* Private */,
+
+ // slots: parameters
+    QMetaType::Void,
+
  // properties: name, type, flags
-       1, QMetaType::QString, 0x00095003,
-       2, QMetaType::QString, 0x00095003,
        3, QMetaType::QString, 0x00095003,
        4, QMetaType::QString, 0x00095003,
        5, QMetaType::QString, 0x00095003,
@@ -119,12 +125,12 @@ static const uint qt_meta_data_NPushButton[] = {
        8, QMetaType::QString, 0x00095003,
        9, QMetaType::QString, 0x00095003,
       10, QMetaType::QString, 0x00095003,
-      11, QMetaType::Float, 0x00095003,
-      12, QMetaType::Float, 0x00095003,
+      11, QMetaType::QString, 0x00095003,
+      12, QMetaType::QString, 0x00095003,
       13, QMetaType::Float, 0x00095003,
       14, QMetaType::Float, 0x00095003,
-      15, QMetaType::QString, 0x00095003,
-      16, QMetaType::QString, 0x00095003,
+      15, QMetaType::Float, 0x00095003,
+      16, QMetaType::Float, 0x00095003,
       17, QMetaType::QString, 0x00095003,
       18, QMetaType::QString, 0x00095003,
       19, QMetaType::QString, 0x00095003,
@@ -146,22 +152,31 @@ static const uint qt_meta_data_NPushButton[] = {
       35, QMetaType::QString, 0x00095003,
       36, QMetaType::QString, 0x00095003,
       37, QMetaType::QString, 0x00095003,
-      38, QMetaType::Float, 0x00095003,
-      39, QMetaType::Float, 0x00095003,
+      38, QMetaType::QString, 0x00095003,
+      39, QMetaType::QString, 0x00095003,
       40, QMetaType::Float, 0x00095003,
       41, QMetaType::Float, 0x00095003,
       42, QMetaType::Float, 0x00095003,
       43, QMetaType::Float, 0x00095003,
       44, QMetaType::Float, 0x00095003,
+      45, QMetaType::Float, 0x00095003,
+      46, QMetaType::Float, 0x00095003,
 
        0        // eod
 };
 
 void NPushButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<NPushButton *>(_o);
+        Q_UNUSED(_t)
+        switch (_id) {
+        case 0: _t->handleButton(); break;
+        default: ;
+        }
+    }
 #ifndef QT_NO_PROPERTIES
-    if (_c == QMetaObject::ReadProperty) {
+    else if (_c == QMetaObject::ReadProperty) {
         auto *_t = static_cast<NPushButton *>(_o);
         Q_UNUSED(_t)
         void *_v = _a[0];
@@ -266,9 +281,6 @@ void NPushButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     } else if (_c == QMetaObject::ResetProperty) {
     }
 #endif // QT_NO_PROPERTIES
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
     Q_UNUSED(_a);
 }
 
@@ -302,9 +314,17 @@ int NPushButton::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QPushButton::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
-    
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<int*>(_a[0]) = -1;
+        _id -= 1;
+    }
 #ifndef QT_NO_PROPERTIES
-   if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+   else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
         _id -= 44;

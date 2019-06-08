@@ -2,7 +2,10 @@ import { QMainWindow } from "./src/lib/QtWidgets/QMainWindow";
 import { QWidget } from "./src/lib/QtGui/QWidget";
 import { QGridLayout } from "./src/lib/QtWidgets/QGridLayout";
 import { QLabel } from "./src/lib/QtWidgets/QLabel";
-import { QPushButton } from "./src/lib/QtWidgets/QPushButton";
+import {
+  QPushButton,
+  QPushButtonEvents
+} from "./src/lib/QtWidgets/QPushButton";
 import { QCheckBox } from "./src/lib/QtWidgets/QCheckBox";
 import { QProgressBar } from "./src/lib/QtWidgets/QProgressBar";
 import { QRadioButton } from "./src/lib/QtWidgets/QRadioButton";
@@ -22,6 +25,12 @@ const testGridLayout = () => {
   label.setStyleSheet("background-color:blue; color:white;");
 
   const button1 = new QPushButton();
+  button1.setEventListener(QPushButtonEvents.clicked, () => {
+    console.log("THIS IS Yolo from JS");
+  });
+  button1.setEventListener(QPushButtonEvents.pressed, () => {
+    console.log("THIS IS PRESED FROM JS");
+  });
   button1.setText("Yolo");
 
   const checkbox = new QCheckBox();

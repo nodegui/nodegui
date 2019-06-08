@@ -9,6 +9,7 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QPushButton";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setText", &QPushButtonWrap::setText),
+    InstanceMethod("setNodeEventEmiiter",&QPushButtonWrap::setNodeEventEmiiter),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)
   });
   constructor = Napi::Persistent(func);
@@ -36,6 +37,7 @@ QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
 }
 
 QPushButtonWrap::~QPushButtonWrap() {
+  spdlog::info("WRAPPER DESTRUCTOR CALLED");
   delete this->instance;
 }
 
@@ -52,3 +54,4 @@ Napi::Value QPushButtonWrap::setText(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+ 

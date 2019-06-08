@@ -1,7 +1,7 @@
 {
     "includes": [],
     "target_defaults": {
-        "include_dirs": ['../deps/'],
+        "include_dirs": ['../deps/', "<!@(node -p \"require('napi-thread-safe-callback').include\")"],
         "cflags": ['-DSPDLOG_COMPILED_LIB'],
         "sources": [
             "../deps/yoga/Yoga.cpp",
