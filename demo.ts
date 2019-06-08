@@ -4,7 +4,7 @@ import { QGridLayout } from "./src/lib/QtWidgets/QGridLayout";
 import { QLabel } from "./src/lib/QtWidgets/QLabel";
 import {
   QPushButton,
-  QPushButtonEvents
+  QPushButtonSignal
 } from "./src/lib/QtWidgets/QPushButton";
 import { QCheckBox } from "./src/lib/QtWidgets/QCheckBox";
 import { QProgressBar } from "./src/lib/QtWidgets/QProgressBar";
@@ -25,17 +25,17 @@ const testGridLayout = () => {
   label.setStyleSheet("background-color:blue; color:white;");
 
   const button1 = new QPushButton();
-  button1.setEventListener(QPushButtonEvents.clicked, (...args) => {
-    console.log("clicked", ...args);
+  button1.setSignalListener(QPushButtonSignal.clicked, isChecked => {
+    console.log("clicked", isChecked);
   });
-  button1.setEventListener(QPushButtonEvents.pressed, (...args) => {
+  button1.setSignalListener(QPushButtonSignal.pressed, (...args) => {
     console.log("pressed", ...args);
   });
-  button1.setEventListener(QPushButtonEvents.released, (...args) => {
+  button1.setSignalListener(QPushButtonSignal.released, (...args) => {
     console.log("released", ...args);
   });
-  button1.setEventListener(QPushButtonEvents.toggled, (...args) => {
-    console.log("toggled", ...args);
+  button1.setSignalListener(QPushButtonSignal.toggled, isToggled => {
+    console.log("toggled", isToggled);
   });
 
   button1.setText(`Button for Label with text: ${label.text()}`);

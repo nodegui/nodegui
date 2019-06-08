@@ -1,15 +1,15 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
-import { EventNodeWidget } from "../../core/EventNodeWidget";
+import { SignalNodeWidget } from "../../core/SignalNodeWidget";
 
-export enum QPushButtonEvents {
+export enum QPushButtonSignal {
   clicked = "clicked",
   pressed = "pressed",
   released = "released",
   toggled = "toggled"
 }
 
-export class QPushButton extends EventNodeWidget {
+export class QPushButton extends SignalNodeWidget {
   native: any;
   constructor(parent?: NodeWidget) {
     let native;

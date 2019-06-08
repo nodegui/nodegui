@@ -9,7 +9,7 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QPushButton";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setText", &QPushButtonWrap::setText),
-    InstanceMethod("setupEventListeners",&QPushButtonWrap::setupEventListeners),
+    InstanceMethod("setupSignalListeners",&QPushButtonWrap::setupSignalListeners),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)
   });
   constructor = Napi::Persistent(func);
@@ -41,7 +41,7 @@ QPushButtonWrap::~QPushButtonWrap() {
   delete this->instance;
 }
 
-Napi::Value QPushButtonWrap::setupEventListeners(const Napi::CallbackInfo& info) {
+Napi::Value QPushButtonWrap::setupSignalListeners(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
     this->emitOnNode = std::make_unique<ThreadSafeCallback>(info[0].As<Napi::Function>());
    // Qt Connects: Implement all signal connects here 
