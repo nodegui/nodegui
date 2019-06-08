@@ -25,12 +25,19 @@ const testGridLayout = () => {
   label.setStyleSheet("background-color:blue; color:white;");
 
   const button1 = new QPushButton();
-  button1.setEventListener(QPushButtonEvents.clicked, () => {
-    console.log("THIS IS Yolo from JS");
+  button1.setEventListener(QPushButtonEvents.clicked, (...args) => {
+    console.log("clicked", ...args);
   });
-  button1.setEventListener(QPushButtonEvents.pressed, () => {
-    console.log("THIS IS PRESED FROM JS");
+  button1.setEventListener(QPushButtonEvents.pressed, (...args) => {
+    console.log("pressed", ...args);
   });
+  button1.setEventListener(QPushButtonEvents.released, (...args) => {
+    console.log("released", ...args);
+  });
+  button1.setEventListener(QPushButtonEvents.toggled, (...args) => {
+    console.log("toggled", ...args);
+  });
+
   button1.setText("Yolo");
 
   const checkbox = new QCheckBox();

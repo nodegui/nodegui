@@ -12,7 +12,7 @@ export enum QPushButtonEvents {
 type EventCallback = (payload?: any) => void;
 export class QPushButton extends NodeWidget {
   native: any;
-  private eventEmiiter: EventEmitter;
+  private emitter: EventEmitter;
   constructor(parent?: NodeWidget) {
     super();
     if (parent) {
@@ -21,17 +21,14 @@ export class QPushButton extends NodeWidget {
     } else {
       this.native = new addon.QPushButton();
     }
-    this.eventEmiiter = this.initEventEmitter(this.native);
+    this.emitter = new EventEmitter();
+    this.native.setupEventListeners(this.emitter.emit.bind(this.emitter));
   }
-  private initEventEmitter(native: any): EventEmitter {
-    const emitter = new EventEmitter();
-    native.setNodeEventEmiiter(emitter.emit.bind(emitter));
-    return emitter;
-  }
+
   setText(text: string) {
     this.native.setText(text);
   }
   setEventListener(eventType: QPushButtonEvents, callback: EventCallback) {
-    this.eventEmiiter.on(eventType, callback);
+    this.emitter.on(eventType, callback);
   }
 }

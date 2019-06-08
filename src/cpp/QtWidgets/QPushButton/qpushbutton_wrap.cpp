@@ -9,7 +9,7 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QPushButton";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setText", &QPushButtonWrap::setText),
-    InstanceMethod("setNodeEventEmiiter",&QPushButtonWrap::setNodeEventEmiiter),
+    InstanceMethod("setupEventListeners",&QPushButtonWrap::setupEventListeners),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)
   });
   constructor = Napi::Persistent(func);
@@ -37,7 +37,7 @@ QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
 }
 
 QPushButtonWrap::~QPushButtonWrap() {
-  this->emitterEmit.release();
+  this->nodeEmit.release();
   delete this->instance;
 }
 

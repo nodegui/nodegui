@@ -8,7 +8,7 @@
 class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
  private:
   NPushButton* instance;
-  std::unique_ptr<ThreadSafeCallback> emitterEmit;
+  std::unique_ptr<ThreadSafeCallback> nodeEmit;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QPushButtonWrap(const Napi::CallbackInfo& info);
@@ -19,17 +19,38 @@ class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
   //wrapped methods
   Napi::Value setText(const Napi::CallbackInfo& info);
    
-  Napi::Value setNodeEventEmiiter(const Napi::CallbackInfo& info) {
+  Napi::Value setupEventListeners(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
-    this->emitterEmit = std::make_unique<ThreadSafeCallback>(info[0].As<Napi::Function>());
+    this->nodeEmit = std::make_unique<ThreadSafeCallback>(info[0].As<Napi::Function>());
    
     NPushButton::connect(this->instance, &QPushButton::clicked,
                 [=](bool val) { 
-                    this->emitterEmit->call([=](Napi::Env env, std::vector<napi_value>& args) {
-                        args = {  Napi::String::New(env, "clicked"), Napi::Boolean::New(env, val) };
+                    this->nodeEmit->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                        args = {  Napi::String::New(env, "clicked"), Napi::Value::From(env,val) };
                     });
                 }
         );
+    NPushButton::connect(this->instance, &QPushButton::released,
+                [=]() { 
+                    this->nodeEmit->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                        args = {  Napi::String::New(env, "released") };
+                    });
+                }
+        );
+    NPushButton::connect(this->instance, &QPushButton::pressed,
+            [=]() { 
+                this->nodeEmit->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                    args = {  Napi::String::New(env, "pressed") };
+                });
+            }
+    );
+    NPushButton::connect(this->instance, &QPushButton::toggled,
+            [=](bool val) { 
+                this->nodeEmit->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                    args = {  Napi::String::New(env, "toggled"), Napi::Value::From(env,val) };
+                });
+            }
+    );
     return env.Null();
   }
   
