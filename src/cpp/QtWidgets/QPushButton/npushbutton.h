@@ -15,14 +15,11 @@ public:
     SET_YOGA_WIDGET_Q_PROPERTIES
     using QPushButton::QPushButton; //inherit all constructors of QPushButton
     NPushButton(){
-        connect(this, SIGNAL(pressed()),this,SLOT(
-            handleButton()
-        ));
+        connect(this, SIGNAL(pressed()),this,SLOT(handleButton()));
     }
-    ~NPushButton(){
-        spdlog::info("DESTRUCTOR CALLED NPUSHBUTTON");
+    ~NPushButton() {
         this->emitRef.reset();
-    }
+    };
     Q_OBJECT
 private slots:
     void handleButton(){
@@ -32,8 +29,6 @@ private slots:
                 // arguments for the call
                 args = {  Napi::String::New(env, "clicked"), Napi::String::New(env, "YOLO") };
             });
-             spdlog::info("HANDLEBUTTON CALLED NPUSHBUTTON");
-
     }
 public:
     void setNodeEmitterEmit( std::unique_ptr<ThreadSafeCallback> &emitterEmit){

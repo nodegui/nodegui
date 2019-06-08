@@ -34,6 +34,7 @@ QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
   }else {
     extrautils::throwTypeError(env, "Wrong number of arguments");
   }
+  this->instance->setAttribute(Qt::WA_DeleteOnClose);
 }
 
 QMainWindowWrap::~QMainWindowWrap() {

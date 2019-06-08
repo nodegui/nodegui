@@ -37,10 +37,8 @@ QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
 }
 
 QPushButtonWrap::~QPushButtonWrap() {
-  spdlog::info("WRAPPER DESTRUCTOR CALLED");
   delete this->instance;
 }
-
 
 Napi::Value QPushButtonWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -49,8 +47,6 @@ Napi::Value QPushButtonWrap::setText(const Napi::CallbackInfo& info) {
   Napi::String napiText = info[0].As<Napi::String>();
   std::string text = napiText.Utf8Value();
   this->instance->setText(text.c_str()); 
-  // this->instance->repaint();
-
   return env.Null();
 }
 
