@@ -214,6 +214,14 @@ This will run moc on `headername.h` and generate `headername_moc.cpp`. We will i
 
 I hope QLabel's example is enough for now. For more examples and inspirations we can take a look at other wrapped widgets.
 
+## More docs for contributing
+
+Looking to contribute? If you wish to implement a new widget/add more features and need help understanding the codebase. You can start here:
+
+Contributing developer docs link:
+
+https://github.com/master-atul/node-native-ui/tree/master/devdocs
+
 # DEBUGGING
 
 https://medium.com/@atulanand94/debugging-nodejs-c-addons-using-vs-code-27e9940fc3ad
@@ -223,7 +231,6 @@ https://medium.com/cameron-nokes/how-to-debug-native-node-addons-in-mac-osx-66f6
 # Common errors
 
 1. Segmentation fault: Segmentation fault occurs when you access a Pointer that is pointing to an invalid memory address. One major reason for this can be that JS garbage collector would have garbage collected the addon generated value and you try accessing it after a while. This is mostly the case if you see seg fault happening randomly after some time of startup.
-
 
 ### LICENSE
 
