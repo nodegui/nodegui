@@ -18,7 +18,7 @@ Linux and Windows screenshots to be added soon.
 - [x] Supports styling using css (includes actual cascading) or atleast useful subset of css properties.
 - [x] Complete Nodejs api support (Currently runs on Node v12 - and is easily upgradable).
 - [x] Can use all node compatible npm modules.
-- [ ] Native widget event listener support.
+- [x] Native widget event listener support.
 - [x] Should be usable for commercial applications aswell.
 - [ ] (Partial) Should have a decent list of stylable native widgets.
 - [ ] Easy build and packaging process.
