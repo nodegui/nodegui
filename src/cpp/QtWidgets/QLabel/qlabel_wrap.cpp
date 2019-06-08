@@ -12,6 +12,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setWordWrap", &QLabelWrap::setWordWrap),
     InstanceMethod("setText", &QLabelWrap::setText),
+    InstanceMethod("text", &QLabelWrap::text),
     InstanceMethod("getFlexNode", &QLabelWrap::getFlexNode),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)
     YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)
@@ -65,3 +66,11 @@ Napi::Value QLabelWrap::setText(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+Napi::Value QLabelWrap::text(const Napi::CallbackInfo &info)
+{
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  std::string labelText = this->instance->text().toStdString();
+  return Napi::String::New(env, labelText);
+}

@@ -38,7 +38,7 @@ const testGridLayout = () => {
     console.log("toggled", ...args);
   });
 
-  button1.setText("Yolo");
+  button1.setText(`Button for Label with text: ${label.text()}`);
 
   const checkbox = new QCheckBox();
   checkbox.setText("Checkbox text");

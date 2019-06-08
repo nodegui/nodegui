@@ -19,6 +19,9 @@ export class QLabel extends NodeWidget {
   setText(text: string) {
     this.native.setText(text);
   }
+  text() {
+    return this.native.text();
+  }
   getFlexNode(): FlexNode {
     const nativeFlexNode = this.native.getFlexNode();
     return new FlexNode(nativeFlexNode);
