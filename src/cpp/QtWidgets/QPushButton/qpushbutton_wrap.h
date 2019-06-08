@@ -20,9 +20,9 @@ class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
    
   Napi::Value setNodeEventEmiiter(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
-    std::shared_ptr<ThreadSafeCallback> emitterEmit = std::make_shared<ThreadSafeCallback>(info[0].As<Napi::Function>());
+    std::unique_ptr<ThreadSafeCallback> emitterEmit = std::make_unique<ThreadSafeCallback>(info[0].As<Napi::Function>());
     this->instance->setNodeEmitterEmit(emitterEmit);
-    emitterEmit.reset();
+    emitterEmit.release();
     return env.Null();
   }
   

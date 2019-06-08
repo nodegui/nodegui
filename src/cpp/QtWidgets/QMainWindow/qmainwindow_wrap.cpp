@@ -23,7 +23,7 @@ NMainWindow* QMainWindowWrap::getInternalInstance() {
 QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QMainWindowWrap>(info)  {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  SuppressDestruct();
+  // SuppressDestruct();
 
   if(info.Length() == 1) {
       Napi::Object parentObject = info[0].As<Napi::Object>();

@@ -10,7 +10,7 @@
 class NPushButton: public QPushButton, public YogaWidget
 {
 private:
-    std::shared_ptr<ThreadSafeCallback>  emitRef;
+    std::unique_ptr<ThreadSafeCallback>  emitRef;
 public:
     SET_YOGA_WIDGET_Q_PROPERTIES
     using QPushButton::QPushButton; //inherit all constructors of QPushButton
@@ -19,25 +19,25 @@ public:
             handleButton()
         ));
     }
+    ~NPushButton(){
+        spdlog::info("DESTRUCTOR CALLED NPUSHBUTTON");
+        this->emitRef.reset();
+    }
     Q_OBJECT
 private slots:
     void handleButton(){
-        emitRef->call([](Napi::Env env, std::vector<napi_value>& args)
+            emitRef->call([](Napi::Env env, std::vector<napi_value>& args)
             {
                 // This will run in main thread and needs to construct the
                 // arguments for the call
                 args = {  Napi::String::New(env, "clicked"), Napi::String::New(env, "YOLO") };
             });
-                spdlog::info("HANDLEBUTTON CALLED NPUSHBUTTON");
+             spdlog::info("HANDLEBUTTON CALLED NPUSHBUTTON");
 
     }
 public:
-    void setNodeEmitterEmit(std::shared_ptr<ThreadSafeCallback> emitterEmit){
-        this->emitRef = emitterEmit;
-    }
-    ~NPushButton(){
-        spdlog::info("DESTRUCTOR CALLED NPUSHBUTTON");
-        this->emitRef.reset();
+    void setNodeEmitterEmit( std::unique_ptr<ThreadSafeCallback> &emitterEmit){
+        this->emitRef = std::move(emitterEmit); 
     }
 };
 
