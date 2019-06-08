@@ -1,6 +1,6 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
-import { EventEmitter } from "events";
+import { EventNodeWidget } from "../../core/EventNodeWidget";
 
 export enum QPushButtonEvents {
   clicked = "clicked",
@@ -9,26 +9,21 @@ export enum QPushButtonEvents {
   toggled = "toggled"
 }
 
-type EventCallback = (payload?: any) => void;
-export class QPushButton extends NodeWidget {
+export class QPushButton extends EventNodeWidget {
   native: any;
-  private emitter: EventEmitter;
   constructor(parent?: NodeWidget) {
-    super();
+    let native;
     if (parent) {
-      this.native = new addon.QPushButton(parent.native);
-      this.parent = parent;
+      native = new addon.QPushButton(parent.native);
     } else {
-      this.native = new addon.QPushButton();
+      native = new addon.QPushButton();
     }
-    this.emitter = new EventEmitter();
-    this.native.setupEventListeners(this.emitter.emit.bind(this.emitter));
+    super(native);
+    this.parent = parent;
+    this.native = native;
   }
 
   setText(text: string) {
     this.native.setText(text);
-  }
-  setEventListener(eventType: QPushButtonEvents, callback: EventCallback) {
-    this.emitter.on(eventType, callback);
   }
 }
