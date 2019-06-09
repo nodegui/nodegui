@@ -66,8 +66,13 @@ const testGridLayout = () => {
 
 const testFlexLayout = () => {
   const win = new QMainWindow();
+  const rootView = new QWidget();
+  const rootLayout = new FlexLayout();
+  rootLayout.setFlexNode(rootView.getFlexNode());
+  rootView.setLayout(rootLayout);
+  win.setCentralWidget(rootView);
+
   const view = new QWidget();
-  win.setCentralWidget(view);
   view.setStyleSheet(
     `
       background-color: green;
@@ -94,14 +99,26 @@ const testFlexLayout = () => {
     color:white;
     qproperty-alignSelf: 'stretch';
   `);
-  view.setLayout(flayout);
 
   flayout.addWidget(label2, label2.getFlexNode());
   flayout.addWidget(label, label.getFlexNode());
+  view.setLayout(flayout);
+
+  const view2 = new QWidget();
+  const flayout2 = new FlexLayout();
+  flayout2.setFlexNode(view2.getFlexNode());
+  view2.setLayout(flayout2);
+
+  const button = new QPushButton();
+  button.setText("Hululu");
+  flayout2.addWidget(button, button.getFlexNode());
+
+  rootLayout.addWidget(view, view.getFlexNode());
+  rootLayout.addWidget(view2, view2.getFlexNode());
 
   win.show();
   return win;
 };
 
-(global as any).win1 = testGridLayout(); //to keep gc from collecting
+// (global as any).win1 = testGridLayout(); //to keep gc from collecting
 (global as any).win2 = testFlexLayout(); //to keep gc from collecting
