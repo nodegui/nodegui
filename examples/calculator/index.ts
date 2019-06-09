@@ -6,10 +6,6 @@ import { QLabel } from "../../src/lib/QtWidgets/QLabel";
 
 const globals = global as any;
 
-// Main Window
-const win = new QMainWindow();
-win.resize(400, 600);
-
 const getButton = (
   label: string,
   value: number | string,
@@ -24,6 +20,10 @@ const getButton = (
   };
 };
 
+// Main Window
+const win = new QMainWindow();
+win.resize(400, 600);
+
 // Top Row
 const btnClear = getButton("AC", "AC", "command");
 const resultText = new QLabel();
@@ -34,9 +34,9 @@ row0.setStyleSheet(`
 `);
 const row0Layout = new FlexLayout();
 row0Layout.setFlexNode(row0.getFlexNode());
+row0.setLayout(row0Layout);
 row0Layout.addWidget(btnClear.ui, btnClear.ui.getFlexNode());
 row0Layout.addWidget(resultText, resultText.getFlexNode());
-row0.setLayout(row0Layout);
 
 // First Row
 const btn7 = getButton("7", 7, "value");

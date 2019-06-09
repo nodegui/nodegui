@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <QWidget>
 #include "spdlog/spdlog.h"
+#include "src/cpp/core/YogaWidget/yogawidget.h"
 
 FlexLayout::NodeContext *FlexLayout::getNodeContext(YGNodeRef node)
 {
@@ -47,7 +48,12 @@ QSize FlexLayout::sizeHint() const{
 }
 
 void FlexLayout::addItem(QLayoutItem * item){
-    spdlog::warn("Unsupported method addItem. item: {}. Use FlexLayout::addWidget instead", reinterpret_cast<ulong>(item));
+    QWidget* childWidget = item->widget();
+    if(childWidget){
+        spdlog::info("flexlayout: addItem - noop for: {}",childWidget->metaObject()->className());
+        return;
+    }
+    spdlog::info("flexlayout: addItem - noop for: {}", reinterpret_cast<ulong>(item));
 }
 
 QLayoutItem *FlexLayout::itemAt(int index) const
@@ -55,9 +61,11 @@ QLayoutItem *FlexLayout::itemAt(int index) const
     if(!this->node){
         return nullptr;
     }
+    spdlog::info("flexlayout: itemAt {}",index);
     YGNodeRef childNode = YGNodeGetChild(this->node, static_cast<uint>(index));
     NodeContext *ctx = getNodeContext(childNode);
     if(!ctx){
+        spdlog::info("flexlayout: itemAt null context {}",index);
         return nullptr;
     }
     return ctx->item;
@@ -69,6 +77,7 @@ QLayoutItem *FlexLayout::takeAt(int index)
     NodeContext *ctx = getNodeContext(childNode);
     QLayoutItem* childLayoutItem = ctx->item;
     YGNodeRemoveChild(this->node, childNode);
+    spdlog::info("flexlayout: takeAt ",index);
     delete ctx;
     return childLayoutItem;
 }
@@ -79,6 +88,7 @@ int FlexLayout::count() const
         return 0;
     }
     float childCount = YGNodeGetChildCount(this->node);
+    spdlog::info("flexlayout: count {}",childCount);
     return static_cast<int>(childCount);
 
 }
@@ -89,11 +99,14 @@ void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode)
         spdlog::warn("Flex layout's parent yoga node not set yet. Set it using setFlexNode. Child widget will not be added to Flex Layout");
         return;
     }
+    spdlog::info("flexlayout: addWidget Object: {}",childWidget->metaObject()->className());
+
     uint count =  YGNodeGetChildCount(this->node);
     YGNodeInsertChild(this->node,childNode, count);
     QLayoutItem* layoutItem = new QWidgetItem(childWidget);
     NodeContext* childContext = new NodeContext(layoutItem);
     YGNodeSetContext(childNode, static_cast<void *>(childContext));
+    QLayout::addWidget(childWidget);
 }
 
 void FlexLayout::setGeometry(const QRect &rect)
@@ -122,7 +135,7 @@ void FlexLayout::setGeometry(const QRect &rect)
             QWidget* childWidget = childLayoutItem->widget();
             if(childWidget){
                 childWidget->setGeometry(childRect);
-                spdlog::info("Object: {}, rect: w:{}, h:{}, l:{}, t:{}",childWidget->metaObject()->className(),width,height,left,top);
+                spdlog::info("flexlayout setGeometry: {}, rect: w:{}, h:{}, l:{}, t:{}",childWidget->metaObject()->className(),width,height,left,top);
             }else {
                 childLayoutItem->setGeometry(childRect);
             }

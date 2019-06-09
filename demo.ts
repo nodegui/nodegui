@@ -94,11 +94,10 @@ const testFlexLayout = () => {
     color:white;
     qproperty-alignSelf: 'stretch';
   `);
+  view.setLayout(flayout);
 
   flayout.addWidget(label2, label2.getFlexNode());
   flayout.addWidget(label, label.getFlexNode());
-
-  view.setLayout(flayout);
 
   win.show();
   return win;

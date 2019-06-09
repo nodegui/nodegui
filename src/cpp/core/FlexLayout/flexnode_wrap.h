@@ -1,5 +1,4 @@
-#ifndef FLEXNODE_WRAP_H
-#define FLEXNODE_WRAP_H
+#pragma once
 #include <napi.h>
 #include "deps/yoga/YGNode.h"
 
@@ -22,4 +21,4 @@ class FlexNodeWrap : public  Napi::ObjectWrap<FlexNodeWrap>{
   Napi::Value debugValue(const Napi::CallbackInfo& info);
 };
 
-#endif
+
