@@ -108,6 +108,7 @@ rootViewFlexLayout.addWidget(row0, row0.getFlexNode());
 rootViewFlexLayout.addWidget(row1, row1.getFlexNode());
 rootViewFlexLayout.addWidget(row2, row2.getFlexNode());
 rootViewFlexLayout.addWidget(row3, row3.getFlexNode());
+rootViewFlexLayout.addWidget(row4, row4.getFlexNode());
 rootView.setLayout(rootViewFlexLayout);
 
 win.show();

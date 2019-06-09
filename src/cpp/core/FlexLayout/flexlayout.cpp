@@ -40,8 +40,9 @@ QSize FlexLayout::sizeHint() const{
         return QSize(0,0);
     }
     QSize size;
-    int width = static_cast<int>(YGNodeLayoutGetWidth(this->node));
-    int height = static_cast<int>(YGNodeLayoutGetHeight(this->node));
+    int width = static_cast<uint>(YGNodeLayoutGetWidth(this->node));
+    int height = static_cast<uint>(YGNodeLayoutGetHeight(this->node));
+    spdlog::info("flexlayout: sizeHint {}x{}",width, height);
     size.setWidth(width);
     size.setHeight(height);
     return size;
@@ -89,8 +90,7 @@ int FlexLayout::count() const
     }
     float childCount = YGNodeGetChildCount(this->node);
     spdlog::info("flexlayout: count {}",childCount);
-    return static_cast<int>(childCount);
-
+    return static_cast<uint>(childCount);
 }
 
 void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode)
@@ -123,10 +123,10 @@ void FlexLayout::setGeometry(const QRect &rect)
 
     for (uint i = 0; i < count; ++i) {
         YGNode *childNode = YGNodeGetChild(this->node, i);
-        int width = static_cast<int>(YGNodeLayoutGetWidth(childNode));
-        int height = static_cast<int>(YGNodeLayoutGetHeight(childNode));
-        int left = static_cast<int>(YGNodeLayoutGetLeft(childNode));
-        int top = static_cast<int>(YGNodeLayoutGetTop(childNode));
+        int width = static_cast<uint>(YGNodeLayoutGetWidth(childNode));
+        int height = static_cast<uint>(YGNodeLayoutGetHeight(childNode));
+        int left = static_cast<uint>(YGNodeLayoutGetLeft(childNode));
+        int top = static_cast<uint>(YGNodeLayoutGetTop(childNode));
 
         QRect childRect(left, top,width, height);
         NodeContext *ctx = getNodeContext(childNode);

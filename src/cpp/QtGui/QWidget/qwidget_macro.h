@@ -39,8 +39,8 @@ Napi::Value setLayout(const Napi::CallbackInfo& info){ \
     Napi::Env env = info.Env(); \
     Napi::HandleScope scope(env); \
     Napi::Object layoutObject = info[0].As<Napi::Object>(); \
-    QLayoutWrap* layoutParent = Napi::ObjectWrap<QLayoutWrap>::Unwrap(layoutObject); \
-    this->instance->setLayout(layoutParent->getInternalInstance()); \
+    QLayoutWrap* layoutWrap = Napi::ObjectWrap<QLayoutWrap>::Unwrap(layoutObject); \
+    this->instance->setLayout(layoutWrap->getInternalInstance()); \
     return env.Null(); \
 } \
 \
