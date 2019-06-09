@@ -4,6 +4,7 @@
 #include <napi-thread-safe-callback.hpp>
 #include "npushbutton.h"
 #include "src/cpp/QtGui/QWidget/qwidget_macro.h"
+#include "src/cpp/core/YogaWidget/yogawidget_macro.h"
 
 class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
  private:
@@ -21,6 +22,8 @@ class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
   Napi::Value setText(const Napi::CallbackInfo& info);
   
   QWIDGET_WRAPPED_METHODS_DECLARATION
+  YOGAWIDGET_WRAPPED_METHODS_DECLARATION
+ 
 };
 
 

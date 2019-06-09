@@ -11,6 +11,7 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("setText", &QPushButtonWrap::setText),
     InstanceMethod("setupSignalListeners",&QPushButtonWrap::setupSignalListeners),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)
+    YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);

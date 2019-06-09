@@ -64,7 +64,6 @@ const testGridLayout = () => {
 
 // -----------------------------------------------
 
-// Doesnt work as of now. Testing flex here.
 const testFlexLayout = () => {
   const win = new QMainWindow();
   const view = new QWidget();

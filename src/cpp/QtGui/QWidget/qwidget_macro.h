@@ -62,7 +62,6 @@ Napi::Value hide(const Napi::CallbackInfo& info) { \
 
 #endif //QWIDGET_WRAPPED_METHODS_DECLARATION
 
-
 #ifndef QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 #define QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)  \
 \

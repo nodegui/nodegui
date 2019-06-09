@@ -12,6 +12,7 @@ Napi::Object QCheckBoxWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setText", &QCheckBoxWrap::setText),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QCheckBoxWrap)
+    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QCheckBoxWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);

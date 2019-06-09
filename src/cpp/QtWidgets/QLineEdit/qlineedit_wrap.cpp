@@ -12,6 +12,7 @@ Napi::Object QLineEditWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QLineEdit";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLineEditWrap)
+    YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLineEditWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
