@@ -16,8 +16,8 @@ export class QLabel extends NodeWidget {
   setWordWrap(on: boolean) {
     this.native.setWordWrap(on);
   }
-  setText(text: string) {
-    this.native.setText(text);
+  setText(text: string | number) {
+    this.native.setText(`${text}`);
   }
   text() {
     return this.native.text();

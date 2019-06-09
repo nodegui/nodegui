@@ -11,6 +11,7 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)
     YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)
     InstanceMethod("setCentralWidget",&QMainWindowWrap::setCentralWidget),
+    InstanceMethod("setFixedSize",&QMainWindowWrap::setFixedSize),
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -53,5 +54,13 @@ Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info){
   return env.Null();
 }
 
+Napi::Value QMainWindowWrap::setFixedSize(const Napi::CallbackInfo& info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
 
+  int width = info[0].As<Napi::Number>().Int32Value();
+  int height = info[1].As<Napi::Number>().Int32Value();
+  this->instance->setFixedSize(width, height);
 
+  return env.Null();
+}

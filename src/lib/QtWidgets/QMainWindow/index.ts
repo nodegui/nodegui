@@ -15,4 +15,7 @@ export class QMainWindow extends NodeWidget {
     this.native.setCentralWidget(widget.native);
     this.children.add(widget);
   }
+  setFixedSize(width: number, height: number) {
+    this.native.setFixedSize(width, height);
+  }
 }

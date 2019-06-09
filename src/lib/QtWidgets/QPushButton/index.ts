@@ -23,7 +23,7 @@ export class QPushButton extends SignalNodeWidget {
     this.native = native;
   }
 
-  setText(text: string) {
-    this.native.setText(text);
+  setText(text: string | number) {
+    this.native.setText(`${text}`);
   }
 }
