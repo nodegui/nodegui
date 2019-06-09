@@ -1,5 +1,4 @@
-#ifndef FLEXLAYOUT_H
-#define FLEXLAYOUT_H
+#pragma once
 
 #include "deps/yoga/YGNode.h"
 #include <QLayout>
@@ -25,6 +24,7 @@ class FlexLayout: public QLayout
 {
 private:
     YGNodeRef node;
+public:
     struct NodeContext
     {
         NodeContext(QLayoutItem *i) {
@@ -32,9 +32,6 @@ private:
         }
         QLayoutItem *item;
     };
-    NodeContext* getNodeContext(YGNodeRef node) const;
-
-public:
     FlexLayout(QWidget* parentWidget=nullptr, YGNodeRef parentNode=nullptr);
     ~FlexLayout() override;
     QSize sizeHint() const override;
@@ -45,6 +42,6 @@ public:
     void addWidget(QWidget* childWidget, YGNodeRef childNode);
     void setGeometry(const QRect &rect) override;
     void setFlexNode(YGNodeRef parentNode);
+    static NodeContext* getNodeContext(YGNodeRef node);
 };
 
-#endif // FLEXLAYOUT_H

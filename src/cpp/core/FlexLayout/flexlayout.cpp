@@ -3,7 +3,7 @@
 #include <QWidget>
 #include "spdlog/spdlog.h"
 
-FlexLayout::NodeContext *FlexLayout::getNodeContext(YGNodeRef node) const
+FlexLayout::NodeContext *FlexLayout::getNodeContext(YGNodeRef node)
 {
     if(!node){
         return nullptr;
@@ -122,6 +122,7 @@ void FlexLayout::setGeometry(const QRect &rect)
             QWidget* childWidget = childLayoutItem->widget();
             if(childWidget){
                 childWidget->setGeometry(childRect);
+                spdlog::info("Object: {}, rect: w:{}, h:{}, l:{}, t:{}",childWidget->metaObject()->className(),width,height,left,top);
             }else {
                 childLayoutItem->setGeometry(childRect);
             }

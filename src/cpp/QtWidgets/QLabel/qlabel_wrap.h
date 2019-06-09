@@ -21,7 +21,7 @@ class QLabelWrap : public  Napi::ObjectWrap<QLabelWrap>{
   Napi::Value text(const Napi::CallbackInfo &info);
 
   QWIDGET_WRAPPED_METHODS_DECLARATION
-YOGAWIDGET_WRAPPED_METHODS_DECLARATION
+  YOGAWIDGET_WRAPPED_METHODS_DECLARATION
  
 };
 

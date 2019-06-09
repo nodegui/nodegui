@@ -39,6 +39,8 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QLabelW
   }else {
     extrautils::throwTypeError(env, "Wrong number of arguments");
   }
+  // Adds measure function on yoga node so that widget size is calculated based on its text also.
+  YGNodeSetMeasureFunc(this->instance->getFlexNode(), &extrautils::measureQtWidget);
 }
 
 QLabelWrap::~QLabelWrap() {
