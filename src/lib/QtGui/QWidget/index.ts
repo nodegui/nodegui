@@ -7,25 +7,25 @@ import { NodeLayout } from "../../QtWidgets/QLayout";
 export abstract class NodeWidget extends YogaWidget {
   type = "widget";
   layout?: NodeLayout;
-  show() {
+  show = () => {
     this.native.show();
-  }
-  resize(width: number, height: number) {
+  };
+  resize = (width: number, height: number) => {
     this.native.resize(width, height);
-  }
-  close() {
+  };
+  close = () => {
     this.native.close();
-  }
-  setLayout(parentLayout: NodeLayout) {
+  };
+  setLayout = (parentLayout: NodeLayout) => {
     this.native.setLayout(parentLayout.native);
     this.layout = parentLayout;
-  }
-  setStyleSheet(style: string) {
+  };
+  setStyleSheet = (style: string) => {
     this.native.setStyleSheet(style);
-  }
-  hide() {
+  };
+  hide = () => {
     this.native.hide();
-  }
+  };
 }
 
 export class QWidget extends NodeWidget {

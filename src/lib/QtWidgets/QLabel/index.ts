@@ -1,6 +1,5 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
-import { FlexNode } from "../../core/FlexLayout/FlexNode";
 
 export class QLabel extends NodeWidget {
   native: any;
@@ -13,17 +12,13 @@ export class QLabel extends NodeWidget {
       this.native = new addon.QLabel();
     }
   }
-  setWordWrap(on: boolean) {
+  setWordWrap = (on: boolean) => {
     this.native.setWordWrap(on);
-  }
-  setText(text: string | number) {
+  };
+  setText = (text: string | number) => {
     this.native.setText(`${text}`);
-  }
-  text() {
+  };
+  text = () => {
     return this.native.text();
-  }
-  getFlexNode(): FlexNode {
-    const nativeFlexNode = this.native.getFlexNode();
-    return new FlexNode(nativeFlexNode);
-  }
+  };
 }

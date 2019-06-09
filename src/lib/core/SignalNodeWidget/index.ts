@@ -13,7 +13,10 @@ export abstract class SignalNodeWidget extends NodeWidget {
     }
   }
 
-  setSignalListener(signalType: string, callback: (payload?: any) => void) {
+  setSignalListener = (
+    signalType: string,
+    callback: (payload?: any) => void
+  ) => {
     this.emitter.on(signalType, callback);
-  }
+  };
 }

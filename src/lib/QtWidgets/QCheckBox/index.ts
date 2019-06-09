@@ -11,7 +11,7 @@ export class QCheckBox extends NodeWidget {
       this.native = new addon.QCheckBox();
     }
   }
-  setText(text: string) {
+  setText = (text: string) => {
     this.native.setText(text);
-  }
+  };
 }

@@ -3,10 +3,10 @@ import { Component } from "../../core/Component";
 
 export class QApplication extends Component {
   native = new addon.QApplication();
-  processEvents() {
+  processEvents = () => {
     this.native.processEvents();
-  }
-  exec() {
+  };
+  exec = () => {
     this.native.exec();
-  }
+  };
 }

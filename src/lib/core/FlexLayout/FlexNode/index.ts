@@ -6,7 +6,7 @@ export class FlexNode extends Component {
     super();
     this.native = nativeNode;
   }
-  debugValue() {
+  debugValue = (): void => {
     return this.native.debugValue();
-  }
+  };
 }

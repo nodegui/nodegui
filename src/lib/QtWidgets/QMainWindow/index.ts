@@ -11,11 +11,11 @@ export class QMainWindow extends NodeWidget {
       this.native = new addon.QMainWindow();
     }
   }
-  setCentralWidget(widget: NodeWidget) {
+  setCentralWidget = (widget: NodeWidget) => {
     this.native.setCentralWidget(widget.native);
     this.children.add(widget);
-  }
-  setFixedSize(width: number, height: number) {
+  };
+  setFixedSize = (width: number, height: number) => {
     this.native.setFixedSize(width, height);
-  }
+  };
 }
