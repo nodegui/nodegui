@@ -1,7 +1,13 @@
 # Calculator app
 
-This example showcases how to build a basic mac calculator clone.
+This example showcases how to build a basic calculator clone.
 
-The app should look like this:
+**Screenshot:**
 
 ![demo](https://github.com/master-atul/node-native-ui/raw/master/examples/calculator/calculator.png "Calculator screenshot")
+
+To run the demo:
+
+1. `yarn build`
+
+2. `yarn qode dist/examples/calculator/index.js`
