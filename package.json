@@ -1,5 +1,5 @@
 {
-  "name": "node-native-ui",
+  "name": "@nodegui/nodegui",
   "version": "1.0.0",
   "description": "A cross platform library to build native desktop apps. Based on Qt5.",
   "main": "dist/",

@@ -13,6 +13,7 @@ const getButton = (
 ) => {
   const button = new QPushButton();
   button.setText(label);
+  button.setObjectName(`btn${value}`);
   return {
     ui: button,
     value,
@@ -25,33 +26,98 @@ const win = new QMainWindow();
 
 // Root view
 const rootView = new QWidget();
+rootView.setObjectName("rootView"); //This is like ids in web world
 win.setCentralWidget(rootView);
 rootView.setStyleSheet(
   `
+  * {
+    font-size: 20px;
+  }
+
+  QPushButton {
+    qproperty-minWidth: '25%';
+    qproperty-border: 1;
+    border: 1px solid black;
+  }
+  
+  QPushButton:pressed {
+    background: grey;
+  }
+
+  #rootView {
     qproperty-flex: 1;
     qproperty-flexDirection: column;
+  }
+
+  #btnAC {
+    qproperty-minWidth: '25%';
+    border-right: 2px solid black;
+    qproperty-borderRight: 1;
+  }
+
+  #resultText {
+    qproperty-flex: 1;
+    qproperty-alignment: AlignRight AlignVCenter;
+    padding-right: 5px;
+    font-size: 40px;
+  }
+
+  #row0,#row1,#row2,#row3,#row4 {
+    qproperty-flex: 1;
+    qproperty-alignItems: stretch;
+    qproperty-justifyContent: space-between;
+    qproperty-flexDirection: row;
+  }
+
+  #row0 * {
+    background: #1E1E1E;
+  }
+
+  #row0 QPushButton:pressed {
+    background: grey;
+  }
+
+  #row1 QPushButton  {
+    background: #2E2E2E;
+  }
+
+  #row1 QPushButton:pressed {
+    background: grey;
+  }
+
+
+  #row2 QPushButton, #row2 QPushButton, #row3 QPushButton, #row4 QPushButton  {
+      background: #4B4B4B;
+  }
+
+  #row2 QPushButton:pressed, #row2 QPushButton:pressed, #row3 QPushButton:pressed, #row4 QPushButton:pressed  {
+    background: grey;
+  }
   `
 );
+
+const operatorBtnStyle = `
+  QPushButton {
+    background: #FD8D0E;
+  }
+
+  QPushButton:pressed {
+    background: grey;
+  }
+`;
+
 const rootViewFlexLayout = new FlexLayout();
 rootViewFlexLayout.setFlexNode(rootView.getFlexNode());
 rootView.setLayout(rootViewFlexLayout);
 
 // Top Row
 const btnClear = getButton("AC", "AC", "command");
-btnClear.ui.setStyleSheet(`
-  qproperty-flex: 0.3;
-`);
 const resultText = new QLabel();
+resultText.setObjectName("resultText");
 resultText.setText(0);
-resultText.setStyleSheet(`
-qproperty-flex: 0.7;
-qproperty-alignment: AlignCenter;
-`);
 const row0 = new QWidget();
-row0.setStyleSheet(`
-  qproperty-flex: 1;
-  qproperty-flexDirection: row;
-`);
+row0.setObjectName("row0");
+
 const row0Layout = new FlexLayout();
 row0Layout.setFlexNode(row0.getFlexNode());
 row0.setLayout(row0Layout);
@@ -63,11 +129,9 @@ const btn7 = getButton("7", 7, "value");
 const btn8 = getButton("8", 8, "value");
 const btn9 = getButton("9", 9, "value");
 const btnDivide = getButton("/", "/", "command");
+btnDivide.ui.setStyleSheet(operatorBtnStyle);
 const row1 = new QWidget();
-row1.setStyleSheet(`
-  qproperty-flex: 1;
-  qproperty-flexDirection: row;
-`);
+row1.setObjectName("row1");
 const row1Layout = new FlexLayout();
 row1Layout.setFlexNode(row1.getFlexNode());
 row1Layout.addWidget(btn7.ui, btn7.ui.getFlexNode());
@@ -81,11 +145,9 @@ const btn4 = getButton("4", 4, "value");
 const btn5 = getButton("5", 5, "value");
 const btn6 = getButton("6", 6, "value");
 const btnMultiply = getButton("x", "*", "command");
+btnMultiply.ui.setStyleSheet(operatorBtnStyle);
 const row2 = new QWidget();
-row2.setStyleSheet(`
-  qproperty-flex: 1;
-  qproperty-flexDirection: row;
-`);
+row2.setObjectName("row2");
 const row2Layout = new FlexLayout();
 row2Layout.setFlexNode(row2.getFlexNode());
 row2Layout.addWidget(btn4.ui, btn4.ui.getFlexNode());
@@ -99,11 +161,11 @@ const btn1 = getButton("1", 1, "value");
 const btn2 = getButton("2", 2, "value");
 const btn3 = getButton("3", 3, "value");
 const btnMinus = getButton("-", "-", "command");
+btnMinus.ui.setStyleSheet(operatorBtnStyle);
+
 const row3 = new QWidget();
-row3.setStyleSheet(`
-  qproperty-flex: 1;
-  qproperty-flexDirection: row;
-`);
+row3.setObjectName("row3");
+
 const row3Layout = new FlexLayout();
 row3Layout.setFlexNode(row3.getFlexNode());
 row3Layout.addWidget(btn1.ui, btn1.ui.getFlexNode());
@@ -117,11 +179,10 @@ const btn0 = getButton("0", 0, "value");
 const btnDot = getButton(".", ".", "command");
 const btnEquals = getButton("=", "=", "command");
 const btnPlus = getButton("+", "+", "command");
+btnPlus.ui.setStyleSheet(operatorBtnStyle);
+
 const row4 = new QWidget();
-row4.setStyleSheet(`
-  qproperty-flex: 1;
-  qproperty-flexDirection: row;
-`);
+row4.setObjectName("row4");
 const row4Layout = new FlexLayout();
 row4Layout.setFlexNode(row4.getFlexNode());
 row4Layout.addWidget(btn0.ui, btn0.ui.getFlexNode());
@@ -140,6 +201,6 @@ rootViewFlexLayout.addWidget(row4, row4.getFlexNode());
 win.show();
 
 setTimeout(() => {
-  win.resize(210, 150); // This is a hack to solve layout issues on initial render. Will need to fix this.
+  win.resize(230, 300); // This is a hack to solve layout issues on initial render. Will need to fix this.
 }, 10);
 globals.win = win; //to keep gc from collecting ui widgets

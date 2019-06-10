@@ -1,4 +1,4 @@
-# node-native-ui
+# nodegui
 
 A cross platform library to build native desktop apps. Based on Qt5.
 
@@ -30,7 +30,7 @@ Linux and Windows screenshots to be added soon.
 
 ## Development setup and getting started
 
-This guide is for setting up `node-native-ui` for contributors of node-native-ui.
+This guide is for setting up `nodegui` for contributors of nodegui.
 The actual getting started guide for users will be added once we reach a bit of stable level.
 
 Make sure you have setup `qode` and installed it globally.

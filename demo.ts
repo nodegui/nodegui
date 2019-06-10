@@ -75,7 +75,6 @@ const testFlexLayout = () => {
   const view = new QWidget();
   view.setStyleSheet(
     `
-      background-color: green;
       qproperty-flex: 1;
     `
   );

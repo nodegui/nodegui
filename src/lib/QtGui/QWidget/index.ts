@@ -26,6 +26,9 @@ export abstract class NodeWidget extends YogaWidget {
   hide = () => {
     this.native.hide();
   };
+  setObjectName = (objectName: string) => {
+    this.native.setObjectName(objectName);
+  };
 }
 
 export class QWidget extends NodeWidget {

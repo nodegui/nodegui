@@ -58,7 +58,15 @@ Napi::Value hide(const Napi::CallbackInfo& info) { \
     Napi::HandleScope scope(env); \
     this->instance->hide(); \
     return env.Null(); \
-}
+} \
+\
+Napi::Value setObjectName(const Napi::CallbackInfo& info){ \
+    Napi::Env env = info.Env(); \
+    Napi::HandleScope scope(env); \
+    Napi::String objectName = info[0].As<Napi::String>(); \
+    this->instance->setObjectName(QString::fromStdString(objectName.Utf8Value())); \
+    return env.Null(); \
+} \
 
 #endif //QWIDGET_WRAPPED_METHODS_DECLARATION
 
@@ -71,6 +79,7 @@ Napi::Value hide(const Napi::CallbackInfo& info) { \
  InstanceMethod("setLayout",&WidgetWrapName::setLayout), \
  InstanceMethod("setStyleSheet",&WidgetWrapName::setStyleSheet), \
  InstanceMethod("hide",&WidgetWrapName::hide), \
+ InstanceMethod("setObjectName",&WidgetWrapName::setObjectName), \
 
 
 #endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE

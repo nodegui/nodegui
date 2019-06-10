@@ -49,12 +49,7 @@ QSize FlexLayout::sizeHint() const{
 }
 
 void FlexLayout::addItem(QLayoutItem * item){
-    QWidget* childWidget = item->widget();
-    if(childWidget){
-        spdlog::info("flexlayout: addItem - noop for: {}",childWidget->metaObject()->className());
-        return;
-    }
-    spdlog::info("flexlayout: addItem - noop for: {}", reinterpret_cast<ulong>(item));
+   // Noop: We already have addWidget doing all the hard work.
 }
 
 QLayoutItem *FlexLayout::itemAt(int index) const
@@ -62,11 +57,11 @@ QLayoutItem *FlexLayout::itemAt(int index) const
     if(!this->node){
         return nullptr;
     }
-    spdlog::info("flexlayout: itemAt {}",index);
+    // spdlog::info("flexlayout: itemAt {}",index);
     YGNodeRef childNode = YGNodeGetChild(this->node, static_cast<uint>(index));
     NodeContext *ctx = getNodeContext(childNode);
     if(!ctx){
-        spdlog::info("flexlayout: itemAt null context {}",index);
+        // spdlog::info("flexlayout: itemAt null context {}",index);
         return nullptr;
     }
     return ctx->item;
@@ -99,7 +94,7 @@ void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode)
         spdlog::warn("Flex layout's parent yoga node not set yet. Set it using setFlexNode. Child widget will not be added to Flex Layout");
         return;
     }
-    spdlog::info("flexlayout: addWidget Object: {}",childWidget->metaObject()->className());
+    // spdlog::info("flexlayout: addWidget Object: {}",childWidget->metaObject()->className());
 
     uint count =  YGNodeGetChildCount(this->node);
     YGNodeInsertChild(this->node,childNode, count);
@@ -135,7 +130,7 @@ void FlexLayout::setGeometry(const QRect &rect)
             QWidget* childWidget = childLayoutItem->widget();
             if(childWidget){
                 childWidget->setGeometry(childRect);
-                spdlog::info("flexlayout setGeometry: {}, rect: w:{}, h:{}, l:{}, t:{}",childWidget->metaObject()->className(),width,height,left,top);
+                // spdlog::info("flexlayout setGeometry: {}, rect: w:{}, h:{}, l:{}, t:{}",childWidget->metaObject()->className(),width,height,left,top);
             }else {
                 childLayoutItem->setGeometry(childRect);
             }
