@@ -1,11 +1,17 @@
 import { QMainWindow } from "../../src/lib/QtWidgets/QMainWindow";
 import { QWidget } from "../../src/lib/QtGui/QWidget";
 import { FlexLayout } from "../../src/lib/core/FlexLayout";
-import { QPushButton } from "../../src/lib/QtWidgets/QPushButton";
+import {
+  QPushButton,
+  QPushButtonSignal
+} from "../../src/lib/QtWidgets/QPushButton";
 import { QLabel } from "../../src/lib/QtWidgets/QLabel";
 
 const globals = global as any;
 
+// ===============
+//  UI AND DESIGN
+// ===============
 const getButton = (
   label: string,
   value: number | string,
@@ -14,6 +20,9 @@ const getButton = (
   const button = new QPushButton();
   button.setText(label);
   button.setObjectName(`btn${value}`);
+  button.setSignalListener(QPushButtonSignal.clicked, () => {
+    onBtnClick(value, type);
+  });
   return {
     ui: button,
     value,
@@ -204,3 +213,78 @@ setTimeout(() => {
   win.resize(230, 300); // This is a hack to solve layout issues on initial render. Will need to fix this.
 }, 10);
 globals.win = win; //to keep gc from collecting ui widgets
+
+// ========================
+//  CALC APP LOGIC - LOGIC
+// ========================
+// This is probably the worst calculator logic ever but the purpose of demo is to showcase the UI and not the js logic.
+// Read ahead of this line at your own risk.
+
+let displayText = "0";
+let currentInputString = "";
+let total = 0;
+let previousOperator = "+";
+
+var onBtnClick = (value: number | string, type: "value" | "command") => {
+  if (type === "value" || value === ".") {
+    currentInputString += value;
+    displayText = currentInputString;
+  } else {
+    const currentInput = parseFloat(currentInputString || "0");
+    if (!previousOperator) {
+      if (currentInputString) {
+        total = currentInput;
+      }
+    }
+    if (!currentInputString && value === "=") {
+      previousOperator = "+";
+    }
+    switch (previousOperator) {
+      case "+": {
+        total += currentInput;
+        break;
+      }
+      case "-": {
+        total -= currentInput;
+        break;
+      }
+      case "*": {
+        total *= currentInput;
+        break;
+      }
+      case "/": {
+        total /= currentInput;
+        break;
+      }
+    }
+    currentInputString = "";
+
+    if (value === "=") {
+      displayText = String(total);
+      previousOperator = "";
+    } else {
+      previousOperator = String(value);
+      displayText = previousOperator;
+    }
+  }
+
+  if (value === "AC") {
+    displayText = "0";
+    currentInputString = "";
+    total = 0;
+    previousOperator = "+";
+  }
+
+  if (Number.isNaN(total)) {
+    total = 0;
+    displayText = "Error";
+  }
+
+  // SET THE FINAL TEXT
+  resultText.setText(displayText);
+
+  setTimeout(() => {
+    win.resize(231, 300);
+    win.resize(230, 300);
+  }, 10);
+};
