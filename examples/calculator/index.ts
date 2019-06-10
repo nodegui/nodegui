@@ -140,6 +140,6 @@ rootViewFlexLayout.addWidget(row4, row4.getFlexNode());
 win.show();
 
 setTimeout(() => {
-  win.resize(400, 600); // This is a hack to solve layout issues on initial render. Will need to fix this.
+  win.resize(210, 150); // This is a hack to solve layout issues on initial render. Will need to fix this.
 }, 10);
 globals.win = win; //to keep gc from collecting ui widgets
