@@ -57,7 +57,7 @@ rootView.setStyleSheet(
 
   #resultText {
     qproperty-flex: 1;
-    qproperty-alignment: AlignRight AlignVCenter;
+    qproperty-alignment: 'AlignRight|AlignVCenter';
     padding-right: 5px;
     font-size: 40px;
   }
