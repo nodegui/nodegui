@@ -37,6 +37,7 @@ QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
     extrautils::throwTypeError(env, "Wrong number of arguments");
   }
   this->instance->setAttribute(Qt::WA_DeleteOnClose);
+  this->instance->installEventFilter(this->instance);
 }
 
 QMainWindowWrap::~QMainWindowWrap() {
@@ -49,6 +50,12 @@ Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info){
 
   Napi::Object widgetObject = info[0].As<Napi::Object>();
   QWidgetWrap* centralWidget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);
+
+  Napi::Object flexNodeObject = info[1].As<Napi::Object>();
+  FlexNodeWrap* flexNodeWrap = Napi::ObjectWrap<FlexNodeWrap>::Unwrap(flexNodeObject);
+  
+  YGNodeRef node = this->instance->getFlexNode();
+  YGNodeInsertChild(node, flexNodeWrap->getInternalInstance(), 0);
   this->instance->setCentralWidget(centralWidget->getInternalInstance());
 
   return env.Null();

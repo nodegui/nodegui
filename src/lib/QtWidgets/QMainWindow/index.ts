@@ -1,7 +1,10 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
+import { FlexNode } from "../../core/FlexLayout/FlexNode";
 export class QMainWindow extends NodeWidget {
   native: any;
+  protected centralWidget?: NodeWidget;
+  protected centralWidgetFlexNode?: FlexNode;
   constructor(parent?: NodeWidget) {
     super();
     if (parent) {
@@ -12,8 +15,12 @@ export class QMainWindow extends NodeWidget {
     }
   }
   setCentralWidget = (widget: NodeWidget) => {
-    this.native.setCentralWidget(widget.native);
-    this.children.add(widget);
+    this.centralWidgetFlexNode = widget.getFlexNode();
+    this.centralWidget = widget;
+    this.native.setCentralWidget(
+      this.centralWidget.native,
+      this.centralWidgetFlexNode.native
+    );
   };
   setFixedSize = (width: number, height: number) => {
     this.native.setFixedSize(width, height);

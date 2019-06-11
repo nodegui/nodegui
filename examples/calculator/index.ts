@@ -32,6 +32,7 @@ const getButton = (
 
 // Main Window
 const win = new QMainWindow();
+win.resize(230, 300);
 
 // Root view
 const rootView = new QWidget();
@@ -209,9 +210,6 @@ rootViewFlexLayout.addWidget(row4, row4.getFlexNode());
 
 win.show();
 
-setTimeout(() => {
-  win.resize(230, 300); // This is a hack to solve layout issues on initial render. Will need to fix this.
-}, 10);
 globals.win = win; //to keep gc from collecting ui widgets
 
 // ========================
@@ -282,9 +280,4 @@ var onBtnClick = (value: number | string, type: "value" | "command") => {
 
   // SET THE FINAL TEXT
   resultText.setText(displayText);
-
-  setTimeout(() => {
-    win.resize(231, 300);
-    win.resize(230, 300);
-  }, 10);
 };

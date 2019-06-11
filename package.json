@@ -15,7 +15,7 @@
     "typescript": "^3.4.5"
   },
   "scripts": {
-    "build": "npm run rebuild:addon && npm run build:lib",
+    "build": "npm run build:addon && npm run build:lib",
     "build:lib": "tsc",
     "build:addon": "node-gyp -j 8 build",
     "rebuild:addon": "node-gyp -j 8 rebuild",

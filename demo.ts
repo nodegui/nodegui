@@ -65,14 +65,27 @@ const testGridLayout = () => {
 // -----------------------------------------------
 
 const testFlexLayout = () => {
+  // rootView -> view  -> label
+  //                   -> label2
+  //          -> view2 -> button
+
   const win = new QMainWindow();
+  win.setObjectName("win");
+  win.resize(300,300);
   const rootView = new QWidget();
+  rootView.setStyleSheet(`
+   * {
+     position:relative;
+   }
+  `);
+  rootView.setObjectName("rootView");
   const rootLayout = new FlexLayout();
   rootLayout.setFlexNode(rootView.getFlexNode());
   rootView.setLayout(rootLayout);
   win.setCentralWidget(rootView);
 
-  const view = new QWidget();
+  const view = new QWidget(rootView);
+  view.setObjectName("view");
   view.setStyleSheet(
     `
       qproperty-flex: 1;
@@ -82,7 +95,8 @@ const testFlexLayout = () => {
   const flayout = new FlexLayout();
   flayout.setFlexNode(view.getFlexNode());
 
-  const label = new QLabel();
+  const label = new QLabel(view);
+  label.setObjectName("label");
   label.setText("Hello12321");
   label.setStyleSheet(`
     background-color:blue; 
@@ -91,7 +105,8 @@ const testFlexLayout = () => {
     qproperty-minWidth: '50%';
   `);
 
-  const label2 = new QLabel();
+  const label2 = new QLabel(view);
+  label2.setObjectName("label2");
   label2.setText("SECOND LABEL");
   label2.setStyleSheet(`
     background-color:green; 
@@ -103,12 +118,14 @@ const testFlexLayout = () => {
   flayout.addWidget(label, label.getFlexNode());
   view.setLayout(flayout);
 
-  const view2 = new QWidget();
+  const view2 = new QWidget(rootView);
+  view2.setObjectName("view2");
   const flayout2 = new FlexLayout();
   flayout2.setFlexNode(view2.getFlexNode());
   view2.setLayout(flayout2);
 
-  const button = new QPushButton();
+  const button = new QPushButton(view2);
+  button.setObjectName("button");
   button.setText("Hululu");
   flayout2.addWidget(button, button.getFlexNode());
 

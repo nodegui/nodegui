@@ -39,13 +39,9 @@ QSize FlexLayout::sizeHint() const{
     if(!this->node){
         return QSize(0,0);
     }
-    QSize size;
     int width = static_cast<uint>(YGNodeLayoutGetWidth(this->node));
     int height = static_cast<uint>(YGNodeLayoutGetHeight(this->node));
-    spdlog::info("flexlayout: sizeHint {}x{}",width, height);
-    size.setWidth(width);
-    size.setHeight(height);
-    return size;
+    return QSize(width, height);
 }
 
 void FlexLayout::addItem(QLayoutItem * item){
@@ -109,10 +105,6 @@ void FlexLayout::setGeometry(const QRect &rect)
     if(!this->node){
         return;
     }
-    int availableWidth = rect.width();
-    int availableHeight = rect.height();
-    YGDirection direction = YGNodeStyleGetDirection(this->node);
-    YGNodeCalculateLayout(this->node,availableWidth,availableHeight,direction);
 
     uint count = YGNodeGetChildCount(this->node);
 
@@ -123,14 +115,13 @@ void FlexLayout::setGeometry(const QRect &rect)
         int left = static_cast<uint>(YGNodeLayoutGetLeft(childNode));
         int top = static_cast<uint>(YGNodeLayoutGetTop(childNode));
 
-        QRect childRect(left, top,width, height);
+        QRect childRect(left, top, width, height);
         NodeContext *ctx = getNodeContext(childNode);
         if(ctx){
             QLayoutItem* childLayoutItem = ctx->item;
             QWidget* childWidget = childLayoutItem->widget();
             if(childWidget){
                 childWidget->setGeometry(childRect);
-                // spdlog::info("flexlayout setGeometry: {}, rect: w:{}, h:{}, l:{}, t:{}",childWidget->metaObject()->className(),width,height,left,top);
             }else {
                 childLayoutItem->setGeometry(childRect);
             }
