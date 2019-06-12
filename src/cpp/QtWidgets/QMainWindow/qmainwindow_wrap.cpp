@@ -9,7 +9,6 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QMainWindow";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)
-    YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)
     InstanceMethod("setCentralWidget",&QMainWindowWrap::setCentralWidget),
     InstanceMethod("setFixedSize",&QMainWindowWrap::setFixedSize),
   });

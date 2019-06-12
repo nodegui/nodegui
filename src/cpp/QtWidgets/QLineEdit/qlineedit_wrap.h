@@ -3,7 +3,7 @@
 #include <napi.h>
 #include "nlineedit.h"
 #include "src/cpp/QtGui/QWidget/qwidget_macro.h"
-#include "src/cpp/core/YogaWidget/yogawidget_macro.h"
+
 
 class QLineEditWrap : public  Napi::ObjectWrap<QLineEditWrap>{
  private:
@@ -18,7 +18,6 @@ class QLineEditWrap : public  Napi::ObjectWrap<QLineEditWrap>{
   //wrapped methods
   
   QWIDGET_WRAPPED_METHODS_DECLARATION
-  YOGAWIDGET_WRAPPED_METHODS_DECLARATION
  
 };
 

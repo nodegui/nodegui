@@ -12,7 +12,6 @@ Napi::Object QRadioButtonWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QRadioButton";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QRadioButtonWrap)
-    YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QRadioButtonWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);

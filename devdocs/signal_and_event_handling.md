@@ -1,3 +1,10 @@
+In Qt you can respond to an external event like a key press via event handling. Events always are processed by the event loop. Alongside events Qt also has a concept of Signals/Slots. Signals and slots are used to primarily communicate between widgets (more precisely QObjects). So the most common way of interacting between Qt Widgets is done through signals/slots. (More details here: https://doc.qt.io/qt-5/signalsandslots.html). Hence we would be implementing support for both events and signals.
+
+**Technicals:**
+
+> An event is a message encapsulated in a class (QEvent) which is processed in an event loop and dispatched to a recipient that can either accept the message or pass it along to others to process. They are usually created in response to external system events like mouse clicks.
+> Signals and Slots are a convenient way for QObjects to communicate with one another and are more similar to callback functions. In most circumstances, when a "signal" is emitted, any slot function connected to it is called directly. The exception is when signals and slots cross thread boundaries. In this case, the signal will essentially be converted into an event.
+
 # Implementing Signal handling
 
 In Qt signals and slots are used to communicate between different qt widgets. So they can be used to implement things like

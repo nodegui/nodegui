@@ -3,7 +3,7 @@
 #include <napi.h>
 #include "nradiobutton.h"
 #include "src/cpp/QtGui/QWidget/qwidget_macro.h"
-#include "src/cpp/core/YogaWidget/yogawidget_macro.h"
+
 
 class QRadioButtonWrap : public  Napi::ObjectWrap<QRadioButtonWrap>{
  private:
@@ -17,9 +17,7 @@ class QRadioButtonWrap : public  Napi::ObjectWrap<QRadioButtonWrap>{
   static Napi::FunctionReference constructor;
   //wrapped methods
   
-  QWIDGET_WRAPPED_METHODS_DECLARATION
-  YOGAWIDGET_WRAPPED_METHODS_DECLARATION
- 
+  QWIDGET_WRAPPED_METHODS_DECLARATION 
 };
 
  

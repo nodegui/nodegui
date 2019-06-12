@@ -3,7 +3,7 @@
 #include <napi.h>
 #include "nmainwindow.h"
 #include "src/cpp/QtGui/QWidget/qwidget_macro.h"
-#include "src/cpp/core/YogaWidget/yogawidget_macro.h"
+
 
 class QMainWindowWrap : public  Napi::ObjectWrap<QMainWindowWrap>{
 private:
@@ -21,6 +21,5 @@ public:
   Napi::Value setFixedSize(const Napi::CallbackInfo& info);
   
   QWIDGET_WRAPPED_METHODS_DECLARATION
-  YOGAWIDGET_WRAPPED_METHODS_DECLARATION
 };
 

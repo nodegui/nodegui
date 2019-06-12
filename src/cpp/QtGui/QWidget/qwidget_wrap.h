@@ -1,7 +1,7 @@
 #pragma once
 
 #include "src/cpp/QtGui/QWidget/qwidget_macro.h"
-#include "src/cpp/core/YogaWidget/yogawidget_macro.h"
+
 #include <napi.h>
 #include "nwidget.h"
 
@@ -17,6 +17,5 @@ class QWidgetWrap : public  Napi::ObjectWrap<QWidgetWrap>{
   static Napi::FunctionReference constructor;
   //wrapped methods
   QWIDGET_WRAPPED_METHODS_DECLARATION
-  YOGAWIDGET_WRAPPED_METHODS_DECLARATION
 };
 

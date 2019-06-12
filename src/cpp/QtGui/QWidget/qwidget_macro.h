@@ -1,8 +1,7 @@
-#ifndef QWIDGET_MACRO_H
-#define QWIDGET_MACRO_H
+#pragma once
 
 #include "src/cpp/QtWidgets/QLayout/qlayout_wrap.h"
-
+#include "src/cpp/core/YogaWidget/yogawidget_macro.h"
 /*
 
     This macro adds common QWidgets exported methods 
@@ -11,6 +10,8 @@
 
 #ifndef QWIDGET_WRAPPED_METHODS_DECLARATION
 #define QWIDGET_WRAPPED_METHODS_DECLARATION \
+\
+YOGAWIDGET_WRAPPED_METHODS_DECLARATION \
 \
 Napi::Value show(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env(); \
@@ -73,6 +74,7 @@ Napi::Value setObjectName(const Napi::CallbackInfo& info){ \
 #ifndef QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 #define QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)  \
 \
+ YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
  InstanceMethod("show", &WidgetWrapName::show),  \
  InstanceMethod("resize",&WidgetWrapName::resize), \
  InstanceMethod("close",&WidgetWrapName::close), \
@@ -86,4 +88,3 @@ Napi::Value setObjectName(const Napi::CallbackInfo& info){ \
 
 
 
-#endif // QWIDGET_MACRO_H

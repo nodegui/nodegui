@@ -15,7 +15,6 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("text", &QLabelWrap::text),
     InstanceMethod("getFlexNode", &QLabelWrap::getFlexNode),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)
-    YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);

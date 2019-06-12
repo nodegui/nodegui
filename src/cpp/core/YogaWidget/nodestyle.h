@@ -1,5 +1,4 @@
-#ifndef NODESTYLE_H
-#define NODESTYLE_H
+#pragma once
 
 #include <QString>
 #include <unordered_map>
@@ -43,4 +42,4 @@ static std::unordered_map<std::string, int> NodeWrap;
 static NodeValueUnit parseMeasurement(QString rawValue);
 };
 
-#endif // NODESTYLE_H
+

@@ -9,7 +9,6 @@ Napi::Object QWidgetWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QWidget";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QWidgetWrap)
-    YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QWidgetWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
