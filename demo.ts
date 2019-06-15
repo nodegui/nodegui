@@ -71,7 +71,7 @@ const testFlexLayout = () => {
 
   const win = new QMainWindow();
   win.setObjectName("win");
-  win.resize(300,300);
+  win.resize(300, 300);
   const rootView = new QWidget();
   rootView.setStyleSheet(`
    * {
@@ -127,6 +127,10 @@ const testFlexLayout = () => {
   const button = new QPushButton(view2);
   button.setObjectName("button");
   button.setText("Hululu");
+  button.native.subscribeToEvent("MouseButtonPress");
+  button.setSignalListener("MouseButtonPress", () => {
+    console.log("MouseButtonPress");
+  });
   flayout2.addWidget(button, button.getFlexNode());
 
   rootLayout.addWidget(view, view.getFlexNode());

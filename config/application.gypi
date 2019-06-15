@@ -13,6 +13,7 @@
                 "../src/cpp/core/FlexLayout/flexlayout.cpp",
                 "../src/cpp/core/FlexLayout/flexitem.cpp",
                 "../src/cpp/core/YogaWidget/nodestyle.cpp",
+                "../src/cpp/core/Events/eventsmap.cpp",
                 "../src/cpp/core/YogaWidget/yogawidget.cpp",
                 # wrapped cpps
                 "../src/cpp/QtGui/QApplication/qapplication_wrap.cpp",

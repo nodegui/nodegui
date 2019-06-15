@@ -11,7 +11,6 @@
 
  */
 
-
 struct NodeValueUnit{
     YGUnit unit;
     float value;
