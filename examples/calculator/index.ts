@@ -3,7 +3,7 @@ import { QWidget } from "../../src/lib/QtGui/QWidget";
 import { FlexLayout } from "../../src/lib/core/FlexLayout";
 import {
   QPushButton,
-  QPushButtonSignal
+  QPushButtonEvents
 } from "../../src/lib/QtWidgets/QPushButton";
 import { QLabel } from "../../src/lib/QtWidgets/QLabel";
 
@@ -20,7 +20,7 @@ const getButton = (
   const button = new QPushButton();
   button.setText(label);
   button.setObjectName(`btn${value}`);
-  button.addEventListener(QPushButtonSignal.clicked, () => {
+  button.addEventListener(QPushButtonEvents.clicked, () => {
     onBtnClick(value, type);
   });
   return {

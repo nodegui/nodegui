@@ -1,6 +1,11 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
 import { FlexNode } from "../../core/FlexLayout/FlexNode";
+import { BaseWidgetEvents } from "../../core/EventWidget";
+
+export const QMainWindowEvents = Object.freeze({
+  ...BaseWidgetEvents
+});
 export class QMainWindow extends NodeWidget {
   native: any;
   protected centralWidget?: NodeWidget;

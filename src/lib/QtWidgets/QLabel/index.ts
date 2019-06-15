@@ -1,6 +1,10 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
+import { BaseWidgetEvents } from "../../core/EventWidget";
 
+export const QLabelEvents = Object.freeze({
+  ...BaseWidgetEvents
+});
 export class QLabel extends NodeWidget {
   native: any;
   constructor(parent?: NodeWidget) {

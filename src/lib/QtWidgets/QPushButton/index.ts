@@ -1,12 +1,14 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
+import { BaseWidgetEvents } from "../../core/EventWidget";
 
-export enum QPushButtonSignal {
-  clicked = "clicked",
-  pressed = "pressed",
-  released = "released",
-  toggled = "toggled"
-}
+export const QPushButtonEvents = Object.freeze({
+  ...BaseWidgetEvents,
+  clicked: "clicked",
+  pressed: "pressed",
+  released: "released",
+  toggled: "toggled"
+});
 
 export class QPushButton extends NodeWidget {
   native: any;
