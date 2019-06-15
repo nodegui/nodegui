@@ -3,8 +3,9 @@
 #include <QWidget>
 #include <QLabel>
 #include "src/cpp/core/YogaWidget/yogawidget.h"
+#include "src/cpp/core/Events/eventwidget.h"
 
-class NLabel: public QLabel, public YogaWidget
+class NLabel: public QLabel, public YogaWidget, public EventWidget
 {
 
 public:

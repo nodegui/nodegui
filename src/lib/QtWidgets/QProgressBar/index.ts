@@ -4,12 +4,15 @@ import { NodeWidget } from "../../QtGui/QWidget";
 export class QProgressBar extends NodeWidget {
   native: any;
   constructor(parent?: NodeWidget) {
-    super();
+    let native;
     if (parent) {
-      this.native = new addon.QProgressBar(parent.native);
-      this.parent = parent;
+      native = new addon.QProgressBar(parent.native);
     } else {
-      this.native = new addon.QProgressBar();
+      native = new addon.QProgressBar();
     }
+    super(native);
+    this.native = native;
+    this.parent = parent;
+    // bind member functions
   }
 }

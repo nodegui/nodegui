@@ -25,16 +25,16 @@ const testGridLayout = () => {
   label.setStyleSheet("background-color:blue; color:white;");
 
   const button1 = new QPushButton();
-  button1.setSignalListener(QPushButtonSignal.clicked, isChecked => {
+  button1.addEventListener(QPushButtonSignal.clicked, isChecked => {
     console.log("clicked", isChecked);
   });
-  button1.setSignalListener(QPushButtonSignal.pressed, (...args) => {
+  button1.addEventListener(QPushButtonSignal.pressed, (...args) => {
     console.log("pressed", ...args);
   });
-  button1.setSignalListener(QPushButtonSignal.released, (...args) => {
+  button1.addEventListener(QPushButtonSignal.released, (...args) => {
     console.log("released", ...args);
   });
-  button1.setSignalListener(QPushButtonSignal.toggled, isToggled => {
+  button1.addEventListener(QPushButtonSignal.toggled, isToggled => {
     console.log("toggled", isToggled);
   });
 
@@ -127,9 +127,8 @@ const testFlexLayout = () => {
   const button = new QPushButton(view2);
   button.setObjectName("button");
   button.setText("Hululu");
-  button.native.subscribeToEvent("MouseButtonPress");
-  button.setSignalListener("MouseButtonPress", () => {
-    console.log("MouseButtonPress");
+  button.addEventListener("pressed", () => {
+    console.log("pressed");
   });
   flayout2.addWidget(button, button.getFlexNode());
 

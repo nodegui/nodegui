@@ -3,10 +3,11 @@
 #include <QWidget>
 #include <QMainWindow>
 #include "src/cpp/core/YogaWidget/yogawidget.h"
+#include "src/cpp/core/Events/eventwidget.h"
 #include "deps/spdlog/spdlog.h"
 #include <QEvent>
 
-class NMainWindow: public QMainWindow, public YogaWidget
+class NMainWindow: public QMainWindow, public YogaWidget, public EventWidget
 {
 
 private:

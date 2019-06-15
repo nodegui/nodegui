@@ -2,8 +2,9 @@
 #include <QWidget>
 #include <QWidget>
 #include "src/cpp/core/YogaWidget/yogawidget.h"
+#include "src/cpp/core/Events/eventwidget.h"
 
-class NWidget: public QWidget, public YogaWidget
+class NWidget: public QWidget, public YogaWidget, public EventWidget
 {
 
 public:

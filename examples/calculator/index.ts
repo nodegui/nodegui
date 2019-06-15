@@ -20,7 +20,7 @@ const getButton = (
   const button = new QPushButton();
   button.setText(label);
   button.setObjectName(`btn${value}`);
-  button.setSignalListener(QPushButtonSignal.clicked, () => {
+  button.addEventListener(QPushButtonSignal.clicked, () => {
     onBtnClick(value, type);
   });
   return {

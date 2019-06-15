@@ -2,6 +2,7 @@
 
 #include "src/cpp/QtWidgets/QLayout/qlayout_wrap.h"
 #include "src/cpp/core/YogaWidget/yogawidget_macro.h"
+#include "src/cpp/core/Events/eventwidget_macro.h"
 /*
 
     This macro adds common QWidgets exported methods 
@@ -12,6 +13,7 @@
 #define QWIDGET_WRAPPED_METHODS_DECLARATION \
 \
 YOGAWIDGET_WRAPPED_METHODS_DECLARATION \
+EVENTWIDGET_WRAPPED_METHODS_DECLARATION \
 \
 Napi::Value show(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env(); \
@@ -75,6 +77,7 @@ Napi::Value setObjectName(const Napi::CallbackInfo& info){ \
 #define QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)  \
 \
  YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
+ EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
  InstanceMethod("show", &WidgetWrapName::show),  \
  InstanceMethod("resize",&WidgetWrapName::resize), \
  InstanceMethod("close",&WidgetWrapName::close), \

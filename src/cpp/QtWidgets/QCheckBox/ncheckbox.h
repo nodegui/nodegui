@@ -3,8 +3,9 @@
 #include <QWidget>
 #include <QCheckBox>
 #include "src/cpp/core/YogaWidget/yogawidget.h"
+#include "src/cpp/core/Events/eventwidget.h"
 
-class NCheckBox: public QCheckBox, public YogaWidget
+class NCheckBox: public QCheckBox, public YogaWidget, public EventWidget
 {
 
 public:

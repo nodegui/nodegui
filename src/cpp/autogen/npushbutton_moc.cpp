@@ -294,6 +294,8 @@ void *NPushButton::qt_metacast(const char *_clname)
         return static_cast<void*>(this);
     if (!strcmp(_clname, "YogaWidget"))
         return static_cast< YogaWidget*>(this);
+    if (!strcmp(_clname, "EventWidget"))
+        return static_cast< EventWidget*>(this);
     return QPushButton::qt_metacast(_clname);
 }
 

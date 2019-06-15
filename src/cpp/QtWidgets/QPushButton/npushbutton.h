@@ -1,44 +1,44 @@
 #pragma once
 
-#include <QWidget>
 #include <QPushButton>
 #include "src/cpp/core/YogaWidget/yogawidget.h"
+#include "src/cpp/core/Events/eventwidget.h"
 #include "napi.h"
-#include <napi-thread-safe-callback.hpp>
-#include <QEvent>
-#include "src/cpp/core/Events/eventsmap.h"
-#include <QDebug>
 
-class NPushButton: public QPushButton, public YogaWidget
+class NPushButton: public QPushButton, public YogaWidget, public EventWidget
 {
 public:
-    std::unique_ptr<ThreadSafeCallback> emitOnNode;
     SET_YOGA_WIDGET_Q_PROPERTIES
     using QPushButton::QPushButton; //inherit all constructors of QPushButton
     Q_OBJECT
 public:       
-    std::unordered_map<QEvent::Type, std::string> subscribedEvents;
-
-    void subscribeToEvent(std::string evtString){
-        try {
-            int evtType = EventsMap::events.at(evtString);
-            this->subscribedEvents.insert({static_cast<QEvent::Type>(evtType), evtString});
-        } catch (...) {
-            qDebug()<< "Coudn't subscribe to event "<< evtString.c_str();
-        }
-    }
     bool event(QEvent* event){
-        try {
-           QEvent::Type e = event->type();
-           std::string eventTypeString = subscribedEvents.at(e);
-           this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-               args = {  Napi::String::New(env, eventTypeString) };
-           });
-        } catch (...) {}    
+        EventWidget::event(event);
         return QWidget::event(event);    
-     }
-    ~NPushButton(){
-        this->emitOnNode.release(); //cleanup instance->emitOnNode
+    }
+
+    void connectWidgetSignalsToEventEmitter(){
+        // Qt Connects: Implement all signal connects here 
+        QObject::connect(this, &QPushButton::clicked, [=](bool checked) { 
+            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                args = {  Napi::String::New(env, "clicked"), Napi::Value::From(env, checked) };
+            });
+        });
+        QObject::connect(this, &QPushButton::released, [=]() { 
+            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                args = {  Napi::String::New(env, "released") };
+            });
+        });
+        QObject::connect(this, &QPushButton::pressed, [=]() { 
+            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                args = {  Napi::String::New(env, "pressed") };
+            });
+        });
+        QObject::connect(this, &QPushButton::toggled, [=](bool checked) { 
+            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                args = {  Napi::String::New(env, "toggled"), Napi::Value::From(env, checked) };
+            });
+        });
     }
 };
 

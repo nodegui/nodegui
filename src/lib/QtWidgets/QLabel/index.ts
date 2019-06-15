@@ -4,21 +4,27 @@ import { NodeWidget } from "../../QtGui/QWidget";
 export class QLabel extends NodeWidget {
   native: any;
   constructor(parent?: NodeWidget) {
-    super();
+    let native;
     if (parent) {
-      this.native = new addon.QLabel(parent.native);
-      this.parent = parent;
+      native = new addon.QLabel(parent.native);
     } else {
-      this.native = new addon.QLabel();
+      native = new addon.QLabel();
     }
+    super(native);
+    this.native = native;
+    this.parent = parent;
+    // bind member functions
+    this.setWordWrap.bind(this);
+    this.setText.bind(this);
+    this.text.bind(this);
   }
-  setWordWrap = (on: boolean) => {
+  setWordWrap(on: boolean) {
     this.native.setWordWrap(on);
-  };
-  setText = (text: string | number) => {
+  }
+  setText(text: string | number) {
     this.native.setText(`${text}`);
-  };
-  text = () => {
+  }
+  text() {
     return this.native.text();
-  };
+  }
 }

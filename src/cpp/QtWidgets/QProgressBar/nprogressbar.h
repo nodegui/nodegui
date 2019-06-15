@@ -3,8 +3,9 @@
 #include <QWidget>
 #include <QProgressBar>
 #include "src/cpp/core/YogaWidget/yogawidget.h"
+#include "src/cpp/core/Events/eventwidget.h"
 
-class NProgressBar: public QProgressBar, public YogaWidget
+class NProgressBar: public QProgressBar, public YogaWidget, public EventWidget
 {
 
 public:
