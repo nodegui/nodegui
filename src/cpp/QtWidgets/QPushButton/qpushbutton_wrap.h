@@ -15,15 +15,12 @@ class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
   QPushButtonWrap(const Napi::CallbackInfo& info);
   ~QPushButtonWrap();
   NPushButton* getInternalInstance();
-  Napi::Value setupSignalListeners(const Napi::CallbackInfo& info);
   //class constructor
   static Napi::FunctionReference constructor;
   //wrapped methods
   Napi::Value setText(const Napi::CallbackInfo& info);
-  Napi::Value subscribeToEvent(const Napi::CallbackInfo& info);
   
   QWIDGET_WRAPPED_METHODS_DECLARATION
- 
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "src/cpp/core/YogaWidget/yogawidget.h"
-#include "src/cpp/core/Events/eventwidget.h"
+#include "src/cpp/core/Events/eventwidget_macro.h"
 
 // class to unify all the custom features + add extra features if needed
 class NodeWidget : public YogaWidget, public EventWidget {
@@ -15,10 +15,7 @@ class NodeWidget : public YogaWidget, public EventWidget {
 Q_OBJECT \
 public: \
     SET_YOGA_WIDGET_Q_PROPERTIES \
-    bool event(QEvent* event) {  \
-        EventWidget::event(event); \
-        return QWidget::event(event); \
-    } \
+    EVENTWIDGET_IMPLEMENTATIONS \
 
 #endif //NODEWIDGET_IMPLEMENTATIONS
 

@@ -1,7 +1,7 @@
 #include "eventwidget.h"
 #include "deps/spdlog/spdlog.h"
 
-void EventWidget::subscribeToEvent(std::string evtString){
+void EventWidget::subscribeToQtEvent(std::string evtString){
     try {
         int evtType = EventsMap::events.at(evtString);
         this->subscribedEvents.insert({static_cast<QEvent::Type>(evtType), evtString});

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "eventwidget.h"
+#include <QWidget>
 
 /*
 
@@ -21,7 +22,7 @@ Napi::Value initNodeEventEmitter(const Napi::CallbackInfo& info) { \
 Napi::Value subscribeToQtEvent(const Napi::CallbackInfo& info){ \
     Napi::Env env = info.Env(); \
     Napi::String eventString = info[0].As<Napi::String>(); \
-    this->instance->subscribeToEvent(eventString.Utf8Value()); \
+    this->instance->subscribeToQtEvent(eventString.Utf8Value()); \
     return env.Null(); \
 } \
 
@@ -36,3 +37,12 @@ Napi::Value subscribeToQtEvent(const Napi::CallbackInfo& info){ \
 
 #endif // EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 
+
+#ifndef EVENTWIDGET_IMPLEMENTATIONS
+#define EVENTWIDGET_IMPLEMENTATIONS \
+    bool event(QEvent* event) {  \
+        EventWidget::event(event); \
+        return QWidget::event(event); \
+    } \
+    
+#endif //EVENTWIDGET_IMPLEMENTATIONS

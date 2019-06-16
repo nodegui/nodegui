@@ -1,3 +1,5 @@
+# Event handling
+
 In Qt you can respond to an external event like a key press via event handling. Events always are processed by the event loop. Alongside events Qt also has a concept of Signals/Slots. Signals and slots are used to primarily communicate between widgets (more precisely QObjects). So the most common way of interacting between Qt Widgets is done through signals/slots. (More details here: https://doc.qt.io/qt-5/signalsandslots.html). Hence we would be implementing support for both events and signals.
 
 **Technicals:**
@@ -17,7 +19,7 @@ https://doc.qt.io/qt-5/signalsandslots.html
 The way you use them in Qt for a PushButton is explained here:
 https://wiki.qt.io/How_to_Use_QPushButton#Signals
 
-# Adding signal handling support to a NodeWidget
+# Adding signal/event handling support to a NodeWidget
 
 We will take the example of PushButton
 
@@ -25,23 +27,23 @@ We will take the example of PushButton
 
 Steps:
 
-The widget should inherit from `SignalNodeWidget` instead of `NodeWidget`. SignalNodeWidget inherits from NodeWidget internally. SignalNodeWidget constructor needs native object while initialising. So arrange your code such that native object gets initialised before calling `super(native)`.
+The widget should inherit from `NodeWidget`. NodeWidget inherits from EventWidget internally. EventWidget constructor needs native object while initialising. So arrange your code such that native object gets initialised before calling `super(native)`.
 
-SignalNodeWidget adds `setSignalListener` method to the widget which can be called
+EventWidget adds `addEventListener` method to the widget which can be called
 like this:
 
 ```js
-button.setSignalListener("clicked", () => {
+button.addEventListener("clicked", () => {
   console.log("clicked");
 });
 ```
 
-To help the user know what all signals are supported, export an enum like `QPushButtonSignal` as shown below.
+To help the user know what all signals/events are supported, export an enum like `QPushButtonEvents` as shown below.
 
 So the user can then use it as below:
 
 ```js
-button.setSignalListener(QPushButtonSignal.clicked, () => {
+button.addEventListener(QPushButtonEvents.clicked, () => {
   console.log("clicked");
 });
 ```
@@ -51,16 +53,17 @@ Example:
 ```js
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
-import { SignalNodeWidget } from "../../core/SignalNodeWidget";
+import { BaseWidgetEvents } from "../../core/EventWidget";
 
-export enum QPushButtonSignal {
-  clicked = "clicked",
-  pressed = "pressed",
-  released = "released",
-  toggled = "toggled"
-}
+export const QPushButtonEvents = Object.freeze({
+  ...BaseWidgetEvents,
+  clicked: "clicked",
+  pressed: "pressed",
+  released: "released",
+  toggled: "toggled"
+});
 
-export class QPushButton extends SignalNodeWidget {
+export class QPushButton extends NodeWidget {
   native: any;
   constructor(parent?: NodeWidget) {
     let native;
@@ -72,10 +75,12 @@ export class QPushButton extends SignalNodeWidget {
     super(native);
     this.parent = parent;
     this.native = native;
+    // bind member functions
+    this.setText.bind(this);
   }
 
-  setText(text: string) {
-    this.native.setText(text);
+  setText(text: string | number) {
+    this.native.setText(`${text}`);
   }
 }
 ```
@@ -84,110 +89,67 @@ export class QPushButton extends SignalNodeWidget {
 
 Steps:
 
-1. No changes to `NPushButton`
+1. `NPushButton`
 
-2. In `qpushbutton_wrap.h`:
+Inherit from both QPushButton and NodeWidget. Make sure you have added NODEWIDGET_IMPLEMENTATIONS macro. This adds a crucial method for events support. It will override `event(QEvent *)` method of QPushbutton so that nodejs can listen to the events of this widget. This makes sure we convert all the QEvent's of this widget to an event for the nodejs event emitter.
 
-   ```cpp
-
-    ...
-    ...
-    #include <napi-thread-safe-callback.hpp>
-    ...
-    ...
-
-    class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
-    private:
-    ...
-    // This will store our event emitter from JS
-    std::unique_ptr<ThreadSafeCallback> emitOnNode;
-
-    public:
-    ...
-    ...
-
-    // This will be called internally by SignalNodeWidget class in JS
-    Napi::Value setupSignalListeners(const Napi::CallbackInfo& info);
-
-    ...
-    ...
-    };
-   ```
-
-3. In `qpushbutton_wrap.cpp`
+Also make sure to connect all the signals of the widgets to the event emitter instance from NodeJS. This way we kindof convert the signal to a simple nodejs event.
 
 ```cpp
-...
-...
+#pragma once
 
-Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
-  Napi::HandleScope scope(env);
-  char CLASSNAME[] = "QPushButton";
-  Napi::Function func = DefineClass(env, CLASSNAME, {
-   ...
-   ...
-    InstanceMethod("setupSignalListeners",&QPushButtonWrap::setupSignalListeners),
-   ...
-   ...
-  });
-  ...
-  ...
-}
+#include <QPushButton>
+#include "src/cpp/core/NodeWidget/nodewidget.h"
+#include "napi.h"
 
-...
-...
+class NPushButton: public QPushButton, public NodeWidget
+{
+    NODEWIDGET_IMPLEMENTATIONS
+public:
+    using QPushButton::QPushButton; //inherit all constructors of QPushButton
 
-QPushButtonWrap::~QPushButtonWrap() {
-  this->emitOnNode.release(); //cleanup emitOnNode
-  delete this->instance;
-}
-...
-...
-
-Napi::Value QPushButtonWrap::setupSignalListeners(const Napi::CallbackInfo& info) {
-    Napi::Env env = info.Env();
-    this->emitOnNode = std::make_unique<ThreadSafeCallback>(info[0].As<Napi::Function>());
-   // Qt Connects: Implement all signal connects here
-    QObject::connect(this->instance, &QPushButton::clicked, [=](bool checked) {
-        this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-            args = {  Napi::String::New(env, "clicked"), Napi::Value::From(env, checked) };
+    // override this method and implement all signals here
+    void connectWidgetSignalsToEventEmitter() {
+        // Qt Connects: Implement all signal connects here
+        QObject::connect(this, &QPushButton::clicked, [=](bool checked) {
+            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                args = {  Napi::String::New(env, "clicked"), Napi::Value::From(env, checked) };
+            });
         });
-    });
-    QObject::connect(this->instance, &QPushButton::released, [=]() {
-        this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-            args = {  Napi::String::New(env, "released") };
+        QObject::connect(this, &QPushButton::released, [=]() {
+            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                args = {  Napi::String::New(env, "released") };
+            });
         });
-    });
-    QObject::connect(this->instance, &QPushButton::pressed, [=]() {
-        this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-            args = {  Napi::String::New(env, "pressed") };
+        QObject::connect(this, &QPushButton::pressed, [=]() {
+            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                args = {  Napi::String::New(env, "pressed") };
+            });
         });
-    });
-    QObject::connect(this->instance, &QPushButton::toggled, [=](bool checked) {
-        this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-            args = {  Napi::String::New(env, "toggled"), Napi::Value::From(env, checked) };
+        QObject::connect(this, &QPushButton::toggled, [=](bool checked) {
+            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
+                args = {  Napi::String::New(env, "toggled"), Napi::Value::From(env, checked) };
+            });
         });
-    });
-    return env.Null();
-}
+    }
+};
 
-...
-...
 
-```
 
 **Additional**
 
-Make sure `qpushbutton_wrap.h` is added to `config/moc.json`.
+Make sure `npushbutton.h` is added to `config/moc.json`.
 And run `npm run automoc` before running `npm run build:addon`
 
 We need to run Qt's MOC (Meta Object Compiler) on the file whenever we use Q_OBJECT in a class or use QObject::connect. This is so that Qt can expand the macros and add necessary implementations to our class.
 
 # How does it work ?
 
-1. On JS side for each widget instance we create an instance of NodeJS's Event Emitter. This is done by the class `SignalNodeWidget`
-2. We send this event emiiter's `emit` function to the C++ side by calling `setupSignalListeners` method and store a pointer to it using `emitOnNode`.
-3. We setup Qt's connect method for all the signals that we want to listen to and call the emitOnNode (which is actually emit from Event emitter) whenever a signal arrives.
+1. On JS side for each widget instance we create an instance of NodeJS's Event Emitter. This is done by the class `EventWidget` from which `NodeWidget` inherits
+2. We send this event emiiter's `emit` function to the C++ side by calling `initNodeEventEmitter` method and store a pointer to the event emitter's emit function using `emitOnNode`. initNodeEventEmitter function is added by a macro from EventWidget (c++). You can find the initNodeEventEmitter method with the event widget macros.
+3. We setup Qt's connect method for all the signals that we want to listen to and call the emitOnNode (which is actually emit from Event emitter) whenever a signal arrives. This is done manually on every widget by overriding the method `connectWidgetSignalsToEventEmitter`. Check `npushbutton.h` for details. This takes care of all the signals of the widgets. Now to export all qt events of the widget, we had overriden the widgets `event(Event*)`  method to listen to events received by the widget and send it to the event emitter. This is done inside the EVENTWIDGET_IMPLEMENTATIONS macro
+
 
 > Note that we **can't** just store Napi::Function emit directly and use it. This is because we would need access to `Napi::Env` while making a call and there is no way to do it asynchronously.
 > Since NAPI (node-addon-api) doesnt support asynchronous callbacks properly yet. (Although work in underway) we use this third party library (https://github.com/mika-fischer/napi-thread-safe-callback) to do so. This library provides us a way to access the Napi::Env variable whenever we need it.
+```

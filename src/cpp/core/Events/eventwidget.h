@@ -9,7 +9,7 @@ public:
     std::unique_ptr<ThreadSafeCallback> emitOnNode = nullptr;
     std::unordered_map<QEvent::Type, std::string> subscribedEvents;
 
-    void subscribeToEvent(std::string evtString);
+    void subscribeToQtEvent(std::string evtString);
 
     void event(QEvent* event);
 
