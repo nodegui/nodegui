@@ -1,14 +1,14 @@
 #pragma once
 
-#include <QWidget>
 #include <QMainWindow>
-#include "src/cpp/core/YogaWidget/yogawidget.h"
-#include "deps/spdlog/spdlog.h"
+#include "src/cpp/core/NodeWidget/nodewidget.h"
 #include <QEvent>
 
-class NMainWindow: public QMainWindow, public YogaWidget
+class NMainWindow: public QMainWindow, public NodeWidget
 {
-
+    NODEWIDGET_IMPLEMENTATIONS
+public:
+    using QMainWindow::QMainWindow; //inherit all constructors of QMainWindow
 private:
     void calculateLayout(){
         YGDirection direction = YGNodeStyleGetDirection(this->getFlexNode());
@@ -27,10 +27,6 @@ private:
     void resizeEvent(QResizeEvent * event){
         calculateLayout();
     }
-public:
-    SET_YOGA_WIDGET_Q_PROPERTIES
-    using QMainWindow::QMainWindow; //inherit all constructors of QMainWindow
-    Q_OBJECT
 };
 
 

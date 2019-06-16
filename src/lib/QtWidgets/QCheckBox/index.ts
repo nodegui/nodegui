@@ -1,17 +1,27 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
+import { BaseWidgetEvents } from "../../core/EventWidget";
+
+export const QCheckBoxEvents = Object.freeze({
+  ...BaseWidgetEvents
+});
 export class QCheckBox extends NodeWidget {
   native: any;
   constructor(parent?: NodeWidget) {
-    super();
+    let native;
     if (parent) {
-      this.native = new addon.QCheckBox(parent.native);
-      this.parent = parent;
+      native = new addon.QCheckBox(parent.native);
     } else {
-      this.native = new addon.QCheckBox();
+      native = new addon.QCheckBox();
     }
+    super(native);
+    this.native = native;
+    this.parent = parent;
+    // bind member functions
+    this.setText.bind(this);
   }
-  setText = (text: string) => {
+
+  setText(text: string) {
     this.native.setText(text);
-  };
+  }
 }

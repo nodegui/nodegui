@@ -1,10 +1,10 @@
 import addon from "../../core/addon";
-import { YogaWidget } from "../../core/YogaWidget";
 import { NodeLayout } from "../../QtWidgets/QLayout";
+import { EventWidget } from "../../core/EventWidget";
 
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
-export abstract class NodeWidget extends YogaWidget {
+export abstract class NodeWidget extends EventWidget {
   type = "widget";
   layout?: NodeLayout;
   show = () => {
@@ -34,12 +34,14 @@ export abstract class NodeWidget extends YogaWidget {
 export class QWidget extends NodeWidget {
   native: any;
   constructor(parent?: QWidget) {
-    super();
+    let native;
     if (parent) {
-      this.native = new addon.QWidget(parent.native);
-      this.parent = parent;
+      native = new addon.QWidget(parent.native);
     } else {
-      this.native = new addon.QWidget();
+      native = new addon.QWidget();
     }
+    super(native);
+    this.parent = parent;
+    this.native = native;
   }
 }

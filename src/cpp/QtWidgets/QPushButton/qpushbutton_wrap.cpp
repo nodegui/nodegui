@@ -9,7 +9,6 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QPushButton";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setText", &QPushButtonWrap::setText),
-    InstanceMethod("setupSignalListeners",&QPushButtonWrap::setupSignalListeners),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)
   });
   constructor = Napi::Persistent(func);
@@ -39,35 +38,7 @@ QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
 }
 
 QPushButtonWrap::~QPushButtonWrap() {
-  this->emitOnNode.release(); //cleanup emitOnNode
   delete this->instance;
-}
-
-Napi::Value QPushButtonWrap::setupSignalListeners(const Napi::CallbackInfo& info) {
-    Napi::Env env = info.Env();
-    this->emitOnNode = std::make_unique<ThreadSafeCallback>(info[0].As<Napi::Function>());
-   // Qt Connects: Implement all signal connects here 
-    QObject::connect(this->instance, &QPushButton::clicked, [=](bool checked) { 
-        this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-            args = {  Napi::String::New(env, "clicked"), Napi::Value::From(env, checked) };
-        });
-    });
-    QObject::connect(this->instance, &QPushButton::released, [=]() { 
-        this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-            args = {  Napi::String::New(env, "released") };
-        });
-    });
-    QObject::connect(this->instance, &QPushButton::pressed, [=]() { 
-        this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-            args = {  Napi::String::New(env, "pressed") };
-        });
-    });
-    QObject::connect(this->instance, &QPushButton::toggled, [=](bool checked) { 
-        this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-            args = {  Napi::String::New(env, "toggled"), Napi::Value::From(env, checked) };
-        });
-    });
-    return env.Null();
 }
 
 

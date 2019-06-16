@@ -1,16 +1,13 @@
 #pragma once
 
-#include <QWidget>
 #include <QCheckBox>
-#include "src/cpp/core/YogaWidget/yogawidget.h"
+#include "src/cpp/core/NodeWidget/nodewidget.h"
 
-class NCheckBox: public QCheckBox, public YogaWidget
+class NCheckBox: public QCheckBox, public NodeWidget
 {
-
+    NODEWIDGET_IMPLEMENTATIONS
 public:
-    SET_YOGA_WIDGET_Q_PROPERTIES
     using QCheckBox::QCheckBox; //inherit all constructors of QCheckBox
-    Q_OBJECT
 };
 
 

@@ -1,16 +1,13 @@
 #pragma once
 
-#include <QWidget>
 #include <QLabel>
-#include "src/cpp/core/YogaWidget/yogawidget.h"
+#include "src/cpp/core/NodeWidget/nodewidget.h"
 
-class NLabel: public QLabel, public YogaWidget
+class NLabel: public QLabel, public NodeWidget
 {
-
+    NODEWIDGET_IMPLEMENTATIONS
 public:
-    SET_YOGA_WIDGET_Q_PROPERTIES
     using QLabel::QLabel; //inherit all constructors of QLabel
-    Q_OBJECT
 };
 
 
