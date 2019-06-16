@@ -292,10 +292,8 @@ void *NLineEdit::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_NLineEdit.stringdata0))
         return static_cast<void*>(this);
-    if (!strcmp(_clname, "YogaWidget"))
-        return static_cast< YogaWidget*>(this);
-    if (!strcmp(_clname, "EventWidget"))
-        return static_cast< EventWidget*>(this);
+    if (!strcmp(_clname, "NodeWidget"))
+        return static_cast< NodeWidget*>(this);
     return QLineEdit::qt_metacast(_clname);
 }
 

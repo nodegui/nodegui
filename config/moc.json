@@ -1,5 +1,5 @@
 {
-  "include": "src/cpp/core/YogaWidget/yogawidget.h",
+  "include": "src/cpp/core/NodeWidget/nodewidget.h",
   "headers": [
     "src/cpp/QtGui/QWidget/nwidget.h",
     "src/cpp/QtWidgets/QLabel/nlabel.h",

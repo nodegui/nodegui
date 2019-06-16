@@ -1,23 +1,16 @@
 #pragma once
 
 #include <QPushButton>
-#include "src/cpp/core/YogaWidget/yogawidget.h"
-#include "src/cpp/core/Events/eventwidget.h"
+#include "src/cpp/core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NPushButton: public QPushButton, public YogaWidget, public EventWidget
+class NPushButton: public QPushButton, public NodeWidget
 {
+    NODEWIDGET_IMPLEMENTATIONS
 public:
-    SET_YOGA_WIDGET_Q_PROPERTIES
     using QPushButton::QPushButton; //inherit all constructors of QPushButton
-    Q_OBJECT
-public:       
-    bool event(QEvent* event){
-        EventWidget::event(event);
-        return QWidget::event(event);    
-    }
 
-    void connectWidgetSignalsToEventEmitter(){
+    void connectWidgetSignalsToEventEmitter() {
         // Qt Connects: Implement all signal connects here 
         QObject::connect(this, &QPushButton::clicked, [=](bool checked) { 
             this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {

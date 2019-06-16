@@ -1,17 +1,13 @@
 #pragma once
 
-#include <QWidget>
 #include <QProgressBar>
-#include "src/cpp/core/YogaWidget/yogawidget.h"
-#include "src/cpp/core/Events/eventwidget.h"
+#include "src/cpp/core/NodeWidget/nodewidget.h"
 
-class NProgressBar: public QProgressBar, public YogaWidget, public EventWidget
+class NProgressBar: public QProgressBar, public NodeWidget
 {
-
+    NODEWIDGET_IMPLEMENTATIONS
 public:
-    SET_YOGA_WIDGET_Q_PROPERTIES
     using QProgressBar::QProgressBar; //inherit all constructors of QProgressBar
-    Q_OBJECT
 };
 
 
