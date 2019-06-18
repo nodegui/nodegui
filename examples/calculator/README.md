@@ -4,7 +4,9 @@ This example showcases how to build a basic calculator clone.
 
 **Screenshot:**
 
-<img alt="demo" src="https://github.com/master-atul/node-native-ui/raw/master/examples/calculator/calculator.png" height="400" />
+<img alt="demo_mac" src="https://github.com/master-atul/node-native-ui/raw/master/examples/calculator/calculator_mac.png" height="400" />
+<img alt="demo_linux" src="https://github.com/master-atul/node-native-ui/raw/master/examples/calculator/calculator_linux.png" height="400" />
+
 
 To run the demo:
 
