@@ -2,7 +2,7 @@
     'includes': [],
     'type': 'shared_library',
     'variables': {
-        'qt_home_dir': '<!(echo $QN_QT_HOME_DIR)',
+        'qt_home_dir': '/usr/local/qt5',
     },
     'target_defaults': {
         'cflags!': ['-fno-exceptions'],
@@ -43,15 +43,20 @@
                 ],
             }],
             ['OS=="linux"', {
-                'cflags': [
-                    '<!@(pkg-config --cflags Qt5Core Qt5Gui Qt5Widgets Qt5Test)',
-                ],
-                'ldflags': [
-                    '<!@(pkg-config --libs-only-L --libs-only-other Qt5Core Qt5Gui Qt5Widgets Qt5Test)',
+                'include_dirs': [
+                    '<(qt_home_dir)/include',
+                    '<(qt_home_dir)/include/QtCore',
+                    '<(qt_home_dir)/include/QtGui',
+                    '<(qt_home_dir)/include/QtWidgets',
                 ],
                 'libraries': [
-                    '<!@(pkg-config --libs-only-l Qt5Core Qt5Gui Qt5Widgets Qt5Test)',
-                ]
+                    '<(qt_home_dir)/lib/libQt5Core.so',
+                    '<(qt_home_dir)/lib/libQt5Gui.so',
+                    '<(qt_home_dir)/lib/libQt5Widgets.so',
+                ],
+                'cflags':[
+                    '-fPIC'
+                ],
             }],
             ['OS=="win"', {
                 'msvs_settings': {

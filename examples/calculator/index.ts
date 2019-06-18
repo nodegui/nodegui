@@ -42,6 +42,7 @@ rootView.setStyleSheet(
   `
   * {
     font-size: 20px;
+    color: white;
   }
 
   QPushButton {

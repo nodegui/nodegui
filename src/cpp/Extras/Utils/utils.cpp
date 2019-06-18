@@ -17,10 +17,10 @@ YGSize extrautils::measureQtWidget (YGNodeRef node, float width, YGMeasureMode w
         if(widget){
             QSize size = widget->sizeHint();
             return YGSize{
-                .height = static_cast<float>(size.height()),
-                .width = static_cast<float>(size.width())
+                width : static_cast<float>(size.width()),
+                height : static_cast<float>(size.height()),
             };
         }
     }
-    return YGSize{ .height = 0, .width = 0 };
+    return YGSize{width : 0, height : 0};
 }
