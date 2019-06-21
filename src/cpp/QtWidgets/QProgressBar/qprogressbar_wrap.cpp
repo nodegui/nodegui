@@ -1,7 +1,7 @@
 
 #include "qprogressbar_wrap.h"
 #include "src/cpp/QtGui/QWidget/qwidget_wrap.h"
-#include "src/cpp/Extras/Utils/utils.h"
+#include "src/cpp/Extras/Utils/nutils.h"
 #include <QWidget>
 
 

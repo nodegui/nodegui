@@ -4,7 +4,7 @@
 #include "npushbutton.h"
 #include "src/cpp/QtGui/QWidget/qwidget_macro.h"
 
-#include "src/cpp/Extras/Utils/utils.h"
+#include "src/cpp/Extras/Utils/nutils.h"
 
 class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
  private:

@@ -2,7 +2,7 @@
     'includes': [],
     'type': 'shared_library',
     'variables': {
-        'qt_home_dir': '/usr/local/qt5',
+        'qt_home_dir': 'C:\\Users\\atula\\Tools\\qt\\5.13.0\\msvc2017_64',
     },
     'target_defaults': {
         'cflags!': ['-fno-exceptions'],
@@ -69,27 +69,27 @@
                         ]
                     },
                 },
+                "defines": [
+                    "_HAS_EXCEPTIONS=1"
+                ],
                 'include_dirs': [
-                    '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/includes',
-                    '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/includes/QtCore',
-                    '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/includes/QtGui',
-                    '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/includes/QtTest',
-                    '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/includes/QtWidgets',
+                    '<(qt_home_dir)\\include',
+                    '<(qt_home_dir)\\include\\QtCore',
+                    '<(qt_home_dir)\\include\\QtGui',
+                    '<(qt_home_dir)\\include\\QtWidgets',
                 ],
                 'libraries': [
-                    '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/lib/Qt5Core.lib',
-                    '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/lib/Qt5Gui.lib',
-                    '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/lib/Qt5Test.lib',
-                    '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/lib/Qt5Widgets.lib',
+                   '<(qt_home_dir)\\lib\\Qt5Core.lib',
+                    '<(qt_home_dir)\\lib\\Qt5Gui.lib',
+                    '<(qt_home_dir)\\lib\\Qt5Widgets.lib',
                 ],
                 'copies': [{
                     'files': [
-                        '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/dll/Qt5Core.dll',
-                        '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/dll/Qt5Gui.dll',
-                        '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/dll/Qt5Test.dll',
-                        '<(module_root_dir)/dep/qt-5.11.0/win32/msvc2017_64/dll/Qt5Widgets.dll',
+                        '<(qt_home_dir)\\bin\\Qt5Core.dll',
+                        '<(qt_home_dir)\\bin\\Qt5Gui.dll',
+                        '<(qt_home_dir)\\bin\\Qt5Widgets.dll',
                     ],
-                    'destination': '<(module_root_dir)/build/Release',
+                    'destination': '<(PRODUCT_DIR)',
                 }]
             }],
         ],

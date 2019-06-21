@@ -9,7 +9,7 @@
             "sources": [
                 "../src/cpp/main.cpp",
                 # non-wrapped cpps
-                "../src/cpp/Extras/Utils/utils.cpp",
+                "../src/cpp/Extras/Utils/nutils.cpp",
                 "../src/cpp/core/FlexLayout/flexlayout.cpp",
                 "../src/cpp/core/FlexLayout/flexitem.cpp",
                 "../src/cpp/core/YogaWidget/nodestyle.cpp",

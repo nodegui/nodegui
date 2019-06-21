@@ -1,7 +1,7 @@
 #include "flexlayout_wrap.h"
 #include "flexnode_wrap.h"
 #include "src/cpp/QtGui/QWidget/qwidget_wrap.h"
-#include "src/cpp/Extras/Utils/utils.h"
+#include "src/cpp/Extras/Utils/nutils.h"
 #include <QDebug>
 
 Napi::FunctionReference FlexLayoutWrap::constructor;
