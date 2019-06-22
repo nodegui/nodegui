@@ -1,6 +1,6 @@
 #include "eventsmap.h"
 
-std::unordered_map<std::string, int> EventsMap::events {       
+std::unordered_map<std::string, int> EventsMap::eventTypes {       
         { "None", QEvent::None },
         { "ActionAdded", QEvent::ActionAdded },
         { "ActionChanged", QEvent::ActionChanged },

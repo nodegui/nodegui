@@ -70,6 +70,9 @@ const testFlexLayout = () => {
   //          -> view2 -> button
 
   const win = new QMainWindow();
+  win.addEventListener("MouseMove", (...args) => {
+    console.log(...args);
+  });
   win.setObjectName("win");
   win.resize(300, 300);
   const rootView = new QWidget();

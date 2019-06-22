@@ -2,7 +2,7 @@
     'includes': [],
     'type': 'shared_library',
     'variables': {
-        'qt_home_dir': 'C:\\Users\\atula\\Tools\\qt\\5.13.0\\msvc2017_64',
+        'qt_home_dir': '/usr/local/Cellar/qt/5.12.1',
     },
     'target_defaults': {
         'cflags!': ['-fno-exceptions'],
@@ -79,7 +79,7 @@
                     '<(qt_home_dir)\\include\\QtWidgets',
                 ],
                 'libraries': [
-                   '<(qt_home_dir)\\lib\\Qt5Core.lib',
+                    '<(qt_home_dir)\\lib\\Qt5Core.lib',
                     '<(qt_home_dir)\\lib\\Qt5Gui.lib',
                     '<(qt_home_dir)\\lib\\Qt5Widgets.lib',
                 ],
