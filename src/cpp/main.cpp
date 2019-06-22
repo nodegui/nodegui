@@ -9,14 +9,12 @@
 #include "src/cpp/QtWidgets/QProgressBar/qprogressbar_wrap.h"
 #include "src/cpp/QtWidgets/QRadioButton/qradiobutton_wrap.h"
 #include "src/cpp/QtWidgets/QLineEdit/qlineedit_wrap.h"
-#include "src/cpp/core/FlexLayout/flexnode_wrap.h"
 #include "src/cpp/core/FlexLayout/flexlayout_wrap.h"
 #include <napi.h>
 
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env){
     QLayoutWrap::init(env); //Abstact class wrapper for pointing to any layout
-    FlexNodeWrap::init(env); //Abstact class wrapper for pointing to flex/yoga node
 }
 
 Napi::Object Main(Napi::Env env, Napi::Object exports) {

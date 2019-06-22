@@ -1,5 +1,4 @@
 #include "flexlayout_wrap.h"
-#include "flexnode_wrap.h"
 #include "src/cpp/QtGui/QWidget/qwidget_wrap.h"
 #include "src/cpp/Extras/Utils/nutils.h"
 #include <QDebug>
@@ -50,10 +49,10 @@ Napi::Value FlexLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
-  Napi::Object childFlexNodeObject = info[1].As<Napi::Object>();
+  Napi::External<YGNode> childFlexNodeObject = info[1].As<Napi::External<YGNode>>();
   QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
-  FlexNodeWrap* childFlexNodeWrap = Napi::ObjectWrap<FlexNodeWrap>::Unwrap(childFlexNodeObject);
-  this->instance->addWidget(widget->getInternalInstance(),childFlexNodeWrap->getInternalInstance());
+  YGNodeRef childNodeRef = childFlexNodeObject.Data();
+  this->instance->addWidget(widget->getInternalInstance(),childNodeRef);
   
   return env.Null();
 }
@@ -62,9 +61,10 @@ Napi::Value FlexLayoutWrap::setFlexNode(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  Napi::Object flexNodeObject = info[0].As<Napi::Object>();
-  FlexNodeWrap* flexNodeWrap = Napi::ObjectWrap<FlexNodeWrap>::Unwrap(flexNodeObject);
-  this->instance->setFlexNode(flexNodeWrap->getInternalInstance());
+  Napi::External<YGNode> flexNodeObject = info[0].As<Napi::External<YGNode>>();
+  YGNodeRef flexNodeRef = flexNodeObject.Data();
+
+  this->instance->setFlexNode(flexNodeRef);
   
   return env.Null();
 }

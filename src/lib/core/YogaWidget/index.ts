@@ -1,8 +1,8 @@
 import { Component } from "../Component";
-import { FlexNode } from "../FlexLayout/FlexNode";
 
+export type FlexNode = {};
 export abstract class YogaWidget extends Component {
   getFlexNode = (): FlexNode => {
-    return new FlexNode(this.native.getFlexNode());
+    return this.native.getFlexNode();
   };
 }

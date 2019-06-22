@@ -1,7 +1,7 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
-import { FlexNode } from "../../core/FlexLayout/FlexNode";
 import { BaseWidgetEvents } from "../../core/EventWidget";
+import { FlexNode } from "../../core/YogaWidget";
 
 export const QMainWindowEvents = Object.freeze({
   ...BaseWidgetEvents
@@ -9,7 +9,6 @@ export const QMainWindowEvents = Object.freeze({
 export class QMainWindow extends NodeWidget {
   native: any;
   protected centralWidget?: NodeWidget;
-  protected centralWidgetFlexNode?: FlexNode;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {
@@ -26,11 +25,10 @@ export class QMainWindow extends NodeWidget {
   }
 
   setCentralWidget(widget: NodeWidget) {
-    this.centralWidgetFlexNode = widget.getFlexNode();
     this.centralWidget = widget;
     this.native.setCentralWidget(
       this.centralWidget.native,
-      this.centralWidgetFlexNode.native
+      widget.getFlexNode()
     );
   }
   setFixedSize(width: number, height: number) {

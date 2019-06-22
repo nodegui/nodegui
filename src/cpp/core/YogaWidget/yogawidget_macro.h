@@ -1,7 +1,5 @@
 #pragma once
 
-#include "src/cpp/core/FlexLayout/flexnode_wrap.h"
-
 /*
 
     This macro adds common YogaWidget's exported methods 
@@ -12,12 +10,9 @@
 #define YOGAWIDGET_WRAPPED_METHODS_DECLARATION \
 \
 Napi::Value getFlexNode(const Napi::CallbackInfo& info) {\
-    Napi::EscapableHandleScope scope(info.Env());\
-    Napi::Value arg = info[0];\
-    Napi::Object flexNodeObject = FlexNodeWrap::constructor.New({ arg });\
-    FlexNodeWrap* flexNodeWrap = FlexNodeWrap::Unwrap(flexNodeObject);\
-    flexNodeWrap->instance = this->instance->getFlexNode();\
-    return scope.Escape(napi_value(flexNodeObject)).ToObject();\
+    YGNodeRef node = this->instance->getFlexNode(); \
+    Napi::Value yogaNodeRef = Napi::External<YGNode>::New(info.Env(), node); \
+    return yogaNodeRef; \
 }\
 
 #endif //YOGAWIDGET_WRAPPED_METHODS_DECLARATION
