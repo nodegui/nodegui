@@ -1,6 +1,7 @@
 import addon from "../../core/addon";
 import { NodeLayout } from "../../QtWidgets/QLayout";
 import { EventWidget } from "../../core/EventWidget";
+import { NativeElement } from "../../core/Component";
 
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
@@ -32,7 +33,7 @@ export abstract class NodeWidget extends EventWidget {
 }
 
 export class QWidget extends NodeWidget {
-  native: any;
+  native: NativeElement;
   constructor(parent?: QWidget) {
     let native;
     if (parent) {

@@ -1,12 +1,13 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
+import { NativeElement } from "../../core/Component";
 
 export const QCheckBoxEvents = Object.freeze({
   ...BaseWidgetEvents
 });
 export class QCheckBox extends NodeWidget {
-  native: any;
+  native: NativeElement;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {

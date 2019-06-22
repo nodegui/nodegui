@@ -1,12 +1,13 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
+import { NativeElement } from "../../core/Component";
 
 export const QRadioButtonEvents = Object.freeze({
   ...BaseWidgetEvents
 });
 export class QRadioButton extends NodeWidget {
-  native: any;
+  native: NativeElement;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {

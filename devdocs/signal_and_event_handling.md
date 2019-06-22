@@ -64,7 +64,7 @@ export const QPushButtonEvents = Object.freeze({
 });
 
 export class QPushButton extends NodeWidget {
-  native: any;
+  native: NativeElement;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {

@@ -1,6 +1,7 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
+import { NativeElement } from "../../core/Component";
 
 export const QPushButtonEvents = Object.freeze({
   ...BaseWidgetEvents,
@@ -11,7 +12,7 @@ export const QPushButtonEvents = Object.freeze({
 });
 
 export class QPushButton extends NodeWidget {
-  native: any;
+  native: NativeElement;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {

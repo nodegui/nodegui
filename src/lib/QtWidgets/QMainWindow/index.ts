@@ -2,12 +2,13 @@ import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { FlexNode } from "../../core/YogaWidget";
+import { NativeElement } from "../../core/Component";
 
 export const QMainWindowEvents = Object.freeze({
   ...BaseWidgetEvents
 });
 export class QMainWindow extends NodeWidget {
-  native: any;
+  native: NativeElement;
   protected centralWidget?: NodeWidget;
   constructor(parent?: NodeWidget) {
     let native;

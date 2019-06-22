@@ -4,5 +4,6 @@
 
 class EventsMap {
     public: 
-    static std::unordered_map<std::string, int> events;
+    static std::unordered_map<std::string, int> eventTypes;
+    // static std::unordered_map<std::string, int> keyEvents;
 };

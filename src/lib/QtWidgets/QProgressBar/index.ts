@@ -1,12 +1,13 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
+import { NativeElement } from "../../core/Component";
 
 export const QProgressBarEvents = Object.freeze({
   ...BaseWidgetEvents
 });
 export class QProgressBar extends NodeWidget {
-  native: any;
+  native: NativeElement;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {

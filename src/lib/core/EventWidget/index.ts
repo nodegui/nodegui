@@ -1,9 +1,11 @@
 import { EventEmitter } from "events";
 import { YogaWidget } from "../YogaWidget";
+import { NativeElement } from "../Component";
 
+type NativeEvent = {};
 export abstract class EventWidget extends YogaWidget {
   private emitter: EventEmitter;
-  constructor(native: any) {
+  constructor(native: NativeElement) {
     super();
     if (native.initNodeEventEmitter) {
       this.emitter = new EventEmitter();
@@ -13,7 +15,10 @@ export abstract class EventWidget extends YogaWidget {
     }
   }
 
-  addEventListener = (eventType: string, callback: (payload?: any) => void) => {
+  addEventListener = (
+    eventType: string,
+    callback: (payload?: NativeEvent | any) => void
+  ) => {
     this.native.subscribeToQtEvent(eventType);
     this.emitter.on(eventType, callback);
   };

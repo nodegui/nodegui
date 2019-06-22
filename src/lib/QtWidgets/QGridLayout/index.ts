@@ -1,9 +1,10 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
 import { NodeLayout } from "../QLayout";
+import { NativeElement } from "../../core/Component";
 
 export class QGridLayout extends NodeLayout {
-  native: any;
+  native: NativeElement;
   constructor(parent?: NodeWidget) {
     super();
     if (parent) {
