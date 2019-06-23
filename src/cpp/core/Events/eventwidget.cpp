@@ -17,10 +17,14 @@ void EventWidget::event(QEvent* event){
         try {
             QEvent::Type evtType = event->type();
             std::string eventTypeString = subscribedEvents.at(evtType);
-            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-                Napi::Value nativeEvent = Napi::External<QEvent>::New(env, event);
-                args = {  Napi::String::New(env, eventTypeString), nativeEvent };
-            });
+          
+            Napi::Env env = this->emitOnNode.Env();
+            Napi::HandleScope scope(env);
+          
+            Napi::Value nativeEvent = Napi::External<QEvent>::New(env, event);
+            std::vector<napi_value>  args = {  Napi::String::New(env, eventTypeString), nativeEvent };
+          
+            this->emitOnNode.Call(args);
         } catch (...) {
             // Do nothing
         }    
@@ -34,6 +38,6 @@ void EventWidget::connectWidgetSignalsToEventEmitter(){
 
 EventWidget::~EventWidget(){
     if(this->emitOnNode){
-        this->emitOnNode.release();
+        this->emitOnNode.Reset();
     }
 }

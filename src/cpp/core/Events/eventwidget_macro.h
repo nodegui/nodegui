@@ -14,7 +14,7 @@
 \
 Napi::Value initNodeEventEmitter(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env(); \
-    this->instance->emitOnNode = std::make_unique<ThreadSafeCallback>(info[0].As<Napi::Function>()); \
+    this->instance->emitOnNode = Napi::Persistent(info[0].As<Napi::Function>()); \
     this->instance->connectWidgetSignalsToEventEmitter(); \
     return env.Null(); \
 } \

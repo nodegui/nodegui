@@ -1,12 +1,12 @@
 #pragma once
 
 #include <QEvent>
-#include <napi-thread-safe-callback.hpp>
 #include "src/cpp/core/Events/eventsmap.h"
+#include <napi.h>
 
 class EventWidget {
 public:
-    std::unique_ptr<ThreadSafeCallback> emitOnNode = nullptr;
+    Napi::FunctionReference emitOnNode;
     std::unordered_map<QEvent::Type, std::string> subscribedEvents;
 
     void subscribeToQtEvent(std::string evtString);

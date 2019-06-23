@@ -13,24 +13,24 @@ public:
     void connectWidgetSignalsToEventEmitter() {
         // Qt Connects: Implement all signal connects here 
         QObject::connect(this, &QPushButton::clicked, [=](bool checked) { 
-            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-                args = {  Napi::String::New(env, "clicked"), Napi::Value::From(env, checked) };
-            });
+            Napi::Env env = this->emitOnNode.Env();
+            Napi::HandleScope scope(env);
+            this->emitOnNode.Call({  Napi::String::New(env, "clicked"), Napi::Value::From(env, checked) });
         });
         QObject::connect(this, &QPushButton::released, [=]() { 
-            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-                args = {  Napi::String::New(env, "released") };
-            });
+            Napi::Env env = this->emitOnNode.Env();
+            Napi::HandleScope scope(env);
+            this->emitOnNode.Call({  Napi::String::New(env, "released") });
         });
         QObject::connect(this, &QPushButton::pressed, [=]() { 
-            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-                args = {  Napi::String::New(env, "pressed") };
-            });
+            Napi::Env env = this->emitOnNode.Env();
+            Napi::HandleScope scope(env);
+            this->emitOnNode.Call({  Napi::String::New(env, "pressed") });
         });
         QObject::connect(this, &QPushButton::toggled, [=](bool checked) { 
-            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-                args = {  Napi::String::New(env, "toggled"), Napi::Value::From(env, checked) };
-            });
+            Napi::Env env = this->emitOnNode.Env();
+            Napi::HandleScope scope(env);
+            this->emitOnNode.Call({  Napi::String::New(env, "toggled"), Napi::Value::From(env, checked) });
         });
     }
 };

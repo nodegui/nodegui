@@ -10,6 +10,7 @@
 #include "src/cpp/QtWidgets/QRadioButton/qradiobutton_wrap.h"
 #include "src/cpp/QtWidgets/QLineEdit/qlineedit_wrap.h"
 #include "src/cpp/core/FlexLayout/flexlayout_wrap.h"
+#include "src/cpp/core/Events/types/KeyEvent/keyevent_wrap.h"
 #include <napi.h>
 
 // These cant be instantiated in JS Side
@@ -29,6 +30,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QProgressBarWrap::init(env, exports);
     QRadioButtonWrap::init(env, exports);
     QLineEditWrap::init(env, exports);
+    QKeyEventWrap::init(env, exports);
     return QLabelWrap::init(env, exports);
 }
 

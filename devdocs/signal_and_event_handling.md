@@ -112,24 +112,24 @@ public:
     void connectWidgetSignalsToEventEmitter() {
         // Qt Connects: Implement all signal connects here
         QObject::connect(this, &QPushButton::clicked, [=](bool checked) {
-            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-                args = {  Napi::String::New(env, "clicked"), Napi::Value::From(env, checked) };
-            });
+            Napi::Env env = this->emitOnNode.Env();
+            Napi::HandleScope scope(env);
+            this->emitOnNode.Call({  Napi::String::New(env, "clicked"), Napi::Value::From(env, checked) });
         });
         QObject::connect(this, &QPushButton::released, [=]() {
-            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-                args = {  Napi::String::New(env, "released") };
-            });
+            Napi::Env env = this->emitOnNode.Env();
+            Napi::HandleScope scope(env);
+            this->emitOnNode.Call({  Napi::String::New(env, "released") });
         });
         QObject::connect(this, &QPushButton::pressed, [=]() {
-            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-                args = {  Napi::String::New(env, "pressed") };
-            });
+            Napi::Env env = this->emitOnNode.Env();
+            Napi::HandleScope scope(env);
+            this->emitOnNode.Call({  Napi::String::New(env, "pressed") });
         });
         QObject::connect(this, &QPushButton::toggled, [=](bool checked) {
-            this->emitOnNode->call([=](Napi::Env env, std::vector<napi_value>& args) {
-                args = {  Napi::String::New(env, "toggled"), Napi::Value::From(env, checked) };
-            });
+            Napi::Env env = this->emitOnNode.Env();
+            Napi::HandleScope scope(env);
+            this->emitOnNode.Call({  Napi::String::New(env, "toggled"), Napi::Value::From(env, checked) });
         });
     }
 };
@@ -148,8 +148,4 @@ We need to run Qt's MOC (Meta Object Compiler) on the file whenever we use Q_OBJ
 1. On JS side for each widget instance we create an instance of NodeJS's Event Emitter. This is done by the class `EventWidget` from which `NodeWidget` inherits
 2. We send this event emiiter's `emit` function to the C++ side by calling `initNodeEventEmitter` method and store a pointer to the event emitter's emit function using `emitOnNode`. initNodeEventEmitter function is added by a macro from EventWidget (c++). You can find the initNodeEventEmitter method with the event widget macros.
 3. We setup Qt's connect method for all the signals that we want to listen to and call the emitOnNode (which is actually emit from Event emitter) whenever a signal arrives. This is done manually on every widget by overriding the method `connectWidgetSignalsToEventEmitter`. Check `npushbutton.h` for details. This takes care of all the signals of the widgets. Now to export all qt events of the widget, we had overriden the widgets `event(Event*)`  method to listen to events received by the widget and send it to the event emitter. This is done inside the EVENTWIDGET_IMPLEMENTATIONS macro
-
-
-> Note that we **can't** just store Napi::Function emit directly and use it. This is because we would need access to `Napi::Env` while making a call and there is no way to do it asynchronously.
-> Since NAPI (node-addon-api) doesnt support asynchronous callbacks properly yet. (Although work in underway) we use this third party library (https://github.com/mika-fischer/napi-thread-safe-callback) to do so. This library provides us a way to access the Napi::Env variable whenever we need it.
 ```
