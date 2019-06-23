@@ -10,7 +10,7 @@
 #include "src/cpp/QtWidgets/QRadioButton/qradiobutton_wrap.h"
 #include "src/cpp/QtWidgets/QLineEdit/qlineedit_wrap.h"
 #include "src/cpp/core/FlexLayout/flexlayout_wrap.h"
-#include "src/cpp/core/Events/types/KeyEvent/keyevent_wrap.h"
+#include "src/cpp/QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include <napi.h>
 
 // These cant be instantiated in JS Side

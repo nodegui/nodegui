@@ -19,6 +19,7 @@
                 # wrapped cpps
                 "../src/cpp/QtGui/QApplication/qapplication_wrap.cpp",
                 "../src/cpp/QtGui/QWidget/qwidget_wrap.cpp",
+                "../src/cpp/QtGui/QEvent/QKeyEvent/qkeyevent_wrap.cpp",
                 '../src/cpp/core/FlexLayout/flexlayout_wrap.cpp',
                 "../src/cpp/QtWidgets/QGridLayout/qgridlayout_wrap.cpp",
                 "../src/cpp/QtWidgets/QLabel/qlabel_wrap.cpp",
@@ -29,7 +30,6 @@
                 "../src/cpp/QtWidgets/QProgressBar/qprogressbar_wrap.cpp",
                 "../src/cpp/QtWidgets/QRadioButton/qradiobutton_wrap.cpp",
                 "../src/cpp/QtWidgets/QLineEdit/qlineedit_wrap.cpp",
-                "../src/cpp/core/Events/types/KeyEvent/keyevent_wrap.cpp",
             ],
         }
     ]

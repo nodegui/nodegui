@@ -11,7 +11,7 @@ import { QProgressBar } from "./src/lib/QtWidgets/QProgressBar";
 import { QRadioButton } from "./src/lib/QtWidgets/QRadioButton";
 import { QLineEdit } from "./src/lib/QtWidgets/QLineEdit";
 import { FlexLayout } from "./src/lib/core/FlexLayout";
-import { KeyEvent } from "./src/lib/QtGui/QKeyEvent";
+import { QKeyEvent } from "./src/lib/QtGui/QEvent/QKeyEvent";
 
 // Test all widgets in this one. This works as of now!
 const testGridLayout = () => {
@@ -72,7 +72,7 @@ const testFlexLayout = () => {
 
   const win = new QMainWindow();
   win.addEventListener("KeyPress", nativeEvent => {
-    const evt = new KeyEvent(nativeEvent);
+    const evt = new QKeyEvent(nativeEvent);
     console.log(evt.text());
     console.log("KeyPress", evt);
   });
