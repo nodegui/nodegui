@@ -6,6 +6,8 @@ import {
   QPushButtonEvents
 } from "../../src/lib/QtWidgets/QPushButton";
 import { QLabel } from "../../src/lib/QtWidgets/QLabel";
+import { BaseWidgetEvents } from "../../src/lib/core/EventWidget";
+import { QKeyEvent } from "../../src/lib/QtGui/QEvent/QKeyEvent";
 
 const globals = global as any;
 
@@ -36,6 +38,12 @@ win.resize(230, 300);
 
 // Root view
 const rootView = new QWidget();
+win.addEventListener(BaseWidgetEvents.KeyRelease, nativeEvent => {
+  const keyEvt = new QKeyEvent(nativeEvent);
+  const text = keyEvt.text();
+  const isNotNumber = isNaN(parseInt(text));
+  onBtnClick(text, isNotNumber ? "command" : "value");
+});
 rootView.setObjectName("rootView"); //This is like ids in web world
 win.setCentralWidget(rootView);
 rootView.setStyleSheet(
@@ -225,6 +233,28 @@ let total = 0;
 let previousOperator = "+";
 
 var onBtnClick = (value: number | string, type: "value" | "command") => {
+  if (
+    ![
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "+",
+      "-",
+      "/",
+      "*",
+      "=",
+      "AC"
+    ].includes(`${value}`)
+  ) {
+    return;
+  }
   if (type === "value" || value === ".") {
     currentInputString += value;
     displayText = currentInputString;

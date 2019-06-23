@@ -38,7 +38,7 @@ QKeyEventWrap::~QKeyEventWrap() {
 
 Napi::Value QKeyEventWrap::text(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  int keyText = this->instance->key();
-  Napi::String keyValue = Napi::String::New(env, std::to_string(keyText));
+  QString text = this->instance->text();
+  Napi::String keyValue = Napi::String::New(env, text.toStdString());
   return keyValue;
 }
