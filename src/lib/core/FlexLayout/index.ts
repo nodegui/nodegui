@@ -8,9 +8,10 @@ export class FlexLayout extends NodeLayout {
   native: NativeElement = new addon.FlexLayout();
   protected flexNode?: FlexNode;
 
-  addWidget = (childWidget: NodeWidget, childFlexNode: FlexNode) => {
+  addWidget = (childWidget: NodeWidget, childFlexNode?: FlexNode) => {
+    const childYogaNode = childFlexNode || childWidget.getFlexNode();
     this.children.add(childWidget);
-    this.native.addWidget(childWidget.native, childFlexNode);
+    this.native.addWidget(childWidget.native, childYogaNode);
   };
   setFlexNode = (flexNode: FlexNode) => {
     this.flexNode = flexNode;
