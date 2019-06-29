@@ -36,7 +36,6 @@ The c++ api provided by this custom layout looks like this:
 
     flayout->addWidget(btn1, child1);
     flayout->addWidget(btn2, child2);
- */
 
 ```
 
@@ -75,27 +74,27 @@ flayout.addWidget(label, label.getFlexNode()); // Add child to layout
 
 #### FlexItem
 
-    FlexItem : `src/cpp/core/FlexLayout/flexitem.h` add flexnode to each widget.
-    FlexItem adds methods like getFlexNode.
+FlexItem : `src/cpp/core/FlexLayout/flexitem.h` add flexnode to each widget.
+FlexItem adds methods like getFlexNode.
 
 #### YogaWidget
 
-    Qt StyleSheet allows you to specify  style properties just like in web. You could specify font-size, margin, padding, etc. Qt StyleSheet also allows custom style properties via Qt's q-property system.
+Qt StyleSheet allows you to specify  style properties just like in web. You could specify font-size, margin, padding, etc. Qt StyleSheet also allows custom style properties via Qt's q-property system.
 
-    So in order to enable yoga based properties like alignItems, justifyContent, flex, etc via qt's stylesheet we
-    declare and define q properties for each of those custom properties we want.
-    This allows us to use something like:
+So in order to enable yoga based properties like alignItems, justifyContent, flex, etc via qt's stylesheet we
+declare and define q properties for each of those custom properties we want.
+This allows us to use something like:
 
-    ```js
-        view.setStyleSheet(`
-            background-color:green;
-            qproperty-flex: 1;
-            qproperty-alignItems: 'center';
-        `);
-    ```
+```js
+view.setStyleSheet(`
+    background-color:green;
+    qproperty-flex: 1;
+    qproperty-alignItems: 'center';
+`);
+```
 
-    Notice `qproperty-` prefix? These are the custom q-properties we defined in `YogaWidget.h`
+Notice `qproperty-` prefix? These are the custom q-properties we defined in `YogaWidget.h`
 
 #### NodeWidget
 
-    Every widget we implement should inherit from NodeWidget. This helps us add all the properties we want in the widgets via a single class. NodeWidget is the class that contains properties and methods shared by all widgets. This class allows us to add features to all widgets easily.
+Every widget we implement should inherit from NodeWidget. This helps us add all the properties we want in the widgets via a single class. NodeWidget is the class that contains properties and methods shared by all widgets. This class allows us to add features to all widgets easily.
