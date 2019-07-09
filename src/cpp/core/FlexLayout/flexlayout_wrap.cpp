@@ -1,7 +1,6 @@
 #include "flexlayout_wrap.h"
 #include "src/cpp/QtGui/QWidget/qwidget_wrap.h"
 #include "src/cpp/Extras/Utils/nutils.h"
-#include <QDebug>
 
 Napi::FunctionReference FlexLayoutWrap::constructor;
 
@@ -10,6 +9,7 @@ Napi::Object FlexLayoutWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "FlexLayout";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("addWidget", &FlexLayoutWrap::addWidget),
+    InstanceMethod("removeWidget", &FlexLayoutWrap::removeWidget),
     InstanceMethod("setFlexNode", &FlexLayoutWrap::setFlexNode),
   });
   constructor = Napi::Persistent(func);
@@ -53,6 +53,19 @@ Napi::Value FlexLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
   YGNodeRef childNodeRef = childFlexNodeObject.Data();
   this->instance->addWidget(widget->getInternalInstance(),childNodeRef);
+  
+  return env.Null();
+}
+
+Napi::Value FlexLayoutWrap::removeWidget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object qwidgetObject = info[0].As<Napi::Object>();
+  Napi::External<YGNode> childFlexNodeObject = info[1].As<Napi::External<YGNode>>();
+  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  YGNodeRef childNodeRef = childFlexNodeObject.Data();
+  this->instance->removeWidget(widget->getInternalInstance(),childNodeRef);
   
   return env.Null();
 }

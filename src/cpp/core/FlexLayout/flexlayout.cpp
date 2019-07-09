@@ -100,6 +100,21 @@ void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode)
     QLayout::addWidget(childWidget);
 }
 
+void FlexLayout::removeWidget(QWidget* childWidget, YGNodeRef childNode)
+{
+    if(!this->node){
+        spdlog::warn("Flex layout's parent yoga node not set yet. Set it using setFlexNode. childwidget cant be removed");
+        return;
+    }
+
+    NodeContext* ctx = getNodeContext(childNode);
+    if(ctx){
+        delete ctx->item;
+    }
+    YGNodeRemoveChild(this->node, childNode);
+    QLayout::removeWidget(childWidget);
+}
+
 void FlexLayout::setGeometry(const QRect &rect)
 {
     if(!this->node){

@@ -13,6 +13,11 @@ export class FlexLayout extends NodeLayout {
     this.children.add(childWidget);
     this.native.addWidget(childWidget.native, childYogaNode);
   };
+  removeWidget = (childWidget: NodeWidget, childFlexNode?: FlexNode) => {
+    const childYogaNode = childFlexNode || childWidget.getFlexNode();
+    this.native.removeWidget(childWidget.native, childYogaNode);
+    this.children.delete(childWidget);
+  };
   setFlexNode = (flexNode: FlexNode) => {
     this.flexNode = flexNode;
     this.native.setFlexNode(flexNode);
