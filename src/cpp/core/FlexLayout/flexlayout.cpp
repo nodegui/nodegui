@@ -115,6 +115,27 @@ void FlexLayout::removeWidget(QWidget* childWidget, YGNodeRef childNode)
     QLayout::removeWidget(childWidget);
 }
 
+void FlexLayout::insertChildBefore(QWidget* childWidget, YGNodeRef beforeChildNode, YGNodeRef childNode)
+{
+    if(!this->node){
+        spdlog::warn("Flex layout's parent yoga node not set yet. Set it using setFlexNode. childwidget cant be inserted");
+        return;
+    }
+    uint count = YGNodeGetChildCount(this->node);
+    uint indexToInsert = 0;
+    for(uint i=0; i<count; i+=1){
+        if(beforeChildNode == YGNodeGetChild(this->node, i)){
+            indexToInsert = i;
+            break;
+        }
+    }
+    YGNodeInsertChild(this->node, childNode, indexToInsert);
+    QLayoutItem* layoutItem = new QWidgetItem(childWidget);
+    NodeContext* childContext = new NodeContext(layoutItem);
+    YGNodeSetContext(childNode, static_cast<void *>(childContext));
+    QLayout::addWidget(childWidget);
+}
+
 void FlexLayout::setGeometry(const QRect &rect)
 {
     if(!this->node){

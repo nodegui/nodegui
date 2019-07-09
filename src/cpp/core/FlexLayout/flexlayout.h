@@ -40,6 +40,7 @@ public:
     QLayoutItem *takeAt(int index) override;
     int count() const override;
     void addWidget(QWidget* childWidget, YGNodeRef childNode);
+    void insertChildBefore(QWidget* childWidget, YGNodeRef beforeChildNode, YGNodeRef childNode);
     void removeWidget(QWidget* childWidget, YGNodeRef childNode);
     void setGeometry(const QRect &rect) override;
     void setFlexNode(YGNodeRef parentNode);
