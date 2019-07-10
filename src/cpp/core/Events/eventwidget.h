@@ -10,6 +10,7 @@ public:
     std::unordered_map<QEvent::Type, std::string> subscribedEvents;
 
     void subscribeToQtEvent(std::string evtString);
+    void unSubscribeToQtEvent(std::string evtString);
 
     void event(QEvent* event);
 

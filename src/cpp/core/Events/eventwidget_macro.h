@@ -25,6 +25,12 @@ Napi::Value subscribeToQtEvent(const Napi::CallbackInfo& info){ \
     this->instance->subscribeToQtEvent(eventString.Utf8Value()); \
     return env.Null(); \
 } \
+Napi::Value unSubscribeToQtEvent(const Napi::CallbackInfo& info){ \
+    Napi::Env env = info.Env(); \
+    Napi::String eventString = info[0].As<Napi::String>(); \
+    this->instance->unSubscribeToQtEvent(eventString.Utf8Value()); \
+    return env.Null(); \
+} \
 
 #endif //EVENTWIDGET_WRAPPED_METHODS_DECLARATION
 
@@ -33,6 +39,7 @@ Napi::Value subscribeToQtEvent(const Napi::CallbackInfo& info){ \
 \
   InstanceMethod("initNodeEventEmitter",&WidgetWrapName::initNodeEventEmitter), \
   InstanceMethod("subscribeToQtEvent",&WidgetWrapName::subscribeToQtEvent), \
+  InstanceMethod("unSubscribeToQtEvent",&WidgetWrapName::unSubscribeToQtEvent), \
 
 
 #endif // EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE

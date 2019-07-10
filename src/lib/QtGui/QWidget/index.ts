@@ -1,6 +1,6 @@
 import addon from "../../core/addon";
 import { NodeLayout } from "../../QtWidgets/QLayout";
-import { EventWidget } from "../../core/EventWidget";
+import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 
 // All Widgets should extend from NodeWidget
@@ -46,3 +46,5 @@ export class QWidget extends NodeWidget {
     this.native = native;
   }
 }
+
+export const QWidgetEvents = BaseWidgetEvents;

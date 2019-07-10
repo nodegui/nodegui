@@ -20,7 +20,21 @@ export abstract class EventWidget extends YogaWidget {
     callback: (payload?: NativeEvent | any) => void
   ) => {
     this.native.subscribeToQtEvent(eventType);
-    this.emitter.on(eventType, callback);
+    this.emitter.addListener(eventType, callback);
+  };
+
+  removeEventListener = (
+    eventType: string,
+    callback?: (payload?: NativeEvent | any) => void
+  ) => {
+    if (callback) {
+      this.emitter.removeListener(eventType, callback);
+    } else {
+      this.emitter.removeAllListeners(eventType);
+    }
+    if (this.emitter.listenerCount(eventType) < 1) {
+      this.native.unSubscribeToQtEvent(eventType);
+    }
   };
 }
 
