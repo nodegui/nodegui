@@ -70,6 +70,13 @@ Napi::Value setObjectName(const Napi::CallbackInfo& info){ \
     this->instance->setObjectName(QString::fromStdString(objectName.Utf8Value())); \
     return env.Null(); \
 } \
+Napi::Value setMouseTracking(const Napi::CallbackInfo& info){ \
+    Napi::Env env = info.Env(); \
+    Napi::HandleScope scope(env); \
+    Napi::Boolean isMouseTracked = info[0].As<Napi::Boolean>(); \
+    this->instance->setMouseTracking(isMouseTracked.Value()); \
+    return env.Null(); \
+} \
 
 #endif //QWIDGET_WRAPPED_METHODS_DECLARATION
 
@@ -85,6 +92,7 @@ Napi::Value setObjectName(const Napi::CallbackInfo& info){ \
  InstanceMethod("setStyleSheet",&WidgetWrapName::setStyleSheet), \
  InstanceMethod("hide",&WidgetWrapName::hide), \
  InstanceMethod("setObjectName",&WidgetWrapName::setObjectName), \
+ InstanceMethod("setMouseTracking",&WidgetWrapName::setMouseTracking), \
 
 
 #endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE

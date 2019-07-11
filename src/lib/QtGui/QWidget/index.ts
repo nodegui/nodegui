@@ -30,6 +30,9 @@ export abstract class NodeWidget extends EventWidget {
   setObjectName = (objectName: string) => {
     this.native.setObjectName(objectName);
   };
+  setMouseTracking = (isMouseTracked: boolean) => {
+    this.native.setMouseTracking(isMouseTracked);
+  };
 }
 
 export class QWidget extends NodeWidget {
