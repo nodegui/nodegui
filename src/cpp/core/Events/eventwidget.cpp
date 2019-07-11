@@ -27,7 +27,6 @@ void EventWidget::event(QEvent* event){
         try {
             QEvent::Type evtType = event->type();
             std::string eventTypeString = subscribedEvents.at(evtType);
-            spdlog::info("event: {}", eventTypeString);
             Napi::Env env = this->emitOnNode.Env();
             Napi::HandleScope scope(env);
           
