@@ -12,7 +12,6 @@ Napi::Object QCheckBoxWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setText", &QCheckBoxWrap::setText),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QCheckBoxWrap)
-    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QCheckBoxWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -36,6 +35,8 @@ QCheckBoxWrap::QCheckBoxWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<Q
   }else {
     extrautils::throwTypeError(env, "Wrong number of arguments");
   }
+// Adds measure function on yoga node so that widget size is calculated based on its text also.
+  YGNodeSetMeasureFunc(this->instance->getFlexNode(), &extrautils::measureQtWidget);
 }
 
 QCheckBoxWrap::~QCheckBoxWrap() {

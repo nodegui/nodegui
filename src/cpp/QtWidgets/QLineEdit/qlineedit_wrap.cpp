@@ -35,6 +35,8 @@ QLineEditWrap::QLineEditWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<Q
   }else {
     extrautils::throwTypeError(env, "Wrong number of arguments");
   }
+  // Adds measure function on yoga node so that widget size is calculated based on its text also.
+  YGNodeSetMeasureFunc(this->instance->getFlexNode(), &extrautils::measureQtWidget);
 }
 
 QLineEditWrap::~QLineEditWrap() {
