@@ -11,6 +11,7 @@ Napi::Object QRadioButtonWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QRadioButton";
   Napi::Function func = DefineClass(env, CLASSNAME, {
+    InstanceMethod("setText", &QRadioButtonWrap::setText),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QRadioButtonWrap)
   });
   constructor = Napi::Persistent(func);
@@ -43,3 +44,14 @@ QRadioButtonWrap::~QRadioButtonWrap() {
   delete this->instance;
 }
 
+Napi::Value QRadioButtonWrap::setText(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::String napiText = info[0].As<Napi::String>();
+  std::string text = napiText.Utf8Value();
+  this->instance->setText(text.c_str()); 
+  return env.Null();
+}
+
+ 
