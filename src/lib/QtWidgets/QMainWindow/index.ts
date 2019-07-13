@@ -3,13 +3,14 @@ import { NodeWidget } from "../../QtGui/QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { FlexNode } from "../../core/YogaWidget";
 import { NativeElement } from "../../core/Component";
+import { NodeLayout } from "../QLayout";
 
 export const QMainWindowEvents = Object.freeze({
   ...BaseWidgetEvents
 });
 export class QMainWindow extends NodeWidget {
   native: NativeElement;
-  protected centralWidget?: NodeWidget;
+  public centralWidget?: NodeWidget;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {
@@ -23,14 +24,28 @@ export class QMainWindow extends NodeWidget {
     // bind member functions
     this.setCentralWidget.bind(this);
     this.setFixedSize.bind(this);
+    this.setLayout = this._setLayout.bind(this);
   }
-
   setCentralWidget(widget: NodeWidget) {
     this.centralWidget = widget;
     this.native.setCentralWidget(
       this.centralWidget.native,
       widget.getFlexNode()
     );
+  }
+  get layout() {
+    if (this.centralWidget) {
+      return this.centralWidget.layout;
+    } else {
+      return super.layout;
+    }
+  }
+  private _setLayout(parentLayout: NodeLayout) {
+    if (this.centralWidget) {
+      return this.centralWidget.setLayout(parentLayout);
+    } else {
+      return super.setLayout(parentLayout);
+    }
   }
   setFixedSize(width: number, height: number) {
     this.native.setFixedSize(width, height);
