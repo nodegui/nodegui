@@ -12,7 +12,6 @@
 #include "src/cpp/core/FlexLayout/flexlayout_wrap.h"
 #include "src/cpp/QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include <napi.h>
-
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env){
     QLayoutWrap::init(env); //Abstact class wrapper for pointing to any layout

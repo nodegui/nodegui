@@ -33,6 +33,9 @@ export abstract class NodeWidget extends EventWidget {
   setMouseTracking = (isMouseTracked: boolean) => {
     this.native.setMouseTracking(isMouseTracked);
   };
+  setEnabled = (enabled: boolean)=>{
+    this.native.setEnabled(enabled);
+  }
 }
 
 export class QWidget extends NodeWidget {

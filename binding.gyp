@@ -1,8 +1,8 @@
 {
     "includes": [
+        './config/deps.gypi',
         "./config/application.gypi",
         "./config/moc.gypi",
-        './config/deps.gypi'
     ],
     "targets": []
 }

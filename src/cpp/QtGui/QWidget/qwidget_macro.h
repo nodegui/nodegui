@@ -77,6 +77,13 @@ Napi::Value setMouseTracking(const Napi::CallbackInfo& info){ \
     this->instance->setMouseTracking(isMouseTracked.Value()); \
     return env.Null(); \
 } \
+Napi::Value setEnabled(const Napi::CallbackInfo& info){ \
+    Napi::Env env = info.Env(); \
+    Napi::HandleScope scope(env); \
+    Napi::Boolean enabled = info[0].As<Napi::Boolean>(); \
+    this->instance->setEnabled(enabled.Value()); \
+    return env.Null(); \
+} \
 
 #endif //QWIDGET_WRAPPED_METHODS_DECLARATION
 
@@ -93,6 +100,7 @@ Napi::Value setMouseTracking(const Napi::CallbackInfo& info){ \
  InstanceMethod("hide",&WidgetWrapName::hide), \
  InstanceMethod("setObjectName",&WidgetWrapName::setObjectName), \
  InstanceMethod("setMouseTracking",&WidgetWrapName::setMouseTracking), \
+ InstanceMethod("setEnabled",&WidgetWrapName::setEnabled), \
 
 
 #endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
