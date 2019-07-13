@@ -1,7 +1,6 @@
 import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
-import { FlexNode } from "../../core/YogaWidget";
 import { NativeElement } from "../../core/Component";
 import { NodeLayout } from "../QLayout";
 
@@ -24,7 +23,14 @@ export class QMainWindow extends NodeWidget {
     // bind member functions
     this.setCentralWidget.bind(this);
     this.setFixedSize.bind(this);
-    this.setLayout = this._setLayout.bind(this);
+    this.setLayout = (parentLayout: NodeLayout) => {
+      if (this.centralWidget) {
+        this.centralWidget.setLayout(parentLayout);
+      } else {
+        this.native.setLayout(parentLayout.native);
+        super.layout = parentLayout;
+      }
+    };
   }
   setCentralWidget(widget: NodeWidget) {
     this.centralWidget = widget;
@@ -38,13 +44,6 @@ export class QMainWindow extends NodeWidget {
       return this.centralWidget.layout;
     } else {
       return super.layout;
-    }
-  }
-  private _setLayout(parentLayout: NodeLayout) {
-    if (this.centralWidget) {
-      return this.centralWidget.setLayout(parentLayout);
-    } else {
-      return super.setLayout(parentLayout);
     }
   }
   setFixedSize(width: number, height: number) {

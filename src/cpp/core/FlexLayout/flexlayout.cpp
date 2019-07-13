@@ -16,6 +16,7 @@ FlexLayout::NodeContext *FlexLayout::getNodeContext(YGNodeRef node)
 
 FlexLayout::FlexLayout(QWidget *parentWidget, YGNodeRef parentNode): QLayout(parentWidget)
 {
+    // spdlog::set_level(spdlog::level::off);
     this->node = parentNode;
 }
 
