@@ -40,6 +40,11 @@ Contributing developer docs link:
 
 https://github.com/master-atul/node-native-ui/tree/master/devdocs
 
+
+## Building
+
+yarn rebuild:addon [--qt_home_dir=/path/to/qt]
+
 ### LICENSE
 
 Since we do not in any way modify the code of Qt and only link to it dynamically, I beleive we are in compliance with the LGPL license requirements of QT. And hence this library can be licensed under its own License (for which we have chosen MIT License).
@@ -47,3 +52,4 @@ The links to QT source code and appropriate license notices are attached. We try
 If you follow the recommended build steps and do not statically link QT libraries on your own you are safe to use this library for commerical puropses (provided you abide by MIT License).
 
 MIT
+

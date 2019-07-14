@@ -2,7 +2,7 @@
     'includes': [],
     'type': 'shared_library',
     'variables': {
-        'qt_home_dir%': "<(QT_INSTALL_DIR)",
+        'qt_home_dir%': "<!(node -p \"require('@nodegui/test').include\")",
     },
     'target_defaults': {
         'cflags!': ['-fno-exceptions'],
