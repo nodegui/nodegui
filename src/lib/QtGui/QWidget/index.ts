@@ -36,6 +36,21 @@ export abstract class NodeWidget extends EventWidget {
   setEnabled = (enabled: boolean) => {
     this.native.setEnabled(enabled);
   };
+  setFixedSize = (width: number, height: number) => {
+    this.native.setFixedSize(width, height);
+  };
+  setMaximumSize = (maxw: number, maxh: number) => {
+    this.native.setMaximumSize(maxw, maxh);
+  };
+  setMinimumSize = (minw: number, minh: number) => {
+    this.native.setMinimumSize(minw, minh);
+  };
+  repaint = () => {
+    this.native.repaint();
+  };
+  update = () => {
+    this.native.update();
+  };
 }
 
 export class QWidget extends NodeWidget {

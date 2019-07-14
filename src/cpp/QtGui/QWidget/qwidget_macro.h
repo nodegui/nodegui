@@ -84,6 +84,44 @@ Napi::Value setEnabled(const Napi::CallbackInfo& info){ \
     this->instance->setEnabled(enabled.Value()); \
     return env.Null(); \
 } \
+Napi::Value setFixedSize(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  int width = info[0].As<Napi::Number>().Int32Value(); \
+  int height = info[1].As<Napi::Number>().Int32Value(); \
+  this->instance->setFixedSize(width, height); \
+  return env.Null(); \
+} \
+Napi::Value setMaximumSize(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  int width = info[0].As<Napi::Number>().Int32Value(); \
+  int height = info[1].As<Napi::Number>().Int32Value(); \
+  this->instance->setMaximumSize(width, height); \
+  return env.Null(); \
+} \
+Napi::Value setMinimumSize(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  int width = info[0].As<Napi::Number>().Int32Value(); \
+  int height = info[1].As<Napi::Number>().Int32Value(); \
+  this->instance->setMinimumSize(width, height); \
+  return env.Null(); \
+} \
+Napi::Value repaint(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  this->instance->repaint(); \
+  return env.Null(); \
+} \
+Napi::Value update(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  this->instance->update(); \
+  return env.Null(); \
+} \
+
+
 
 #endif //QWIDGET_WRAPPED_METHODS_DECLARATION
 
@@ -101,7 +139,11 @@ Napi::Value setEnabled(const Napi::CallbackInfo& info){ \
  InstanceMethod("setObjectName",&WidgetWrapName::setObjectName), \
  InstanceMethod("setMouseTracking",&WidgetWrapName::setMouseTracking), \
  InstanceMethod("setEnabled",&WidgetWrapName::setEnabled), \
-
+ InstanceMethod("setFixedSize",&WidgetWrapName::setFixedSize), \
+ InstanceMethod("setMaximumSize",&WidgetWrapName::setMaximumSize), \
+ InstanceMethod("setMinimumSize",&WidgetWrapName::setMinimumSize), \
+ InstanceMethod("repaint",&WidgetWrapName::repaint), \
+ InstanceMethod("update",&WidgetWrapName::update), \
 
 #endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

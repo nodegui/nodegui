@@ -22,7 +22,6 @@ export class QMainWindow extends NodeWidget {
     this.parent = parent;
     // bind member functions
     this.setCentralWidget.bind(this);
-    this.setFixedSize.bind(this);
     this.setLayout = (parentLayout: NodeLayout) => {
       if (this.centralWidget) {
         this.centralWidget.setLayout(parentLayout);
@@ -33,11 +32,8 @@ export class QMainWindow extends NodeWidget {
     };
   }
   setCentralWidget(widget: NodeWidget) {
+    this.native.setCentralWidget(widget.native, widget.getFlexNode());
     this.centralWidget = widget;
-    this.native.setCentralWidget(
-      this.centralWidget.native,
-      widget.getFlexNode()
-    );
   }
   get layout() {
     if (this.centralWidget) {
@@ -45,8 +41,5 @@ export class QMainWindow extends NodeWidget {
     } else {
       return super.layout;
     }
-  }
-  setFixedSize(width: number, height: number) {
-    this.native.setFixedSize(width, height);
   }
 }
