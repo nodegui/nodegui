@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@nodegui/test@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@nodegui/test/-/test-0.0.7.tgz#0938a8fecb87527be77f3222abd37158366c5f7c"
-  integrity sha512-x5mZFe5rtM//QCWLA3CBmk15aiAH77dE+qhTUgkLQ/uyJeSQORyUiYNlIDkDlD5HhFxUb2yt27/w+0xDaPByPg==
+"@nodegui/test@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@nodegui/test/-/test-0.0.8.tgz#a67e261700d635668b2b5a9d6572fedab9dcb037"
+  integrity sha512-3+xlopDrZBATp3Fj4MheJJV+xvYH0erftb5PP65UTZELPDDp4PnTygcTrSvKz0vPn68sa7AbkFM69hoEqMH/Sg==
   dependencies:
     extract-zip "^1.6.7"
     fs-extra "^8.1.0"
