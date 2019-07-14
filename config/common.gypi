@@ -2,7 +2,7 @@
     'includes': [],
     'type': 'shared_library',
     'variables': {
-        'qt_home_dir': '/usr/local/Cellar/qt/5.12.1',
+        'qt_home_dir%': "<(QT_INSTALL_DIR)",
     },
     'target_defaults': {
         'cflags!': ['-fno-exceptions'],
