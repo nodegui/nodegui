@@ -121,8 +121,6 @@ Napi::Value update(const Napi::CallbackInfo& info){ \
   return env.Null(); \
 } \
 
-
-
 #endif //QWIDGET_WRAPPED_METHODS_DECLARATION
 
 #ifndef QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
