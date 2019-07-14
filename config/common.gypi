@@ -28,18 +28,18 @@
                 },
                 'include_dirs': [
                     # install qt via homebrew only
-                    '<(qt_home_dir)/include',
-                    '<(qt_home_dir)/include/QtCore',
-                    '<(qt_home_dir)/include/QtGui',
-                    '<(qt_home_dir)/include/QtTest',
-                    '<(qt_home_dir)/include/QtWidgets',
+                    # '<(qt_home_dir)/include',
+                    # '<(qt_home_dir)/include/QtCore',
+                    # '<(qt_home_dir)/include/QtGui',
+                    # '<(qt_home_dir)/include/QtWidgets',
+                    '<(qt_home_dir)/lib/QtCore.framework/Headers',
+                    '<(qt_home_dir)/lib/QtGui.framework/Headers',
+                    '<(qt_home_dir)/lib/QtWidgets.framework/Headers',
                 ],
                 'libraries': [
                     '<(qt_home_dir)/lib/QtCore.framework/QtCore',
                     '<(qt_home_dir)/lib/QtGui.framework/QtGui',
-                    '<(qt_home_dir)/lib/QtTest.framework/QtTest',
                     '<(qt_home_dir)/lib/QtWidgets.framework/QtWidgets',
-                    '<(qt_home_dir)/lib/QtPrintSupport.framework/QtPrintSupport',
                 ],
             }],
             ['OS=="linux"', {
