@@ -2,7 +2,7 @@
     'includes': [],
     'type': 'shared_library',
     'variables': {
-        'qt_home_dir%': "<!(node -p \"require('@nodegui/test').include\")",
+        'qt_home_dir%': "<!(node -p \"require('@nodegui/test').qtHome\")",
     },
     'target_defaults': {
         'cflags!': ['-fno-exceptions'],
@@ -26,20 +26,34 @@
                     'MACOSX_DEPLOYMENT_TARGET': '10.7',
                     'OTHER_CFLAGS': ['-std=c++14'],
                 },
+                'actions':[
+                    {
+                        'action_name': 'symlink_qt_headers',
+                        'inputs': [],
+                        'outputs': [
+                            '<(qt_home_dir)/include/QtCore',
+                            '<(qt_home_dir)/include/QtGui',
+                            '<(qt_home_dir)/include/QtWidgets',
+                        ],
+                        'action': [
+                            'sh', '-c',
+                            'mkdir -p <(qt_home_dir)/include && \
+                            ln -sfn <(qt_home_dir)/lib/QtCore.framework/Versions/5/Headers <(qt_home_dir)/include/QtCore && \
+                            ln -sfn <(qt_home_dir)/lib/QtGui.framework/Versions/5/Headers <(qt_home_dir)/include/QtGui && \
+                            ln -sfn <(qt_home_dir)/lib/QtWidgets.framework/Versions/5/Headers <(qt_home_dir)/include/QtWidgets'
+                        ],
+                    }
+                ],
                 'include_dirs': [
-                    # install qt via homebrew only
-                    # '<(qt_home_dir)/include',
-                    # '<(qt_home_dir)/include/QtCore',
-                    # '<(qt_home_dir)/include/QtGui',
-                    # '<(qt_home_dir)/include/QtWidgets',
-                    '<(qt_home_dir)/lib/QtCore.framework/Headers',
-                    '<(qt_home_dir)/lib/QtGui.framework/Headers',
-                    '<(qt_home_dir)/lib/QtWidgets.framework/Headers',
+                    '<(qt_home_dir)/include',
+                    '<(qt_home_dir)/lib/QtCore.framework/Versions/5/Headers',
+                    '<(qt_home_dir)/lib/QtGui.framework/Versions/5/Headers',
+                    '<(qt_home_dir)/lib/QtWidgets.framework/Versions/5/Headers',
                 ],
                 'libraries': [
-                    '<(qt_home_dir)/lib/QtCore.framework/QtCore',
-                    '<(qt_home_dir)/lib/QtGui.framework/QtGui',
-                    '<(qt_home_dir)/lib/QtWidgets.framework/QtWidgets',
+                    '<(qt_home_dir)/lib/QtCore.framework/Versions/5/QtCore',
+                    '<(qt_home_dir)/lib/QtGui.framework/Versions/5/QtGui',
+                    '<(qt_home_dir)/lib/QtWidgets.framework/Versions/5/QtWidgets',
                 ],
             }],
             ['OS=="linux"', {
