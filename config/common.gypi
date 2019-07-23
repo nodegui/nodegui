@@ -97,14 +97,6 @@
                     '<(qt_home_dir)\\lib\\Qt5Gui.lib',
                     '<(qt_home_dir)\\lib\\Qt5Widgets.lib',
                 ],
-                'copies': [{
-                    'files': [
-                        '<(qt_home_dir)\\bin\\Qt5Core.dll',
-                        '<(qt_home_dir)\\bin\\Qt5Gui.dll',
-                        '<(qt_home_dir)\\bin\\Qt5Widgets.dll',
-                    ],
-                    'destination': '<(PRODUCT_DIR)',
-                }]
             }],
         ],
     },
