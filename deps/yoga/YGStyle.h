@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the LICENSE
@@ -102,6 +102,11 @@ public:
     }
   };
 
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wbitfield-constant-conversion"
+#endif
+
   YGStyle()
       : direction_(YGDirectionInherit),
         flexDirection_(YGFlexDirectionColumn),
@@ -113,6 +118,11 @@ public:
         flexWrap_(YGWrapNoWrap),
         overflow_(YGOverflowVisible),
         display_(YGDisplayFlex) {}
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+
   ~YGStyle() = default;
 
   static constexpr int directionBit = 0;
