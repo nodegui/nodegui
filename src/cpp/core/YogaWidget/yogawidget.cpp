@@ -240,6 +240,30 @@ void YogaWidget::setYMinHeight(QString rawValue){
         spdlog::warn("Invalid value: minHeight: {}",rawValue.toStdString());
     }
 }
+void YogaWidget::setYWidth(QString rawValue){
+    try {
+        NodeValueUnit measurement = NodeStyle::parseMeasurement(rawValue);
+        (measurement.unit==YGUnitPercent)
+                ? YGNodeStyleSetWidthPercent(this->getFlexNode(), measurement.value)
+                : YGNodeStyleSetWidth(this->getFlexNode(), measurement.value);
+        this->_yWidth = rawValue;
+        spdlog::info("set qWidth: {}", rawValue.toStdString());
+    }catch(...){
+        spdlog::warn("Invalid value: qWidth: {}",rawValue.toStdString());
+    }
+}
+void YogaWidget::setYHeight(QString rawValue){
+    try {
+        NodeValueUnit measurement = NodeStyle::parseMeasurement(rawValue);
+        (measurement.unit==YGUnitPercent)
+                ? YGNodeStyleSetHeightPercent(this->getFlexNode(), measurement.value)
+                : YGNodeStyleSetHeight(this->getFlexNode(), measurement.value);
+        this->_yHeight = rawValue;
+        spdlog::info("set qHeight: {}", rawValue.toStdString());
+    }catch(...){
+        spdlog::warn("Invalid value: qHeight: {}",rawValue.toStdString());
+    }
+}
 void YogaWidget::setYMaxWidth(QString rawValue){
     try {
         NodeValueUnit measurement = NodeStyle::parseMeasurement(rawValue);

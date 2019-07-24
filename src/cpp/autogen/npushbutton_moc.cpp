@@ -1,18 +1,19 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'npushbutton.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.13.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "../QtWidgets/QPushButton/npushbutton.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'npushbutton.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.1. It"
+#error "This file was generated using the moc from 5.13.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_NPushButton_t {
-    QByteArrayData data[45];
-    char stringdata0[489];
+    QByteArrayData data[47];
+    char stringdata0[504];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -53,29 +54,31 @@ QT_MOC_LITERAL(18, 174, 4), // "left"
 QT_MOC_LITERAL(19, 179, 9), // "flexBasis"
 QT_MOC_LITERAL(20, 189, 8), // "minWidth"
 QT_MOC_LITERAL(21, 198, 9), // "minHeight"
-QT_MOC_LITERAL(22, 208, 8), // "maxWidth"
-QT_MOC_LITERAL(23, 217, 9), // "maxHeight"
-QT_MOC_LITERAL(24, 227, 10), // "paddingTop"
-QT_MOC_LITERAL(25, 238, 12), // "paddingRight"
-QT_MOC_LITERAL(26, 251, 13), // "paddingBottom"
-QT_MOC_LITERAL(27, 265, 11), // "paddingLeft"
-QT_MOC_LITERAL(28, 277, 17), // "paddingHorizontal"
-QT_MOC_LITERAL(29, 295, 15), // "paddingVertical"
-QT_MOC_LITERAL(30, 311, 7), // "padding"
-QT_MOC_LITERAL(31, 319, 9), // "marginTop"
-QT_MOC_LITERAL(32, 329, 11), // "marginRight"
-QT_MOC_LITERAL(33, 341, 12), // "marginBottom"
-QT_MOC_LITERAL(34, 354, 10), // "marginLeft"
-QT_MOC_LITERAL(35, 365, 16), // "marginHorizontal"
-QT_MOC_LITERAL(36, 382, 14), // "marginVertical"
-QT_MOC_LITERAL(37, 397, 6), // "margin"
-QT_MOC_LITERAL(38, 404, 9), // "borderTop"
-QT_MOC_LITERAL(39, 414, 11), // "borderRight"
-QT_MOC_LITERAL(40, 426, 12), // "borderBottom"
-QT_MOC_LITERAL(41, 439, 10), // "borderLeft"
-QT_MOC_LITERAL(42, 450, 16), // "borderHorizontal"
-QT_MOC_LITERAL(43, 467, 14), // "borderVertical"
-QT_MOC_LITERAL(44, 482, 6) // "border"
+QT_MOC_LITERAL(22, 208, 6), // "qWidth"
+QT_MOC_LITERAL(23, 215, 7), // "qHeight"
+QT_MOC_LITERAL(24, 223, 8), // "maxWidth"
+QT_MOC_LITERAL(25, 232, 9), // "maxHeight"
+QT_MOC_LITERAL(26, 242, 10), // "paddingTop"
+QT_MOC_LITERAL(27, 253, 12), // "paddingRight"
+QT_MOC_LITERAL(28, 266, 13), // "paddingBottom"
+QT_MOC_LITERAL(29, 280, 11), // "paddingLeft"
+QT_MOC_LITERAL(30, 292, 17), // "paddingHorizontal"
+QT_MOC_LITERAL(31, 310, 15), // "paddingVertical"
+QT_MOC_LITERAL(32, 326, 7), // "padding"
+QT_MOC_LITERAL(33, 334, 9), // "marginTop"
+QT_MOC_LITERAL(34, 344, 11), // "marginRight"
+QT_MOC_LITERAL(35, 356, 12), // "marginBottom"
+QT_MOC_LITERAL(36, 369, 10), // "marginLeft"
+QT_MOC_LITERAL(37, 380, 16), // "marginHorizontal"
+QT_MOC_LITERAL(38, 397, 14), // "marginVertical"
+QT_MOC_LITERAL(39, 412, 6), // "margin"
+QT_MOC_LITERAL(40, 419, 9), // "borderTop"
+QT_MOC_LITERAL(41, 429, 11), // "borderRight"
+QT_MOC_LITERAL(42, 441, 12), // "borderBottom"
+QT_MOC_LITERAL(43, 454, 10), // "borderLeft"
+QT_MOC_LITERAL(44, 465, 16), // "borderHorizontal"
+QT_MOC_LITERAL(45, 482, 14), // "borderVertical"
+QT_MOC_LITERAL(46, 497, 6) // "border"
 
     },
     "NPushButton\0display\0alignItems\0"
@@ -84,14 +87,15 @@ QT_MOC_LITERAL(44, 482, 6) // "border"
     "position\0flexWrap\0flex\0flexGrow\0"
     "flexShrink\0aspectRatio\0top\0right\0"
     "bottom\0left\0flexBasis\0minWidth\0minHeight\0"
-    "maxWidth\0maxHeight\0paddingTop\0"
-    "paddingRight\0paddingBottom\0paddingLeft\0"
-    "paddingHorizontal\0paddingVertical\0"
-    "padding\0marginTop\0marginRight\0"
-    "marginBottom\0marginLeft\0marginHorizontal\0"
-    "marginVertical\0margin\0borderTop\0"
-    "borderRight\0borderBottom\0borderLeft\0"
-    "borderHorizontal\0borderVertical\0border"
+    "qWidth\0qHeight\0maxWidth\0maxHeight\0"
+    "paddingTop\0paddingRight\0paddingBottom\0"
+    "paddingLeft\0paddingHorizontal\0"
+    "paddingVertical\0padding\0marginTop\0"
+    "marginRight\0marginBottom\0marginLeft\0"
+    "marginHorizontal\0marginVertical\0margin\0"
+    "borderTop\0borderRight\0borderBottom\0"
+    "borderLeft\0borderHorizontal\0borderVertical\0"
+    "border"
 };
 #undef QT_MOC_LITERAL
 
@@ -102,7 +106,7 @@ static const uint qt_meta_data_NPushButton[] = {
        0,       // classname
        0,    0, // classinfo
        0,    0, // methods
-      44,   14, // properties
+      46,   14, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
@@ -146,13 +150,15 @@ static const uint qt_meta_data_NPushButton[] = {
       35, QMetaType::QString, 0x00095003,
       36, QMetaType::QString, 0x00095003,
       37, QMetaType::QString, 0x00095003,
-      38, QMetaType::Float, 0x00095003,
-      39, QMetaType::Float, 0x00095003,
+      38, QMetaType::QString, 0x00095003,
+      39, QMetaType::QString, 0x00095003,
       40, QMetaType::Float, 0x00095003,
       41, QMetaType::Float, 0x00095003,
       42, QMetaType::Float, 0x00095003,
       43, QMetaType::Float, 0x00095003,
       44, QMetaType::Float, 0x00095003,
+      45, QMetaType::Float, 0x00095003,
+      46, QMetaType::Float, 0x00095003,
 
        0        // eod
 };
@@ -187,29 +193,31 @@ void NPushButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 18: *reinterpret_cast< QString*>(_v) = _t->_yFlexBasis; break;
         case 19: *reinterpret_cast< QString*>(_v) = _t->_yMinWidth; break;
         case 20: *reinterpret_cast< QString*>(_v) = _t->_yMinHeight; break;
-        case 21: *reinterpret_cast< QString*>(_v) = _t->_yMaxWidth; break;
-        case 22: *reinterpret_cast< QString*>(_v) = _t->_yMaxHeight; break;
-        case 23: *reinterpret_cast< QString*>(_v) = _t->_yPaddingTop; break;
-        case 24: *reinterpret_cast< QString*>(_v) = _t->_yPaddingRight; break;
-        case 25: *reinterpret_cast< QString*>(_v) = _t->_yPaddingBottom; break;
-        case 26: *reinterpret_cast< QString*>(_v) = _t->_yPaddingLeft; break;
-        case 27: *reinterpret_cast< QString*>(_v) = _t->_yPaddingHorizontal; break;
-        case 28: *reinterpret_cast< QString*>(_v) = _t->_yPaddingVertical; break;
-        case 29: *reinterpret_cast< QString*>(_v) = _t->_yPadding; break;
-        case 30: *reinterpret_cast< QString*>(_v) = _t->_yMarginTop; break;
-        case 31: *reinterpret_cast< QString*>(_v) = _t->_yMarginRight; break;
-        case 32: *reinterpret_cast< QString*>(_v) = _t->_yMarginBottom; break;
-        case 33: *reinterpret_cast< QString*>(_v) = _t->_yMarginLeft; break;
-        case 34: *reinterpret_cast< QString*>(_v) = _t->_yMarginHorizontal; break;
-        case 35: *reinterpret_cast< QString*>(_v) = _t->_yMarginVertical; break;
-        case 36: *reinterpret_cast< QString*>(_v) = _t->_yMargin; break;
-        case 37: *reinterpret_cast< float*>(_v) = _t->_yBorderTop; break;
-        case 38: *reinterpret_cast< float*>(_v) = _t->_yBorderRight; break;
-        case 39: *reinterpret_cast< float*>(_v) = _t->_yBorderBottom; break;
-        case 40: *reinterpret_cast< float*>(_v) = _t->_yBorderLeft; break;
-        case 41: *reinterpret_cast< float*>(_v) = _t->_yBorderHorizontal; break;
-        case 42: *reinterpret_cast< float*>(_v) = _t->_yBorderVertical; break;
-        case 43: *reinterpret_cast< float*>(_v) = _t->_yBorder; break;
+        case 21: *reinterpret_cast< QString*>(_v) = _t->_yWidth; break;
+        case 22: *reinterpret_cast< QString*>(_v) = _t->_yHeight; break;
+        case 23: *reinterpret_cast< QString*>(_v) = _t->_yMaxWidth; break;
+        case 24: *reinterpret_cast< QString*>(_v) = _t->_yMaxHeight; break;
+        case 25: *reinterpret_cast< QString*>(_v) = _t->_yPaddingTop; break;
+        case 26: *reinterpret_cast< QString*>(_v) = _t->_yPaddingRight; break;
+        case 27: *reinterpret_cast< QString*>(_v) = _t->_yPaddingBottom; break;
+        case 28: *reinterpret_cast< QString*>(_v) = _t->_yPaddingLeft; break;
+        case 29: *reinterpret_cast< QString*>(_v) = _t->_yPaddingHorizontal; break;
+        case 30: *reinterpret_cast< QString*>(_v) = _t->_yPaddingVertical; break;
+        case 31: *reinterpret_cast< QString*>(_v) = _t->_yPadding; break;
+        case 32: *reinterpret_cast< QString*>(_v) = _t->_yMarginTop; break;
+        case 33: *reinterpret_cast< QString*>(_v) = _t->_yMarginRight; break;
+        case 34: *reinterpret_cast< QString*>(_v) = _t->_yMarginBottom; break;
+        case 35: *reinterpret_cast< QString*>(_v) = _t->_yMarginLeft; break;
+        case 36: *reinterpret_cast< QString*>(_v) = _t->_yMarginHorizontal; break;
+        case 37: *reinterpret_cast< QString*>(_v) = _t->_yMarginVertical; break;
+        case 38: *reinterpret_cast< QString*>(_v) = _t->_yMargin; break;
+        case 39: *reinterpret_cast< float*>(_v) = _t->_yBorderTop; break;
+        case 40: *reinterpret_cast< float*>(_v) = _t->_yBorderRight; break;
+        case 41: *reinterpret_cast< float*>(_v) = _t->_yBorderBottom; break;
+        case 42: *reinterpret_cast< float*>(_v) = _t->_yBorderLeft; break;
+        case 43: *reinterpret_cast< float*>(_v) = _t->_yBorderHorizontal; break;
+        case 44: *reinterpret_cast< float*>(_v) = _t->_yBorderVertical; break;
+        case 45: *reinterpret_cast< float*>(_v) = _t->_yBorder; break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -238,29 +246,31 @@ void NPushButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 18: _t->setYFlexBasis(*reinterpret_cast< QString*>(_v)); break;
         case 19: _t->setYMinWidth(*reinterpret_cast< QString*>(_v)); break;
         case 20: _t->setYMinHeight(*reinterpret_cast< QString*>(_v)); break;
-        case 21: _t->setYMaxWidth(*reinterpret_cast< QString*>(_v)); break;
-        case 22: _t->setYMaxHeight(*reinterpret_cast< QString*>(_v)); break;
-        case 23: _t->setYPaddingTop(*reinterpret_cast< QString*>(_v)); break;
-        case 24: _t->setYPaddingRight(*reinterpret_cast< QString*>(_v)); break;
-        case 25: _t->setYPaddingBottom(*reinterpret_cast< QString*>(_v)); break;
-        case 26: _t->setYPaddingLeft(*reinterpret_cast< QString*>(_v)); break;
-        case 27: _t->setYPaddingHorizontal(*reinterpret_cast< QString*>(_v)); break;
-        case 28: _t->setYPaddingVertical(*reinterpret_cast< QString*>(_v)); break;
-        case 29: _t->setYPadding(*reinterpret_cast< QString*>(_v)); break;
-        case 30: _t->setYMarginTop(*reinterpret_cast< QString*>(_v)); break;
-        case 31: _t->setYMarginRight(*reinterpret_cast< QString*>(_v)); break;
-        case 32: _t->setYMarginBottom(*reinterpret_cast< QString*>(_v)); break;
-        case 33: _t->setYMarginLeft(*reinterpret_cast< QString*>(_v)); break;
-        case 34: _t->setYMarginHorizontal(*reinterpret_cast< QString*>(_v)); break;
-        case 35: _t->setYMarginVertical(*reinterpret_cast< QString*>(_v)); break;
-        case 36: _t->setYMarginAll(*reinterpret_cast< QString*>(_v)); break;
-        case 37: _t->setYBorderTop(*reinterpret_cast< float*>(_v)); break;
-        case 38: _t->setYBorderRight(*reinterpret_cast< float*>(_v)); break;
-        case 39: _t->setYBorderBottom(*reinterpret_cast< float*>(_v)); break;
-        case 40: _t->setYBorderLeft(*reinterpret_cast< float*>(_v)); break;
-        case 41: _t->setYBorderHorizontal(*reinterpret_cast< float*>(_v)); break;
-        case 42: _t->setYBorderVertical(*reinterpret_cast< float*>(_v)); break;
-        case 43: _t->setYBorder(*reinterpret_cast< float*>(_v)); break;
+        case 21: _t->setYWidth(*reinterpret_cast< QString*>(_v)); break;
+        case 22: _t->setYHeight(*reinterpret_cast< QString*>(_v)); break;
+        case 23: _t->setYMaxWidth(*reinterpret_cast< QString*>(_v)); break;
+        case 24: _t->setYMaxHeight(*reinterpret_cast< QString*>(_v)); break;
+        case 25: _t->setYPaddingTop(*reinterpret_cast< QString*>(_v)); break;
+        case 26: _t->setYPaddingRight(*reinterpret_cast< QString*>(_v)); break;
+        case 27: _t->setYPaddingBottom(*reinterpret_cast< QString*>(_v)); break;
+        case 28: _t->setYPaddingLeft(*reinterpret_cast< QString*>(_v)); break;
+        case 29: _t->setYPaddingHorizontal(*reinterpret_cast< QString*>(_v)); break;
+        case 30: _t->setYPaddingVertical(*reinterpret_cast< QString*>(_v)); break;
+        case 31: _t->setYPadding(*reinterpret_cast< QString*>(_v)); break;
+        case 32: _t->setYMarginTop(*reinterpret_cast< QString*>(_v)); break;
+        case 33: _t->setYMarginRight(*reinterpret_cast< QString*>(_v)); break;
+        case 34: _t->setYMarginBottom(*reinterpret_cast< QString*>(_v)); break;
+        case 35: _t->setYMarginLeft(*reinterpret_cast< QString*>(_v)); break;
+        case 36: _t->setYMarginHorizontal(*reinterpret_cast< QString*>(_v)); break;
+        case 37: _t->setYMarginVertical(*reinterpret_cast< QString*>(_v)); break;
+        case 38: _t->setYMarginAll(*reinterpret_cast< QString*>(_v)); break;
+        case 39: _t->setYBorderTop(*reinterpret_cast< float*>(_v)); break;
+        case 40: _t->setYBorderRight(*reinterpret_cast< float*>(_v)); break;
+        case 41: _t->setYBorderBottom(*reinterpret_cast< float*>(_v)); break;
+        case 42: _t->setYBorderLeft(*reinterpret_cast< float*>(_v)); break;
+        case 43: _t->setYBorderHorizontal(*reinterpret_cast< float*>(_v)); break;
+        case 44: _t->setYBorderVertical(*reinterpret_cast< float*>(_v)); break;
+        case 45: _t->setYBorder(*reinterpret_cast< float*>(_v)); break;
         default: break;
         }
     } else if (_c == QMetaObject::ResetProperty) {
@@ -307,17 +317,17 @@ int NPushButton::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 44;
+        _id -= 46;
     } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 44;
+        _id -= 46;
     } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 44;
+        _id -= 46;
     } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 44;
+        _id -= 46;
     } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 44;
+        _id -= 46;
     } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 44;
+        _id -= 46;
     }
 #endif // QT_NO_PROPERTIES
     return _id;

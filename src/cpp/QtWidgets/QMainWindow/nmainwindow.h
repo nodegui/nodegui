@@ -26,6 +26,7 @@ private:
     }
     void resizeEvent(QResizeEvent * event){
         calculateLayout();
+        QWidget::resizeEvent(event);
     }
 };
 

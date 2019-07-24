@@ -25,12 +25,8 @@ FlexLayout* FlexLayoutWrap::getInternalInstance() {
 FlexLayoutWrap::FlexLayoutWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<FlexLayoutWrap>(info)  {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-
-  if(info.Length() == 2) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = new FlexLayout(parentWidgetWrap->getInternalInstance());
-  } else if(info.Length() == 1) {
+  
+  if(info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
     this->instance = new FlexLayout(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
@@ -68,7 +64,7 @@ Napi::Value FlexLayoutWrap::insertChildBefore(const Napi::CallbackInfo& info) {
   QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
   YGNodeRef childNodeRef = childFlexNodeObject.Data();
   YGNodeRef beforeChildNodeRef = beforeChildFlexNodeObject.Data();
-
+  
   this->instance->insertChildBefore(widget->getInternalInstance(), beforeChildNodeRef, childNodeRef);
   
   return env.Null();

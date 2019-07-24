@@ -42,6 +42,8 @@ All Widgets for which you need to set yoga props via qstylesheet should
     Q_PROPERTY(QString flexBasis MEMBER _yFlexBasis WRITE setYFlexBasis) \
     Q_PROPERTY(QString minWidth MEMBER _yMinWidth WRITE setYMinWidth) \
     Q_PROPERTY(QString minHeight MEMBER _yMinHeight WRITE setYMinHeight) \
+    Q_PROPERTY(QString qWidth MEMBER _yWidth WRITE setYWidth) \
+    Q_PROPERTY(QString qHeight MEMBER _yHeight WRITE setYHeight) \
     Q_PROPERTY(QString maxWidth MEMBER _yMaxWidth WRITE setYMaxWidth) \
     Q_PROPERTY(QString maxHeight MEMBER _yMaxHeight WRITE setYMaxHeight) \
     Q_PROPERTY(QString paddingTop MEMBER _yPaddingTop WRITE setYPaddingTop) \
@@ -95,6 +97,8 @@ public:
     QString _yMinHeight;
     QString _yMaxWidth;
     QString _yMaxHeight;
+    QString _yWidth;
+    QString _yHeight;
     QString _yPaddingTop;
     QString _yPaddingRight;
     QString _yPaddingBottom;
@@ -138,6 +142,8 @@ public:
     void setYFlexBasis(QString rawValue);
     void setYMinWidth(QString rawValue);
     void setYMinHeight(QString rawValue);
+    void setYWidth(QString rawValue);
+    void setYHeight(QString rawValue);
     void setYMaxWidth(QString rawValue);
     void setYMaxHeight(QString rawValue);
     void setYPaddingTop(QString rawValue);
