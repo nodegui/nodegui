@@ -65,85 +65,78 @@ const testGridLayout = () => {
 
 // -----------------------------------------------
 
+// BROKEN STUFF IN WINDOWS:
+// FLEX DIRECTION ROW
+// JUSTIFY CONTENT: SPACE-EVENLY, SPACE-AROUND 
+// ALIGNSELF: STRETCH
+
 const testFlexLayout = () => {
-  // rootView -> view  -> label
+  // rootView -> view1 -> label1
   //                   -> label2
   //          -> view2 -> button
 
-  const win = new QMainWindow();
-  win.addEventListener("KeyPress", nativeEvent => {
-    const evt = new QKeyEvent(nativeEvent);
-    console.log(evt.text());
-    console.log("KeyPress", evt);
-  });
-  win.setObjectName("win");
-  win.resize(300, 300);
-  const rootView = new QWidget();
-  rootView.setStyleSheet(`
-   * {
-     position:relative;
-   }
-  `);
-  rootView.setObjectName("rootView");
-  const rootLayout = new FlexLayout();
-  rootLayout.setFlexNode(rootView.getFlexNode());
-  rootView.setLayout(rootLayout);
-  win.setCentralWidget(rootView);
-
-  const view = new QWidget(rootView);
-  view.setObjectName("view");
-  view.setStyleSheet(
-    `
-      qproperty-flex: 1;
-    `
-  );
-
-  const flayout = new FlexLayout();
-  flayout.setFlexNode(view.getFlexNode());
-
-  const label = new QLabel(view);
-  label.setObjectName("label");
-  label.setText("Hello12321");
-  label.setStyleSheet(`
-    background-color:blue; 
-    color:white;
-    qproperty-alignSelf: 'center';
-    qproperty-minWidth: '50%';
-  `);
-
-  const label2 = new QLabel(view);
-  label2.setObjectName("label2");
-  label2.setText("SECOND LABEL");
-  label2.setStyleSheet(`
-    background-color:green; 
-    color:white;
-    qproperty-alignSelf: 'stretch';
-  `);
-
-  flayout.addWidget(label2, label2.getFlexNode());
-  flayout.addWidget(label, label.getFlexNode());
-  view.setLayout(flayout);
-
-  const view2 = new QWidget(rootView);
-  view2.setObjectName("view2");
-  const flayout2 = new FlexLayout();
-  flayout2.setFlexNode(view2.getFlexNode());
-  view2.setLayout(flayout2);
-
-  const button = new QPushButton(view2);
-  button.setObjectName("button");
-  button.setText("Hululu");
-  button.addEventListener("pressed", () => {
-    console.log("pressed");
-  });
-  flayout2.addWidget(button, button.getFlexNode());
-
-  rootLayout.addWidget(view, view.getFlexNode());
-  rootLayout.addWidget(view2, view2.getFlexNode());
-
-  win.show();
-  return win;
+ const win = new QMainWindow();
+ win.setStyleSheet(`
+  #root {
+    background-color: grey;
+    qproperty-qWidth: '100%';
+    qproperty-qHeight: '100%';
+    qproperty-alignItems: 'center';
+    qproperty-justifyContent: 'center';
+    qproperty-flex: 1;
+  }
+  #view1 {
+    background-color: green;
+    qproperty-flex: 1;
+    qproperty-alignItems: 'center';
+    qproperty-justifyContent: 'center';
+    qproperty-qWidth: '100%';
+  }
+  #view2 {
+    background-color: orange;
+    qproperty-flex: 1;
+    qproperty-alignItems: 'center';
+    qproperty-justifyContent: 'center';
+    qproperty-qWidth: '100%';
+  }
+ 
+ `);
+ const rootView = new QWidget();
+ rootView.setObjectName("root");
+ const rootLayout = new FlexLayout();
+ rootLayout.setFlexNode(rootView.getFlexNode());
+ rootView.setLayout(rootLayout);
+ //-----------------------
+ const view1 = new QWidget();
+ view1.setObjectName(`view1`);
+ const viewLayout = new FlexLayout();
+ viewLayout.setFlexNode(view1.getFlexNode());
+ view1.setLayout(viewLayout);
+ const label = new QLabel();
+ label.setText("LABEL 1");
+ label.setObjectName("label1");
+ const label2 = new QLabel();
+ label2.setObjectName("label2");
+ label2.setText("LABEL 2");
+ viewLayout.addWidget(label);
+ viewLayout.addWidget(label2);
+//----------------------------
+ const view2 = new QWidget();
+ view2.setObjectName("view2");
+ const view2Layout = new FlexLayout();
+ view2Layout.setFlexNode(view2.getFlexNode());
+ view2.setLayout(view2Layout);
+ const button = new QPushButton();
+ button.setObjectName("button");
+ button.setText("BUTTON");
+ view2Layout.addWidget(button);
+//-----------------------------
+ rootLayout.addWidget(view1);
+ rootLayout.addWidget(view2);
+ win.setCentralWidget(rootView);
+ win.show();
+ return win;
 };
 
-(global as any).win1 = testGridLayout(); //to keep gc from collecting
+// (global as any).win1 = testGridLayout(); //to keep gc from collecting
 (global as any).win2 = testFlexLayout(); //to keep gc from collecting
