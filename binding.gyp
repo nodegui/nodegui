@@ -1,8 +1,14 @@
 {
     "includes": [
-        './config/deps.gypi',
         "./config/application.gypi",
+        "./config/common.gypi",
+        "./config/qt.gypi",
+        "./config/deps.gypi",
         "./config/moc.gypi",
     ],
-    "targets": []
+    "targets": [{
+        "target_name": "qtnode",
+        # 'type': 'shared_library',
+        'include_dirs': ['.']
+    }]
 }

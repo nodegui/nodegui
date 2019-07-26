@@ -70,7 +70,7 @@ const testGridLayout = () => {
 // JUSTIFY CONTENT: SPACE-EVENLY, SPACE-AROUND 
 // ALIGNSELF: STRETCH
 
-const testFlexLayout = () => {
+const example1 = () => {
   // rootView -> view1 -> label1
   //                   -> label2
   //          -> view2 -> button
@@ -138,5 +138,49 @@ const testFlexLayout = () => {
  return win;
 };
 
+const example2 = ()=>{
+  const win = new QMainWindow();
+  win.setStyleSheet(`
+  #root {
+    background-color: grey;
+    qproperty-qWidth: '100%';
+    qproperty-qHeight: '100%';
+    qproperty-alignItems: 'center';
+    qproperty-justifyContent: 'center';
+    qproperty-flexDirection: 'row';
+    qproperty-flex: 1;
+  }
+  #view1 {
+    background-color: green;
+    qproperty-flex: 1;
+    qproperty-qHeight: '100%';
+  }
+  #view2 {
+    background-color: orange;
+    qproperty-flex: 1;
+    qproperty-qHeight: '100%';
+  }
+ 
+  `);
+  const rootView = new QWidget();
+  rootView.setObjectName("root");
+  const rootLayout = new FlexLayout();
+  rootLayout.setFlexNode(rootView.getFlexNode());
+  rootView.setLayout(rootLayout);
+  //--------------------------------------
+  const view1 = new QWidget();
+  view1.setObjectName("view1");
+  //--------------------------------------
+  const view2 = new QWidget();
+  view2.setObjectName("view2");
+  //--------------------------------------
+  rootLayout.addWidget(view1);
+  rootLayout.addWidget(view2);
+  win.setCentralWidget(rootView);
+  win.show();
+  return win;
+}
+
 // (global as any).win1 = testGridLayout(); //to keep gc from collecting
-(global as any).win2 = testFlexLayout(); //to keep gc from collecting
+// (global as any).ex1 = example1(); //to keep gc from collecting
+(global as any).ex2 = example2(); //to keep gc from collecting
