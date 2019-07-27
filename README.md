@@ -2,21 +2,15 @@
 
 A cross platform library to build native desktop apps. Based on Qt5.
 
-<img alt="logo" src="https://github.com/master-atul/nodegui/raw/master/extras/logo/logo.png" height="400" />
+<img alt="logo" src="https://github.com/master-atul/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
 
 ## How does it look?
 
-**Linux**
-
-<img alt="demo_linux" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_linux.png" height="400" />
-
-**Windows**
-
-<img alt="demo_win" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_win.jpg" height="400" />
-
-**Mac:**
-
-<img alt="demo_mac" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_mac.png" height="400" />
+<div style="display:inline; margin: 0 auto;">
+<img alt="demo_linux" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_linux.png" height="300" />
+<img alt="demo_win" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_win.jpg" height="300" />
+<img alt="demo_mac" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_mac.png" height="300" />
+</div>
 
 **More screenshots?**
 
