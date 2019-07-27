@@ -2,16 +2,25 @@
 
 A cross platform library to build native desktop apps. Based on Qt5.
 
-Mac screenshots:
+<img alt="logo" src="https://github.com/master-atul/nodegui/raw/master/extras/logo/logo.png" height="400" />
 
-![mac](https://github.com/master-atul/node-native-ui/raw/master/screens/mac_dark_mode.png "Mac OS Dark screenshot")
-![mac](https://github.com/master-atul/node-native-ui/raw/master/screens/mac_light_mode.png "Mac OS Light screenshot")
+## How does it look?
 
-Linux and Windows screenshots to be added soon.
+**Linux**
+
+<img alt="demo_linux" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_linux.png" height="400" />
+
+**Windows**
+
+<img alt="demo_win" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_win.jpg" height="400" />
+
+**Mac:**
+
+<img alt="demo_mac" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_mac.png" height="400" />
 
 **More screenshots?**
 
-[See examples](https://github.com/master-atul/node-native-ui/tree/master/examples/)
+[See examples](https://github.com/master-atul/nodegui/tree/master/examples/)
 
 ## Features
 
@@ -38,7 +47,7 @@ Looking to contribute? If you wish to implement a new widget/add more features a
 
 Contributing developer docs link:
 
-https://github.com/master-atul/node-native-ui/tree/master/devdocs
+https://github.com/master-atul/nodegui/tree/master/extras/devdocs
 
 
 ## Building
