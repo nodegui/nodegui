@@ -17,7 +17,7 @@
   },
   "scripts": {
     "dev": "npm run build && qode dist/demo.js",
-    "install": "npm run build:lib && npm run rebuild:addon",
+    "install": "npm run rebuild:addon",
     "build": "npm run build:lib && npm run build:addon",
     "build:lib": "tsc",
     "build:addon": "node-gyp -j 8 build",
