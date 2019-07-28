@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "A cross platform library to build native desktop apps. Based on Qt5.",
   "main": "dist/src/lib/index.js",
-  "files": [
-    "dist/src/lib"
-  ],
   "author": "Atul R <atulanand94@gmail.com>",
   "license": "MIT",
   "private": false,
