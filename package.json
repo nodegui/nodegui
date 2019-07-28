@@ -1,19 +1,26 @@
 {
   "name": "@nodegui/nodegui",
-  "version": "1.0.0",
-  "description": "A cross platform library to build native desktop apps. Based on Qt5.",
+  "version": "0.0.5-alpha",
+  "description": "A cross platform library to build native desktop apps.",
   "main": "dist/src/lib/index.js",
+  "files": [
+    "dist",
+    "config",
+    "binding.gyp",
+    "src",
+    "extras/legal",
+    "deps"
+  ],
   "author": "Atul R <atulanand94@gmail.com>",
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "@nodegui/test": "^0.0.10",
     "@types/bindings": "^1.3.0",
     "@types/lodash": "^4.14.130",
     "@types/node": "^12.0.2",
-    "node-gyp": "^4.0.0",
     "prettier": "^1.17.1",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "@nodegui/test": "^0.0.10"
   },
   "scripts": {
     "dev": "npm run build && qode dist/demo.js",
@@ -24,7 +31,11 @@
     "rebuild:addon": "node-gyp -j 8 rebuild",
     "automoc": "node ./scripts/automoc.js"
   },
+  "peerDependencies": {
+    "@nodegui/test": "*"
+  },
   "dependencies": {
+    "node-gyp": "^4.0.0",
     "bindings": "^1.5.0",
     "node-addon-api": "^1.6.3"
   },
