@@ -14,13 +14,13 @@ NodeGui's version of Qt is usually updated within a month after a new stable ver
 
 ### Versioning
 
-NodeGui [follows `semver`](https://semver.org).
+NodeGui follows [`semver`](https://semver.org).
 For most applications, and using any recent version of npm,
 running `$ npm install @nodegui/nodegui` will do the right thing.
 
 ## Core Philosophy
 
-In order to evolve faster with every Node.Js release, NodeGui aims to path NodeJs with as much minimum code as possible. This makes sure we support all Node features and keeps upgrade process simple.
+In order to evolve faster with every Node.Js release, NodeGui aims to patch NodeJs with as much minimum code as possible. This makes sure we support all Node features and keeps upgrade process simple.
 
 NodeGui will always link dynamically to Qt inorder to maintain LGPL lisence requirements for Open source projects.
 
