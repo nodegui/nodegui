@@ -2,6 +2,7 @@ import addon from "../../core/addon";
 import { NodeLayout } from "../../QtWidgets/QLayout";
 import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
+import { FlexLayout } from "../../core/FlexLayout";
 
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
@@ -18,6 +19,11 @@ export abstract class NodeWidget extends EventWidget {
     this.native.close();
   };
   setLayout = (parentLayout: NodeLayout) => {
+    const flexLayout = parentLayout as FlexLayout;
+    if (flexLayout.setFlexNode) {
+      //if flex layout set the flexnode
+      flexLayout.setFlexNode(this.getFlexNode());
+    }
     this.native.setLayout(parentLayout.native);
     this.layout = parentLayout;
   };
