@@ -15,12 +15,13 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
+    "@nodegui/test": "^0.0.10",
     "@types/bindings": "^1.3.0",
     "@types/lodash": "^4.14.130",
     "@types/node": "^12.0.2",
+    "docsify-cli": "^4.3.0",
     "prettier": "^1.17.1",
-    "typescript": "^3.4.5",
-    "@nodegui/test": "^0.0.10"
+    "typescript": "^3.4.5"
   },
   "scripts": {
     "dev": "npm run build && qode dist/demo.js",
@@ -29,15 +30,16 @@
     "build:lib": "tsc",
     "build:addon": "node-gyp -j 8 build",
     "rebuild:addon": "node-gyp -j 8 rebuild",
-    "automoc": "node ./scripts/automoc.js"
+    "automoc": "node ./scripts/automoc.js",
+    "docs": "docsify serve ./extras/docs"
   },
   "peerDependencies": {
     "@nodegui/test": "*"
   },
   "dependencies": {
-    "node-gyp": "^4.0.0",
     "bindings": "^1.5.0",
-    "node-addon-api": "^1.6.3"
+    "node-addon-api": "^1.6.3",
+    "node-gyp": "^4.0.0"
   },
   "gypfile": true
 }
