@@ -11,15 +11,15 @@ This enabled NodeGui to be extrememly memory and CPU efficient as compared to ot
 ## Hello World
 
 Clone and run the code in this tutorial by using the
-[`nodegui/nodegui-quick-start`][quick-start] repository.
+[`nodegui/nodegui-starter`][quick-start] repository.
 
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Clone the repository
-$ git clone https://github.com/nodegui/nodegui-quick-start
+$ git clone https://github.com/nodegui/nodegui-starter
 # Go into the repository
-$ cd nodegui-quick-start
+$ cd nodegui-starter
 # Install dependencies
 $ npm install
 # Run the app
@@ -99,19 +99,19 @@ directory.
 ## Trying this Example
 
 Clone and run the code in this tutorial by using the
-[`nodegui/nodegui-quick-start`][quick-start] repository.
+[`nodegui/nodegui-starter`][quick-start] repository.
 
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Clone the repository
-$ git clone https://github.com/nodegui/nodegui-quick-start
+$ git clone https://github.com/nodegui/nodegui-starter
 # Go into the repository
-$ cd nodegui-quick-start
+$ cd nodegui-starter
 # Install dependencies
 $ npm install
 # Run the app
 $ npm start
 ```
 
-[quick-start]: https://github.com/nodegui/nodegui-quick-start
+[quick-start]: https://github.com/nodegui/nodegui-starter

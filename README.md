@@ -59,4 +59,4 @@ MIT
 
 # TODO
 
-- Make https://github.com/nodegui/nodegui-quick-start
+- Make https://github.com/nodegui/nodegui-starter
