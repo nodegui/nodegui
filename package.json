@@ -31,7 +31,7 @@
     "build:addon": "node-gyp -j 8 build",
     "rebuild:addon": "node-gyp -j 8 rebuild",
     "automoc": "node ./scripts/automoc.js",
-    "docs": "docsify serve ./extras/docs"
+    "docs": "docsify serve ./docs"
   },
   "peerDependencies": {
     "@nodegui/test": "*"
