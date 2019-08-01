@@ -101,4 +101,4 @@ The vast majority of Node.js modules are _not_ native. Only 400 out of the
 ~650.000 modules are native. However, if you do need native modules, please
 consult [this guide on how to recompile them for NodeGui][native-node].
 
-[native-node]: ./using-native-node-modules.md
+[native-node]: tutorial/using-native-node-modules.md

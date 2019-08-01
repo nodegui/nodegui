@@ -1,6 +1,7 @@
 # Guides and Tutorials
 
 - [About NodeGui](tutorial/about.md)
+- [FAQ](faq.md)
 - [Setting up the Development Environment](tutorial/development-environment.md)
   - [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
   - [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
@@ -18,15 +19,26 @@
 - [Testing and Debugging](tutorial/debugging-app.md)
   - [Debugging Qode/NodeGui Process](tutorial/debugging-qode-process.md)
   - [Debugging a NodeGui app with Visual Studio Code](tutorial/debugging-app-vscode.md)
-    // BOOK MARK - TODO AFTER THIS
 - [Distribution](tutorial/application-distribution.md)
   - [Supported Platforms](tutorial/support.md#supported-platforms)
   - [Code Signing](tutorial/code-signing.md)
   - [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   - [Windows Store](tutorial/windows-store-guide.md)
   - [Snapcraft](tutorial/snapcraft.md)
-    // Need to finish till here
 - [Getting Support](tutorial/support.md)
+
+## API References
+
+- [Synopsis](api/synopsis.md)
+- [Process Object](api/process.md)
+
+### Modules from NodeGui:
+
+- [QMainWindow (Window)](api/QMainWindow.md)
+- [QWidget (View)](api/QWidget.md)
+- [NodeWidget](api/NodeWidget.md)
+- [NodeLayout](api/NodeLayout.md)
+- [FlexLayout](api/FlexLayout.md)
 
 ## Development
 

@@ -4,6 +4,8 @@
 
 NodeGui began in 2019 as part of frustrations related to Electron and other chromium based cross platform Gui solutions. Electron is a great framework for building cross platform apps but suffers from performance and energy related issues due to heavy reliance on Chromium. NodeGui wants to incorporate everything that is good about Electron: The ease of development, freedom of styling, Native APIs, great documentation, etc. At the same time NodeGui aims to be memory and CPU efficient.
 
+Also, NodeGui is built with Typescript which means you get autocomplete and strong typechecking support from the IDE even when used in a Javascript project.
+
 Get started building with NodeGui in the [First NodeGui app](first-app.md).
 
 ### Updating Dependencies
