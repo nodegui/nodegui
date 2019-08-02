@@ -36,6 +36,7 @@ export class FlexLayout extends NodeLayout {
     this.native.removeWidget(childWidget.native, childYogaNode);
     this.children.delete(childWidget);
   };
+
   setFlexNode = (flexNode: FlexNode) => {
     this.flexNode = flexNode;
     this.native.setFlexNode(flexNode);
