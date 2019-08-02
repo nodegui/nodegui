@@ -40,14 +40,14 @@ FlexLayout can access all the instance methods defined in [NodeLayout](api/NodeL
 
 Additionally it also has the following instance methods:
 
-#### `layout.addWidget()`
+#### `layout.addWidget(childWidget, childFlexNode?)`
 
 Adds the childWidget to the layout. It calls the native method of custom FlexLayout.
 
 - `childWidget` NodeWidget - child widget that needs to be added to the layout.
 - `childFlexNode` flexNode ref (_Optional_) - flexNode reference of the child widget. You can get this by calling `childWidget.getFlexNode()`.
 
-#### `layout.insertChildBefore()`
+#### `layout.insertChildBefore(childWidget, beforeChildWidget, childFlexNode?, beforeChildFlexNode?)`
 
 Adds the childWidget before another already set childWidget in the layout. It calls the native method of custom FlexLayout.
 
@@ -56,14 +56,14 @@ Adds the childWidget before another already set childWidget in the layout. It ca
 - `childFlexNode` flexNode ref (_Optional_) - flexNode reference of the child widget. You can get this by calling `childWidget.getFlexNode()`.
 - `beforeChildFlexNode` flexNode ref (_Optional_) - flexNode reference of the before child widget. You can get this by calling `beforeChildWidget.getFlexNode()`.
 
-#### `layout.removeWidget()`
+#### `layout.removeWidget(childWidget, childFlexNode?)`
 
 Removes the childWidget from the layout. It calls the native method of custom FlexLayout.
 
 - `childWidget` NodeWidget - child widget that needs to be added to the layout.
 - `childFlexNode` flexNode ref (_Optional_) - flexNode reference of the child widget. You can get this by calling `childWidget.getFlexNode()`.
 
-#### `layout.setFlexNode()`
+#### `layout.setFlexNode(flexNode)`
 
 A layout doesnt have its own flexNode. This method sets the flex Node to use for calculating position of the child widgets. Hence this should be always equal to the flex node of widget for which this layout is set. This is called internally by `widget.setLayout`.
 

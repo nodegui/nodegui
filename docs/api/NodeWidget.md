@@ -58,7 +58,7 @@ Additionally it also has the following instance methods:
 
 Shows the widget and its children. It calls the native method [QWidget: show](https://doc.qt.io/qt-5/qwidget.html#show).
 
-#### `widget.resize()`
+#### `widget.resize(width, height)`
 
 Resizes the widget. It calls the native method [QWidget: resize](https://doc.qt.io/qt-5/qwidget.html#resize-1).
 
@@ -70,13 +70,13 @@ Resizes the widget. It calls the native method [QWidget: resize](https://doc.qt.
 Closes this widget. It calls the native method [QWidget: close](https://doc.qt.io/qt-5/qwidget.html#close).
 Returns true if the widget was closed; otherwise returns false.
 
-#### `widget.setLayout()`
+#### `widget.setLayout(layout)`
 
-Sets the layout manager for this widget to parentLayout. It calls the native method [QWidget: setLayout](https://doc.qt.io/qt-5/qwidget.html#setLayout).
+Sets the layout manager for this widget to layout. It calls the native method [QWidget: setLayout](https://doc.qt.io/qt-5/qwidget.html#setLayout).
 
-- `parentLayout` NodeLayout - Any layout that inherits from NodeLayout class.
+- `layout` NodeLayout - Any layout that inherits from NodeLayout class.
 
-#### `widget.setStyleSheet()`
+#### `widget.setStyleSheet(styleSheet)`
 
 Sets the property that holds the widget's style sheet. It calls the native method [QWidget: styleSheet](https://doc.qt.io/qt-5/qwidget.html#styleSheet-prop).
 
@@ -86,39 +86,39 @@ Sets the property that holds the widget's style sheet. It calls the native metho
 
 Hides the widget and its children. It calls the native method [QWidget: hide](https://doc.qt.io/qt-5/qwidget.html#hide).
 
-#### `widget.setObjectName()`
+#### `widget.setObjectName(objectName)`
 
 Sets the object name of the widget in Qt. It calls the native method [QObject: setObjectName](https://doc.qt.io/qt-5/qobject.html#objectName-prop). Object name can be analogous to `id` of an element in the web world. Using the objectName of the widget one can reference it in the Qt's stylesheet much like what we do with id in the web world.
 
 - `objectName` string - String which holds the widget's object name.
 
-#### `widget.setMouseTracking()`
+#### `widget.setMouseTracking(isMouseTracked)`
 
 Sets the property that tells whether mouseTracking is enabled for the widget. It calls the native method [QWidget: mouseTracking](https://doc.qt.io/qt-5/qwidget.html#mouseTracking-prop).
 
 - `isMouseTracked` boolean - Set it to true to enable mouse tracking.
 
-#### `widget.setEnabled()`
+#### `widget.setEnabled(enabled)`
 
 Sets the property that tells whether the widget is enabled. It calls the native method [QWidget: enabled](https://doc.qt.io/qt-5/qwidget.html#enabled-prop). In general an enabled widget handles keyboard and mouse events; a disabled widget does not.
 
 - `enabled` boolean - Set it to true to enable the widget.
 
-#### `widget.setFixedSize()`
+#### `widget.setFixedSize(width, height)`
 
 Sets both the minimum and maximum sizes of the widget. It calls the native method [QWidget: setFixedSize](https://doc.qt.io/qt-5/qwidget.html#setFixedSize).
 
 - `width` number - Pixels.
 - `height` number - Pixels.
 
-#### `widget.setMaximumSize()`
+#### `widget.setMaximumSize(width, height)`
 
 Sets the maximum size of the widget. It calls the native method [QWidget: setMaximumSize](https://doc.qt.io/qt-5/qwidget.html#setMaximumSize-1).
 
 - `width` number - Pixels.
 - `height` number - Pixels.
 
-#### `widget.setMinimumSize()`
+#### `widget.setMinimumSize(width, height)`
 
 Sets the minimum size of the widget. It calls the native method [QWidget: setMinimumSize](https://doc.qt.io/qt-5/qwidget.html#setMinimumSize-1).
 

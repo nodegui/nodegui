@@ -43,7 +43,7 @@ EventWidget can access all the instance methods defined in [YogaWidget](api/Yoga
 
 Additionally it also has the following instance methods:
 
-#### `widget.addEventListener()`
+#### `widget.addEventListener(eventType, callback)`
 
 Adds an event listener to the widget to listen to events that occur on a widget.
 
@@ -51,7 +51,7 @@ Adds an event listener to the widget to listen to events that occur on a widget.
 
 - `callback` (payload?: NativeEvent | any) => void - A callback function to invoke when an event occurs. Usually you receive a nativeEvent or a string as argument.
 
-#### `widget.removeEventListener()`
+#### `widget.removeEventListener(eventType, callback?)`
 
 Removes the specified event listener from the widget.
 

@@ -18,9 +18,9 @@ view.setObjectName("container"); //Similar to setting `id` on the web
 view.setLayout(new FlexLayout());
 ```
 
-### `new QWidget([parent])`
+### `new QWidget(parent?)`
 
-- `parent` NodeWidget (optional). Any widget inheriting from NodeWidget can be passed as a parent. This will make this widget, the child of the parent widget.
+- `parent` NodeWidget (_optional_). Any widget inheriting from NodeWidget can be passed as a parent. This will make this widget, the child of the parent widget.
 
 ### Static Methods
 

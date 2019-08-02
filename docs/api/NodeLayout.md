@@ -51,7 +51,7 @@ NodeLayout can access all the instance methods defined in [Component](api/Compon
 
 Additionally it also has the following instance methods:
 
-#### `layout.addWidget()`
+#### `layout.addWidget(childWidget, ...args)`
 
 This is an abstract method in NodeLayout class. All Layouts inheriting from NodeLayout should implement this method.
 
