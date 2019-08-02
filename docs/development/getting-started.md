@@ -1,78 +1,4 @@
-# Setup project for development
-
-## Development setup and getting started
-
-This guide is for setting up `nodegui` for contributors of nodegui.
-The actual getting started guide for users will be added once we reach a bit of stable level.
-
-Make sure you have setup `qode` and installed it globally.
-
-### MacOSX:
-
-**Requirements**
-
-1. Node version: > 9
-2. Python and gcc
-3. Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
-
-**Setting up**
-
-1. Install latest version of Qt (5.12) via homebrew only.
-
-```
-brew install qt5
-```
-
-### Windows:
-
-**Requirements**
-
-1. Node version: > 9
-2. Python and MSVC++
-
-**Setting up**
--- Instructions will be added soon --
-
-### Linux:
-
-**Requirements**
-
-1. Node version: > 9
-2. Python, Make, GCC, pkg-config and Qt5 <br/>
-
-On Ubuntu: `$ sudo apt-get install pkg-config build-essentials` should install everything except Qt5.
-
-**Setting up**
-
-1. Make sure you have downloaded and installed Qt5 sdk.
-2. Before running `yard build`, do
-   `export PKG_CONFIG_PATH="<path to qt installation>/5.11.0/gcc_64/lib/pkgconfig"`
-
-### Common:
-
-1. Once you have setup the platform specific stuff as mentioned above, follow these:
-
-2. `git clone` this repo.
-
-3. Keep note of the install directory of qt. You should probably find it at `/usr/local/Cellar/qt/5.12.1`. Copy this path and
-   edit the file `config/common.gypi`. <br/>
-   Change the field
-
-   ```
-   'qt_home_dir': '<!(echo $QN_QT_HOME_DIR)',
-   ```
-
-   to
-
-   ```
-   'qt_home_dir': '/usr/local/Cellar/qt/5.12.1',
-   ```
-
-4. `yarn install`
-5. `yarn build:addon`
-6. `yarn dev`
-
-## What is this library ?
+## Getting started
 
 This library aims to be a nodejs addon which can export Qt Widgets to the Javascript world. By doing so one can develop fully fledged cross platform native GUI applications using only Javascript.
 
@@ -138,7 +64,7 @@ Once you have done that check out `src/cpp/main.cpp` and `config/application.gyp
 Then maybe you can take a look at `src/cpp/QtWidgets/QLabel/qlabel_wrap.h`. This will show you how to wrap a simple Qt Widget.
 Check the corresponding JS file for the addon here `src/lib/QtWidgets/QLabel/index.ts`.
 
-## General Idea for Wrapping a widget.
+## Wrapping a widget
 
 Create wrappers for each and every Qt class that you will use with N-API (using node-addon-api since it is c++) and export it onto JS side.
 
@@ -175,7 +101,7 @@ This will run moc on `headername.h` and generate `headername_moc.cpp`. We will i
 
 I hope QLabel's example is enough for now. For more examples and inspirations we can take a look at other wrapped widgets.
 
-## Learning Materials:
+## Learning Materials
 
 1. Beginners guide to NodeJS Addon - https://medium.com/@atulanand94/beginners-guide-to-writing-nodejs-addons-using-c-and-n-api-node-addon-api-9b3b718a9a7f
 2. First read this: N-API in nodejs docs

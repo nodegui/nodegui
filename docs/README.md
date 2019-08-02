@@ -57,6 +57,6 @@
 - [Events usage](todo)
 - [Yoga properties using stylesheet usage](todo)
 
-## Development
+## Development/Contributor's Guide
 
-See [development/README.md](development/README.md)
+See [development](development/README.md)
