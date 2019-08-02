@@ -34,8 +34,8 @@ Napi::Value resize(const Napi::CallbackInfo& info) { \
 Napi::Value close(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env(); \
     Napi::HandleScope scope(env); \
-    this->instance->close(); \
-    return env.Null(); \
+    bool hasClosed = this->instance->close(); \
+    return Napi::Boolean::New(env, hasClosed); \
 } \
 \
 Napi::Value setLayout(const Napi::CallbackInfo& info){ \

@@ -4,7 +4,7 @@
 
 **This class implements all methods, properties of Qt's [QWidget class](https://doc.qt.io/qt-5/qwidget.html) so that it can be inherited by all widgets**
 
-`NodeWidget` is an abstract class and hence no instances of the same should be created. It exists so that we can add similar functionalities to all widget's easily. Additionally it helps in typechecking process.
+`NodeWidget` is an abstract class and hence no instances of the same should be created. It exists so that we can add similar functionalities to all widget's easily. Additionally it helps in typechecking process. If you wish to create a `div` like widget use [QWidget](api/QWidget.md) instead.
 
 **NodeWidget is the base class for all widgets. It inherits from another abstract class [EventWidget](api/EventWidget.md)**
 
@@ -68,6 +68,7 @@ Resizes the widget. It calls the native method [QWidget: resize](https://doc.qt.
 #### `widget.close()`
 
 Closes this widget. It calls the native method [QWidget: close](https://doc.qt.io/qt-5/qwidget.html#close).
+Returns true if the widget was closed; otherwise returns false.
 
 #### `widget.setLayout()`
 

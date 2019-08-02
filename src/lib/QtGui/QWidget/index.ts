@@ -16,7 +16,7 @@ export abstract class NodeWidget extends EventWidget {
     this.native.resize(width, height);
   };
   close = () => {
-    this.native.close();
+    return this.native.close();
   };
   setLayout = (parentLayout: NodeLayout) => {
     const flexLayout = parentLayout as FlexLayout;

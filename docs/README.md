@@ -36,9 +36,15 @@
 
 - [QMainWindow (Window)](api/QMainWindow.md)
 - [QWidget (View)](api/QWidget.md)
+- [FlexLayout](api/FlexLayout.md)
+
+### Internal Modules
+
 - [NodeWidget](api/NodeWidget.md)
 - [NodeLayout](api/NodeLayout.md)
-- [FlexLayout](api/FlexLayout.md)
+- [EventWidget](api/EventWidget.md)
+- [Component](api/Component.md)
+- [YogaWidget](api/YogaWidget.md)
 
 ## Development
 
