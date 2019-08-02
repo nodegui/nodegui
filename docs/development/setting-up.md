@@ -2,6 +2,8 @@
 
 ## Development setup and getting started
 
+Make sure you follow the setup guide of [Qode][qode_setup] so that you have a build environment ready for Qode.
+
 ### MacOSX:
 
 **Requirements**
@@ -9,60 +11,41 @@
 1. Node version: > 9
 2. Python and gcc
 3. Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
-
-**Setting up**
-
-1. Install latest version of Qt (5.12) via homebrew only.
-
-```
-brew install qt5
-```
+4. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
 ### Windows:
 
 **Requirements**
 
 1. Node version: > 9
-2. Python and MSVC++
-
-**Setting up**
--- Instructions will be added soon --
+2. Python and Visual Studio Community 2017
+3. Powershell
+4. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
 ### Linux:
 
 **Requirements**
 
 1. Node version: > 9
-2. Python, Make, GCC, pkg-config and Qt5 <br/>
+2. Python, Make, GCC, pkg-config
+3. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
 On Ubuntu: `$ sudo apt-get install pkg-config build-essentials` should install everything except Qt5.
 
-**Setting up**
+Note: If you are using your own version of Qt make sure to
 
-1. Make sure you have downloaded and installed Qt5 sdk.
-2. Before running `yard build`, do
-   `export PKG_CONFIG_PATH="<path to qt installation>/5.11.0/gcc_64/lib/pkgconfig"`
+`export PKG_CONFIG_PATH="<path to qt installation>/5.13.0/gcc_64/lib/pkgconfig"`
 
 ### Common:
 
 1. Once you have setup the platform specific stuff as mentioned above, follow these:
-
 2. `git clone` this repo.
+3. `yarn install`
+4. `yarn build:addon`
+5. `yarn dev`
 
-3. Keep note of the install directory of qt. You should probably find it at `/usr/local/Cellar/qt/5.12.1`. Copy this path and
-   edit the file `config/common.gypi`. <br/>
-   Change the field
+If you want to run with your own version of Qt make sure to pass qt_home_dir variable when building addon.
 
-   ```
-   'qt_home_dir': '<!(echo $QN_QT_HOME_DIR)',
-   ```
+`yarn rebuild:addon [--qt_home_dir=/path/to/qt]`
 
-   to
-
-   ```
-   'qt_home_dir': '/usr/local/Cellar/qt/5.12.1',
-   ```
-
-4. `yarn install`
-5. `yarn build:addon`
-6. `yarn dev`
+[qode_setup]: https://github.com/master-atul/qode

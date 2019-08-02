@@ -30,8 +30,8 @@ A cross platform library to build native desktop apps. Based on Qt5.
 - [ ] (Partial) Should have a decent list of stylable native widgets.
 - [ ] Easy build and packaging process.
 - [ ] Good Devtools support (hot reload, live reload, debugging etc).
-- [ ] Good documentation and website.
-- [ ] Good documentation for contributors.
+- [x] Good documentation and website.
+- [x] Good documentation for contributors.
 - [x] Good support for dark mode (Thanks to QT).
 - [x] Typescript support
 
@@ -41,7 +41,7 @@ Looking to contribute? If you wish to implement a new widget/add more features a
 
 Contributing developer docs link:
 
-https://github.com/master-atul/nodegui/tree/master/extras/devdocs
+https://github.com/master-atul/nodegui/tree/master/docs/development
 
 ## Building
 
