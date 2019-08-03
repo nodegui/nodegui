@@ -1,6 +1,7 @@
 # Guides and Tutorials
 
 - [About NodeGui](tutorial/about.md)
+- [Examples](https://github.com/master-atul/nodegui/tree/master/examples)
 - [FAQ](faq.md)
 - [Setting up the Development Environment](tutorial/development-environment.md)
   - [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
