@@ -19,6 +19,7 @@ class QLabelWrap : public  Napi::ObjectWrap<QLabelWrap>{
   Napi::Value setWordWrap(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
   Napi::Value text(const Napi::CallbackInfo &info);
+  Napi::Value setPixmap(const Napi::CallbackInfo &info);
 
   QWIDGET_WRAPPED_METHODS_DECLARATION
  

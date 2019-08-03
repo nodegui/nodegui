@@ -1,5 +1,4 @@
-#ifndef QAPPLICATION_WRAP_H
-#define QAPPLICATION_WRAP_H
+#pragma once
 
 #include <napi.h>
 #include <QApplication>
@@ -22,4 +21,3 @@ public:
     Napi::Value exec(const Napi::CallbackInfo& info);
 };
 
-#endif

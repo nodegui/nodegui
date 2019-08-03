@@ -48,3 +48,9 @@ returns the current text from the label.
 #### `label.setWordWrap(on)`
 
 - `on` boolean - If true it sets wordwrap on the label
+
+#### `label.setPixmap(pixMap)`
+
+Images in the form of a pixmap can be set as the label content
+
+- `pixMap` [QPixmap](api/QPixmap.md) - Allows to set image content in the form of a QPixmap on the label

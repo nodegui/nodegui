@@ -1,5 +1,6 @@
 export { QApplication } from "./QtGui/QApplication";
 export { QWidget, QWidgetEvents } from "./QtGui/QWidget";
+export { QPixmap } from "./QtGui/QPixmap";
 // Abstract:
 export { NodeWidget } from "./QtGui/QWidget";
 export { NodeLayout } from "./QtWidgets/QLayout";

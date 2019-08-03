@@ -2,6 +2,7 @@ import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
+import { QPixmap } from "../../QtGui/QPixmap";
 
 export const QLabelEvents = Object.freeze({
   ...BaseWidgetEvents
@@ -31,5 +32,8 @@ export class QLabel extends NodeWidget {
   }
   text() {
     return this.native.text();
+  }
+  setPixmap(pixMap: QPixmap) {
+    this.native.setPixmap(pixMap.native);
   }
 }

@@ -37,13 +37,14 @@
 
 - [QMainWindow (Window)](api/QMainWindow.md)
 - [QWidget (View)](api/QWidget.md)
-- [QLabel (Text)](api/QLabel.md)
+- [QLabel (Text/Image)](api/QLabel.md)
 - [QPushButton (Button)](api/QPushButton.md)
 - [QRadioButton (RadioButton)](api/QRadioButton.md)
 - [QCheckBox (CheckBox)](api/QCheckBox.md)
 - [QLineEdit (LineEdit)](api/QLineEdit.md)
 - [QProgressBar (ProgressBar)](api/QProgressBar.md)
 - [FlexLayout](api/FlexLayout.md)
+- [QPixmap](api/QPixmap.md)
 
 ### Internal Modules
 

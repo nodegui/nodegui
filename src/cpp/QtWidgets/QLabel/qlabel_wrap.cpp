@@ -1,5 +1,6 @@
 #include "qlabel_wrap.h"
 #include "src/cpp/QtGui/QWidget/qwidget_wrap.h"
+#include "src/cpp/QtGui/QPixmap/qpixmap_wrap.h"
 #include "src/cpp/Extras/Utils/nutils.h"
 #include <QWidget>
 
@@ -12,7 +13,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("setWordWrap", &QLabelWrap::setWordWrap),
     InstanceMethod("setText", &QLabelWrap::setText),
     InstanceMethod("text", &QLabelWrap::text),
-    InstanceMethod("getFlexNode", &QLabelWrap::getFlexNode),
+    InstanceMethod("setPixmap", &QLabelWrap::setPixmap),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)
   });
   constructor = Napi::Persistent(func);
@@ -74,3 +75,14 @@ Napi::Value QLabelWrap::text(const Napi::CallbackInfo &info)
   std::string labelText = this->instance->text().toStdString();
   return Napi::String::New(env, labelText);
 }
+
+  Napi::Value QLabelWrap::setPixmap(const Napi::CallbackInfo &info) 
+  {  
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    Napi::Object pixmapObject = info[0].As<Napi::Object>();
+    QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(pixmapObject);
+    this->instance->setPixmap(*pixmapWrap->getInternalInstance());
+    return env.Null();
+  }
