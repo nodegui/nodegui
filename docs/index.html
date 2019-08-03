@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>
-      @nodegui/nodegui - A cross platform library to build native desktop apps.
+      NodeGui - A cross platform library to build performant desktop apps with
+      Javascript.
     </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta
@@ -14,11 +15,6 @@
       name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" /> -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
-    /> -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css"
@@ -26,6 +22,9 @@
   </head>
   <body>
     <div id="app">Loading documentation...</div>
+    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
+    <script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
     <script>
       window.$docsify = {
         name: "NodeGui",
@@ -33,10 +32,24 @@
         themeable: {
           readyTransition: true, // default
           responsiveTables: true // default
-        }
+        },
+        ga: "UA-145065218-1",
+        search: {
+          maxAge: 86400000, // Expiration time, the default one day
+          paths: ["/", "/faq", "/development/", "/tutorial/about"],
+          placeholder: "Type to search",
+          noData: "No Results!"
+        },
+        disqus: "nodegui",
+        plugins: [
+          EditOnGithubPlugin.create(
+            "https://github.com/master-atul/nodegui/blob/master/docs/"
+          )
+        ]
       };
     </script>
-    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/disqus.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
   </body>
 </html>
