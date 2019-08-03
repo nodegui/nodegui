@@ -27,7 +27,15 @@ QLabel can access all the static methods defined in [NodeWidget](api/NodeWidget.
 
 ### Instance Properties
 
-QLabel can access all the instance properties defined in [NodeWidget](api/NodeWidget.md)
+QLabel can access all the instance properties defined in [NodeWidget](api/NodeWidget.md). Additionally it also has the following instance properties:
+
+#### `label.pixmap`
+
+The pixmap currently set on this label.
+
+#### `label.text`
+
+the current text set on the label.
 
 ### Instance Methods
 
@@ -40,10 +48,6 @@ Additionally it also has the following instance methods:
 Sets the given text to the label.
 
 - `text` string
-
-#### `label.text()`
-
-returns the current text from the label.
 
 #### `label.setWordWrap(on)`
 
