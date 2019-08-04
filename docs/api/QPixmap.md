@@ -41,3 +41,12 @@ loads an image from the url into memory as a Pixmap.
 returns true if load was successful otherwise returns false.
 
 - `imageUrl` string (_optional_). Absolute path of the image that needs to be loaded in the memory.
+
+#### `pixMap.scaled(width, height, aspectRatioMode?)`
+
+Scales the pixmap to provided height and width with respect to aspectRatioMode.
+This method doesnt mutate this pixmap and rather returns a new pixmap with new height and width.
+
+- `width` number. Width in pixels for new pixmap.
+- `height` number. Height in pixels for new pixmap.
+- `aspectRatioMode` AspectRatioMode (_optional_). Specifies how scaling should happen. [AspectRatio is an enum from Qt](QtEnums.md)
