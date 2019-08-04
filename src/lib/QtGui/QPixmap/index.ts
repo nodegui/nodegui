@@ -1,7 +1,8 @@
 import addon from "../../core/addon";
 import { Component, NativeElement } from "../../core/Component";
-
+import { AspectRatioMode } from "../../QtEnums";
 type arg = string | NativeElement;
+
 export class QPixmap extends Component {
   native: NativeElement;
   constructor(arg?: arg) {
@@ -18,8 +19,12 @@ export class QPixmap extends Component {
   load = (imageUrl: string) => {
     return this.native.load(imageUrl);
   };
-  scaled = (width: number, height: number): QPixmap => {
-    const nativePixmap = this.native.scaled(width, height);
+  scaled = (
+    width: number,
+    height: number,
+    aspectRatioMode?: AspectRatioMode
+  ): QPixmap => {
+    const nativePixmap = this.native.scaled(width, height, aspectRatioMode);
     return new QPixmap(nativePixmap);
   };
 }

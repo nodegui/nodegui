@@ -4,6 +4,7 @@
 #include "src/cpp/core/YogaWidget/yogawidget_macro.h"
 #include "src/cpp/core/Events/eventwidget_macro.h"
 #include "src/cpp/core/Component/component_macro.h"
+#include <QSize>
 /*
 
     This macro adds common QWidgets exported methods 
@@ -121,6 +122,15 @@ Napi::Value update(const Napi::CallbackInfo& info){ \
   this->instance->update(); \
   return env.Null(); \
 } \
+Napi::Value size(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  QSize size = this->instance->size(); \
+  Napi::Object sizeObj = Napi::Object::New(env); \
+  sizeObj.Set("width", size.width()); \
+  sizeObj.Set("height", size.height()); \
+  return sizeObj; \
+} \
 
 #endif //QWIDGET_WRAPPED_METHODS_DECLARATION
 
@@ -144,6 +154,7 @@ Napi::Value update(const Napi::CallbackInfo& info){ \
  InstanceMethod("setMinimumSize",&WidgetWrapName::setMinimumSize), \
  InstanceMethod("repaint",&WidgetWrapName::repaint), \
  InstanceMethod("update",&WidgetWrapName::update), \
+ InstanceMethod("size",&WidgetWrapName::size), \
 
 #endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

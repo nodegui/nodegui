@@ -1,3 +1,5 @@
+// enums
+export { AspectRatioMode } from "./QtEnums";
 export { QApplication } from "./QtGui/QApplication";
 export { QWidget, QWidgetEvents } from "./QtGui/QWidget";
 export { QPixmap } from "./QtGui/QPixmap";

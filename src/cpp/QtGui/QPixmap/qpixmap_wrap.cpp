@@ -66,10 +66,16 @@ Napi::Value QPixmapWrap::scaled(const Napi::CallbackInfo& info)
 {
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
-    Napi::Number width = info[0].As<Napi::Number>();
-    Napi::Number height = info[1].As<Napi::Number>();
-
-    QPixmap* updatedPixMap = new QPixmap(this->instance->scaled(width, height));
+    Napi::Number widthValue = info[0].As<Napi::Number>();
+    Napi::Number heightValue = info[1].As<Napi::Number>();
+    int width = widthValue.Int32Value();
+    int height = heightValue.Int32Value();
+    Qt::AspectRatioMode aspectRatioMode = Qt::IgnoreAspectRatio;
+    if(info.Length() > 2){
+       int aspectRatioModeInt = info[2].As<Napi::Number>().Int32Value();
+       aspectRatioMode = static_cast<Qt::AspectRatioMode>(aspectRatioModeInt);
+    }
+    QPixmap* updatedPixMap = new QPixmap(this->instance->scaled(width, height, aspectRatioMode));
     auto instance = QPixmapWrap::constructor.New({ Napi::External<QPixmap>::New(env, updatedPixMap) });
     return instance;
 }
