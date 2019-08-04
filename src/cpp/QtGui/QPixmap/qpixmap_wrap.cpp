@@ -9,6 +9,7 @@ Napi::Object QPixmapWrap::init(Napi::Env env, Napi::Object exports)
     char CLASSNAME[] = "QPixmap";
     Napi::Function func = DefineClass(env, CLASSNAME,{
         InstanceMethod("load", &QPixmapWrap::load),
+        InstanceMethod("scaled",&QPixmapWrap::scaled),
     });
     constructor = Napi::Persistent(func);
     exports.Set(CLASSNAME, func);
@@ -20,9 +21,13 @@ QPixmapWrap::QPixmapWrap(const Napi::CallbackInfo& info) : Napi::ObjectWrap<QPix
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
     if(info.Length() == 1) {
-      Napi::String url = info[0].As<Napi::String>();
-      QString imageUrl = QString::fromUtf8(url.Utf8Value().c_str());
-      this->instance = new QPixmap(imageUrl);
+        if(info[0].IsExternal()){
+            this->instance = info[0].As<Napi::External<QPixmap>>().Data();
+        } else {
+            Napi::String url = info[0].As<Napi::String>();
+            QString imageUrl = QString::fromUtf8(url.Utf8Value().c_str());
+            this->instance = new QPixmap(imageUrl);
+        }
     }else if (info.Length() == 0){
         this->instance = new QPixmap();
     }else {
@@ -55,3 +60,14 @@ Napi::Value QPixmapWrap::load(const Napi::CallbackInfo& info)
     return Napi::Boolean::New(env, loadSuccess);
 }
 
+Napi::Value QPixmapWrap::scaled(const Napi::CallbackInfo& info) 
+{
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    Napi::Number width = info[0].As<Napi::Number>();
+    Napi::Number height = info[1].As<Napi::Number>();
+
+    QPixmap* updatedPixMap = new QPixmap(this->instance->scaled(width, height));
+    auto instance = QPixmapWrap::constructor.New({ Napi::External<QPixmap>::New(env, updatedPixMap) });
+    return instance;
+}

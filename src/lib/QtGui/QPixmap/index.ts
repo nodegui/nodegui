@@ -14,4 +14,7 @@ export class QPixmap extends Component {
   load = (imageUrl: string) => {
     return this.native.load(imageUrl);
   };
+  scaled = (width: number, height: number) => {
+    return this.native.scaled(width, height);
+  };
 }

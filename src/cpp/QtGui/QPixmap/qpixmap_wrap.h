@@ -14,5 +14,6 @@ public:
     QPixmap* getInternalInstance();
     // Wrapped methods
     Napi::Value load(const Napi::CallbackInfo& info);
+    Napi::Value scaled(const Napi::CallbackInfo& info);
 };
 
