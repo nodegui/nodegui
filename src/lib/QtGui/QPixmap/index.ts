@@ -3,6 +3,10 @@ import { Component, NativeElement } from "../../core/Component";
 import { AspectRatioMode } from "../../QtEnums";
 type arg = string | NativeElement;
 
+const checkIfNativeElement = (arg: any) => {
+  const nativeArg = arg as NativeElement;
+  return typeof nativeArg === "object" && nativeArg.type === "native";
+};
 export class QPixmap extends Component {
   native: NativeElement;
   constructor(arg?: arg) {
@@ -10,7 +14,7 @@ export class QPixmap extends Component {
     if (typeof arg === "string") {
       const imageUrl = arg;
       this.native = new addon.QPixmap(imageUrl);
-    } else if ((arg as NativeElement).type === "native") {
+    } else if (checkIfNativeElement(arg)) {
       this.native = arg as NativeElement;
     } else {
       this.native = new addon.QPixmap();

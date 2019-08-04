@@ -26,8 +26,28 @@ QLineEdit can access all the static methods defined in [NodeWidget](api/NodeWidg
 
 ### Instance Properties
 
-QLineEdit can access all the instance properties defined in [NodeWidget](api/NodeWidget.md)
+QLineEdit can access all the instance properties defined in [NodeWidget](api/NodeWidget.md). Additionally it also has the following instance properties:
+
+#### `lineEdit.placeholderText`
+
+The placeholder text set on the lineEdit.
 
 ### Instance Methods
 
-QLineEdit can access all the instance methods defined in [NodeWidget](api/NodeWidget.md)
+QLineEdit can access all the instance methods defined in [NodeWidget](api/NodeWidget.md). Additionally it also has the following instance methods:
+
+#### `lineEdit.setText(text)`
+
+Sets the given text to the lineEdit.
+
+- `text` string
+
+#### `lineEdit.setPlaceholderText(text)`
+
+Sets the given text to the lineEdit's placeholder.
+
+- `text` string
+
+#### `lineEdit.text()`
+
+Returns the currently set text from native lineEdit widget.

@@ -16,6 +16,9 @@ class QLineEditWrap : public  Napi::ObjectWrap<QLineEditWrap>{
   //class constructor
   static Napi::FunctionReference constructor;
   //wrapped methods
+  Napi::Value setText(const Napi::CallbackInfo& info);
+  Napi::Value text(const Napi::CallbackInfo& info);
+  Napi::Value setPlaceholderText(const Napi::CallbackInfo &info);
   
   QWIDGET_WRAPPED_METHODS_DECLARATION
  

@@ -76,13 +76,13 @@ Napi::Value QLabelWrap::text(const Napi::CallbackInfo &info)
   return Napi::String::New(env, labelText);
 }
 
-  Napi::Value QLabelWrap::setPixmap(const Napi::CallbackInfo &info) 
-  {  
-    Napi::Env env = info.Env();
-    Napi::HandleScope scope(env);
+Napi::Value QLabelWrap::setPixmap(const Napi::CallbackInfo &info) 
+{  
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
 
-    Napi::Object pixmapObject = info[0].As<Napi::Object>();
-    QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(pixmapObject);
-    this->instance->setPixmap(*pixmapWrap->getInternalInstance());
-    return env.Null();
-  }
+  Napi::Object pixmapObject = info[0].As<Napi::Object>();
+  QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(pixmapObject);
+  this->instance->setPixmap(*pixmapWrap->getInternalInstance());
+  return env.Null();
+}

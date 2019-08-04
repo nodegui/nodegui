@@ -39,9 +39,7 @@ the current text set on the label.
 
 ### Instance Methods
 
-QLabel can access all the instance methods defined in [NodeWidget](api/NodeWidget.md)
-
-Additionally it also has the following instance methods:
+QLabel can access all the instance methods defined in [NodeWidget](api/NodeWidget.md). Additionally it also has the following instance methods:
 
 #### `label.setText(text)`
 

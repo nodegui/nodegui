@@ -11,6 +11,9 @@ Napi::Object QLineEditWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QLineEdit";
   Napi::Function func = DefineClass(env, CLASSNAME, {
+    InstanceMethod("setPlaceholderText", &QLineEditWrap::setPlaceholderText),
+    InstanceMethod("setText", &QLineEditWrap::setText),
+    InstanceMethod("text", &QLineEditWrap::text),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLineEditWrap)
   });
   constructor = Napi::Persistent(func);
@@ -43,3 +46,26 @@ QLineEditWrap::~QLineEditWrap() {
   delete this->instance;
 }
 
+
+Napi::Value QLineEditWrap::setText(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::String text = info[0].As<Napi::String>();
+  this->instance->setText( text.Utf8Value().c_str());
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::text(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QString text = this->instance->text();
+  return Napi::String::New(env, text.toStdString().c_str());
+}
+
+Napi::Value QLineEditWrap::setPlaceholderText(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::String text = info[0].As<Napi::String>();
+  this->instance->setPlaceholderText(text.Utf8Value().c_str());
+  return env.Null();
+}
