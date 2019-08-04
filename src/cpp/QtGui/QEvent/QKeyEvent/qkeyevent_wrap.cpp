@@ -2,7 +2,7 @@
 #include "src/cpp/Extras/Utils/nutils.h"
 #include <QString>
 #include "deps/spdlog/spdlog.h"
-
+#include "src/cpp/core/Component/component_macro.h"
 
 Napi::FunctionReference QKeyEventWrap::constructor;
 
@@ -10,7 +10,8 @@ Napi::Object QKeyEventWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QKeyEvent";
   Napi::Function func = DefineClass(env, CLASSNAME, {
-        InstanceMethod("text", &QKeyEventWrap::text),
+    InstanceMethod("text", &QKeyEventWrap::text),
+    COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);

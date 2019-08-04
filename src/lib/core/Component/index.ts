@@ -1,4 +1,4 @@
-export type NativeElement = any;
+export type NativeElement = { type: "native"; [key: string]: any };
 export abstract class Component {
   protected children = new Set<Component>();
   protected parent?: Component;

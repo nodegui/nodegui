@@ -2,6 +2,7 @@
 
 #include <napi.h>
 #include <QPixmap>
+#include "src/cpp/core/Component/component_macro.h"
 
 class QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {
 private:

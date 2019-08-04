@@ -1,12 +1,16 @@
 import addon from "../../core/addon";
 import { Component, NativeElement } from "../../core/Component";
 
+type arg = string | NativeElement;
 export class QPixmap extends Component {
   native: NativeElement;
-  constructor(imageUrl?: string) {
+  constructor(arg?: arg) {
     super();
-    if (imageUrl) {
+    if (typeof arg === "string") {
+      const imageUrl = arg;
       this.native = new addon.QPixmap(imageUrl);
+    } else if ((arg as NativeElement).type === "native") {
+      this.native = arg as NativeElement;
     } else {
       this.native = new addon.QPixmap();
     }
@@ -14,7 +18,8 @@ export class QPixmap extends Component {
   load = (imageUrl: string) => {
     return this.native.load(imageUrl);
   };
-  scaled = (width: number, height: number) => {
-    return this.native.scaled(width, height);
+  scaled = (width: number, height: number): QPixmap => {
+    const nativePixmap = this.native.scaled(width, height);
+    return new QPixmap(nativePixmap);
   };
 }

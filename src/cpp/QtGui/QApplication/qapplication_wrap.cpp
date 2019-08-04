@@ -1,4 +1,5 @@
 #include "qapplication_wrap.h"
+#include "src/cpp/core/Component/component_macro.h"
 
 Napi::FunctionReference QApplicationWrap::constructor;
 int QApplicationWrap::argc = 0;
@@ -8,11 +9,11 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports)
 {
     Napi::HandleScope scope(env);
     char CLASSNAME[] = "QApplication";
-    Napi::Function func =
-        DefineClass(env, CLASSNAME,
-                    {InstanceMethod("processEvents", &QApplicationWrap::processEvents),
-                     InstanceMethod("exec", &QApplicationWrap::exec)});
-
+    Napi::Function func = DefineClass(env, CLASSNAME, {
+        InstanceMethod("processEvents", &QApplicationWrap::processEvents),
+        InstanceMethod("exec", &QApplicationWrap::exec),
+        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
+    });
     constructor = Napi::Persistent(func);
     exports.Set(CLASSNAME, func);
     return exports;

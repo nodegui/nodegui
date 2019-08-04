@@ -1,5 +1,6 @@
 #include "qpixmap_wrap.h"
 #include "src/cpp/Extras/Utils/nutils.h"
+#include "deps/spdlog/spdlog.h"
 
 Napi::FunctionReference QPixmapWrap::constructor;
 
@@ -10,6 +11,7 @@ Napi::Object QPixmapWrap::init(Napi::Env env, Napi::Object exports)
     Napi::Function func = DefineClass(env, CLASSNAME,{
         InstanceMethod("load", &QPixmapWrap::load),
         InstanceMethod("scaled",&QPixmapWrap::scaled),
+        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
     });
     constructor = Napi::Persistent(func);
     exports.Set(CLASSNAME, func);
