@@ -49,4 +49,4 @@ This method doesnt mutate this pixmap and rather returns a new pixmap with new h
 
 - `width` number. Width in pixels for new pixmap.
 - `height` number. Height in pixels for new pixmap.
-- `aspectRatioMode` AspectRatioMode (_optional_). Specifies how scaling should happen. [AspectRatio is an enum from Qt](QtEnums.md)
+- `aspectRatioMode` AspectRatioMode (_optional_). Specifies how scaling should happen. [AspectRatio is an enum from Qt](api/QtEnums.md)

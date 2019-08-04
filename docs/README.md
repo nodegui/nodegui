@@ -45,6 +45,7 @@
 - [QProgressBar (ProgressBar)](api/QProgressBar.md)
 - [FlexLayout](api/FlexLayout.md)
 - [QPixmap](api/QPixmap.md)
+- [Qt Enums](api/QtEnums.md)
 
 ### Internal Modules
 

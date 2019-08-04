@@ -132,3 +132,7 @@ Repaints the widget. It calls the native method [QWidget: repaint](https://doc.q
 #### `widget.update()`
 
 Updates the widget. It calls the native method [QWidget: update](https://doc.qt.io/qt-5/qwidget.html#update).
+
+#### `widget.size()`
+
+returns the current widget size. It calls the native method [QWidget: size](https://doc.qt.io/qt-5/qwidget.html#size-prop). The returned size object contains width and height in pixels.
