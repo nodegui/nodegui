@@ -1,7 +1,9 @@
-#ifndef QLAYOUT_WRAP_H
-#define QLAYOUT_WRAP_H
+#pragma once
+
 #include <napi.h>
 #include <QLayout>
+
+#include "src/cpp/QtWidgets/QLayout/qlayout_macro.h"
 
 //ABSTRACT CLASS
 class QLayoutWrap : public  Napi::ObjectWrap<QLayoutWrap>{
@@ -14,6 +16,7 @@ class QLayoutWrap : public  Napi::ObjectWrap<QLayoutWrap>{
   QLayout* getInternalInstance();
   //class constructor
   static Napi::FunctionReference constructor;
+  //wrapped methods
+  QLAYOUT_WRAPPED_METHODS_DECLARATION
 };
 
-#endif

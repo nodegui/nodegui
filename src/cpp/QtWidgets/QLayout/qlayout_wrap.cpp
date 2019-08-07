@@ -1,12 +1,11 @@
 #include "qlayout_wrap.h"
-#include "src/cpp/core/Component/component_macro.h"
 
 Napi::FunctionReference QLayoutWrap::constructor;
 
 void QLayoutWrap::init(Napi::Env env) {
   char CLASSNAME[] = "QLayout";
   Napi::Function func = DefineClass(env, CLASSNAME, {
-      COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
+      QLAYOUT_WRAPPED_METHODS_EXPORT_DEFINE(QLayoutWrap)
   });
   constructor = Napi::Persistent(func);
 }

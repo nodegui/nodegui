@@ -9,7 +9,7 @@ class NWidget: public QWidget, public NodeWidget
 {
     NODEWIDGET_IMPLEMENTATIONS
 public:
-    using QWidget::QWidget; //inherit all constructors of QWidget
+    using QWidget::QWidget;
     // https://doc.qt.io/qt-5/stylesheet-reference.html
     void paintEvent(QPaintEvent *)
     {

@@ -1,7 +1,6 @@
 #include "flexlayout_wrap.h"
 #include "src/cpp/QtGui/QWidget/qwidget_wrap.h"
 #include "src/cpp/Extras/Utils/nutils.h"
-#include "src/cpp/core/Component/component_macro.h"
 
 Napi::FunctionReference FlexLayoutWrap::constructor;
 
@@ -13,7 +12,7 @@ Napi::Object FlexLayoutWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("insertChildBefore", &FlexLayoutWrap::insertChildBefore),
     InstanceMethod("removeWidget", &FlexLayoutWrap::removeWidget),
     InstanceMethod("setFlexNode", &FlexLayoutWrap::setFlexNode),
-    COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
+    QLAYOUT_WRAPPED_METHODS_EXPORT_DEFINE(FlexLayoutWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);

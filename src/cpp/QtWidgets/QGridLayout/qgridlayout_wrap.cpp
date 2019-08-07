@@ -1,7 +1,6 @@
 #include "qgridlayout_wrap.h"
 #include "src/cpp/QtGui/QWidget/qwidget_wrap.h"
 #include "src/cpp/Extras/Utils/nutils.h"
-#include "src/cpp/core/Component/component_macro.h"
 
 Napi::FunctionReference QGridLayoutWrap::constructor;
 
@@ -10,7 +9,7 @@ Napi::Object QGridLayoutWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QGridLayout";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("addWidget", &QGridLayoutWrap::addWidget),
-    COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
+    QLAYOUT_WRAPPED_METHODS_EXPORT_DEFINE(QGridLayoutWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);

@@ -28,6 +28,11 @@
         --heading-h2-color: hsl(204, 90%, 45%);
         --cover-background-color: white;
       }
+      h1#main-doc {
+        height: 0;
+        opacity: 0;
+        z-index: -2;
+      }
     </style>
   </head>
   <body>
@@ -36,7 +41,7 @@
       window.$docsify = {
         name: "NodeGui",
         repo: "https://github.com/nodegui/nodegui",
-        coverpage: true,
+        coverpage: ["/", "/react/"],
         themeable: {
           readyTransition: true, // default
           responsiveTables: true // default

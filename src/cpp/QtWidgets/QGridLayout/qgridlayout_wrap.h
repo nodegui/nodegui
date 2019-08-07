@@ -1,8 +1,8 @@
-#ifndef QGRIDLAYOUT_WRAP_H
-#define QGRIDLAYOUT_WRAP_H
+#pragma once
 
 #include <napi.h>
 #include <QGridLayout>
+#include "src/cpp/QtWidgets/QLayout/qlayout_macro.h"
 
 class QGridLayoutWrap : public  Napi::ObjectWrap<QGridLayoutWrap>{
  private:
@@ -17,6 +17,6 @@ class QGridLayoutWrap : public  Napi::ObjectWrap<QGridLayoutWrap>{
   static Napi::FunctionReference constructor;
   //wrapped methods
   Napi::Value addWidget(const Napi::CallbackInfo& info);
+  QLAYOUT_WRAPPED_METHODS_DECLARATION
 };
 
-#endif

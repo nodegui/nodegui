@@ -1,23 +1,14 @@
-# main doc
+# React Desktop
 
-> Looking for React Desktop docs? [React Desktop docs](react/README.md)
-
-# Guides and Tutorials
-
-- [About NodeGui](tutorial/about.md)
-- [React Desktop](react/README.md)
-- [Examples](https://github.com/master-atul/nodegui/tree/master/examples)
-- [FAQ](faq.md)
+- [About React Desktop](react/about.md)
+- [Examples](https://github.com/master-atul/react-desktop/tree/master/examples)
 - [Setting up the Development Environment](tutorial/development-environment.md)
-  - [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  - [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  - [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  - [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-- [Creating your First App](tutorial/first-app.md)
-  - [Hello World](tutorial/first-app.md#Hello-World)
-  - [NodeGui Development in a Nutshell](tutorial/first-app.md#NodeGui-development-in-a-nutshell)
-  - [Running Your App](tutorial/first-app.md#running-your-app)
-- [Application Architecture](tutorial/application-architecture.md)
+- [Creating your First App](react/first-app.md)
+  - [Hello World](react/first-app.md#Hello-World)
+  - [React Desktop Development in a Nutshell](react/first-app.md#react-desktop-development-in-a-nutshell)
+  - [Running Your App](react/first-app.md#running-your-app)
+    // TODO from here
+- [Application Architecture](react/application-architecture.md)
   - [Qode](tutorial/application-architecture.md#qode)
   - [Using NodeGui's APIs](tutorial/application-architecture.md#using-NodeGui-apis)
   - [Using Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)

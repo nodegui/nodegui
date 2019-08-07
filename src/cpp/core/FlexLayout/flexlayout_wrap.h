@@ -1,8 +1,8 @@
-#ifndef FLEXLAYOUT_WRAP_H
-#define FLEXLAYOUT_WRAP_H
+#pragma once
 
 #include <napi.h>
 #include "flexlayout.h"
+#include "src/cpp/QtWidgets/QLayout/qlayout_macro.h"
 
 class FlexLayoutWrap : public  Napi::ObjectWrap<FlexLayoutWrap>{
  private:
@@ -20,6 +20,6 @@ class FlexLayoutWrap : public  Napi::ObjectWrap<FlexLayoutWrap>{
   Napi::Value insertChildBefore(const Napi::CallbackInfo& info);
   Napi::Value removeWidget(const Napi::CallbackInfo& info);
   Napi::Value setFlexNode(const Napi::CallbackInfo& info);
+  QLAYOUT_WRAPPED_METHODS_DECLARATION
 };
 
-#endif //FLEXLAYOUT_WRAP_H
