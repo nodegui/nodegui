@@ -57,6 +57,9 @@ export abstract class NodeWidget extends EventWidget {
   update = () => {
     this.native.update();
   };
+  updateGeometry = () => {
+    this.native.updateGeometry();
+  };
   size = (): { width: number; height: number } => {
     return this.native.size();
   };

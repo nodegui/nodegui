@@ -49,7 +49,7 @@ Napi::Value setLayout(const Napi::CallbackInfo& info){ \
     return env.Null(); \
 } \
 \
-Napi::Value setStyleSheet(const Napi::CallbackInfo& info) { \
+Napi::Value setStyleSheet(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
   Napi::String text = info[0].As<Napi::String>(); \
@@ -122,6 +122,12 @@ Napi::Value update(const Napi::CallbackInfo& info){ \
   this->instance->update(); \
   return env.Null(); \
 } \
+Napi::Value updateGeometry(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  this->instance->updateGeometry(); \
+  return env.Null(); \
+} \
 Napi::Value size(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
@@ -154,9 +160,7 @@ Napi::Value size(const Napi::CallbackInfo& info){ \
  InstanceMethod("setMinimumSize",&WidgetWrapName::setMinimumSize), \
  InstanceMethod("repaint",&WidgetWrapName::repaint), \
  InstanceMethod("update",&WidgetWrapName::update), \
+ InstanceMethod("updateGeometry",&WidgetWrapName::updateGeometry), \
  InstanceMethod("size",&WidgetWrapName::size), \
 
 #endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
-
-
-
