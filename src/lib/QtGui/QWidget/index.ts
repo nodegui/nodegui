@@ -3,6 +3,7 @@ import { NodeLayout } from "../../QtWidgets/QLayout";
 import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { FlexLayout } from "../../core/FlexLayout";
+import { StyleSheet } from "../../core/Style/StyleSheet";
 
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
@@ -27,8 +28,14 @@ export abstract class NodeWidget extends EventWidget {
     this.native.setLayout(parentLayout.native);
     this.layout = parentLayout;
   };
-  setStyleSheet = (style: string) => {
-    this.native.setStyleSheet(style);
+  setStyleSheet = async (style: string | Promise<string>) => {
+    this.native.setStyleSheet(await style);
+    setTimeout(() => {
+      if (this.layout) {
+        this.layout.invalidate(); // Hackfix: To trigger recalculation
+        this.layout.update();
+      }
+    }, 20);
   };
   hide = () => {
     this.native.hide();

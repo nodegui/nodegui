@@ -1,4 +1,11 @@
-import { QMainWindow, QWidget, QLabel, FlexLayout } from "./src/lib/index";
+import {
+  QMainWindow,
+  QWidget,
+  QLabel,
+  FlexLayout,
+  StyleSheet,
+  QPushButton
+} from "./src/lib/index";
 
 const win = new QMainWindow();
 //-------------------------------
@@ -10,20 +17,29 @@ centralWidget.setLayout(rootLayout);
 const label = new QLabel();
 label.setObjectName("mylabel");
 label.setText("Hello World");
+
+const btn = new QPushButton();
+btn.setText("Yo button");
+btn.setObjectName("btn");
 //--------------------------------------
 rootLayout.addWidget(label);
+rootLayout.addWidget(btn);
 win.setCentralWidget(centralWidget);
-win.setStyleSheet(
-  `
-    #myroot {
-      background-color: #009688;
-    }
-    #mylabel {
-      font-size: 16px;
-      font-weight: bold;
-    }
-  `
-);
+const winStyleSheet = StyleSheet.create(`
+  #myroot {
+    background-color: #009688;
+  }
+  #mylabel {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+  #btn {
+    margin-top: 30px;
+  }
+`);
+win.setStyleSheet(winStyleSheet);
 win.show();
+win.resize(400, 500);
 
 (global as any).win = win; // To prevent win from being garbage collected.

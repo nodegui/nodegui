@@ -20,3 +20,4 @@ export { FlexLayout } from "./core/FlexLayout";
 // Events : Maybe a separate module ?
 export { QKeyEvent } from "./QtGui/QEvent/QKeyEvent";
 export { NativeEvent } from "./core/EventWidget";
+export { StyleSheet } from "./core/Style/StyleSheet";
