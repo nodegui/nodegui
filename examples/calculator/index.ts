@@ -8,6 +8,7 @@ import {
 import { QLabel } from "../../src/lib/QtWidgets/QLabel";
 import { BaseWidgetEvents } from "../../src/lib/core/EventWidget";
 import { QKeyEvent } from "../../src/lib/QtGui/QEvent/QKeyEvent";
+import { StyleSheet } from "../../src/lib";
 
 const globals = global as any;
 
@@ -46,85 +47,86 @@ win.addEventListener(BaseWidgetEvents.KeyRelease, nativeEvent => {
 });
 rootView.setObjectName("rootView"); //This is like ids in web world
 win.setCentralWidget(rootView);
-rootView.setStyleSheet(
+const rootStyleSheet = StyleSheet.create(
   `
-  * {
-    font-size: 20px;
-    color: white;
-  }
+* {
+  font-size: 20px;
+  color: white;
+}
 
-  QPushButton {
-    qproperty-minWidth: '25%';
-    qproperty-border: 1;
-    border: 1px solid black;
-  }
-  
-  QPushButton:pressed {
-    background: grey;
-  }
+QPushButton {
+  qproperty-minWidth: '25%';
+  qproperty-border: 1;
+  border: 1px solid black;
+}
 
-  #rootView {
-    qproperty-flex: 1;
-    qproperty-flexDirection: column;
-  }
+QPushButton:pressed {
+  background: grey;
+}
 
-  #btnAC {
-    qproperty-minWidth: '25%';
-    border-right: 2px solid black;
-    qproperty-borderRight: 1;
-  }
+#rootView {
+  qproperty-flex: 1;
+  qproperty-flexDirection: column;
+}
 
-  #resultText {
-    qproperty-flex: 1;
-    qproperty-alignment: 'AlignRight|AlignVCenter';
-    padding-right: 5px;
-    font-size: 40px;
-  }
+#btnAC {
+  qproperty-minWidth: '25%';
+  border-right: 2px solid black;
+  qproperty-borderRight: 1;
+}
 
-  #row0,#row1,#row2,#row3,#row4 {
-    qproperty-flex: 1;
-    qproperty-alignItems: stretch;
-    qproperty-justifyContent: space-between;
-    qproperty-flexDirection: row;
-  }
+#resultText {
+  qproperty-flex: 1;
+  qproperty-alignment: 'AlignRight|AlignVCenter';
+  padding-right: 5px;
+  font-size: 40px;
+}
 
-  #row0 * {
-    background: #1E1E1E;
-  }
+#row0,#row1,#row2,#row3,#row4 {
+  qproperty-flex: 1;
+  qproperty-alignItems: stretch;
+  qproperty-justifyContent: space-between;
+  qproperty-flexDirection: row;
+}
 
-  #row0 QPushButton:pressed {
-    background: grey;
-  }
+#row0 * {
+  background: #1E1E1E;
+}
 
-  #row1 QPushButton  {
-    background: #2E2E2E;
-  }
+#row0 QPushButton:pressed {
+  background: grey;
+}
 
-  #row1 QPushButton:pressed {
-    background: grey;
-  }
+#row1 QPushButton  {
+  background: #2E2E2E;
+}
+
+#row1 QPushButton:pressed {
+  background: grey;
+}
 
 
-  #row2 QPushButton, #row2 QPushButton, #row3 QPushButton, #row4 QPushButton  {
-      background: #4B4B4B;
-  }
+#row2 QPushButton, #row2 QPushButton, #row3 QPushButton, #row4 QPushButton  {
+    background: #4B4B4B;
+}
 
-  #row2 QPushButton:pressed, #row2 QPushButton:pressed, #row3 QPushButton:pressed, #row4 QPushButton:pressed  {
-    background: grey;
-  }
-  `
+#row2 QPushButton:pressed, #row2 QPushButton:pressed, #row3 QPushButton:pressed, #row4 QPushButton:pressed  {
+  background: grey;
+}
+`
 );
 
-const operatorBtnStyle = `
-  QPushButton {
-    background: #FD8D0E;
-  }
+const operatorStyleSheet = StyleSheet.create(`
+QPushButton {
+  background: #FD8D0E;
+}
 
-  QPushButton:pressed {
-    background: grey;
-  }
-`;
+QPushButton:pressed {
+  background: grey;
+}
+`);
 
+rootView.setStyleSheet(rootStyleSheet);
 const rootViewFlexLayout = new FlexLayout();
 rootViewFlexLayout.setFlexNode(rootView.getFlexNode());
 rootView.setLayout(rootViewFlexLayout);
@@ -148,7 +150,7 @@ const btn7 = getButton("7", 7, "value");
 const btn8 = getButton("8", 8, "value");
 const btn9 = getButton("9", 9, "value");
 const btnDivide = getButton("/", "/", "command");
-btnDivide.ui.setStyleSheet(operatorBtnStyle);
+btnDivide.ui.setStyleSheet(operatorStyleSheet);
 const row1 = new QWidget();
 row1.setObjectName("row1");
 const row1Layout = new FlexLayout();
@@ -164,7 +166,7 @@ const btn4 = getButton("4", 4, "value");
 const btn5 = getButton("5", 5, "value");
 const btn6 = getButton("6", 6, "value");
 const btnMultiply = getButton("x", "*", "command");
-btnMultiply.ui.setStyleSheet(operatorBtnStyle);
+btnMultiply.ui.setStyleSheet(operatorStyleSheet);
 const row2 = new QWidget();
 row2.setObjectName("row2");
 const row2Layout = new FlexLayout();
@@ -180,7 +182,7 @@ const btn1 = getButton("1", 1, "value");
 const btn2 = getButton("2", 2, "value");
 const btn3 = getButton("3", 3, "value");
 const btnMinus = getButton("-", "-", "command");
-btnMinus.ui.setStyleSheet(operatorBtnStyle);
+btnMinus.ui.setStyleSheet(operatorStyleSheet);
 
 const row3 = new QWidget();
 row3.setObjectName("row3");
@@ -198,7 +200,7 @@ const btn0 = getButton("0", 0, "value");
 const btnDot = getButton(".", ".", "command");
 const btnEquals = getButton("=", "=", "command");
 const btnPlus = getButton("+", "+", "command");
-btnPlus.ui.setStyleSheet(operatorBtnStyle);
+btnPlus.ui.setStyleSheet(operatorStyleSheet);
 
 const row4 = new QWidget();
 row4.setObjectName("row4");
