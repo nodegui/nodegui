@@ -34,7 +34,8 @@ const {
   QMainWindow,
   QWidget,
   QLabel,
-  FlexLayout
+  FlexLayout,
+  StyleSheet
 } = require("@nodegui/nodegui");
 
 const win = new QMainWindow();
@@ -51,7 +52,8 @@ label.setText("Hello World");
 rootLayout.addWidget(label);
 win.setCentralWidget(centralWidget);
 win.setStyleSheet(
-  `
+  StyleSheet.create(
+    `
     #myroot {
       background-color: #009688;
     }
@@ -60,6 +62,7 @@ win.setStyleSheet(
       font-weight: bold;
     }
   `
+  )
 );
 win.show();
 

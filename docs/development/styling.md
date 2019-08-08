@@ -79,7 +79,7 @@ FlexItem adds methods like getFlexNode.
 
 #### YogaWidget
 
-Qt StyleSheet allows you to specify  style properties just like in web. You could specify font-size, margin, padding, etc. Qt StyleSheet also allows custom style properties via Qt's q-property system.
+Qt StyleSheet allows you to specify style properties just like in web. You could specify font-size, margin, padding, etc. Qt StyleSheet also allows custom style properties via Qt's q-property system.
 
 So in order to enable yoga based properties like alignItems, justifyContent, flex, etc via qt's stylesheet we
 declare and define q properties for each of those custom properties we want.
@@ -93,7 +93,7 @@ view.setStyleSheet(`
 `);
 ```
 
-Notice `qproperty-` prefix? These are the custom q-properties we defined in `YogaWidget.h`
+Notice `qproperty-` prefix? These are the custom q-properties we defined in `YogaWidget.h`. We do not need to prefix `qproperty-` if a stylehsheet string is passed through `StyleSheet.create()`. StyleSheet.create has an autoprefixer which will do the right thing.
 
 #### NodeWidget
 

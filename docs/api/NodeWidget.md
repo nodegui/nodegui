@@ -80,7 +80,7 @@ Sets the layout manager for this widget to layout. It calls the native method [Q
 
 Sets the property that holds the widget's style sheet. It calls the native method [QWidget: styleSheet](https://doc.qt.io/qt-5/qwidget.html#styleSheet-prop).
 
-- `styleSheet` string - String which holds the widget's style sheet.
+- `styleSheet` string - String which holds the widget's style sheet. Make sure you create this string using `StyleSheet.create()`
 
 #### `widget.hide()`
 
