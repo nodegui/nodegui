@@ -55,8 +55,7 @@ const rootStyleSheet = StyleSheet.create(
 }
 
 QPushButton {
-  qproperty-minWidth: '25%';
-  qproperty-border: 1;
+  min-width: '25%';
   border: 1px solid black;
 }
 
@@ -65,28 +64,27 @@ QPushButton:pressed {
 }
 
 #rootView {
-  qproperty-flex: 1;
-  qproperty-flexDirection: column;
+  flex: 1;
+  flex-direction: column;
 }
 
 #btnAC {
-  qproperty-minWidth: '25%';
+  min-width: '25%';
   border-right: 2px solid black;
-  qproperty-borderRight: 1;
 }
 
 #resultText {
-  qproperty-flex: 1;
+  flex: 1;
   qproperty-alignment: 'AlignRight|AlignVCenter';
   padding-right: 5px;
   font-size: 40px;
 }
 
 #row0,#row1,#row2,#row3,#row4 {
-  qproperty-flex: 1;
-  qproperty-alignItems: stretch;
-  qproperty-justifyContent: space-between;
-  qproperty-flexDirection: row;
+  flex: 1;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 #row0 * {
