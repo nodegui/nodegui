@@ -136,3 +136,7 @@ Updates the widget. It calls the native method [QWidget: update](https://doc.qt.
 #### `widget.size()`
 
 returns the current widget size. It calls the native method [QWidget: size](https://doc.qt.io/qt-5/qwidget.html#size-prop). The returned size object contains width and height in pixels.
+
+#### `widget.updateGeometry()`
+
+Notifies the layout system that this widget has changed and may need to change geometry.

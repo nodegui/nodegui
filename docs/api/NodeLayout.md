@@ -57,3 +57,15 @@ This is an abstract method in NodeLayout class. All Layouts inheriting from Node
 
 - `childWidget` NodeWidget - Any widget in the NodeGui world.
 - `...args` any[] - Additional params as required by the layout.
+
+#### `layout.activate()`
+
+Redoes the layout for parent widget of this layout if necessary. Returns true if the layout was redone.
+
+#### `layout.invalidate()`
+
+Invalidates any cached information in this layout.
+
+#### `layout.update()`
+
+Updates the layout for parent widget of this layout. You should generally not need to call this because it is automatically called at the most appropriate times.
