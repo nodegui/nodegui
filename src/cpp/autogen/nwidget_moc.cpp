@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_NWidget_t {
     QByteArrayData data[47];
-    char stringdata0[500];
+    char stringdata0[544];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,68 +33,69 @@ struct qt_meta_stringdata_NWidget_t {
 static const qt_meta_stringdata_NWidget_t qt_meta_stringdata_NWidget = {
     {
 QT_MOC_LITERAL(0, 0, 7), // "NWidget"
-QT_MOC_LITERAL(1, 8, 7), // "display"
-QT_MOC_LITERAL(2, 16, 10), // "alignItems"
-QT_MOC_LITERAL(3, 27, 12), // "alignContent"
-QT_MOC_LITERAL(4, 40, 9), // "alignSelf"
-QT_MOC_LITERAL(5, 50, 14), // "justifyContent"
-QT_MOC_LITERAL(6, 65, 9), // "direction"
-QT_MOC_LITERAL(7, 75, 13), // "flexDirection"
-QT_MOC_LITERAL(8, 89, 8), // "overflow"
-QT_MOC_LITERAL(9, 98, 8), // "position"
-QT_MOC_LITERAL(10, 107, 8), // "flexWrap"
-QT_MOC_LITERAL(11, 116, 4), // "flex"
-QT_MOC_LITERAL(12, 121, 8), // "flexGrow"
-QT_MOC_LITERAL(13, 130, 10), // "flexShrink"
-QT_MOC_LITERAL(14, 141, 11), // "aspectRatio"
-QT_MOC_LITERAL(15, 153, 3), // "top"
-QT_MOC_LITERAL(16, 157, 5), // "right"
-QT_MOC_LITERAL(17, 163, 6), // "bottom"
-QT_MOC_LITERAL(18, 170, 4), // "left"
-QT_MOC_LITERAL(19, 175, 9), // "flexBasis"
-QT_MOC_LITERAL(20, 185, 8), // "minWidth"
-QT_MOC_LITERAL(21, 194, 9), // "minHeight"
-QT_MOC_LITERAL(22, 204, 6), // "qWidth"
-QT_MOC_LITERAL(23, 211, 7), // "qHeight"
-QT_MOC_LITERAL(24, 219, 8), // "maxWidth"
-QT_MOC_LITERAL(25, 228, 9), // "maxHeight"
-QT_MOC_LITERAL(26, 238, 10), // "paddingTop"
-QT_MOC_LITERAL(27, 249, 12), // "paddingRight"
-QT_MOC_LITERAL(28, 262, 13), // "paddingBottom"
-QT_MOC_LITERAL(29, 276, 11), // "paddingLeft"
-QT_MOC_LITERAL(30, 288, 17), // "paddingHorizontal"
-QT_MOC_LITERAL(31, 306, 15), // "paddingVertical"
-QT_MOC_LITERAL(32, 322, 7), // "padding"
-QT_MOC_LITERAL(33, 330, 9), // "marginTop"
-QT_MOC_LITERAL(34, 340, 11), // "marginRight"
-QT_MOC_LITERAL(35, 352, 12), // "marginBottom"
-QT_MOC_LITERAL(36, 365, 10), // "marginLeft"
-QT_MOC_LITERAL(37, 376, 16), // "marginHorizontal"
-QT_MOC_LITERAL(38, 393, 14), // "marginVertical"
-QT_MOC_LITERAL(39, 408, 6), // "margin"
-QT_MOC_LITERAL(40, 415, 9), // "borderTop"
-QT_MOC_LITERAL(41, 425, 11), // "borderRight"
-QT_MOC_LITERAL(42, 437, 12), // "borderBottom"
-QT_MOC_LITERAL(43, 450, 10), // "borderLeft"
-QT_MOC_LITERAL(44, 461, 16), // "borderHorizontal"
-QT_MOC_LITERAL(45, 478, 14), // "borderVertical"
-QT_MOC_LITERAL(46, 493, 6) // "border"
+QT_MOC_LITERAL(1, 8, 8), // "yDisplay"
+QT_MOC_LITERAL(2, 17, 11), // "yAlignItems"
+QT_MOC_LITERAL(3, 29, 13), // "yAlignContent"
+QT_MOC_LITERAL(4, 43, 10), // "yAlignSelf"
+QT_MOC_LITERAL(5, 54, 15), // "yJustifyContent"
+QT_MOC_LITERAL(6, 70, 10), // "yDirection"
+QT_MOC_LITERAL(7, 81, 14), // "yFlexDirection"
+QT_MOC_LITERAL(8, 96, 9), // "yOverflow"
+QT_MOC_LITERAL(9, 106, 9), // "yPosition"
+QT_MOC_LITERAL(10, 116, 9), // "yFlexWrap"
+QT_MOC_LITERAL(11, 126, 5), // "yFlex"
+QT_MOC_LITERAL(12, 132, 9), // "yFlexGrow"
+QT_MOC_LITERAL(13, 142, 11), // "yFlexShrink"
+QT_MOC_LITERAL(14, 154, 12), // "yAspectRatio"
+QT_MOC_LITERAL(15, 167, 4), // "yTop"
+QT_MOC_LITERAL(16, 172, 6), // "yRight"
+QT_MOC_LITERAL(17, 179, 7), // "yBottom"
+QT_MOC_LITERAL(18, 187, 5), // "yLeft"
+QT_MOC_LITERAL(19, 193, 10), // "yFlexBasis"
+QT_MOC_LITERAL(20, 204, 9), // "yMinWidth"
+QT_MOC_LITERAL(21, 214, 10), // "yMinHeight"
+QT_MOC_LITERAL(22, 225, 6), // "yWidth"
+QT_MOC_LITERAL(23, 232, 7), // "yHeight"
+QT_MOC_LITERAL(24, 240, 9), // "yMaxWidth"
+QT_MOC_LITERAL(25, 250, 10), // "yMaxHeight"
+QT_MOC_LITERAL(26, 261, 11), // "yPaddingTop"
+QT_MOC_LITERAL(27, 273, 13), // "yPaddingRight"
+QT_MOC_LITERAL(28, 287, 14), // "yPaddingBottom"
+QT_MOC_LITERAL(29, 302, 12), // "yPaddingLeft"
+QT_MOC_LITERAL(30, 315, 18), // "yPaddingHorizontal"
+QT_MOC_LITERAL(31, 334, 16), // "yPaddingVertical"
+QT_MOC_LITERAL(32, 351, 8), // "yPadding"
+QT_MOC_LITERAL(33, 360, 10), // "yMarginTop"
+QT_MOC_LITERAL(34, 371, 12), // "yMarginRight"
+QT_MOC_LITERAL(35, 384, 13), // "yMarginBottom"
+QT_MOC_LITERAL(36, 398, 11), // "yMarginLeft"
+QT_MOC_LITERAL(37, 410, 17), // "yMarginHorizontal"
+QT_MOC_LITERAL(38, 428, 15), // "yMarginVertical"
+QT_MOC_LITERAL(39, 444, 7), // "yMargin"
+QT_MOC_LITERAL(40, 452, 10), // "yBorderTop"
+QT_MOC_LITERAL(41, 463, 12), // "yBorderRight"
+QT_MOC_LITERAL(42, 476, 13), // "yBorderBottom"
+QT_MOC_LITERAL(43, 490, 11), // "yBorderLeft"
+QT_MOC_LITERAL(44, 502, 17), // "yBorderHorizontal"
+QT_MOC_LITERAL(45, 520, 15), // "yBorderVertical"
+QT_MOC_LITERAL(46, 536, 7) // "yBorder"
 
     },
-    "NWidget\0display\0alignItems\0alignContent\0"
-    "alignSelf\0justifyContent\0direction\0"
-    "flexDirection\0overflow\0position\0"
-    "flexWrap\0flex\0flexGrow\0flexShrink\0"
-    "aspectRatio\0top\0right\0bottom\0left\0"
-    "flexBasis\0minWidth\0minHeight\0qWidth\0"
-    "qHeight\0maxWidth\0maxHeight\0paddingTop\0"
-    "paddingRight\0paddingBottom\0paddingLeft\0"
-    "paddingHorizontal\0paddingVertical\0"
-    "padding\0marginTop\0marginRight\0"
-    "marginBottom\0marginLeft\0marginHorizontal\0"
-    "marginVertical\0margin\0borderTop\0"
-    "borderRight\0borderBottom\0borderLeft\0"
-    "borderHorizontal\0borderVertical\0border"
+    "NWidget\0yDisplay\0yAlignItems\0yAlignContent\0"
+    "yAlignSelf\0yJustifyContent\0yDirection\0"
+    "yFlexDirection\0yOverflow\0yPosition\0"
+    "yFlexWrap\0yFlex\0yFlexGrow\0yFlexShrink\0"
+    "yAspectRatio\0yTop\0yRight\0yBottom\0yLeft\0"
+    "yFlexBasis\0yMinWidth\0yMinHeight\0yWidth\0"
+    "yHeight\0yMaxWidth\0yMaxHeight\0yPaddingTop\0"
+    "yPaddingRight\0yPaddingBottom\0yPaddingLeft\0"
+    "yPaddingHorizontal\0yPaddingVertical\0"
+    "yPadding\0yMarginTop\0yMarginRight\0"
+    "yMarginBottom\0yMarginLeft\0yMarginHorizontal\0"
+    "yMarginVertical\0yMargin\0yBorderTop\0"
+    "yBorderRight\0yBorderBottom\0yBorderLeft\0"
+    "yBorderHorizontal\0yBorderVertical\0"
+    "yBorder"
 };
 #undef QT_MOC_LITERAL
 
@@ -112,52 +113,52 @@ static const uint qt_meta_data_NWidget[] = {
        0,       // signalCount
 
  // properties: name, type, flags
-       1, QMetaType::QString, 0x00095003,
-       2, QMetaType::QString, 0x00095003,
-       3, QMetaType::QString, 0x00095003,
-       4, QMetaType::QString, 0x00095003,
-       5, QMetaType::QString, 0x00095003,
-       6, QMetaType::QString, 0x00095003,
-       7, QMetaType::QString, 0x00095003,
-       8, QMetaType::QString, 0x00095003,
-       9, QMetaType::QString, 0x00095003,
-      10, QMetaType::QString, 0x00095003,
-      11, QMetaType::Float, 0x00095003,
-      12, QMetaType::Float, 0x00095003,
-      13, QMetaType::Float, 0x00095003,
-      14, QMetaType::Float, 0x00095003,
+       1, QMetaType::QString, 0x00095103,
+       2, QMetaType::QString, 0x00095103,
+       3, QMetaType::QString, 0x00095103,
+       4, QMetaType::QString, 0x00095103,
+       5, QMetaType::QString, 0x00095103,
+       6, QMetaType::QString, 0x00095103,
+       7, QMetaType::QString, 0x00095103,
+       8, QMetaType::QString, 0x00095103,
+       9, QMetaType::QString, 0x00095103,
+      10, QMetaType::QString, 0x00095103,
+      11, QMetaType::Float, 0x00095103,
+      12, QMetaType::Float, 0x00095103,
+      13, QMetaType::Float, 0x00095103,
+      14, QMetaType::Float, 0x00095103,
       15, QMetaType::QString, 0x00095003,
       16, QMetaType::QString, 0x00095003,
       17, QMetaType::QString, 0x00095003,
       18, QMetaType::QString, 0x00095003,
-      19, QMetaType::QString, 0x00095003,
-      20, QMetaType::QString, 0x00095003,
-      21, QMetaType::QString, 0x00095003,
-      22, QMetaType::QString, 0x00095003,
-      23, QMetaType::QString, 0x00095003,
-      24, QMetaType::QString, 0x00095003,
-      25, QMetaType::QString, 0x00095003,
-      26, QMetaType::QString, 0x00095003,
-      27, QMetaType::QString, 0x00095003,
-      28, QMetaType::QString, 0x00095003,
-      29, QMetaType::QString, 0x00095003,
-      30, QMetaType::QString, 0x00095003,
-      31, QMetaType::QString, 0x00095003,
-      32, QMetaType::QString, 0x00095003,
-      33, QMetaType::QString, 0x00095003,
-      34, QMetaType::QString, 0x00095003,
-      35, QMetaType::QString, 0x00095003,
-      36, QMetaType::QString, 0x00095003,
-      37, QMetaType::QString, 0x00095003,
-      38, QMetaType::QString, 0x00095003,
+      19, QMetaType::QString, 0x00095103,
+      20, QMetaType::QString, 0x00095103,
+      21, QMetaType::QString, 0x00095103,
+      22, QMetaType::QString, 0x00095103,
+      23, QMetaType::QString, 0x00095103,
+      24, QMetaType::QString, 0x00095103,
+      25, QMetaType::QString, 0x00095103,
+      26, QMetaType::QString, 0x00095103,
+      27, QMetaType::QString, 0x00095103,
+      28, QMetaType::QString, 0x00095103,
+      29, QMetaType::QString, 0x00095103,
+      30, QMetaType::QString, 0x00095103,
+      31, QMetaType::QString, 0x00095103,
+      32, QMetaType::QString, 0x00095103,
+      33, QMetaType::QString, 0x00095103,
+      34, QMetaType::QString, 0x00095103,
+      35, QMetaType::QString, 0x00095103,
+      36, QMetaType::QString, 0x00095103,
+      37, QMetaType::QString, 0x00095103,
+      38, QMetaType::QString, 0x00095103,
       39, QMetaType::QString, 0x00095003,
-      40, QMetaType::Float, 0x00095003,
-      41, QMetaType::Float, 0x00095003,
-      42, QMetaType::Float, 0x00095003,
-      43, QMetaType::Float, 0x00095003,
-      44, QMetaType::Float, 0x00095003,
-      45, QMetaType::Float, 0x00095003,
-      46, QMetaType::Float, 0x00095003,
+      40, QMetaType::Float, 0x00095103,
+      41, QMetaType::Float, 0x00095103,
+      42, QMetaType::Float, 0x00095103,
+      43, QMetaType::Float, 0x00095103,
+      44, QMetaType::Float, 0x00095103,
+      45, QMetaType::Float, 0x00095103,
+      46, QMetaType::Float, 0x00095103,
 
        0        // eod
 };
