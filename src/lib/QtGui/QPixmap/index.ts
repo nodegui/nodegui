@@ -28,7 +28,12 @@ export class QPixmap extends Component {
     height: number,
     aspectRatioMode?: AspectRatioMode
   ): QPixmap => {
-    const nativePixmap = this.native.scaled(width, height, aspectRatioMode);
+    let nativePixmap;
+    if (aspectRatioMode) {
+      nativePixmap = this.native.scaled(width, height, aspectRatioMode);
+    } else {
+      nativePixmap = this.native.scaled(width, height);
+    }
     return new QPixmap(nativePixmap);
   };
 }

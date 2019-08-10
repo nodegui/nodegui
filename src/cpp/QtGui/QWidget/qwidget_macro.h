@@ -163,6 +163,21 @@ Napi::Value testAttribute(const Napi::CallbackInfo& info){ \
   bool isOn = this->instance->testAttribute(static_cast<Qt::WidgetAttribute>(attributeId)); \
   return Napi::Boolean::New(env, isOn); \
 } \
+Napi::Value setWindowOpacity(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  float opacity = info[0].As<Napi::Number>().FloatValue(); \
+  this->instance->setWindowOpacity(opacity); \
+  return env.Null(); \
+} \
+Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  int windowType = info[0].As<Napi::Number>().Int32Value(); \
+  bool switchOn = info[1].As<Napi::Boolean>().Value(); \
+  this->instance->setWindowFlag(static_cast<Qt::WindowType>(windowType), switchOn); \
+  return env.Null(); \
+} \
 
 #endif //QWIDGET_WRAPPED_METHODS_DECLARATION
 
@@ -192,5 +207,7 @@ Napi::Value testAttribute(const Napi::CallbackInfo& info){ \
  InstanceMethod("size",&WidgetWrapName::size), \
  InstanceMethod("setAttribute",&WidgetWrapName::setAttribute), \
  InstanceMethod("testAttribute",&WidgetWrapName::testAttribute), \
+ InstanceMethod("setWindowOpacity",&WidgetWrapName::setWindowOpacity), \
+ InstanceMethod("setWindowFlag",&WidgetWrapName::setWindowFlag), \
 
 #endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE

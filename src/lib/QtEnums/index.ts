@@ -4,6 +4,41 @@ export enum AspectRatioMode {
   "KeepAspectRatioByExpanding"
 }
 
+export enum WindowType {
+  Widget = 0x00000000,
+  Window = 0x00000001,
+  Dialog = 0x00000002,
+  Sheet = 0x00000004,
+  Popup = 0x00000008,
+  Desktop = 0x00000010,
+  SubWindow = 0x00000012,
+  ForeignWindow = 0x00000020,
+  CoverWindow = 0x00000040,
+  MSWindowsFixedSizeDialogHint = 0x00000100,
+  MSWindowsOwnDC = 0x00000200,
+  BypassWindowManagerHint = 0x00000400,
+  FramelessWindowHint = 0x00000800,
+  NoDropShadowWindowHint = 0x40000000,
+  CustomizeWindowHint = 0x02000000,
+  WindowTitleHint = 0x00001000,
+  WindowSystemMenuHint = 0x00002000,
+  WindowMinimizeButtonHint = 0x00004000,
+  WindowMaximizeButtonHint = 0x00008000,
+  WindowCloseButtonHint = 0x08000000,
+  WindowContextHelpButtonHint = 0x00010000,
+  MacWindowToolBarButtonHint = 0x10000000,
+  WindowFullscreenButtonHint = 0x80000000,
+  BypassGraphicsProxyWidget = 0x20000000,
+  WindowShadeButtonHint = 0x00020000,
+  WindowStaysOnTopHint = 0x00040000,
+  WindowStaysOnBottomHint = 0x04000000,
+  WindowTransparentForInput = 0x00080000,
+  WindowOverridesSystemGestures = 0x00100000,
+  WindowDoesNotAcceptFocus = 0x00200000,
+  MaximizeUsingFullscreenGeometryHint = 0x00400000,
+  WindowType_Mask = 0x000000ff
+}
+
 export enum WidgetAttribute {
   WA_AcceptDrops = 78,
   WA_AlwaysShowToolTips = 84,

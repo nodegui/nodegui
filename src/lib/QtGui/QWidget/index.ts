@@ -3,7 +3,7 @@ import { NodeLayout } from "../../QtWidgets/QLayout";
 import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { FlexLayout } from "../../core/FlexLayout";
-import { WidgetAttribute } from "../../QtEnums";
+import { WidgetAttribute, WindowType } from "../../QtEnums";
 import {
   applyStyleSheet,
   StyleSheet,
@@ -84,6 +84,12 @@ export abstract class NodeWidget extends EventWidget {
   };
   testAttribute = (attribute: WidgetAttribute): boolean => {
     return this.native.testAttribute(attribute);
+  };
+  setWindowOpacity = (opacity: Number) => {
+    this.native.setWindowOpacity(opacity);
+  };
+  setWindowFlag = (windowType: WindowType, switchOn: boolean) => {
+    return this.native.setWindowFlag(windowType, switchOn);
   };
 }
 
