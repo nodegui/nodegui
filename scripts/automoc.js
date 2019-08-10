@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const process = require("child_process");
+const childProcess = require("child_process");
 
 const ROOT_DIR = path.resolve(__dirname, "../");
 const MOC_AUTOGEN_DIR = path.resolve(ROOT_DIR, "src/cpp/autogen");
@@ -53,7 +53,7 @@ const main = () => {
       includeFilePath
     );
     console.log(command);
-    process.exec(command, error => {
+    childProcess.exec(command, {}, error => {
       if (error) {
         console.error(`exec error: ${error}`);
         return;

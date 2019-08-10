@@ -3,11 +3,17 @@ import { NodeLayout } from "../../QtWidgets/QLayout";
 import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { FlexLayout } from "../../core/FlexLayout";
+import { WidgetAttribute } from "../../QtEnums";
+import {
+  applyStyleSheet,
+  StyleSheet,
+  prepareInlineStyleSheet
+} from "../../core/Style/StyleSheet";
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
 export abstract class NodeWidget extends EventWidget {
-  type = "widget";
   layout?: NodeLayout;
+  type: string = "widget";
   show = () => {
     this.native.show();
   };
@@ -26,20 +32,25 @@ export abstract class NodeWidget extends EventWidget {
     this.native.setLayout(parentLayout.native);
     this.layout = parentLayout;
   };
-  setStyleSheet = async (style: string | Promise<string>) => {
-    this.native.setStyleSheet(await style);
-    setTimeout(() => {
-      if (this.layout) {
-        this.layout.invalidate(); // Hackfix: To trigger recalculation
-        this.layout.update();
-      }
-    }, 20);
+  setStyleSheet = async (styleSheet: string) => {
+    const preparedSheet = await StyleSheet.create(styleSheet);
+    await applyStyleSheet(this, preparedSheet);
+  };
+  setInlineStyle = async (style: string) => {
+    const preparedSheet = await prepareInlineStyleSheet(this, style);
+    await applyStyleSheet(this, preparedSheet);
+  };
+  styleSheet = (): string => {
+    return this.native.styleSheet();
   };
   hide = () => {
     this.native.hide();
   };
   setObjectName = (objectName: string) => {
     this.native.setObjectName(objectName);
+  };
+  objectName = (): string => {
+    return this.native.objectName();
   };
   setMouseTracking = (isMouseTracked: boolean) => {
     this.native.setMouseTracking(isMouseTracked);
@@ -67,6 +78,12 @@ export abstract class NodeWidget extends EventWidget {
   };
   size = (): { width: number; height: number } => {
     return this.native.size();
+  };
+  setAttribute = (attribute: WidgetAttribute, switchOn: boolean) => {
+    return this.native.setAttribute(attribute, switchOn);
+  };
+  testAttribute = (attribute: WidgetAttribute): boolean => {
+    return this.native.testAttribute(attribute);
   };
 }
 

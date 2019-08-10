@@ -82,6 +82,10 @@ Sets the property that holds the widget's style sheet. It calls the native metho
 
 - `styleSheet` string - String which holds the widget's style sheet. Make sure you create this string using `StyleSheet.create()`
 
+#### `widget.styleSheet()`
+
+Gets the property that holds the widget's style sheet. It calls the native method [QWidget: styleSheet](https://doc.qt.io/qt-5/qwidget.html#styleSheet-prop).
+
 #### `widget.hide()`
 
 Hides the widget and its children. It calls the native method [QWidget: hide](https://doc.qt.io/qt-5/qwidget.html#hide).
@@ -91,6 +95,10 @@ Hides the widget and its children. It calls the native method [QWidget: hide](ht
 Sets the object name of the widget in Qt. It calls the native method [QObject: setObjectName](https://doc.qt.io/qt-5/qobject.html#objectName-prop). Object name can be analogous to `id` of an element in the web world. Using the objectName of the widget one can reference it in the Qt's stylesheet much like what we do with id in the web world.
 
 - `objectName` string - String which holds the widget's object name.
+
+#### `widget.objectName()`
+
+Gets the property that holds the widget's object name. It calls the native method [QObject: setObjectName](https://doc.qt.io/qt-5/qobject.html#objectName-prop).
 
 #### `widget.setMouseTracking(isMouseTracked)`
 
@@ -140,3 +148,16 @@ returns the current widget size. It calls the native method [QWidget: size](http
 #### `widget.updateGeometry()`
 
 Notifies the layout system that this widget has changed and may need to change geometry.
+
+#### `widget.setAttribute(attributeName, switchOn)`
+
+Sets the attribute attribute on this widget if on is true; otherwise clears the attribute. It calls the native method [QWidget: setAttribute](https://doc.qt.io/qt-5/qwidget.html#setAttribute).
+
+- `attributeName` WidgetAttribute - Enum from WidgetAttribute.
+- `switchOn` - set it to true if you want to enable an attribute.
+
+#### `widget.testAttribute(attributeName)`
+
+Returns true if attribute attribute is set on this widget; otherwise returns false. It calls the native method [QWidget: testAttribute](https://doc.qt.io/qt-5/qwidget.html#testAttribute).
+
+- `attributeName` WidgetAttribute - Enum from WidgetAttribute.

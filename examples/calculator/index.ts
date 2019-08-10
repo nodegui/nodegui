@@ -8,7 +8,6 @@ import {
 import { QLabel } from "../../src/lib/QtWidgets/QLabel";
 import { BaseWidgetEvents } from "../../src/lib/core/EventWidget";
 import { QKeyEvent } from "../../src/lib/QtGui/QEvent/QKeyEvent";
-import { StyleSheet } from "../../src/lib";
 
 const globals = global as any;
 
@@ -47,8 +46,7 @@ win.addEventListener(BaseWidgetEvents.KeyRelease, nativeEvent => {
 });
 rootView.setObjectName("rootView"); //This is like ids in web world
 win.setCentralWidget(rootView);
-const rootStyleSheet = StyleSheet.create(
-  `
+const rootStyleSheet = `
 * {
   font-size: 20px;
   color: white;
@@ -111,10 +109,9 @@ QPushButton:pressed {
 #row2 QPushButton:pressed, #row2 QPushButton:pressed, #row3 QPushButton:pressed, #row4 QPushButton:pressed  {
   background: grey;
 }
-`
-);
+`;
 
-const operatorStyleSheet = StyleSheet.create(`
+const operatorStyleSheet = `
 QPushButton {
   background: #FD8D0E;
 }
@@ -122,7 +119,7 @@ QPushButton {
 QPushButton:pressed {
   background: grey;
 }
-`);
+`;
 
 rootView.setStyleSheet(rootStyleSheet);
 const rootViewFlexLayout = new FlexLayout();

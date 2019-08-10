@@ -57,7 +57,12 @@ Napi::Value setStyleSheet(const Napi::CallbackInfo& info){ \
   this->instance->setStyleSheet(style.c_str()); \
   return env.Null(); \
 } \
-\
+Napi::Value styleSheet(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  QString stylesheet = this->instance->styleSheet(); \
+  return Napi::String::New(env, stylesheet.toStdString()); \
+} \
 Napi::Value hide(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env(); \
     Napi::HandleScope scope(env); \
@@ -71,6 +76,12 @@ Napi::Value setObjectName(const Napi::CallbackInfo& info){ \
     Napi::String objectName = info[0].As<Napi::String>(); \
     this->instance->setObjectName(QString::fromStdString(objectName.Utf8Value())); \
     return env.Null(); \
+} \
+Napi::Value objectName(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  QString objectName = this->instance->objectName(); \
+  return Napi::String::New(env, objectName.toStdString()); \
 } \
 Napi::Value setMouseTracking(const Napi::CallbackInfo& info){ \
     Napi::Env env = info.Env(); \
@@ -137,6 +148,21 @@ Napi::Value size(const Napi::CallbackInfo& info){ \
   sizeObj.Set("height", size.height()); \
   return sizeObj; \
 } \
+Napi::Value setAttribute(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  int attributeId = info[0].As<Napi::Number>().Int32Value(); \
+  bool switchOn = info[1].As<Napi::Boolean>().Value(); \
+  this->instance->setAttribute(static_cast<Qt::WidgetAttribute>(attributeId), switchOn); \
+  return env.Null(); \
+} \
+Napi::Value testAttribute(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  int attributeId = info[0].As<Napi::Number>().Int32Value(); \
+  bool isOn = this->instance->testAttribute(static_cast<Qt::WidgetAttribute>(attributeId)); \
+  return Napi::Boolean::New(env, isOn); \
+} \
 
 #endif //QWIDGET_WRAPPED_METHODS_DECLARATION
 
@@ -151,8 +177,10 @@ Napi::Value size(const Napi::CallbackInfo& info){ \
  InstanceMethod("close",&WidgetWrapName::close), \
  InstanceMethod("setLayout",&WidgetWrapName::setLayout), \
  InstanceMethod("setStyleSheet",&WidgetWrapName::setStyleSheet), \
+ InstanceMethod("styleSheet",&WidgetWrapName::styleSheet), \
  InstanceMethod("hide",&WidgetWrapName::hide), \
  InstanceMethod("setObjectName",&WidgetWrapName::setObjectName), \
+ InstanceMethod("objectName",&WidgetWrapName::objectName), \
  InstanceMethod("setMouseTracking",&WidgetWrapName::setMouseTracking), \
  InstanceMethod("setEnabled",&WidgetWrapName::setEnabled), \
  InstanceMethod("setFixedSize",&WidgetWrapName::setFixedSize), \
@@ -162,5 +190,7 @@ Napi::Value size(const Napi::CallbackInfo& info){ \
  InstanceMethod("update",&WidgetWrapName::update), \
  InstanceMethod("updateGeometry",&WidgetWrapName::updateGeometry), \
  InstanceMethod("size",&WidgetWrapName::size), \
+ InstanceMethod("setAttribute",&WidgetWrapName::setAttribute), \
+ InstanceMethod("testAttribute",&WidgetWrapName::testAttribute), \
 
 #endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
