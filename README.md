@@ -1,6 +1,8 @@
 # nodegui
 
-A cross platform library to build native desktop apps. Based on Qt5.
+A library for building cross-platform native desktop applications with JavaScript and CSS like styling. NodeGui is based Qt5 and is CPU and memory efficient as compared to other chromium based solutions like electron.
+
+Visit: https://nodegui.github.io/nodegui
 
 <img alt="logo" src="https://github.com/nodegui/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
 
