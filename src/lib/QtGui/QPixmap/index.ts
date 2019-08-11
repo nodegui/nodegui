@@ -1,12 +1,9 @@
 import addon from "../../core/addon";
 import { Component, NativeElement } from "../../core/Component";
 import { AspectRatioMode } from "../../QtEnums";
-type arg = string | NativeElement;
+import { checkIfNativeElement } from "../../utils";
 
-const checkIfNativeElement = (arg: any) => {
-  const nativeArg = arg as NativeElement;
-  return typeof nativeArg === "object" && nativeArg.type === "native";
-};
+type arg = string | NativeElement;
 export class QPixmap extends Component {
   native: NativeElement;
   constructor(arg?: arg) {

@@ -40,6 +40,7 @@
 
 ### Modules from NodeGui:
 
+- [QApplication (Application)](api/QApplication.md)
 - [QMainWindow (Window)](api/QMainWindow.md)
 - [QWidget (View)](api/QWidget.md)
 - [QLabel (Text/Image)](api/QLabel.md)

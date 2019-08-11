@@ -19,5 +19,10 @@ public:
     // Wrapped methods
     Napi::Value processEvents(const Napi::CallbackInfo& info);
     Napi::Value exec(const Napi::CallbackInfo& info);
+    Napi::Value quit(const Napi::CallbackInfo& info);
+    Napi::Value exit(const Napi::CallbackInfo& info);
 };
 
+namespace StaticQApplicationWrapMethods {
+     Napi::Value instance(const Napi::CallbackInfo& info);
+}

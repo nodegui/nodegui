@@ -1,5 +1,6 @@
 #include "qapplication_wrap.h"
 #include "src/cpp/core/Component/component_macro.h"
+#include "src/cpp/Extras/Utils/nutils.h"
 
 Napi::FunctionReference QApplicationWrap::constructor;
 int QApplicationWrap::argc = 0;
@@ -12,6 +13,8 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports)
     Napi::Function func = DefineClass(env, CLASSNAME, {
         InstanceMethod("processEvents", &QApplicationWrap::processEvents),
         InstanceMethod("exec", &QApplicationWrap::exec),
+        InstanceMethod("quit", &QApplicationWrap::quit),
+        StaticMethod("instance", &StaticQApplicationWrapMethods::instance),
         COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
     });
     constructor = Napi::Persistent(func);
@@ -24,7 +27,13 @@ QApplicationWrap::QApplicationWrap(const Napi::CallbackInfo& info)
 {
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
-    this->instance = new QApplication(this->argc, this->argv);
+    if(info.Length() == 1) {
+        this->instance = info[0].As<Napi::External<QApplication>>().Data();
+    } else if (info.Length() == 0){
+        this->instance = new QApplication(this->argc, this->argv);
+    } else {
+        extrautils::throwTypeError(env, "Wrong number of arguments");
+    }
 }
 
 QApplicationWrap::~QApplicationWrap()
@@ -49,6 +58,32 @@ Napi::Value QApplicationWrap::exec(const Napi::CallbackInfo& info)
 {
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
-    this->instance->exec();
+    int exitCode = this->instance->exec();
+    return Napi::Number::New(env, exitCode);
+}
+
+Napi::Value QApplicationWrap::quit(const Napi::CallbackInfo& info)
+{
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    this->instance->quit();
     return env.Null();
+}
+
+Napi::Value QApplicationWrap::exit(const Napi::CallbackInfo& info)
+{
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    Napi::Number exitCode = info[0].As<Napi::Number>();
+    this->instance->exit(exitCode.Int32Value());
+    return env.Null();
+}
+
+Napi::Value StaticQApplicationWrapMethods::instance(const Napi::CallbackInfo& info)
+{
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    QApplication* app = static_cast<QApplication *>(QCoreApplication::instance());
+    Napi::Object instance = QApplicationWrap::constructor.New({ Napi::External<QApplication>::New(env, app) });
+    return instance;
 }

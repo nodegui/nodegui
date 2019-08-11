@@ -1,12 +1,32 @@
 import addon from "../../core/addon";
-import { Component } from "../../core/Component";
+import { Component, NativeElement } from "../../core/Component";
+import { checkIfNativeElement } from "../../utils";
 
+type arg = NativeElement;
 export class QApplication extends Component {
-  native = new addon.QApplication();
+  native: NativeElement;
+  constructor(arg?: arg) {
+    super();
+    if (checkIfNativeElement(arg)) {
+      this.native = arg as NativeElement;
+    } else {
+      this.native = new addon.QApplication();
+    }
+  }
   processEvents = () => {
     this.native.processEvents();
   };
-  exec = () => {
-    this.native.exec();
+  exec = (): Number => {
+    return this.native.exec();
+  };
+  static instance = (): QApplication => {
+    const nativeQApp = addon.QApplication.instance();
+    return new QApplication(nativeQApp);
+  };
+  quit = () => {
+    return this.native.quit();
+  };
+  exit = (exitCode: number) => {
+    return this.native.exit(exitCode);
   };
 }
