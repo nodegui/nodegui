@@ -1,7 +1,7 @@
 {
     "target_defaults": {
         'variables': {
-            'qt_home_dir%': "<!(node -p \"require('@nodegui/test').qtHome\")",
+            'qt_home_dir%': "<!(node -p \"require('@nodegui/qode').qtHome\")",
         },
         'target_conditions': [
             ['OS=="mac"', {
