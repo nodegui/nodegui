@@ -48,4 +48,4 @@ If you want to run with your own version of Qt make sure to pass qt_home_dir var
 
 `yarn rebuild:addon [--qt_home_dir=/path/to/qt]`
 
-[qode_setup]: https://github.com/master-atul/qode
+[qode_setup]: https://github.com/nodegui/qode

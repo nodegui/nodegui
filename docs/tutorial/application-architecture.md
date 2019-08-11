@@ -34,7 +34,7 @@ So inorder to make both NodeJs and Qt work together we need to find a way to mer
 Qode is a lightly modified fork of Node.js that merges Node's event loop with Qt's event loop. The idea of merging event loops is inspired by Electron and [other](https://github.com/yue) Gui libraries developed by [zcbenz (Cheng Zhao)](https://github.com/zcbenz). It has been detailed in a post here: [Electron internals](https://electronjs.org/blog/electron-internals-node-integration). Hence, we reused the logic from electron to achieve smooth integration between Qt and NodeJs.
 
 The idea is to release a corresponding Qode binary for every NodeJs version that comes out after Node v12.6.
-The source code of Qode can be found [here](https://github.com/master-atul/qode).
+The source code of Qode can be found [here](https://github.com/nodegui/qode).
 
 _\*PS: Qode is a fork of [Yode](https://github.com/yue/yode)_
 

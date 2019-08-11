@@ -1,7 +1,7 @@
 # React Desktop
 
 - [About React Desktop](react/about.md)
-- [Examples](https://github.com/master-atul/react-desktop/tree/master/examples)
+- [Examples](https://github.com/nodegui/react-desktop/tree/master/examples)
 - [Setting up the Development Environment](tutorial/development-environment.md)
 - [Creating your First App](react/first-app.md)
   - [Hello World](react/first-app.md#Hello-World)

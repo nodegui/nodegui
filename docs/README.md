@@ -6,7 +6,7 @@
 
 - [About NodeGui](tutorial/about.md)
 - [React Desktop](react/README.md)
-- [Examples](https://github.com/master-atul/nodegui/tree/master/examples)
+- [Examples](https://github.com/nodegui/nodegui/tree/master/examples)
 - [FAQ](faq.md)
 - [Setting up the Development Environment](tutorial/development-environment.md)
   - [Setting up macOS](tutorial/development-environment.md#setting-up-macos)

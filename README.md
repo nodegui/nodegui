@@ -2,19 +2,19 @@
 
 A cross platform library to build native desktop apps. Based on Qt5.
 
-<img alt="logo" src="https://github.com/master-atul/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
+<img alt="logo" src="https://github.com/nodegui/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
 
 ## How does it look?
 
 <div style="display:inline; margin: 0 auto;">
-<img alt="demo_linux" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_linux.png" height="300" />
-<img alt="demo_win" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_win.jpg" height="300" />
-<img alt="demo_mac" src="https://github.com/master-atul/nodegui/raw/master/examples/calculator/calculator_mac.png" height="300" />
+<img alt="demo_linux" src="https://github.com/nodegui/nodegui/raw/master/examples/calculator/calculator_linux.png" height="300" />
+<img alt="demo_win" src="https://github.com/nodegui/nodegui/raw/master/examples/calculator/calculator_win.jpg" height="300" />
+<img alt="demo_mac" src="https://github.com/nodegui/nodegui/raw/master/examples/calculator/calculator_mac.png" height="300" />
 </div>
 
 **More screenshots?**
 
-[See examples](https://github.com/master-atul/nodegui/tree/master/examples/)
+[See examples](https://github.com/nodegui/nodegui/tree/master/examples/)
 
 ## Features
 
@@ -41,7 +41,7 @@ Looking to contribute? If you wish to implement a new widget/add more features a
 
 Contributing developer docs link:
 
-https://github.com/master-atul/nodegui/tree/master/docs/development
+https://github.com/nodegui/nodegui/tree/master/docs/development
 
 ## Building
 
