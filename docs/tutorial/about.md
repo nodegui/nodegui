@@ -6,7 +6,7 @@ NodeGui began in 2019 as part of frustrations related to Electron and other chro
 
 Also, NodeGui is built with Typescript which means you get autocomplete and strong typechecking support from the IDE even when used in a Javascript project.
 
-Get started building with NodeGui in the [First NodeGui app](tutorial/first-app.md).
+Get started building with NodeGui in the [First NodeGui app](first-app.md).
 
 ### Updating Dependencies
 

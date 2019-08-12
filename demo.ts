@@ -1,47 +1,61 @@
 import {
   QMainWindow,
-  QWidget,
   QLabel,
+  QCheckBox,
+  QLineEdit,
+  QPushButton,
+  QProgressBar,
+  QRadioButton,
   FlexLayout,
-  QPushButton
+  QWidget
 } from "./src/lib/index";
-const win = new QMainWindow();
-//-------------------------------
-const centralWidget = new QWidget();
-centralWidget.setObjectName("myroot");
-const rootLayout = new FlexLayout();
-centralWidget.setLayout(rootLayout);
-const view = new QWidget();
-const viewLayout = new FlexLayout();
-view.setInlineStyle(
-  `margin-top:20px; background: url(${"/Users/atulr/Downloads/photo.jpeg"});`
-);
-view.setLayout(viewLayout);
-//--------------------------------------
-const label = new QLabel();
-label.setObjectName("mylabel");
-label.setText("Hello World");
 
-const btn = new QPushButton();
-btn.setText("Yo button");
-btn.setObjectName("btn");
-//--------------------------------------
-viewLayout.addWidget(label);
-viewLayout.addWidget(btn);
-rootLayout.addWidget(view);
-win.setCentralWidget(centralWidget);
-const winStyleSheet = ` 
-  #mylabel {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 40px;
+const win = new QMainWindow();
+
+const label = new QLabel();
+label.setText("Hello world 🧙");
+label.setInlineStyle("font-size: 20px;");
+
+const checkbox = new QCheckBox();
+checkbox.setText("Check me out?");
+checkbox.setObjectName("check");
+
+const lineEdit = new QLineEdit();
+lineEdit.setPlaceholderText("Enter your thoughts here");
+lineEdit.setObjectName("editable");
+
+const button = new QPushButton();
+button.setText("Push Push Push!");
+button.setObjectName("btn");
+
+const progressbar = new QProgressBar();
+
+const radioButton = new QRadioButton();
+radioButton.setText("Roger that!");
+
+const rootView = new QWidget();
+rootView.setObjectName("root");
+rootView.setLayout(new FlexLayout());
+if (rootView.layout) {
+  rootView.layout.addWidget(label);
+  rootView.layout.addWidget(checkbox);
+  rootView.layout.addWidget(radioButton);
+  rootView.layout.addWidget(lineEdit);
+  rootView.layout.addWidget(button);
+  rootView.layout.addWidget(progressbar);
+}
+
+win.setCentralWidget(rootView);
+win.setStyleSheet(`
+  #root {
+    flex: 1;
+    height: '100%';
+    align-items: 'center';
+    justify-content: 'space-around';
   }
-  #btn {
-    margin-top: 30px;
-  }
-`;
-win.setStyleSheet(winStyleSheet);
+`);
+
+win.resize(400, 400);
 win.show();
-win.resize(400, 500);
 
 (global as any).win = win; // To prevent win from being garbage collected.
