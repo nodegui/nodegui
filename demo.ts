@@ -29,6 +29,9 @@ button.setText("Push Push Push!");
 button.setObjectName("btn");
 
 const progressbar = new QProgressBar();
+progressbar.setValue(6);
+progressbar.setMinimum(1);
+progressbar.setMaximum(15);
 
 const radioButton = new QRadioButton();
 radioButton.setText("Roger that!");

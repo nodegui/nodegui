@@ -19,5 +19,21 @@ export class QProgressBar extends NodeWidget {
     this.native = native;
     this.parent = parent;
     // bind member functions
+    this.setValue.bind(this);
+    this.setMinimum.bind(this);
+    this.setMaximum.bind(this);
+    this.value.bind(this);
+  }
+  setValue(value: number) {
+    this.native.setValue(value);
+  }
+  setMinimum(min: number) {
+    this.native.setMinimum(min);
+  }
+  setMaximum(max: number) {
+    this.native.setMaximum(max);
+  }
+  value(): number {
+    return this.native.value();
   }
 }
