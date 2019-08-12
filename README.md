@@ -18,6 +18,12 @@ Visit: https://nodegui.github.io/nodegui for docs.
 <img alt="demo_mac" src="https://github.com/nodegui/nodegui/raw/master/examples/calculator/calculator_mac.png" height="300" />
 </div>
 
+<div style="display:inline; margin: 0 auto;">
+<img alt="demo_mac" src="https://github.com/master-atul/react-desktop/raw/master/examples/weather-app-widget/weather_widget_mac.png" height="400" />
+<img alt="demo_win" src="https://github.com/master-atul/react-desktop/raw/master/examples/image-view/image_view_win.jpg" height="400" />
+</div>
+
+
 **More screenshots?**
 
 [See examples](https://github.com/nodegui/nodegui/tree/master/examples/)
