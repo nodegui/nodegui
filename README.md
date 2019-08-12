@@ -13,9 +13,9 @@ Visit: https://nodegui.github.io/nodegui for docs.
 ## How does it look?
 
 <div style="display:inline; margin: 0 auto;">
-<img alt="demo_linux" src="https://github.com/nodegui/nodegui/raw/master/examples/calculator/calculator_linux.png" height="300" />
-<img alt="demo_win" src="https://github.com/nodegui/nodegui/raw/master/examples/calculator/calculator_win.jpg" height="300" />
-<img alt="demo_mac" src="https://github.com/nodegui/nodegui/raw/master/examples/calculator/calculator_mac.png" height="300" />
+<img alt="demo_linux" src="https://github.com/nodegui/nodegui/raw/master/examples/calculator/calculator_linux.png" height="280" />
+<img alt="demo_win" src="https://github.com/nodegui/nodegui/raw/master/examples/calculator/calculator_win.jpg" height="280" />
+<img alt="demo_mac" src="https://github.com/nodegui/nodegui/raw/master/examples/calculator/calculator_mac.png" height="280" />
 </div>
 
 <div style="display:inline; margin: 0 auto;"><img alt="kitchen" src="https://github.com/nodegui/nodegui/raw/master/extras/assets/kitchen.png" height="280" /><img alt="demo_mac" src="https://github.com/master-atul/react-desktop/raw/master/examples/weather-app-widget/weather_widget_mac.png" height="280" /><img alt="demo_win" src="https://github.com/master-atul/react-desktop/raw/master/examples/image-view/image_view_win.jpg" height="280" />
