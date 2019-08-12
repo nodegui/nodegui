@@ -1,6 +1,8 @@
 # NodeGUI
 
-Build **performant**, **native** and **cross-platform** desktop applications with **JavaScript** + powerful **CSS like styling**. NodeGUI is powered by **Qt5** which makes it CPU and memory efficient as compared to other chromium based solutions like electron.
+Build **performant**, **native** and **cross-platform** desktop applications with **JavaScript** + powerful **CSS like styling**.🚀
+
+NodeGUI is powered by **Qt5** 💚 which makes it CPU and memory efficient as compared to other chromium based solutions like electron.
 
 If you are looking for React based version, check out: [NodeGUI React Desktop](https://github.com/nodegui/react-desktop).
 
