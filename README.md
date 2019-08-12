@@ -1,8 +1,10 @@
-# nodegui
+# NodeGUI
 
-A library for building cross-platform native desktop applications with JavaScript and CSS like styling. NodeGui is based Qt5 and is CPU and memory efficient as compared to other chromium based solutions like electron.
+Build **performant**, **native** and **cross-platform** desktop applications with **JavaScript** + powerful **CSS like styling**. NodeGUI is powered by **Qt5** which makes it CPU and memory efficient as compared to other chromium based solutions like electron.
 
-Visit: https://nodegui.github.io/nodegui
+If you are looking for React based version, check out: [NodeGUI React Desktop](https://github.com/nodegui/react-desktop).
+
+Visit: https://nodegui.github.io/nodegui for docs.
 
 <img alt="logo" src="https://github.com/nodegui/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
 
@@ -18,28 +20,32 @@ Visit: https://nodegui.github.io/nodegui
 
 [See examples](https://github.com/nodegui/nodegui/tree/master/examples/)
 
+[See React based examples](https://github.com/nodegui/react-desktop/tree/master/examples/)
+
 ## Features
 
-- [x] Cross platform. Should work on major Linux flavours, Windows and MacOS
-- [x] Low CPU and memory footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
+- 🧬 Cross platform. Should work on major Linux flavours, Windows and MacOS
+- 📉 Low CPU and memory footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
+- 💅 Styling with CSS (includes actual cascading). Also has full support for Flexbox layout (thanks to Yoga).
+- ✅ Complete Nodejs api support (Currently runs on Node v12.x - and is easily upgradable). Hence has access to all nodejs compatible npm modules.
+- 🎪 Native widget event listener support. supports all event available from Qt / NodeJs.
+- 💸 Can be used for Commercial applications.
+- 🕵️‍♂️ Good Devtools support.
+- 📚 Good documentation and website.
+- 🧙‍♂️ Good documentation for contributors.
+- 🦹🏻‍♀️ Good support for dark mode (Thanks to QT).
+- 🏅First class Typescript support. (Works on regular JS projects too 😉).
+
+## Current focus:
+
 - [ ] (Partial support is present) Easily exstensible for creating custom native widgets (like react native).
-- [x] Support for flex box layouting using Yoga.
-- [x] Supports styling using css (includes actual cascading) or atleast useful subset of css properties.
-- [x] Complete Nodejs api support (Currently runs on Node v12 - and is easily upgradable).
-- [x] Can use all node compatible npm modules.
-- [x] Native widget event listener support.
-- [x] Should be usable for commercial applications aswell.
-- [x] (Partial) Should have a decent list of stylable native widgets.
+- [ ] (Partial) Should have a decent list of stylable native widgets.
 - [ ] Easy build and packaging process.
-- [x] Good Devtools support (hot reload, live reload, debugging etc).
-- [x] Good documentation and website.
-- [x] Good documentation for contributors.
-- [x] Good support for dark mode (Thanks to QT).
-- [x] Typescript support
 
-## Starter
+## Getting Started
 
-https://github.com/nodegui/nodegui-starter
+- Check out [nodegui-starter](https://github.com/nodegui/nodegui-starter) to get up and running with your own React Desktop app!
+- Read through the [docs](https://nodegui.github.io/nodegui)
 
 ## Docs for contributing
 
@@ -51,12 +57,14 @@ https://github.com/nodegui/nodegui/tree/master/docs/development
 
 ## Building
 
-`yarn rebuild:addon [--qt_home_dir=/path/to/qt]`
+`npm run build [--qt_home_dir=/path/to/qt]`
 
 ### LICENSE
+
+MIT
+
+## Note
 
 > Since we do not in any way modify the code of Qt and only link to it dynamically, I beleive we are in compliance with the LGPL license requirements of QT. And hence this library can be licensed under its own License (for which we have chosen MIT License).
 > The links to QT source code and appropriate license notices are attached. We try our best to abide by the software licenses and any non compliance is not by will. If there is some discrepancy please let us know in the issues and we will try and fix it up.
 > If you follow the recommended build steps and do not statically link QT libraries on your own you are safe to use this library for commerical puropses (provided you abide by MIT License).
-
-MIT
