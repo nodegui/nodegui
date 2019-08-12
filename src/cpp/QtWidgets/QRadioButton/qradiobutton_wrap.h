@@ -2,7 +2,7 @@
 
 #include <napi.h>
 #include "nradiobutton.h"
-#include "src/cpp/QtGui/QWidget/qwidget_macro.h"
+#include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 
 class QRadioButtonWrap : public  Napi::ObjectWrap<QRadioButtonWrap>{

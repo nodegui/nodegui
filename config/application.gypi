@@ -12,10 +12,10 @@
             "../src/cpp/core/YogaWidget/yogawidget.cpp",
             # wrapped cpps
             "../src/cpp/QtGui/QApplication/qapplication_wrap.cpp",
-            "../src/cpp/QtGui/QWidget/qwidget_wrap.cpp",
             "../src/cpp/QtGui/QEvent/QKeyEvent/qkeyevent_wrap.cpp",
             "../src/cpp/QtGui/QPixmap/qpixmap_wrap.cpp",
             '../src/cpp/core/FlexLayout/flexlayout_wrap.cpp',
+            "../src/cpp/QtWidgets/QWidget/qwidget_wrap.cpp",
             "../src/cpp/QtWidgets/QGridLayout/qgridlayout_wrap.cpp",
             "../src/cpp/QtWidgets/QLabel/qlabel_wrap.cpp",
             "../src/cpp/QtWidgets/QLayout/qlayout_wrap.cpp",

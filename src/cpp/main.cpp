@@ -1,5 +1,5 @@
 #include "src/cpp/QtGui/QApplication/qapplication_wrap.h"
-#include "src/cpp/QtGui/QWidget/qwidget_wrap.h"
+#include "src/cpp/QtWidgets/QWidget/qwidget_wrap.h"
 #include "src/cpp/QtGui/QPixmap/qpixmap_wrap.h"
 #include "src/cpp/QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "src/cpp/QtWidgets/QLayout/qlayout_wrap.h"

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "src/cpp/QtGui/QWidget/qwidget_macro.h"
+#include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 #include <napi.h>
 #include "nwidget.h"

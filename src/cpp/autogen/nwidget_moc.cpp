@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../QtGui/QWidget/nwidget.h"
+#include "../QtWidgets/QWidget/nwidget.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

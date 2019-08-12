@@ -2,7 +2,7 @@
 
 #include <napi.h>
 #include "nprogressbar.h"
-#include "src/cpp/QtGui/QWidget/qwidget_macro.h"
+#include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 class QProgressBarWrap : public  Napi::ObjectWrap<QProgressBarWrap>{
  private:
