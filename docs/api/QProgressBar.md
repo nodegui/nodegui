@@ -30,4 +30,26 @@ QProgressBar can access all the instance properties defined in [NodeWidget](api/
 
 ### Instance Methods
 
-QProgressBar can access all the instance methods defined in [NodeWidget](api/NodeWidget.md)
+QProgressBar can access all the instance methods defined in [NodeWidget](api/NodeWidget.md). Additionally it also has the following instance methods:
+
+#### `progressBar.setValue(value)`
+
+Sets the current value of the progressBar. It calls the native method [QProgressBar: setValue](https://doc.qt.io/qt-5/qprogressbar.html#value-prop).
+
+- `value` number - Set the value as current value
+
+#### `progressBar.setMaximum(max)`
+
+Sets the max value of the progressBar. It calls the native method [QProgressBar: setMaximum](https://doc.qt.io/qt-5/qprogressbar.html#maximum-prop).
+
+- `max` number - Set the value as max value of the progress bar.
+
+#### `progressBar.setMinimum(min)`
+
+Sets the min value of the progressBar. It calls the native method [QProgressBar: setMinimum](https://doc.qt.io/qt-5/qprogressbar.html#minimum-prop).
+
+- `min` number - Set the value as min value of the progress bar.
+
+#### `progressBar.value()`
+
+Returns the current value (Number) of the progressBar. It calls the native method [QProgressBar: value](https://doc.qt.io/qt-5/qprogressbar.html#value-prop).
