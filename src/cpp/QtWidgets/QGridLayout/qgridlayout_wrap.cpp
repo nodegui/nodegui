@@ -31,7 +31,7 @@ QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
   }else if (info.Length() == 0){
     this->instance = new QGridLayout();
   }else {
-    extrautils::throwTypeError(env, "Wrong number of arguments");
+    Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
 }
 

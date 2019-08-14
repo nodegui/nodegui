@@ -33,7 +33,7 @@ QPixmapWrap::QPixmapWrap(const Napi::CallbackInfo& info) : Napi::ObjectWrap<QPix
     }else if (info.Length() == 0){
         this->instance = new QPixmap();
     }else {
-        extrautils::throwTypeError(env, "Wrong number of arguments");
+        Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
     }
 }
 
@@ -57,7 +57,7 @@ Napi::Value QPixmapWrap::load(const Napi::CallbackInfo& info)
       QString imageUrl = QString::fromUtf8(url.Utf8Value().c_str());
       loadSuccess = this->instance->load(imageUrl);
     }else {
-        extrautils::throwTypeError(env, "Wrong number of arguments");
+      Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
     }
     return Napi::Boolean::New(env, loadSuccess);
 }

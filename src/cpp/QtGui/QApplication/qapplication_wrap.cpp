@@ -32,7 +32,7 @@ QApplicationWrap::QApplicationWrap(const Napi::CallbackInfo& info)
     } else if (info.Length() == 0){
         this->instance = new QApplication(this->argc, this->argv);
     } else {
-        extrautils::throwTypeError(env, "Wrong number of arguments");
+        Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
     }
 }
 

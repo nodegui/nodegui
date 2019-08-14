@@ -32,7 +32,7 @@ QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
   }else if (info.Length() == 0){
     this->instance = new NMainWindow();
   }else {
-    extrautils::throwTypeError(env, "Wrong number of arguments");
+    Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
   this->instance->setAttribute(Qt::WA_DeleteOnClose);
   this->instance->installEventFilter(this->instance);

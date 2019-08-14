@@ -5,10 +5,6 @@
 
 void extrautils::noop(){}
 
-void extrautils::throwTypeError(Napi::Env env, std::string errorMessage){
-    Napi::TypeError::New(env, errorMessage.c_str()).ThrowAsJavaScriptException();
-}
-
 YGSize extrautils::measureQtWidget (YGNodeRef node, float width, YGMeasureMode widthMode, float height, YGMeasureMode heightMode){
     FlexLayout::NodeContext *ctx = FlexLayout::getNodeContext(node);
     if(ctx){

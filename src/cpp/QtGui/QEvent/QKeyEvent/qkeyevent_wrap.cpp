@@ -29,7 +29,7 @@ QKeyEventWrap::QKeyEventWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<Q
         Napi::External<QKeyEvent> eventObject = info[0].As<Napi::External<QKeyEvent>>();
         this->instance  = eventObject.Data();
     } else {
-        extrautils::throwTypeError(env, "Wrong number of arguments");
+      Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
     }
 }
 

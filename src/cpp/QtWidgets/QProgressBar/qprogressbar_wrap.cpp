@@ -37,7 +37,7 @@ QProgressBarWrap::QProgressBarWrap(const Napi::CallbackInfo& info): Napi::Object
   }else if (info.Length() == 0){
     this->instance = new NProgressBar();
   }else {
-    extrautils::throwTypeError(env, "Wrong number of arguments");
+    Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
    // Adds measure function on yoga node so that widget size is calculated based on its own size.
   YGNodeSetMeasureFunc(this->instance->getFlexNode(), &extrautils::measureQtWidget);

@@ -29,7 +29,7 @@ QWidgetWrap::QWidgetWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QWidg
   }else if (info.Length() == 0){
     this->instance = new NWidget();
   }else {
-    extrautils::throwTypeError(env, "Wrong number of arguments");
+    Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
 }
 

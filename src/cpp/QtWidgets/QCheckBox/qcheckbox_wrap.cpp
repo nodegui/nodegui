@@ -33,7 +33,7 @@ QCheckBoxWrap::QCheckBoxWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<Q
   }else if (info.Length() == 0){
     this->instance = new NCheckBox();
   }else {
-    extrautils::throwTypeError(env, "Wrong number of arguments");
+    Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
 // Adds measure function on yoga node so that widget size is calculated based on its text also.
   YGNodeSetMeasureFunc(this->instance->getFlexNode(), &extrautils::measureQtWidget);

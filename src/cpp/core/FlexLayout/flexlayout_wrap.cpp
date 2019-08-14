@@ -34,7 +34,7 @@ FlexLayoutWrap::FlexLayoutWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap
   }else if (info.Length() == 0){
     this->instance = new FlexLayout();
   }else {
-    extrautils::throwTypeError(env, "Wrong number of arguments");
+    Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
 }
 
