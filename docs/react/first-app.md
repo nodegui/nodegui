@@ -1,28 +1,28 @@
-# Writing Your First React Desktop App
+# Writing Your First React NodeGUI App
 
-React Desktop enables you to create desktop applications with JavaScript (React). React Desktop is a react renderer for NodeGui. This makes it extrememly memory and CPU efficient as compared to other popular Javascript Desktop GUI solutions.
+React NodeGUI enables you to create desktop applications with JavaScript (React). React NodeGUI is a react renderer for NodeGui. This makes it extrememly memory and CPU efficient as compared to other popular Javascript Desktop GUI solutions.
 
 ## Hello World
 
 Clone and run the code in this tutorial by using the
-[`nodegui/react-desktop-starter`][quick-start] repository.
+[`nodegui/react-nodegui-starter`][quick-start] repository.
 
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Clone the repository
-$ git clone https://github.com/nodegui/react-desktop-starter
+$ git clone https://github.com/nodegui/react-nodegui-starter
 # Go into the repository
-$ cd react-desktop-starter
+$ cd react-nodegui-starter
 # Install dependencies
 $ npm install
 # Run the app
 $ npm start
 ```
 
-As far as development is concerned, an React Desktop application is essentially a
+As far as development is concerned, an React NodeGUI application is essentially a
 Node.js application. The starting point is a `package.json` that is identical
-to that of a Node.js module. A most basic React Desktop app would have the following
+to that of a Node.js module. A most basic React NodeGUI app would have the following
 folder structure:
 
 ```text
@@ -31,21 +31,21 @@ your-app/
 ├── index.js
 ```
 
-## React Desktop Development in a Nutshell
+## React NodeGUI Development in a Nutshell
 
-React Desktop apps are developed in JavaScript using the same principles and methods
-found in React Native development. React Desktop exposes native widgets in the form of React components. Also, since we are now not running inside a browser, there is no DOM. Hence browser based APIs are NOT available. But you do have access to complete NodeJs APIs along with some exported Qt Apis.All APIs related to React Desktop are found in `@nodegui/react-desktop` module. Additionally you can also access APIs and features from NodeGui via
+React NodeGUI apps are developed in JavaScript using the same principles and methods
+found in React Native development. React NodeGUI exposes native widgets in the form of React components. Also, since we are now not running inside a browser, there is no DOM. Hence browser based APIs are NOT available. But you do have access to complete NodeJs APIs along with some exported Qt Apis.All APIs related to React NodeGUI are found in `@nodegui/react-nodegui` module. Additionally you can also access APIs and features from NodeGui via
 the `@nodegui/nodegui` module. These can be required like any other Node.js module:
 
 ```javascript
 require("@nodegui/nodegui");
-require("@nodegui/react-desktop");
+require("@nodegui/react-nodegui");
 ```
 
 A simple `main.js`.
 
 ```javascript
-import { Renderer, View, Text, Button, Window } from "@nodegui/react-desktop";
+import { Renderer, View, Text, Button, Window } from "@nodegui/react-nodegui";
 import React, { useState } from "react";
 
 const App = () => {
@@ -98,19 +98,19 @@ directory.
 ## Trying this Example
 
 Clone and run the code in this tutorial by using the
-[`nodegui/react-desktop-starter`][quick-start] repository.
+[`nodegui/react-nodegui-starter`][quick-start] repository.
 
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Clone the repository
-$ git clone https://github.com/nodegui/react-desktop-starter
+$ git clone https://github.com/nodegui/react-nodegui-starter
 # Go into the repository
-$ cd react-desktop-starter
+$ cd react-nodegui-starter
 # Install dependencies
 $ npm install
 # Run the app
 $ npm start
 ```
 
-[quick-start]: https://github.com/nodegui/react-desktop-starter
+[quick-start]: https://github.com/nodegui/react-nodegui-starter

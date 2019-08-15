@@ -1,11 +1,11 @@
-# React Desktop
+# React NodeGUI
 
-- [About React Desktop](react/about.md)
-- [Examples](https://github.com/nodegui/react-desktop/tree/master/examples)
+- [About React NodeGUI](react/about.md)
+- [Examples](https://github.com/nodegui/react-nodegui/tree/master/examples)
 - [Setting up the Development Environment](tutorial/development-environment.md)
 - [Creating your First App](react/first-app.md)
   - [Hello World](react/first-app.md#Hello-World)
-  - [React Desktop Development in a Nutshell](react/first-app.md#react-desktop-development-in-a-nutshell)
+  - [React NodeGUI Development in a Nutshell](react/first-app.md#react-nodegui-development-in-a-nutshell)
   - [Running Your App](react/first-app.md#running-your-app)
     // TODO from here
 - [Application Architecture](react/application-architecture.md)

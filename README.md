@@ -4,7 +4,7 @@ Build **performant**, **native** and **cross-platform** desktop applications wit
 
 NodeGUI is powered by **Qt5** 💚 which makes it CPU and memory efficient as compared to other chromium based solutions like electron.
 
-If you are looking for React based version, check out: [NodeGUI React Desktop](https://github.com/nodegui/react-desktop).
+If you are looking for React based version, check out: [React NodeGUI](https://github.com/nodegui/react-nodegui).
 
 Visit: https://nodegui.github.io/nodegui for docs.
 
@@ -18,15 +18,14 @@ Visit: https://nodegui.github.io/nodegui for docs.
 <img alt="demo_mac" src="https://github.com/nodegui/nodegui/raw/master/examples/calculator/calculator_mac.png" height="280" />
 </div>
 
-<div style="display:inline; margin: 0 auto;"><img alt="kitchen" src="https://github.com/nodegui/nodegui/raw/master/extras/assets/kitchen.png" height="280" /><img alt="demo_mac" src="https://github.com/master-atul/react-desktop/raw/master/examples/weather-app-widget/weather_widget_mac.png" height="280" /><img alt="demo_win" src="https://github.com/master-atul/react-desktop/raw/master/examples/image-view/image_view_win.jpg" height="280" />
+<div style="display:inline; margin: 0 auto;"><img alt="kitchen" src="https://github.com/nodegui/nodegui/raw/master/extras/assets/kitchen.png" height="280" /><img alt="demo_mac" src="https://github.com/master-atul/react-nodegui/raw/master/examples/weather-app-widget/weather_widget_mac.png" height="280" /><img alt="demo_win" src="https://github.com/master-atul/react-nodegui/raw/master/examples/image-view/image_view_win.jpg" height="280" />
 </div>
-
 
 **More screenshots?**
 
 [See examples](https://github.com/nodegui/nodegui/tree/master/examples/)
 
-[See React based examples](https://github.com/nodegui/react-desktop/tree/master/examples/)
+[See React based examples](https://github.com/nodegui/react-nodegui/tree/master/examples/)
 
 ## Features
 
@@ -50,7 +49,7 @@ Visit: https://nodegui.github.io/nodegui for docs.
 
 ## Getting Started
 
-- Check out [nodegui-starter](https://github.com/nodegui/nodegui-starter) to get up and running with your own React Desktop app!
+- Check out [nodegui-starter](https://github.com/nodegui/nodegui-starter) to get up and running with your own React NodeGUI app!
 - Read through the [docs](https://nodegui.github.io/nodegui)
 
 ## Docs for contributing

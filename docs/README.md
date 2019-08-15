@@ -1,11 +1,11 @@
 # main doc
 
-> Looking for React Desktop docs? [React Desktop docs](react/README.md)
+> Looking for React NodeGUI docs? [React NodeGUI docs](react/README.md)
 
 # Guides and Tutorials
 
 - [About NodeGui](tutorial/about.md)
-- [React Desktop](react/README.md)
+- [React NodeGUI](react/README.md)
 - [Examples](https://github.com/nodegui/nodegui/tree/master/examples)
 - [FAQ](faq.md)
 - [Setting up the Development Environment](tutorial/development-environment.md)
