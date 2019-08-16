@@ -1,6 +1,6 @@
 {
   "name": "@nodegui/nodegui",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A cross platform library to build native desktop apps.",
   "main": "dist/src/lib/index.js",
   "files": [
@@ -26,7 +26,7 @@
     "docs": "serve docs"
   },
   "dependencies": {
-    "@nodegui/qode": "^1.0.1",
+    "@nodegui/qode": "^1.0.2",
     "bindings": "^1.5.0",
     "cuid": "^2.1.6",
     "node-addon-api": "^1.6.3",
