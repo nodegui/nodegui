@@ -30,6 +30,7 @@ export class QLineEdit extends NodeWidget {
     this.setText.bind(this);
     this.text.bind(this);
     this.setPlaceholderText.bind(this);
+    this.setReadOnly.bind(this);
   }
   setText(text: string) {
     text && this.native.setText(text);
@@ -40,5 +41,8 @@ export class QLineEdit extends NodeWidget {
   setPlaceholderText(text: string) {
     this.placeholderText = text;
     this.native.setPlaceholderText(text);
+  }
+  setReadOnly(isReadOnly: boolean) {
+    this.native.setReadOnly(isReadOnly);
   }
 }

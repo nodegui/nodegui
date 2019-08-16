@@ -51,3 +51,9 @@ Sets the given text to the lineEdit's placeholder.
 #### `lineEdit.text()`
 
 Returns the currently set text from native lineEdit widget.
+
+#### `lineEdit.setReadOnly(isReadOnly)`
+
+Sets the lineEdit to be read only. lineEdit property holds whether the line edit is read only.
+
+- `isReadOnly` boolean

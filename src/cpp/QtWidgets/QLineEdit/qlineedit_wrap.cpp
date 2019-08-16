@@ -14,6 +14,7 @@ Napi::Object QLineEditWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("setPlaceholderText", &QLineEditWrap::setPlaceholderText),
     InstanceMethod("setText", &QLineEditWrap::setText),
     InstanceMethod("text", &QLineEditWrap::text),
+    InstanceMethod("setReadOnly", &QLineEditWrap::setReadOnly),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLineEditWrap)
   });
   constructor = Napi::Persistent(func);
@@ -52,6 +53,15 @@ Napi::Value QLineEditWrap::setText(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
   Napi::String text = info[0].As<Napi::String>();
   this->instance->setText( text.Utf8Value().c_str());
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::setReadOnly(const Napi::CallbackInfo &info)
+{
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Boolean isReadOnly = info[0].As<Napi::Boolean>();
+  this->instance->setReadOnly(isReadOnly.Value());
   return env.Null();
 }
 
