@@ -9,9 +9,10 @@
                 "./config/moc.gypi",
                 "./config/common.gypi",
                 "./config/qt.gypi",
+                "./config/deps.gypi",
             ],
             'dependencies': [
-                './config/deps.gypi:nodeguidep',
+                # './config/deps.gypi:nodeguidep',
             ],
             'conditions':[
                 ['OS=="mac"', {

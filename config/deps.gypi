@@ -1,8 +1,8 @@
 {
-    "targets": [
-        {
-            "target_name": "nodeguidep",
-            'type': 'shared_library',
+    # "targets": [
+        # {
+            # "target_name": "nodeguidep",
+            # 'type': 'shared_library',
             "include_dirs": ['../deps/'],
             "sources": [
                 "../deps/yoga/log.cpp",
@@ -28,6 +28,6 @@
                     ],
                 }]
             ],
-        }
-    ]
+        # }
+    # ]
 }
