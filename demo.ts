@@ -27,6 +27,7 @@ lineEdit.setObjectName("editable");
 const button = new QPushButton();
 button.setText("Push Push Push!");
 button.setObjectName("btn");
+button.setFlat(true);
 
 const progressbar = new QProgressBar();
 progressbar.setValue(6);

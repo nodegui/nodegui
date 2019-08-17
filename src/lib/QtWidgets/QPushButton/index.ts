@@ -25,9 +25,14 @@ export class QPushButton extends NodeWidget {
     this.native = native;
     // bind member functions
     this.setText.bind(this);
+    this.setFlat.bind(this);
   }
 
   setText(text: string | number) {
     this.native.setText(`${text}`);
+  }
+
+  setFlat(isFlat: boolean) {
+    this.native.setFlat(isFlat);
   }
 }

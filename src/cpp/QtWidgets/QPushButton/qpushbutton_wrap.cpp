@@ -9,6 +9,7 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QPushButton";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setText", &QPushButtonWrap::setText),
+    InstanceMethod("setFlat", &QPushButtonWrap::setFlat),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)
   });
   constructor = Napi::Persistent(func);
@@ -49,6 +50,16 @@ Napi::Value QPushButtonWrap::setText(const Napi::CallbackInfo& info) {
   Napi::String napiText = info[0].As<Napi::String>();
   std::string text = napiText.Utf8Value();
   this->instance->setText(text.c_str()); 
+  return env.Null();
+}
+
+
+Napi::Value QPushButtonWrap::setFlat(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Boolean isFlat = info[0].As<Napi::Boolean>();
+  this->instance->setFlat(isFlat.Value()); 
   return env.Null();
 }
 

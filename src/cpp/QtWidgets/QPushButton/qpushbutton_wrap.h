@@ -18,6 +18,7 @@ class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
   static Napi::FunctionReference constructor;
   //wrapped methods
   Napi::Value setText(const Napi::CallbackInfo& info);
+  Napi::Value setFlat(const Napi::CallbackInfo& info);
   
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };
