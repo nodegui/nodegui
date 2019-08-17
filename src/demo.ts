@@ -8,7 +8,7 @@ import {
   QRadioButton,
   FlexLayout,
   QWidget
-} from "./src/lib/index";
+} from "./index";
 
 const win = new QMainWindow();
 

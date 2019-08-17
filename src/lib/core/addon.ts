@@ -1,4 +1,3 @@
-import bindings from "bindings";
-const addon = bindings("qtnode");
+const addon = require("../../../build/Release/qtnode.node");
 
 export default addon;

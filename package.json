@@ -2,7 +2,7 @@
   "name": "@nodegui/nodegui",
   "version": "0.1.3",
   "description": "A cross platform library to build native desktop apps.",
-  "main": "dist/src/lib/index.js",
+  "main": "dist/index.js",
   "files": [
     "dist",
     "config",
@@ -18,8 +18,7 @@
     "dev": "npm run build && qode dist/demo.js",
     "install": "npm -v",
     "postinstall": "npm run build:addon",
-    "build": "npm run build:lib && npm run build:addon",
-    "build:lib": "tsc",
+    "build": "tsc && npm run build:addon",
     "build:addon": "node-gyp -j 8 configure build",
     "rebuild:addon": "node-gyp -j 8 rebuild",
     "automoc": "node ./scripts/automoc.js",
@@ -27,7 +26,6 @@
   },
   "dependencies": {
     "@nodegui/qode": "^1.0.2",
-    "bindings": "^1.5.0",
     "cuid": "^2.1.6",
     "node-addon-api": "^1.6.3",
     "node-gyp": "^4.0.0",
