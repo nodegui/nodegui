@@ -40,3 +40,9 @@ Additionally it also has the following instance methods:
 Sets the given text to the button.
 
 - `text` string
+
+#### `button.setFlat(isFlat)`
+
+Sets whether the button border is raised.
+
+- `isFlat` boolean
