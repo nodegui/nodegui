@@ -24,10 +24,12 @@ Make sure you follow the setup guide of [Qode][qode_setup] so that you have a bu
 
 ### Linux:
 
+Supported versions: Ubuntu 17.10 and up
+
 **Requirements**
 
 1. Node version: > 9
-2. Python, Make, GCC, pkg-config
+2. Python 2.x , Make, GCC v7, pkg-config
 3. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
 On Ubuntu: `$ sudo apt-get install pkg-config build-essentials` should install everything except Qt5.
@@ -46,6 +48,6 @@ Note: If you are using your own version of Qt make sure to
 
 If you want to run with your own version of Qt make sure to pass qt_home_dir variable when building addon.
 
-`yarn rebuild:addon [--qt_home_dir=/path/to/qt]`
+`npm run rebuild:addon [--qt_home_dir=/path/to/qt]`
 
 [qode_setup]: https://github.com/nodegui/qode
