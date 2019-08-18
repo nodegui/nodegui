@@ -7,9 +7,12 @@ rudimentary understanding of your operating system's command line client.
 
 ## Setting up macOS
 
-> NodeGui supports macOS 10.10 (Yosemite) and up. NodeGui currently only supports 64bit OS.
+**Requirements:**
 
-Currently supported Node.Js versions are 12.x and up.
+- NodeGui supports macOS 10.10 (Yosemite) and up. NodeGui currently only supports 64bit OS.
+- Python 2.x , Make, GCC v7
+- Currently supported Node.Js versions are 12.x and up.
+- Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
 
 We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
 
@@ -32,7 +35,13 @@ for JavaScript development.
 > NodeGui supports Windows 7 and later versions – attempting to develop NodeGui
 > applications on earlier versions of Windows might not work. NodeGui currently only supports 64bit OS.
 
-Currently supported Node.Js versions are 12.x and up.
+
+**Requirements:**
+
+- Python 2.x, Visual studio 2017
+- Currently supported Node.Js versions are 12.x and up.
+- Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
+
 
 We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
 
@@ -54,9 +63,14 @@ for JavaScript development.
 
 ## Setting up Linux
 
-> NodeGui currently supports Ubuntu 12.04 and Debian 8 and up. Although other linux distributions can also be easily supported. NodeGui currently only supports 64bit OS.
+> NodeGui currently supports Ubuntu 17.10 and Debian 10 and up. Although other linux distributions can also be easily supported. NodeGui currently only supports 64bit OS. NodeGui can technically support lower versions of linux that what is mentioned here provided gcc >= v7 and libc version >= GLIBC_2.25
 
-Currently supported Node.Js versions are 12.x and up.
+**Requirements:**
+
+- Python 2.x , Make, GCC v7
+- Currently supported Node.Js versions are 12.x and up.
+- Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
+- It is advisable to do: `On Ubuntu: $ sudo apt-get install pkg-config build-essentials`
 
 We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
 
