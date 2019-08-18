@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "oxr463",
+      "name": "Lucas Ramage",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/43783393?v=4",
+      "profile": "https://lramage.gitlab.io",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "nodegui",
+  "projectOwner": "nodegui",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
