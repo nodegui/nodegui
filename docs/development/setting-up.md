@@ -8,8 +8,8 @@ Make sure you follow the setup guide of [Qode][qode_setup] so that you have a bu
 
 **Requirements**
 
-1. Node version: > 9
-2. Python and gcc
+1. Node version: > 11
+2. Python 2.x , Make, GCC v7
 3. Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
 4. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
@@ -17,8 +17,8 @@ Make sure you follow the setup guide of [Qode][qode_setup] so that you have a bu
 
 **Requirements**
 
-1. Node version: > 9
-2. Python and Visual Studio Community 2017
+1. Node version: > 11
+2. Python 2.x and Visual Studio Community 2017
 3. Powershell
 4. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
@@ -28,7 +28,7 @@ Supported versions: Ubuntu 17.10 and up
 
 **Requirements**
 
-1. Node version: > 9
+1. Node version: > 11
 2. Python 2.x , Make, GCC v7, pkg-config
 3. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
