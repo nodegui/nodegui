@@ -1,6 +1,7 @@
 #include "src/cpp/QtGui/QApplication/qapplication_wrap.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_wrap.h"
 #include "src/cpp/QtGui/QPixmap/qpixmap_wrap.h"
+#include "src/cpp/QtGui/QIcon/qicon_wrap.h"
 #include "src/cpp/QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "src/cpp/QtWidgets/QLayout/qlayout_wrap.h"
 #include "src/cpp/QtWidgets/QLabel/qlabel_wrap.h"
@@ -23,9 +24,10 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QApplicationWrap::init(env, exports);
     QWidgetWrap::init(env, exports);
     QPixmapWrap::init(env, exports);
+    QIconWrap::init(env, exports);
     QGridLayoutWrap::init(env, exports);
     FlexLayoutWrap::init(env, exports);
-    QMainWindowWrap::init(env,exports);
+    QMainWindowWrap::init(env, exports);
     QPushButtonWrap::init(env, exports);
     QCheckBoxWrap::init(env, exports);
     QProgressBarWrap::init(env, exports);
@@ -34,6 +36,5 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QKeyEventWrap::init(env, exports);
     return QLabelWrap::init(env, exports);
 }
-
 
 NODE_API_MODULE(NODE_GYP_MODULE_NAME, Main)

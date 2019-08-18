@@ -11,16 +11,15 @@ class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
   NPushButton* instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
-  QPushButtonWrap(const Napi::CallbackInfo& info);
+  QPushButtonWrap(const Napi::CallbackInfo &info);
   ~QPushButtonWrap();
-  NPushButton* getInternalInstance();
+  NPushButton *getInternalInstance();
   //class constructor
   static Napi::FunctionReference constructor;
   //wrapped methods
-  Napi::Value setText(const Napi::CallbackInfo& info);
-  Napi::Value setFlat(const Napi::CallbackInfo& info);
-  
+  Napi::Value setText(const Napi::CallbackInfo &info);
+  Napi::Value setFlat(const Napi::CallbackInfo &info);
+  Napi::Value setIcon(const Napi::CallbackInfo &info);
+
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };
-
-

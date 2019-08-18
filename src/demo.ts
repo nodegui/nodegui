@@ -7,8 +7,11 @@ import {
   QProgressBar,
   QRadioButton,
   FlexLayout,
-  QWidget
+  QWidget,
+  QIcon,
 } from "./index";
+
+const path = require('path');
 
 const win = new QMainWindow();
 
@@ -28,6 +31,9 @@ const button = new QPushButton();
 button.setText("Push Push Push!");
 button.setObjectName("btn");
 button.setFlat(true);
+
+const icon = new QIcon(path.resolve(__dirname, '../extras/assets/start_icon.png'));
+button.setIcon(icon);
 
 const progressbar = new QProgressBar();
 progressbar.setValue(6);

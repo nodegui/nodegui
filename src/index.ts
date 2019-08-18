@@ -3,6 +3,7 @@ export { AspectRatioMode, WidgetAttribute, WindowType } from "./lib/QtEnums";
 export { QApplication } from "./lib/QtGui/QApplication";
 export { QWidget, QWidgetEvents } from "./lib/QtGui/QWidget";
 export { QPixmap } from "./lib/QtGui/QPixmap";
+export { QIcon } from "./lib/QtGui/QIcon";
 // Abstract:
 export { NodeWidget } from "./lib/QtGui/QWidget";
 export { NodeLayout } from "./lib/QtWidgets/QLayout";
