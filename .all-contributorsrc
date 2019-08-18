@@ -22,6 +22,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Naahuel",
+      "name": "Nahuel José",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1612488?v=4",
+      "profile": "https://twitter.com/nahueljo",
+      "contributions": [
+        "question"
+      ]
     }
   ],
   "contributorsPerLine": 7,
