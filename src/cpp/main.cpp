@@ -10,6 +10,7 @@
 #include "src/cpp/QtWidgets/QProgressBar/qprogressbar_wrap.h"
 #include "src/cpp/QtWidgets/QRadioButton/qradiobutton_wrap.h"
 #include "src/cpp/QtWidgets/QLineEdit/qlineedit_wrap.h"
+#include "src/cpp/QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
 #include "src/cpp/core/FlexLayout/flexlayout_wrap.h"
 #include "src/cpp/QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include <napi.h>
@@ -32,6 +33,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QRadioButtonWrap::init(env, exports);
     QLineEditWrap::init(env, exports);
     QKeyEventWrap::init(env, exports);
+    QPlainTextEditWrap::init(env, exports);
     return QLabelWrap::init(env, exports);
 }
 
