@@ -40,6 +40,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "rgabs",
+      "name": "Rahul Gaba",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7898942?v=4",
+      "profile": "http://rahulgaba.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
