@@ -31,11 +31,11 @@ https://github.com/nodegui/examples
 
 ## Features
 
-- 🧬 Cross platform. Should work on major Linux flavours, Windows and MacOS
+- 🧬 Cross platform. Should work on major Linux flavours, Windows and MacOS.
 - 📉 Low CPU and memory footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
 - 💅 Styling with CSS (includes actual cascading). Also has full support for Flexbox layout (thanks to Yoga).
 - ✅ Complete Nodejs api support (Currently runs on Node v12.x - and is easily upgradable). Hence has access to all nodejs compatible npm modules.
-- 🎪 Native widget event listener support. supports all event available from Qt / NodeJs.
+- 🎪 Native widget event listener support. Supports all events available from Qt / NodeJs.
 - 💸 Can be used for Commercial applications.
 - 🕵️‍♂️ Good Devtools support.
 - 📚 Good documentation and website.
@@ -52,15 +52,11 @@ https://github.com/nodegui/examples
 ## Getting Started
 
 - Check out [nodegui-starter](https://github.com/nodegui/nodegui-starter) to get up and running with your own React NodeGUI app!
-- Read through the [docs](https://nodegui.github.io/nodegui)
+- Read through the [docs](https://nodegui.github.io/nodegui).
 
 ## Docs for contributing
 
-Looking to contribute? If you wish to implement a new widget/add more features and need help understanding the codebase. You can start here:
-
-Contributing developer docs link:
-
-https://github.com/nodegui/nodegui/tree/master/docs/development
+Looking to contribute? If you wish to implement a new widget/add more features and need help understanding the codebase, you can start here: [Contributing developer docs](https://github.com/nodegui/nodegui/tree/master/docs/development).
 
 ## Building
 
@@ -74,4 +70,4 @@ MIT
 
 > Since we do not in any way modify the code of Qt and only link to it dynamically, I believe we are in compliance with the LGPL license requirements of QT. And hence this library can be licensed under its own License (for which we have chosen MIT License).
 > The links to QT source code and appropriate license notices are attached. We try our best to abide by the software licenses and any non compliance is not by will. If there is some discrepancy please let us know in the issues and we will try and fix it up.
-> If you follow the recommended build steps and do not statically link QT libraries on your own you are safe to use this library for commerical puropses (provided you abide by MIT License).
+> If you follow the recommended build steps and do not statically link QT libraries on your own you are safe to use this library for commerical purposes (provided you abide by MIT License).
