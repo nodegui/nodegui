@@ -9,9 +9,10 @@ import {
   FlexLayout,
   QWidget,
   QIcon,
+  QPlainTextEdit
 } from "./index";
 
-const path = require('path');
+const path = require("path");
 
 const win = new QMainWindow();
 
@@ -32,7 +33,9 @@ button.setText("Push Push Push!");
 button.setObjectName("btn");
 button.setFlat(true);
 
-const icon = new QIcon(path.resolve(__dirname, '../extras/assets/start_icon.png'));
+const icon = new QIcon(
+  path.resolve(__dirname, "../extras/assets/start_icon.png")
+);
 button.setIcon(icon);
 
 const progressbar = new QProgressBar();
@@ -46,6 +49,9 @@ radioButton.setText("Roger that!");
 const rootView = new QWidget();
 rootView.setObjectName("root");
 rootView.setLayout(new FlexLayout());
+const textEdit = new QPlainTextEdit();
+textEdit.setPlainText("Hello");
+
 if (rootView.layout) {
   rootView.layout.addWidget(label);
   rootView.layout.addWidget(checkbox);
@@ -53,6 +59,7 @@ if (rootView.layout) {
   rootView.layout.addWidget(lineEdit);
   rootView.layout.addWidget(button);
   rootView.layout.addWidget(progressbar);
+  rootView.layout.addWidget(textEdit);
 }
 
 win.setCentralWidget(rootView);

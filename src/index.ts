@@ -15,7 +15,10 @@ export { QMainWindow, QMainWindowEvents } from "./lib/QtWidgets/QMainWindow";
 export { QProgressBar, QProgressBarEvents } from "./lib/QtWidgets/QProgressBar";
 export { QPushButton, QPushButtonEvents } from "./lib/QtWidgets/QPushButton";
 export { QRadioButton, QRadioButtonEvents } from "./lib/QtWidgets/QRadioButton";
-export { QPlainTextEdit } from "./lib/QtWidgets/QPlainTextEdit";
+export {
+  QPlainTextEdit,
+  QPlainTextEditEvents
+} from "./lib/QtWidgets/QPlainTextEdit";
 // Layouts:
 export { QGridLayout } from "./lib/QtWidgets/QGridLayout";
 export { FlexLayout } from "./lib/core/FlexLayout";

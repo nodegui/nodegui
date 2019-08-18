@@ -3,9 +3,9 @@ import { NodeWidget } from "../../QtGui/QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 
-// export const QPlainTextEditEvents = Object.freeze({
-//   ...BaseWidgetEvents
-// });
+export const QPlainTextEditEvents = Object.freeze({
+  ...BaseWidgetEvents
+});
 export class QPlainTextEdit extends NodeWidget {
   native: NativeElement;
   constructor(parent?: NodeWidget) {
@@ -19,9 +19,9 @@ export class QPlainTextEdit extends NodeWidget {
     this.native = native;
     this.parent = parent;
     // bind member functions
-    this.setText.bind(this);
+    this.setPlainText.bind(this);
   }
-  setText(text: string | number) {
-    this.native.setText(`${text}`);
+  setPlainText(text: string | number) {
+    this.native.setPlainText(`${text}`);
   }
 }
