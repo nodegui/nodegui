@@ -25,5 +25,6 @@
         "../src/cpp/QtWidgets/QProgressBar/qprogressbar_wrap.cpp",
         "../src/cpp/QtWidgets/QRadioButton/qradiobutton_wrap.cpp",
         "../src/cpp/QtWidgets/QLineEdit/qlineedit_wrap.cpp",
+        "../src/cpp/QtWidgets/QPlainTextEdit/qplaintextedit_wrap.cpp",
     ],
 }

@@ -9,6 +9,7 @@
         "../src/cpp/autogen/nmainwindow_moc.cpp",
         "../src/cpp/autogen/nprogressbar_moc.cpp",
         "../src/cpp/autogen/npushbutton_moc.cpp",
-        "../src/cpp/autogen/nradiobutton_moc.cpp"
+        "../src/cpp/autogen/nradiobutton_moc.cpp",
+        "../src/cpp/autogen/nplaintextedit_moc.cpp"
     ]
 }
