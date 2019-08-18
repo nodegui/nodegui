@@ -73,6 +73,20 @@ MIT
 > The links to QT source code and appropriate license notices are attached. We try our best to abide by the software licenses and any non compliance is not by will. If there is some discrepancy please let us know in the issues and we will try and fix it up.
 > If you follow the recommended build steps and do not statically link QT libraries on your own you are safe to use this library for commerical purposes (provided you abide by MIT License).
 
+## Maintainers ✨
+
+People maintaining this project.
+
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://blog.atulr.com"><img src="https://avatars2.githubusercontent.com/u/4029423?v=4" width="100px;" alt="Atul R"/><br /><sub><b>Atul R</b></sub></a></td>
+       <td align="center"><a href="https://github.com/rgabs"><img src="https://avatars3.githubusercontent.com/u/7898942?v=4" width="100px;" alt="Rahul Gaba"/><br /><sub><b>Rahul Gaba</b></sub></a></td>
+    <td align="center"><a href="https://github.com/kakulgupta"><img src="https://avatars2.githubusercontent.com/u/10727047?v=4" width="100px;" alt="Kakul Gupta"/><br /><sub><b>Kakul Gupta</b></sub></a></td>
+  </tr>
+</table>
+
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
