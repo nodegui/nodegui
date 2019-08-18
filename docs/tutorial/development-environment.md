@@ -92,7 +92,7 @@ for JavaScript development.
 
 ## A Good Editor
 
-We might suggest two free popular editors built in NodeGui:
+We might suggest two free popular editors:
 GitHub's [Atom][atom] and Microsoft's [Visual Studio Code][code]. Both of
 them have excellent JavaScript support.
 
