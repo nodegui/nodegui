@@ -46,3 +46,9 @@ Sets the given text to the button.
 Sets whether the button border is raised.
 
 - `isFlat` boolean
+
+#### `button.setIcon(icon)`
+
+Sets an icon in the button.
+
+- `icon` QIcon

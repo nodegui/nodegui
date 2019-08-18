@@ -2,6 +2,7 @@ import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
+import { QIcon } from "../../QtGui/QIcon";
 
 export const QPushButtonEvents = Object.freeze({
   ...BaseWidgetEvents,
@@ -34,5 +35,9 @@ export class QPushButton extends NodeWidget {
 
   setFlat(isFlat: boolean) {
     this.native.setFlat(isFlat);
+  }
+
+  setIcon(icon: QIcon) {
+    this.native.setIcon(icon.native);
   }
 }
