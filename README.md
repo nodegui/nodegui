@@ -81,8 +81,6 @@ People maintaining this project.
 <table>
   <tr>
     <td align="center"><a href="https://blog.atulr.com"><img src="https://avatars2.githubusercontent.com/u/4029423?v=4" width="100px;" alt="Atul R"/><br /><sub><b>Atul R</b></sub></a></td>
-       <td align="center"><a href="https://github.com/rgabs"><img src="https://avatars3.githubusercontent.com/u/7898942?v=4" width="100px;" alt="Rahul Gaba"/><br /><sub><b>Rahul Gaba</b></sub></a></td>
-    <td align="center"><a href="https://github.com/kakulgupta"><img src="https://avatars2.githubusercontent.com/u/10727047?v=4" width="100px;" alt="Kakul Gupta"/><br /><sub><b>Kakul Gupta</b></sub></a></td>
   </tr>
 </table>
 
