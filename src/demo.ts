@@ -58,7 +58,7 @@ lineEditLabel.setText("PlainTextEdit's bound Value");
 const textEdit = new QPlainTextEdit();
 textEdit.setPlainText("Hello");
 
-textEdit.addEventListener(QPlainTextEditEvents.textChanged, (value: string) => {
+textEdit.addEventListener(QPlainTextEditEvents.textChanged, () => {
   lineEditLabel.setText(textEdit.toPlainText());
 });
 
