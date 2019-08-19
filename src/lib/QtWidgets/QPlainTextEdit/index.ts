@@ -4,8 +4,10 @@ import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 
 export const QPlainTextEditEvents = Object.freeze({
-  ...BaseWidgetEvents
+  ...BaseWidgetEvents,
+  textChanged: "textChanged",
 });
+
 export class QPlainTextEdit extends NodeWidget {
   native: NativeElement;
   constructor(parent?: NodeWidget) {
@@ -20,8 +22,12 @@ export class QPlainTextEdit extends NodeWidget {
     this.parent = parent;
     // bind member functions
     this.setPlainText.bind(this);
+    this.toPlainText.bind(this);
   }
   setPlainText(text: string | number) {
     this.native.setPlainText(`${text}`);
+  }
+  toPlainText() {
+    return this.native.toPlainText();
   }
 }

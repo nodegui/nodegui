@@ -31,3 +31,13 @@ QPlainTextEdit can access all the instance properties defined in [NodeWidget](ap
 ### Instance Methods
 
 QPlainTextEdit can access all the instance methods defined in [NodeWidget](api/NodeWidget.md).
+
+#### [`plainTextEdit.setPlainText(text)`](https://doc.qt.io/qt-5/qplaintextedit.html#setPlainText)
+
+Sets the given text to the plainTextEdit.
+
+- `text` string
+
+#### [`plainTextEdit.toPlainText()`](https://doc.qt.io/qt-5/qplaintextedit.html#toPlainText)
+
+Returns the text of the text edit as plain text.
