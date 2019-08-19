@@ -59,7 +59,7 @@ const textEdit = new QPlainTextEdit();
 textEdit.setPlainText("Hello");
 
 textEdit.addEventListener(QPlainTextEditEvents.textChanged, (value: string) => {
-  lineEditLabel.setText(textEdit.plainText());
+  lineEditLabel.setText(textEdit.toPlainText());
 });
 
 if (rootView.layout) {

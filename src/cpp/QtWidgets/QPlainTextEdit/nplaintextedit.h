@@ -13,7 +13,6 @@ public:
   void connectWidgetSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QPlainTextEdit::textChanged, [=]() {
-      QString str = this->toPlainText();
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
       this->emitOnNode.Call({Napi::String::New(env, "textChanged")});
