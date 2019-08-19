@@ -57,8 +57,9 @@ lineEditLabel.setInlineStyle("font-size: 12px;");
 lineEditLabel.setText("PlainTextEdit's bound Value");
 const textEdit = new QPlainTextEdit();
 textEdit.setPlainText("Hello");
+
 textEdit.addEventListener(QPlainTextEditEvents.textChanged, (value: string) => {
-  lineEditLabel.setText(value);
+  lineEditLabel.setText(textEdit.plainText());
 });
 
 if (rootView.layout) {

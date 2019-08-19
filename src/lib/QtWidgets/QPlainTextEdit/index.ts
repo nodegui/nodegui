@@ -22,8 +22,12 @@ export class QPlainTextEdit extends NodeWidget {
     this.parent = parent;
     // bind member functions
     this.setPlainText.bind(this);
+    this.plainText.bind(this);
   }
   setPlainText(text: string | number) {
     this.native.setPlainText(`${text}`);
+  }
+  plainText() {
+    return this.native.plainText();
   }
 }

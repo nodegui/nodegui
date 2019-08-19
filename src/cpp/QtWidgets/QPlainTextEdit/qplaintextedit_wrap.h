@@ -19,5 +19,6 @@ class QPlainTextEditWrap : public  Napi::ObjectWrap<QPlainTextEditWrap>{
 
   QWIDGET_WRAPPED_METHODS_DECLARATION
   Napi::Value setPlainText(const Napi::CallbackInfo& info);
+  Napi::Value plainText(const Napi::CallbackInfo &info);
 };
 

@@ -16,7 +16,7 @@ public:
       QString str = this->toPlainText();
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
-      this->emitOnNode.Call({Napi::String::New(env, "textChanged"), Napi::Value::From(env, str.toStdString())});
+      this->emitOnNode.Call({Napi::String::New(env, "textChanged")});
     });
   }
 };
