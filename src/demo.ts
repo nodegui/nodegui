@@ -9,7 +9,8 @@ import {
   FlexLayout,
   QWidget,
   QIcon,
-  QPlainTextEdit
+  QPlainTextEdit,
+  QPlainTextEditEvents
 } from "./index";
 
 const path = require("path");
@@ -27,6 +28,7 @@ checkbox.setObjectName("check");
 const lineEdit = new QLineEdit();
 lineEdit.setPlaceholderText("Enter your thoughts here");
 lineEdit.setObjectName("editable");
+
 
 const button = new QPushButton();
 button.setText("Push Push Push!");
@@ -49,8 +51,15 @@ radioButton.setText("Roger that!");
 const rootView = new QWidget();
 rootView.setObjectName("root");
 rootView.setLayout(new FlexLayout());
+
+const lineEditLabel = new QLabel();
+lineEditLabel.setInlineStyle("font-size: 12px;");
+lineEditLabel.setText("PlainTextEdit's bound Value");
 const textEdit = new QPlainTextEdit();
 textEdit.setPlainText("Hello");
+textEdit.addEventListener(QPlainTextEditEvents.textChanged, (value: string) => {
+  lineEditLabel.setText(value);
+});
 
 if (rootView.layout) {
   rootView.layout.addWidget(label);
@@ -60,6 +69,7 @@ if (rootView.layout) {
   rootView.layout.addWidget(button);
   rootView.layout.addWidget(progressbar);
   rootView.layout.addWidget(textEdit);
+  rootView.layout.addWidget(lineEditLabel);
 }
 
 win.setCentralWidget(rootView);

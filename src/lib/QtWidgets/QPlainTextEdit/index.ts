@@ -4,8 +4,10 @@ import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 
 export const QPlainTextEditEvents = Object.freeze({
-  ...BaseWidgetEvents
+  ...BaseWidgetEvents,
+  textChanged: "textChanged",
 });
+
 export class QPlainTextEdit extends NodeWidget {
   native: NativeElement;
   constructor(parent?: NodeWidget) {
