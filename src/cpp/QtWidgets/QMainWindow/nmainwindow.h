@@ -22,11 +22,11 @@ private:
             }
             default: ; // do nothing
         }
-        return false;
+        return QMainWindow::eventFilter(object, event);
     }
     void resizeEvent(QResizeEvent * event){
         calculateLayout();
-        QWidget::resizeEvent(event);
+        QMainWindow::resizeEvent(event);
     }
 };
 
