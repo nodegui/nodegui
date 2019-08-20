@@ -20,6 +20,7 @@ class QLineEditWrap : public  Napi::ObjectWrap<QLineEditWrap>{
   Napi::Value text(const Napi::CallbackInfo& info);
   Napi::Value setPlaceholderText(const Napi::CallbackInfo &info);
   Napi::Value setReadOnly(const Napi::CallbackInfo &info);
+  Napi::Value clear(const Napi::CallbackInfo& info);
 
   QWIDGET_WRAPPED_METHODS_DECLARATION
  

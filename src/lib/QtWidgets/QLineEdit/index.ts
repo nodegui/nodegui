@@ -45,4 +45,7 @@ export class QLineEdit extends NodeWidget {
   setReadOnly(isReadOnly: boolean) {
     this.native.setReadOnly(isReadOnly);
   }
+  clear() {
+    this.native.clear();
+  }
 }

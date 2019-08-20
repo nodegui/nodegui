@@ -57,3 +57,7 @@ Returns the currently set text from native lineEdit widget.
 Sets the lineEdit to be read only. lineEdit property holds whether the line edit is read only.
 
 - `isReadOnly` boolean
+
+#### `lineEdit.clear()`
+
+Clears the lineEdit.
