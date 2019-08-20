@@ -6,7 +6,7 @@
 
 class NPlainTextEdit : public QPlainTextEdit, public NodeWidget
 {
-  NODEWIDGET_IMPLEMENTATIONS
+  NODEWIDGET_IMPLEMENTATIONS(QPlainTextEdit)
 public:
   using QPlainTextEdit::QPlainTextEdit; //inherit all constructors of QPlainTextEdit
 

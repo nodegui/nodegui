@@ -104,7 +104,7 @@ Also make sure to connect all the signals of the widgets to the event emitter in
 
 class NPushButton: public QPushButton, public NodeWidget
 {
-    NODEWIDGET_IMPLEMENTATIONS
+    NODEWIDGET_IMPLEMENTATIONS(QPushButton)
 public:
     using QPushButton::QPushButton; //inherit all constructors of QPushButton
 

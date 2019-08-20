@@ -5,7 +5,7 @@
 
 class NRadioButton: public QRadioButton, public NodeWidget
 {   
-    NODEWIDGET_IMPLEMENTATIONS
+    NODEWIDGET_IMPLEMENTATIONS(QRadioButton)
 public:
     using QRadioButton::QRadioButton; //inherit all constructors of QRadioButton
 };

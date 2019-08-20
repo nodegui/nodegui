@@ -6,7 +6,7 @@
 
 class NMainWindow: public QMainWindow, public NodeWidget
 {
-    NODEWIDGET_IMPLEMENTATIONS
+    NODEWIDGET_IMPLEMENTATIONS(QMainWindow)
 public:
     using QMainWindow::QMainWindow; //inherit all constructors of QMainWindow
 private:

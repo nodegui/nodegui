@@ -5,7 +5,7 @@
 
 class NLineEdit: public QLineEdit, public NodeWidget
 {
-    NODEWIDGET_IMPLEMENTATIONS
+    NODEWIDGET_IMPLEMENTATIONS(QLineEdit)
 public:
     using QLineEdit::QLineEdit; //inherit all constructors of QLineEdit
 

@@ -6,7 +6,7 @@
 
 class NPushButton: public QPushButton, public NodeWidget
 {
-    NODEWIDGET_IMPLEMENTATIONS
+    NODEWIDGET_IMPLEMENTATIONS(QPushButton)
 public:
     using QPushButton::QPushButton; //inherit all constructors of QPushButton
 

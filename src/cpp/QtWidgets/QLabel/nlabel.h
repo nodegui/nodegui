@@ -5,7 +5,7 @@
 
 class NLabel: public QLabel, public NodeWidget
 {
-    NODEWIDGET_IMPLEMENTATIONS
+    NODEWIDGET_IMPLEMENTATIONS(QLabel)
 public:
     using QLabel::QLabel; //inherit all constructors of QLabel
 };

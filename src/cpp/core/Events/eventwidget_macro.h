@@ -46,10 +46,10 @@ Napi::Value unSubscribeToQtEvent(const Napi::CallbackInfo& info){ \
 
 
 #ifndef EVENTWIDGET_IMPLEMENTATIONS
-#define EVENTWIDGET_IMPLEMENTATIONS \
+#define EVENTWIDGET_IMPLEMENTATIONS(BaseWidgetName) \
     bool event(QEvent* event) {  \
         EventWidget::event(event); \
-        return QWidget::event(event); \
+        return BaseWidgetName::event(event); \
     } \
     
 #endif //EVENTWIDGET_IMPLEMENTATIONS

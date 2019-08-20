@@ -5,7 +5,7 @@
 
 class NProgressBar: public QProgressBar, public NodeWidget
 {
-    NODEWIDGET_IMPLEMENTATIONS
+    NODEWIDGET_IMPLEMENTATIONS(QProgressBar)
 public:
     using QProgressBar::QProgressBar; //inherit all constructors of QProgressBar
 };

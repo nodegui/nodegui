@@ -7,7 +7,7 @@
 
 class NWidget: public QWidget, public NodeWidget
 {
-    NODEWIDGET_IMPLEMENTATIONS
+    NODEWIDGET_IMPLEMENTATIONS(QWidget)
 public:
     using QWidget::QWidget;
     // https://doc.qt.io/qt-5/stylesheet-reference.html
