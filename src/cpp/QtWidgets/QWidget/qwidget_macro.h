@@ -69,6 +69,14 @@ Napi::Value hide(const Napi::CallbackInfo& info) { \
     this->instance->hide(); \
     return env.Null(); \
 } \
+Napi::Value move(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  int x = info[0].As<Napi::Number>().Int32Value(); \
+  int y = info[1].As<Napi::Number>().Int32Value(); \
+  this->instance->move(x, y); \
+  return env.Null(); \
+} \
 \
 Napi::Value setObjectName(const Napi::CallbackInfo& info){ \
     Napi::Env env = info.Env(); \
@@ -105,6 +113,16 @@ Napi::Value setFixedSize(const Napi::CallbackInfo& info){ \
   this->instance->setFixedSize(width, height); \
   return env.Null(); \
 } \
+Napi::Value setGeometry(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  int x = info[0].As<Napi::Number>().Int32Value(); \
+  int y = info[1].As<Napi::Number>().Int32Value(); \
+  int width = info[2].As<Napi::Number>().Int32Value(); \
+  int height = info[3].As<Napi::Number>().Int32Value(); \
+  this->instance->setGeometry(x, y, width, height); \
+  return env.Null(); \
+} \
 Napi::Value setMaximumSize(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
@@ -138,6 +156,15 @@ Napi::Value updateGeometry(const Napi::CallbackInfo& info){ \
   Napi::HandleScope scope(env); \
   this->instance->updateGeometry(); \
   return env.Null(); \
+} \
+Napi::Value pos(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  QPoint pos = this->instance->pos(); \
+  Napi::Object posObj = Napi::Object::New(env); \
+  posObj.Set("x", pos.x()); \
+  posObj.Set("y", pos.y()); \
+  return posObj; \
 } \
 Napi::Value size(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
@@ -194,16 +221,19 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
  InstanceMethod("setStyleSheet",&WidgetWrapName::setStyleSheet), \
  InstanceMethod("styleSheet",&WidgetWrapName::styleSheet), \
  InstanceMethod("hide",&WidgetWrapName::hide), \
+ InstanceMethod("move",&WidgetWrapName::move), \
  InstanceMethod("setObjectName",&WidgetWrapName::setObjectName), \
  InstanceMethod("objectName",&WidgetWrapName::objectName), \
  InstanceMethod("setMouseTracking",&WidgetWrapName::setMouseTracking), \
  InstanceMethod("setEnabled",&WidgetWrapName::setEnabled), \
  InstanceMethod("setFixedSize",&WidgetWrapName::setFixedSize), \
+ InstanceMethod("setGeometry",&WidgetWrapName::setGeometry), \
  InstanceMethod("setMaximumSize",&WidgetWrapName::setMaximumSize), \
  InstanceMethod("setMinimumSize",&WidgetWrapName::setMinimumSize), \
  InstanceMethod("repaint",&WidgetWrapName::repaint), \
  InstanceMethod("update",&WidgetWrapName::update), \
  InstanceMethod("updateGeometry",&WidgetWrapName::updateGeometry), \
+ InstanceMethod("pos",&WidgetWrapName::pos), \
  InstanceMethod("size",&WidgetWrapName::size), \
  InstanceMethod("setAttribute",&WidgetWrapName::setAttribute), \
  InstanceMethod("testAttribute",&WidgetWrapName::testAttribute), \

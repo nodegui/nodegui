@@ -90,6 +90,13 @@ Gets the property that holds the widget's style sheet. It calls the native metho
 
 Hides the widget and its children. It calls the native method [QWidget: hide](https://doc.qt.io/qt-5/qwidget.html#hide).
 
+#### `widget.move(x, y)`
+
+Sets the screen position of the widget. It calls the native method [QWidget: move](https://doc.qt.io/qt-5/qwidget.html#move-1).
+
+- `x` number - Pixels.
+- `y` number - Pixels.
+
 #### `widget.setObjectName(objectName)`
 
 Sets the object name of the widget in Qt. It calls the native method [QObject: setObjectName](https://doc.qt.io/qt-5/qobject.html#objectName-prop). Object name can be analogous to `id` of an element in the web world. Using the objectName of the widget one can reference it in the Qt's stylesheet much like what we do with id in the web world.
@@ -119,6 +126,15 @@ Sets both the minimum and maximum sizes of the widget. It calls the native metho
 - `width` number - Pixels.
 - `height` number - Pixels.
 
+#### `widget.setGeometry(x, y, width, height)`
+
+Sets the screen position as well as size of the widget. It calls the native method [QWidget: setGeometry](https://doc.qt.io/qt-5/qwidget.html#setGeometry-1).
+
+- `x` number - Pixels.
+- `y` number - Pixels.
+- `width` number - Pixels.
+- `height` number - Pixels.
+
 #### `widget.setMaximumSize(width, height)`
 
 Sets the maximum size of the widget. It calls the native method [QWidget: setMaximumSize](https://doc.qt.io/qt-5/qwidget.html#setMaximumSize-1).
@@ -140,6 +156,10 @@ Repaints the widget. It calls the native method [QWidget: repaint](https://doc.q
 #### `widget.update()`
 
 Updates the widget. It calls the native method [QWidget: update](https://doc.qt.io/qt-5/qwidget.html#update).
+
+#### `widget.pos()`
+
+returns the current widget position. It calls the native method [QWidget: pos](https://doc.qt.io/qt-5/qwidget.html#pos-prop). The returned size object contains x and y coordinates in pixels.
 
 #### `widget.size()`
 

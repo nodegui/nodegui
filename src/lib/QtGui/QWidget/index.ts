@@ -46,6 +46,9 @@ export abstract class NodeWidget extends EventWidget {
   hide = () => {
     this.native.hide();
   };
+  move = (x: number, y: number) => {
+    this.native.move(x, y);
+  };
   setObjectName = (objectName: string) => {
     this.native.setObjectName(objectName);
   };
@@ -61,6 +64,9 @@ export abstract class NodeWidget extends EventWidget {
   setFixedSize = (width: number, height: number) => {
     this.native.setFixedSize(width, height);
   };
+  setGeometry = (x: number, y: number, w: number, h: number) => {
+    this.native.setGeometry(x, y, w, h);
+  };
   setMaximumSize = (maxw: number, maxh: number) => {
     this.native.setMaximumSize(maxw, maxh);
   };
@@ -75,6 +81,9 @@ export abstract class NodeWidget extends EventWidget {
   };
   updateGeometry = () => {
     this.native.updateGeometry();
+  };
+  pos = (): { x: number; y: number } => {
+    return this.native.pos();
   };
   size = (): { width: number; height: number } => {
     return this.native.size();
