@@ -3,6 +3,7 @@
   "version": "0.1.4",
   "description": "A cross platform library to build native desktop apps.",
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "config",
