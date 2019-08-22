@@ -7,13 +7,15 @@ NodeGUI is powered by **Qt5** 💚 which makes it CPU and memory efficient as co
 
 If you are looking for **React** based version, check out: **[React NodeGUI](https://github.com/nodegui/react-nodegui)**.
 
+<img alt="logo" src="https://github.com/nodegui/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
+
+
 **Other known ports:**
 
 - Angular + NodeGUI - https://github.com/marcus-sa/ngq by @marcus-sa
 
 Visit: https://nodegui.github.io/nodegui for docs.
 
-<img alt="logo" src="https://github.com/nodegui/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
 
 ## How does it look?
 
