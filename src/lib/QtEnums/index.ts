@@ -124,3 +124,8 @@ export enum WidgetAttribute {
   WA_AlwaysStackOnTop = 128,
   WA_ContentsMarginsRespectsSafeArea = 13
 }
+
+export enum Orientation {
+	Horizontal = 1,
+	Vertical = 2
+}

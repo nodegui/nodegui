@@ -18,6 +18,7 @@ class QProgressBarWrap : public  Napi::ObjectWrap<QProgressBarWrap>{
   Napi::Value setValue(const Napi::CallbackInfo& info);
   Napi::Value setMaximum(const Napi::CallbackInfo& info);
   Napi::Value setMinimum(const Napi::CallbackInfo& info);
+  Napi::Value setOrientation(const Napi::CallbackInfo& info);
   Napi::Value value(const Napi::CallbackInfo& info);
 
   QWIDGET_WRAPPED_METHODS_DECLARATION

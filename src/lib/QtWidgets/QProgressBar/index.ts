@@ -2,6 +2,7 @@ import addon from "../../core/addon";
 import { NodeWidget } from "../../QtGui/QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
+import { Orientation } from "../../QtEnums";
 
 export const QProgressBarEvents = Object.freeze({
   ...BaseWidgetEvents
@@ -22,6 +23,7 @@ export class QProgressBar extends NodeWidget {
     this.setValue.bind(this);
     this.setMinimum.bind(this);
     this.setMaximum.bind(this);
+	this.setOrientation.bind(this);
     this.value.bind(this);
   }
   setValue(value: number) {
@@ -32,6 +34,9 @@ export class QProgressBar extends NodeWidget {
   }
   setMaximum(max: number) {
     this.native.setMaximum(max);
+  }
+  setOrientation(orientation: Orientation) {
+    this.native.setOrientation(orientation);
   }
   value(): number {
     return this.native.value();
