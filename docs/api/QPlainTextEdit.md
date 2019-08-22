@@ -41,3 +41,7 @@ Sets the given text to the plainTextEdit.
 #### [`plainTextEdit.toPlainText()`](https://doc.qt.io/qt-5/qplaintextedit.html#toPlainText)
 
 Returns the text of the text edit as plain text.
+
+#### [`plainTextEdit.clear()`](https://doc.qt.io/qt-5/qplaintextedit.html#clear)
+
+Deletes all the text in the text edit.
