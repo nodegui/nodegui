@@ -13,6 +13,7 @@ Napi::Object QPlainTextEditWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setPlainText",&QPlainTextEditWrap::setPlainText),
     InstanceMethod("toPlainText",&QPlainTextEditWrap::toPlainText),
+    InstanceMethod("clear", &QPlainTextEditWrap::clear),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPlainTextEditWrap)
   });
   constructor = Napi::Persistent(func);
@@ -57,4 +58,11 @@ Napi::Value QPlainTextEditWrap::toPlainText(const Napi::CallbackInfo &info){
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->toPlainText().toStdString());
+}
+
+Napi::Value QPlainTextEditWrap::clear(const Napi::CallbackInfo &info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->clear();
+  return env.Null();
 }
