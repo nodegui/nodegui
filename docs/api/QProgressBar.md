@@ -50,6 +50,12 @@ Sets the min value of the progressBar. It calls the native method [QProgressBar:
 
 - `min` number - Set the value as min value of the progress bar.
 
+#### `progressBar.setOrientation(orientation)`
+
+Sets the orientation of the progressBar. It calls the native method [QProgressBar: setOrientation](https://doc.qt.io/qt-5/qprogressbar.html#orientation-prop).
+
+- `orientation` Orientation - Specifies visual orientation of the progress bar. [Orientation is an enum from Qt](api/QtEnums.md)
+
 #### `progressBar.value()`
 
 Returns the current value (Number) of the progressBar. It calls the native method [QProgressBar: value](https://doc.qt.io/qt-5/qprogressbar.html#value-prop).

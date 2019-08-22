@@ -14,6 +14,7 @@ Napi::Object QProgressBarWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("setValue", &QProgressBarWrap::setValue),
     InstanceMethod("setMaximum", &QProgressBarWrap::setMaximum),
     InstanceMethod("setMinimum", &QProgressBarWrap::setMinimum),
+    InstanceMethod("setOrientation", &QProgressBarWrap::setOrientation),
     InstanceMethod("value", &QProgressBarWrap::value),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QProgressBarWrap)
   });
@@ -68,6 +69,14 @@ Napi::Value QProgressBarWrap::setMinimum(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
   Napi::Number value = info[0].As<Napi::Number>();
   this->instance->setMinimum(value.Int32Value()); 
+  return env.Null();
+}
+
+Napi::Value QProgressBarWrap::setOrientation(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Number value = info[0].As<Napi::Number>();
+  this->instance->setOrientation(static_cast<Qt::Orientation>(value.Int32Value())); 
   return env.Null();
 }
 
