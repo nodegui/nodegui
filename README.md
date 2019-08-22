@@ -5,7 +5,11 @@ Build **performant**, **native** and **cross-platform** desktop applications wit
 
 NodeGUI is powered by **Qt5** 💚 which makes it CPU and memory efficient as compared to other chromium based solutions like electron.
 
-If you are looking for React based version, check out: [React NodeGUI](https://github.com/nodegui/react-nodegui).
+If you are looking for **React** based version, check out: **[React NodeGUI](https://github.com/nodegui/react-nodegui)**.
+
+**Other known ports:**
+
+- Angular + NodeGUI - https://github.com/marcus-sa/ngq by @marcus-sa
 
 Visit: https://nodegui.github.io/nodegui for docs.
 
