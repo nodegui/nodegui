@@ -126,6 +126,6 @@ export enum WidgetAttribute {
 }
 
 export enum Orientation {
-	Horizontal = 1,
-	Vertical = 2
+  Horizontal = 1,
+  Vertical = 2
 }

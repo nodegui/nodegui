@@ -14,7 +14,7 @@ Napi::Object QProgressBarWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("setValue", &QProgressBarWrap::setValue),
     InstanceMethod("setMaximum", &QProgressBarWrap::setMaximum),
     InstanceMethod("setMinimum", &QProgressBarWrap::setMinimum),
-	InstanceMethod("setOrientation", &QProgressBarWrap::setOrientation),
+    InstanceMethod("setOrientation", &QProgressBarWrap::setOrientation),
     InstanceMethod("value", &QProgressBarWrap::value),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QProgressBarWrap)
   });

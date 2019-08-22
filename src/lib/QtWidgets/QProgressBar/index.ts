@@ -23,7 +23,7 @@ export class QProgressBar extends NodeWidget {
     this.setValue.bind(this);
     this.setMinimum.bind(this);
     this.setMaximum.bind(this);
-	this.setOrientation.bind(this);
+    this.setOrientation.bind(this);
     this.value.bind(this);
   }
   setValue(value: number) {
