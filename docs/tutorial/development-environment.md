@@ -74,8 +74,6 @@ for JavaScript development.
 
 We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
 
-We strongly recommend Powershell as preferred terminal in Windows.
-
 Confirm that both `node` and `npm` are available by running:
 
 ```sh
