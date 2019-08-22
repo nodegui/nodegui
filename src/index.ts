@@ -1,5 +1,5 @@
 // enums
-export { AspectRatioMode, WidgetAttribute, WindowType } from "./lib/QtEnums";
+export * from "./lib/QtEnums";
 export { QApplication } from "./lib/QtGui/QApplication";
 export { QWidget, QWidgetEvents } from "./lib/QtGui/QWidget";
 export { QPixmap } from "./lib/QtGui/QPixmap";

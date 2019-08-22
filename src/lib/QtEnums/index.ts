@@ -1,131 +1,81 @@
-export enum AspectRatioMode {
-  "IgnoreAspectRatio",
-  "KeepAspectRatio",
-  "KeepAspectRatioByExpanding"
-}
 
-export enum WindowType {
-  Widget = 0x00000000,
-  Window = 0x00000001,
-  Dialog = 0x00000002,
-  Sheet = 0x00000004,
-  Popup = 0x00000008,
-  Desktop = 0x00000010,
-  SubWindow = 0x00000012,
-  ForeignWindow = 0x00000020,
-  CoverWindow = 0x00000040,
-  MSWindowsFixedSizeDialogHint = 0x00000100,
-  MSWindowsOwnDC = 0x00000200,
-  BypassWindowManagerHint = 0x00000400,
-  FramelessWindowHint = 0x00000800,
-  NoDropShadowWindowHint = 0x40000000,
-  CustomizeWindowHint = 0x02000000,
-  WindowTitleHint = 0x00001000,
-  WindowSystemMenuHint = 0x00002000,
-  WindowMinimizeButtonHint = 0x00004000,
-  WindowMaximizeButtonHint = 0x00008000,
-  WindowCloseButtonHint = 0x08000000,
-  WindowContextHelpButtonHint = 0x00010000,
-  MacWindowToolBarButtonHint = 0x10000000,
-  WindowFullscreenButtonHint = 0x80000000,
-  BypassGraphicsProxyWidget = 0x20000000,
-  WindowShadeButtonHint = 0x00020000,
-  WindowStaysOnTopHint = 0x00040000,
-  WindowStaysOnBottomHint = 0x04000000,
-  WindowTransparentForInput = 0x00080000,
-  WindowOverridesSystemGestures = 0x00100000,
-  WindowDoesNotAcceptFocus = 0x00200000,
-  MaximizeUsingFullscreenGeometryHint = 0x00400000,
-  WindowType_Mask = 0x000000ff
-}
-
-export enum WidgetAttribute {
-  WA_AcceptDrops = 78,
-  WA_AlwaysShowToolTips = 84,
-  WA_ContentsPropagated = 3,
-  WA_CustomWhatsThis = 47,
-  WA_DeleteOnClose = 55,
-  WA_Disabled = 0,
-  WA_DontShowOnScreen = 103,
-  WA_ForceDisabled = 32,
-  WA_ForceUpdatesDisabled = 59,
-  WA_GroupLeader = 72,
-  WA_Hover = 74,
-  WA_InputMethodEnabled = 14,
-  WA_KeyboardFocusChange = 77,
-  WA_KeyCompression = 33,
-  WA_LayoutOnEntireRect = 48,
-  WA_LayoutUsesWidgetRect = 92,
-  WA_MacNoClickThrough = 12,
-  WA_MacOpaqueSizeGrip = 85,
-  WA_MacShowFocusRect = 88,
-  WA_MacNormalSize = 89,
-  WA_MacSmallSize = 90,
-  WA_MacMiniSize = 91,
-  WA_MacVariableSize = 102,
-  WA_MacBrushedMetal = 46,
-  WA_Mapped = 11,
-  WA_MouseNoMask = 71,
-  WA_MouseTracking = 2,
-  WA_Moved = 43,
-  WA_MSWindowsUseDirect3D = 94,
-  WA_NoChildEventsForParent = 58,
-  WA_NoChildEventsFromChildren = 39,
-  WA_NoMouseReplay = 54,
-  WA_NoMousePropagation = 73,
-  WA_TransparentForMouseEvents = 51,
-  WA_NoSystemBackground = 9,
-  WA_OpaquePaintEvent = 4,
-  WA_OutsideWSRange = 49,
-  WA_PaintOnScreen = 8,
-  WA_PaintUnclipped = 52,
-  WA_PendingMoveEvent = 34,
-  WA_PendingResizeEvent = 35,
-  WA_QuitOnClose = 76,
-  WA_Resized = 42,
-  WA_RightToLeft = 56,
-  WA_SetCursor = 38,
-  WA_SetFont = 37,
-  WA_SetPalette = 36,
-  WA_SetStyle = 86,
-  WA_ShowModal = 70,
-  WA_StaticContents = 5,
-  WA_StyleSheet = 97,
-  WA_StyleSheetTarget = 131,
-  WA_TabletTracking = 129,
-  WA_TranslucentBackground = 120,
-  WA_UnderMouse = 1,
-  WA_UpdatesDisabled = 10,
-  WA_WindowModified = 41,
-  WA_WindowPropagation = 80,
-  WA_MacAlwaysShowToolWindow = 96,
-  WA_SetLocale = 87,
-  WA_StyledBackground = 93,
-  WA_ShowWithoutActivating = 98,
-  WA_NativeWindow = 100,
-  WA_DontCreateNativeAncestors = 101,
-  WA_X11NetWmWindowTypeDesktop = 104,
-  WA_X11NetWmWindowTypeDock = 105,
-  WA_X11NetWmWindowTypeToolBar = 106,
-  WA_X11NetWmWindowTypeMenu = 107,
-  WA_X11NetWmWindowTypeUtility = 108,
-  WA_X11NetWmWindowTypeSplash = 109,
-  WA_X11NetWmWindowTypeDialog = 110,
-  WA_X11NetWmWindowTypeDropDownMenu = 111,
-  WA_X11NetWmWindowTypePopupMenu = 112,
-  WA_X11NetWmWindowTypeToolTip = 113,
-  WA_X11NetWmWindowTypeNotification = 114,
-  WA_X11NetWmWindowTypeCombo = 115,
-  WA_X11NetWmWindowTypeDND = 116,
-  WA_MacFrameworkScaled = 117,
-  WA_AcceptTouchEvents = 121,
-  WA_TouchPadAcceptSingleTouchEvents = 123,
-  WA_X11DoNotAcceptFocus = 126,
-  WA_AlwaysStackOnTop = 128,
-  WA_ContentsMarginsRespectsSafeArea = 13
-}
-
-export enum Orientation {
-  Horizontal = 1,
-  Vertical = 2
-}
+export { AlignmentFlag } from "./AlignmentFlag";
+export { AnchorPoint } from "./AnchorPoint";
+export { ApplicationAttribute } from "./ApplicationAttribute";
+export { ApplicationState } from "./ApplicationState";
+export { ArrowType } from "./ArrowType";
+export { AspectRatioMode } from "./AspectRatioMode";
+export { Axis } from "./Axis";
+export { BGMode } from "./BGMode";
+export { BrushStyle } from "./BrushStyle";
+export { CaseSensitivity } from "./CaseSensitivity";
+export { CheckState } from "./CheckState";
+export { ChecksumType } from "./ChecksumType";
+export { ClipOperation } from "./ClipOperation";
+export { ConnectionType } from "./ConnectionType";
+export { ContextMenuPolicy } from "./ContextMenuPolicy";
+export { CoordinateSystem } from "./CoordinateSystem";
+export { Corner } from "./Corner";
+export { CursorMoveStyle } from "./CursorMoveStyle";
+export { CursorShape } from "./CursorShape";
+export { DateFormat } from "./DateFormat";
+export { DayOfWeek } from "./DayOfWeek";
+export { DockWidgetArea } from "./DockWidgetArea";
+export { DropAction } from "./DropAction";
+export { Edge } from "./Edge";
+export { EnterKeyType } from "./EnterKeyType";
+export { EventPriority } from "./EventPriority";
+export { FillRule } from "./FillRule";
+export { FindChildOption } from "./FindChildOption";
+export { FocusPolicy } from "./FocusPolicy";
+export { FocusReason } from "./FocusReason";
+export { GestureFlag } from "./GestureFlag";
+export { GestureState } from "./GestureState";
+export { GestureType } from "./GestureType";
+export { GlobalColor } from "./GlobalColor";
+export { HitTestAccuracy } from "./HitTestAccuracy";
+export { ImageConversionFlag } from "./ImageConversionFlag";
+export { InputMethodHint } from "./InputMethodHint";
+export { InputMethodQuery } from "./InputMethodQuery";
+export { ItemDataRole } from "./ItemDataRole";
+export { ItemFlag } from "./ItemFlag";
+export { ItemSelectionMode } from "./ItemSelectionMode";
+export { ItemSelectionOperation } from "./ItemSelectionOperation";
+export { Key } from "./Key";
+export { KeyboardModifier } from "./KeyboardModifier";
+export { LayoutDirection } from "./LayoutDirection";
+export { MaskMode } from "./MaskMode";
+export { MatchFlag } from "./MatchFlag";
+export { Modifier } from "./Modifier";
+export { MouseButton } from "./MouseButton";
+export { MouseEventFlag } from "./MouseEventFlag";
+export { MouseEventSource } from "./MouseEventSource";
+export { NativeGestureType } from "./NativeGestureType";
+export { NavigationMode } from "./NavigationMode";
+export { Orientation } from "./Orientation";
+export { ScreenOrientation } from "./ScreenOrientation";
+export { ScrollBarPolicy } from "./ScrollBarPolicy";
+export { ScrollPhase } from "./ScrollPhase";
+export { ShortcutContext } from "./ShortcutContext";
+export { SizeHint } from "./SizeHint";
+export { SizeMode } from "./SizeMode";
+export { SortOrder } from "./SortOrder";
+export { TabFocusBehavior } from "./TabFocusBehavior";
+export { TextElideMode } from "./TextElideMode";
+export { TextFlag } from "./TextFlag";
+export { TextFormat } from "./TextFormat";
+export { TextInteractionFlag } from "./TextInteractionFlag";
+export { TileRule } from "./TileRule";
+export { TimeSpec } from "./TimeSpec";
+export { ToolBarArea } from "./ToolBarArea";
+export { TimerType } from "./TimerType";
+export { ToolButtonStyle } from "./ToolButtonStyle";
+export { TouchPointState } from "./TouchPointState";
+export { TransformationMode } from "./TransformationMode";
+export { UIEffect } from "./UIEffect";
+export { WhiteSpaceMode } from "./WhiteSpaceMode";
+export { WidgetAttribute } from "./WidgetAttribute";
+export { WindowFrameSection } from "./WindowFrameSection";
+export { WindowModality } from "./WindowModality";
+export { WindowState } from "./WindowState";
+export { WindowType } from "./WindowType";
