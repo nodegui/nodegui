@@ -8,6 +8,7 @@
     "src/cpp/QtWidgets/QMainWindow/nmainwindow.h",
     "src/cpp/QtWidgets/QProgressBar/nprogressbar.h",
     "src/cpp/QtWidgets/QPushButton/npushbutton.h",
+    "src/cpp/QtWidgets/QSpinBox/nspinbox.h",
     "src/cpp/QtWidgets/QRadioButton/nradiobutton.h",
     "src/cpp/QtWidgets/QPlainTextEdit/nplaintextedit.h"
   ]
