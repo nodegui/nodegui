@@ -36,6 +36,9 @@ export abstract class NodeWidget extends EventWidget {
     const preparedSheet = await StyleSheet.create(styleSheet);
     await applyStyleSheet(this, preparedSheet);
   };
+  setWindowTitle = async (title: string) => {
+    return this.native.setWindowTitle(title);
+  };
   setInlineStyle = async (style: string) => {
     const preparedSheet = await prepareInlineStyleSheet(this, style);
     await applyStyleSheet(this, preparedSheet);

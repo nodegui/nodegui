@@ -57,6 +57,14 @@ Napi::Value setStyleSheet(const Napi::CallbackInfo& info){ \
   this->instance->setStyleSheet(style.c_str()); \
   return env.Null(); \
 } \
+Napi::Value setWindowTitle(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  Napi::String napiTitle = info[0].As<Napi::String>(); \
+  std::string title = napiTitle.Utf8Value(); \
+  this->instance->setWindowTitle(title.c_str()); \
+  return env.Null(); \
+} \
 Napi::Value styleSheet(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
@@ -219,6 +227,7 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
  InstanceMethod("close",&WidgetWrapName::close), \
  InstanceMethod("setLayout",&WidgetWrapName::setLayout), \
  InstanceMethod("setStyleSheet",&WidgetWrapName::setStyleSheet), \
+ InstanceMethod("setWindowTitle",&WidgetWrapName::setWindowTitle), \
  InstanceMethod("styleSheet",&WidgetWrapName::styleSheet), \
  InstanceMethod("hide",&WidgetWrapName::hide), \
  InstanceMethod("move",&WidgetWrapName::move), \

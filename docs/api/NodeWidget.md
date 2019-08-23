@@ -82,6 +82,12 @@ Sets the property that holds the widget's style sheet. It calls the native metho
 
 - `styleSheet` string - String which holds the widget's style sheet. Make sure you create this string using `StyleSheet.create()`
 
+#### `widget.setWindowTitle(title)`
+
+Sets the window title property. It calls the native method [QWidget: setWindowTitle](https://doc.qt.io/qt-5/qwidget.html#windowTitle-prop).
+
+- `title` string - String which holds the windows title.
+
 #### `widget.styleSheet()`
 
 Gets the property that holds the widget's style sheet. It calls the native method [QWidget: styleSheet](https://doc.qt.io/qt-5/qwidget.html#styleSheet-prop).
