@@ -21,6 +21,7 @@
         "../src/cpp/QtWidgets/QLayout/qlayout_wrap.cpp",
         "../src/cpp/QtWidgets/QMainWindow/qmainwindow_wrap.cpp",
         "../src/cpp/QtWidgets/QPushButton/qpushbutton_wrap.cpp",
+        "../src/cpp/QtWidgets/QSpinBox/qspinbox_wrap.cpp",
         "../src/cpp/QtWidgets/QCheckBox/qcheckbox_wrap.cpp",
         "../src/cpp/QtWidgets/QProgressBar/qprogressbar_wrap.cpp",
         "../src/cpp/QtWidgets/QRadioButton/qradiobutton_wrap.cpp",
