@@ -3,7 +3,7 @@
 #include <napi.h>
 #include "nplaintextedit.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
-
+#include "src/cpp/QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 
 class QPlainTextEditWrap : public  Napi::ObjectWrap<QPlainTextEditWrap>{
  private:
@@ -18,6 +18,7 @@ class QPlainTextEditWrap : public  Napi::ObjectWrap<QPlainTextEditWrap>{
   //wrapped methods
 
   QWIDGET_WRAPPED_METHODS_DECLARATION
+  QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
   Napi::Value setPlainText(const Napi::CallbackInfo& info);
   Napi::Value toPlainText(const Napi::CallbackInfo &info);
   Napi::Value clear(const Napi::CallbackInfo &info);

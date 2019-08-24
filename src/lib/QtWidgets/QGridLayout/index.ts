@@ -1,5 +1,5 @@
 import addon from "../../core/addon";
-import { NodeWidget } from "../../QtGui/QWidget";
+import { NodeWidget } from "../QWidget";
 import { NodeLayout } from "../QLayout";
 import { NativeElement } from "../../core/Component";
 

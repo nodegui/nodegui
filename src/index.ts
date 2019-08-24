@@ -1,11 +1,11 @@
 // enums
 export * from "./lib/QtEnums";
 export { QApplication } from "./lib/QtGui/QApplication";
-export { QWidget, QWidgetEvents } from "./lib/QtGui/QWidget";
+export { QWidget, QWidgetEvents } from "./lib/QtWidgets/QWidget";
 export { QPixmap } from "./lib/QtGui/QPixmap";
 export { QIcon } from "./lib/QtGui/QIcon";
 // Abstract:
-export { NodeWidget } from "./lib/QtGui/QWidget";
+export { NodeWidget } from "./lib/QtWidgets/QWidget";
 export { NodeLayout } from "./lib/QtWidgets/QLayout";
 // Widgets:
 export { QCheckBox, QCheckBoxEvents } from "./lib/QtWidgets/QCheckBox";
@@ -14,7 +14,7 @@ export { QLineEdit, QLineEditEvents } from "./lib/QtWidgets/QLineEdit";
 export { QMainWindow, QMainWindowEvents } from "./lib/QtWidgets/QMainWindow";
 export { QProgressBar, QProgressBarEvents } from "./lib/QtWidgets/QProgressBar";
 export { QPushButton, QPushButtonEvents } from "./lib/QtWidgets/QPushButton";
-export { QSpinBox , QSpinBoxEvents } from "./lib/QtWidgets/QSpinBox";
+export { QSpinBox, QSpinBoxEvents } from "./lib/QtWidgets/QSpinBox";
 export { QRadioButton, QRadioButtonEvents } from "./lib/QtWidgets/QRadioButton";
 export {
   QPlainTextEdit,

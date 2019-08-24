@@ -1,4 +1,4 @@
-#include "QSpinBox_wrap.h"
+#include "qspinbox_wrap.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_wrap.h"
 #include "src/cpp/QtGui/QIcon/qicon_wrap.h"
 #include "src/cpp/Extras/Utils/nutils.h"

@@ -1,5 +1,5 @@
 import { Component } from "../../core/Component";
-import { NodeWidget } from "../../QtGui/QWidget";
+import { NodeWidget } from "../QWidget";
 
 // All Layouts should extend this abstract class.
 export abstract class NodeLayout extends Component {
