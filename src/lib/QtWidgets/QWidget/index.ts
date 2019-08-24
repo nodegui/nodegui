@@ -1,5 +1,5 @@
 import addon from "../../core/addon";
-import { NodeLayout } from "../../QtWidgets/QLayout";
+import { NodeLayout } from "../QLayout";
 import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { FlexLayout } from "../../core/FlexLayout";
@@ -9,6 +9,7 @@ import {
   StyleSheet,
   prepareInlineStyleSheet
 } from "../../core/Style/StyleSheet";
+import { checkIfNativeElement } from "../../utils";
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
 export abstract class NodeWidget extends EventWidget {
@@ -105,11 +106,17 @@ export abstract class NodeWidget extends EventWidget {
   };
 }
 
+type arg = NodeWidget | NativeElement;
+
 export class QWidget extends NodeWidget {
   native: NativeElement;
-  constructor(parent?: QWidget) {
+  constructor(arg?: arg) {
     let native;
-    if (parent) {
+    let parent;
+    if (checkIfNativeElement(arg)) {
+      native = arg as NativeElement;
+    } else if (arg as NodeWidget) {
+      parent = arg as NodeWidget;
       native = new addon.QWidget(parent.native);
     } else {
       native = new addon.QWidget();

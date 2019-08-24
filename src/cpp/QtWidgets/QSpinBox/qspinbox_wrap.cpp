@@ -1,4 +1,4 @@
-#include "QSpinBox_wrap.h"
+#include "qspinbox_wrap.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_wrap.h"
 #include "src/cpp/QtGui/QIcon/qicon_wrap.h"
 #include "src/cpp/Extras/Utils/nutils.h"
@@ -19,7 +19,7 @@ Napi::Object QSpinBoxWrap::init(Napi::Env env, Napi::Object exports) {
   InstanceMethod("minimum", &QSpinBoxWrap::minimum),
   InstanceMethod("value", &QSpinBoxWrap::value),
 
-    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QSpinBoxWrap)
+  QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QSpinBoxWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -35,9 +35,9 @@ QSpinBoxWrap::QSpinBoxWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QSp
   Napi::HandleScope scope(env);
   
   if(info.Length() == 1) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-      this->instance = new NSpinBox(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    this->instance = new NSpinBox(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   } else if (info.Length() == 0){
     this->instance = new NSpinBox();
   } else {

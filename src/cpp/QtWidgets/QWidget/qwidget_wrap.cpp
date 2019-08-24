@@ -23,10 +23,14 @@ QWidgetWrap::QWidgetWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QWidg
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   if(info.Length() == 1) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-      this->instance = new NWidget(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
-  }else if (info.Length() == 0){
+    if(info[0].IsExternal()){
+        this->instance = info[0].As<Napi::External<NWidget>>().Data();
+    } else {
+        Napi::Object parentObject = info[0].As<Napi::Object>();
+        QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+        this->instance = new NWidget(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+    }
+  } else if (info.Length() == 0){
     this->instance = new NWidget();
   }else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();

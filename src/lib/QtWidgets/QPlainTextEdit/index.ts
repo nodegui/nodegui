@@ -1,14 +1,15 @@
 import addon from "../../core/addon";
-import { NodeWidget } from "../../QtGui/QWidget";
+import { NodeWidget } from "../QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
+import { QAbstractScrollArea } from "../QAbstractScrollArea";
 
 export const QPlainTextEditEvents = Object.freeze({
   ...BaseWidgetEvents,
-  textChanged: "textChanged",
+  textChanged: "textChanged"
 });
 
-export class QPlainTextEdit extends NodeWidget {
+export class QPlainTextEdit extends QAbstractScrollArea {
   native: NativeElement;
   constructor(parent?: NodeWidget) {
     let native;
