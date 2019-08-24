@@ -1,5 +1,6 @@
 # NodeGUI
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
 
 Build **performant**, **native** and **cross-platform** desktop applications with **JavaScript** + powerful **CSS like styling**.🚀
 
@@ -9,9 +10,7 @@ If you are looking for **React** based version, check out: **[React NodeGUI](htt
 
 Visit: https://nodegui.github.io/nodegui for docs.
 
-
 <img alt="logo" src="https://github.com/nodegui/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
-
 
 **Other known ports:**
 
@@ -92,7 +91,6 @@ People maintaining this project.
   </tr>
 </table>
 
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -103,12 +101,15 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/kakulgupta"><img src="https://avatars3.githubusercontent.com/u/10727047?v=4" width="100px;" alt="Kakul Gupta"/><br /><sub><b>Kakul Gupta</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=kakulgupta" title="Code">💻</a></td>
     <td align="center"><a href="http://rahulgaba.com"><img src="https://avatars3.githubusercontent.com/u/7898942?v=4" width="100px;" alt="Rahul Gaba"/><br /><sub><b>Rahul Gaba</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=rgabs" title="Code">💻</a></td>
+    <td align="center"><a href="http://uriziel.pl"><img src="https://avatars1.githubusercontent.com/u/568207?v=4" width="100px;" alt="Paweł Borecki"/><br /><sub><b>Paweł Borecki</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=Uriziel01" title="Code">💻</a></td>
     <td align="center"><a href="https://lramage.gitlab.io"><img src="https://avatars1.githubusercontent.com/u/43783393?v=4" width="100px;" alt="Lucas Ramage"/><br /><sub><b>Lucas Ramage</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=oxr463" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/gamtiq"><img src="https://avatars3.githubusercontent.com/u/1177323?v=4" width="100px;" alt="Denis Sikuler"/><br /><sub><b>Denis Sikuler</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=gamtiq" title="Documentation">📖</a></td>
     <td align="center"><a href="https://twitter.com/nahueljo"><img src="https://avatars1.githubusercontent.com/u/1612488?v=4" width="100px;" alt="Nahuel José"/><br /><sub><b>Nahuel José</b></sub></a><br /><a href="#question-Naahuel" title="Answering Questions">💬</a></td>
-    <td align="center"><a href="http://uriziel.pl"><img src="https://avatars1.githubusercontent.com/u/568207?v=4" width="100px;" alt="Paweł Borecki"/><br /><sub><b>Paweł Borecki</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=Uriziel01" title="Code">💻</a></td>
     <td align="center"><a href="http://marcus-sa.me"><img src="https://avatars0.githubusercontent.com/u/8391194?v=4" width="100px;" alt="Marcus S. Abildskov"/><br /><sub><b>Marcus S. Abildskov</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=marcus-sa" title="Tests">⚠️</a></td>
-</tr>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://www.mad3linux.org"><img src="https://avatars3.githubusercontent.com/u/508624?v=4" width="100px;" alt="Átila Camurça Alves"/><br /><sub><b>Átila Camurça Alves</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=atilacamurca" title="Documentation">📖</a></td>
+  </tr>
 </table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
