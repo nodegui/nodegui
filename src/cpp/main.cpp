@@ -8,6 +8,7 @@
 #include "src/cpp/QtWidgets/QMainWindow/qmainwindow_wrap.h"
 #include "src/cpp/QtWidgets/QPushButton/qpushbutton_wrap.h"
 #include "src/cpp/QtWidgets/QSpinBox/qspinbox_wrap.h"
+#include "src/cpp/QtWidgets/QTabWidget/qtabwidget_wrap.h"
 #include "src/cpp/QtWidgets/QCheckBox/qcheckbox_wrap.h"
 #include "src/cpp/QtWidgets/QProgressBar/qprogressbar_wrap.h"
 #include "src/cpp/QtWidgets/QRadioButton/qradiobutton_wrap.h"
@@ -32,6 +33,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QMainWindowWrap::init(env, exports);
     QPushButtonWrap::init(env, exports);
     QSpinBoxWrap::init(env, exports);
+    QTabWidgetWrap::init(env, exports);
     QCheckBoxWrap::init(env, exports);
     QProgressBarWrap::init(env, exports);
     QRadioButtonWrap::init(env, exports);

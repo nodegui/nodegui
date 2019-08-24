@@ -15,6 +15,7 @@ export { QMainWindow, QMainWindowEvents } from "./lib/QtWidgets/QMainWindow";
 export { QProgressBar, QProgressBarEvents } from "./lib/QtWidgets/QProgressBar";
 export { QPushButton, QPushButtonEvents } from "./lib/QtWidgets/QPushButton";
 export { QSpinBox , QSpinBoxEvents } from "./lib/QtWidgets/QSpinBox";
+export { QTabWidget, QTabWidgetEvents } from "./lib/QtWidgets/QTabWidget";
 export { QRadioButton, QRadioButtonEvents } from "./lib/QtWidgets/QRadioButton";
 export {
   QPlainTextEdit,
