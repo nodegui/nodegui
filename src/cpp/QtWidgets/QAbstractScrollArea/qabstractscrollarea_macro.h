@@ -1,6 +1,7 @@
 
 #pragma once
 #include "src/cpp/QtWidgets/QWidget/qwidget_wrap.h"
+#include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 #include "deps/spdlog/spdlog.h"
 /*
 
@@ -10,7 +11,7 @@
 
 #ifndef QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
 #define QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION \
-\
+QWIDGET_WRAPPED_METHODS_DECLARATION \
 Napi::Value setViewport(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env(); \
     Napi::HandleScope scope(env); \
@@ -35,9 +36,8 @@ Napi::Value viewport(const Napi::CallbackInfo& info) { \
 
 #ifndef QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE
 #define QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)  \
-\
+ QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
  InstanceMethod("setViewport", &WidgetWrapName::setViewport),  \
  InstanceMethod("viewport",&WidgetWrapName::viewport), \
  
-
 #endif // QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE

@@ -1,11 +1,15 @@
 import { NodeWidget, QWidget } from "../QWidget";
 
 export abstract class QAbstractScrollArea extends NodeWidget {
+  viewportWidget?: NodeWidget;
   setViewport = (widget: NodeWidget) => {
+    this.viewportWidget = widget;
     this.native.setViewport(widget.native);
   };
   viewport = (): QWidget => {
-    const nativeWidget = this.native.viewport();
-    return new QWidget(nativeWidget);
+    if (!this.viewportWidget) {
+      this.viewportWidget = new QWidget(this.native.viewport());
+    }
+    return this.viewportWidget;
   };
 }

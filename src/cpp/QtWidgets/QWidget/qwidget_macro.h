@@ -18,19 +18,19 @@ YOGAWIDGET_WRAPPED_METHODS_DECLARATION \
 EVENTWIDGET_WRAPPED_METHODS_DECLARATION \
 \
 Napi::Value show(const Napi::CallbackInfo& info) { \
-    Napi::Env env = info.Env(); \
-    Napi::HandleScope scope(env); \
-    this->instance->show(); \
-    return env.Null(); \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  this->instance->show(); \
+  return env.Null(); \
 } \
 \
 Napi::Value resize(const Napi::CallbackInfo& info) { \
-    Napi::Env env = info.Env(); \
-    Napi::HandleScope scope(env); \
-    Napi::Number width = info[0].As<Napi::Number>(); \
-    Napi::Number height = info[1].As<Napi::Number>(); \
-    this->instance->resize(width.Int32Value(), height.Int32Value()); \
-    return env.Null(); \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  Napi::Number width = info[0].As<Napi::Number>(); \
+  Napi::Number height = info[1].As<Napi::Number>(); \
+  this->instance->resize(width.Int32Value(), height.Int32Value()); \
+  return env.Null(); \
 } \
 \
 Napi::Value close(const Napi::CallbackInfo& info) { \
@@ -41,12 +41,12 @@ Napi::Value close(const Napi::CallbackInfo& info) { \
 } \
 \
 Napi::Value setLayout(const Napi::CallbackInfo& info){ \
-    Napi::Env env = info.Env(); \
-    Napi::HandleScope scope(env); \
-    Napi::Object layoutObject = info[0].As<Napi::Object>(); \
-    QLayoutWrap* layoutWrap = Napi::ObjectWrap<QLayoutWrap>::Unwrap(layoutObject); \
-    this->instance->setLayout(layoutWrap->getInternalInstance()); \
-    return env.Null(); \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  Napi::Object layoutObject = info[0].As<Napi::Object>(); \
+  QLayoutWrap* layoutWrap = Napi::ObjectWrap<QLayoutWrap>::Unwrap(layoutObject); \
+  this->instance->setLayout(layoutWrap->getInternalInstance()); \
+  return env.Null(); \
 } \
 \
 Napi::Value setStyleSheet(const Napi::CallbackInfo& info){ \
@@ -72,10 +72,10 @@ Napi::Value styleSheet(const Napi::CallbackInfo& info){ \
   return Napi::String::New(env, stylesheet.toStdString()); \
 } \
 Napi::Value hide(const Napi::CallbackInfo& info) { \
-    Napi::Env env = info.Env(); \
-    Napi::HandleScope scope(env); \
-    this->instance->hide(); \
-    return env.Null(); \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  this->instance->hide(); \
+  return env.Null(); \
 } \
 Napi::Value move(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
@@ -87,11 +87,11 @@ Napi::Value move(const Napi::CallbackInfo& info){ \
 } \
 \
 Napi::Value setObjectName(const Napi::CallbackInfo& info){ \
-    Napi::Env env = info.Env(); \
-    Napi::HandleScope scope(env); \
-    Napi::String objectName = info[0].As<Napi::String>(); \
-    this->instance->setObjectName(QString::fromStdString(objectName.Utf8Value())); \
-    return env.Null(); \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  Napi::String objectName = info[0].As<Napi::String>(); \
+  this->instance->setObjectName(QString::fromStdString(objectName.Utf8Value())); \
+  return env.Null(); \
 } \
 Napi::Value objectName(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
@@ -100,18 +100,18 @@ Napi::Value objectName(const Napi::CallbackInfo& info){ \
   return Napi::String::New(env, objectName.toStdString()); \
 } \
 Napi::Value setMouseTracking(const Napi::CallbackInfo& info){ \
-    Napi::Env env = info.Env(); \
-    Napi::HandleScope scope(env); \
-    Napi::Boolean isMouseTracked = info[0].As<Napi::Boolean>(); \
-    this->instance->setMouseTracking(isMouseTracked.Value()); \
-    return env.Null(); \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  Napi::Boolean isMouseTracked = info[0].As<Napi::Boolean>(); \
+  this->instance->setMouseTracking(isMouseTracked.Value()); \
+  return env.Null(); \
 } \
 Napi::Value setEnabled(const Napi::CallbackInfo& info){ \
-    Napi::Env env = info.Env(); \
-    Napi::HandleScope scope(env); \
-    Napi::Boolean enabled = info[0].As<Napi::Boolean>(); \
-    this->instance->setEnabled(enabled.Value()); \
-    return env.Null(); \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  Napi::Boolean enabled = info[0].As<Napi::Boolean>(); \
+  this->instance->setEnabled(enabled.Value()); \
+  return env.Null(); \
 } \
 Napi::Value setFixedSize(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \

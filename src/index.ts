@@ -20,6 +20,7 @@ export {
   QPlainTextEdit,
   QPlainTextEditEvents
 } from "./lib/QtWidgets/QPlainTextEdit";
+export { QScrollArea, QScrollAreaEvents } from "./lib/QtWidgets/QScrollArea";
 // Layouts:
 export { QGridLayout } from "./lib/QtWidgets/QGridLayout";
 export { FlexLayout } from "./lib/core/FlexLayout";

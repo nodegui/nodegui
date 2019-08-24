@@ -10,6 +10,7 @@
     "src/cpp/QtWidgets/QPushButton/npushbutton.h",
     "src/cpp/QtWidgets/QSpinBox/nspinbox.h",
     "src/cpp/QtWidgets/QRadioButton/nradiobutton.h",
-    "src/cpp/QtWidgets/QPlainTextEdit/nplaintextedit.h"
+    "src/cpp/QtWidgets/QPlainTextEdit/nplaintextedit.h",
+    "src/cpp/QtWidgets/QScrollArea/nscrollarea.h"
   ]
 }
