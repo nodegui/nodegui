@@ -63,14 +63,14 @@ for JavaScript development.
 
 ## Setting up Linux
 
-> NodeGui currently supports Ubuntu 17.10 and Debian 10 and up. Although other linux distributions can also be easily supported. NodeGui currently only supports 64bit OS. NodeGui can technically support lower versions of linux that what is mentioned here provided gcc >= v7 and libc version >= GLIBC_2.25
+> NodeGui currently supports Ubuntu 17.10 and Debian 10 and up. Although other Linux distributions can also be easily supported. NodeGui currently only supports 64bit OS. NodeGui can technically support lower versions of Linux than mentioned here provided gcc >= v7 and libc version >= GLIBC_2.25
 
 **Requirements:**
 
 - Python 2.x , Make, GCC v7
 - Currently supported Node.Js versions are 12.x and up.
 - Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
-- It is advisable to do: `On Ubuntu: $ sudo apt-get install pkg-config build-essentials`
+- On Ubuntu and Ubuntu-based distros it is advisable to run `sudo apt-get update`, followed by `sudo apt-get install pkg-config build-essential`
 
 We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
 
