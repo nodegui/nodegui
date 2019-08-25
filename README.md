@@ -12,11 +12,6 @@ Visit: https://nodegui.github.io/nodegui for docs.
 
 <img alt="logo" src="https://github.com/nodegui/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
 
-**Other known ports:**
-
-- Angular + NodeGUI - https://github.com/marcus-sa/ngq by @marcus-sa
-
-<br/>
 
 ## How does it look?
 
