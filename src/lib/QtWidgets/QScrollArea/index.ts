@@ -2,27 +2,28 @@ import addon from "../../core/addon";
 import { NodeWidget } from "../QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
+import { QAbstractScrollArea } from "../QAbstractScrollArea";
 
-export const QCheckBoxEvents = Object.freeze({
+export const QScrollAreaEvents = Object.freeze({
   ...BaseWidgetEvents
 });
-export class QCheckBox extends NodeWidget {
+export class QScrollArea extends QAbstractScrollArea {
   native: NativeElement;
+  contentWidget?: NodeWidget;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {
-      native = new addon.QCheckBox(parent.native);
+      native = new addon.QScrollArea(parent.native);
     } else {
-      native = new addon.QCheckBox();
+      native = new addon.QScrollArea();
     }
     super(native);
     this.native = native;
     this.parent = parent;
     // bind member functions
-    this.setText.bind(this);
   }
-
-  setText(text: string) {
-    this.native.setText(text);
+  setWidget(widget: NodeWidget) {
+    this.contentWidget = widget;
+    this.native.setWidget(widget.native);
   }
 }

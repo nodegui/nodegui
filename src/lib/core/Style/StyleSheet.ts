@@ -1,7 +1,7 @@
 import postcss from "postcss";
 import cuid from "cuid";
 import nodeguiAutoPrefixer from "postcss-nodegui-autoprefixer";
-import { NodeWidget } from "../../QtGui/QWidget";
+import { NodeWidget } from "../../QtWidgets/QWidget";
 export class StyleSheet {
   static create = async (cssString: string): Promise<string> => {
     const { css } = await postcss([nodeguiAutoPrefixer()])

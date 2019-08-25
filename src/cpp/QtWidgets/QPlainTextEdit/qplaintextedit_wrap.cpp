@@ -15,6 +15,7 @@ Napi::Object QPlainTextEditWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("toPlainText",&QPlainTextEditWrap::toPlainText),
     InstanceMethod("clear", &QPlainTextEditWrap::clear),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPlainTextEditWrap)
+    QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QPlainTextEditWrap)
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);

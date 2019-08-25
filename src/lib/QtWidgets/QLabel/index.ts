@@ -1,5 +1,5 @@
 import addon from "../../core/addon";
-import { NodeWidget } from "../../QtGui/QWidget";
+import { NodeWidget } from "../QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { QPixmap } from "../../QtGui/QPixmap";

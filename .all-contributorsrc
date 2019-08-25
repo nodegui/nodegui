@@ -66,8 +66,17 @@
       "profile": "http://marcus-sa.me",
       "contributions": [
         "test"
-       ]
-     },
+      ]
+    },
+    {
+      "login": "atilacamurca",
+      "name": "Átila Camurça Alves",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/508624?v=4",
+      "profile": "http://www.mad3linux.org",
+      "contributions": [
+        "doc"
+      ]
+    }
   ],
   "contributorsPerLine": 7,
   "projectName": "nodegui",

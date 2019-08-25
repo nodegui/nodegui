@@ -1,5 +1,5 @@
 import addon from "../addon";
-import { NodeWidget } from "../../QtGui/QWidget";
+import { NodeWidget } from "../../QtWidgets/QWidget";
 import { NodeLayout } from "../../QtWidgets/QLayout";
 import { FlexNode } from "../YogaWidget";
 import { NativeElement } from "../Component";

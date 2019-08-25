@@ -16,6 +16,7 @@
 #include "src/cpp/QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
 #include "src/cpp/core/FlexLayout/flexlayout_wrap.h"
 #include "src/cpp/QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
+#include "src/cpp/QtWidgets/QScrollArea/qscrollarea_wrap.h"
 #include <napi.h>
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env){
@@ -40,7 +41,9 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QLineEditWrap::init(env, exports);
     QKeyEventWrap::init(env, exports);
     QPlainTextEditWrap::init(env, exports);
-    return QLabelWrap::init(env, exports);
+    QLabelWrap::init(env, exports);
+    QScrollAreaWrap::init(env, exports);
+    return exports;
 }
 
 NODE_API_MODULE(NODE_GYP_MODULE_NAME, Main)

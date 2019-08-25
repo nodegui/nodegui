@@ -9,9 +9,10 @@ import {
   FlexLayout,
   QWidget,
   QIcon,
-  QPlainTextEdit,
-  QPlainTextEditEvents
+  QPlainTextEdit
 } from "./index";
+import { QScrollArea } from "./lib/QtWidgets/QScrollArea";
+import { QPixmap } from "./lib/QtGui/QPixmap";
 
 const path = require("path");
 
@@ -28,7 +29,6 @@ checkbox.setObjectName("check");
 const lineEdit = new QLineEdit();
 lineEdit.setPlaceholderText("Enter your thoughts here");
 lineEdit.setObjectName("editable");
-
 
 const button = new QPushButton();
 button.setText("Push Push Push!");
@@ -52,15 +52,18 @@ const rootView = new QWidget();
 rootView.setObjectName("root");
 rootView.setLayout(new FlexLayout());
 
-const lineEditLabel = new QLabel();
-lineEditLabel.setInlineStyle("font-size: 12px;");
-lineEditLabel.setText("PlainTextEdit's bound Value");
 const textEdit = new QPlainTextEdit();
 textEdit.setPlainText("Hello");
 
-textEdit.addEventListener(QPlainTextEditEvents.textChanged, () => {
-  lineEditLabel.setText(textEdit.toPlainText());
-});
+const scrollArea = new QScrollArea();
+scrollArea.setInlineStyle("flex: 1; width:'100%';");
+
+const imageLabel = new QLabel();
+const pixmap = new QPixmap(
+  path.resolve(__dirname, "../extras/assets/kitchen.png")
+);
+imageLabel.setPixmap(pixmap);
+scrollArea.setWidget(imageLabel);
 
 if (rootView.layout) {
   rootView.layout.addWidget(label);
@@ -70,7 +73,7 @@ if (rootView.layout) {
   rootView.layout.addWidget(button);
   rootView.layout.addWidget(progressbar);
   rootView.layout.addWidget(textEdit);
-  rootView.layout.addWidget(lineEditLabel);
+  rootView.layout.addWidget(scrollArea);
 }
 
 win.setCentralWidget(rootView);
