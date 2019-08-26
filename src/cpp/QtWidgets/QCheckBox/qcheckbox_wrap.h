@@ -17,7 +17,9 @@ class QCheckBoxWrap : public  Napi::ObjectWrap<QCheckBoxWrap>{
   static Napi::FunctionReference constructor;
   //wrapped methods
   Napi::Value setText(const Napi::CallbackInfo& info);
-  
+  Napi::Value isChecked(const Napi::CallbackInfo& info);
+  Napi::Value setChecked(const Napi::CallbackInfo& info);
+
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };
 
