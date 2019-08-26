@@ -25,6 +25,7 @@ label.setInlineStyle("font-size: 20px;");
 const checkbox = new QCheckBox();
 checkbox.setText("Check me out?");
 checkbox.setObjectName("check");
+checkbox.setChecked(true);
 
 const lineEdit = new QLineEdit();
 lineEdit.setPlaceholderText("Enter your thoughts here");

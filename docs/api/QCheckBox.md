@@ -40,3 +40,13 @@ Additionally it also has the following instance methods:
 Sets the given text to the checkbox.
 
 - `text` string
+
+#### `checkbox.isChecked()`
+
+returns whether the checkbox is checked or not. It calls the native method [QAbstractButton: isChecked](https://doc.qt.io/qt-5/qabstractbutton.html#checked-prop).
+
+#### `checkbox.setChecked(check)`
+
+This property holds whether the button is checked. It calls the native method [QAbstractButton: setChecked](https://doc.qt.io/qt-5/qabstractbutton.html#checked-prop).
+
+- `check` boolean
