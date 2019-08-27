@@ -24,6 +24,7 @@ export class QPlainTextEdit extends QAbstractScrollArea {
     // bind member functions
     this.setPlainText.bind(this);
     this.toPlainText.bind(this);
+    this.setReadOnly.bind(this);
     this.clear.bind(this);
   }
   setPlainText(text: string | number) {
@@ -31,6 +32,9 @@ export class QPlainTextEdit extends QAbstractScrollArea {
   }
   toPlainText() {
     return this.native.toPlainText();
+  }
+  setReadOnly(isReadOnly: boolean) {
+    this.native.setReadOnly(isReadOnly);
   }
   clear() {
     this.native.clear();

@@ -13,6 +13,7 @@ Napi::Object QPlainTextEditWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setPlainText",&QPlainTextEditWrap::setPlainText),
     InstanceMethod("toPlainText",&QPlainTextEditWrap::toPlainText),
+    InstanceMethod("setReadOnly", &QPlainTextEditWrap::setReadOnly),
     InstanceMethod("clear", &QPlainTextEditWrap::clear),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPlainTextEditWrap)
     QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QPlainTextEditWrap)
@@ -52,6 +53,15 @@ Napi::Value QPlainTextEditWrap::setPlainText(const Napi::CallbackInfo& info){
   Napi::HandleScope scope(env);
   Napi::String plainText = info[0].As<Napi::String>();
   this->instance->setPlainText(plainText.Utf8Value().c_str());
+  return env.Null();
+}
+
+Napi::Value QPlainTextEditWrap::setReadOnly(const Napi::CallbackInfo &info)
+{
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Boolean isReadOnly = info[0].As<Napi::Boolean>();
+  this->instance->setReadOnly(isReadOnly.Value());
   return env.Null();
 }
 

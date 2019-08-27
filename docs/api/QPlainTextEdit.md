@@ -42,6 +42,10 @@ Sets the given text to the plainTextEdit.
 
 Returns the text of the text edit as plain text.
 
+#### [`plainTextEdit.setReadOnly(isReadOnly)`](https://doc.qt.io/qt-5/qplaintextedit.html#readOnly-prop)
+
+Sets the plainTextEdit to be read only.
+
 #### [`plainTextEdit.clear()`](https://doc.qt.io/qt-5/qplaintextedit.html#clear)
 
 Deletes all the text in the text edit.
