@@ -17,7 +17,6 @@ Napi::Object QDialWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("notchTarget", &QDialWrap::notchTarget),
     InstanceMethod("notchesVisible", &QDialWrap::notchesVisible),
     InstanceMethod("wrapping", &QDialWrap::wrapping),
-    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QDialWrap)
     QABSTRACTSLIDER_WRAPPED_METHODS_EXPORT_DEFINE(QDialWrap)
   });
   constructor = Napi::Persistent(func);
