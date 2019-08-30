@@ -4,6 +4,7 @@
     "src/cpp/QtWidgets/QWidget/nwidget.h",
     "src/cpp/QtWidgets/QLabel/nlabel.h",
     "src/cpp/QtWidgets/QCheckBox/ncheckbox.h",
+    "src/cpp/QtWidgets/QDial/ndial.h",
     "src/cpp/QtWidgets/QLineEdit/nlineedit.h",
     "src/cpp/QtWidgets/QMainWindow/nmainwindow.h",
     "src/cpp/QtWidgets/QProgressBar/nprogressbar.h",

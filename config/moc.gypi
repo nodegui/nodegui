@@ -5,6 +5,7 @@
         "../src/cpp/autogen/nwidget_moc.cpp",
         "../src/cpp/autogen/nlabel_moc.cpp",
         "../src/cpp/autogen/ncheckbox_moc.cpp",
+        "../src/cpp/autogen/ndial_moc.cpp",
         "../src/cpp/autogen/nlineedit_moc.cpp",
         "../src/cpp/autogen/nmainwindow_moc.cpp",
         "../src/cpp/autogen/nprogressbar_moc.cpp",

@@ -45,6 +45,8 @@
 - [QWidget (View)](api/QWidget.md)
 - [QSpinBox ()](api/QSpinBox.md)
 - [QAbstractScrollArea ()](api/QAbstractScrollArea.md)
+- [QAbstractSlider ()](api/QAbstractSlider.md)
+- [QDial ()](api/QDial.md)
 - [QScrollArea ()](api/QScrollArea.md)
 - [QPlainTextEdit (TextEdit)](api/QPlainTextEdit.md)
 - [QLabel (Text/Image)](api/QLabel.md)

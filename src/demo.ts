@@ -9,6 +9,7 @@ import {
   FlexLayout,
   QWidget,
   QIcon,
+  QDial,
   QPlainTextEdit
 } from "./index";
 import { QScrollArea } from "./lib/QtWidgets/QScrollArea";
@@ -26,6 +27,9 @@ const checkbox = new QCheckBox();
 checkbox.setText("Check me out?");
 checkbox.setObjectName("check");
 checkbox.setChecked(true);
+
+const dial = new QDial();
+checkbox.setObjectName("dial");
 
 const lineEdit = new QLineEdit();
 lineEdit.setPlaceholderText("Enter your thoughts here");
@@ -75,6 +79,7 @@ if (rootView.layout) {
   rootView.layout.addWidget(progressbar);
   rootView.layout.addWidget(textEdit);
   rootView.layout.addWidget(scrollArea);
+  rootView.layout.addWidget(dial);
 }
 
 win.setCentralWidget(rootView);
