@@ -9,7 +9,8 @@ import {
   FlexLayout,
   QWidget,
   QIcon,
-  QPlainTextEdit
+  QPlainTextEdit,
+  QTabWidget
 } from "./index";
 import { QScrollArea } from "./lib/QtWidgets/QScrollArea";
 import { QPixmap } from "./lib/QtGui/QPixmap";
@@ -65,7 +66,19 @@ const pixmap = new QPixmap(
 imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 
+const tabs = new QTabWidget(rootView);
+//tabs.setTabPosition(3);
+tabs.setGeometry(10, 10, 500, 500);
+const qw1 = new QWidget(tabs);
+const qw2 = new QWidget(tabs);
+const qw3 = new QWidget(tabs);
+
+const tab1 = tabs.addTab(qw1, icon, "🧙 Tab 111");
+const tab2 = tabs.addTab(qw2, icon, "🧙 Tab 222");
+const tab3 = tabs.addTab(qw3, icon, "🧙 Tab 333");
+
 if (rootView.layout) {
+  rootView.layout.addWidget(tabs);
   rootView.layout.addWidget(label);
   rootView.layout.addWidget(checkbox);
   rootView.layout.addWidget(radioButton);

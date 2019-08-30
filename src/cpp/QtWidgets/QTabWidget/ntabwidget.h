@@ -27,7 +27,7 @@ public:
             Napi::HandleScope scope(env);
             this->emitOnNode.Call({  Napi::String::New(env, "tabBarClicked") });
         });
-        QObject::connect(this, &QTabWidget::tabBarDoubleClicked, [=]() { 
+        QObject::connect(this, &QTabWidget::tabBarDoubleClicked, [=]() {
             Napi::Env env = this->emitOnNode.Env();
             Napi::HandleScope scope(env);
             this->emitOnNode.Call({  Napi::String::New(env, "tabBarDoubleClicked") });

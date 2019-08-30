@@ -1,9 +1,9 @@
 import addon from "../../core/addon";
-import { NodeWidget } from "../../QtGui/QWidget";
+import { NodeWidget } from "../QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { QIcon } from "../../QtGui/QIcon";
-import { QWidget } from "../../QtGui/QWidget";
+import { TabPosition } from "../../QtEnums";
 
 export const QTabWidgetEvents = Object.freeze({
   ...BaseWidgetEvents,
@@ -29,7 +29,11 @@ export class QTabWidget extends NodeWidget {
     this.addTab.bind(this);
   }
 
-  addTab(page: QWidget, icon: QIcon, label: string) {
-    this.native.addTab(page, icon, label);
+  addTab(page: NodeWidget, icon: QIcon, label: string) {
+    this.native.addTab(page.native, icon.native, label);
+  }
+
+  setTabPosition(tabPosition: TabPosition) {
+    this.native.setTabPosition(tabPosition);
   }
 }

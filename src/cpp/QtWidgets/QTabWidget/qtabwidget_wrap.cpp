@@ -48,14 +48,22 @@ Napi::Value QTabWidgetWrap::addTab(const Napi::CallbackInfo &info)
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  Napi::Object widgetObject = info[0].As<Napi::Object>();
+  Napi::Object pageObject = info[0].As<Napi::Object>();
   Napi::Object iconObject = info[1].As<Napi::Object>();
   Napi::String napiLabel = info[2].As<Napi::String>();
-
   std::string label = napiLabel.Utf8Value();
-  QWidgetWrap *widgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);
+
+  QWidgetWrap* pageObjectWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(pageObject);
   QIconWrap *iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
 
-  this->instance->addTab(*widgetObject->getInternalInstance(), *iconWrap->getInternalInstance(), text.c_str());
+  this->instance->addTab(pageObjectWrap->getInternalInstance(), *iconWrap->getInternalInstance(), label.c_str());
+  return env.Null();
+}
+
+Napi::Value QTabWidgetWrap::setTabPosition(const Napi::CallbackInfo& info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int tabPosition = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setTabPosition(static_cast<QTabWidget::TabPosition>(tabPosition));
   return env.Null();
 }

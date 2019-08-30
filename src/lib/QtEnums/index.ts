@@ -60,6 +60,7 @@ export { ShortcutContext } from "./ShortcutContext";
 export { SizeHint } from "./SizeHint";
 export { SizeMode } from "./SizeMode";
 export { SortOrder } from "./SortOrder";
+export { TabPosition } from "./TabPosition";
 export { TabFocusBehavior } from "./TabFocusBehavior";
 export { TextElideMode } from "./TextElideMode";
 export { TextFlag } from "./TextFlag";
