@@ -17,6 +17,7 @@
         '../src/cpp/core/FlexLayout/flexlayout_wrap.cpp',
         "../src/cpp/QtWidgets/QWidget/qwidget_wrap.cpp",
         "../src/cpp/QtWidgets/QGridLayout/qgridlayout_wrap.cpp",
+        "../src/cpp/QtWidgets/QDial/qdial_wrap.cpp",
         "../src/cpp/QtWidgets/QLabel/qlabel_wrap.cpp",
         "../src/cpp/QtWidgets/QLayout/qlayout_wrap.cpp",
         "../src/cpp/QtWidgets/QMainWindow/qmainwindow_wrap.cpp",

@@ -31,8 +31,15 @@
 
 ### Modules from NodeGui:
 
+- [QApplication (Application)](api/QApplication.md)
 - [QMainWindow (Window)](api/QMainWindow.md)
 - [QWidget (View)](api/QWidget.md)
+- [QSpinBox ()](api/QSpinBox.md)
+- [QAbstractScrollArea ()](api/QAbstractScrollArea.md)
+- [QAbstractSlider ()](api/QAbstractSlider.md)
+- [QDial ()](api/QDial.md)
+- [QScrollArea ()](api/QScrollArea.md)
+- [QPlainTextEdit (TextEdit)](api/QPlainTextEdit.md)
 - [QLabel (Text/Image)](api/QLabel.md)
 - [QPushButton (Button)](api/QPushButton.md)
 - [QRadioButton (RadioButton)](api/QRadioButton.md)
@@ -41,6 +48,7 @@
 - [QProgressBar (ProgressBar)](api/QProgressBar.md)
 - [FlexLayout](api/FlexLayout.md)
 - [QPixmap](api/QPixmap.md)
+- [QIcon](api/QIcon.md)
 - [Qt Enums](api/QtEnums.md)
 
 ### Internal Modules

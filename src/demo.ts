@@ -9,10 +9,13 @@ import {
   FlexLayout,
   QWidget,
   QIcon,
+  QDial,
+  QDialEvents,
   QPlainTextEdit
 } from "./index";
 import { QScrollArea } from "./lib/QtWidgets/QScrollArea";
 import { QPixmap } from "./lib/QtGui/QPixmap";
+import { Orientation } from "./lib/QtEnums";
 
 const path = require("path");
 
@@ -26,6 +29,25 @@ const checkbox = new QCheckBox();
 checkbox.setText("Check me out?");
 checkbox.setObjectName("check");
 checkbox.setChecked(true);
+
+const dial = new QDial();
+checkbox.setObjectName("dial");
+dial.setWrapping(true);
+dial.setNotchesVisible(true);
+dial.setSingleStep(10);
+dial.setSingleStep(5);
+dial.setMinimum(55);
+dial.setMaximum(95);
+setInterval(() => {
+  dial.setValue(Math.floor(Math.random() * 100));
+  console.log(dial.minimum(), dial.maximum(), dial.value());
+}, 500);
+dial.addEventListener(QDialEvents.sliderReleased, () => {
+  console.log('RELEASED!');
+});
+dial.addEventListener(QDialEvents.sliderPressed, () => {
+  console.log('PRESSED!');
+});
 
 const lineEdit = new QLineEdit();
 lineEdit.setPlaceholderText("Enter your thoughts here");
@@ -75,6 +97,7 @@ if (rootView.layout) {
   rootView.layout.addWidget(progressbar);
   rootView.layout.addWidget(textEdit);
   rootView.layout.addWidget(scrollArea);
+  rootView.layout.addWidget(dial);
 }
 
 win.setCentralWidget(rootView);
