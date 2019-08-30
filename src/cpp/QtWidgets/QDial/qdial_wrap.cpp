@@ -1,5 +1,5 @@
 
-#include "qDial_wrap.h"
+#include "qdial_wrap.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_wrap.h"
 #include "src/cpp/Extras/Utils/nutils.h"
 #include <QWidget>
