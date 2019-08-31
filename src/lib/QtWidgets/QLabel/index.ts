@@ -26,13 +26,16 @@ export class QLabel extends NodeWidget {
     this.setText.bind(this);
   }
   setWordWrap(on: boolean) {
+    // react:✓ TODO://getter
     this.native.setWordWrap(on);
   }
   setText(text: string | number) {
+    // react:✓ TODO://getter
     this.text = text;
     this.native.setText(`${text}`);
   }
   setPixmap(pixMap: QPixmap) {
+    // react:✓ TODO://getter
     this.native.setPixmap(pixMap.native);
     this.pixmap = pixMap;
   }

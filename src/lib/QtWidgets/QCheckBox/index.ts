@@ -20,17 +20,19 @@ export class QCheckBox extends NodeWidget {
     this.parent = parent;
     // bind member functions
     this.setText.bind(this);
-    this.isChecked.bind(this);
     this.setChecked.bind(this);
+    this.isChecked.bind(this);
   }
-
   setText(text: string) {
+    // react:✓ //TODO:getter
     this.native.setText(text);
   }
-  isChecked(): boolean {
-    return this.native.isChecked();
-  }
   setChecked(check: boolean) {
+    // react:✓
     return this.native.setChecked(check);
+  }
+  isChecked(): boolean {
+    // react:✓
+    return this.native.isChecked();
   }
 }

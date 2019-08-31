@@ -28,15 +28,19 @@ export class QPlainTextEdit extends QAbstractScrollArea {
     this.clear.bind(this);
   }
   setPlainText(text: string | number) {
+    // react:✓
     this.native.setPlainText(`${text}`);
   }
   toPlainText() {
+    // react:✓
     return this.native.toPlainText();
   }
   setReadOnly(isReadOnly: boolean) {
+    // react:✓
     this.native.setReadOnly(isReadOnly);
   }
   clear() {
+    // react:✓
     this.native.clear();
   }
 }

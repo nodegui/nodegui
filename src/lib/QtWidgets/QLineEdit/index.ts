@@ -34,19 +34,24 @@ export class QLineEdit extends NodeWidget {
     this.clear.bind(this);
   }
   setText(text: string) {
+    // react:✓
     text && this.native.setText(text);
   }
   text(): string {
+    // react:✓
     return this.native.text();
   }
   setPlaceholderText(text: string) {
+    // react:✓ TODO://getter
     this.placeholderText = text;
     this.native.setPlaceholderText(text);
   }
   setReadOnly(isReadOnly: boolean) {
+    // react:✓ TODO://getter
     this.native.setReadOnly(isReadOnly);
   }
   clear() {
+    // react:✓
     this.native.clear();
   }
 }

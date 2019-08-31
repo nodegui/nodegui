@@ -27,18 +27,23 @@ export class QProgressBar extends NodeWidget {
     this.value.bind(this);
   }
   setValue(value: number) {
+    // react:✓
     this.native.setValue(value);
   }
+  value(): number {
+    // react:✓
+    return this.native.value();
+  }
   setMinimum(min: number) {
+    // react:✓ TODO://getter
     this.native.setMinimum(min);
   }
   setMaximum(max: number) {
+    // react:✓ TODO://getter
     this.native.setMaximum(max);
   }
   setOrientation(orientation: Orientation) {
+    // react:✓ TODO://getter
     this.native.setOrientation(orientation);
-  }
-  value(): number {
-    return this.native.value();
   }
 }
