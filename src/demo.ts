@@ -14,6 +14,7 @@ import {
 } from "./index";
 import { QScrollArea } from "./lib/QtWidgets/QScrollArea";
 import { QPixmap } from "./lib/QtGui/QPixmap";
+import { CursorShape, WindowState } from "./lib/QtEnums"
 
 const path = require("path");
 
@@ -22,6 +23,7 @@ const win = new QMainWindow();
 const label = new QLabel();
 label.setText("Hello world 🧙");
 label.setInlineStyle("font-size: 20px;");
+label.setCursor(CursorShape.ForbiddenCursor);
 
 const checkbox = new QCheckBox();
 checkbox.setText("Check me out?");
@@ -39,6 +41,10 @@ const button = new QPushButton();
 button.setText("Push Push Push!");
 button.setObjectName("btn");
 button.setFlat(true);
+
+const nodeguiLogo = new QIcon(
+  path.resolve(__dirname, "../extras/assets/nodegui.png")
+);
 
 const icon = new QIcon(
   path.resolve(__dirname, "../extras/assets/start_icon.png")
@@ -92,9 +98,11 @@ win.setStyleSheet(`
   }
 `);
 
-win.setWindowTitle("hello");
+win.setWindowIcon(nodeguiLogo);
+win.setWindowTitle("NodeGUI Demo");
 
 win.resize(400, 400);
 win.show();
+win.setWindowState(WindowState.WindowActive);
 
 (global as any).win = win; // To prevent win from being garbage collected.

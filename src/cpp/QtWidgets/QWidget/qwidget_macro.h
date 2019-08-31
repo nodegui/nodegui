@@ -4,6 +4,7 @@
 #include "src/cpp/core/YogaWidget/yogawidget_macro.h"
 #include "src/cpp/core/Events/eventwidget_macro.h"
 #include "src/cpp/core/Component/component_macro.h"
+#include "src/cpp/QtGui/QIcon/qicon_wrap.h"
 #include <QSize>
 /*
 
@@ -55,6 +56,28 @@ Napi::Value setStyleSheet(const Napi::CallbackInfo& info){ \
   Napi::String text = info[0].As<Napi::String>(); \
   std::string style = text.Utf8Value(); \
   this->instance->setStyleSheet(style.c_str()); \
+  return env.Null(); \
+} \
+Napi::Value setCursor(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  Napi::Number cursor = info[0].As<Napi::Number>(); \
+  this->instance->setCursor(static_cast<Qt::CursorShape>(cursor.Int32Value())); \
+  return env.Null(); \
+} \
+Napi::Value setWindowIcon(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  Napi::Object iconObject = info[0].As<Napi::Object>(); \
+  QIconWrap *iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject); \
+  this->instance->setWindowIcon(*iconWrap->getInternalInstance()); \
+  return env.Null(); \
+} \
+Napi::Value setWindowState(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  Napi::Number state = info[0].As<Napi::Number>(); \
+  this->instance->setWindowState(static_cast<Qt::WindowState>(state.Int32Value())); \
   return env.Null(); \
 } \
 Napi::Value setWindowTitle(const Napi::CallbackInfo& info){ \
@@ -227,6 +250,9 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
  InstanceMethod("close",&WidgetWrapName::close), \
  InstanceMethod("setLayout",&WidgetWrapName::setLayout), \
  InstanceMethod("setStyleSheet",&WidgetWrapName::setStyleSheet), \
+ InstanceMethod("setCursor",&WidgetWrapName::setCursor), \
+ InstanceMethod("setWindowIcon",&WidgetWrapName::setWindowIcon), \
+ InstanceMethod("setWindowState",&WidgetWrapName::setWindowState), \
  InstanceMethod("setWindowTitle",&WidgetWrapName::setWindowTitle), \
  InstanceMethod("styleSheet",&WidgetWrapName::styleSheet), \
  InstanceMethod("hide",&WidgetWrapName::hide), \

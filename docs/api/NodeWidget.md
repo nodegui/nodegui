@@ -82,6 +82,24 @@ Sets the property that holds the widget's style sheet. It calls the native metho
 
 - `styleSheet` string - String which holds the widget's style sheet. Make sure you create this string using `StyleSheet.create()`
 
+#### `widget.setCursor(cursor)`
+
+Sets the window mouse cursor. It calls the native method [QWidget: setCursor](https://doc.qt.io/qt-5/qwidget.html#cursor-prop).
+
+- `cursor` CursorShape - Specifies current cursor for the window [CursorShape is an enum from Qt](api/QtEnums.md)
+
+#### `widget.setWindowIcon(icon)`
+
+Sets the window icon. It calls the native method [QWidget: setWindowIcon](https://doc.qt.io/qt-5/qwidget.html#windowIcon-prop).
+
+- `icon` QIcon - Specifies icon for the window.
+
+#### `widget.setWindowState(state)`
+
+Sets the window state. It calls the native method [QWidget: setWindowState](https://doc.qt.io/qt-5/qwidget.html#setWindowState).
+
+- `state` WindowState - Specifies current state for the window [WindowState is an enum from Qt](api/QtEnums.md)
+
 #### `widget.setWindowTitle(title)`
 
 Sets the window title property. It calls the native method [QWidget: setWindowTitle](https://doc.qt.io/qt-5/qwidget.html#windowTitle-prop).
