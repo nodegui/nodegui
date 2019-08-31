@@ -26,7 +26,7 @@
     "docs": "serve docs"
   },
   "dependencies": {
-    "@nodegui/qode": "^1.0.3",
+    "@nodegui/qode": "^1.0.4",
     "cuid": "^2.1.6",
     "node-addon-api": "^1.6.3",
     "node-gyp": "^4.0.0",
