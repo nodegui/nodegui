@@ -92,6 +92,8 @@ win.setStyleSheet(`
   }
 `);
 
+win.setWindowTitle("hello");
+
 win.resize(400, 400);
 win.show();
 

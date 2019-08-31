@@ -10,7 +10,7 @@ export { NodeLayout } from "./lib/QtWidgets/QLayout";
 // Widgets:
 export { QCheckBox, QCheckBoxEvents } from "./lib/QtWidgets/QCheckBox";
 export { QLabel, QLabelEvents } from "./lib/QtWidgets/QLabel";
-export { QDial, QDialEvents } from "./lib/QtWidgets/Qdial";
+export { QDial, QDialEvents } from "./lib/QtWidgets/QDial";
 export { QLineEdit, QLineEditEvents } from "./lib/QtWidgets/QLineEdit";
 export { QMainWindow, QMainWindowEvents } from "./lib/QtWidgets/QMainWindow";
 export { QProgressBar, QProgressBarEvents } from "./lib/QtWidgets/QProgressBar";

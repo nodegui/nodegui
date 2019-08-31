@@ -4,7 +4,7 @@
 #include "src/cpp/QtGui/QIcon/qicon_wrap.h"
 #include "src/cpp/QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "src/cpp/QtWidgets/QLayout/qlayout_wrap.h"
-#include "src/cpp/QtWidgets/Qdial/qdial_wrap.h"
+#include "src/cpp/QtWidgets/QDial/qdial_wrap.h"
 #include "src/cpp/QtWidgets/QLabel/qlabel_wrap.h"
 #include "src/cpp/QtWidgets/QMainWindow/qmainwindow_wrap.h"
 #include "src/cpp/QtWidgets/QPushButton/qpushbutton_wrap.h"
