@@ -59,6 +59,10 @@ https://github.com/nodegui/examples
 
 ## Docs for contributing
 
+ ``` 
+ It is easier than you think, try it 
+ ```
+
 Looking to contribute? If you wish to implement a new widget/add more features and need help understanding the codebase, you can start here: [Contributing developer docs](https://github.com/nodegui/nodegui/tree/master/docs/development).
 
 ## Building
