@@ -23,41 +23,49 @@ export class QSpinBox extends NodeWidget {
     this.native = native;
     // bind member functions
     this.setPrefix.bind(this);
-    this.setSingleStep.bind(this);
     this.setSuffix.bind(this);
-    this.setRange.bind(this);
-    this.setValue.bind(this);
     this.cleanText.bind(this);
+    this.setSingleStep.bind(this);
+    this.setRange.bind(this);
     this.maximum.bind(this);
     this.minimum.bind(this);
+    this.setValue.bind(this);
     this.value.bind(this);
   }
-
   setPrefix(prefix: string) {
-    this.native.setPrefix(`${prefix}`);
-  }
-  setSingleStep(val: number) {
-    this.native.setSingleStep(val);
+    // react:✓
+    this.native.setPrefix(prefix);
   }
   setSuffix(suffix: string) {
-    this.native.setSuffix(`${suffix}`);
-  }
-  setRange(minimum: number, maximum: number) {
-    this.native.setRange(minimum, maximum);
-  }
-  setValue(val: number) {
-    this.native.setValue(val);
+    // react:✓
+    this.native.setSuffix(suffix);
   }
   cleanText(): string {
+    // react:✓
     return this.native.cleanText();
   }
+  setSingleStep(val: number) {
+    // react:✓
+    this.native.setSingleStep(val);
+  }
+  setRange(minimum: number, maximum: number) {
+    // react:✓
+    this.native.setRange(minimum, maximum);
+  }
   maximum(): number {
+    // react:✓
     return this.native.maximum();
   }
   minimum(): number {
+    // react:✓
     return this.native.minimum();
   }
+  setValue(val: number) {
+    // react:✓
+    this.native.setValue(val);
+  }
   value(): number {
+    // react:✓
     return this.native.value();
   }
 }

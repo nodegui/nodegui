@@ -1,14 +1,20 @@
-// enums
+// Enums:
 export * from "./lib/QtEnums";
+// Gui:
 export { QApplication } from "./lib/QtGui/QApplication";
-export { QWidget, QWidgetEvents } from "./lib/QtWidgets/QWidget";
 export { QPixmap } from "./lib/QtGui/QPixmap";
 export { QIcon } from "./lib/QtGui/QIcon";
 export { QCursor } from "./lib/QtGui/QCursor";
+// Events: Maybe a separate module ?
+export { QKeyEvent } from "./lib/QtGui/QEvent/QKeyEvent";
+export { NativeEvent } from "./lib/core/EventWidget";
 // Abstract:
 export { NodeWidget } from "./lib/QtWidgets/QWidget";
 export { NodeLayout } from "./lib/QtWidgets/QLayout";
+export { QAbstractScrollArea } from "./lib/QtWidgets/QAbstractScrollArea";
+export { QAbstractSlider } from "./lib/QtWidgets/QAbstractSlider";
 // Widgets:
+export { QWidget, QWidgetEvents } from "./lib/QtWidgets/QWidget";
 export { QCheckBox, QCheckBoxEvents } from "./lib/QtWidgets/QCheckBox";
 export { QLabel, QLabelEvents } from "./lib/QtWidgets/QLabel";
 export { QDial, QDialEvents } from "./lib/QtWidgets/QDial";
@@ -26,7 +32,5 @@ export { QScrollArea, QScrollAreaEvents } from "./lib/QtWidgets/QScrollArea";
 // Layouts:
 export { QGridLayout } from "./lib/QtWidgets/QGridLayout";
 export { FlexLayout } from "./lib/core/FlexLayout";
-// Events : Maybe a separate module ?
-export { QKeyEvent } from "./lib/QtGui/QEvent/QKeyEvent";
-export { NativeEvent } from "./lib/core/EventWidget";
+// Others:
 export { StyleSheet } from "./lib/core/Style/StyleSheet";

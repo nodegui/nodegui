@@ -26,28 +26,34 @@ export class QDial extends QAbstractSlider {
     this.parent = parent;
     // bind member functions
     this.setNotchesVisible.bind(this);
+    this.notchesVisible.bind(this);
     this.setWrapping.bind(this);
+    this.wrapping.bind(this);
     this.setNotchTarget.bind(this);
     this.notchTarget.bind(this);
-    this.notchesVisible.bind(this);
-    this.wrapping.bind(this);
   }
   setNotchesVisible(visible: boolean) {
+    // react:✓
     this.native.setNotchesVisible(visible);
   }
+  notchesVisible(): boolean {
+    // react:✓
+    return this.native.notchesVisible();
+  }
   setWrapping(on: boolean) {
+    // react:✓
     this.native.setWrapping(on);
   }
+  wrapping(): boolean {
+    // react:✓
+    return this.native.wrapping();
+  }
   setNotchTarget(target: number) {
+    // react:✓
     this.native.setNotchTarget(target);
   }
   notchTarget(): number {
+    // react:✓
     return this.native.notchTarget();
-  }
-  notchesVisible(): boolean {
-    return this.native.notchesVisible();
-  }
-  wrapping(): boolean {
-    return this.native.wrapping();
   }
 }

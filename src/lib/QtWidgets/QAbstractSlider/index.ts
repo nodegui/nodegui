@@ -1,4 +1,4 @@
-import { NodeWidget, QWidget } from "../QWidget";
+import { NodeWidget } from "../QWidget";
 import { Orientation } from "../../QtEnums";
 
 export abstract class QAbstractSlider extends NodeWidget {
@@ -8,23 +8,22 @@ export abstract class QAbstractSlider extends NodeWidget {
   setMaximum(maximum: number) {
     this.native.setMaximum(maximum);
   }
-  setMinimum(minimum: number) {
-    this.native.setMinimum(minimum);
-  }
-  setValue(value: number) {
-    this.native.setValue(value);
-  }
-  setOrientation(orientation: Orientation) {
-    this.native.setOrientation(orientation);
-  }
-
   maximum(): number {
     return this.native.maximum();
+  }
+  setMinimum(minimum: number) {
+    this.native.setMinimum(minimum);
   }
   minimum(): number {
     return this.native.minimum();
   }
+  setValue(value: number) {
+    this.native.setValue(value);
+  }
   value(): number {
     return this.native.value();
+  }
+  setOrientation(orientation: Orientation) {
+    this.native.setOrientation(orientation);
   }
 }
