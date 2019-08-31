@@ -1,7 +1,7 @@
 #pragma once
 
 #include <napi.h>
-#include "nDial.h"
+#include "ndial.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 #include "src/cpp/QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 
