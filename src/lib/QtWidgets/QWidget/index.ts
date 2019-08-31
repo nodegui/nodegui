@@ -19,15 +19,125 @@ export abstract class NodeWidget extends EventWidget {
   layout?: NodeLayout;
   type: string = "widget";
   show = () => {
+    // react:✓
     this.native.show();
   };
-  resize = (width: number, height: number) => {
-    this.native.resize(width, height);
+  hide = () => {
+    // react:✓
+    this.native.hide();
   };
   close = () => {
+    // react:⛔️
     return this.native.close();
   };
+  setStyleSheet = async (styleSheet: string) => {
+    // react:✓
+    const preparedSheet = await StyleSheet.create(styleSheet);
+    await applyStyleSheet(this, preparedSheet);
+  };
+  styleSheet = (): string => {
+    // react:✓
+    return this.native.styleSheet();
+  };
+  setInlineStyle = async (style: string) => {
+    // react:✓
+    const preparedSheet = await prepareInlineStyleSheet(this, style);
+    await applyStyleSheet(this, preparedSheet);
+  };
+  setGeometry = (x: number, y: number, w: number, h: number) => {
+    // react:✓, //TODO:getter
+    this.native.setGeometry(x, y, w, h);
+  };
+  setObjectName = (objectName: string) => {
+    // react:✓
+    this.native.setObjectName(objectName);
+  };
+  objectName = (): string => {
+    // react:✓
+    return this.native.objectName();
+  };
+  setMouseTracking = (isMouseTracked: boolean) => {
+    // react:✓, //TODO:getter
+    this.native.setMouseTracking(isMouseTracked);
+  };
+  setEnabled = (enabled: boolean) => {
+    // react:✓, //TODO:getter
+    this.native.setEnabled(enabled);
+  };
+  setWindowOpacity = (opacity: Number) => {
+    // react:✓, //TODO:getter
+    this.native.setWindowOpacity(opacity);
+  };
+  setWindowTitle = async (title: string) => {
+    // react:✓, //TODO:getter
+    return this.native.setWindowTitle(title);
+  };
+  setWindowState = async (state: WindowState) => {
+    // react:✓, //TODO:getter
+    return this.native.setWindowState(state);
+  };
+  setCursor(cursor: CursorShape | QCursor) {
+    // react:✓, //TODO:getter
+    this.native.setCursor(cursor);
+  }
+  setWindowIcon(icon: QIcon) {
+    // react:✓, //TODO:getter
+    this.native.setWindowIcon(icon.native);
+  }
+  setMinimumSize = (minw: number, minh: number) => {
+    // react:✓
+    this.native.setMinimumSize(minw, minh);
+  };
+  setMaximumSize = (maxw: number, maxh: number) => {
+    // react:✓
+    this.native.setMaximumSize(maxw, maxh);
+  };
+  setFixedSize = (width: number, height: number) => {
+    // react:✓
+    this.native.setFixedSize(width, height);
+  };
+  resize = (width: number, height: number) => {
+    // react:✓
+    this.native.resize(width, height);
+  };
+  size = (): { width: number; height: number } => {
+    // react:✓
+    return this.native.size();
+  };
+  move = (x: number, y: number) => {
+    // react:✓
+    this.native.move(x, y);
+  };
+  pos = (): { x: number; y: number } => {
+    // react:✓
+    return this.native.pos();
+  };
+  repaint = () => {
+    // react:⛔️
+    this.native.repaint();
+  };
+  update = () => {
+    // react:⛔️
+    this.native.update();
+  };
+  updateGeometry = () => {
+    // react:⛔️
+    this.native.updateGeometry();
+  };
+  setAttribute = (attribute: WidgetAttribute, switchOn: boolean) => {
+    // react:⛔️
+    return this.native.setAttribute(attribute, switchOn);
+  };
+  testAttribute = (attribute: WidgetAttribute): boolean => {
+    // react:⛔️
+    return this.native.testAttribute(attribute);
+  };
+  setWindowFlag = (windowType: WindowType, switchOn: boolean) => {
+    // react:⛔️
+    return this.native.setWindowFlag(windowType, switchOn);
+  };
   setLayout = (parentLayout: NodeLayout) => {
+    // react:✓
     const flexLayout = parentLayout as FlexLayout;
     if (flexLayout.setFlexNode) {
       //if flex layout set the flexnode
@@ -35,86 +145,6 @@ export abstract class NodeWidget extends EventWidget {
     }
     this.native.setLayout(parentLayout.native);
     this.layout = parentLayout;
-  };
-  setStyleSheet = async (styleSheet: string) => {
-    const preparedSheet = await StyleSheet.create(styleSheet);
-    await applyStyleSheet(this, preparedSheet);
-  };
-  setCursor(cursor: CursorShape | QCursor) {
-    this.native.setCursor(cursor);
-  }
-  setWindowIcon(icon: QIcon) {
-    this.native.setWindowIcon(icon.native);
-  }
-  setWindowState = async (state: WindowState) => {
-    return this.native.setWindowState(state);
-  };
-  setWindowTitle = async (title: string) => {
-    return this.native.setWindowTitle(title);
-  };
-  setInlineStyle = async (style: string) => {
-    const preparedSheet = await prepareInlineStyleSheet(this, style);
-    await applyStyleSheet(this, preparedSheet);
-  };
-  styleSheet = (): string => {
-    return this.native.styleSheet();
-  };
-  hide = () => {
-    this.native.hide();
-  };
-  move = (x: number, y: number) => {
-    this.native.move(x, y);
-  };
-  setObjectName = (objectName: string) => {
-    this.native.setObjectName(objectName);
-  };
-  objectName = (): string => {
-    return this.native.objectName();
-  };
-  setMouseTracking = (isMouseTracked: boolean) => {
-    this.native.setMouseTracking(isMouseTracked);
-  };
-  setEnabled = (enabled: boolean) => {
-    this.native.setEnabled(enabled);
-  };
-  setFixedSize = (width: number, height: number) => {
-    this.native.setFixedSize(width, height);
-  };
-  setGeometry = (x: number, y: number, w: number, h: number) => {
-    this.native.setGeometry(x, y, w, h);
-  };
-  setMaximumSize = (maxw: number, maxh: number) => {
-    this.native.setMaximumSize(maxw, maxh);
-  };
-  setMinimumSize = (minw: number, minh: number) => {
-    this.native.setMinimumSize(minw, minh);
-  };
-  repaint = () => {
-    this.native.repaint();
-  };
-  update = () => {
-    this.native.update();
-  };
-  updateGeometry = () => {
-    this.native.updateGeometry();
-  };
-  pos = (): { x: number; y: number } => {
-    return this.native.pos();
-  };
-  size = (): { width: number; height: number } => {
-    return this.native.size();
-  };
-  setAttribute = (attribute: WidgetAttribute, switchOn: boolean) => {
-    return this.native.setAttribute(attribute, switchOn);
-  };
-  testAttribute = (attribute: WidgetAttribute): boolean => {
-    return this.native.testAttribute(attribute);
-  };
-  setWindowOpacity = (opacity: Number) => {
-    this.native.setWindowOpacity(opacity);
-  };
-  setWindowFlag = (windowType: WindowType, switchOn: boolean) => {
-    return this.native.setWindowFlag(windowType, switchOn);
   };
 }
 
