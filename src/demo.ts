@@ -66,20 +66,33 @@ const pixmap = new QPixmap(
 imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 
-const tabs = new QTabWidget(rootView);
-//tabs.setTabPosition(3);
-tabs.setGeometry(10, 10, 500, 500);
-const qw1 = new QWidget(tabs);
-const qw2 = new QWidget(tabs);
-const qw3 = new QWidget(tabs);
+const tabs = new QTabWidget();
+tabs.setTabPosition(0);
+const tabWidget1 = new QWidget();
+tabWidget1.setObjectName("tabsroot");
+tabWidget1.setLayout(new FlexLayout());
 
-const tab1 = tabs.addTab(qw1, icon, "🧙 Tab 111");
-const tab2 = tabs.addTab(qw2, icon, "🧙 Tab 222");
-const tab3 = tabs.addTab(qw3, icon, "🧙 Tab 333");
+const tabWidget2 = new QWidget();
+const tabWidget3 = new QWidget();
+
+tabs.addTab(tabWidget1, icon, "😀 Tab 1");
+tabs.addTab(tabWidget2, icon, "💡 Tab 2");
+tabs.addTab(tabWidget3, icon, "🔒 Tab 3");
+
+tabWidget1.setStyleSheet('* { width 500px; height:500px; background-color:red; padding:5px}');
+tabWidget2.setStyleSheet('* { width 500px; height:500px; background-color:green;  padding:5px}');
+tabWidget3.setStyleSheet('* { width 500px; height:500px; background-color:blue;  padding:5px}');
+
+setInterval(() => {
+  //console.log(tabs, tabs.currentIndex());
+}, 1000);
+
+if(tabWidget1.layout) {
+  tabWidget1.layout.addWidget(label);
+}
 
 if (rootView.layout) {
   rootView.layout.addWidget(tabs);
-  rootView.layout.addWidget(label);
   rootView.layout.addWidget(checkbox);
   rootView.layout.addWidget(radioButton);
   rootView.layout.addWidget(lineEdit);
@@ -91,12 +104,19 @@ if (rootView.layout) {
 
 win.setCentralWidget(rootView);
 win.setStyleSheet(`
-  #root {
-    flex: 1;
-    height: '100%';
-    align-items: 'center';
-    justify-content: 'space-around';
-  }
+#root {
+  flex: 1;
+  height: '100%';
+  align-items: 'center';
+  justify-content: 'space-around';
+}
+#tabsroot {
+  flex: 1;
+  height: 500px;
+  width: 500px,
+  align-items: 'center';
+  justify-content: 'space-around';
+}
 `);
 
 win.resize(400, 400);

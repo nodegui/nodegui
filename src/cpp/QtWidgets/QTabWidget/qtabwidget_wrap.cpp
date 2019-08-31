@@ -11,6 +11,8 @@ Napi::Object QTabWidgetWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QTabWidget";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("addTab", &QTabWidgetWrap::addTab),
+    InstanceMethod("setTabPosition", &QTabWidgetWrap::setTabPosition),
+    InstanceMethod("currentIndex", &QTabWidgetWrap::currentIndex),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QTabWidgetWrap)
   });
   constructor = Napi::Persistent(func);
@@ -66,4 +68,11 @@ Napi::Value QTabWidgetWrap::setTabPosition(const Napi::CallbackInfo& info){
   int tabPosition = info[0].As<Napi::Number>().Int32Value();
   this->instance->setTabPosition(static_cast<QTabWidget::TabPosition>(tabPosition));
   return env.Null();
+}
+
+Napi::Value QTabWidgetWrap::currentIndex(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int value = this->instance->currentIndex(); 
+  return Napi::Number::New(env, value);
 }

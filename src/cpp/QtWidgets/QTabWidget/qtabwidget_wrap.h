@@ -18,6 +18,7 @@ class QTabWidgetWrap : public  Napi::ObjectWrap<QTabWidgetWrap> {
   //wrapped methods
   Napi::Value addTab(const Napi::CallbackInfo &info);
   Napi::Value setTabPosition(const Napi::CallbackInfo &info);
+  Napi::Value currentIndex (const Napi::CallbackInfo &info);
 
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };

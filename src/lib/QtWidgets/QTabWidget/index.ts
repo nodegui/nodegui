@@ -36,4 +36,8 @@ export class QTabWidget extends NodeWidget {
   setTabPosition(tabPosition: TabPosition) {
     this.native.setTabPosition(tabPosition);
   }
+
+  currentIndex(): number {
+    return this.native.currentIndex();
+  }
 }
