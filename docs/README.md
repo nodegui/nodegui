@@ -25,12 +25,7 @@
 - [Testing and Debugging](tutorial/debugging-app.md)
   - [Debugging Qode/NodeGui Process](tutorial/debugging-qode-process.md)
   - [Debugging a NodeGui app with Visual Studio Code](tutorial/debugging-app-vscode.md)
-- [Distribution](tutorial/application-distribution.md)
-  - [Supported Platforms](tutorial/support.md#supported-platforms)
-  - [Code Signing](tutorial/code-signing.md)
-  - [Mac App Store](tutorial/mac-app-store-submission-guide.md)
-  - [Windows Store](tutorial/windows-store-guide.md)
-  - [Snapcraft](tutorial/snapcraft.md)
+- [Distribution](http://github.com/nodegui/packer)
 - [Getting Support](tutorial/support.md)
 
 ## API References
