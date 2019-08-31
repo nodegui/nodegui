@@ -4,6 +4,7 @@ export { QApplication } from "./lib/QtGui/QApplication";
 export { QWidget, QWidgetEvents } from "./lib/QtWidgets/QWidget";
 export { QPixmap } from "./lib/QtGui/QPixmap";
 export { QIcon } from "./lib/QtGui/QIcon";
+export { QCursor } from "./lib/QtGui/QCursor";
 // Abstract:
 export { NodeWidget } from "./lib/QtWidgets/QWidget";
 export { NodeLayout } from "./lib/QtWidgets/QLayout";

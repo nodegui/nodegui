@@ -14,6 +14,7 @@
         "../src/cpp/QtGui/QEvent/QKeyEvent/qkeyevent_wrap.cpp",
         "../src/cpp/QtGui/QPixmap/qpixmap_wrap.cpp",
         "../src/cpp/QtGui/QIcon/qicon_wrap.cpp",
+        "../src/cpp/QtGui/QCursor/qcursor_wrap.cpp",
         '../src/cpp/core/FlexLayout/flexlayout_wrap.cpp',
         "../src/cpp/QtWidgets/QWidget/qwidget_wrap.cpp",
         "../src/cpp/QtWidgets/QGridLayout/qgridlayout_wrap.cpp",

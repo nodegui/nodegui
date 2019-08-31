@@ -4,6 +4,9 @@ import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { FlexLayout } from "../../core/FlexLayout";
 import { WidgetAttribute, WindowType } from "../../QtEnums";
+import { QIcon } from "../../QtGui/QIcon";
+import { QCursor } from "../../QtGui/QCursor";
+import { CursorShape, WindowState } from "../../QtEnums";
 import {
   applyStyleSheet,
   StyleSheet,
@@ -36,6 +39,15 @@ export abstract class NodeWidget extends EventWidget {
   setStyleSheet = async (styleSheet: string) => {
     const preparedSheet = await StyleSheet.create(styleSheet);
     await applyStyleSheet(this, preparedSheet);
+  };
+  setCursor(cursor: CursorShape | QCursor) {
+    this.native.setCursor(cursor);
+  }
+  setWindowIcon(icon: QIcon) {
+    this.native.setWindowIcon(icon.native);
+  }
+  setWindowState = async (state: WindowState) => {
+    return this.native.setWindowState(state);
   };
   setWindowTitle = async (title: string) => {
     return this.native.setWindowTitle(title);
