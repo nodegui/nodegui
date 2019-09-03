@@ -2,7 +2,6 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include <stdlib.h>
 #include <QApplication>
 
 
