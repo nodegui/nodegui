@@ -17,29 +17,28 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 NMainWindow* QMainWindowWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QMainWindowWrap>(info)  {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  // SuppressDestruct();
 
   if(info.Length() == 1) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-      this->instance = new NMainWindow(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    this->instance = std::make_unique<NMainWindow>(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   }else if (info.Length() == 0){
-    this->instance = new NMainWindow();
+    this->instance = std::make_unique<NMainWindow>();
   }else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
   this->instance->setAttribute(Qt::WA_DeleteOnClose);
-  this->instance->installEventFilter(this->instance);
+  this->instance->installEventFilter(this->getInternalInstance());
 }
 
 QMainWindowWrap::~QMainWindowWrap() {
-  delete this->instance;
+  this->instance.reset();
 }
 
 Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info){

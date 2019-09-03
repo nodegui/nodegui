@@ -24,11 +24,11 @@ QIconWrap::QIconWrap(const Napi::CallbackInfo &info) : Napi::ObjectWrap<QIconWra
     {
         Napi::String url = info[0].As<Napi::String>();
         QString imageUrl = QString::fromUtf8(url.Utf8Value().c_str());
-        this->instance = new QIcon(imageUrl);
+        this->instance = std::make_unique<QIcon>(imageUrl);
     }
     else if (info.Length() == 0)
     {
-        this->instance = new QIcon();
+        this->instance = std::make_unique<QIcon>();
     }
     else
     {
@@ -38,10 +38,10 @@ QIconWrap::QIconWrap(const Napi::CallbackInfo &info) : Napi::ObjectWrap<QIconWra
 
 QIconWrap::~QIconWrap()
 {
-    delete this->instance;
+    this->instance.reset();
 }
 
 QIcon *QIconWrap::getInternalInstance()
 {
-    return this->instance;
+    return this->instance.get();
 }

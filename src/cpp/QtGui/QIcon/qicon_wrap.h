@@ -1,13 +1,14 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
 #include <QIcon>
 #include "src/cpp/core/Component/component_macro.h"
 
 class QIconWrap : public Napi::ObjectWrap<QIconWrap>
 {
 private:
-    QIcon *instance;
+    std::unique_ptr<QIcon> instance;
 
 public:
     static Napi::FunctionReference constructor;

@@ -19,15 +19,15 @@ Napi::Object QKeyEventWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 QKeyEvent* QKeyEventWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 QKeyEventWrap::QKeyEventWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QKeyEventWrap>(info) {
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
     if(info.Length() == 1) {
-        Napi::External<QKeyEvent> eventObject = info[0].As<Napi::External<QKeyEvent>>();
-        this->instance  = eventObject.Data();
+      Napi::External<QKeyEvent> eventObject = info[0].As<Napi::External<QKeyEvent>>();
+      this->instance  = std::unique_ptr<QKeyEvent>(eventObject.Data());
     } else {
       Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
     }

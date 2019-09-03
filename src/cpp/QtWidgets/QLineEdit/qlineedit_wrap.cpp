@@ -4,7 +4,6 @@
 #include "src/cpp/Extras/Utils/nutils.h"
 #include <QWidget>
 
-
 Napi::FunctionReference QLineEditWrap::constructor;
 
 Napi::Object QLineEditWrap::init(Napi::Env env, Napi::Object exports) {
@@ -24,7 +23,7 @@ Napi::Object QLineEditWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 NLineEdit* QLineEditWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 QLineEditWrap::QLineEditWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QLineEditWrap>(info)  {
@@ -32,11 +31,11 @@ QLineEditWrap::QLineEditWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<Q
   Napi::HandleScope scope(env);
 
   if(info.Length() == 1) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-      this->instance = new NLineEdit(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    this->instance = std::make_unique<NLineEdit>(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   }else if (info.Length() == 0){
-    this->instance = new NLineEdit();
+    this->instance = std::make_unique<NLineEdit>();
   }else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
@@ -45,7 +44,7 @@ QLineEditWrap::QLineEditWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<Q
 }
 
 QLineEditWrap::~QLineEditWrap() {
-  delete this->instance;
+  this->instance.reset();
 }
 
 

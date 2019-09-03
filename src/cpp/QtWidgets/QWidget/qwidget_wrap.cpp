@@ -16,7 +16,7 @@ Napi::Object QWidgetWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 NWidget* QWidgetWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 QWidgetWrap::QWidgetWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QWidgetWrap>(info)  { 
@@ -24,20 +24,20 @@ QWidgetWrap::QWidgetWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QWidg
   Napi::HandleScope scope(env);
   if(info.Length() == 1) {
     if(info[0].IsExternal()){
-        this->instance = info[0].As<Napi::External<NWidget>>().Data();
+        this->instance = std::unique_ptr<NWidget>(info[0].As<Napi::External<NWidget>>().Data());
     } else {
         Napi::Object parentObject = info[0].As<Napi::Object>();
         QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-        this->instance = new NWidget(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+        this->instance = std::make_unique<NWidget>(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
     }
   } else if (info.Length() == 0){
-    this->instance = new NWidget();
-  }else {
+    this->instance = std::make_unique<NWidget>();
+  } else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
 }
 
 QWidgetWrap::~QWidgetWrap() {
-  delete this->instance;
+  this->instance.reset();
 }
 

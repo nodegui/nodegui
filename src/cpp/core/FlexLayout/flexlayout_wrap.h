@@ -1,13 +1,13 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
 #include "flexlayout.h"
 #include "src/cpp/QtWidgets/QLayout/qlayout_macro.h"
 
 class FlexLayoutWrap : public  Napi::ObjectWrap<FlexLayoutWrap>{
  private:
-  FlexLayout* instance;
-  
+  std::unique_ptr<FlexLayout> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   FlexLayoutWrap(const Napi::CallbackInfo& info);

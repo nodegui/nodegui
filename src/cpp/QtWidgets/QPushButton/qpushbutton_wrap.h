@@ -1,6 +1,7 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
 #include "npushbutton.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
@@ -8,7 +9,7 @@
 
 class QPushButtonWrap : public  Napi::ObjectWrap<QPushButtonWrap> {
  private:
-  NPushButton* instance;
+  std::unique_ptr<NPushButton> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QPushButtonWrap(const Napi::CallbackInfo &info);

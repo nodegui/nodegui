@@ -28,9 +28,9 @@ QApplicationWrap::QApplicationWrap(const Napi::CallbackInfo& info)
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
     if(info.Length() == 1) {
-        this->instance = info[0].As<Napi::External<QApplication>>().Data();
+        this->instance = std::unique_ptr<QApplication>(info[0].As<Napi::External<QApplication>>().Data());
     } else if (info.Length() == 0){
-        this->instance = new QApplication(this->argc, this->argv);
+        this->instance = std::make_unique<QApplication>(this->argc, this->argv);
     } else {
         Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
     }
@@ -38,12 +38,12 @@ QApplicationWrap::QApplicationWrap(const Napi::CallbackInfo& info)
 
 QApplicationWrap::~QApplicationWrap()
 {
-    delete this->instance;
+    this->instance.reset();
 }
 
 QApplication* QApplicationWrap::getInternalInstance()
 {
-    return this->instance;
+    return this->instance.get();
 }
 
 Napi::Value QApplicationWrap::processEvents(const Napi::CallbackInfo& info)

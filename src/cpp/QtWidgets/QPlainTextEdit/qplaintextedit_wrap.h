@@ -1,13 +1,14 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
 #include "nplaintextedit.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 #include "src/cpp/QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 
 class QPlainTextEditWrap : public  Napi::ObjectWrap<QPlainTextEditWrap>{
  private:
-  NPlainTextEdit* instance;
+  std::unique_ptr<NPlainTextEdit> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QPlainTextEditWrap(const Napi::CallbackInfo& info);

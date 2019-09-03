@@ -1,13 +1,13 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
 #include "nlabel.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
-
 class QLabelWrap : public  Napi::ObjectWrap<QLabelWrap>{
  private:
-  NLabel* instance;
+  std::unique_ptr<NLabel> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QLabelWrap(const Napi::CallbackInfo& info);

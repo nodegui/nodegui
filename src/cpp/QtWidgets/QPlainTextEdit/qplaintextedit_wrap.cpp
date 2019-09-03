@@ -24,7 +24,7 @@ Napi::Object QPlainTextEditWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 NPlainTextEdit* QPlainTextEditWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 QPlainTextEditWrap::QPlainTextEditWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QPlainTextEditWrap>(info)  {
@@ -32,11 +32,11 @@ QPlainTextEditWrap::QPlainTextEditWrap(const Napi::CallbackInfo& info): Napi::Ob
   Napi::HandleScope scope(env);
 
   if(info.Length() == 1) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-      this->instance = new NPlainTextEdit(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    this->instance = std::make_unique<NPlainTextEdit>(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   }else if (info.Length() == 0){
-    this->instance = new NPlainTextEdit();
+    this->instance = std::make_unique<NPlainTextEdit>();
   }else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
@@ -45,7 +45,7 @@ QPlainTextEditWrap::QPlainTextEditWrap(const Napi::CallbackInfo& info): Napi::Ob
 }
 
 QPlainTextEditWrap::~QPlainTextEditWrap() {
-  delete this->instance;
+  this->instance.reset();
 }
 
 Napi::Value QPlainTextEditWrap::setPlainText(const Napi::CallbackInfo& info){

@@ -22,7 +22,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 NLabel* QLabelWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QLabelWrap>(info)  {
@@ -30,11 +30,11 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QLabelW
   Napi::HandleScope scope(env);
 
   if(info.Length() == 1) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-      this->instance = new NLabel(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    this->instance = std::make_unique<NLabel>(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   }else if (info.Length() == 0){
-    this->instance = new NLabel();
+    this->instance = std::make_unique<NLabel>();
   }else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
@@ -43,7 +43,7 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QLabelW
 }
 
 QLabelWrap::~QLabelWrap() {
-  delete this->instance;
+  this->instance.reset();
 }
 
 Napi::Value QLabelWrap::setWordWrap(const Napi::CallbackInfo& info) {

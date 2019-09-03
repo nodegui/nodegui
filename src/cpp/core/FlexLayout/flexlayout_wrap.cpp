@@ -20,7 +20,7 @@ Napi::Object FlexLayoutWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 FlexLayout* FlexLayoutWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 FlexLayoutWrap::FlexLayoutWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<FlexLayoutWrap>(info)  {
@@ -30,16 +30,16 @@ FlexLayoutWrap::FlexLayoutWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap
   if(info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = new FlexLayout(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+    this->instance = std::make_unique<FlexLayout>(parentWidgetWrap->getInternalInstance());
   }else if (info.Length() == 0){
-    this->instance = new FlexLayout();
+    this->instance = std::make_unique<FlexLayout>();
   }else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
 }
 
 FlexLayoutWrap::~FlexLayoutWrap() {
-  delete this->instance;
+  this->instance.reset();
 }
 
 Napi::Value FlexLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
