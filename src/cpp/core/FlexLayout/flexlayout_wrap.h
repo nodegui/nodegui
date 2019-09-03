@@ -2,7 +2,6 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include <stdlib.h>
 #include "flexlayout.h"
 #include "src/cpp/QtWidgets/QLayout/qlayout_macro.h"
 

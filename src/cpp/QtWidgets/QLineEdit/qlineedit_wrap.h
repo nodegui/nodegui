@@ -2,7 +2,6 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include <stdlib.h>
 #include "nlineedit.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 

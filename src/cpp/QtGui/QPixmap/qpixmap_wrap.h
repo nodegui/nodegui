@@ -2,7 +2,6 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include <stdlib.h>
 #include <QPixmap>
 #include "src/cpp/core/Component/component_macro.h"
 
