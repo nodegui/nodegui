@@ -9,6 +9,7 @@ Napi::Object QGridLayoutWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QGridLayout";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("addWidget", &QGridLayoutWrap::addWidget),
+    InstanceMethod("removeWidget", &QGridLayoutWrap::removeWidget),
     QLAYOUT_WRAPPED_METHODS_EXPORT_DEFINE(QGridLayoutWrap)
   });
   constructor = Napi::Persistent(func);
@@ -50,3 +51,12 @@ Napi::Value QGridLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+Napi::Value QGridLayoutWrap::removeWidget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object qwidgetObject = info[0].As<Napi::Object>();
+  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  this->instance->removeWidget(widget->getInternalInstance());
+  return env.Null();
+}

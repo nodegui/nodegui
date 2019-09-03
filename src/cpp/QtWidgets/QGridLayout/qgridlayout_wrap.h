@@ -18,6 +18,7 @@ class QGridLayoutWrap : public  Napi::ObjectWrap<QGridLayoutWrap>{
   static Napi::FunctionReference constructor;
   //wrapped methods
   Napi::Value addWidget(const Napi::CallbackInfo& info);
+  Napi::Value removeWidget(const Napi::CallbackInfo& info);
   QLAYOUT_WRAPPED_METHODS_DECLARATION
 };
 
