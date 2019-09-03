@@ -17,7 +17,7 @@ Napi::Object QGridLayoutWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 QGridLayout* QGridLayoutWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QGridLayoutWrap>(info)  {
@@ -25,18 +25,18 @@ QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
   Napi::HandleScope scope(env);
 
   if(info.Length() == 1) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-      this->instance = new QGridLayout(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    this->instance = std::make_unique<QGridLayout>(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   }else if (info.Length() == 0){
-    this->instance = new QGridLayout();
+    this->instance = std::make_unique<QGridLayout>();
   }else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
 }
 
 QGridLayoutWrap::~QGridLayoutWrap() {
-  delete this->instance;
+  this->instance.reset();
 }
 
 Napi::Value QGridLayoutWrap::addWidget(const Napi::CallbackInfo& info) {

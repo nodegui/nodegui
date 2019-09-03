@@ -24,14 +24,14 @@ QPixmapWrap::QPixmapWrap(const Napi::CallbackInfo& info) : Napi::ObjectWrap<QPix
     Napi::HandleScope scope(env);
     if(info.Length() == 1) {
         if(info[0].IsExternal()){
-            this->instance = info[0].As<Napi::External<QPixmap>>().Data();
+            this->instance = std::unique_ptr<QPixmap>(info[0].As<Napi::External<QPixmap>>().Data());
         } else {
             Napi::String url = info[0].As<Napi::String>();
             QString imageUrl = QString::fromUtf8(url.Utf8Value().c_str());
-            this->instance = new QPixmap(imageUrl);
+            this->instance = std::make_unique<QPixmap>(imageUrl);
         }
     }else if (info.Length() == 0){
-        this->instance = new QPixmap();
+        this->instance = std::make_unique<QPixmap>();
     }else {
         Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
     }
@@ -39,12 +39,12 @@ QPixmapWrap::QPixmapWrap(const Napi::CallbackInfo& info) : Napi::ObjectWrap<QPix
 
 QPixmapWrap::~QPixmapWrap()
 {
-    delete this->instance;
+    this->instance.reset();
 }
 
 QPixmap* QPixmapWrap::getInternalInstance()
 {
-    return this->instance;
+    return this->instance.get();
 }
 
 Napi::Value QPixmapWrap::load(const Napi::CallbackInfo& info)

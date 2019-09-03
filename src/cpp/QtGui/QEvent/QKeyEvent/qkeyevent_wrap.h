@@ -1,11 +1,13 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
+#include <stdlib.h>
 #include <QKeyEvent>
 
 class QKeyEventWrap : public  Napi::ObjectWrap<QKeyEventWrap>{
  private:
-  QKeyEvent* instance;
+  std::unique_ptr<QKeyEvent> instance;
   
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

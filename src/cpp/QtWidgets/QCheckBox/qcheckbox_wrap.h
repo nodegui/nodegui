@@ -1,13 +1,15 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
+#include <stdlib.h>
 #include "ncheckbox.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 
 class QCheckBoxWrap : public  Napi::ObjectWrap<QCheckBoxWrap>{
  private:
-  NCheckBox* instance;
+  std::unique_ptr<NCheckBox> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QCheckBoxWrap(const Napi::CallbackInfo& info);

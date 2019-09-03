@@ -1,12 +1,14 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
+#include <stdlib.h>
 #include <QGridLayout>
 #include "src/cpp/QtWidgets/QLayout/qlayout_macro.h"
 
 class QGridLayoutWrap : public  Napi::ObjectWrap<QGridLayoutWrap>{
  private:
-  QGridLayout* instance;
+  std::unique_ptr<QGridLayout> instance;
   
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

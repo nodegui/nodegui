@@ -1,13 +1,15 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
+#include <stdlib.h>
 #include "ndial.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 #include "src/cpp/QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 
 class QDialWrap : public  Napi::ObjectWrap<QDialWrap>{
  private:
-  NDial* instance;
+  std::unique_ptr<NDial> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QDialWrap(const Napi::CallbackInfo& info);

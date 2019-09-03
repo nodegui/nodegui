@@ -1,6 +1,7 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
 #include "nspinbox.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
@@ -8,7 +9,7 @@
 
 class QSpinBoxWrap : public  Napi::ObjectWrap<QSpinBoxWrap> {
  private:
-  NSpinBox* instance;
+  std::unique_ptr<NSpinBox> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QSpinBoxWrap(const Napi::CallbackInfo &info);

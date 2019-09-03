@@ -1,13 +1,13 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
 #include "nscrollarea.h"
 #include "src/cpp/QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 
-
 class QScrollAreaWrap : public  Napi::ObjectWrap<QScrollAreaWrap>{
  private:
-  NScrollArea* instance;
+  std::unique_ptr<NScrollArea> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QScrollAreaWrap(const Napi::CallbackInfo& info);

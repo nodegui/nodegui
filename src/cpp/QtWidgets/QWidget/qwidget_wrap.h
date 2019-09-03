@@ -1,13 +1,13 @@
 #pragma once
 
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
-
 #include <napi.h>
+#include <stdlib.h>
 #include "nwidget.h"
 
 class QWidgetWrap : public  Napi::ObjectWrap<QWidgetWrap>{
  private:
-  NWidget* instance;
+  std::unique_ptr<NWidget> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QWidgetWrap(const Napi::CallbackInfo& info);

@@ -3,7 +3,6 @@
 #include "src/cpp/Extras/Utils/nutils.h"
 #include <QWidget>
 
-
 Napi::FunctionReference QCheckBoxWrap::constructor;
 
 Napi::Object QCheckBoxWrap::init(Napi::Env env, Napi::Object exports) {
@@ -21,7 +20,7 @@ Napi::Object QCheckBoxWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 NCheckBox* QCheckBoxWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 QCheckBoxWrap::QCheckBoxWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QCheckBoxWrap>(info)  {
@@ -29,11 +28,11 @@ QCheckBoxWrap::QCheckBoxWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<Q
   Napi::HandleScope scope(env);
 
   if(info.Length() == 1) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-      this->instance = new NCheckBox(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    this->instance = std::make_unique<NCheckBox>(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   }else if (info.Length() == 0){
-    this->instance = new NCheckBox();
+    this->instance = std::make_unique<NCheckBox>();
   }else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
@@ -42,7 +41,7 @@ QCheckBoxWrap::QCheckBoxWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<Q
 }
 
 QCheckBoxWrap::~QCheckBoxWrap() {
-  delete this->instance;
+  this->instance.reset();
 }
 
 Napi::Value QCheckBoxWrap::setText(const Napi::CallbackInfo& info) {

@@ -11,7 +11,7 @@ void QLayoutWrap::init(Napi::Env env) {
 }
 
 QLayout* QLayoutWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 QLayoutWrap::QLayoutWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QLayoutWrap>(info)  {
@@ -20,5 +20,5 @@ QLayoutWrap::QLayoutWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QLayo
 }
 
 QLayoutWrap::~QLayoutWrap() {
-  delete this->instance;
+   this->instance.reset();
 }

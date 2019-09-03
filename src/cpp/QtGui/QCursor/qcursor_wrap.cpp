@@ -26,11 +26,11 @@ QCursorWrap::QCursorWrap(const Napi::CallbackInfo &info) : Napi::ObjectWrap<QCur
     if (info.Length() == 1)
     {
         Napi::Number cursor = info[0].As<Napi::Number>();
-        this->instance = new QCursor(static_cast<Qt::CursorShape>(cursor.Int32Value()));
+        this->instance = std::make_unique<QCursor>(static_cast<Qt::CursorShape>(cursor.Int32Value()));
     }
     else if (info.Length() == 0)
     {
-        this->instance = new QCursor();
+        this->instance = std::make_unique<QCursor>();
     }
     else
     {
@@ -40,12 +40,12 @@ QCursorWrap::QCursorWrap(const Napi::CallbackInfo &info) : Napi::ObjectWrap<QCur
 
 QCursorWrap::~QCursorWrap()
 {
-    delete this->instance;
+   this->instance.reset();
 }
 
 QCursor *QCursorWrap::getInternalInstance()
 {
-    return this->instance;
+   return this->instance.get();
 }
 
 Napi::Value QCursorWrap::pos(const Napi::CallbackInfo& info) {

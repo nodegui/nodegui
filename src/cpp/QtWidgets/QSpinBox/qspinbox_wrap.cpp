@@ -27,7 +27,7 @@ Napi::Object QSpinBoxWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 NSpinBox* QSpinBoxWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 QSpinBoxWrap::QSpinBoxWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QSpinBoxWrap>(info) {
@@ -37,9 +37,9 @@ QSpinBoxWrap::QSpinBoxWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QSp
   if(info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NSpinBox(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+    this->instance = std::make_unique<NSpinBox>(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   } else if (info.Length() == 0){
-    this->instance = new NSpinBox();
+    this->instance = std::make_unique<NSpinBox>();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
@@ -48,7 +48,7 @@ QSpinBoxWrap::QSpinBoxWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QSp
 }
 
 QSpinBoxWrap::~QSpinBoxWrap() {
-  delete this->instance;
+  this->instance.reset();
 }
 
 Napi::Value QSpinBoxWrap::setPrefix(const Napi::CallbackInfo& info) {

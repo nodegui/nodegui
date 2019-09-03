@@ -4,7 +4,6 @@
 #include "src/cpp/Extras/Utils/nutils.h"
 #include <QWidget>
 
-
 Napi::FunctionReference QProgressBarWrap::constructor;
 
 Napi::Object QProgressBarWrap::init(Napi::Env env, Napi::Object exports) {
@@ -24,7 +23,7 @@ Napi::Object QProgressBarWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 NProgressBar* QProgressBarWrap::getInternalInstance() {
-  return this->instance;
+  return this->instance.get();
 }
 
 QProgressBarWrap::QProgressBarWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QProgressBarWrap>(info)  {
@@ -32,11 +31,11 @@ QProgressBarWrap::QProgressBarWrap(const Napi::CallbackInfo& info): Napi::Object
   Napi::HandleScope scope(env);
 
   if(info.Length() == 1) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-      this->instance = new NProgressBar(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    this->instance = std::make_unique<NProgressBar>(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
   }else if (info.Length() == 0){
-    this->instance = new NProgressBar();
+    this->instance = std::make_unique<NProgressBar>();
   }else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
@@ -45,7 +44,7 @@ QProgressBarWrap::QProgressBarWrap(const Napi::CallbackInfo& info): Napi::Object
 }
 
 QProgressBarWrap::~QProgressBarWrap() {
-  delete this->instance;
+  this->instance.reset();
 }
 
 Napi::Value QProgressBarWrap::setValue(const Napi::CallbackInfo& info) {

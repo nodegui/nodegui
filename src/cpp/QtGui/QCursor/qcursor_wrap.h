@@ -1,14 +1,14 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
 #include <QCursor>
 #include "src/cpp/core/Component/component_macro.h"
 
 class QCursorWrap : public Napi::ObjectWrap<QCursorWrap>
 {
 private:
-    QCursor *instance;
-
+    std::unique_ptr<QCursor> instance;
 public:
     static Napi::FunctionReference constructor;
     static Napi::Object init(Napi::Env env, Napi::Object exports);

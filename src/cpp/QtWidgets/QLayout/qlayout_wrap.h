@@ -1,6 +1,8 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
+#include <stdlib.h>
 #include <QLayout>
 
 #include "src/cpp/QtWidgets/QLayout/qlayout_macro.h"
@@ -8,7 +10,7 @@
 //ABSTRACT CLASS
 class QLayoutWrap : public  Napi::ObjectWrap<QLayoutWrap>{
  private:
-  QLayout* instance;
+  std::unique_ptr<QLayout> instance;
  public:
   static void init(Napi::Env env);
   QLayoutWrap(const Napi::CallbackInfo& info);

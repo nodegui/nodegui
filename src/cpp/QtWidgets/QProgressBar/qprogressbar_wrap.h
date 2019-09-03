@@ -1,12 +1,13 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
 #include "nprogressbar.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 class QProgressBarWrap : public  Napi::ObjectWrap<QProgressBarWrap>{
  private:
-  NProgressBar* instance;
+  std::unique_ptr<NProgressBar> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QProgressBarWrap(const Napi::CallbackInfo& info);

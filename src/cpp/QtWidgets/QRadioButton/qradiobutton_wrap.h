@@ -1,13 +1,14 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
 #include "nradiobutton.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 
 class QRadioButtonWrap : public  Napi::ObjectWrap<QRadioButtonWrap>{
  private:
-  NRadioButton* instance;
+  std::unique_ptr<NRadioButton> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QRadioButtonWrap(const Napi::CallbackInfo& info);

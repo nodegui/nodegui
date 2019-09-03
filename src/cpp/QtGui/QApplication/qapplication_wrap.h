@@ -1,12 +1,14 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
+#include <stdlib.h>
 #include <QApplication>
 
 
 class QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
 private:
-    QApplication* instance;
+    std::unique_ptr<QApplication> instance;
     static int argc;
     static char** argv;
 

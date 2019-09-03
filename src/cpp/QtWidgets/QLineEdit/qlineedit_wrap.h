@@ -1,13 +1,14 @@
 #pragma once
 
 #include <napi.h>
+#include <stdlib.h>
+#include <stdlib.h>
 #include "nlineedit.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
-
 class QLineEditWrap : public  Napi::ObjectWrap<QLineEditWrap>{
  private:
-  NLineEdit* instance;
+  std::unique_ptr<NLineEdit> instance;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QLineEditWrap(const Napi::CallbackInfo& info);
