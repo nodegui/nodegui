@@ -10,11 +10,12 @@ import {
   QWidget,
   QIcon,
   QDial,
-  QPlainTextEdit
+  QPlainTextEdit,
+  QTextOptionEnums
 } from "./index";
 import { QScrollArea } from "./lib/QtWidgets/QScrollArea";
 import { QPixmap } from "./lib/QtGui/QPixmap";
-import { CursorShape, WindowState } from "./lib/QtEnums"
+import { CursorShape, WindowState } from "./lib/QtEnums";
 
 const path = require("path");
 
@@ -65,6 +66,7 @@ rootView.setLayout(new FlexLayout());
 
 const textEdit = new QPlainTextEdit();
 textEdit.setPlainText("Hello");
+textEdit.setWordWrapMode(QTextOptionEnums.WrapMode.NoWrap);
 
 const scrollArea = new QScrollArea();
 scrollArea.setInlineStyle("flex: 1; width:'100%';");
