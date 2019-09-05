@@ -23,5 +23,9 @@ class QPlainTextEditWrap : public  Napi::ObjectWrap<QPlainTextEditWrap>{
   Napi::Value toPlainText(const Napi::CallbackInfo &info);
   Napi::Value setReadOnly(const Napi::CallbackInfo &info);
   Napi::Value clear(const Napi::CallbackInfo &info);
+  Napi::Value setWordWrapMode(const Napi::CallbackInfo &info);
+  Napi::Value wordWrapMode(const Napi::CallbackInfo &info);
+  Napi::Value setLineWrapMode(const Napi::CallbackInfo &info);
+  Napi::Value lineWrapMode(const Napi::CallbackInfo &info);
 };
 

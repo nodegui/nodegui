@@ -15,6 +15,10 @@ Napi::Object QPlainTextEditWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("toPlainText",&QPlainTextEditWrap::toPlainText),
     InstanceMethod("setReadOnly", &QPlainTextEditWrap::setReadOnly),
     InstanceMethod("clear", &QPlainTextEditWrap::clear),
+    InstanceMethod("setWordWrapMode", &QPlainTextEditWrap::setWordWrapMode),
+    InstanceMethod("wordWrapMode", &QPlainTextEditWrap::wordWrapMode),
+    InstanceMethod("setLineWrapMode", &QPlainTextEditWrap::setLineWrapMode),
+    InstanceMethod("lineWrapMode", &QPlainTextEditWrap::lineWrapMode),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPlainTextEditWrap)
     QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QPlainTextEditWrap)
   });
@@ -76,4 +80,34 @@ Napi::Value QPlainTextEditWrap::clear(const Napi::CallbackInfo &info){
   Napi::HandleScope scope(env);
   this->instance->clear();
   return env.Null();
+}
+
+Napi::Value QPlainTextEditWrap::setWordWrapMode(const Napi::CallbackInfo &info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Number mode = info[0].As<Napi::Number>();
+  this->instance->setWordWrapMode(static_cast<QTextOption::WrapMode>(mode.Int32Value()));
+  return env.Null();
+}
+
+Napi::Value QPlainTextEditWrap::wordWrapMode(const Napi::CallbackInfo &info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int value = static_cast<int>(this->instance->wordWrapMode());
+  return Napi::Number::From(env, value);
+}
+
+Napi::Value QPlainTextEditWrap::setLineWrapMode(const Napi::CallbackInfo &info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Number mode = info[0].As<Napi::Number>();
+  this->instance->setLineWrapMode(static_cast<QPlainTextEdit::LineWrapMode>(mode.Int32Value()));
+  return env.Null();
+}
+
+Napi::Value QPlainTextEditWrap::lineWrapMode(const Napi::CallbackInfo &info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int value = static_cast<int>(this->instance->lineWrapMode());
+  return Napi::Number::From(env, value);
 }
