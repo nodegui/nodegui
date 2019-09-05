@@ -72,15 +72,12 @@ Looking to contribute? If you wish to implement a new widget/add more features a
 
 ## Funding
 
-NodeGUI is an open source project. If you like this project, please consider support my work with Ko-fi.
+NodeGUI is an open source project and requires your support. If you like this project, please consider supporting my work with Ko-fi. Alternatively, Issues on NodeGui can be funded by anyone via Issuehunt and the amount will be distributed to respective contributors.
 
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E510AV9) 
-
-<div style="font-weight: 300;font-style: italic;font-size: larger;text-align: center;padding-bottom: 22px;">or</div>
-
-Issues on NodeGui can be funded by anyone and the money will be distributed to respective contributors.
-
-[![issuehunt](https://github.com/BoostIO/issuehunt-materials/raw/master/v1/issuehunt-button-v1.svg?sanitize=true)](https://issuehunt.io/r/nodegui/nodegui)
+<p align="center">
+ <a href="https://ko-fi.com/E1E510AV9"><img alt="ko-fi" src="https://www.ko-fi.com/img/githubbutton_sm.svg" height="30px" /></a> &nbsp; &nbsp; 
+ <a href="https://issuehunt.io/r/nodegui/nodegui"><img alt="issuehunt" src="https://github.com/BoostIO/issuehunt-materials/raw/master/v1/issuehunt-button-v1.svg?sanitize=true"  height="30px" /></a>
+</p>
 
 ### LICENSE
 
