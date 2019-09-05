@@ -19,6 +19,9 @@ export class QClipboard extends Component {
   setText = (text: string, mode: QClipboardMode) => {
     this.native.setText(text, mode);
   };
+  text = (mode: QClipboardMode) => {
+    return this.native.text(mode);
+  };
 }
 
 export enum QClipboardMode {
