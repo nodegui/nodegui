@@ -10,20 +10,28 @@ import {
   QWidget,
   QIcon,
   QDial,
-  QPlainTextEdit
+  QPlainTextEdit,
+  QTabWidget,
+  QGridLayout
 } from "./index";
 import { QScrollArea } from "./lib/QtWidgets/QScrollArea";
 import { QPixmap } from "./lib/QtGui/QPixmap";
 import { CursorShape, WindowState } from "./lib/QtEnums"
+import { QTabWidgetEvents } from "./lib/QtWidgets/QTabWidget";
 
 const path = require("path");
 
 const win = new QMainWindow();
 
-const label = new QLabel();
-label.setText("Hello world 🧙");
-label.setInlineStyle("font-size: 20px;");
-label.setCursor(CursorShape.ForbiddenCursor);
+const label1 = new QLabel();
+label1.setText("Hello world 1 🧙");
+label1.setInlineStyle("font-size: 20px;");
+label1.setCursor(CursorShape.ForbiddenCursor);
+
+const label2 = new QLabel();
+label2.setText("Hello world 2 💻");
+label2.setInlineStyle("font-size: 20px;");
+label2.setCursor(CursorShape.ForbiddenCursor);
 
 const checkbox = new QCheckBox();
 checkbox.setText("Check me out?");
@@ -51,6 +59,21 @@ const icon = new QIcon(
 );
 button.setIcon(icon);
 
+const tabs = new QTabWidget();
+tabs.setTabsClosable(true);
+const tab1 = new QWidget();
+const tab2 = new QWidget();
+tab1.setLayout(new QGridLayout());
+tab2.setLayout(new QGridLayout());
+
+if(tab1.layout && tab2.layout) {
+  tab1.layout.addWidget(label1);
+  tab2.layout.addWidget(label2);
+}
+
+tabs.addTab(tab1, icon, "Tab 1");
+tabs.addTab(tab2, icon, "Tab 2");
+
 const progressbar = new QProgressBar();
 progressbar.setValue(6);
 progressbar.setMinimum(1);
@@ -77,7 +100,7 @@ imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 
 if (rootView.layout) {
-  rootView.layout.addWidget(label);
+  rootView.layout.addWidget(tabs);
   rootView.layout.addWidget(checkbox);
   rootView.layout.addWidget(radioButton);
   rootView.layout.addWidget(lineEdit);
@@ -101,7 +124,7 @@ win.setStyleSheet(`
 win.setWindowIcon(nodeguiLogo);
 win.setWindowTitle("NodeGUI Demo");
 
-win.resize(400, 400);
+win.resize(400, 500);
 win.show();
 win.setWindowState(WindowState.WindowActive);
 

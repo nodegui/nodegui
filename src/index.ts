@@ -24,6 +24,7 @@ export { QProgressBar, QProgressBarEvents } from "./lib/QtWidgets/QProgressBar";
 export { QPushButton, QPushButtonEvents } from "./lib/QtWidgets/QPushButton";
 export { QSpinBox, QSpinBoxEvents } from "./lib/QtWidgets/QSpinBox";
 export { QRadioButton, QRadioButtonEvents } from "./lib/QtWidgets/QRadioButton";
+export { QTabWidget, QTabWidgetEvents } from "./lib/QtWidgets/QTabWidget";
 export {
   QPlainTextEdit,
   QPlainTextEditEvents
