@@ -76,9 +76,10 @@ NodeGUI is an open source project. If you like this project, please consider sup
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E510AV9) 
 
-<div style="text-align:center;font-weight:bold;">or</div>
+<div style="font-weight: 300;font-style: italic;font-size: larger;text-align: center;padding-bottom: 22px;">or</div>
 
 Issues on NodeGui can be funded by anyone and the money will be distributed to respective contributors.
+
 [![issuehunt](https://github.com/BoostIO/issuehunt-materials/raw/master/v1/issuehunt-button-v1.svg?sanitize=true)](https://issuehunt.io/r/nodegui/nodegui)
 
 ### LICENSE
