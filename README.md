@@ -70,15 +70,21 @@ Looking to contribute? If you wish to implement a new widget/add more features a
 
 `npm run build [--qt_home_dir=/path/to/qt]`
 
+## Funding
+
+NodeGUI is an open source project. If you like this project, please consider support my work with Ko-fi.
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E510AV9) 
+
+<div style="text-align:center;font-weight:bold;">or</div>
+
+Issues on NodeGui can be funded by anyone and the money will be distributed to respective contributors.
+[![issuehunt](https://github.com/BoostIO/issuehunt-materials/raw/master/v1/issuehunt-button-v1.svg?sanitize=true)](https://issuehunt.io/r/nodegui/nodegui)
+
 ### LICENSE
 
 MIT
 
-## Note
-
-> Since we do not in any way modify the code of Qt and only link to it dynamically, I believe we are in compliance with the LGPL license requirements of QT. And hence this library can be licensed under its own License (for which we have chosen MIT License).
-> The links to QT source code and appropriate license notices are attached. We try our best to abide by the software licenses and any non compliance is not by will. If there is some discrepancy please let us know in the issues and we will try and fix it up.
-> If you follow the recommended build steps and do not statically link QT libraries on your own you are safe to use this library for commerical purposes (provided you abide by MIT License).
 
 ## Maintainers ✨
 
@@ -90,6 +96,7 @@ People maintaining this project.
     <td align="center"><a href="https://blog.atulr.com"><img src="https://avatars2.githubusercontent.com/u/4029423?v=4" width="100px;" alt="Atul R"/><br /><sub><b>Atul R</b></sub></a></td>
   </tr>
 </table>
+
 
 ## Contributors ✨
 
