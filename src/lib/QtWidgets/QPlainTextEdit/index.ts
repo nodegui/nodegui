@@ -3,7 +3,7 @@ import { NodeWidget } from "../QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { QAbstractScrollArea } from "../QAbstractScrollArea";
-import { WrapMode } from "../../QtGui/QTextOption/textOptionEnums";
+import { QTextOptionWrapMode } from "../../QtGui/QTextOption";
 
 export const QPlainTextEditEvents = Object.freeze({
   ...BaseWidgetEvents,
@@ -59,10 +59,10 @@ export class QPlainTextEdit extends QAbstractScrollArea {
     // react:✓
     this.native.clear();
   }
-  setWordWrapMode(mode: WrapMode) {
+  setWordWrapMode(mode: QTextOptionWrapMode) {
     this.native.setWordWrapMode(mode);
   }
-  wordWrapMode(): WrapMode {
+  wordWrapMode(): QTextOptionWrapMode {
     return this.native.wordWrapMode();
   }
   setLineWrapMode(mode: LineWrapMode) {

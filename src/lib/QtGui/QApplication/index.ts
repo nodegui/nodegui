@@ -1,6 +1,7 @@
 import addon from "../../core/addon";
 import { Component, NativeElement } from "../../core/Component";
 import { checkIfNativeElement } from "../../utils";
+import { QClipboard } from "../QClipboard";
 
 type arg = NativeElement;
 export class QApplication extends Component {
@@ -13,6 +14,9 @@ export class QApplication extends Component {
       this.native = new addon.QApplication();
     }
   }
+  static clipboard = (): QClipboard => {
+    return new QClipboard(addon.QApplication.clipboard());
+  };
   processEvents = () => {
     this.native.processEvents();
   };

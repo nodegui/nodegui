@@ -53,6 +53,8 @@
 - [FlexLayout](api/FlexLayout.md)
 - [QPixmap](api/QPixmap.md)
 - [QIcon](api/QIcon.md)
+- [QCursor](api/QCursor.md)
+- [QClipboard](api/QClipboard.md)
 - [Qt Enums](api/QtEnums.md)
 
 ### Internal Modules

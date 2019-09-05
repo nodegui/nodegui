@@ -21,9 +21,13 @@ qApp.quit();
 
 QApplication can access all the static methods defined in [Component](api/Component.md). Additionally it also has the following static methods.
 
-#### `qApp.instance()`
+#### `QApplication.instance()`
 
 Returns the already initialised QApplication instance. It calls the native method [QApplication: instance](https://doc.qt.io/qt-5/qcoreapplication.html#instance).
+
+#### `QApplication.clipboard()`
+
+Returns the object for interacting with the clipboard. It calls the native method [QApplication: clipboard](https://doc.qt.io/qt-5/qguiapplication.html#clipboard). See QClipboard.
 
 ### Instance Properties
 

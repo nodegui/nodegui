@@ -1,3 +1,7 @@
-import * as Enums from "./textOptionEnums";
-
-export const QTextOptionEnums = Enums;
+export enum QTextOptionWrapMode {
+  NoWrap,
+  WordWrap,
+  ManualWrap,
+  WrapAnywhere,
+  WrapAtWordBoundaryOrAnywhere
+}

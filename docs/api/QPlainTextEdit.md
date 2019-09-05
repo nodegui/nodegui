@@ -54,7 +54,7 @@ Deletes all the text in the text edit.[QPlainTextEdit: clear](https://doc.qt.io/
 
 This property holds the mode QPlainTextEdit will use when wrapping text by words.[QPlainTextEdit: setWordWrapMode](https://doc.qt.io/qt-5/qplaintextedit.html#wordWrapMode-prop).
 
-- mode: WrapMode
+- mode: QTextOptionWrapMode
 
 #### `plainTextEdit.wordWrapMode()`
 

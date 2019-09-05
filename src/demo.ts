@@ -11,11 +11,14 @@ import {
   QIcon,
   QDial,
   QPlainTextEdit,
-  QTextOptionEnums
+  QScrollArea,
+  QPixmap,
+  CursorShape,
+  WindowState,
+  QTextOptionWrapMode,
+  QApplication,
+  QClipboardMode
 } from "./index";
-import { QScrollArea } from "./lib/QtWidgets/QScrollArea";
-import { QPixmap } from "./lib/QtGui/QPixmap";
-import { CursorShape, WindowState } from "./lib/QtEnums";
 
 const path = require("path");
 
@@ -42,6 +45,11 @@ const button = new QPushButton();
 button.setText("Push Push Push!");
 button.setObjectName("btn");
 button.setFlat(true);
+button.addEventListener("clicked", () => {
+  const clipboard = QApplication.clipboard();
+  console.log("clipboard: ", clipboard.text(QClipboardMode.Clipboard));
+  clipboard.setText("yooooo", QClipboardMode.Clipboard);
+});
 
 const nodeguiLogo = new QIcon(
   path.resolve(__dirname, "../extras/assets/nodegui.png")
@@ -66,7 +74,7 @@ rootView.setLayout(new FlexLayout());
 
 const textEdit = new QPlainTextEdit();
 textEdit.setPlainText("Hello");
-textEdit.setWordWrapMode(QTextOptionEnums.WrapMode.NoWrap);
+textEdit.setWordWrapMode(QTextOptionWrapMode.NoWrap);
 
 const scrollArea = new QScrollArea();
 scrollArea.setInlineStyle("flex: 1; width:'100%';");

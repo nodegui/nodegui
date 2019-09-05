@@ -1,15 +1,15 @@
 #pragma once
 
 #include <napi.h>
-#include <stdlib.h>
 #include <QApplication>
 
 
 class QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
 private:
-    std::unique_ptr<QApplication> instance;
+    QApplication* instance;
     static int argc;
     static char** argv;
+    bool _wasManuallyCreated = false;
 
 public:
     static Napi::FunctionReference constructor;
@@ -26,4 +26,5 @@ public:
 
 namespace StaticQApplicationWrapMethods {
      Napi::Value instance(const Napi::CallbackInfo& info);
+     Napi::Value clipboard(const Napi::CallbackInfo& info);
 }
