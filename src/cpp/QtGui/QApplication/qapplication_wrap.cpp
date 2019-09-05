@@ -16,6 +16,7 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports)
         InstanceMethod("exec", &QApplicationWrap::exec),
         InstanceMethod("quit", &QApplicationWrap::quit),
         StaticMethod("instance", &StaticQApplicationWrapMethods::instance),
+        StaticMethod("clipboard", &StaticQApplicationWrapMethods::clipboard),
         COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
     });
     constructor = Napi::Persistent(func);
