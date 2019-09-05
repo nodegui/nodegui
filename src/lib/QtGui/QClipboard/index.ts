@@ -19,7 +19,7 @@ export class QClipboard extends Component {
   setText = (text: string, mode: QClipboardMode) => {
     this.native.setText(text, mode);
   };
-  text = (mode: QClipboardMode) => {
+  text = (mode: QClipboardMode): string => {
     return this.native.text(mode);
   };
 }
