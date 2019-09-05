@@ -6,6 +6,7 @@ export { QPixmap } from "./lib/QtGui/QPixmap";
 export { QIcon } from "./lib/QtGui/QIcon";
 export { QCursor } from "./lib/QtGui/QCursor";
 export { QTextOptionEnums } from "./lib/QtGui/QTextOption";
+export { QClipboard, QClipboardMode } from "./lib/QtGui/QClipboard";
 // Events: Maybe a separate module ?
 export { QKeyEvent } from "./lib/QtGui/QEvent/QKeyEvent";
 export { NativeEvent } from "./lib/core/EventWidget";

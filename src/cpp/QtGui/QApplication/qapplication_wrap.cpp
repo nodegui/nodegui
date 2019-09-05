@@ -1,6 +1,7 @@
 #include "qapplication_wrap.h"
 #include "src/cpp/core/Component/component_macro.h"
 #include "src/cpp/Extras/Utils/nutils.h"
+#include "src/cpp/QtGui/QClipboard/qclipboard_wrap.h"
 
 Napi::FunctionReference QApplicationWrap::constructor;
 int QApplicationWrap::argc = 0;
@@ -28,22 +29,24 @@ QApplicationWrap::QApplicationWrap(const Napi::CallbackInfo& info)
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
     if(info.Length() == 1) {
-        this->instance = std::unique_ptr<QApplication>(info[0].As<Napi::External<QApplication>>().Data());
+        this->instance = info[0].As<Napi::External<QApplication>>().Data();
     } else if (info.Length() == 0){
-        this->instance = std::make_unique<QApplication>(this->argc, this->argv);
+        this->instance = new QApplication(this->argc, this->argv);
+        this->_wasManuallyCreated = true;
     } else {
         Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
     }
 }
-
 QApplicationWrap::~QApplicationWrap()
 {
-    this->instance.reset();
+   if(this->_wasManuallyCreated){
+       delete this->instance;
+   }
 }
 
 QApplication* QApplicationWrap::getInternalInstance()
 {
-    return this->instance.get();
+    return this->instance;
 }
 
 Napi::Value QApplicationWrap::processEvents(const Napi::CallbackInfo& info)
@@ -86,4 +89,12 @@ Napi::Value StaticQApplicationWrapMethods::instance(const Napi::CallbackInfo& in
     QApplication* app = static_cast<QApplication *>(QCoreApplication::instance());
     Napi::Object instance = QApplicationWrap::constructor.New({ Napi::External<QApplication>::New(env, app) });
     return instance;
+}
+
+Napi::Value StaticQApplicationWrapMethods::clipboard(const Napi::CallbackInfo& info)
+{
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    QClipboard* clipboard = QApplication::clipboard();
+    return QClipboardWrap::constructor.New({ Napi::External<QClipboard>::New(env, clipboard) });
 }
