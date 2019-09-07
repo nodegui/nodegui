@@ -11,14 +11,14 @@ class NWidget: public QWidget, public NodeWidget
 public:
     using QWidget::QWidget;
     // https://doc.qt.io/qt-5/stylesheet-reference.html
-    // void paintEvent(QPaintEvent *e)
-    // {
-    //     QStyleOption opt;
-    //     opt.init(this);
-    //     QPainter p(this);
-    //     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
-    //     QWidget::paintEvent(e);
-    // }
+    void paintEvent(QPaintEvent *e)
+    {
+        QStyleOption opt;
+        opt.init(this);
+        QPainter p(this);
+        style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+        QWidget::paintEvent(e);
+    }
 };
 
 
