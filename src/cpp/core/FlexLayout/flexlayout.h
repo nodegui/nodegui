@@ -24,6 +24,7 @@ class FlexLayout: public QLayout
 {
 private:
     YGNodeRef node;
+    YGNodeRef getRootNode(YGNodeRef node);
 public:
     struct NodeContext
     {

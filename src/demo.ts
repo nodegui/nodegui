@@ -49,6 +49,11 @@ button.addEventListener("clicked", () => {
   const clipboard = QApplication.clipboard();
   console.log("clipboard: ", clipboard.text(QClipboardMode.Clipboard));
   clipboard.setText("yooooo", QClipboardMode.Clipboard);
+  if (rootView.layout) {
+    (rootView.layout as FlexLayout).removeWidget(dial);
+    rootView.layout.invalidate();
+    // rootView.update();
+  }
 });
 
 const nodeguiLogo = new QIcon(
@@ -111,7 +116,7 @@ win.setStyleSheet(`
 win.setWindowIcon(nodeguiLogo);
 win.setWindowTitle("NodeGUI Demo");
 
-win.resize(400, 400);
+win.resize(400, 700);
 win.show();
 win.setWindowState(WindowState.WindowActive);
 
