@@ -51,8 +51,6 @@ button.addEventListener("clicked", () => {
   clipboard.setText("yooooo", QClipboardMode.Clipboard);
   if (rootView.layout) {
     (rootView.layout as FlexLayout).removeWidget(dial);
-    rootView.layout.invalidate();
-    // rootView.update();
   }
 });
 
