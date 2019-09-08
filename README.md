@@ -79,7 +79,11 @@ NodeGUI is an open source project and requires your support. If you like this pr
  <a href="https://issuehunt.io/r/nodegui/nodegui"><img alt="issuehunt" src="https://github.com/BoostIO/issuehunt-materials/raw/master/v1/issuehunt-button-v1.svg?sanitize=true"  height="30px" /></a>
 </p>
 
-### LICENSE
+## THANKS
+
+- [Logo](https://github.com/nodegui/nodegui/blob/master/extras/legal/logo/thanks.md) Thanks to Vishwas Shetty from the Noun Project.
+
+## LICENSE
 
 MIT
 
