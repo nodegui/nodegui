@@ -1,6 +1,6 @@
 # Logo
 
-<img alt="logo" src="https://github.com/nodegui/nodegui/raw/master/extras/logo/logo.png" height="400" />
+<img alt="logo" src="https://raw.githubusercontent.com/nodegui/nodegui/master/extras/logo/nodegui.png" height="400" />
 
 Special thanks to the Noun Project for the logo.
 
