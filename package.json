@@ -29,7 +29,7 @@
     "@nodegui/qode": "^1.0.4",
     "cuid": "^2.1.6",
     "node-addon-api": "^1.6.3",
-    "node-gyp": "^4.0.0",
+    "node-gyp": "^5.0.3",
     "postcss-nodegui-autoprefixer": "0.0.7"
   },
   "devDependencies": {
