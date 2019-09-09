@@ -47,3 +47,11 @@ Napi::Value QScrollAreaWrap::setWidget(const Napi::CallbackInfo& info) {
   this->instance->setWidget(contentWidgetWrap->getInternalInstance());
   return env.Null();
 }
+
+Napi::Value QScrollAreaWrap::takeWidget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->takeWidget(); 
+  // We will not return the value here since we are doing it in js side anyway
+  return env.Null();
+}

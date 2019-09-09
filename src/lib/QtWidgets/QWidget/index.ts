@@ -45,8 +45,11 @@ export abstract class NodeWidget extends EventWidget {
     await applyStyleSheet(this, preparedSheet);
   };
   setGeometry = (x: number, y: number, w: number, h: number) => {
-    // react:✓, //TODO:getter
+    // react:✓
     this.native.setGeometry(x, y, w, h);
+  };
+  geometry = (): Rect => {
+    return this.native.geometry();
   };
   setObjectName = (objectName: string) => {
     // react:✓
@@ -148,6 +151,12 @@ export abstract class NodeWidget extends EventWidget {
   };
 }
 
+type Rect = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
 type arg = NodeWidget | NativeElement;
 
 export class QWidget extends NodeWidget {

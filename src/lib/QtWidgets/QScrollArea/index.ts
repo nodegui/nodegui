@@ -9,7 +9,7 @@ export const QScrollAreaEvents = Object.freeze({
 });
 export class QScrollArea extends QAbstractScrollArea {
   native: NativeElement;
-  contentWidget?: NodeWidget;
+  contentWidget?: NodeWidget | null;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {
@@ -21,9 +21,20 @@ export class QScrollArea extends QAbstractScrollArea {
     this.native = native;
     this.parent = parent;
     // bind member functions
+    this.setWidget.bind(this);
+    this.takeWidget.bind(this);
   }
   setWidget(widget: NodeWidget) {
     this.contentWidget = widget;
     this.native.setWidget(widget.native);
+  }
+  takeWidget(): NodeWidget | null {
+    const contentWidget = this.contentWidget;
+    this.contentWidget = null;
+    if (contentWidget) {
+      this.native.takeWidget();
+      return contentWidget;
+    }
+    return null;
   }
 }
