@@ -28,6 +28,10 @@ QPlainTextEdit can access all the static methods defined in [NodeWidget](api/Nod
 
 QPlainTextEdit can access all the instance properties defined in [NodeWidget](api/NodeWidget.md).
 
+#### `plainTextEdit.placeholderText`
+
+The placeholder text set on the plainTextEdit.
+
 ### Instance Methods
 
 QPlainTextEdit can access all the instance methods defined in [NodeWidget](api/NodeWidget.md).
@@ -35,6 +39,12 @@ QPlainTextEdit can access all the instance methods defined in [NodeWidget](api/N
 #### `plainTextEdit.setPlainText(text)`
 
 Sets the given text to the plainTextEdit. It calls the native method [QPlainTextEdit: setPlainText](https://doc.qt.io/qt-5/qplaintextedit.html#setPlainText).
+
+- `text` string
+
+#### `plainTextEdit.setPlaceholderText(text)`
+
+Sets the given text to the plainTextEdit's placeholder.
 
 - `text` string
 

@@ -12,6 +12,7 @@ Napi::Object QPlainTextEditWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QPlainTextEdit";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setPlainText",&QPlainTextEditWrap::setPlainText),
+    InstanceMethod("setPlaceholderText",&QPlainTextEditWrap::setPlaceholderText),
     InstanceMethod("toPlainText",&QPlainTextEditWrap::toPlainText),
     InstanceMethod("setReadOnly", &QPlainTextEditWrap::setReadOnly),
     InstanceMethod("clear", &QPlainTextEditWrap::clear),
@@ -57,6 +58,14 @@ Napi::Value QPlainTextEditWrap::setPlainText(const Napi::CallbackInfo& info){
   Napi::HandleScope scope(env);
   Napi::String plainText = info[0].As<Napi::String>();
   this->instance->setPlainText(plainText.Utf8Value().c_str());
+  return env.Null();
+}
+
+Napi::Value QPlainTextEditWrap::setPlaceholderText(const Napi::CallbackInfo& info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::String text = info[0].As<Napi::String>();
+  this->instance->setPlaceholderText(text.Utf8Value().c_str());
   return env.Null();
 }
 

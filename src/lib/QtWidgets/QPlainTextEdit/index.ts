@@ -23,6 +23,7 @@ export enum LineWrapMode {
 }
 export class QPlainTextEdit extends QAbstractScrollArea {
   native: NativeElement;
+  placeholderText?: string;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {
@@ -35,6 +36,7 @@ export class QPlainTextEdit extends QAbstractScrollArea {
     this.parent = parent;
     // bind member functions
     this.setPlainText.bind(this);
+    this.setPlaceholderText.bind(this);
     this.toPlainText.bind(this);
     this.setReadOnly.bind(this);
     this.clear.bind(this);
@@ -46,6 +48,10 @@ export class QPlainTextEdit extends QAbstractScrollArea {
   setPlainText(text: string | number) {
     // react:✓
     this.native.setPlainText(`${text}`);
+  }
+  setPlaceholderText(text: string) {
+    this.placeholderText = text;
+    this.native.setPlaceholderText(text);
   }
   toPlainText(): string {
     // react:✓
