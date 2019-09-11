@@ -52,6 +52,7 @@ button.addEventListener("clicked", () => {
   if (rootView.layout) {
     (rootView.layout as FlexLayout).removeWidget(dial);
   }
+  label.setInlineStyle("color:blue;");
 });
 
 const nodeguiLogo = new QIcon(

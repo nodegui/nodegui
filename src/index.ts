@@ -1,3 +1,5 @@
+// bootstrap
+import "./lib/core/bootstrap";
 // Enums:
 export * from "./lib/QtEnums";
 // Gui:

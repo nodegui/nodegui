@@ -19,7 +19,7 @@ export const prepareInlineStyleSheet = async (
   rawStyle: string
 ) => {
   const inlineStyle = await StyleSheet.create(rawStyle);
-  // Make sure to not calculate ObjectName is the same pass of event loop as other props (incase of react) since the order will matter in that case
+  // Make sure to not calculate ObjectName in the same pass of event loop as other props (incase of react) since the order will matter in that case
   // So doing it in multiple passes of event loop allows objectName to be set before using it. The above await solves it.
   let cssId = widget.objectName();
   if (!cssId) {
@@ -38,7 +38,5 @@ export const applyStyleSheet = async (
   styleSheet: string
 ) => {
   widget.native.setStyleSheet(styleSheet);
-  setTimeout(() => {
-    widget.layout ? widget.layout.update() : widget.update();
-  }, 20);
+  widget.layout ? widget.layout.update() : widget.update();
 };
