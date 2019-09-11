@@ -28,16 +28,16 @@ export class QPushButton extends NodeWidget {
     this.setText.bind(this);
     this.setFlat.bind(this);
   }
-
   setText(text: string | number) {
+    // react:✓, //TODO:getter
     this.native.setText(`${text}`);
   }
-
   setFlat(isFlat: boolean) {
+    // react:✓, //TODO:getter
     this.native.setFlat(isFlat);
   }
-
   setIcon(icon: QIcon) {
+    // react:✓, //TODO:getter
     this.native.setIcon(icon.native);
   }
 }

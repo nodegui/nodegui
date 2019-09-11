@@ -50,6 +50,7 @@ export class QPlainTextEdit extends QAbstractScrollArea {
     this.native.setPlainText(`${text}`);
   }
   setPlaceholderText(text: string) {
+    // react:✓, //TODO:getter
     this.placeholderText = text;
     this.native.setPlaceholderText(text);
   }

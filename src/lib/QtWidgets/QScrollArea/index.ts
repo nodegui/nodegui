@@ -25,10 +25,12 @@ export class QScrollArea extends QAbstractScrollArea {
     this.takeWidget.bind(this);
   }
   setWidget(widget: NodeWidget) {
+    // react:✓, //TODO:getter
     this.contentWidget = widget;
     this.native.setWidget(widget.native);
   }
   takeWidget(): NodeWidget | null {
+    // react:✓
     const contentWidget = this.contentWidget;
     this.contentWidget = null;
     if (contentWidget) {

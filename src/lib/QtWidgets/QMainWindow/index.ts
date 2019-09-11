@@ -32,6 +32,7 @@ export class QMainWindow extends NodeWidget {
     };
   }
   setCentralWidget(widget: NodeWidget) {
+    // react:✓
     this.native.setCentralWidget(widget.native, widget.getFlexNode());
     this.centralWidget = widget;
   }

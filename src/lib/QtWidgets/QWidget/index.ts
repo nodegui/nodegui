@@ -49,6 +49,7 @@ export abstract class NodeWidget extends EventWidget {
     this.native.setGeometry(x, y, w, h);
   };
   geometry = (): Rect => {
+    // react:✓
     return this.native.geometry();
   };
   setObjectName = (objectName: string) => {
