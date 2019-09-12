@@ -17,9 +17,9 @@ import {
   WindowState,
   QTextOptionWrapMode,
   QApplication,
-  QClipboardMode
+  QClipboardMode,
+  QCheckBoxEvents
 } from "./index";
-import { QCheckBoxEvents } from './lib/QtWidgets/QCheckBox';
 
 const path = require("path");
 
