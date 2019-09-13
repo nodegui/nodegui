@@ -1,6 +1,8 @@
-{
-  "include": "src/cpp/core/NodeWidget/nodewidget.h",
-  "headers": [
+const path = require("path");
+module.exports = {
+  rootDir: path.resolve(__dirname, ".."),
+  include: "src/cpp/core/NodeWidget/nodewidget.h",
+  headers: [
     "src/cpp/QtWidgets/QWidget/nwidget.h",
     "src/cpp/QtWidgets/QLabel/nlabel.h",
     "src/cpp/QtWidgets/QCheckBox/ncheckbox.h",
@@ -14,4 +16,4 @@
     "src/cpp/QtWidgets/QPlainTextEdit/nplaintextedit.h",
     "src/cpp/QtWidgets/QScrollArea/nscrollarea.h"
   ]
-}
+};

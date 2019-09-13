@@ -12,6 +12,9 @@
     "extras/legal",
     "deps"
   ],
+  "bin": {
+    "automoc": "./scripts/automoc.js"
+  },
   "author": "Atul R <atulanand94@gmail.com>",
   "license": "MIT",
   "private": false,
