@@ -17,7 +17,8 @@ import {
   WindowState,
   QTextOptionWrapMode,
   QApplication,
-  QClipboardMode
+  QClipboardMode,
+  QCheckBoxEvents
 } from "./index";
 
 const path = require("path");
@@ -33,6 +34,9 @@ const checkbox = new QCheckBox();
 checkbox.setText("Check me out?");
 checkbox.setObjectName("check");
 checkbox.setChecked(true);
+checkbox.addEventListener(QCheckBoxEvents.toggled, () => {
+  console.log('checkbox was toggled!');
+})
 
 const dial = new QDial();
 checkbox.setObjectName("dial");
