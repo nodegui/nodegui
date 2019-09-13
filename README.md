@@ -1,7 +1,7 @@
 # NodeGUI
 
 [![Join the NodeGUI community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/nodegui)
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors)
 
 Build **performant**, **native** and **cross-platform** desktop applications with **JavaScript** + powerful **CSS like styling**.🚀
 
@@ -120,6 +120,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://www.mad3linux.org"><img src="https://avatars3.githubusercontent.com/u/508624?v=4" width="100px;" alt="Átila Camurça Alves"/><br /><sub><b>Átila Camurça Alves</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=atilacamurca" title="Documentation">📖</a></td>
     <td align="center"><a href="http://hibbard.eu"><img src="https://avatars2.githubusercontent.com/u/1940994?v=4" width="100px;" alt="James Hibbard"/><br /><sub><b>James Hibbard</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=jameshibbard" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/soonoo"><img src="https://avatars2.githubusercontent.com/u/5436405?v=4" width="100px;" alt="Soonwoo Hong"/><br /><sub><b>Soonwoo Hong</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=soonoo" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/illBeRoy"><img src="https://avatars2.githubusercontent.com/u/6681893?v=4" width="100px;" alt="Roy Sommer"/><br /><sub><b>Roy Sommer</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=illBeRoy" title="Code">💻</a></td>
   </tr>
 </table>
 
