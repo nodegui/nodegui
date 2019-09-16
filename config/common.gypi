@@ -21,6 +21,7 @@
                 'CLANG_CXX_LIBRARY': 'libc++',
                 'MACOSX_DEPLOYMENT_TARGET': '10.7',
                 'OTHER_CFLAGS': ['-std=c++14'],
+                'OTHER_LDFLAGS': ['-Wl,-rpath,@loader_path'],
             },
         }],
         ['OS=="linux"', {

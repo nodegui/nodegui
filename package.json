@@ -23,10 +23,13 @@
     "build:addon": "node-gyp -j 8 configure build",
     "rebuild:addon": "node-gyp -j 8 rebuild",
     "automoc": "node ./scripts/automoc.js",
-    "docs": "serve docs"
+    "docs": "serve docs",
+    "build:cmake": "cmake-js compile -- -j 8",
+    "dev:cmake": "tsc && qode dist/demo.js"
   },
   "dependencies": {
     "@nodegui/qode": "^1.0.5",
+    "cmake-js": "^5.3.2",
     "cuid": "^2.1.6",
     "node-addon-api": "^1.6.3",
     "node-gyp": "^5.0.3",
