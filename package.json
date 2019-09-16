@@ -24,7 +24,7 @@
     "rebuild:addon": "node-gyp -j 8 rebuild",
     "automoc": "node ./scripts/automoc.js",
     "docs": "serve docs",
-    "build:cmake": "cmake-js compile -- -j 8",
+    "build:cmake": "cmake-js compile",
     "dev:cmake": "tsc && qode dist/demo.js"
   },
   "dependencies": {

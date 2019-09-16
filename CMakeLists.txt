@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1)
-
+set(CMAKE_BUILD_PARALLEL_LEVEL 8)
 if(${CMAKE_VERSION} VERSION_LESS 3.15)
     cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
 else()
@@ -100,10 +100,6 @@ target_include_directories(${ADDON_NAME} PRIVATE
     ${NODE_ADDON_API_DIR}  
     ${PROJECT_SOURCE_DIR}
     ${PROJECT_SOURCE_DIR}/deps 
-    ${QT_HOME_DIR}/include
-    ${QT_HOME_DIR}/lib/QtCore.framework/Versions/5/Headers
-    ${QT_HOME_DIR}/lib/QtGui.framework/Versions/5/Headers
-    ${QT_HOME_DIR}/lib/QtWidgets.framework/Versions/5/Headers
 )
 
 target_compile_definitions(${ADDON_NAME} PRIVATE
@@ -119,7 +115,53 @@ target_compile_features(${ADDON_NAME} PRIVATE
 
 target_link_libraries(${ADDON_NAME} 
    ${CMAKE_JS_LIB}
-   ${QT_HOME_DIR}/lib/QtCore.framework/Versions/5/QtCore
-   ${QT_HOME_DIR}/lib/QtGui.framework/Versions/5/QtGui
-   ${QT_HOME_DIR}/lib/QtWidgets.framework/Versions/5/QtWidgets
 )
+
+if (APPLE) 
+    target_include_directories(${ADDON_NAME} PRIVATE
+        ${QT_HOME_DIR}/include
+        ${QT_HOME_DIR}/lib/QtCore.framework/Versions/5/Headers
+        ${QT_HOME_DIR}/lib/QtGui.framework/Versions/5/Headers
+        ${QT_HOME_DIR}/lib/QtWidgets.framework/Versions/5/Headers
+    )
+
+    target_link_libraries(${ADDON_NAME} PRIVATE
+        ${QT_HOME_DIR}/lib/QtCore.framework/Versions/5/QtCore
+        ${QT_HOME_DIR}/lib/QtGui.framework/Versions/5/QtGui
+        ${QT_HOME_DIR}/lib/QtWidgets.framework/Versions/5/QtWidgets
+    )
+endif()
+
+if (WIN32)
+    target_include_directories(${ADDON_NAME} PRIVATE
+        ${QT_HOME_DIR}\include
+        ${QT_HOME_DIR}\include\QtCore
+        ${QT_HOME_DIR}\include\QtGui
+        ${QT_HOME_DIR}\include\QtWidgets
+    )
+
+    target_link_libraries(${ADDON_NAME} PRIVATE
+        ${QT_HOME_DIR}\lib\Qt5Core.lib
+        ${QT_HOME_DIR}\lib\Qt5Gui.lib
+        ${QT_HOME_DIR}\lib\Qt5Widgets.lib
+    )
+endif()
+
+if(UNIX AND NOT APPLE)
+    set(LINUX TRUE)
+endif()
+
+if(LINUX)
+    target_include_directories(${ADDON_NAME} PRIVATE
+        ${QT_HOME_DIR}/include
+        ${QT_HOME_DIR}/include/QtCore
+        ${QT_HOME_DIR}/include/QtGui
+        ${QT_HOME_DIR}/include/QtWidgets
+    )
+
+    target_link_libraries(${ADDON_NAME} PRIVATE
+        ${QT_HOME_DIR}/lib/libQt5Core.so
+        ${QT_HOME_DIR}/lib/libQt5Gui.so
+        ${QT_HOME_DIR}/lib/libQt5Widgets.so
+    )
+endif()
