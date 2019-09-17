@@ -70,7 +70,7 @@ Napi::Value QIconWrap::pixmap(const Napi::CallbackInfo& info)
         state = static_cast<QIcon::State>(stateInt);
     }
 
-    QPixmap* pixmap = new QPixmap(this->instance->pixmap(width, height, mode));
+    QPixmap* pixmap = new QPixmap(this->instance->pixmap(width, height, mode, state));
     auto instance = QPixmapWrap::constructor.New({ Napi::External<QPixmap>::New(env, pixmap) });
     return instance;
 }
