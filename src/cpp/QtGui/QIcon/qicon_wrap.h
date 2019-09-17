@@ -17,4 +17,5 @@ public:
     ~QIconWrap();
     QIcon *getInternalInstance();
     // Wrapped methods
+    Napi::Value pixmap(const Napi::CallbackInfo& info);
 };
