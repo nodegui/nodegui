@@ -59,15 +59,15 @@ Napi::Value QIconWrap::pixmap(const Napi::CallbackInfo& info)
     int height = heightValue.Int32Value();
 
     QIcon::Mode mode = QIcon::Normal;
-    if (info.Length() > 2){
-       int modeInt = info[2].As<Napi::Number>().Int32Value();
-       mode = static_cast<QIcon::Mode>(modeInt);
+    if (info.Length() > 2) {
+        int modeInt = info[2].As<Napi::Number>().Int32Value();
+        mode = static_cast<QIcon::Mode>(modeInt);
     }
 
     QIcon::State state = QIcon::Off;
-    if (info.Length() > 3){
-       int stateInt = info[3].As<Napi::Number>().Int32Value();
-       state = static_cast<QIcon::State>(stateInt);
+    if (info.Length() > 3) {
+        int stateInt = info[3].As<Napi::Number>().Int32Value();
+        state = static_cast<QIcon::State>(stateInt);
     }
 
     QPixmap* pixmap = new QPixmap(this->instance->pixmap(width, height, mode));
