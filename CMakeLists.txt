@@ -8,16 +8,16 @@ endif()
 
 project(NodeGUI 
     VERSION 1.0
-    DESCRIPTION "Build cross platform native desktop apps"
-    HOMEPAGE_URL https://nodegui.org
-    LANGUAGES CXX
 )
 
 set(ADDON_NAME "qtnode")
 
+# ---------------------------------------
+
 add_library(${ADDON_NAME} SHARED  
     "${CMAKE_JS_SRC}"
     "${PROJECT_SOURCE_DIR}/src/cpp/main.cpp"
+    # core
     # non wrapped 
     "${PROJECT_SOURCE_DIR}/src/cpp/Extras/Utils/nutils.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/core/FlexLayout/flexlayout.cpp"
@@ -26,6 +26,19 @@ add_library(${ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/core/Events/eventsmap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/core/Events/eventwidget.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/core/YogaWidget/yogawidget.cpp"
+    # deps
+    "${PROJECT_SOURCE_DIR}/deps/yoga/log.cpp"
+    "${PROJECT_SOURCE_DIR}/deps/yoga/Utils.cpp"
+    "${PROJECT_SOURCE_DIR}/deps/yoga/YGConfig.cpp"
+    "${PROJECT_SOURCE_DIR}/deps/yoga/YGEnums.cpp"
+    "${PROJECT_SOURCE_DIR}/deps/yoga/YGLayout.cpp"
+    "${PROJECT_SOURCE_DIR}/deps/yoga/YGNode.cpp"
+    "${PROJECT_SOURCE_DIR}/deps/yoga/YGNodePrint.cpp"
+    "${PROJECT_SOURCE_DIR}/deps/yoga/YGStyle.cpp"
+    "${PROJECT_SOURCE_DIR}/deps/yoga/YGValue.cpp"
+    "${PROJECT_SOURCE_DIR}/deps/yoga/Yoga.cpp"
+    "${PROJECT_SOURCE_DIR}/deps/yoga/event/event.cpp"
+    "${PROJECT_SOURCE_DIR}/deps/yoga/internal/experiments.cpp"
     # wrapped cpps. Move non wrapped ones to shared gypi 
     "${PROJECT_SOURCE_DIR}/src/cpp/QtGui/QApplication/qapplication_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtGui/QClipboard/qclipboard_wrap.cpp"
@@ -33,7 +46,6 @@ add_library(${ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/QtGui/QPixmap/qpixmap_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtGui/QIcon/qicon_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtGui/QCursor/qcursor_wrap.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/core/FlexLayout/flexlayout_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QWidget/qwidget_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QGridLayout/qgridlayout_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QDial/qdial_wrap.cpp"
@@ -48,6 +60,7 @@ add_library(${ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QLineEdit/qlineedit_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QPlainTextEdit/qplaintextedit_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QScrollArea/qscrollarea_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/core/FlexLayout/flexlayout_wrap.cpp"
     # moc
     "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nwidget_moc.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nlabel_moc.cpp"
@@ -61,19 +74,6 @@ add_library(${ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nradiobutton_moc.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nplaintextedit_moc.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nscrollarea_moc.cpp"
-    # deps
-    "${PROJECT_SOURCE_DIR}/deps/yoga/log.cpp"
-    "${PROJECT_SOURCE_DIR}/deps/yoga/Utils.cpp"
-    "${PROJECT_SOURCE_DIR}/deps/yoga/YGConfig.cpp"
-    "${PROJECT_SOURCE_DIR}/deps/yoga/YGEnums.cpp"
-    "${PROJECT_SOURCE_DIR}/deps/yoga/YGLayout.cpp"
-    "${PROJECT_SOURCE_DIR}/deps/yoga/YGNode.cpp"
-    "${PROJECT_SOURCE_DIR}/deps/yoga/YGNodePrint.cpp"
-    "${PROJECT_SOURCE_DIR}/deps/yoga/YGStyle.cpp"
-    "${PROJECT_SOURCE_DIR}/deps/yoga/YGValue.cpp"
-    "${PROJECT_SOURCE_DIR}/deps/yoga/Yoga.cpp"
-    "${PROJECT_SOURCE_DIR}/deps/yoga/event/event.cpp"
-    "${PROJECT_SOURCE_DIR}/deps/yoga/internal/experiments.cpp"
 ) 
 
 # NAPI stuff
@@ -92,32 +92,21 @@ execute_process(COMMAND node -p "require('@nodegui/qode').qtHome"
 string(REPLACE "\n" "" QT_HOME_DIR "${QT_HOME_DIR}")
 string(REPLACE "\"" "" QT_HOME_DIR "${QT_HOME_DIR}")
 
-# Continue
-set_target_properties(${ADDON_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
-
-target_include_directories(${ADDON_NAME} PRIVATE 
-    "${CMAKE_JS_INC}" 
-    "${NODE_ADDON_API_DIR}"  
-    "${PROJECT_SOURCE_DIR}"
-    "${PROJECT_SOURCE_DIR}/deps"
-)
-
-target_compile_definitions(${ADDON_NAME} PRIVATE
-    NAPI_CPP_EXCEPTIONS
-    _HAS_EXCEPTIONS=1
-    SPDLOG_COMPILED_LIB
-    ENUM_BITFIELDS_NOT_SUPPORTED
-)
-
-target_compile_features(${ADDON_NAME} PRIVATE 
-    cxx_std_14
-)
-
-target_link_libraries(${ADDON_NAME} PRIVATE
-   "${CMAKE_JS_LIB}"
-)
 
 if (APPLE) 
+    # function(createSymlinks)
+    #     message("Creating qt symlinks")
+    #     execute_process(
+    #         COMMAND 'mkdir -p ${QT_HOME_DIR}/include'
+    #         COMMAND 'ln -sfn ${QT_HOME_DIR}/lib/QtCore.framework/Versions/5/Headers ${QT_HOME_DIR}/include/QtCore'
+    #         COMMAND 'ln -sfn ${QT_HOME_DIR}/lib/QtGui.framework/Versions/5/Headers ${QT_HOME_DIR}/include/QtGui'
+    #         COMMAND 'ln -sfn ${QT_HOME_DIR}/lib/QtWidgets.framework/Versions/5/Headers ${QT_HOME_DIR}/include/QtWidgets'
+    #         WORKING_DIRECTORY ${QT_HOME_DIR}
+    #     )
+    # endfunction()
+
+    # createSymlinks()
+
     target_include_directories(${ADDON_NAME} PRIVATE
         "${QT_HOME_DIR}/include"
         "${QT_HOME_DIR}/lib/QtCore.framework/Versions/5/Headers"
@@ -130,6 +119,7 @@ if (APPLE)
         "${QT_HOME_DIR}/lib/QtGui.framework/Versions/5/QtGui"
         "${QT_HOME_DIR}/lib/QtWidgets.framework/Versions/5/QtWidgets"
     )
+
 endif()
 
 if (WIN32)
@@ -165,3 +155,36 @@ if(LINUX)
         "${QT_HOME_DIR}/lib/libQt5Widgets.so"
     )
 endif()
+
+# Continue
+set_target_properties(${ADDON_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
+
+target_include_directories(${ADDON_NAME} PRIVATE 
+    "${CMAKE_JS_INC}" 
+    "${NODE_ADDON_API_DIR}"  
+    "${PROJECT_SOURCE_DIR}"
+    "${PROJECT_SOURCE_DIR}/deps"
+)
+
+target_compile_definitions(${ADDON_NAME} PRIVATE
+    NAPI_CPP_EXCEPTIONS
+    SPDLOG_COMPILED_LIB
+)
+
+
+if (WIN32) 
+    target_compile_definitions(${ADDON_NAME} PRIVATE
+        _HAS_EXCEPTIONS=1
+        ENUM_BITFIELDS_NOT_SUPPORTED
+    )
+endif()
+
+target_compile_features(${ADDON_NAME} PRIVATE 
+    cxx_std_14
+)
+
+
+target_link_libraries(${ADDON_NAME} PRIVATE
+   "${CMAKE_JS_LIB}"
+)
+
