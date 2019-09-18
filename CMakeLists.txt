@@ -4,14 +4,19 @@ if(${CMAKE_VERSION} VERSION_LESS 3.15)
 else()
     cmake_policy(VERSION 3.15)
 endif()
-if(${CMAKE_VERSION} VERSION_LESS "3.7.0")
-    set(CMAKE_INCLUDE_CURRENT_DIR ON)
-endif()
+
+# Find including in corresponding build directories
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC OFF)
+set(CMAKE_AUTORCC OFF)
+set(CMAKE_AUTOMOC_RELAXED_MODE ON)
+set(QT_VERSION_MAJOR 5)
+add_executable(Qt5::moc IMPORTED)
 
 project(NodeGUI 
     VERSION 1.0
 )
-
 
 set(ADDON_NAME "qtnode")
 # ---------------------------------------
@@ -65,18 +70,18 @@ add_library(${ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QScrollArea/qscrollarea_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/core/FlexLayout/flexlayout_wrap.cpp"
     # moc
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nwidget_moc.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nlabel_moc.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/ncheckbox_moc.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/ndial_moc.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nlineedit_moc.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nmainwindow_moc.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nprogressbar_moc.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/npushbutton_moc.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nspinbox_moc.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nradiobutton_moc.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nplaintextedit_moc.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nscrollarea_moc.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QWidget/nwidget.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QLabel/nlabel.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QCheckBox/ncheckbox.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QDial/ndial.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QLineEdit/nlineedit.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QMainWindow/nmainwindow.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QProgressBar/nprogressbar.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QPushButton/npushbutton.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QSpinBox/nspinbox.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QRadioButton/nradiobutton.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QPlainTextEdit/nplaintextedit.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QScrollArea/nscrollarea.hpp"
 ) 
 
 # common

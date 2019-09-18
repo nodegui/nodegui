@@ -2,7 +2,7 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include "nplaintextedit.h"
+#include "nplaintextedit.hpp"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 #include "src/cpp/QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 

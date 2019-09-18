@@ -8,6 +8,8 @@ function(AddQtSupport addonName)
     string(REPLACE "\n" "" QT_HOME_DIR "${QT_HOME_DIR}")
     string(REPLACE "\"" "" QT_HOME_DIR "${QT_HOME_DIR}")
 
+    set_property(TARGET Qt5::moc PROPERTY IMPORTED_LOCATION ${QT_HOME_DIR}/bin/moc)
+
     if (APPLE) 
         # createQtMacSymlinks()
 

@@ -3,7 +3,7 @@
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 #include <napi.h>
 #include <stdlib.h>
-#include "nwidget.h"
+#include "nwidget.hpp"
 
 class QWidgetWrap : public  Napi::ObjectWrap<QWidgetWrap>{
  private:

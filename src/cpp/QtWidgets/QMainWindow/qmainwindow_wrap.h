@@ -2,7 +2,7 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include "nmainwindow.h"
+#include "nmainwindow.hpp"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 class QMainWindowWrap : public  Napi::ObjectWrap<QMainWindowWrap>{

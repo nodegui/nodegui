@@ -6,6 +6,7 @@
 
 class NCheckBox: public QCheckBox, public NodeWidget
 {
+    Q_OBJECT
     NODEWIDGET_IMPLEMENTATIONS(QCheckBox)
 public:
     using QCheckBox::QCheckBox; //inherit all constructors of QCheckBox

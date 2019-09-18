@@ -2,7 +2,7 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include "nlineedit.h"
+#include "nlineedit.hpp"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 class QLineEditWrap : public  Napi::ObjectWrap<QLineEditWrap>{

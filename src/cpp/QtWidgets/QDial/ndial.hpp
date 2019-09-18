@@ -5,6 +5,7 @@
 
 class NDial: public QDial, public NodeWidget
 {
+    Q_OBJECT
     NODEWIDGET_IMPLEMENTATIONS(QDial)
 public:
     using QDial::QDial; //inherit all constructors of QDial

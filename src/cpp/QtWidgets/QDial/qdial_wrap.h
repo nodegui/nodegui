@@ -3,7 +3,7 @@
 #include <napi.h>
 #include <stdlib.h>
 #include <stdlib.h>
-#include "ndial.h"
+#include "ndial.hpp"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 #include "src/cpp/QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 
