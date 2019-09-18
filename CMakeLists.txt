@@ -1,17 +1,19 @@
 cmake_minimum_required(VERSION 3.1)
-set(CMAKE_BUILD_PARALLEL_LEVEL 8)
 if(${CMAKE_VERSION} VERSION_LESS 3.15)
     cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
 else()
     cmake_policy(VERSION 3.15)
+endif()
+if(${CMAKE_VERSION} VERSION_LESS "3.7.0")
+    set(CMAKE_INCLUDE_CURRENT_DIR ON)
 endif()
 
 project(NodeGUI 
     VERSION 1.0
 )
 
-set(ADDON_NAME "qtnode")
 
+set(ADDON_NAME "qtnode")
 # ---------------------------------------
 
 add_library(${ADDON_NAME} SHARED  
@@ -57,6 +59,7 @@ add_library(${ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QCheckBox/qcheckbox_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QProgressBar/qprogressbar_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QRadioButton/qradiobutton_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QTabWidget/qtabwidget_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QLineEdit/qlineedit_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QPlainTextEdit/qplaintextedit_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QScrollArea/qscrollarea_wrap.cpp"
@@ -76,115 +79,23 @@ add_library(${ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/autogen/nscrollarea_moc.cpp"
 ) 
 
-# NAPI stuff
-execute_process(COMMAND node -p "require('node-addon-api').include"
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-    OUTPUT_VARIABLE NODE_ADDON_API_DIR
-)
-string(REPLACE "\n" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
-string(REPLACE "\"" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
+# common
+include(./config/common.cmake)
+AddCommonConfig(${ADDON_NAME})
+# qt
+include(./config/qt.cmake)
+AddQtSupport(${ADDON_NAME})
+# napi
+include(./config/napi.cmake)
+AddNapiSupport(${ADDON_NAME})
 
-# qt stuff
-execute_process(COMMAND node -p "require('@nodegui/qode').qtHome"
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-    OUTPUT_VARIABLE QT_HOME_DIR
-)
-string(REPLACE "\n" "" QT_HOME_DIR "${QT_HOME_DIR}")
-string(REPLACE "\"" "" QT_HOME_DIR "${QT_HOME_DIR}")
-
-
-if (APPLE) 
-    # function(createSymlinks)
-    #     message("Creating qt symlinks")
-    #     execute_process(
-    #         COMMAND 'mkdir -p ${QT_HOME_DIR}/include'
-    #         COMMAND 'ln -sfn ${QT_HOME_DIR}/lib/QtCore.framework/Versions/5/Headers ${QT_HOME_DIR}/include/QtCore'
-    #         COMMAND 'ln -sfn ${QT_HOME_DIR}/lib/QtGui.framework/Versions/5/Headers ${QT_HOME_DIR}/include/QtGui'
-    #         COMMAND 'ln -sfn ${QT_HOME_DIR}/lib/QtWidgets.framework/Versions/5/Headers ${QT_HOME_DIR}/include/QtWidgets'
-    #         WORKING_DIRECTORY ${QT_HOME_DIR}
-    #     )
-    # endfunction()
-
-    # createSymlinks()
-
-    target_include_directories(${ADDON_NAME} PRIVATE
-        "${QT_HOME_DIR}/include"
-        "${QT_HOME_DIR}/lib/QtCore.framework/Versions/5/Headers"
-        "${QT_HOME_DIR}/lib/QtGui.framework/Versions/5/Headers"
-        "${QT_HOME_DIR}/lib/QtWidgets.framework/Versions/5/Headers"
-    )
-
-    target_link_libraries(${ADDON_NAME} PRIVATE
-        "${QT_HOME_DIR}/lib/QtCore.framework/Versions/5/QtCore"
-        "${QT_HOME_DIR}/lib/QtGui.framework/Versions/5/QtGui"
-        "${QT_HOME_DIR}/lib/QtWidgets.framework/Versions/5/QtWidgets"
-    )
-
-endif()
-
-if (WIN32)
-    target_include_directories(${ADDON_NAME} PRIVATE
-        "${QT_HOME_DIR}\\include"
-        "${QT_HOME_DIR}\\include\\QtCore"
-        "${QT_HOME_DIR}\\include\\QtGui"
-        "${QT_HOME_DIR}\\include\\QtWidgets"
-    )
-
-    target_link_libraries(${ADDON_NAME} PRIVATE
-        "${QT_HOME_DIR}\\lib\\Qt5Core.lib"
-        "${QT_HOME_DIR}\\lib\\Qt5Gui.lib"
-        "${QT_HOME_DIR}\\lib\\Qt5Widgets.lib"
-    )
-endif()
-
-if(UNIX AND NOT APPLE)
-    set(LINUX TRUE)
-endif()
-
-if(LINUX)
-    target_include_directories(${ADDON_NAME} PRIVATE
-        "${QT_HOME_DIR}/include"
-        "${QT_HOME_DIR}/include/QtCore"
-        "${QT_HOME_DIR}/include/QtGui"
-        "${QT_HOME_DIR}/include/QtWidgets"
-    )
-
-    target_link_libraries(${ADDON_NAME} PRIVATE
-        "${QT_HOME_DIR}/lib/libQt5Core.so"
-        "${QT_HOME_DIR}/lib/libQt5Gui.so"
-        "${QT_HOME_DIR}/lib/libQt5Widgets.so"
-    )
-endif()
-
-# Continue
-set_target_properties(${ADDON_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 
 target_include_directories(${ADDON_NAME} PRIVATE 
     "${CMAKE_JS_INC}" 
-    "${NODE_ADDON_API_DIR}"  
     "${PROJECT_SOURCE_DIR}"
     "${PROJECT_SOURCE_DIR}/deps"
 )
 
-target_compile_definitions(${ADDON_NAME} PRIVATE
-    NAPI_CPP_EXCEPTIONS
-    SPDLOG_COMPILED_LIB
-)
-
-
-if (WIN32) 
-    target_compile_definitions(${ADDON_NAME} PRIVATE
-        _HAS_EXCEPTIONS=1
-        ENUM_BITFIELDS_NOT_SUPPORTED
-    )
-endif()
-
-target_compile_features(${ADDON_NAME} PRIVATE 
-    cxx_std_14
-)
-
-
 target_link_libraries(${ADDON_NAME} PRIVATE
-   "${CMAKE_JS_LIB}"
+    "${CMAKE_JS_LIB}"
 )
-
