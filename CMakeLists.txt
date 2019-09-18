@@ -5,12 +5,9 @@ else()
     cmake_policy(VERSION 3.15)
 endif()
 
-# Find including in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+# Need for automatic moc. Moc executable path is set in qt.cmake
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC OFF)
-set(CMAKE_AUTORCC OFF)
-set(CMAKE_AUTOMOC_RELAXED_MODE ON)
 set(QT_VERSION_MAJOR 5)
 add_executable(Qt5::moc IMPORTED)
 
@@ -18,14 +15,13 @@ project(NodeGUI
     VERSION 1.0
 )
 
-set(ADDON_NAME "qtnode")
+set(CORE_WIDGETS_ADDON "nodegui_core")
 # ---------------------------------------
 
-add_library(${ADDON_NAME} SHARED  
+add_library(${CORE_WIDGETS_ADDON} SHARED  
     "${CMAKE_JS_SRC}"
     "${PROJECT_SOURCE_DIR}/src/cpp/main.cpp"
-    # core
-    # non wrapped 
+    # core internals 
     "${PROJECT_SOURCE_DIR}/src/cpp/Extras/Utils/nutils.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/core/FlexLayout/flexlayout.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/core/FlexLayout/flexitem.cpp"
@@ -33,7 +29,7 @@ add_library(${ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/core/Events/eventsmap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/core/Events/eventwidget.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/core/YogaWidget/yogawidget.cpp"
-    # deps
+    # core deps
     "${PROJECT_SOURCE_DIR}/deps/yoga/log.cpp"
     "${PROJECT_SOURCE_DIR}/deps/yoga/Utils.cpp"
     "${PROJECT_SOURCE_DIR}/deps/yoga/YGConfig.cpp"
@@ -46,7 +42,7 @@ add_library(${ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/deps/yoga/Yoga.cpp"
     "${PROJECT_SOURCE_DIR}/deps/yoga/event/event.cpp"
     "${PROJECT_SOURCE_DIR}/deps/yoga/internal/experiments.cpp"
-    # wrapped cpps. Move non wrapped ones to shared gypi 
+    # wrapped cpps 
     "${PROJECT_SOURCE_DIR}/src/cpp/QtGui/QApplication/qapplication_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtGui/QClipboard/qclipboard_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtGui/QEvent/QKeyEvent/qkeyevent_wrap.cpp"
@@ -69,7 +65,7 @@ add_library(${ADDON_NAME} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QPlainTextEdit/qplaintextedit_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QScrollArea/qscrollarea_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/core/FlexLayout/flexlayout_wrap.cpp"
-    # moc
+    # Custom widgets
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QWidget/nwidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QLabel/nlabel.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QCheckBox/ncheckbox.hpp"
@@ -86,21 +82,22 @@ add_library(${ADDON_NAME} SHARED
 
 # common
 include(./config/common.cmake)
-AddCommonConfig(${ADDON_NAME})
+AddCommonConfig(${CORE_WIDGETS_ADDON})
 # qt
 include(./config/qt.cmake)
-AddQtSupport(${ADDON_NAME})
+AddQtSupport(${CORE_WIDGETS_ADDON})
+
 # napi
 include(./config/napi.cmake)
-AddNapiSupport(${ADDON_NAME})
+AddNapiSupport(${CORE_WIDGETS_ADDON})
 
 
-target_include_directories(${ADDON_NAME} PRIVATE 
+target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE 
     "${CMAKE_JS_INC}" 
     "${PROJECT_SOURCE_DIR}"
     "${PROJECT_SOURCE_DIR}/deps"
 )
 
-target_link_libraries(${ADDON_NAME} PRIVATE
+target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
     "${CMAKE_JS_LIB}"
 )
