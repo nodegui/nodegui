@@ -2,7 +2,7 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include "nspinbox.h"
+#include "nspinbox.hpp"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 #include "src/cpp/Extras/Utils/nutils.h"

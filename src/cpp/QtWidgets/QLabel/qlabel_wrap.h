@@ -2,7 +2,7 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include "nlabel.h"
+#include "nlabel.hpp"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 class QLabelWrap : public  Napi::ObjectWrap<QLabelWrap>{

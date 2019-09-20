@@ -6,6 +6,7 @@
 
 class NSpinBox: public QSpinBox, public NodeWidget
 {
+    Q_OBJECT
     NODEWIDGET_IMPLEMENTATIONS(QSpinBox)
 public:
     using QSpinBox::QSpinBox; //inherit all constructors of QSpinBox

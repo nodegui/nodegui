@@ -12,7 +12,6 @@ class NodeWidget : public YogaWidget, public EventWidget {
 #ifndef NODEWIDGET_IMPLEMENTATIONS
 #define NODEWIDGET_IMPLEMENTATIONS(BaseWidgetName) \
 \
-Q_OBJECT \
 public: \
     SET_YOGA_WIDGET_Q_PROPERTIES \
     EVENTWIDGET_IMPLEMENTATIONS(BaseWidgetName) \

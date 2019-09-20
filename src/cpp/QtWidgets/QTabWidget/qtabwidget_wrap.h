@@ -1,7 +1,7 @@
 #pragma once
 
 #include <napi.h>
-#include "ntabwidget.h"
+#include "ntabwidget.hpp"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 #include "src/cpp/Extras/Utils/nutils.h"
 

@@ -7,6 +7,7 @@
 
 class NWidget: public QWidget, public NodeWidget
 {
+    Q_OBJECT
     NODEWIDGET_IMPLEMENTATIONS(QWidget)
 public:
     using QWidget::QWidget;

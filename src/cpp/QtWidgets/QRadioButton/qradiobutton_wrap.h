@@ -2,7 +2,7 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include "nradiobutton.h"
+#include "nradiobutton.hpp"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 

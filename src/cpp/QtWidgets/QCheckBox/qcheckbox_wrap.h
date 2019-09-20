@@ -2,7 +2,7 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include "ncheckbox.h"
+#include "ncheckbox.hpp"
 #include "src/cpp/QtWidgets/QWidget/qwidget_macro.h"
 
 

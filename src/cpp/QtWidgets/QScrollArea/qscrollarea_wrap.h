@@ -2,7 +2,7 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include "nscrollarea.h"
+#include "nscrollarea.hpp"
 #include "src/cpp/QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 
 class QScrollAreaWrap : public  Napi::ObjectWrap<QScrollAreaWrap>{
