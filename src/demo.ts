@@ -11,13 +11,13 @@ import {
   QIcon,
   QDial,
   QPlainTextEdit,
+  QTabWidget,
+  QGridLayout,
   QScrollArea,
   QPixmap,
   CursorShape,
   WindowState,
   QTextOptionWrapMode,
-  QApplication,
-  QClipboardMode,
   QCheckBoxEvents
 } from "./index";
 
@@ -25,18 +25,23 @@ const path = require("path");
 
 const win = new QMainWindow();
 
-const label = new QLabel();
-label.setText("Hello world 🧙");
-label.setInlineStyle("font-size: 20px;");
-label.setCursor(CursorShape.ForbiddenCursor);
+const label1 = new QLabel();
+label1.setText("Hello world 1 🧙");
+label1.setInlineStyle("font-size: 20px;");
+label1.setCursor(CursorShape.ForbiddenCursor);
+
+const label2 = new QLabel();
+label2.setText("Hello world 2 💻");
+label2.setInlineStyle("font-size: 20px;");
+label2.setCursor(CursorShape.ForbiddenCursor);
 
 const checkbox = new QCheckBox();
 checkbox.setText("Check me out?");
 checkbox.setObjectName("check");
 checkbox.setChecked(true);
 checkbox.addEventListener(QCheckBoxEvents.toggled, () => {
-  console.log('checkbox was toggled!');
-})
+  console.log("checkbox was toggled!");
+});
 
 const dial = new QDial();
 checkbox.setObjectName("dial");
@@ -48,16 +53,6 @@ lineEdit.setObjectName("editable");
 const button = new QPushButton();
 button.setText("Push Push Push!");
 button.setObjectName("btn");
-button.setFlat(true);
-button.addEventListener("clicked", () => {
-  const clipboard = QApplication.clipboard();
-  console.log("clipboard: ", clipboard.text(QClipboardMode.Clipboard));
-  clipboard.setText("yooooo", QClipboardMode.Clipboard);
-  if (rootView.layout) {
-    (rootView.layout as FlexLayout).removeWidget(dial);
-  }
-  label.setInlineStyle("color:blue;");
-});
 
 const nodeguiLogo = new QIcon(
   path.resolve(__dirname, "../extras/assets/nodegui.png")
@@ -67,6 +62,21 @@ const icon = new QIcon(
   path.resolve(__dirname, "../extras/assets/start_icon.png")
 );
 button.setIcon(icon);
+
+const tabs = new QTabWidget();
+tabs.setTabsClosable(true);
+const tab1 = new QWidget();
+const tab2 = new QWidget();
+tab1.setLayout(new QGridLayout());
+tab2.setLayout(new QGridLayout());
+
+if (tab1.layout && tab2.layout) {
+  tab1.layout.addWidget(label1);
+  tab2.layout.addWidget(label2);
+}
+
+tabs.addTab(tab1, icon, "Tab 1");
+tabs.addTab(tab2, icon, "Tab 2");
 
 const progressbar = new QProgressBar();
 progressbar.setValue(6);
@@ -95,7 +105,7 @@ imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 
 if (rootView.layout) {
-  rootView.layout.addWidget(label);
+  rootView.layout.addWidget(tabs);
   rootView.layout.addWidget(checkbox);
   rootView.layout.addWidget(radioButton);
   rootView.layout.addWidget(lineEdit);
@@ -118,7 +128,6 @@ win.setStyleSheet(`
 
 win.setWindowIcon(nodeguiLogo);
 win.setWindowTitle("NodeGUI Demo");
-
 win.resize(400, 700);
 win.show();
 win.setWindowState(WindowState.WindowActive);
