@@ -2,8 +2,16 @@ import addon from "../../core/addon";
 import { Component, NativeElement } from "../../core/Component";
 import { QPixmap } from "../../QtGui/QPixmap";
 
-export enum QIconMode { Normal, Disabled, Active, Selected }
-export enum QIconState { Off, On }
+export enum QIconMode {
+  Normal,
+  Disabled,
+  Active,
+  Selected
+}
+export enum QIconState {
+  Off,
+  On
+}
 
 type arg = string | NativeElement;
 export class QIcon extends Component {
@@ -21,7 +29,7 @@ export class QIcon extends Component {
     width: number,
     height: number,
     mode?: QIconMode,
-    state?: QIconState,
+    state?: QIconState
   ): QPixmap => {
     let nativePixmap;
     if (mode && state) {

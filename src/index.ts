@@ -5,7 +5,7 @@ export * from "./lib/QtEnums";
 // Gui:
 export { QApplication } from "./lib/QtGui/QApplication";
 export { QPixmap } from "./lib/QtGui/QPixmap";
-export { QIcon } from "./lib/QtGui/QIcon";
+export { QIcon, QIconMode, QIconState } from "./lib/QtGui/QIcon";
 export { QCursor } from "./lib/QtGui/QCursor";
 export { QTextOptionWrapMode } from "./lib/QtGui/QTextOption";
 export { QClipboard, QClipboardMode } from "./lib/QtGui/QClipboard";

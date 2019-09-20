@@ -30,3 +30,14 @@ QIcon can access all the instance properties defined in [Component](api/Componen
 ### Instance Methods
 
 QIcon can access all the instance methods defined in [Component](api/Component.md)
+Additionally it also has the following instance methods:
+
+#### `icon.pixmap(width, height, mode?, state?)`
+
+Returns a pixmap with the requested size, mode, and state, generating one if necessary. The pixmap might be smaller than requested, but never larger.
+. It calls the native method [QIcon: pixmap](https://doc.qt.io/qt-5/qicon.html#pixmap-3).
+
+- `width`: number,
+- `height`: number
+- `mode?`: QIconMode
+- `state?`: QIconState
