@@ -1,7 +1,7 @@
-import addon from "../../core/addon";
+import addon from "../../utils/addon";
 import { Component, NativeElement } from "../../core/Component";
 import { AspectRatioMode } from "../../QtEnums";
-import { checkIfNativeElement } from "../../utils";
+import { checkIfNativeElement } from "../../utils/helpers";
 
 type arg = string | NativeElement;
 export class QPixmap extends Component {

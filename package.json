@@ -21,7 +21,6 @@
     "postinstall": "npm run build:addon",
     "build": "tsc && npm run build:addon",
     "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
-    "automoc": "node ./scripts/automoc.js",
     "docs": "serve docs"
   },
   "dependencies": {

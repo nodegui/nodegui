@@ -1,4 +1,4 @@
-import addon from "../addon";
+import addon from "../../utils/addon";
 import { NodeWidget } from "../../QtWidgets/QWidget";
 import { NodeLayout } from "../../QtWidgets/QLayout";
 import { FlexNode } from "../YogaWidget";

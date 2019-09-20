@@ -1,4 +1,4 @@
-import addon from "../../core/addon";
+import addon from "../../utils/addon";
 import { Component, NativeElement } from "../../core/Component";
 import { QPixmap } from "../../QtGui/QPixmap";
 

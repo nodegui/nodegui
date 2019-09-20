@@ -1,4 +1,4 @@
-import addon from "../../core/addon";
+import addon from "../../utils/addon";
 import { Component, NativeElement } from "../../core/Component";
 import { QPixmap } from "../QPixmap";
 
@@ -15,8 +15,8 @@ export class QCursor extends Component {
   }
   pos = (): { x: number; y: number } => {
     return this.native.pos();
-  }
+  };
   setPos = (x: number, y: number) => {
     return this.native.setPos(x, y);
-  }
+  };
 }
