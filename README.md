@@ -1,7 +1,7 @@
 # NodeGUI
 
 [![Join the NodeGUI community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/nodegui)
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
 
 Build **performant**, **native** and **cross-platform** desktop applications with **JavaScript** + powerful **CSS like styling**.🚀
 
@@ -70,15 +70,23 @@ Looking to contribute? If you wish to implement a new widget/add more features a
 
 `npm run build [--qt_home_dir=/path/to/qt]`
 
-### LICENSE
+## Funding
+
+NodeGUI is an open source project and requires your support. If you like this project, please consider supporting my work with Ko-fi. Alternatively, Issues on NodeGui can be funded by anyone via Issuehunt and the amount will be distributed to respective contributors.
+
+<p>
+<a href='https://ko-fi.com/E1E510AV9' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi4.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> &nbsp; &nbsp;
+ <a href="https://issuehunt.io/r/nodegui/nodegui"><img alt="issuehunt" src="https://github.com/BoostIO/issuehunt-materials/raw/master/v1/issuehunt-button-v1.svg?sanitize=true"  height="30px" /></a>
+</p>
+
+## Special Thanks
+
+- [Logo: Thanks to Vishwas Shetty from the Noun Project.](https://github.com/nodegui/nodegui/blob/master/extras/legal/logo/thanks.md) 
+
+## License
 
 MIT
 
-## Note
-
-> Since we do not in any way modify the code of Qt and only link to it dynamically, I believe we are in compliance with the LGPL license requirements of QT. And hence this library can be licensed under its own License (for which we have chosen MIT License).
-> The links to QT source code and appropriate license notices are attached. We try our best to abide by the software licenses and any non compliance is not by will. If there is some discrepancy please let us know in the issues and we will try and fix it up.
-> If you follow the recommended build steps and do not statically link QT libraries on your own you are safe to use this library for commerical purposes (provided you abide by MIT License).
 
 ## Maintainers ✨
 
@@ -90,6 +98,7 @@ People maintaining this project.
     <td align="center"><a href="https://blog.atulr.com"><img src="https://avatars2.githubusercontent.com/u/4029423?v=4" width="100px;" alt="Atul R"/><br /><sub><b>Atul R</b></sub></a></td>
   </tr>
 </table>
+
 
 ## Contributors ✨
 
@@ -110,6 +119,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://www.mad3linux.org"><img src="https://avatars3.githubusercontent.com/u/508624?v=4" width="100px;" alt="Átila Camurça Alves"/><br /><sub><b>Átila Camurça Alves</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=atilacamurca" title="Documentation">📖</a></td>
     <td align="center"><a href="http://hibbard.eu"><img src="https://avatars2.githubusercontent.com/u/1940994?v=4" width="100px;" alt="James Hibbard"/><br /><sub><b>James Hibbard</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=jameshibbard" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/soonoo"><img src="https://avatars2.githubusercontent.com/u/5436405?v=4" width="100px;" alt="Soonwoo Hong"/><br /><sub><b>Soonwoo Hong</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=soonoo" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/illBeRoy"><img src="https://avatars2.githubusercontent.com/u/6681893?v=4" width="100px;" alt="Roy Sommer"/><br /><sub><b>Roy Sommer</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=illBeRoy" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/paulocoghi"><img src="https://avatars1.githubusercontent.com/u/378397?v=4" width="100px;" alt="Paulo Coghi"/><br /><sub><b>Paulo Coghi</b></sub></a><br /><a href="#ideas-paulocoghi" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://balthild.com"><img src="https://avatars2.githubusercontent.com/u/2662758?v=4" width="100px;" alt="Balthild Ires"/><br /><sub><b>Balthild Ires</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=balthild" title="Code">💻</a></td>
   </tr>
 </table>
 

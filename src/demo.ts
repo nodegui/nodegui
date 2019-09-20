@@ -12,11 +12,17 @@ import {
   QDial,
   QPlainTextEdit,
   QTabWidget,
-  QGridLayout
+  QGridLayout,
+  QScrollArea,
+  QPixmap,
+  CursorShape,
+  WindowState,
+  QTextOptionWrapMode,
+  QApplication,
+  QClipboardMode,
+  QCheckBoxEvents
 } from "./index";
-import { QScrollArea } from "./lib/QtWidgets/QScrollArea";
-import { QPixmap } from "./lib/QtGui/QPixmap";
-import { CursorShape, WindowState } from "./lib/QtEnums"
+
 import { QTabWidgetEvents } from "./lib/QtWidgets/QTabWidget";
 
 const path = require("path");
@@ -37,6 +43,9 @@ const checkbox = new QCheckBox();
 checkbox.setText("Check me out?");
 checkbox.setObjectName("check");
 checkbox.setChecked(true);
+checkbox.addEventListener(QCheckBoxEvents.toggled, () => {
+  console.log('checkbox was toggled!');
+})
 
 const dial = new QDial();
 checkbox.setObjectName("dial");
@@ -49,6 +58,15 @@ const button = new QPushButton();
 button.setText("Push Push Push!");
 button.setObjectName("btn");
 button.setFlat(true);
+button.addEventListener("clicked", () => {
+  const clipboard = QApplication.clipboard();
+  console.log("clipboard: ", clipboard.text(QClipboardMode.Clipboard));
+  clipboard.setText("yooooo", QClipboardMode.Clipboard);
+  if (rootView.layout) {
+    (rootView.layout as FlexLayout).removeWidget(dial);
+  }
+  label.setInlineStyle("color:blue;");
+});
 
 const nodeguiLogo = new QIcon(
   path.resolve(__dirname, "../extras/assets/nodegui.png")
@@ -88,6 +106,7 @@ rootView.setLayout(new FlexLayout());
 
 const textEdit = new QPlainTextEdit();
 textEdit.setPlainText("Hello");
+textEdit.setWordWrapMode(QTextOptionWrapMode.NoWrap);
 
 const scrollArea = new QScrollArea();
 scrollArea.setInlineStyle("flex: 1; width:'100%';");
@@ -123,8 +142,7 @@ win.setStyleSheet(`
 
 win.setWindowIcon(nodeguiLogo);
 win.setWindowTitle("NodeGUI Demo");
-
-win.resize(400, 500);
+win.resize(400, 700);
 win.show();
 win.setWindowState(WindowState.WindowActive);
 

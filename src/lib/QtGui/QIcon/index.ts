@@ -1,5 +1,17 @@
 import addon from "../../core/addon";
 import { Component, NativeElement } from "../../core/Component";
+import { QPixmap } from "../../QtGui/QPixmap";
+
+export enum QIconMode {
+  Normal,
+  Disabled,
+  Active,
+  Selected
+}
+export enum QIconState {
+  Off,
+  On
+}
 
 type arg = string | NativeElement;
 export class QIcon extends Component {
@@ -13,4 +25,20 @@ export class QIcon extends Component {
       this.native = new addon.QIcon();
     }
   }
+  pixmap = (
+    width: number,
+    height: number,
+    mode?: QIconMode,
+    state?: QIconState
+  ): QPixmap => {
+    let nativePixmap;
+    if (mode && state) {
+      nativePixmap = this.native.pixmap(width, height, mode, state);
+    } else if (mode) {
+      nativePixmap = this.native.pixmap(width, height, mode);
+    } else {
+      nativePixmap = this.native.pixmap(width, height);
+    }
+    return new QPixmap(nativePixmap);
+  };
 }

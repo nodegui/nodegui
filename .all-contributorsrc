@@ -85,6 +85,42 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "soonoo",
+      "name": "Soonwoo Hong",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5436405?v=4",
+      "profile": "https://github.com/soonoo",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "illBeRoy",
+      "name": "Roy Sommer",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6681893?v=4",
+      "profile": "https://github.com/illBeRoy",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "paulocoghi",
+      "name": "Paulo Coghi",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/378397?v=4",
+      "profile": "https://github.com/paulocoghi",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "balthild",
+      "name": "Balthild Ires",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2662758?v=4",
+      "profile": "https://balthild.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

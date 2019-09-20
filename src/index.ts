@@ -1,10 +1,14 @@
+// bootstrap
+import "./lib/core/bootstrap";
 // Enums:
 export * from "./lib/QtEnums";
 // Gui:
 export { QApplication } from "./lib/QtGui/QApplication";
 export { QPixmap } from "./lib/QtGui/QPixmap";
-export { QIcon } from "./lib/QtGui/QIcon";
+export { QIcon, QIconMode, QIconState } from "./lib/QtGui/QIcon";
 export { QCursor } from "./lib/QtGui/QCursor";
+export { QTextOptionWrapMode } from "./lib/QtGui/QTextOption";
+export { QClipboard, QClipboardMode } from "./lib/QtGui/QClipboard";
 // Events: Maybe a separate module ?
 export { QKeyEvent } from "./lib/QtGui/QEvent/QKeyEvent";
 export { NativeEvent } from "./lib/core/EventWidget";
@@ -27,7 +31,8 @@ export { QRadioButton, QRadioButtonEvents } from "./lib/QtWidgets/QRadioButton";
 export { QTabWidget, QTabWidgetEvents } from "./lib/QtWidgets/QTabWidget";
 export {
   QPlainTextEdit,
-  QPlainTextEditEvents
+  QPlainTextEditEvents,
+  LineWrapMode
 } from "./lib/QtWidgets/QPlainTextEdit";
 export { QScrollArea, QScrollAreaEvents } from "./lib/QtWidgets/QScrollArea";
 // Layouts:

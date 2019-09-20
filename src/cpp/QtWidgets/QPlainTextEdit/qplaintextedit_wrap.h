@@ -20,8 +20,13 @@ class QPlainTextEditWrap : public  Napi::ObjectWrap<QPlainTextEditWrap>{
 
   QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
   Napi::Value setPlainText(const Napi::CallbackInfo& info);
+  Napi::Value setPlaceholderText(const Napi::CallbackInfo& info);
   Napi::Value toPlainText(const Napi::CallbackInfo &info);
   Napi::Value setReadOnly(const Napi::CallbackInfo &info);
   Napi::Value clear(const Napi::CallbackInfo &info);
+  Napi::Value setWordWrapMode(const Napi::CallbackInfo &info);
+  Napi::Value wordWrapMode(const Napi::CallbackInfo &info);
+  Napi::Value setLineWrapMode(const Napi::CallbackInfo &info);
+  Napi::Value lineWrapMode(const Napi::CallbackInfo &info);
 };
 

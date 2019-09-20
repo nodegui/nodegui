@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const childProcess = require("child_process");
+const { qtHome } = require("@nodegui/qode");
 
 const ROOT_DIR = path.resolve(__dirname, "../");
 const MOC_AUTOGEN_DIR = path.resolve(ROOT_DIR, "src/cpp/autogen");
@@ -50,13 +51,22 @@ const main = () => {
       eachHeaderPath,
       includeFilePath
     );
-    console.log(command);
-    childProcess.exec(command, {}, error => {
-      if (error) {
-        console.error(`exec error: ${error}`);
-        return;
+    const mocPath = path.resolve(process.env.QT_INSTALL_DIR || qtHome, "bin");
+    childProcess.exec(
+      command,
+      {
+        env: {
+          ...process.env,
+          PATH: `${mocPath}${path.delimiter}${process.env.PATH}`
+        }
+      },
+      error => {
+        if (error) {
+          console.error(`exec error: ${error}`);
+          return;
+        }
       }
-    });
+    );
     return outfilePath;
   });
   generateMocGypiFile(outFiles);

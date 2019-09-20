@@ -11,6 +11,7 @@
         "../src/cpp/core/YogaWidget/yogawidget.cpp",
         # wrapped cpps. Move non wrapped ones to shared gypi
         "../src/cpp/QtGui/QApplication/qapplication_wrap.cpp",
+        "../src/cpp/QtGui/QClipboard/qclipboard_wrap.cpp",
         "../src/cpp/QtGui/QEvent/QKeyEvent/qkeyevent_wrap.cpp",
         "../src/cpp/QtGui/QPixmap/qpixmap_wrap.cpp",
         "../src/cpp/QtGui/QIcon/qicon_wrap.cpp",

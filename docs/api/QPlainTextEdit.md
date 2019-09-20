@@ -28,24 +28,54 @@ QPlainTextEdit can access all the static methods defined in [NodeWidget](api/Nod
 
 QPlainTextEdit can access all the instance properties defined in [NodeWidget](api/NodeWidget.md).
 
+#### `plainTextEdit.placeholderText`
+
+The placeholder text set on the plainTextEdit.
+
 ### Instance Methods
 
 QPlainTextEdit can access all the instance methods defined in [NodeWidget](api/NodeWidget.md).
 
-#### [`plainTextEdit.setPlainText(text)`](https://doc.qt.io/qt-5/qplaintextedit.html#setPlainText)
+#### `plainTextEdit.setPlainText(text)`
 
-Sets the given text to the plainTextEdit.
+Sets the given text to the plainTextEdit. It calls the native method [QPlainTextEdit: setPlainText](https://doc.qt.io/qt-5/qplaintextedit.html#setPlainText).
 
 - `text` string
 
-#### [`plainTextEdit.toPlainText()`](https://doc.qt.io/qt-5/qplaintextedit.html#toPlainText)
+#### `plainTextEdit.setPlaceholderText(text)`
 
-Returns the text of the text edit as plain text.
+Sets the given text to the plainTextEdit's placeholder.
 
-#### [`plainTextEdit.setReadOnly(isReadOnly)`](https://doc.qt.io/qt-5/qplaintextedit.html#readOnly-prop)
+- `text` string
 
-Sets the plainTextEdit to be read only.
+#### `plainTextEdit.toPlainText()`
 
-#### [`plainTextEdit.clear()`](https://doc.qt.io/qt-5/qplaintextedit.html#clear)
+Returns the text of the text edit as plain text. [QPlainTextEdit: toPlainText](https://doc.qt.io/qt-5/qplaintextedit.html#toPlainText).
 
-Deletes all the text in the text edit.
+#### `plainTextEdit.setReadOnly(isReadOnly)`
+
+Sets the plainTextEdit to be read only. [QPlainTextEdit: isReadOnly](https://doc.qt.io/qt-5/qplaintextedit.html#readOnly-prop).
+
+#### `plainTextEdit.clear()`
+
+Deletes all the text in the text edit.[QPlainTextEdit: clear](https://doc.qt.io/qt-5/qplaintextedit.html#clear).
+
+#### `plainTextEdit.setWordWrapMode(mode)`
+
+This property holds the mode QPlainTextEdit will use when wrapping text by words.[QPlainTextEdit: setWordWrapMode](https://doc.qt.io/qt-5/qplaintextedit.html#wordWrapMode-prop).
+
+- mode: QTextOptionWrapMode
+
+#### `plainTextEdit.wordWrapMode()`
+
+returns word wrap mode. [QPlainTextEdit: wordWrapMode](https://doc.qt.io/qt-5/qplaintextedit.html#wordWrapMode-prop).
+
+#### `plainTextEdit.setLineWrapMode(mode)`
+
+This property holds the line wrap mode. [QPlainTextEdit: setLineWrapMode](https://doc.qt.io/qt-5/qplaintextedit.html#lineWrapMode-prop).
+
+- mode: LineWrapMode
+
+#### `plainTextEdit.lineWrapMode()`
+
+returns line wrap mode. [QPlainTextEdit: setLineWrapMode](https://doc.qt.io/qt-5/qplaintextedit.html#lineWrapMode-prop).

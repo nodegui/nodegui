@@ -1,4 +1,5 @@
 #include "src/cpp/QtGui/QApplication/qapplication_wrap.h"
+#include "src/cpp/QtGui/QClipboard/qclipboard_wrap.h"
 #include "src/cpp/QtWidgets/QWidget/qwidget_wrap.h"
 #include "src/cpp/QtGui/QPixmap/qpixmap_wrap.h"
 #include "src/cpp/QtGui/QIcon/qicon_wrap.h"
@@ -28,6 +29,7 @@ void InitPrivateHelpers(Napi::Env env){
 Napi::Object Main(Napi::Env env, Napi::Object exports) {
     InitPrivateHelpers(env);
     QApplicationWrap::init(env, exports);
+    QClipboardWrap::init(env, exports);
     QWidgetWrap::init(env, exports);
     QPixmapWrap::init(env, exports);
     QIconWrap::init(env, exports);
