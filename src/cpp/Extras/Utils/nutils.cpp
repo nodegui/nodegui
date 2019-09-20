@@ -3,8 +3,6 @@
 #include <QWidget>
 #include "deps/spdlog/spdlog.h"
 
-void extrautils::noop(){}
-
 YGSize extrautils::measureQtWidget (YGNodeRef node, float width, YGMeasureMode widthMode, float height, YGMeasureMode heightMode){
     FlexLayout::NodeContext *ctx = FlexLayout::getNodeContext(node);
     if(ctx){
