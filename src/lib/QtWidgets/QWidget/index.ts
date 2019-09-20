@@ -1,4 +1,4 @@
-import addon from "../../core/addon";
+import addon from "../../utils/addon";
 import { NodeLayout } from "../QLayout";
 import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
@@ -12,7 +12,7 @@ import {
   StyleSheet,
   prepareInlineStyleSheet
 } from "../../core/Style/StyleSheet";
-import { checkIfNativeElement } from "../../utils";
+import { checkIfNativeElement } from "../../utils/helpers";
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
 export abstract class NodeWidget extends EventWidget {

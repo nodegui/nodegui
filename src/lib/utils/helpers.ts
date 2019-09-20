@@ -1,4 +1,4 @@
-import { NativeElement } from "./core/Component";
+import { NativeElement } from "../core/Component";
 
 export const checkIfNativeElement = (arg: any) => {
   const nativeArg = arg as NativeElement;

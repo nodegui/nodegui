@@ -1,6 +1,6 @@
-import addon from "../../core/addon";
+import addon from "../../utils/addon";
 import { Component, NativeElement } from "../../core/Component";
-import { checkIfNativeElement } from "../../utils";
+import { checkIfNativeElement } from "../../utils/helpers";
 import { QClipboard } from "../QClipboard";
 
 type arg = NativeElement;

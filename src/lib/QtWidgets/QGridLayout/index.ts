@@ -1,4 +1,4 @@
-import addon from "../../core/addon";
+import addon from "../../utils/addon";
 import { NodeWidget } from "../QWidget";
 import { NodeLayout } from "../QLayout";
 import { NativeElement } from "../../core/Component";

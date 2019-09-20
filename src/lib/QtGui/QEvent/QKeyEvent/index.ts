@@ -1,4 +1,4 @@
-import addon from "../../../core/addon";
+import addon from "../../../utils/addon";
 import { NativeElement } from "../../../core/Component";
 import { NativeEvent } from "../../../core/EventWidget";
 
