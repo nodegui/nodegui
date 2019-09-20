@@ -12,6 +12,7 @@
         "../src/cpp/autogen/npushbutton_moc.cpp",
         "../src/cpp/autogen/nspinbox_moc.cpp",
         "../src/cpp/autogen/nradiobutton_moc.cpp",
+        "../src/cpp/autogen/ntabwidget_moc.cpp",
         "../src/cpp/autogen/nplaintextedit_moc.cpp",
         "../src/cpp/autogen/nscrollarea_moc.cpp"
     ]

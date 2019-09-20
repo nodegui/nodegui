@@ -61,6 +61,7 @@ export { SizeHint } from "./SizeHint";
 export { SizeMode } from "./SizeMode";
 export { SortOrder } from "./SortOrder";
 export { TabFocusBehavior } from "./TabFocusBehavior";
+export { TabPosition } from "./TabPosition";
 export { TextElideMode } from "./TextElideMode";
 export { TextFlag } from "./TextFlag";
 export { TextFormat } from "./TextFormat";

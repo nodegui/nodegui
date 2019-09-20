@@ -14,6 +14,7 @@
 #include "src/cpp/QtWidgets/QCheckBox/qcheckbox_wrap.h"
 #include "src/cpp/QtWidgets/QProgressBar/qprogressbar_wrap.h"
 #include "src/cpp/QtWidgets/QRadioButton/qradiobutton_wrap.h"
+#include "src/cpp/QtWidgets/QTabWidget/qtabwidget_wrap.h"
 #include "src/cpp/QtWidgets/QLineEdit/qlineedit_wrap.h"
 #include "src/cpp/QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
 #include "src/cpp/core/FlexLayout/flexlayout_wrap.h"
@@ -41,6 +42,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QCheckBoxWrap::init(env, exports);
     QProgressBarWrap::init(env, exports);
     QRadioButtonWrap::init(env, exports);
+    QTabWidgetWrap::init(env, exports);
     QLineEditWrap::init(env, exports);
     QKeyEventWrap::init(env, exports);
     QPlainTextEditWrap::init(env, exports);
