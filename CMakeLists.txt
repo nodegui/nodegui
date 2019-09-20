@@ -78,6 +78,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QRadioButton/nradiobutton.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QPlainTextEdit/nplaintextedit.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QScrollArea/nscrollarea.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/QtWidgets/QTabWidget/ntabwidget.hpp"
 ) 
 
 # common

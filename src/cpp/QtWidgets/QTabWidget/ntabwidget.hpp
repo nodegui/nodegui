@@ -6,6 +6,7 @@
 
 class NTabWidget: public QTabWidget, public NodeWidget
 {
+    Q_OBJECT
     NODEWIDGET_IMPLEMENTATIONS(QTabWidget)
 public:
     using QTabWidget::QTabWidget; //inherit all constructors of QTabWidget
