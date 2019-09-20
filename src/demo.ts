@@ -18,12 +18,8 @@ import {
   CursorShape,
   WindowState,
   QTextOptionWrapMode,
-  QApplication,
-  QClipboardMode,
   QCheckBoxEvents
 } from "./index";
-
-import { QTabWidgetEvents } from "./lib/QtWidgets/QTabWidget";
 
 const path = require("path");
 
@@ -44,8 +40,8 @@ checkbox.setText("Check me out?");
 checkbox.setObjectName("check");
 checkbox.setChecked(true);
 checkbox.addEventListener(QCheckBoxEvents.toggled, () => {
-  console.log('checkbox was toggled!');
-})
+  console.log("checkbox was toggled!");
+});
 
 const dial = new QDial();
 checkbox.setObjectName("dial");
@@ -57,16 +53,6 @@ lineEdit.setObjectName("editable");
 const button = new QPushButton();
 button.setText("Push Push Push!");
 button.setObjectName("btn");
-button.setFlat(true);
-button.addEventListener("clicked", () => {
-  const clipboard = QApplication.clipboard();
-  console.log("clipboard: ", clipboard.text(QClipboardMode.Clipboard));
-  clipboard.setText("yooooo", QClipboardMode.Clipboard);
-  if (rootView.layout) {
-    (rootView.layout as FlexLayout).removeWidget(dial);
-  }
-  label.setInlineStyle("color:blue;");
-});
 
 const nodeguiLogo = new QIcon(
   path.resolve(__dirname, "../extras/assets/nodegui.png")
@@ -84,7 +70,7 @@ const tab2 = new QWidget();
 tab1.setLayout(new QGridLayout());
 tab2.setLayout(new QGridLayout());
 
-if(tab1.layout && tab2.layout) {
+if (tab1.layout && tab2.layout) {
   tab1.layout.addWidget(label1);
   tab2.layout.addWidget(label2);
 }
