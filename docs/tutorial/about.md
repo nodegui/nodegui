@@ -24,6 +24,6 @@ running `$ npm install @nodegui/nodegui` will do the right thing.
 
 In order to evolve faster with every Node.Js release, NodeGui aims to patch NodeJs with as much minimum code as possible. This makes sure we support all Node features and keeps upgrade process simple.
 
-NodeGui will always link dynamically to Qt inorder to maintain LGPL lisence requirements for Open source projects.
+NodeGui will always link dynamically to Qt in order to maintain LGPL lisence requirements for Open source projects.
 
 NodeGui also encourages plugin/module based architecture, hence instead of bloating the entire core of NodeGui we prefer to build independent modules that can be managed and updated by the community thus keeping the end product binary size low and enabling faster upgrades.
