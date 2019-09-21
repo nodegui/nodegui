@@ -1,6 +1,6 @@
 # Writing Your First React NodeGUI App
 
-React NodeGUI enables you to create desktop applications with JavaScript (React). React NodeGUI is a react renderer for NodeGui. This makes it extrememly memory and CPU efficient as compared to other popular Javascript Desktop GUI solutions.
+React NodeGUI enables you to create desktop applications with JavaScript (React). React NodeGUI is a react renderer for NodeGui. This makes it extremely memory and CPU efficient as compared to other popular Javascript Desktop GUI solutions.
 
 ## Hello World
 
