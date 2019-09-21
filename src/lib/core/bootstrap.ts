@@ -8,13 +8,16 @@
     called.
     This is required inorder to make the timers work nicely due to merger of event loops
 */
-function wrapWithActivateUvLoop(func: any) {
-  return function() {
-    (process as any).activateUvLoop();
-    //@ts-ignore
-    return func.apply(this, arguments);
+
+const noop = () => {};
+
+const wrapWithActivateUvLoop = (func: Function) => {
+  return (...args: any[]) => {
+    const activateUvLoop = (process as any).activateUvLoop || noop;
+    activateUvLoop();
+    return func(...args);
   };
-}
+};
 
 const main = () => {
   process.nextTick = wrapWithActivateUvLoop(process.nextTick);

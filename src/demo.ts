@@ -41,6 +41,7 @@ checkbox.setObjectName("check");
 checkbox.setChecked(true);
 checkbox.addEventListener(QCheckBoxEvents.toggled, () => {
   console.log("checkbox was toggled!");
+  label1.setInlineStyle("color: green;");
 });
 
 const dial = new QDial();
