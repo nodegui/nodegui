@@ -6,7 +6,7 @@ As React Native was an improvement over Cordova based applications in Mobile app
 
 Also, React NodeGUI (like NodeGui) is built with Typescript which means you get autocomplete and strong typechecking support from the IDE even when used in a Javascript project.
 
-Get started building with React NodeGUI in the [First React NodeGUI app](react/first-app.md).
+Get started building with React NodeGUI in the [First React NodeGUI app](/docs/react/first-app.md).
 
 ### Updating Dependencies
 
