@@ -1,6 +1,6 @@
 {
   "name": "@nodegui/nodegui",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "A cross platform library to build native desktop apps.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -18,7 +18,6 @@
   "private": false,
   "scripts": {
     "dev": "npm run build && qode dist/demo.js",
-    "install": "npm -v",
     "postinstall": "npm run build:addon",
     "build": "tsc && npm run build:addon",
     "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
@@ -30,7 +29,6 @@
     "cross-env": "^6.0.0",
     "cuid": "^2.1.6",
     "node-addon-api": "^1.6.3",
-    "node-gyp": "^5.0.3",
     "postcss-nodegui-autoprefixer": "0.0.7"
   },
   "devDependencies": {
@@ -39,6 +37,5 @@
     "prettier": "^1.17.1",
     "serve": "^11.1.0",
     "typescript": "^3.4.5"
-  },
-  "gypfile": true
+  }
 }
