@@ -3,7 +3,11 @@ function(AddCommonConfig addonName)
         SPDLOG_COMPILED_LIB
     )
     target_compile_features(${addonName} PRIVATE
-        cxx_std_14
+        cxx_inheriting_constructors
+        cxx_lambdas
+        cxx_auto_type
+        cxx_variadic_templates
+        cxx_variable_templates
     )
     if (WIN32) 
         target_compile_definitions(${addonName} PRIVATE
