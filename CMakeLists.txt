@@ -89,8 +89,3 @@ target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE
 target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
     "${CMAKE_JS_LIB}"
 )
-
-GetModuleVersion(${CORE_WIDGETS_ADDON} "${CMAKE_CURRENT_LIST_DIR}")
-set_target_properties(${CORE_WIDGETS_ADDON} PROPERTIES 
-    VERSION "${${CORE_WIDGETS_ADDON}_VERSION}"
-)

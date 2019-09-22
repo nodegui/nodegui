@@ -9,8 +9,8 @@ Make sure you follow the setup guide of [Qode][qode_setup] so that you have a bu
 **Requirements**
 
 1. Node version: > 11
-2. Python 2.x , Make, GCC v7
-3. Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
+2. CMake 3.1 and up (Installation instructions can be found here: https://cmake.org/install/)
+3. Make, GCC v7
 4. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
 ### Windows:
@@ -18,9 +18,10 @@ Make sure you follow the setup guide of [Qode][qode_setup] so that you have a bu
 **Requirements**
 
 1. Node version: > 11
-2. Python 2.x and Visual Studio Community 2017
-3. Powershell
-4. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
+2. CMake 3.1 and up (Installation instructions can be found here: https://cmake.org/install/)
+3. Visual Studio Community 2017
+4. Powershell
+5. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
 ### Linux:
 
@@ -29,8 +30,9 @@ Supported versions: Ubuntu 17.10 and up
 **Requirements**
 
 1. Node version: > 11
-2. Python 2.x , Make, GCC v7, pkg-config
-3. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
+2. CMake 3.1 and up (Installation instructions can be found here: https://cmake.org/install/)
+3. Make, GCC v7, pkg-config
+4. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
 On Ubuntu: `$ sudo apt-get install pkg-config build-essentials` should install everything except Qt5.
 

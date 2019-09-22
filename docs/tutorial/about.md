@@ -14,12 +14,6 @@ When a new version of Node.js is released, NodeGui usually waits about a month b
 
 NodeGui's version of Qt is usually updated within a month after a new stable version is released, depending on the effort involved in the upgrade.
 
-### Versioning
-
-NodeGui follows [`semver`](https://semver.org).
-For most applications, and using any recent version of npm,
-running `$ npm install @nodegui/nodegui` will do the right thing.
-
 ## Core Philosophy
 
 In order to evolve faster with every Node.Js release, NodeGui aims to patch NodeJs with as much minimum code as possible. This makes sure we support all Node features and keeps upgrade process simple.

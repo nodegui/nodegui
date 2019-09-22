@@ -12,12 +12,6 @@ Get started building with React NodeGUI in the [First React NodeGUI app](react/f
 
 As soon as a new version of NodeGui is released a corresponding version of React NodeGUI will be released simultaneously. This makes sure that both NodeGui and React NodeGUI releases go out in sync. NodeGui an React NodeGUI will be released as separate packages in order keep everything easily maintainable.
 
-### Versioning
-
-NodeGui/React NodeGUI follows [`semver`](https://semver.org).
-For most applications, and using any recent version of npm,
-running `$ npm install @nodegui/react-nodegui` will do the right thing.
-
 ## Core Philosophy
 
 [See core philosophy of NodeGui](tutorial/about?id=core-philosophy)

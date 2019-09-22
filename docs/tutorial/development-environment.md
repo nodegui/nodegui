@@ -10,9 +10,9 @@ rudimentary understanding of your operating system's command line client.
 **Requirements:**
 
 - NodeGui supports macOS 10.10 (Yosemite) and up. NodeGui currently only supports 64bit OS.
-- Python 2.x , Make, GCC v7
+- CMake 3.1 and up (Installation instructions can be found here: https://cmake.org/install/)
+- Make, GCC v7
 - Currently supported Node.Js versions are 12.x and up.
-- Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
 
 We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
 
@@ -35,13 +35,11 @@ for JavaScript development.
 > NodeGui supports Windows 7 and later versions – attempting to develop NodeGui
 > applications on earlier versions of Windows might not work. NodeGui currently only supports 64bit OS.
 
-
 **Requirements:**
 
-- Python 2.x, Visual studio 2017
+- Visual studio 2017
+- CMake 3.1 and up (Installation instructions can be found here: https://cmake.org/install/)
 - Currently supported Node.Js versions are 12.x and up.
-- Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
-
 
 We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
 
@@ -67,9 +65,9 @@ for JavaScript development.
 
 **Requirements:**
 
-- Python 2.x , Make, GCC v7
+- Make, GCC v7
+- CMake 3.1 and up (Installation instructions can be found here: https://cmake.org/install/)
 - Currently supported Node.Js versions are 12.x and up.
-- Make sure you dont have spaces inside your home path. NodeGYP has issues with spaces in the path. https://github.com/nodejs/node-gyp/issues/209
 - On Ubuntu and Ubuntu-based distros it is advisable to run `sudo apt-get update`, followed by `sudo apt-get install pkg-config build-essential`
 
 We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
