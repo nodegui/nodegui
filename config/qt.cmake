@@ -1,4 +1,10 @@
 # Adds Qt support
+# make sure you include this at the top of whichever Cmakelist file you are going to use.
+# Need for automatic moc. Moc executable path is set in qt.cmake
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(QT_VERSION_MAJOR 5)
+add_executable(Qt5::moc IMPORTED)
 
 function(AddQtSupport addonName)
     execute_process(COMMAND node -p "require('@nodegui/qode').qtHome"

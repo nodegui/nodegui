@@ -3,15 +3,13 @@ set(PLUGIN_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}")
 set(NODEGUI_ROOT "${PLUGIN_CMAKE_DIR}/..")
 set(NODEGUI_LIBRARY "${NODEGUI_ROOT}/build/Release/nodegui_core.node")
 
+include("${PLUGIN_CMAKE_DIR}/common.cmake")
+include("${PLUGIN_CMAKE_DIR}/qt.cmake")
+include("${PLUGIN_CMAKE_DIR}/napi.cmake")
+
 function(AddPluginConfig addonName)
-    # common
-    include("${PLUGIN_CMAKE_DIR}/common.cmake")
     AddCommonConfig(${addonName})
-    # qt
-    include("${PLUGIN_CMAKE_DIR}/qt.cmake")
     AddQtSupport(${addonName})
-    # napi
-    include("${PLUGIN_CMAKE_DIR}/napi.cmake")
     AddNapiSupport(${addonName})
 
     target_link_libraries(${addonName} PRIVATE
@@ -26,7 +24,6 @@ function(AddPluginConfig addonName)
         "${NODEGUI_ROOT}/src/cpp/include/deps"
         "${NODEGUI_ROOT}/src/cpp/include/nodegui"
     )
-
 
 endfunction(AddPluginConfig addonName)
 
