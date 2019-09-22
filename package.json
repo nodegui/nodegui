@@ -8,9 +8,8 @@
     "dist",
     "config",
     "CMakeLists.txt",
-    "src",
+    "src/cpp",
     "extras/legal",
-    "deps",
     "plugin"
   ],
   "author": "Atul R <atulanand94@gmail.com>",
