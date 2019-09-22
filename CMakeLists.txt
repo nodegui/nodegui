@@ -4,10 +4,11 @@ include(./config/common.cmake)
 include(./config/qt.cmake)
 include(./config/napi.cmake)
 
-project(NodeGUI VERSION 1.0)
+# ---------------------------------------
 
 set(CORE_WIDGETS_ADDON "nodegui_core")
-# ---------------------------------------
+
+project(${CORE_WIDGETS_ADDON})
 
 add_library(${CORE_WIDGETS_ADDON} SHARED  
     "${CMAKE_JS_SRC}"
@@ -87,4 +88,9 @@ target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE
 
 target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
     "${CMAKE_JS_LIB}"
+)
+
+GetModuleVersion(${CORE_WIDGETS_ADDON} "${CMAKE_CURRENT_LIST_DIR}")
+set_target_properties(${CORE_WIDGETS_ADDON} PROPERTIES 
+    VERSION "${${CORE_WIDGETS_ADDON}_VERSION}"
 )
