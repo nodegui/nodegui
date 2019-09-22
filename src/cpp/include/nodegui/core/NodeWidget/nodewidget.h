@@ -8,7 +8,6 @@ class NodeWidget : public YogaWidget, public EventWidget {
 };
 
 
-
 #ifndef NODEWIDGET_IMPLEMENTATIONS
 #define NODEWIDGET_IMPLEMENTATIONS(BaseWidgetName) \
 \

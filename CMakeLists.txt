@@ -30,18 +30,18 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/Events/eventwidget.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/YogaWidget/yogawidget.cpp"
     # core deps
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/log.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/Utils.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/YGConfig.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/YGEnums.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/YGLayout.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/YGNode.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/YGNodePrint.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/YGStyle.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/YGValue.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/Yoga.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/event/event.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps/yoga/internal/experiments.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/log.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/Utils.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/YGConfig.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/YGEnums.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/YGLayout.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/YGNode.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/YGNodePrint.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/YGStyle.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/YGValue.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/Yoga.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/event/event.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/internal/experiments.cpp"
     # wrapped cpps 
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QApplication/qapplication_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QClipboard/qclipboard_wrap.cpp"
@@ -87,22 +87,17 @@ AddCommonConfig(${CORE_WIDGETS_ADDON})
 # qt
 include(./config/qt.cmake)
 AddQtSupport(${CORE_WIDGETS_ADDON})
-
 # napi
 include(./config/napi.cmake)
 AddNapiSupport(${CORE_WIDGETS_ADDON})
 
-
 target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE 
     "${CMAKE_JS_INC}" 
     "${PROJECT_SOURCE_DIR}"
-    "${PROJECT_SOURCE_DIR}/src/cpp/deps"
-    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui"
-)
-
-target_include_directories(${CORE_WIDGETS_ADDON} PUBLIC
     "${PROJECT_SOURCE_DIR}/src/cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/deps"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui"
 )
 
 target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
