@@ -11,3 +11,14 @@ function(AddCommonConfig addonName)
         )
     endif()
 endfunction(AddCommonConfig addonName)
+
+function(GetModuleVersion moduleName packageJsonDir)
+    execute_process(COMMAND node -p "require('${packageJsonDir}/package.json').version"
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        OUTPUT_VARIABLE packageJsonVersion
+    )
+    string(REPLACE "\n" "" packageJsonVersion "${packageJsonVersion}")
+    string(REPLACE "\"" "" packageJsonVersion "${packageJsonVersion}")
+
+    set("${moduleName}_VERSION" "${packageJsonVersion}" PARENT_SCOPE)
+endfunction(GetModuleVersion moduleName packageJsonDir)
