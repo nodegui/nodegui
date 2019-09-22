@@ -1,19 +1,10 @@
 cmake_minimum_required(VERSION 3.1)
-if(${CMAKE_VERSION} VERSION_LESS 3.15)
-    cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
-else()
-    cmake_policy(VERSION 3.15)
-endif()
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-# Need for automatic moc. Moc executable path is set in qt.cmake
-set(CMAKE_AUTOMOC ON)
-set(QT_VERSION_MAJOR 5)
-add_executable(Qt5::moc IMPORTED)
+include(./config/common.cmake)
+include(./config/qt.cmake)
+include(./config/napi.cmake)
 
-project(NodeGUI 
-    VERSION 1.0
-)
+project(NodeGUI VERSION 1.0)
 
 set(CORE_WIDGETS_ADDON "nodegui_core")
 # ---------------------------------------
@@ -81,14 +72,8 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTabWidget/ntabwidget.hpp"
 ) 
 
-# common
-include(./config/common.cmake)
 AddCommonConfig(${CORE_WIDGETS_ADDON})
-# qt
-include(./config/qt.cmake)
 AddQtSupport(${CORE_WIDGETS_ADDON})
-# napi
-include(./config/napi.cmake)
 AddNapiSupport(${CORE_WIDGETS_ADDON})
 
 target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE 
