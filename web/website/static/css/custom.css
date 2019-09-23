@@ -1,0 +1,32 @@
+/* your custom css */
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+  .home-page-main-illustration {
+    display: flex;
+    position: absolute;
+    max-width: 300px;
+    top: 100px;
+    right: 0;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .home-page-main-illustration {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1500px) {
+}
+
+.home-page-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
