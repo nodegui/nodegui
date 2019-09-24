@@ -30,3 +30,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.home-page-logo-img {
+  max-width: 150px;
+}
