@@ -35,6 +35,7 @@ export {
   LineWrapMode
 } from "./lib/QtWidgets/QPlainTextEdit";
 export { QScrollArea, QScrollAreaEvents } from "./lib/QtWidgets/QScrollArea";
+export { QSystemTrayIcon, QSystemTrayIconEvents } from './lib/QtWidgets/QSystemTrayIcon';
 // Layouts:
 export { QGridLayout } from "./lib/QtWidgets/QGridLayout";
 export { FlexLayout } from "./lib/core/FlexLayout";
