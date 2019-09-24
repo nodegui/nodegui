@@ -40,7 +40,7 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     { doc: "doc1", label: "Docs" },
-    { doc: "api/synopsis", label: "API" },
+    { doc: "api/QApplication", label: "API" },
     { page: "help", label: "Help" },
     { blog: true, label: "Blog" },
     { href: "https://github.com/nodegui/nodegui", label: "GitHub" }
@@ -56,6 +56,15 @@ const siteConfig = {
 
   /* Colors for website */
   colors: {
+    brand: "#61dafb", // electric blue
+    dark: "#282c34", // dark blue
+    deepdark: "#20232a", // really dark blue
+    light: "#373940", // light blue
+    text: "#1a1a1a", // black substitute
+    subtle: "#6d6d6d", // light grey for text
+    divider: "#ececec", // very light grey
+    tintColor: "#f7f7f7", // slightly off white
+    backgroundColor: "white",
     primaryColor: "#2c3e50",
     secondaryColor: "#0097A7"
   },
@@ -96,13 +105,13 @@ const siteConfig = {
 
   // For sites with a sizable amount of content, set collapsible to true.
   // Expand/collapse the links and subcategories under categories.
-  // docsSideNavCollapsible: true,
+  docsSideNavCollapsible: true,
 
   // Show documentation's last contributor's name.
-  // enableUpdateBy: true,
+  enableUpdateBy: true,
 
   // Show documentation's last update time.
-  // enableUpdateTime: true,
+  enableUpdateTime: true,
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
