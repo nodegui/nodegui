@@ -18,7 +18,8 @@ import {
   CursorShape,
   WindowState,
   QTextOptionWrapMode,
-  QCheckBoxEvents
+  QCheckBoxEvents,
+  QSystemTrayIcon,
 } from "./index";
 
 const path = require("path");
@@ -105,6 +106,13 @@ const pixmap = new QPixmap(
 imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 
+const trayIcon = new QIcon(
+  path.resolve(__dirname, "../extras/assets/nodegui_white.png")
+);
+const tray = new QSystemTrayIcon();
+tray.setIcon(trayIcon);
+tray.show()
+
 if (rootView.layout) {
   rootView.layout.addWidget(tabs);
   rootView.layout.addWidget(checkbox);
@@ -134,3 +142,4 @@ win.show();
 win.setWindowState(WindowState.WindowActive);
 
 (global as any).win = win; // To prevent win from being garbage collected.
+(global as any).systemTray = tray; // To prevent system tray from being garbage collected.

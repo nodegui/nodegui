@@ -20,6 +20,7 @@
 #include "core/FlexLayout/flexlayout_wrap.h"
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include "QtWidgets/QScrollArea/qscrollarea_wrap.h"
+#include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include <napi.h>
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env){
@@ -49,6 +50,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QDialWrap::init(env, exports);
     QLabelWrap::init(env, exports);
     QScrollAreaWrap::init(env, exports);
+    QSystemTrayIconWrap::init(env, exports);
     return exports;
 }
 
