@@ -29,31 +29,31 @@ global.win = win; // prevent's gc of win
 QMainWindow needs to have a central widget set before other widgets can be added as a children/nested children.
 Once a central widget is set you can add children/layout to the central widget.
 
-### Static Methods
+## Static Methods
 
 QMainWindow can access all the static methods defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Properties
+## Instance Properties
 
 QMainWindow can access all the instance properties defined in [NodeWidget](api/NodeWidget.md)
 
 Additionally it also has the following instance properties:
 
-#### `win.layout`
+### `win.layout`
 
 A `NodeLayout` representing current layout that is set on the window. If a centralWidget is set then the layout of central widget is returned.
 
-#### `win.centralWidget`
+### `win.centralWidget`
 
 A `NodeWidget` representing currently set central widget on the window.
 
-### Instance Methods
+## Instance Methods
 
 QMainWindow can access all the instance methods defined in [NodeWidget](api/NodeWidget.md)
 
 Additionally it also has the following instance methods:
 
-#### `win.setCentralWidget(widget)`
+### `win.setCentralWidget(widget)`
 
 Sets the given widget to be the main window's central widget.
 

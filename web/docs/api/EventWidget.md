@@ -32,21 +32,21 @@ view.addEventListener(QWidgetEvents.MouseMove, () => {
 
 EventWidget will contain all methods and properties that are useful to handle events and signals of widgets in the NodeGui world.
 
-### Static Methods
+## Static Methods
 
 EventWidget can access all the static methods defined in [YogaWidget](api/YogaWidget.md)
 
-### Instance Properties
+## Instance Properties
 
 EventWidget can access all the instance properties defined in [YogaWidget](api/YogaWidget.md)
 
-### Instance Methods
+## Instance Methods
 
 EventWidget can access all the instance methods defined in [YogaWidget](api/YogaWidget.md)
 
 Additionally it also has the following instance methods:
 
-#### `widget.addEventListener(eventType, callback)`
+### `widget.addEventListener(eventType, callback)`
 
 Adds an event listener to the widget to listen to events that occur on a widget.
 
@@ -54,7 +54,7 @@ Adds an event listener to the widget to listen to events that occur on a widget.
 
 - `callback` (payload?: NativeEvent | any) => void - A callback function to invoke when an event occurs. Usually you receive a nativeEvent or a string as argument.
 
-#### `widget.removeEventListener(eventType, callback?)`
+### `widget.removeEventListener(eventType, callback?)`
 
 Removes the specified event listener from the widget.
 

@@ -71,6 +71,7 @@
   color: $text;
   background-color: transparent;
   font-size: 16px;
+  text-decoration: none;
 }
 
 .toc .toggleNav ul li a:hover {

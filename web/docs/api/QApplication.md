@@ -20,41 +20,41 @@ const qApp = QApplication.instance();
 qApp.quit();
 ```
 
-### Static Methods
+## Static Methods
 
 QApplication can access all the static methods defined in [Component](api/Component.md). Additionally it also has the following static methods.
 
-#### `QApplication.instance()`
+### `QApplication.instance()`
 
 Returns the already initialised QApplication instance. It calls the native method [QApplication: instance](https://doc.qt.io/qt-5/qcoreapplication.html#instance).
 
-#### `QApplication.clipboard()`
+### `QApplication.clipboard()`
 
 Returns the object for interacting with the clipboard. It calls the native method [QApplication: clipboard](https://doc.qt.io/qt-5/qguiapplication.html#clipboard). See QClipboard.
 
-### Instance Properties
+## Instance Properties
 
 QApplication can access all the instance properties defined in [Component](api/Component.md)
 
-### Instance Methods
+## Instance Methods
 
 QApplication can access all the instance methods defined in [Component](api/Component.md). Additionally it also has the following instance methods:
 
-#### `qApp.quit()`
+### `qApp.quit()`
 
 Quits the entire app. It calls the native method [QApplication: quit](https://doc.qt.io/qt-5/qcoreapplication.html#quit).
 
-#### `qApp.exit(returnCode)`
+### `qApp.exit(returnCode)`
 
 Tells the application to exit with a return code. It calls the native method [QApplication: exit](https://doc.qt.io/qt-5/qcoreapplication.html#exit).
 
 - `returnCode` number - The exit code while quitting the app.
 
-#### `qApp.processEvents()`
+### `qApp.processEvents()`
 
 Processes all pending events for the calling thread . It calls the native method [QApplication: processEvents](https://doc.qt.io/qt-5/qcoreapplication.html#processEvents).
 
-#### `qApp.exec()`
+### `qApp.exec()`
 
 > We will never call this method in NodeGui, since Qode will execute this function for us. It exists for experiments only.
 

@@ -34,3 +34,10 @@
 .home-page-logo-img {
   max-width: 150px;
 }
+
+.navPusher a {
+  color: $brand;
+}
+.navPusher a:hover {
+  text-decoration: underline dotted;
+}

@@ -25,14 +25,14 @@ view.setLayout(new FlexLayout());
 
 - `parent` NodeWidget (_optional_). Any widget inheriting from NodeWidget can be passed as a parent. This will make this widget, the child of the parent widget.
 
-### Static Methods
+## Static Methods
 
 QWidget can access all the static methods defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Properties
+## Instance Properties
 
 QWidget can access all the instance properties defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Methods
+## Instance Methods
 
 QWidget can access all the instance methods defined in [NodeWidget](api/NodeWidget.md)

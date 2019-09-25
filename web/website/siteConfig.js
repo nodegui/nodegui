@@ -56,7 +56,7 @@ const siteConfig = {
 
   /* Colors for website */
   colors: {
-    brand: "#61dafb", // electric blue
+    brand: "#0097A7", //secondary
     dark: "#282c34", // dark blue
     deepdark: "#20232a", // really dark blue
     light: "#373940", // light blue

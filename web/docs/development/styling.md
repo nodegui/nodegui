@@ -72,12 +72,12 @@ flayout.addWidget(label, label.getFlexNode()); // Add child to layout
    - `YogaWidget` adds Yoga specific q-properties to the widget, which is useful to assign yoga properties via qstylesheet. More on this below.
    - `NodeWidget` adds layout support via `YogaWidget` and event handling support via `EventWidget`
 
-#### FlexItem
+### FlexItem
 
 FlexItem : `src/cpp/core/FlexLayout/flexitem.h` add flexnode to each widget.
 FlexItem adds methods like getFlexNode.
 
-#### YogaWidget
+### YogaWidget
 
 Qt StyleSheet allows you to specify style properties just like in web. You could specify font-size, margin, padding, etc. Qt StyleSheet also allows custom style properties via Qt's q-property system.
 
@@ -95,6 +95,6 @@ view.setStyleSheet(`
 
 Notice `qproperty-` prefix? These are the custom q-properties we defined in `YogaWidget.h`. We do not need to prefix `qproperty-` if a stylehsheet string is passed through `StyleSheet.create()`. StyleSheet.create has an autoprefixer which will do the right thing.
 
-#### NodeWidget
+### NodeWidget
 
 Every widget we implement should inherit from NodeWidget. This helps us add all the properties we want in the widgets via a single class. NodeWidget is the class that contains properties and methods shared by all widgets. This class allows us to add features to all widgets easily.

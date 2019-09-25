@@ -24,33 +24,33 @@ button.setText("Hello");
 
 - `parent` NodeWidget (_optional_). Any widget inheriting from NodeWidget can be passed as a parent. This will make this widget, the child of the parent widget.
 
-### Static Methods
+## Static Methods
 
 QPushButton can access all the static methods defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Properties
+## Instance Properties
 
 QPushButton can access all the instance properties defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Methods
+## Instance Methods
 
 QPushButton can access all the instance methods defined in [NodeWidget](api/NodeWidget.md)
 
 Additionally it also has the following instance methods:
 
-#### `button.setText(text)`
+### `button.setText(text)`
 
 Sets the given text to the button.
 
 - `text` string
 
-#### `button.setFlat(isFlat)`
+### `button.setFlat(isFlat)`
 
 Sets whether the button border is raised.
 
 - `isFlat` boolean
 
-#### `button.setIcon(icon)`
+### `button.setIcon(icon)`
 
 Sets an icon in the button.
 

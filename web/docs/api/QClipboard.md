@@ -22,15 +22,15 @@ const clipboard = QApplication.clipboard();
 const text = clipboard.text(QClipboardMode.Clipboard);
 ```
 
-### Static Methods
+## Static Methods
 
 QClipboard can access all the static methods defined in [Component](api/Component.md)
 
-### Instance Properties
+## Instance Properties
 
 QClipboard can access all the instance properties defined in [Component](api/Component.md)
 
-### Instance Methods
+## Instance Methods
 
 QClipboard can access all the instance methods defined in [Component](api/Component.md). Additionally it has:
 

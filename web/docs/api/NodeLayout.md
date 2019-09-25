@@ -34,41 +34,41 @@ addChildToLayout(new GridLayout(), new QWidget());
 
 NodeLayout will list all methods and properties that are common to all layouts in the NodeGui world.
 
-### Static Methods
+## Static Methods
 
 NodeLayout can access all the static methods defined in [Component](api/Component.md)
 
-### Instance Properties
+## Instance Properties
 
 NodeLayout can access all the instance properties defined in [Component](api/Component.md)
 
 Additionally it also has the following instance properties:
 
-#### `layout.type`
+### `layout.type`
 
 This will return the string `layout` for all layouts.
 
-### Instance Methods
+## Instance Methods
 
 NodeLayout can access all the instance methods defined in [Component](api/Component.md)
 
 Additionally it also has the following instance methods:
 
-#### `layout.addWidget(childWidget, ...args)`
+### `layout.addWidget(childWidget, ...args)`
 
 This is an abstract method in NodeLayout class. All Layouts inheriting from NodeLayout should implement this method.
 
 - `childWidget` NodeWidget - Any widget in the NodeGui world.
 - `...args` any[] - Additional params as required by the layout.
 
-#### `layout.activate()`
+### `layout.activate()`
 
 Redoes the layout for parent widget of this layout if necessary. Returns true if the layout was redone.
 
-#### `layout.invalidate()`
+### `layout.invalidate()`
 
 Invalidates any cached information in this layout.
 
-#### `layout.update()`
+### `layout.update()`
 
 Updates the layout for parent widget of this layout. You should generally not need to call this because it is automatically called at the most appropriate times.

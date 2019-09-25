@@ -21,20 +21,20 @@ const flexNode = view.getFlexNode();
 
 YogaWidget helps in storing all flex properties of a widget.
 
-### Static Methods
+## Static Methods
 
 YogaWidget can access all the static methods defined in [Component](api/Component.md)
 
-### Instance Properties
+## Instance Properties
 
 YogaWidget can access all the instance properties defined in [Component](api/Component.md)
 
-### Instance Methods
+## Instance Methods
 
 YogaWidget can access all the instance methods defined in [Component](api/Component.md)
 
 Additionally it also has the following instance methods:
 
-#### `widget.getFlexNode()`
+### `widget.getFlexNode()`
 
 Returns a native reference to the flex node used in c++ instance for the widget. This is not a regular javascript object and hence no methods or properties can be accessed from it. It exists so that we pass around a widgets flex node to layouts, etc.

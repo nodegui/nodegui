@@ -13,14 +13,14 @@ title: Component
 
 To get a clearer picture you can take a look at the Component source code here: `src/lib/core/Component/index.ts`
 
-### Static Methods
+## Static Methods
 
 There are no public static methods for Component.
 
-### Instance Properties
+## Instance Properties
 
 There are no public instance properties for Component.
 
-### Instance Methods
+## Instance Methods
 
 There are no public instance methods for Component.

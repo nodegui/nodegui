@@ -13,58 +13,58 @@ title: QAbstractSlider
 
 QAbstractSlider will list all methods and properties that are common to all slider widgets in the NodeGui world.
 
-### Static Methods
+## Static Methods
 
 QAbstractSlider can access all the static methods defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Properties
+## Instance Properties
 
 QAbstractSlider can access all the instance properties defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Methods
+## Instance Methods
 
 QAbstractSlider can access all the instance methods defined in [NodeWidget](api/NodeWidget.md)
 
 Additionally it also has the following instance methods:
 
-#### `widget.setSingleStep(step)`
+### `widget.setSingleStep(step)`
 
 Sets the step value for user arrow key slider interaction. It calls the native method [QAbstractSlider: setSingleStep](https://doc.qt.io/qt-5/qabstractslider.html#singleStep-prop).
 
 - `step` number - Specified single step value.
 
-#### `widget.setMaximum(maximum)`
+### `widget.setMaximum(maximum)`
 
 Sets the maximum value for slider. It calls the native method [QAbstractSlider: setMaximum](https://doc.qt.io/qt-5/qabstractslider.html#maximum-prop).
 
 - `maximum` number - Specified maximum slider value.
 
-#### `widget.setMinimum(minimum)`
+### `widget.setMinimum(minimum)`
 
 Sets the minimum value for slider. It calls the native method [QAbstractSlider: setMinimum](https://doc.qt.io/qt-5/qabstractslider.html#minimum-prop).
 
 - `minimum` number - Specified minimum slider value.
 
-#### `widget.setValue(value)`
+### `widget.setValue(value)`
 
 Sets the current value for slider. It calls the native method [QAbstractSlider: setValue](https://doc.qt.io/qt-5/qabstractslider.html#value-prop).
 
 - `value` number - Specified current slider value.
 
-#### `widget.setOrientation(orientation)`
+### `widget.setOrientation(orientation)`
 
 Sets the current orientation for slider. It calls the native method [QAbstractSlider: setOrientation](https://doc.qt.io/qt-5/qabstractslider.html#orientation-prop).
 
 - `orientation` Orientation - Specifies visual orientation of the slider. [Orientation is an enum from Qt](api/QtEnums.md)
 
-#### `slider.maximum()`
+### `slider.maximum()`
 
 Returns the maximum value (Number) of the slider. It calls the native method [QAbstractSlider: maximum](https://doc.qt.io/qt-5/qabstractslider.html#maximum-prop).
 
-#### `slider.minimum()`
+### `slider.minimum()`
 
 Returns the minimum value (Number) of the slider. It calls the native method [QAbstractSlider: minimum](https://doc.qt.io/qt-5/qabstractslider.html#minimum-prop).
 
-#### `slider.value()`
+### `slider.value()`
 
 Returns the current value (Number) of the slider. It calls the native method [QAbstractSlider: value](https://doc.qt.io/qt-5/qabstractslider.html#value-prop).

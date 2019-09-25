@@ -24,37 +24,37 @@ label.setText("Hello");
 
 - `parent` NodeWidget (_optional_). Any widget inheriting from NodeWidget can be passed as a parent. This will make this widget, the child of the parent widget.
 
-### Static Methods
+## Static Methods
 
 QLabel can access all the static methods defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Properties
+## Instance Properties
 
 QLabel can access all the instance properties defined in [NodeWidget](api/NodeWidget.md). Additionally it also has the following instance properties:
 
-#### `label.pixmap`
+### `label.pixmap`
 
 The pixmap currently set on this label.
 
-#### `label.text`
+### `label.text`
 
 the current text set on the label.
 
-### Instance Methods
+## Instance Methods
 
 QLabel can access all the instance methods defined in [NodeWidget](api/NodeWidget.md). Additionally it also has the following instance methods:
 
-#### `label.setText(text)`
+### `label.setText(text)`
 
 Sets the given text to the label.
 
 - `text` string
 
-#### `label.setWordWrap(on)`
+### `label.setWordWrap(on)`
 
 - `on` boolean - If true it sets wordwrap on the label
 
-#### `label.setPixmap(pixMap)`
+### `label.setPixmap(pixMap)`
 
 Images in the form of a pixmap can be set as the label content
 

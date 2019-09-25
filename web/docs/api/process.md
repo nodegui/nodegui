@@ -1,9 +1,7 @@
 ---
-sidebar_label: processs
-title: processs
+sidebar_label: process
+title: process
 ---
-
-# process
 
 > Extensions to process object.
 

@@ -30,19 +30,19 @@ scrollArea.setWidget(imageLabel);
 
 - `parent` NodeWidget (_optional_). Any widget inheriting from NodeWidget can be passed as a parent. This will make this widget, the child of the parent widget.
 
-### Static Methods
+## Static Methods
 
 QScrollArea can access all the static methods defined in [QAbstractScrollArea](api/QAbstractScrollArea.md)
 
-### Instance Properties
+## Instance Properties
 
 QScrollArea can access all the instance properties defined in [QAbstractScrollArea](api/QAbstractScrollArea.md)
 
-### Instance Methods
+## Instance Methods
 
 QScrollArea can access all the instance methods defined in [QAbstractScrollArea](api/QAbstractScrollArea.md). Additionally it also has the following instance methods:
 
-#### `scrollArea.setWidget(widget)`
+### `scrollArea.setWidget(widget)`
 
 Sets the scroll area's widget. It calls the native method [QScrollArea: setWidget](https://doc.qt.io/qt-5/qscrollarea.html#setWidget).
 

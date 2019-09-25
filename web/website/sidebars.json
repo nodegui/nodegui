@@ -18,19 +18,19 @@
       "api/QTabWidget",
       "api/QWidget"
     ],
-    "Layouts": ["api/FlexLayout"],
+    "Layouts": ["api/FlexLayout", "api/QGridLayout"],
     "Components": [
       "api/QClipboard",
       "api/QCursor",
       "api/QPixmap",
-      "api/QtEnums",
-      "api/YogaWidget"
+      "api/QtEnums"
     ],
     "Internal Modules": [
       "api/Component",
       "api/EventWidget",
       "api/NodeLayout",
       "api/NodeWidget",
+      "api/YogaWidget",
       "api/QAbstractScrollArea",
       "api/QAbstractSlider"
     ],

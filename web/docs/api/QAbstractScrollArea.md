@@ -13,26 +13,26 @@ title: QAbstractScrollArea
 
 QAbstractScrollArea will list all methods and properties that are common to all scrollable widgets in the NodeGui world.
 
-### Static Methods
+## Static Methods
 
 QAbstractScrollArea can access all the static methods defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Properties
+## Instance Properties
 
 QAbstractScrollArea can access all the instance properties defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Methods
+## Instance Methods
 
 QAbstractScrollArea can access all the instance methods defined in [NodeWidget](api/NodeWidget.md)
 
 Additionally it also has the following instance methods:
 
-#### `widget.setViewport(widget)`
+### `widget.setViewport(widget)`
 
 Sets the viewport to be the given widget. It calls the native method [QAbstractScrollArea: setViewport](https://doc.qt.io/qt-5/qabstractscrollarea.html#setViewport).
 
 - `widget` NodeWidget.
 
-#### `widget.viewport()`
+### `widget.viewport()`
 
 Returns the viewport widget (NodeWidget). It calls the native method [QAbstractScrollArea: viewport](https://doc.qt.io/qt-5/qabstractscrollarea.html#viewport).

@@ -24,21 +24,21 @@ radioButton.setText("Hello");
 
 - `parent` NodeWidget (_optional_). Any widget inheriting from NodeWidget can be passed as a parent. This will make this widget, the child of the parent widget.
 
-### Static Methods
+## Static Methods
 
 QRadioButton can access all the static methods defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Properties
+## Instance Properties
 
 QRadioButton can access all the instance properties defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Methods
+## Instance Methods
 
 QRadioButton can access all the instance methods defined in [NodeWidget](api/NodeWidget.md)
 
 Additionally it also has the following instance methods:
 
-#### `radioButton.setText(text)`
+### `radioButton.setText(text)`
 
 Sets the given text to the radioButton.
 

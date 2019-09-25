@@ -24,31 +24,31 @@ checkbox.setText("Hello");
 
 - `parent` NodeWidget (_optional_). Any widget inheriting from NodeWidget can be passed as a parent. This will make this widget, the child of the parent widget.
 
-### Static Methods
+## Static Methods
 
 QCheckBox can access all the static methods defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Properties
+## Instance Properties
 
 QCheckBox can access all the instance properties defined in [NodeWidget](api/NodeWidget.md)
 
-### Instance Methods
+## Instance Methods
 
 QCheckBox can access all the instance methods defined in [NodeWidget](api/NodeWidget.md)
 
 Additionally it also has the following instance methods:
 
-#### `checkbox.setText(text)`
+### `checkbox.setText(text)`
 
 Sets the given text to the checkbox.
 
 - `text` string
 
-#### `checkbox.isChecked()`
+### `checkbox.isChecked()`
 
 returns whether the checkbox is checked or not. It calls the native method [QAbstractButton: isChecked](https://doc.qt.io/qt-5/qabstractbutton.html#checked-prop).
 
-#### `checkbox.setChecked(check)`
+### `checkbox.setChecked(check)`
 
 This property holds whether the button is checked. It calls the native method [QAbstractButton: setChecked](https://doc.qt.io/qt-5/qabstractbutton.html#checked-prop).
 

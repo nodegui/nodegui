@@ -24,21 +24,21 @@ const pixMap = new QPixmap(imageUrl);
 
 - `imageUrl` string (_optional_). Absolute path of the image that needs to be loaded in the memory.
 
-### Static Methods
+## Static Methods
 
 QPixmap can access all the static methods defined in [Component](api/Component.md)
 
-### Instance Properties
+## Instance Properties
 
 QPixmap can access all the instance properties defined in [Component](api/Component.md)
 
-### Instance Methods
+## Instance Methods
 
 QPixmap can access all the instance methods defined in [Component](api/Component.md)
 
 Additionally it also has the following instance methods:
 
-#### `pixMap.load(imageUrl)`
+### `pixMap.load(imageUrl)`
 
 loads an image from the url into memory as a Pixmap.
 returns true if load was successful otherwise returns false.
@@ -49,13 +49,11 @@ returns true if load was successful otherwise returns false.
 
 Saves the pixmap to the file with the given fileName using the specified image file format and quality factor. Returns `true` if successful; otherwise returns false.
 
-The quality factor must be in the range `[0,100]` or -1. Specify 0 to obtain small compressed files, 100 for large uncompressed files, and -1 to use the default settings.
-
 If format is 0, an image format will be chosen from fileName's suffix.
 
 See also [Reading and Writing Image Files.](https://doc.qt.io/qt-5/qpixmap.html#reading-and-writing-image-files).
 
-- `fileName` string.  
+- `fileName` string.
 - `format` string. (_optional_).
 
 #### `pixMap.scaled(width, height, aspectRatioMode?)`
