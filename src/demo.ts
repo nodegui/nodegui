@@ -106,8 +106,11 @@ const pixmap = new QPixmap(
 imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 
+const trayIcon = new QIcon(
+  path.resolve(__dirname, "../extras/assets/nodegui_white.png")
+);
 const tray = new QSystemTrayIcon();
-tray.setIcon(icon);
+tray.setIcon(trayIcon);
 tray.show()
 
 if (rootView.layout) {
