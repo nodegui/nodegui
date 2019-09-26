@@ -7,7 +7,7 @@ title: Synopsis
 
 All of [Node.js's built-in modules](https://nodejs.org/api/) are available in
 NodeGui. Also, third-party node modules that are known to work with Node.Js are fully supported as well (including
-the [native modules](../tutorial/using-native-node-modules.md)).
+the native node modules).
 
 Apart from Node.Js ecosystem, NodeGui also provides some extra built-in widget and modules for developing native
 desktop applications. So, you can think of NodeGui as NodeJs + Gui Widgets powered by Qt.
@@ -24,7 +24,7 @@ win.show();
 global.win = win; // To prevent win from being garbage collected.
 ```
 
-To run your app, read [Run your app](../tutorial/first-app.md#running-your-app).
+To run your app, read [Run your app](/docs/guides/tutorial).
 
 ## Destructuring assignment
 

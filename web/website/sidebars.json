@@ -19,12 +19,7 @@
       "api/QWidget"
     ],
     "Layouts": ["api/FlexLayout", "api/QGridLayout"],
-    "Components": [
-      "api/QClipboard",
-      "api/QCursor",
-      "api/QPixmap",
-      "api/QtEnums"
-    ],
+    "Modules": ["api/QClipboard", "api/QCursor", "api/QPixmap", "api/QtEnums"],
     "Internal Modules": [
       "api/Component",
       "api/EventWidget",
@@ -35,5 +30,13 @@
       "api/QAbstractSlider"
     ],
     "APIs": ["api/process"]
+  },
+  "guides": {
+    "The Basics": [
+      "guides/getting-started",
+      "guides/tutorial",
+      "guides/styling",
+      "guides/layout"
+    ]
   }
 }

@@ -39,7 +39,7 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: "doc1", label: "Docs" },
+    { doc: "guides/getting-started", label: "Docs" },
     { doc: "api/QApplication", label: "API" },
     { page: "help", label: "Help" },
     { blog: true, label: "Blog" },
@@ -82,6 +82,7 @@ const siteConfig = {
     ]
   },
   */
+  editUrl: "https://github.com/nodegui/nodegui/blob/master/web/docs/",
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
   copyright: `Copyright © ${new Date().getFullYear()} NodeGui`,
