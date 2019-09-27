@@ -1,6 +1,9 @@
-# NodeGui Application Architecture
+---
+sidebar_label: Architecture
+title: Architecture
+---
 
-Before we can dive into NodeGui's APIs, we need to discuss how NodeGui works internally. This would give a clear picture on why the APIs are the way they are.
+By looking at how NodeGui works internally, we would get a clear picture on why the APIs are designed the way they are.
 
 ## Qode
 
@@ -101,4 +104,4 @@ The vast majority of Node.js modules are _not_ native. Only 400 out of the
 ~650.000 modules are native. However, if you do need native modules, please
 consult [this guide on how to recompile them for NodeGui][native-node].
 
-[native-node]: tutorial/using-native-node-modules.md
+[native-node]: using-native-node-modules.md

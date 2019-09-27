@@ -1,4 +1,7 @@
-# Using Native Node Modules
+---
+sidebar_label: Native Node Modules
+title: Using native Node Modules
+---
 
 Native Node modules are supported by NodeGui, but since NodeGui is very
 likely to use a different V8 version from the Node binary installed on your
