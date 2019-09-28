@@ -1,0 +1,37 @@
+.ActionButton {
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-decoration: none !important;
+  border-bottom: none;
+  transition: all 0.2s ease-out;
+  max-width: 50%;
+}
+
+.ActionButton.primary {
+  color: white;
+  background-color: $brand;
+}
+
+.ActionButton.primary:hover {
+  color: white;
+  background-color: $primaryColor;
+}
+
+.ActionButton.secondary {
+  background: none;
+  color: $brand;
+}
+
+.ActionButton.secondary::after {
+  content: "›";
+  font-size: 24px;
+  margin-left: 5px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.ActionButton.secondary:hover {
+  color: black;
+}

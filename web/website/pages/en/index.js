@@ -1,25 +1,38 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 const React = require("react");
-
 const CompLibrary = require("../../core/CompLibrary.js");
 
 const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
 const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
+function ActionButton({ href, type = "primary", target, children }) {
+  return (
+    <a className={`ActionButton ${type}`} href={href} target={target}>
+      {children}
+    </a>
+  );
+}
+
+function HomeCallToAction() {
+  return (
+    <div>
+      <ActionButton type="primary" href={"#quick-start"} target="_self">
+        Quick start
+      </ActionButton>
+      <ActionButton
+        type="secondary"
+        href={"docs/guides/getting-started"}
+        target="_self"
+      >
+        Learn basics
+      </ActionButton>
+    </div>
+  );
+}
 class HomeSplash extends React.Component {
   render() {
-    const { siteConfig, language = "" } = this.props;
-    const { baseUrl, docsUrl } = siteConfig;
-    const docsPart = `${docsUrl ? `${docsUrl}/` : ""}`;
-    const langPart = `${language ? `${language}/` : ""}`;
-    const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
+    const { siteConfig } = this.props;
+    const { baseUrl } = siteConfig;
 
     const SplashContainer = props => (
       <div className="homeContainer">
@@ -56,14 +69,6 @@ class HomeSplash extends React.Component {
       </div>
     );
 
-    const Button = props => (
-      <div className="pluginWrapper buttonWrapper">
-        <a className="button" href={props.href} target={props.target}>
-          {props.children}
-        </a>
-      </div>
-    );
-
     return (
       <SplashContainer>
         <img
@@ -74,14 +79,26 @@ class HomeSplash extends React.Component {
           <Logo img_src={`${baseUrl}img/logo.svg`} />
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href="#try">Try It Out</Button>
-            <Button href={docUrl("doc1.html")}>Example Link</Button>
-            <Button href={docUrl("doc2.html")}>Example Link 2</Button>
+            <HomeCallToAction />
           </PromoSection>
         </div>
       </SplashContainer>
     );
   }
+}
+
+function Heading({ text }) {
+  return <h2 className="Heading">{text}</h2>;
+}
+
+function TextColumn({ title, text, moreContent }) {
+  return (
+    <React.Fragment>
+      <Heading text={title} />
+      <MarkdownBlock>{text}</MarkdownBlock>
+      {moreContent}
+    </React.Fragment>
+  );
 }
 
 class Index extends React.Component {
@@ -113,21 +130,120 @@ class Index extends React.Component {
       </div>
     );
 
-    const TryOut = () => (
-      <Block id="try">
-        {[
-          {
-            content:
-              "To make your landing page more attractive, use illustrations! Check out " +
-              "[**unDraw**](https://undraw.co/) which provides you with customizable illustrations which are free to use. " +
-              "The illustrations you see on this page are from unDraw.",
-            image: `${baseUrl}img/undraw_code_review.svg`,
-            imageAlign: "left",
-            title: "Wonderful SVG Illustrations"
-          }
-        ]}
-      </Block>
-    );
+    function Heading({ text }) {
+      return <h2 className="Heading">{text}</h2>;
+    }
+
+    function Section({
+      element = "section",
+      children,
+      id,
+      className,
+      background = "light"
+    }) {
+      const El = element;
+      return (
+        <El id={id} className={`Section ${className} ${background}`}>
+          {children}
+        </El>
+      );
+    }
+
+    function TwoColumns({ columnOne, columnTwo, reverse }) {
+      return (
+        <div className={`TwoColumns ${reverse ? "reverse" : ""}`}>
+          <div className={`column first ${reverse ? "right" : "left"}`}>
+            {columnOne}
+          </div>
+          <div className={`column last ${reverse ? "left" : "right"}`}>
+            {columnTwo}
+          </div>
+        </div>
+      );
+    }
+
+    function NativeCode() {
+      return (
+        <Section className="NativeCode" background="tint">
+          <TwoColumns
+            columnOne={
+              <TextColumn
+                title="Written in JavaScript—rendered with native code"
+                text={`React primitives render to native platform UI, meaning your app uses the same native platform APIs other apps do. Many platforms, one React. Create platform-specific versions of components so a single codebase can share code across platforms. With React Native, one team can maintain two platforms and share a common technology—React.`}
+              />
+            }
+            columnTwo={
+              <MarkdownBlock>{`
+                import React from 'react';
+                import {Text, View} from 'react-native';
+                import {Header} from './Header';
+
+                const WelcomeScreen = () => 
+                  <View>
+                    <Header title="Welcome to React Native"/>
+                    <Text style={header}>Step One</Text>
+                    <Text>
+                      Edit App.js to change this screen and turn it
+                      into your app.
+                    </Text>
+                    <Text style={header}>See Your Changes</Text>
+                    <Text>
+                      Press Cmd + R inside the simulator to reload
+                      your app’s code.
+                    </Text>
+                    <Text style={header}>Debug</Text>
+                    <Text>
+                      Press Cmd + M or Shake your device to open the
+                      React Native Debug Menu.
+                    </Text>
+                    <Text style={header}>Learn</Text>
+                    <Text>
+                      Read the docs to discover what to do next:
+                    </Text>
+                  </View>
+                 `}</MarkdownBlock>
+            }
+          />
+        </Section>
+      );
+    }
+
+    function QuickStart() {
+      return (
+        <Section id="quick-start" className="GetStarted" background="dark">
+          <div className="content">
+            <Heading text="Give it a try" />
+            <ol className="steps">
+              <li>
+                <p>Run these commands</p>
+                <div class="terminal">
+                  <code>
+                    git clone https://github.com/nodegui/nodegui-starter
+                  </code>
+                  <code>cd nodegui-starter</code>
+                  <code>npm install</code>
+                  <code>npm start</code>
+                </div>
+              </li>
+              <li>
+                <p>
+                  <a
+                    className="LinkBasics"
+                    href={"docs/guides/getting-started"}
+                  >
+                    Learn the basics
+                  </a>{" "}
+                  or dive deeper and take a{" "}
+                  <a className="LinkBasics" href={"docs/api/QApplication"}>
+                    look at the APIs.
+                  </a>
+                </p>
+              </li>
+            </ol>
+          </div>
+        </Section>
+      );
+    }
 
     const Description = () => (
       <Block background="dark">
@@ -210,10 +326,11 @@ class Index extends React.Component {
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
           <Features />
-          <FeatureCallout />
+          <NativeCode />
           <LearnHow />
-          <TryOut />
+          <FeatureCallout />
           <Description />
+          <QuickStart />
           <Showcase />
         </div>
       </div>

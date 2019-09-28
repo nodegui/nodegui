@@ -1,0 +1,21 @@
+.Section {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.Section + .Section {
+  border-top: 1px solid $divider;
+}
+
+.Section.light {
+  background-color: $backgroundColor;
+}
+
+.Section.tint {
+  background-color: $tintColor;
+}
+
+.Section.dark {
+  background-color: $dark;
+}
