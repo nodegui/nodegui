@@ -4,7 +4,7 @@
 
 **This class implements all methods, properties of Qt's [QWidget class](https://doc.qt.io/qt-5/qwidget.html) so that it can be inherited by all widgets**
 
-`NodeWidget` is an abstract class and hence no instances of the same should be created. It exists so that we can add similar functionalities to all widget's easily. Additionally it helps in typechecking process. If you wish to create a `div` like widget use [QWidget](api/QWidget.md) instead.
+`NodeWidget` is an abstract class and hence no instances of the same should be created. It exists so that we can add similar functionalities to all widget's easily. Additionally it helps in type checking process. If you wish to create a `div` like widget use [QWidget](api/QWidget.md) instead.
 
 **NodeWidget is the base class for all widgets. It inherits from another abstract class [EventWidget](api/EventWidget.md)**
 
@@ -183,11 +183,11 @@ Updates the widget. It calls the native method [QWidget: update](https://doc.qt.
 
 #### `widget.pos()`
 
-returns the current widget position. It calls the native method [QWidget: pos](https://doc.qt.io/qt-5/qwidget.html#pos-prop). The returned size object contains x and y coordinates in pixels.
+Returns the current widget position. It calls the native method [QWidget: pos](https://doc.qt.io/qt-5/qwidget.html#pos-prop). The returned size object contains x and y coordinates in pixels.
 
 #### `widget.size()`
 
-returns the current widget size. It calls the native method [QWidget: size](https://doc.qt.io/qt-5/qwidget.html#size-prop). The returned size object contains width and height in pixels.
+Returns the current widget size. It calls the native method [QWidget: size](https://doc.qt.io/qt-5/qwidget.html#size-prop). The returned size object contains width and height in pixels.
 
 #### `widget.updateGeometry()`
 
@@ -198,10 +198,23 @@ Notifies the layout system that this widget has changed and may need to change g
 Sets the attribute attribute on this widget if on is true; otherwise clears the attribute. It calls the native method [QWidget: setAttribute](https://doc.qt.io/qt-5/qwidget.html#setAttribute).
 
 - `attributeName` WidgetAttribute - Enum from WidgetAttribute.
-- `switchOn` - set it to true if you want to enable an attribute.
+- `switchOn` boolean - set it to true if you want to enable an attribute.
 
 #### `widget.testAttribute(attributeName)`
 
 Returns true if attribute attribute is set on this widget; otherwise returns false. It calls the native method [QWidget: testAttribute](https://doc.qt.io/qt-5/qwidget.html#testAttribute).
 
 - `attributeName` WidgetAttribute - Enum from WidgetAttribute.
+
+#### `widget.inherits(className)`
+
+Returns true if this object is an instance of a class that inherits className or a QObject subclass that inherits className; otherwise returns false. A class is considered to inherit itself. Example:
+
+```ts
+const progressBar = new QProgressBar();
+progressBar.inherits("QObject");         // returns true
+progressBar.inherits("QProgressBar");    // returns true
+progressBar.inherits("QTabWidget");      // returns false
+```
+
+- `className` string - Name of the class to get if this widget inherits from.

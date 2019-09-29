@@ -76,6 +76,9 @@ export abstract class NodeWidget extends EventWidget {
     // react:✓, //TODO:getter
     return this.native.setWindowTitle(title);
   };
+  inherits(className: string) { 
+    return this.native.inherits(className);
+  };
   setWindowState = async (state: WindowState) => {
     // react:✓, //TODO:getter
     return this.native.setWindowState(state);

@@ -21,6 +21,7 @@ import {
   QCheckBoxEvents,
   QSystemTrayIcon,
 } from "./index";
+import { ok, equal } from 'assert';
 
 const path = require("path");
 
@@ -80,10 +81,11 @@ if (tab1.layout && tab2.layout) {
 tabs.addTab(tab1, icon, "Tab 1");
 tabs.addTab(tab2, icon, "Tab 2");
 
-const progressbar = new QProgressBar();
-progressbar.setValue(6);
-progressbar.setMinimum(1);
-progressbar.setMaximum(15);
+const progressBar = new QProgressBar();
+progressBar.setValue(6);
+equal(progressBar.value(), 6)
+progressBar.setMinimum(1);
+progressBar.setMaximum(15);
 
 const radioButton = new QRadioButton();
 radioButton.setText("Roger that!");
@@ -98,6 +100,18 @@ textEdit.setWordWrapMode(QTextOptionWrapMode.NoWrap);
 
 const scrollArea = new QScrollArea();
 scrollArea.setInlineStyle("flex: 1; width:'100%';");
+
+// NodeWidget.inherits tests
+ok(tab1.inherits("QWidget"))
+ok(tabs.inherits("QTabWidget"))
+ok(tabs.inherits("QWidget"))
+ok(tabs.inherits("QObject"))
+ok(!tabs.inherits("QProgressBar"))
+ok(progressBar.inherits("QProgressBar"))
+ok(!progressBar.inherits("QTabWidget"))
+ok(tabs.inherits("QWidget"))
+ok(tabs.inherits("QObject"))
+ok(!tabs.inherits("unknown"))
 
 const imageLabel = new QLabel();
 const pixmap = new QPixmap(
@@ -119,7 +133,7 @@ if (rootView.layout) {
   rootView.layout.addWidget(radioButton);
   rootView.layout.addWidget(lineEdit);
   rootView.layout.addWidget(button);
-  rootView.layout.addWidget(progressbar);
+  rootView.layout.addWidget(progressBar);
   rootView.layout.addWidget(textEdit);
   rootView.layout.addWidget(scrollArea);
   rootView.layout.addWidget(dial);

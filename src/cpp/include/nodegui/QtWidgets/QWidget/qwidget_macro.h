@@ -88,6 +88,13 @@ Napi::Value setWindowTitle(const Napi::CallbackInfo& info){ \
   this->instance->setWindowTitle(title.c_str()); \
   return env.Null(); \
 } \
+Napi::Value inherits(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  Napi::String className = info[0].As<Napi::String>(); \
+  std::string s = className.Utf8Value(); \
+  return Napi::Boolean::New(env, this->instance->inherits(s.c_str())); \
+} \
 Napi::Value styleSheet(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
@@ -261,6 +268,7 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
  InstanceMethod("close",&WidgetWrapName::close), \
  InstanceMethod("setLayout",&WidgetWrapName::setLayout), \
  InstanceMethod("setStyleSheet",&WidgetWrapName::setStyleSheet), \
+ InstanceMethod("inherits",&WidgetWrapName::inherits), \ 
  InstanceMethod("setCursor",&WidgetWrapName::setCursor), \
  InstanceMethod("setWindowIcon",&WidgetWrapName::setWindowIcon), \
  InstanceMethod("setWindowState",&WidgetWrapName::setWindowState), \
