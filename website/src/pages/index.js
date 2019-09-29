@@ -1,12 +1,12 @@
 import React from "react";
-import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-
-import { Try } from "./components/Try";
-import { Hero } from "./components/Hero";
-import { Features } from "./components/Features";
-import { CreateNativeApps } from "./components/CreateNativeApps";
-import { CodeExample } from "./components/CodeExample";
+import Layout from "@theme/Layout";
+import { Try } from "../components/Try";
+import { Hero } from "../components/Hero";
+import { Features } from "../components/Features";
+import { CreateNativeApps } from "../components/CreateNativeApps";
+import { CodeExample } from "../components/CodeExample";
+import "./styles.module.css";
 
 function Home() {
   const context = useDocusaurusContext();
@@ -26,5 +26,4 @@ function Home() {
     </Layout>
   );
 }
-
 export default Home;

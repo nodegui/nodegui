@@ -1,5 +1,5 @@
 import React from "react";
-import { SplitView } from "./SplitView";
+import { SplitView } from "../components/SplitView";
 import styled from "styled-components";
 
 const Image = styled.img`

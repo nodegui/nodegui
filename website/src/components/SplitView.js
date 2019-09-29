@@ -1,5 +1,5 @@
-import { Section } from "../common";
-import "./styles.modules.css";
+import { Section } from "./common";
+import "./styles.css";
 import React from "react";
 
 export const SplitView = props => {

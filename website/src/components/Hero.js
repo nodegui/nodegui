@@ -2,7 +2,7 @@ import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styled from "styled-components";
 import { Header, Container, H1, Center } from "./common";
-import styles from "../styles.module.css";
+import styles from "../pages/styles.module.css";
 import withBaseUrl from "@docusaurus/withBaseUrl";
 
 const ActionButton = styled.a`

@@ -1,6 +1,6 @@
 import React from "react";
 import withBaseUrl from "@docusaurus/withBaseUrl";
-import styles from "../styles.module.css";
+import styles from "../pages/styles.module.css";
 import classnames from "classnames";
 
 const features = [

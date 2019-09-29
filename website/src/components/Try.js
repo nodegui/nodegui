@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Section, Container, Center, H2, H4 } from "./common";
+import { Section, Container, Center, H2, H4 } from "../components/common";
 
 const Code = styled.code`
   color: white !important;
