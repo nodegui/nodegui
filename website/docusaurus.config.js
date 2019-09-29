@@ -71,6 +71,9 @@ module.exports = {
         }
       ],
       copyright: `Copyright © ${new Date().getFullYear()} NodeGui`
+    },
+    googleAnalytics: {
+      trackingID: "UA-145065218-1"
     }
   },
   presets: [
