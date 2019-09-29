@@ -30,7 +30,7 @@ const features = [
     imageUrl: "img/undraw_windows.svg",
     description: (
       <>
-        Compatible with Mac, Windows, and Linux, Electron apps build and run on
+        Compatible with Mac, Windows, and Linux, NodeGui apps build and run on
         three platforms.
       </>
     )
