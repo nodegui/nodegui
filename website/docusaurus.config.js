@@ -62,6 +62,10 @@ module.exports = {
             {
               label: "React NodeGui",
               to: "https://react.nodegui.org"
+            },
+            {
+              label: "FAQ",
+              to: "docs/faq"
             }
           ]
         }

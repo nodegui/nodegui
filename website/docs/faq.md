@@ -1,4 +1,7 @@
-# NodeGui FAQ
+---
+title: FAQ
+sidebar_label: FAQ
+---
 
 ## Why am I having trouble installing Qode?
 
