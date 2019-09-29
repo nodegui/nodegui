@@ -5,32 +5,33 @@ import classnames from "classnames";
 
 const features = [
   {
-    title: <>Easy to Use</>,
-    imageUrl: "img/undraw_docusaurus_mountain.svg",
+    title: <>Web Technologies</>,
+    imageUrl: "img/undraw_website_setup.svg",
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        With NodeGui, you can build your app with familiar web technologies like
+        CSS and JavaScript. There is even a{" "}
+        <a href="https://react.nodegui.org">React based version</a>.
       </>
     )
   },
   {
-    title: <>Focus on What Matters</>,
-    imageUrl: "img/undraw_docusaurus_tree.svg",
+    title: <>Open Source</>,
+    imageUrl: "img/undraw_code_review.svg",
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        NodeGui is an open source project maintained by an active community of
+        contributors.
       </>
     )
   },
   {
-    title: <>Powered by React</>,
-    imageUrl: "img/undraw_docusaurus_react.svg",
+    title: <> Cross Platform</>,
+    imageUrl: "img/undraw_windows.svg",
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Compatible with Mac, Windows, and Linux, Electron apps build and run on
+        three platforms.
       </>
     )
   }
@@ -51,8 +52,8 @@ export const Features = () => {
                   />
                 </div>
               )}
-              <h3>{title}</h3>
-              <p>{description}</p>
+              <h3 className="text--center">{title}</h3>
+              <p className="text--center">{description}</p>
             </div>
           ))}
         </div>

@@ -6,10 +6,10 @@ export const SplitView = props => {
   return (
     <Section>
       <div className="SplitView">
-        <div className={`column first right ${props.columnOneClass}`}>
+        <div className={`column first left ${props.columnOneClass}`}>
           {props.columnOne}
         </div>
-        <div className={`column last left ${props.columnTwoClass}`}>
+        <div className={`column last right ${props.columnTwoClass}`}>
           {props.columnTwo}
         </div>
       </div>

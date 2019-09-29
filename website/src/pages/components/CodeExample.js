@@ -1,14 +1,36 @@
 import React from "react";
 import { SplitView } from "./SplitView";
 
+const sourceCode = `
+\`\`\`js
+const { QLabel, QMainWindow } = require("@nodegui/nodegui");
+
+const win = new QMainWindow();
+
+const label = new QLabel(win);
+label.setText("Hello world");
+label.setInlineStyle("color: green; background-color: white;");
+
+win.show();
+global.win = win;
+
+\`\`\`
+`;
+
 export const CodeExample = () => {
-  const ColumnTwo = () => {
-    return <img style={{ maxHeight: 230 }} src="img/demo.png" />;
-  };
   const ColumnOne = () => {
     return (
       <div>
-        <h3>Written in JavaScript. Rendered with native code by Qt</h3>
+        <pre>
+          <code>{sourceCode}</code>
+        </pre>
+      </div>
+    );
+  };
+  const ColumnTwo = () => {
+    return (
+      <div>
+        <h3>Written in JavaScript—rendered with native code by Qt</h3>
         <p>
           Apps can be built completely in JavaScript. This enables native app
           development for whole new teams of developers, and can let existing
@@ -25,8 +47,8 @@ export const CodeExample = () => {
   return (
     <SplitView
       columnOneClass={"text"}
-      columnOne={<ColumnOne />}
-      columnTwo={<ColumnTwo />}
+      columnOne={<ColumnTwo />}
+      columnTwo={<ColumnOne />}
     />
   );
 };

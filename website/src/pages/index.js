@@ -18,9 +18,9 @@ function Home() {
     >
       <Hero />
       <main>
+        <Features />
         <CreateNativeApps />
         <CodeExample />
-        <Features />
         <Try />
       </main>
     </Layout>
