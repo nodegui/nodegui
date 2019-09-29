@@ -100,19 +100,31 @@ export abstract class NodeWidget extends EventWidget {
     // react:✓
     this.native.setFixedSize(width, height);
   };
-  resize = (width: number, height: number) => {
+  resize(size: Size): void
+  resize(width: number, height: number): void
+  resize(widthOrSize: number | Size, height?: number) {
     // react:✓
-    this.native.resize(width, height);
+    if (typeof widthOrSize === "number") {
+      this.native.resize(widthOrSize, typeof height === "undefined" ? this.size().height : height);
+    } else {
+      this.native.resize(widthOrSize.width, widthOrSize.height);
+    }
   };
-  size = (): { width: number; height: number } => {
+  size(): Size {
     // react:✓
     return this.native.size();
   };
-  move = (x: number, y: number) => {
+  move(pos: Point): void
+  move(x: number, y: number): void
+  move(xOrPoint: number | Point, y?: number) {
     // react:✓
-    this.native.move(x, y);
+    if (typeof xOrPoint === "number") {
+      this.native.move(xOrPoint, typeof y === "undefined" ? this.pos().y : y);
+    } else {
+      this.native.move(xOrPoint.x, xOrPoint.y);
+    }
   };
-  pos = (): { x: number; y: number } => {
+  pos(): Point {
     // react:✓
     return this.native.pos();
   };
@@ -152,12 +164,20 @@ export abstract class NodeWidget extends EventWidget {
   };
 }
 
-type Rect = {
-  x: number;
-  y: number;
+interface Size {
   width: number;
   height: number;
+}
+
+interface Point {
+  x: number;
+  y: number;
+}
+
+interface Rect extends Point, Size {
+
 };
+
 type arg = NodeWidget | NativeElement;
 
 export class QWidget extends NodeWidget {

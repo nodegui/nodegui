@@ -23,7 +23,7 @@ import {
   ReadWriteImageFormats,
   QPushButtonEvents
 } from "./index";
-import { ok, equal } from "assert";
+import { ok, equal, deepEqual } from "assert";
 import { existsSync, unlinkSync, readFileSync } from "fs";
 import { resolve } from "path"
 
@@ -148,9 +148,9 @@ if (rootView.layout) {
   rootView.layout.addWidget(dial);
 }
 
-(async ()=>{
-win.setCentralWidget(rootView);
-win.setStyleSheet(`
+(async () => {
+  win.setCentralWidget(rootView);
+  await win.setStyleSheet(`
   #root {
     flex: 1;
     height: '100%';
@@ -163,6 +163,18 @@ win.setStyleSheet(`
   win.resize(400, 700);
   win.show();
   await win.setWindowState(WindowState.WindowActive);
+  // test size() , resize(), pos() and move()
+  const originalPos = win.pos();
+  const originalSize = win.size();
+  win.resize({ width: 401, height: 701 });
+  deepEqual(win.size(), { width: 401, height: 701 });
+  win.resize(originalSize.width, originalSize.height);
+  deepEqual(win.size(), originalSize);
+  // test 
+  win.move({ x: 1, y: 1 });
+  deepEqual(win.pos(), { x: 1, y: 1 });
+  win.move(originalPos.x, originalPos.y);
+  deepEqual(win.pos(), originalPos);
 })();
 
 (global as any).win = win; // To prevent win from being garbage collected.
