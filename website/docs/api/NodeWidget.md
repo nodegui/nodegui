@@ -63,7 +63,9 @@ Shows the widget and its children. It calls the native method [QWidget: show](ht
 
 ### `widget.resize(width, height)`
 
-Resizes the widget. It calls the native method [QWidget: resize](https://doc.qt.io/qt-5/qwidget.html#resize-1).
+Resizes the widget. It calls the native method [QWidget: resize](https://doc.qt.io/qt-5/qwidget.html#resize-1). 
+
+It also accepts a `{width: number, height: number}` single object argument, for example: `a.resize(b.size())`.
 
 - `width` number - Pixels.
 - `height` number - Pixels.
@@ -120,6 +122,8 @@ Hides the widget and its children. It calls the native method [QWidget: hide](ht
 ### `widget.move(x, y)`
 
 Sets the screen position of the widget. It calls the native method [QWidget: move](https://doc.qt.io/qt-5/qwidget.html#move-1).
+
+It also accepts a `{x: number, y: number}` single object argument, for example: `a.move(b.pos())`.
 
 - `x` number - Pixels.
 - `y` number - Pixels.

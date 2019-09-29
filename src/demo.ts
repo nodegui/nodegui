@@ -170,7 +170,6 @@ if (rootView.layout) {
   deepEqual(win.size(), { width: 401, height: 701 });
   win.resize(originalSize.width, originalSize.height);
   deepEqual(win.size(), originalSize);
-  // test 
   win.move({ x: 1, y: 1 });
   deepEqual(win.pos(), { x: 1, y: 1 });
   win.move(originalPos.x, originalPos.y);
