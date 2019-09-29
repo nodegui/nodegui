@@ -1,7 +1,7 @@
 module.exports = {
   title: "NodeGui",
   tagline:
-    "Build cross platform native desktop apps with JavaScript and CSS 🚀",
+    "Build performant, native, cross platform desktop apps with JavaScript and CSS 🚀",
   url: "https://nodegui.org",
   baseUrl: "/",
   favicon: "img/favicon.ico",

@@ -20,14 +20,15 @@
   --ifm-navbar-link-color: white;
 }
 
-.menu .menu__link {
+.navbar__sidebar__items .menu__list-item .menu__link {
   color: white;
 }
-
 .navbar__toggle {
   color: white;
 }
-
+.contents .contents__link {
+  color: var(--ifm-font-base-color);
+}
 a:hover {
   text-decoration: underline dotted;
 }

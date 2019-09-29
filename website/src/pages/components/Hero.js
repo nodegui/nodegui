@@ -44,6 +44,10 @@ const MainLogo = styled.img`
   max-width: 170px;
 `;
 
+const MainHeader = styled(Header)`
+  padding-bottom: 40px;
+`;
+
 function ActionContainer() {
   return (
     <div>
@@ -65,26 +69,17 @@ export const Hero = () => {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
-    <Header>
+    <MainHeader>
       <Container>
         <Center>
           <MainLogo src={"img/logox200.png"} />
           <Title>{siteConfig.title}</Title>
           <Tagline>{siteConfig.tagline}</Tagline>
           <div className={styles.buttons}>
-            {/* <Link
-              className={classnames(
-                "button button--outline button--secondary button--lg",
-                styles.getStarted
-              )}
-              to={withBaseUrl("docs/guides/getting-started")}
-            >
-              Get Started
-            </Link> */}
             <ActionContainer />
           </div>
         </Center>
       </Container>
-    </Header>
+    </MainHeader>
   );
 };

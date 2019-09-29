@@ -46,7 +46,7 @@ const Description = styled.div`
 
 export const Try = () => {
   return (
-    <Section id="quick-start" className="GetStarted" background="dark">
+    <Section id="quick-start">
       <Container>
         <Center>
           <H2>Give it a try</H2>

@@ -5,7 +5,7 @@ export const Header = styled.header``;
 export const Section = styled.section`
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 0 0 0;
   width: 100%;
   margin: 0 auto;
 `;
