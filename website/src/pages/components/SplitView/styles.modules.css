@@ -1,0 +1,61 @@
+.SplitView {
+  display: grid;
+}
+
+.SplitView .column {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SplitView .column.first {
+  grid-area: first;
+}
+
+.SplitView .column.text {
+  padding: 0 50px;
+}
+
+.SplitView .column.last {
+  grid-area: last;
+}
+
+@media only screen and (min-width: 961px) {
+  .SplitView {
+    max-width: 80%;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "first last";
+  }
+
+  .SplitView.reverse {
+    grid-template-areas: "last first";
+  }
+
+  .SplitView .column.left {
+    padding-right: 50px;
+  }
+
+  .SplitView .column.right {
+    padding-left: 50px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .SplitView,
+  .SplitView.reverse {
+    grid-template-columns: 1fr;
+    grid-template-areas: "first" "last";
+  }
+
+  .SplitView .column {
+    padding: 0 4rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .SplitView .column {
+    padding: 0 1.25rem;
+  }
+}

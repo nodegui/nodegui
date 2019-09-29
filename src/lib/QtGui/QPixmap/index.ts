@@ -3,6 +3,9 @@ import { Component, NativeElement } from "../../core/Component";
 import { AspectRatioMode } from "../../QtEnums";
 import { checkIfNativeElement } from "../../utils/helpers";
 
+export type ImageFormats = 'BMP' | 'GIF' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'PGM' | 'PPM' | 'XBM' | 'XPM'
+export type ReadWriteImageFormats = 'BMP' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'XBM' | 'XPM'
+
 type arg = string | NativeElement;
 export class QPixmap extends Component {
   native: NativeElement;
@@ -17,8 +20,12 @@ export class QPixmap extends Component {
       this.native = new addon.QPixmap();
     }
   }
-  load = (imageUrl: string) => {
+  load = (imageUrl: string): boolean => {
     return this.native.load(imageUrl);
+  };
+  save = (fileName: string, format?: ReadWriteImageFormats): boolean => {
+    //TODO: quality argument
+    return format ? this.native.save(fileName, format) : this.native.save(fileName);
   };
   scaled = (
     width: number,
