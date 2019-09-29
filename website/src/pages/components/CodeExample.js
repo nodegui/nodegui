@@ -1,29 +1,17 @@
 import React from "react";
 import { SplitView } from "./SplitView";
+import styled from "styled-components";
 
-const sourceCode = `
-\`\`\`js
-const { QLabel, QMainWindow } = require("@nodegui/nodegui");
-
-const win = new QMainWindow();
-
-const label = new QLabel(win);
-label.setText("Hello world");
-label.setInlineStyle("color: green; background-color: white;");
-
-win.show();
-global.win = win;
-
-\`\`\`
+const Image = styled.img`
+  max-height: 300px;
+  padding-bottom: 40px;
 `;
 
 export const CodeExample = () => {
   const ColumnOne = () => {
     return (
       <div>
-        <pre>
-          <code>{sourceCode}</code>
-        </pre>
+        <Image src="img/code-sample.png" />
       </div>
     );
   };

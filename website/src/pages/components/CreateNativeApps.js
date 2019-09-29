@@ -3,7 +3,7 @@ import { SplitView } from "./SplitView";
 import styled from "styled-components";
 
 const Image = styled.img`
-  max-height: 230px;
+  max-height: 300px;
   padding-bottom: 40px;
 `;
 
