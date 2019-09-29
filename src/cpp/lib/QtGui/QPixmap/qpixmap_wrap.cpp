@@ -10,6 +10,7 @@ Napi::Object QPixmapWrap::init(Napi::Env env, Napi::Object exports)
     char CLASSNAME[] = "QPixmap";
     Napi::Function func = DefineClass(env, CLASSNAME,{
         InstanceMethod("load", &QPixmapWrap::load),
+        InstanceMethod("save", &QPixmapWrap::save),
         InstanceMethod("scaled",&QPixmapWrap::scaled),
         COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
     });
@@ -56,6 +57,24 @@ Napi::Value QPixmapWrap::load(const Napi::CallbackInfo& info)
       Napi::String url = info[0].As<Napi::String>();
       QString imageUrl = QString::fromUtf8(url.Utf8Value().c_str());
       loadSuccess = this->instance->load(imageUrl);
+    }else {
+      Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
+    }
+    return Napi::Boolean::New(env, loadSuccess);
+}
+
+Napi::Value QPixmapWrap::save(const Napi::CallbackInfo& info)
+{
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    bool loadSuccess = false;
+    if(info.Length() >= 1 && info.Length() <=3) {
+      QString fileName = QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
+      if(info.Length() >= 2) {
+        loadSuccess = this->instance->save(fileName, info[1].As<Napi::String>().Utf8Value().c_str());
+      } else {
+        loadSuccess = this->instance->save(fileName);
+      }
     }else {
       Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
     }
