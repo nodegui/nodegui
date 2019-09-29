@@ -1,0 +1,1663 @@
+{
+  "entrypoints": [
+    "main"
+  ],
+  "origins": {
+    "0": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      128,
+      129,
+      0
+    ],
+    "1": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      128,
+      129,
+      1
+    ],
+    "2": [
+      0,
+      1,
+      4,
+      5,
+      7,
+      9,
+      2
+    ],
+    "128": [
+      0,
+      1,
+      3,
+      128
+    ],
+    "@site/src/pages/index.js": [
+      0,
+      1,
+      128,
+      3
+    ],
+    "@theme/BlogListPage": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "@theme/BlogPostPage": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "@theme/BlogTagsListPage": [
+      0,
+      1,
+      6
+    ],
+    "@theme/BlogTagsPostsPage": [
+      0,
+      1,
+      2,
+      7
+    ],
+    "@theme/DocLegacyItem": [
+      0,
+      8
+    ],
+    "@theme/DocLegacyPage": [
+      0,
+      1,
+      2,
+      9
+    ],
+    "@site/blog/2019-05-30-welcome.md": [
+      10
+    ],
+    "@site/blog/2019-05-30-welcome.md?truncated=true": [
+      11
+    ],
+    "@site/docs/api/Component.md": [
+      12
+    ],
+    "@site/docs/api/EventWidget.md": [
+      13
+    ],
+    "@site/docs/api/FlexLayout.md": [
+      14
+    ],
+    "@site/docs/api/NodeLayout.md": [
+      15
+    ],
+    "@site/docs/api/NodeWidget.md": [
+      16
+    ],
+    "@site/docs/api/process.md": [
+      17
+    ],
+    "@site/docs/api/QAbstractScrollArea.md": [
+      18
+    ],
+    "@site/docs/api/QAbstractSlider.md": [
+      19
+    ],
+    "@site/docs/api/QApplication.md": [
+      20
+    ],
+    "@site/docs/api/QCheckBox.md": [
+      21
+    ],
+    "@site/docs/api/QClipboard.md": [
+      22
+    ],
+    "@site/docs/api/QCursor.md": [
+      23
+    ],
+    "@site/docs/api/QDial.md": [
+      24
+    ],
+    "@site/docs/api/QGridLayout.md": [
+      25
+    ],
+    "@site/docs/api/QIcon.md": [
+      26
+    ],
+    "@site/docs/api/QLabel.md": [
+      27
+    ],
+    "@site/docs/api/QLineEdit.md": [
+      28
+    ],
+    "@site/docs/api/QMainWindow.md": [
+      29
+    ],
+    "@site/docs/api/QPixmap.md": [
+      30
+    ],
+    "@site/docs/api/QPlainTextEdit.md": [
+      31
+    ],
+    "@site/docs/api/QProgressBar.md": [
+      32
+    ],
+    "@site/docs/api/QPushButton.md": [
+      33
+    ],
+    "@site/docs/api/QRadioButton.md": [
+      34
+    ],
+    "@site/docs/api/QScrollArea.md": [
+      35
+    ],
+    "@site/docs/api/QSpinBox.md": [
+      36
+    ],
+    "@site/docs/api/QTabWidget.md": [
+      37
+    ],
+    "@site/docs/api/QWidget.md": [
+      38
+    ],
+    "@site/docs/api/QtEnums.md": [
+      39
+    ],
+    "@site/docs/api/synopsis.md": [
+      40
+    ],
+    "@site/docs/api/YogaWidget.md": [
+      41
+    ],
+    "@site/docs/development/common_errors.md": [
+      42
+    ],
+    "@site/docs/development/debugging.md": [
+      43
+    ],
+    "@site/docs/development/getting-started.md": [
+      44
+    ],
+    "@site/docs/development/README.md": [
+      45
+    ],
+    "@site/docs/development/setting-up.md": [
+      46
+    ],
+    "@site/docs/development/signal_and_event_handling.md": [
+      47
+    ],
+    "@site/docs/development/styling.md": [
+      48
+    ],
+    "@site/docs/development/wrapping_widgets.md": [
+      49
+    ],
+    "@site/docs/doc1.md": [
+      50
+    ],
+    "@site/docs/faq.md": [
+      51
+    ],
+    "@site/docs/guides/custom-nodegui-native-plugin.md": [
+      52
+    ],
+    "@site/docs/guides/debugging-in-vscode.md": [
+      53
+    ],
+    "@site/docs/guides/debugging.md": [
+      54
+    ],
+    "@site/docs/guides/getting-started.md": [
+      55
+    ],
+    "@site/docs/guides/handle-events.md": [
+      56
+    ],
+    "@site/docs/guides/images.md": [
+      57
+    ],
+    "@site/docs/guides/layout.md": [
+      58
+    ],
+    "@site/docs/guides/networking.md": [
+      59
+    ],
+    "@site/docs/guides/nodegui-architecture.md": [
+      60
+    ],
+    "@site/docs/guides/scroll-view.md": [
+      61
+    ],
+    "@site/docs/guides/styling.md": [
+      62
+    ],
+    "@site/docs/guides/tutorial.md": [
+      63
+    ],
+    "@site/docs/guides/using-native-node-modules.md": [
+      64
+    ],
+    "@site/docs/mdx.md": [
+      65
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-b5f.json": [
+      66
+    ],
+    "main": [
+      126,
+      67
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-blog/blog-c06.json": [
+      68
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-blog/blog-tags-hello-039.json": [
+      69
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-blog/blog-tags-nodegui-2a1.json": [
+      70
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-blog/blog-welcome-001.json": [
+      71
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-component-f20.json": [
+      72
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-event-widget-ae5.json": [
+      73
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-flex-layout-cbe.json": [
+      74
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-node-layout-565.json": [
+      75
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-node-widget-719.json": [
+      76
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-process-bbd.json": [
+      77
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-abstract-scroll-area-fd2.json": [
+      78
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-abstract-slider-d61.json": [
+      79
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-application-37d.json": [
+      80
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-check-box-23e.json": [
+      81
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-clipboard-c24.json": [
+      82
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-cursor-cd4.json": [
+      83
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-dial-5a0.json": [
+      84
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-grid-layout-b06.json": [
+      85
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-icon-fb3.json": [
+      86
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-label-edd.json": [
+      87
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-line-edit-72f.json": [
+      88
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-main-window-882.json": [
+      89
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-pixmap-3fb.json": [
+      90
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-plain-text-edit-b75.json": [
+      91
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-progress-bar-895.json": [
+      92
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-push-button-013.json": [
+      93
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-radio-button-9a1.json": [
+      94
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-scroll-area-ee1.json": [
+      95
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-spin-box-c7d.json": [
+      96
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-tab-widget-b7c.json": [
+      97
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-q-widget-276.json": [
+      98
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-qt-enums-a70.json": [
+      99
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-synopsis-eee.json": [
+      100
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-api-yoga-widget-aca.json": [
+      101
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-development-common-errors-131.json": [
+      102
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-development-debugging-9ae.json": [
+      103
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-development-getting-started-eab.json": [
+      104
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-development-readme-a42.json": [
+      105
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-development-setting-up-cae.json": [
+      106
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-development-signal-and-event-handling-ebf.json": [
+      107
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-development-styling-4d2.json": [
+      108
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-development-wrapping-widgets-270.json": [
+      109
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-doc-1-6ac.json": [
+      110
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-faq-019.json": [
+      111
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-custom-nodegui-native-plugin-c98.json": [
+      112
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-debugging-4fd.json": [
+      113
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-debugging-in-vscode-bb6.json": [
+      114
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-getting-started-ed9.json": [
+      115
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-handle-events-d0d.json": [
+      116
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-images-be2.json": [
+      117
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-layout-6c3.json": [
+      118
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-networking-682.json": [
+      119
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-nodegui-architecture-060.json": [
+      120
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-scroll-view-b95.json": [
+      121
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-styling-d4a.json": [
+      122
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-tutorial-ebb.json": [
+      123
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-guides-using-native-node-modules-a3d.json": [
+      124
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-docs/docs-mdx-04f.json": [
+      125
+    ],
+    "runtime~main": [
+      67,
+      126
+    ],
+    "/Users/atulr/Project/nodegui/nodegui/website/.docusaurus/docusaurus-plugin-content-blog/blog-tags-tags-4c2.json": [
+      127
+    ],
+    "@theme/NotFound": [
+      0,
+      1,
+      129
+    ]
+  },
+  "assets": {
+    "0": {
+      "js": [
+        {
+          "file": "0.821df7f17f7288aebb5e.js",
+          "hash": "fc27b8ada21b6a6dbe7b",
+          "publicPath": "/0.821df7f17f7288aebb5e.js"
+        }
+      ]
+    },
+    "1": {
+      "css": [
+        {
+          "file": "1.196ce05925ea6d776920.css",
+          "hash": "604d250b5a34c84e5807",
+          "publicPath": "/1.196ce05925ea6d776920.css"
+        }
+      ],
+      "js": [
+        {
+          "file": "1.9b3d421a0f44576af60f.js",
+          "hash": "604d250b5a34c84e5807",
+          "publicPath": "/1.9b3d421a0f44576af60f.js"
+        }
+      ]
+    },
+    "2": {
+      "css": [
+        {
+          "file": "2.702de9bbb01fe4f46fa1.css",
+          "hash": "032db50ffd4eefb39467",
+          "publicPath": "/2.702de9bbb01fe4f46fa1.css"
+        }
+      ],
+      "js": [
+        {
+          "file": "2.27a81c22b5dfa23bfe9b.js",
+          "hash": "032db50ffd4eefb39467",
+          "publicPath": "/2.27a81c22b5dfa23bfe9b.js"
+        }
+      ]
+    },
+    "3": {
+      "css": [
+        {
+          "file": "component---site-src-pages-index-jsc-4-f-f99.71bf8f44fd9ac59b6a50.css",
+          "hash": "96cbb5bfb07529143cee",
+          "publicPath": "/component---site-src-pages-index-jsc-4-f-f99.71bf8f44fd9ac59b6a50.css"
+        }
+      ],
+      "js": [
+        {
+          "file": "component---site-src-pages-index-jsc-4-f-f99.c77efb7a13d4c996d6c7.js",
+          "hash": "96cbb5bfb07529143cee",
+          "publicPath": "/component---site-src-pages-index-jsc-4-f-f99.c77efb7a13d4c996d6c7.js"
+        }
+      ]
+    },
+    "4": {
+      "js": [
+        {
+          "file": "component---theme-blog-list-pagea-6-a-7ba.697ec326a8cebf60b287.js",
+          "hash": "78ac5ffc09216d76027e",
+          "publicPath": "/component---theme-blog-list-pagea-6-a-7ba.697ec326a8cebf60b287.js"
+        }
+      ]
+    },
+    "5": {
+      "js": [
+        {
+          "file": "component---theme-blog-post-pageccc-cab.eaf730b8c654a212f785.js",
+          "hash": "6d5214bd0a47804303dc",
+          "publicPath": "/component---theme-blog-post-pageccc-cab.eaf730b8c654a212f785.js"
+        }
+      ]
+    },
+    "6": {
+      "js": [
+        {
+          "file": "component---theme-blog-tags-list-page-01-a-d0b.f9af53c8c6b12587c378.js",
+          "hash": "5439c51753acb598c1c5",
+          "publicPath": "/component---theme-blog-tags-list-page-01-a-d0b.f9af53c8c6b12587c378.js"
+        }
+      ]
+    },
+    "7": {
+      "js": [
+        {
+          "file": "component---theme-blog-tags-posts-page-687-b6c.7cbecfb8c53ab9b2f9ba.js",
+          "hash": "30d47db6dec2c3eb6e86",
+          "publicPath": "/component---theme-blog-tags-posts-page-687-b6c.7cbecfb8c53ab9b2f9ba.js"
+        }
+      ]
+    },
+    "8": {
+      "css": [
+        {
+          "file": "component---theme-doc-legacy-item-031-769.1f1ce10374de019f5d3a.css",
+          "hash": "75e94420e018523878af",
+          "publicPath": "/component---theme-doc-legacy-item-031-769.1f1ce10374de019f5d3a.css"
+        }
+      ],
+      "js": [
+        {
+          "file": "component---theme-doc-legacy-item-031-769.6e8a6ea08d218712d94a.js",
+          "hash": "75e94420e018523878af",
+          "publicPath": "/component---theme-doc-legacy-item-031-769.6e8a6ea08d218712d94a.js"
+        }
+      ]
+    },
+    "9": {
+      "css": [
+        {
+          "file": "component---theme-doc-legacy-page-9-e-7-ca5.3c38a2f40a51efdd72a0.css",
+          "hash": "69f1327b46fbd84e3c8f",
+          "publicPath": "/component---theme-doc-legacy-page-9-e-7-ca5.3c38a2f40a51efdd72a0.css"
+        }
+      ],
+      "js": [
+        {
+          "file": "component---theme-doc-legacy-page-9-e-7-ca5.d31182005d6c21dd63ac.js",
+          "hash": "69f1327b46fbd84e3c8f",
+          "publicPath": "/component---theme-doc-legacy-page-9-e-7-ca5.d31182005d6c21dd63ac.js"
+        }
+      ]
+    },
+    "10": {
+      "js": [
+        {
+          "file": "content---blog-welcome-286-e55.76c213cf9ce75984ae91.js",
+          "hash": "61967d76c96234c1b57b",
+          "publicPath": "/content---blog-welcome-286-e55.76c213cf9ce75984ae91.js"
+        }
+      ]
+    },
+    "11": {
+      "js": [
+        {
+          "file": "content---blogaf-1-856.f79900332b57f969c09a.js",
+          "hash": "27f7f375c7fee927f7d2",
+          "publicPath": "/content---blogaf-1-856.f79900332b57f969c09a.js"
+        }
+      ]
+    },
+    "12": {
+      "js": [
+        {
+          "file": "content---docs-api-component-4-ef-195.be17a07689811b2e54a5.js",
+          "hash": "d8563747360e64aafd60",
+          "publicPath": "/content---docs-api-component-4-ef-195.be17a07689811b2e54a5.js"
+        }
+      ]
+    },
+    "13": {
+      "js": [
+        {
+          "file": "content---docs-api-event-widgetac-6-11b.b87fa94e0cd874003d59.js",
+          "hash": "04b9fbdf884b5619c109",
+          "publicPath": "/content---docs-api-event-widgetac-6-11b.b87fa94e0cd874003d59.js"
+        }
+      ]
+    },
+    "14": {
+      "js": [
+        {
+          "file": "content---docs-api-flex-layout-3-dc-a16.d5ab9ac7b90d9ed88203.js",
+          "hash": "c4e00f13e4859537937b",
+          "publicPath": "/content---docs-api-flex-layout-3-dc-a16.d5ab9ac7b90d9ed88203.js"
+        }
+      ]
+    },
+    "15": {
+      "js": [
+        {
+          "file": "content---docs-api-node-layoutd-28-11a.f1324fa8676e4bf64b44.js",
+          "hash": "539b34062a883097a915",
+          "publicPath": "/content---docs-api-node-layoutd-28-11a.f1324fa8676e4bf64b44.js"
+        }
+      ]
+    },
+    "16": {
+      "js": [
+        {
+          "file": "content---docs-api-node-widget-080-a39.e39bcda58fa051ef8f58.js",
+          "hash": "68a8a3a29c88071e431d",
+          "publicPath": "/content---docs-api-node-widget-080-a39.e39bcda58fa051ef8f58.js"
+        }
+      ]
+    },
+    "17": {
+      "js": [
+        {
+          "file": "content---docs-api-process-5-ec-b1e.81baa4658f7e9a835392.js",
+          "hash": "1b96e18de2318555ada8",
+          "publicPath": "/content---docs-api-process-5-ec-b1e.81baa4658f7e9a835392.js"
+        }
+      ]
+    },
+    "18": {
+      "js": [
+        {
+          "file": "content---docs-api-q-abstract-scroll-area-3-e-6-d7f.ce07722700328be8dfa5.js",
+          "hash": "dc1cc1d2be2687e15a4b",
+          "publicPath": "/content---docs-api-q-abstract-scroll-area-3-e-6-d7f.ce07722700328be8dfa5.js"
+        }
+      ]
+    },
+    "19": {
+      "js": [
+        {
+          "file": "content---docs-api-q-abstract-slider-3-e-0-54d.b7e761ae58b36fe089f1.js",
+          "hash": "cfe13154ccf3e3c72276",
+          "publicPath": "/content---docs-api-q-abstract-slider-3-e-0-54d.b7e761ae58b36fe089f1.js"
+        }
+      ]
+    },
+    "20": {
+      "js": [
+        {
+          "file": "content---docs-api-q-applicationd-3-e-0a3.039f8c83760f87eef546.js",
+          "hash": "60338471cd7efb472ae5",
+          "publicPath": "/content---docs-api-q-applicationd-3-e-0a3.039f8c83760f87eef546.js"
+        }
+      ]
+    },
+    "21": {
+      "js": [
+        {
+          "file": "content---docs-api-q-check-boxd-9-b-c95.54af9594d82de2f1c65c.js",
+          "hash": "dd595e8f5cdfaaddbdd1",
+          "publicPath": "/content---docs-api-q-check-boxd-9-b-c95.54af9594d82de2f1c65c.js"
+        }
+      ]
+    },
+    "22": {
+      "js": [
+        {
+          "file": "content---docs-api-q-clipboard-69-d-2ef.2facddd2ce7d03c7d364.js",
+          "hash": "be5eca279ade3bf270b1",
+          "publicPath": "/content---docs-api-q-clipboard-69-d-2ef.2facddd2ce7d03c7d364.js"
+        }
+      ]
+    },
+    "23": {
+      "js": [
+        {
+          "file": "content---docs-api-q-cursor-362-d51.72e3b873d390560e1917.js",
+          "hash": "73a9a9197e0bb9d59040",
+          "publicPath": "/content---docs-api-q-cursor-362-d51.72e3b873d390560e1917.js"
+        }
+      ]
+    },
+    "24": {
+      "js": [
+        {
+          "file": "content---docs-api-q-dial-80-b-99a.facd48a52570d2fd7472.js",
+          "hash": "8a2d26d8f90b8e256862",
+          "publicPath": "/content---docs-api-q-dial-80-b-99a.facd48a52570d2fd7472.js"
+        }
+      ]
+    },
+    "25": {
+      "js": [
+        {
+          "file": "content---docs-api-q-grid-layouta-4-e-552.f8384f91986e144a1e06.js",
+          "hash": "b12ab8abf31e1fbc04b1",
+          "publicPath": "/content---docs-api-q-grid-layouta-4-e-552.f8384f91986e144a1e06.js"
+        }
+      ]
+    },
+    "26": {
+      "js": [
+        {
+          "file": "content---docs-api-q-icone-5-f-b0d.016d00e28e5a87f3cf94.js",
+          "hash": "4387979d24bb651f8e82",
+          "publicPath": "/content---docs-api-q-icone-5-f-b0d.016d00e28e5a87f3cf94.js"
+        }
+      ]
+    },
+    "27": {
+      "js": [
+        {
+          "file": "content---docs-api-q-label-2-f-9-04b.9f8c2e203f083cedfdf8.js",
+          "hash": "7c72a44417d5a715e46f",
+          "publicPath": "/content---docs-api-q-label-2-f-9-04b.9f8c2e203f083cedfdf8.js"
+        }
+      ]
+    },
+    "28": {
+      "js": [
+        {
+          "file": "content---docs-api-q-line-editea-0-53d.f606b13ced935ec46509.js",
+          "hash": "aebc77d6e75b5bf3e72c",
+          "publicPath": "/content---docs-api-q-line-editea-0-53d.f606b13ced935ec46509.js"
+        }
+      ]
+    },
+    "29": {
+      "js": [
+        {
+          "file": "content---docs-api-q-main-window-0-e-7-299.7a1bf20062e23ed6c510.js",
+          "hash": "199579d2a0e12cea31f8",
+          "publicPath": "/content---docs-api-q-main-window-0-e-7-299.7a1bf20062e23ed6c510.js"
+        }
+      ]
+    },
+    "30": {
+      "js": [
+        {
+          "file": "content---docs-api-q-pixmap-8-dd-cb2.343e5d75db3125ddfa81.js",
+          "hash": "22a37d53f12f2596ef1d",
+          "publicPath": "/content---docs-api-q-pixmap-8-dd-cb2.343e5d75db3125ddfa81.js"
+        }
+      ]
+    },
+    "31": {
+      "js": [
+        {
+          "file": "content---docs-api-q-plain-text-edit-7-c-8-081.f6a618e75ea9b4f15f6b.js",
+          "hash": "da2065a3c16d0f9da238",
+          "publicPath": "/content---docs-api-q-plain-text-edit-7-c-8-081.f6a618e75ea9b4f15f6b.js"
+        }
+      ]
+    },
+    "32": {
+      "js": [
+        {
+          "file": "content---docs-api-q-progress-barc-46-afe.2a5c874c4e33ecb7a2b8.js",
+          "hash": "36a53f59f5dc6cd4b3f6",
+          "publicPath": "/content---docs-api-q-progress-barc-46-afe.2a5c874c4e33ecb7a2b8.js"
+        }
+      ]
+    },
+    "33": {
+      "js": [
+        {
+          "file": "content---docs-api-q-push-button-06-c-73e.9e1e6d8a0e7c17941efd.js",
+          "hash": "4dafff7fe26e6769d3fa",
+          "publicPath": "/content---docs-api-q-push-button-06-c-73e.9e1e6d8a0e7c17941efd.js"
+        }
+      ]
+    },
+    "34": {
+      "js": [
+        {
+          "file": "content---docs-api-q-radio-buttone-54-746.0eceb96f43e589853010.js",
+          "hash": "1ca8091fce8f84360894",
+          "publicPath": "/content---docs-api-q-radio-buttone-54-746.0eceb96f43e589853010.js"
+        }
+      ]
+    },
+    "35": {
+      "js": [
+        {
+          "file": "content---docs-api-q-scroll-area-8-c-4-3fd.fd580650b1d2ac9eee33.js",
+          "hash": "a1fa287accbef3815a04",
+          "publicPath": "/content---docs-api-q-scroll-area-8-c-4-3fd.fd580650b1d2ac9eee33.js"
+        }
+      ]
+    },
+    "36": {
+      "js": [
+        {
+          "file": "content---docs-api-q-spin-box-1-ce-bfd.fc03e9106b39d9c9e23c.js",
+          "hash": "dadcfe584e39cc2ff0b5",
+          "publicPath": "/content---docs-api-q-spin-box-1-ce-bfd.fc03e9106b39d9c9e23c.js"
+        }
+      ]
+    },
+    "37": {
+      "js": [
+        {
+          "file": "content---docs-api-q-tab-widget-508-95e.b35876b3da49da08bcb5.js",
+          "hash": "24e0e0191a0c97ad85f7",
+          "publicPath": "/content---docs-api-q-tab-widget-508-95e.b35876b3da49da08bcb5.js"
+        }
+      ]
+    },
+    "38": {
+      "js": [
+        {
+          "file": "content---docs-api-q-widget-04-a-59f.789a0ca241a0fb6ad49d.js",
+          "hash": "368b12e76a69777ee712",
+          "publicPath": "/content---docs-api-q-widget-04-a-59f.789a0ca241a0fb6ad49d.js"
+        }
+      ]
+    },
+    "39": {
+      "js": [
+        {
+          "file": "content---docs-api-qt-enumsfd-7-cf3.1eed426a340d4c937b0a.js",
+          "hash": "382ce84d197bae217fea",
+          "publicPath": "/content---docs-api-qt-enumsfd-7-cf3.1eed426a340d4c937b0a.js"
+        }
+      ]
+    },
+    "40": {
+      "js": [
+        {
+          "file": "content---docs-api-synopsis-7-bb-e1c.2cede4e9cd42a20dcab1.js",
+          "hash": "fa7948f3c5ef4a456963",
+          "publicPath": "/content---docs-api-synopsis-7-bb-e1c.2cede4e9cd42a20dcab1.js"
+        }
+      ]
+    },
+    "41": {
+      "js": [
+        {
+          "file": "content---docs-api-yoga-widgeta-42-cc7.d048cabe40533b903ea2.js",
+          "hash": "c33be330becbbfd752c2",
+          "publicPath": "/content---docs-api-yoga-widgeta-42-cc7.d048cabe40533b903ea2.js"
+        }
+      ]
+    },
+    "42": {
+      "js": [
+        {
+          "file": "content---docs-development-common-errorsf-15-a5b.e038ab8ec8bf334300fb.js",
+          "hash": "2e56afba2aa4d4017b93",
+          "publicPath": "/content---docs-development-common-errorsf-15-a5b.e038ab8ec8bf334300fb.js"
+        }
+      ]
+    },
+    "43": {
+      "js": [
+        {
+          "file": "content---docs-development-debuggingb-54-9ed.750c6b37dab541484a83.js",
+          "hash": "307f2e55c8366343a867",
+          "publicPath": "/content---docs-development-debuggingb-54-9ed.750c6b37dab541484a83.js"
+        }
+      ]
+    },
+    "44": {
+      "js": [
+        {
+          "file": "content---docs-development-getting-started-139-387.91c824c53e601bdee051.js",
+          "hash": "0ffced67cb29e716331f",
+          "publicPath": "/content---docs-development-getting-started-139-387.91c824c53e601bdee051.js"
+        }
+      ]
+    },
+    "45": {
+      "js": [
+        {
+          "file": "content---docs-development-readme-149-437.115b92599d48666d0070.js",
+          "hash": "11ad52417c23f238e777",
+          "publicPath": "/content---docs-development-readme-149-437.115b92599d48666d0070.js"
+        }
+      ]
+    },
+    "46": {
+      "js": [
+        {
+          "file": "content---docs-development-setting-up-28-c-666.3ed03febaee8901fd048.js",
+          "hash": "45a243aeb8cb9cf2967e",
+          "publicPath": "/content---docs-development-setting-up-28-c-666.3ed03febaee8901fd048.js"
+        }
+      ]
+    },
+    "47": {
+      "js": [
+        {
+          "file": "content---docs-development-signal-and-event-handling-7-d-4-f3f.ce2b82a97ac1f368a896.js",
+          "hash": "a56e4c29697682586fda",
+          "publicPath": "/content---docs-development-signal-and-event-handling-7-d-4-f3f.ce2b82a97ac1f368a896.js"
+        }
+      ]
+    },
+    "48": {
+      "js": [
+        {
+          "file": "content---docs-development-styling-293-cad.b3394daf132a97f6e2c2.js",
+          "hash": "2dd1aa361d886237e36d",
+          "publicPath": "/content---docs-development-styling-293-cad.b3394daf132a97f6e2c2.js"
+        }
+      ]
+    },
+    "49": {
+      "js": [
+        {
+          "file": "content---docs-development-wrapping-widgets-84-b-538.8591cd36dcfe1c65b14a.js",
+          "hash": "cc4e7429d354c4f502fe",
+          "publicPath": "/content---docs-development-wrapping-widgets-84-b-538.8591cd36dcfe1c65b14a.js"
+        }
+      ]
+    },
+    "50": {
+      "js": [
+        {
+          "file": "content---docs-doc-1-b-2-f-e80.b11e6221286a094dd836.js",
+          "hash": "5f5d78e886e671a7d0e2",
+          "publicPath": "/content---docs-doc-1-b-2-f-e80.b11e6221286a094dd836.js"
+        }
+      ]
+    },
+    "51": {
+      "js": [
+        {
+          "file": "content---docs-faq-048-db5.a3f7755c1443136d038e.js",
+          "hash": "a48e2f8a871f5f05b124",
+          "publicPath": "/content---docs-faq-048-db5.a3f7755c1443136d038e.js"
+        }
+      ]
+    },
+    "52": {
+      "js": [
+        {
+          "file": "content---docs-guides-custom-nodegui-native-plugin-632-9db.ae1162899d532c588845.js",
+          "hash": "d604aea4d283c985ea2b",
+          "publicPath": "/content---docs-guides-custom-nodegui-native-plugin-632-9db.ae1162899d532c588845.js"
+        }
+      ]
+    },
+    "53": {
+      "js": [
+        {
+          "file": "content---docs-guides-debugging-in-vscodebd-7-cec.a37b675eceeff564dcc8.js",
+          "hash": "7827fb69f3aa3e2c720d",
+          "publicPath": "/content---docs-guides-debugging-in-vscodebd-7-cec.a37b675eceeff564dcc8.js"
+        }
+      ]
+    },
+    "54": {
+      "js": [
+        {
+          "file": "content---docs-guides-debuggingf-3-f-cf5.6a9f350b152e911795d0.js",
+          "hash": "97ce16f971a6cbc6ecd4",
+          "publicPath": "/content---docs-guides-debuggingf-3-f-cf5.6a9f350b152e911795d0.js"
+        }
+      ]
+    },
+    "55": {
+      "js": [
+        {
+          "file": "content---docs-guides-getting-startedc-9-e-20f.058d1e127795274285bb.js",
+          "hash": "b874712cec9d8c43f58f",
+          "publicPath": "/content---docs-guides-getting-startedc-9-e-20f.058d1e127795274285bb.js"
+        }
+      ]
+    },
+    "56": {
+      "js": [
+        {
+          "file": "content---docs-guides-handle-events-160-4b0.c02ea0616d11beafddb3.js",
+          "hash": "10d4f979771b1170e9eb",
+          "publicPath": "/content---docs-guides-handle-events-160-4b0.c02ea0616d11beafddb3.js"
+        }
+      ]
+    },
+    "57": {
+      "js": [
+        {
+          "file": "content---docs-guides-images-991-065.914359cdc22f4b9051ef.js",
+          "hash": "c9ea40c24517c7851ed4",
+          "publicPath": "/content---docs-guides-images-991-065.914359cdc22f4b9051ef.js"
+        }
+      ]
+    },
+    "58": {
+      "js": [
+        {
+          "file": "content---docs-guides-layoutdf-5-a64.bbcbc44e5156b817cb02.js",
+          "hash": "0771e8b9b49d331a3798",
+          "publicPath": "/content---docs-guides-layoutdf-5-a64.bbcbc44e5156b817cb02.js"
+        }
+      ]
+    },
+    "59": {
+      "js": [
+        {
+          "file": "content---docs-guides-networking-374-03e.17133e9de15be6e64aff.js",
+          "hash": "60896b6b12ea3c20362c",
+          "publicPath": "/content---docs-guides-networking-374-03e.17133e9de15be6e64aff.js"
+        }
+      ]
+    },
+    "60": {
+      "js": [
+        {
+          "file": "content---docs-guides-nodegui-architecture-262-19e.245edae39f1ddac01224.js",
+          "hash": "766e5de925ba1faeb771",
+          "publicPath": "/content---docs-guides-nodegui-architecture-262-19e.245edae39f1ddac01224.js"
+        }
+      ]
+    },
+    "61": {
+      "js": [
+        {
+          "file": "content---docs-guides-scroll-view-76-e-87c.73c89be82bf124b2e125.js",
+          "hash": "57f9485a515cd14a88f6",
+          "publicPath": "/content---docs-guides-scroll-view-76-e-87c.73c89be82bf124b2e125.js"
+        }
+      ]
+    },
+    "62": {
+      "js": [
+        {
+          "file": "content---docs-guides-stylingfec-977.c0e2691c9103260d4124.js",
+          "hash": "eeb89a59301c57051578",
+          "publicPath": "/content---docs-guides-stylingfec-977.c0e2691c9103260d4124.js"
+        }
+      ]
+    },
+    "63": {
+      "js": [
+        {
+          "file": "content---docs-guides-tutoriale-53-6ab.3001eaf77a6eeaf068aa.js",
+          "hash": "ec005e084fce1c3e3c38",
+          "publicPath": "/content---docs-guides-tutoriale-53-6ab.3001eaf77a6eeaf068aa.js"
+        }
+      ]
+    },
+    "64": {
+      "js": [
+        {
+          "file": "content---docs-guides-using-native-node-modules-3-ab-104.3bc40951d03693eaff7d.js",
+          "hash": "8a91eb332de23591d53a",
+          "publicPath": "/content---docs-guides-using-native-node-modules-3-ab-104.3bc40951d03693eaff7d.js"
+        }
+      ]
+    },
+    "65": {
+      "js": [
+        {
+          "file": "content---docs-mdxce-3-7d1.389cb0d1e93efb516d5d.js",
+          "hash": "ddcb7c039f51b90e6222",
+          "publicPath": "/content---docs-mdxce-3-7d1.389cb0d1e93efb516d5d.js"
+        }
+      ]
+    },
+    "66": {
+      "js": [
+        {
+          "file": "docsMetadata---docs-150-2d6.a4a03dc8ae50b1fa60b5.js",
+          "hash": "4f8205e4b279b185f006",
+          "publicPath": "/docsMetadata---docs-150-2d6.a4a03dc8ae50b1fa60b5.js"
+        }
+      ]
+    },
+    "67": {
+      "css": [
+        {
+          "file": "main.f66713773e9ba37b90fe.css",
+          "hash": "964aa60e36531c0a82ad",
+          "publicPath": "/main.f66713773e9ba37b90fe.css"
+        }
+      ],
+      "js": [
+        {
+          "file": "main.00ae184f6d3bd0eadbce.js",
+          "hash": "964aa60e36531c0a82ad",
+          "publicPath": "/main.00ae184f6d3bd0eadbce.js"
+        }
+      ]
+    },
+    "68": {
+      "js": [
+        {
+          "file": "metadata---blog-83-c-2b0.46c7be8f307d8da2c120.js",
+          "hash": "9d2e0ca618f9c81c84af",
+          "publicPath": "/metadata---blog-83-c-2b0.46c7be8f307d8da2c120.js"
+        }
+      ]
+    },
+    "69": {
+      "js": [
+        {
+          "file": "metadata---blog-tags-hellob-02-3e8.cdf356c9ee24382e453e.js",
+          "hash": "1b88c6596c2f82a4ae7e",
+          "publicPath": "/metadata---blog-tags-hellob-02-3e8.cdf356c9ee24382e453e.js"
+        }
+      ]
+    },
+    "70": {
+      "js": [
+        {
+          "file": "metadata---blog-tags-nodegui-632-d46.73df93301c6a1152b2fe.js",
+          "hash": "2d52243f46565fc7116a",
+          "publicPath": "/metadata---blog-tags-nodegui-632-d46.73df93301c6a1152b2fe.js"
+        }
+      ]
+    },
+    "71": {
+      "js": [
+        {
+          "file": "metadata---blog-welcome-27-a-91f.ef07fafa6070c2acef91.js",
+          "hash": "d8079ad2fdf9796770d4",
+          "publicPath": "/metadata---blog-welcome-27-a-91f.ef07fafa6070c2acef91.js"
+        }
+      ]
+    },
+    "72": {
+      "js": [
+        {
+          "file": "metadata---docs-api-component-3-e-5-43d.b1af807c32f3d1d45a4f.js",
+          "hash": "c0d8651c0c28b00718a1",
+          "publicPath": "/metadata---docs-api-component-3-e-5-43d.b1af807c32f3d1d45a4f.js"
+        }
+      ]
+    },
+    "73": {
+      "js": [
+        {
+          "file": "metadata---docs-api-event-widget-39-a-9ea.34b0ce562deb2ec0ae92.js",
+          "hash": "99b09ce6f61c28656d8c",
+          "publicPath": "/metadata---docs-api-event-widget-39-a-9ea.34b0ce562deb2ec0ae92.js"
+        }
+      ]
+    },
+    "74": {
+      "js": [
+        {
+          "file": "metadata---docs-api-flex-layoutecf-540.7db8561c2c23b0d92b67.js",
+          "hash": "bdd7cb6bf1a307ab90e8",
+          "publicPath": "/metadata---docs-api-flex-layoutecf-540.7db8561c2c23b0d92b67.js"
+        }
+      ]
+    },
+    "75": {
+      "js": [
+        {
+          "file": "metadata---docs-api-node-layout-1-e-9-c15.192849fc91407c883037.js",
+          "hash": "2c1a3d199b66e83a9fb1",
+          "publicPath": "/metadata---docs-api-node-layout-1-e-9-c15.192849fc91407c883037.js"
+        }
+      ]
+    },
+    "76": {
+      "js": [
+        {
+          "file": "metadata---docs-api-node-widgeta-92-a4f.dc800d76f7062b65b2ed.js",
+          "hash": "5b8a775a3136bde6b52c",
+          "publicPath": "/metadata---docs-api-node-widgeta-92-a4f.dc800d76f7062b65b2ed.js"
+        }
+      ]
+    },
+    "77": {
+      "js": [
+        {
+          "file": "metadata---docs-api-process-32-d-09e.9dd820231565148c88a2.js",
+          "hash": "1d0c67b153abf86136d0",
+          "publicPath": "/metadata---docs-api-process-32-d-09e.9dd820231565148c88a2.js"
+        }
+      ]
+    },
+    "78": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-abstract-scroll-area-59-d-279.378868b047b4e7fc733c.js",
+          "hash": "aa491be2be618b86553d",
+          "publicPath": "/metadata---docs-api-q-abstract-scroll-area-59-d-279.378868b047b4e7fc733c.js"
+        }
+      ]
+    },
+    "79": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-abstract-sliderdfa-ab7.73efd891b1be587b529b.js",
+          "hash": "35fdae6eaeaf576eb1a4",
+          "publicPath": "/metadata---docs-api-q-abstract-sliderdfa-ab7.73efd891b1be587b529b.js"
+        }
+      ]
+    },
+    "80": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-applicationc-1-d-8a4.dba24314be49483727c4.js",
+          "hash": "37ff3516140ee7cb5d0f",
+          "publicPath": "/metadata---docs-api-q-applicationc-1-d-8a4.dba24314be49483727c4.js"
+        }
+      ]
+    },
+    "81": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-check-box-132-293.363eb2c9b2bdc95e76bb.js",
+          "hash": "6658073e96430434d77e",
+          "publicPath": "/metadata---docs-api-q-check-box-132-293.363eb2c9b2bdc95e76bb.js"
+        }
+      ]
+    },
+    "82": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-clipboard-486-b21.5efa03bad36d45e62cbe.js",
+          "hash": "ef64dbc87f01db84b015",
+          "publicPath": "/metadata---docs-api-q-clipboard-486-b21.5efa03bad36d45e62cbe.js"
+        }
+      ]
+    },
+    "83": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-cursor-887-11e.af1b21b104f06148557b.js",
+          "hash": "03a2ca8fe243e2e753e8",
+          "publicPath": "/metadata---docs-api-q-cursor-887-11e.af1b21b104f06148557b.js"
+        }
+      ]
+    },
+    "84": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-dialbfb-aef.e5ded32011b7d6927cdc.js",
+          "hash": "c5b9a9f743cd49f25588",
+          "publicPath": "/metadata---docs-api-q-dialbfb-aef.e5ded32011b7d6927cdc.js"
+        }
+      ]
+    },
+    "85": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-grid-layout-7-db-030.f3764e551a2bc1cf18a8.js",
+          "hash": "3268781e856778797154",
+          "publicPath": "/metadata---docs-api-q-grid-layout-7-db-030.f3764e551a2bc1cf18a8.js"
+        }
+      ]
+    },
+    "86": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-icone-6-d-093.1c4c72d6ff116744c296.js",
+          "hash": "1cea3a052884d6f13272",
+          "publicPath": "/metadata---docs-api-q-icone-6-d-093.1c4c72d6ff116744c296.js"
+        }
+      ]
+    },
+    "87": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-label-165-210.1dba411adf86a92ae91f.js",
+          "hash": "c5c4a7bab7368c933a4b",
+          "publicPath": "/metadata---docs-api-q-label-165-210.1dba411adf86a92ae91f.js"
+        }
+      ]
+    },
+    "88": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-line-edit-13-f-b8a.df4fef6cc6001cbc07a7.js",
+          "hash": "c0161e3673efdf8f7c41",
+          "publicPath": "/metadata---docs-api-q-line-edit-13-f-b8a.df4fef6cc6001cbc07a7.js"
+        }
+      ]
+    },
+    "89": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-main-window-04-f-efb.699f6e2eb1ac78330311.js",
+          "hash": "d0c1fb6ee9efbed30b16",
+          "publicPath": "/metadata---docs-api-q-main-window-04-f-efb.699f6e2eb1ac78330311.js"
+        }
+      ]
+    },
+    "90": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-pixmapfdf-820.087e26967d50eb06140d.js",
+          "hash": "cca2fcb72ef091777f47",
+          "publicPath": "/metadata---docs-api-q-pixmapfdf-820.087e26967d50eb06140d.js"
+        }
+      ]
+    },
+    "91": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-plain-text-edit-161-ecc.e89eb96f17b29e76629e.js",
+          "hash": "284b7b4ff8c02b752f58",
+          "publicPath": "/metadata---docs-api-q-plain-text-edit-161-ecc.e89eb96f17b29e76629e.js"
+        }
+      ]
+    },
+    "92": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-progress-bar-43-d-07e.a527e07318808cde454e.js",
+          "hash": "ced6e9165233a902f0ab",
+          "publicPath": "/metadata---docs-api-q-progress-bar-43-d-07e.a527e07318808cde454e.js"
+        }
+      ]
+    },
+    "93": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-push-button-96-d-c92.b15a45966fb25f5f9917.js",
+          "hash": "8afeaf91f66cabcee6e6",
+          "publicPath": "/metadata---docs-api-q-push-button-96-d-c92.b15a45966fb25f5f9917.js"
+        }
+      ]
+    },
+    "94": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-radio-button-367-f7c.11484c432455585a7ef3.js",
+          "hash": "210634f17771e46009f2",
+          "publicPath": "/metadata---docs-api-q-radio-button-367-f7c.11484c432455585a7ef3.js"
+        }
+      ]
+    },
+    "95": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-scroll-area-46-a-96e.a5c480374e3f8b5fcea2.js",
+          "hash": "23abe7fb83acb811ef1a",
+          "publicPath": "/metadata---docs-api-q-scroll-area-46-a-96e.a5c480374e3f8b5fcea2.js"
+        }
+      ]
+    },
+    "96": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-spin-box-809-ae0.1fcda0244eebb91ff1bf.js",
+          "hash": "231826b5661cb259a59f",
+          "publicPath": "/metadata---docs-api-q-spin-box-809-ae0.1fcda0244eebb91ff1bf.js"
+        }
+      ]
+    },
+    "97": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-tab-widgetebc-5aa.558f01cb9860e9184f4f.js",
+          "hash": "917587e63e93e902c730",
+          "publicPath": "/metadata---docs-api-q-tab-widgetebc-5aa.558f01cb9860e9184f4f.js"
+        }
+      ]
+    },
+    "98": {
+      "js": [
+        {
+          "file": "metadata---docs-api-q-widget-287-e6c.1a1aa4d570d756d63bb4.js",
+          "hash": "296a0301da8a2e88f9b3",
+          "publicPath": "/metadata---docs-api-q-widget-287-e6c.1a1aa4d570d756d63bb4.js"
+        }
+      ]
+    },
+    "99": {
+      "js": [
+        {
+          "file": "metadata---docs-api-qt-enums-423-cf9.fb1940e1fff15d344906.js",
+          "hash": "9af9c95d2c2fda710259",
+          "publicPath": "/metadata---docs-api-qt-enums-423-cf9.fb1940e1fff15d344906.js"
+        }
+      ]
+    },
+    "100": {
+      "js": [
+        {
+          "file": "metadata---docs-api-synopsis-21-f-a62.a376081207def93aa340.js",
+          "hash": "fd506bbc2131727266e4",
+          "publicPath": "/metadata---docs-api-synopsis-21-f-a62.a376081207def93aa340.js"
+        }
+      ]
+    },
+    "101": {
+      "js": [
+        {
+          "file": "metadata---docs-api-yoga-widget-95-c-f8b.bdbc70e8a3ba6a1d1808.js",
+          "hash": "5126ead782bb862b36c6",
+          "publicPath": "/metadata---docs-api-yoga-widget-95-c-f8b.bdbc70e8a3ba6a1d1808.js"
+        }
+      ]
+    },
+    "102": {
+      "js": [
+        {
+          "file": "metadata---docs-development-common-errors-402-ef4.7ea9ca2120cf1ce1bce9.js",
+          "hash": "7b61c1eae78a2381aa47",
+          "publicPath": "/metadata---docs-development-common-errors-402-ef4.7ea9ca2120cf1ce1bce9.js"
+        }
+      ]
+    },
+    "103": {
+      "js": [
+        {
+          "file": "metadata---docs-development-debuggingc-36-26a.3bf9d58aef0157443ea5.js",
+          "hash": "0570fb3bb0a96d791012",
+          "publicPath": "/metadata---docs-development-debuggingc-36-26a.3bf9d58aef0157443ea5.js"
+        }
+      ]
+    },
+    "104": {
+      "js": [
+        {
+          "file": "metadata---docs-development-getting-started-89-b-c7a.863d1b0e22372d87282e.js",
+          "hash": "a0f881778ba6048d9b65",
+          "publicPath": "/metadata---docs-development-getting-started-89-b-c7a.863d1b0e22372d87282e.js"
+        }
+      ]
+    },
+    "105": {
+      "js": [
+        {
+          "file": "metadata---docs-development-readm-ec-6-c-332.49158ed40eba176b8d72.js",
+          "hash": "6cdba9458d639ecaa33a",
+          "publicPath": "/metadata---docs-development-readm-ec-6-c-332.49158ed40eba176b8d72.js"
+        }
+      ]
+    },
+    "106": {
+      "js": [
+        {
+          "file": "metadata---docs-development-setting-up-979-75f.8f9fc5a72c685e8d0e31.js",
+          "hash": "40a1a83697048bb5eea7",
+          "publicPath": "/metadata---docs-development-setting-up-979-75f.8f9fc5a72c685e8d0e31.js"
+        }
+      ]
+    },
+    "107": {
+      "js": [
+        {
+          "file": "metadata---docs-development-signal-and-event-handling-0-b-5-692.b16a5b795c3eef3ce5dc.js",
+          "hash": "cfb9a7b9fa754918ecec",
+          "publicPath": "/metadata---docs-development-signal-and-event-handling-0-b-5-692.b16a5b795c3eef3ce5dc.js"
+        }
+      ]
+    },
+    "108": {
+      "js": [
+        {
+          "file": "metadata---docs-development-styling-1-c-2-0d6.c1ae40b22fc3b93cd6fc.js",
+          "hash": "1a26fa35469aa7c47e08",
+          "publicPath": "/metadata---docs-development-styling-1-c-2-0d6.c1ae40b22fc3b93cd6fc.js"
+        }
+      ]
+    },
+    "109": {
+      "js": [
+        {
+          "file": "metadata---docs-development-wrapping-widgets-303-fb8.bfc04ad3ffc9ee24e861.js",
+          "hash": "8eaa9dade4f31b691acc",
+          "publicPath": "/metadata---docs-development-wrapping-widgets-303-fb8.bfc04ad3ffc9ee24e861.js"
+        }
+      ]
+    },
+    "110": {
+      "js": [
+        {
+          "file": "metadata---docs-doc-12-a-3-5a1.bb87820e31f222c12801.js",
+          "hash": "8cf3a4110a37d02fa2c0",
+          "publicPath": "/metadata---docs-doc-12-a-3-5a1.bb87820e31f222c12801.js"
+        }
+      ]
+    },
+    "111": {
+      "js": [
+        {
+          "file": "metadata---docs-faq-59-d-2b9.985713e75ca070fdde14.js",
+          "hash": "326f9d2a7f16aed838c0",
+          "publicPath": "/metadata---docs-faq-59-d-2b9.985713e75ca070fdde14.js"
+        }
+      ]
+    },
+    "112": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-custom-nodegui-native-plugin-92-b-12f.184a7a6a1f10e05c6c54.js",
+          "hash": "80536ab8ff5827e5c9f3",
+          "publicPath": "/metadata---docs-guides-custom-nodegui-native-plugin-92-b-12f.184a7a6a1f10e05c6c54.js"
+        }
+      ]
+    },
+    "113": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-debugging-970-fb8.4834f7c20eceaaaee536.js",
+          "hash": "b2282d1a5f493b7f9dda",
+          "publicPath": "/metadata---docs-guides-debugging-970-fb8.4834f7c20eceaaaee536.js"
+        }
+      ]
+    },
+    "114": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-debugging-in-vscodebf-8-5b0.d26c0a02667ed3c9416d.js",
+          "hash": "af929449097de9bef636",
+          "publicPath": "/metadata---docs-guides-debugging-in-vscodebf-8-5b0.d26c0a02667ed3c9416d.js"
+        }
+      ]
+    },
+    "115": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-getting-started-2-b-7-1a4.cfc3dec8bc5f547dfbb8.js",
+          "hash": "9c9e40859c3866a56602",
+          "publicPath": "/metadata---docs-guides-getting-started-2-b-7-1a4.cfc3dec8bc5f547dfbb8.js"
+        }
+      ]
+    },
+    "116": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-handle-events-5-eb-540.61bb8e8da8eeda4cc040.js",
+          "hash": "54d5128f7f207f085fed",
+          "publicPath": "/metadata---docs-guides-handle-events-5-eb-540.61bb8e8da8eeda4cc040.js"
+        }
+      ]
+    },
+    "117": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-images-915-5ee.175b82933d61d3e5deb4.js",
+          "hash": "e51f418e4ee50cadd7d3",
+          "publicPath": "/metadata---docs-guides-images-915-5ee.175b82933d61d3e5deb4.js"
+        }
+      ]
+    },
+    "118": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-layoutf-65-d7d.3bdf6df942a2264f480b.js",
+          "hash": "0e33f37bd528a589435e",
+          "publicPath": "/metadata---docs-guides-layoutf-65-d7d.3bdf6df942a2264f480b.js"
+        }
+      ]
+    },
+    "119": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-networkingdfd-ce0.332c039b051021fe2724.js",
+          "hash": "4463ff528eb7034e71d7",
+          "publicPath": "/metadata---docs-guides-networkingdfd-ce0.332c039b051021fe2724.js"
+        }
+      ]
+    },
+    "120": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-nodegui-architecture-550-b82.72d9e2773d4e285ca973.js",
+          "hash": "1bdc1dccfdc80164b158",
+          "publicPath": "/metadata---docs-guides-nodegui-architecture-550-b82.72d9e2773d4e285ca973.js"
+        }
+      ]
+    },
+    "121": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-scroll-view-9-a-9-2ac.f6039a7dd2d1fa4c6ca6.js",
+          "hash": "4a389e481a1914ef0dff",
+          "publicPath": "/metadata---docs-guides-scroll-view-9-a-9-2ac.f6039a7dd2d1fa4c6ca6.js"
+        }
+      ]
+    },
+    "122": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-styling-9-ea-213.d5570c147002ef8e6bfe.js",
+          "hash": "77d9df1061168430f77f",
+          "publicPath": "/metadata---docs-guides-styling-9-ea-213.d5570c147002ef8e6bfe.js"
+        }
+      ]
+    },
+    "123": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-tutorial-1-f-1-23b.4e417b24befa6a685ab5.js",
+          "hash": "c11dfc404c750956f9fa",
+          "publicPath": "/metadata---docs-guides-tutorial-1-f-1-23b.4e417b24befa6a685ab5.js"
+        }
+      ]
+    },
+    "124": {
+      "js": [
+        {
+          "file": "metadata---docs-guides-using-native-node-modules-31-f-551.0accd417ae132a661bdf.js",
+          "hash": "44203c62856da7847371",
+          "publicPath": "/metadata---docs-guides-using-native-node-modules-31-f-551.0accd417ae132a661bdf.js"
+        }
+      ]
+    },
+    "125": {
+      "js": [
+        {
+          "file": "metadata---docs-mdx-786-f56.e64a4ecfb244bb1efd9f.js",
+          "hash": "e090cad8a4ac6ab6e445",
+          "publicPath": "/metadata---docs-mdx-786-f56.e64a4ecfb244bb1efd9f.js"
+        }
+      ]
+    },
+    "126": {
+      "js": [
+        {
+          "file": "runtime~main.b0186ad8ee6d73168ac3.js",
+          "hash": "d7e71319fb9d98d02611",
+          "publicPath": "/runtime~main.b0186ad8ee6d73168ac3.js"
+        }
+      ]
+    },
+    "127": {
+      "js": [
+        {
+          "file": "tags---blog-tags-8-d-7-36d.1243f2728e886299c73e.js",
+          "hash": "7c0bb245139a4b1d3755",
+          "publicPath": "/tags---blog-tags-8-d-7-36d.1243f2728e886299c73e.js"
+        }
+      ]
+    },
+    "128": {
+      "js": [
+        {
+          "file": "128.e842e81be02948779cd3.js",
+          "hash": "b187810cec4c56cee77f",
+          "publicPath": "/128.e842e81be02948779cd3.js"
+        }
+      ]
+    },
+    "129": {
+      "js": [
+        {
+          "file": "129.8e3566f903859d61277d.js",
+          "hash": "8d7cbc58ee8f3eee3d0e",
+          "publicPath": "/129.8e3566f903859d61277d.js"
+        }
+      ]
+    }
+  }
+}
