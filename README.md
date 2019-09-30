@@ -71,6 +71,8 @@ https://github.com/nodegui/examples
 
 Looking to contribute? If you wish to implement a new widget/add more features and need help understanding the codebase, you can start here: [Contributing developer docs](https://github.com/nodegui/nodegui/tree/master/docs/development).
 
+Please read https://github.com/nodegui/.github/blob/master/CONTRIBUTING.md
+
 ## Building
 
 `npm run build [--qt_home_dir=/path/to/qt]`
@@ -87,6 +89,10 @@ NodeGUI is an open source project and requires your support. If you like this pr
 ## Special Thanks
 
 - [Logo: Thanks to Vishwas Shetty from the Noun Project.](https://github.com/nodegui/nodegui/blob/master/extras/legal/logo/thanks.md) 
+
+## Code of Conduct
+
+https://github.com/nodegui/.github/blob/master/CODE_OF_CONDUCT.md
 
 ## License
 
