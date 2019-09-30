@@ -28,7 +28,7 @@ import { sleep, resolveOrThrow, expectToExist, executeApp } from '../spec/testUt
 
 describe('demo', () => {
   it('demo should not throw', async done => {
-    await executeApp(async () => await demoTest(400))
+    await executeApp(demoTest)
     done()
   });
 
@@ -38,26 +38,38 @@ async function demoTest(visibleFor = 200) {
   const win = new QMainWindow();
   const label1 = new QLabel();
   label1.setText("Hello world 1 🧙");
+  //TODO: report issue - text should be a method to be consistent with other getters
   expect(label1.text).toBe("Hello world 1 🧙")
   label1.setInlineStyle("font-size: 20px;");
   label1.setCursor(CursorShape.ForbiddenCursor);
   const label2 = new QLabel();
   label2.setText("Hello world 2 💻");
+  expect(label2.text).toBe("Hello world 2 💻")
   label2.setInlineStyle("font-size: 20px;");
   label2.setCursor(CursorShape.ForbiddenCursor);
   const checkbox = new QCheckBox();
   checkbox.setText("Check me out?");
   checkbox.setObjectName("check");
+  expect(checkbox.objectName()).toBe("check")
   checkbox.setChecked(true);
+  expect(checkbox.isChecked()).toBe(true)
   checkbox.addEventListener(QCheckBoxEvents.toggled, checked => {
     console.log(`${checked ? "checked" : "unchecked"}`);
+    //TODO: test click handler
     label1.setInlineStyle(`color: ${checked ? "green" : "red"}`);
   });
+
   const dial = new QDial();
-  checkbox.setObjectName("dial");
+  dial.setObjectName("dial");
+  expect(dial.objectName()).toBe("dial")
+
   const lineEdit = new QLineEdit();
   lineEdit.setPlaceholderText("Enter your thoughts here");
+  //TODO: report issue - placeholderText should be a method to be consistent with other getters
+  expect(lineEdit.placeholderText).toBe("Enter your thoughts here")
   lineEdit.setObjectName("editable");
+  expect(lineEdit.objectName()).toBe("editable")
+  
   const button = new QPushButton();
   button.setText("Push Push Push!");
   button.setObjectName("btn");
@@ -139,10 +151,10 @@ async function demoTest(visibleFor = 200) {
   win.setWindowIcon(nodeguiLogo);
   await win.setWindowTitle("NodeGUI Demo")
   win.resize(400, 700);
-  expect(win.size().width).toBe(400);
+  expect(win.size()).toEqual({width: 400, height: 700});
   win.show();
   await win.setWindowState(WindowState.WindowActive);
-  // win.close();
+  // win.close(); // not closing the window - if so the process will be killed
   await sleep(visibleFor);
 }
 
