@@ -20,11 +20,14 @@
     "postinstall": "npm run build:addon",
     "clean": "rm -rf build dist tmp*",
     "build": "tsc && npm run build:addon ",
-    "test": "rm -rf dist && npx tsc & npm run test-copy && npm run test-ts && npm run test-js",
+    "test-all": "rm -rf dist && npx tsc & npm run test-copy && npm run test-ts && npm run test-js",
+    "test": "npm run test-copy && npm run test-ts",
+    "test-watch": "npx watch \"npm run test-ts\" src spec --interval 5",
     "test-copy": "mkdir -p dist/build/Release && cp -r build/Release/* dist/build/Release/",
     "test-ts": "qode node_modules/ts-node/dist/bin node_modules/jasmine/bin/jasmine",
     "test-js": "qode node_modules/jasmine/bin/jasmine --config=spec/support/jasmine-js.json",
     "all": "npm run clean && npm run build && npm run test-all",
+    "all-from-scratch": "rm -rf node_modules package-lock.json && npm install && npm run all",
     "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
     "docs": "serve docs"
   },
@@ -44,6 +47,7 @@
     "prettier": "^1.17.1",
     "serve": "^11.1.0",
     "ts-node": "^8.4.1",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "watch": "^1.0.2"
   }
 }

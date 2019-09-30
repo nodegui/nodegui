@@ -21,23 +21,20 @@ import {
   QCheckBoxEvents,
   QSystemTrayIcon,
   ReadWriteImageFormats,
-  QPushButtonEvents,
-  WidgetAttribute,
-  QApplication
 } from "../src";
 import { existsSync, unlinkSync, readFileSync } from "fs";
 import { resolve } from "path";
 import { sleep, resolveOrThrow, expectToExist, executeApp } from '../spec/testUtil';
- 
-describe('demo', ()=>{
-  it('demo should not throw', async done=>{
-    await executeApp(async ()=>await demoTest(400))
+
+describe('demo', () => {
+  it('demo should not throw', async done => {
+    await executeApp(async () => await demoTest(400))
     done()
   });
- 
+
 });
- 
-async function demoTest(visibleFor=200) {
+
+async function demoTest(visibleFor = 200) {
   const win = new QMainWindow();
   const label1 = new QLabel();
   label1.setText("Hello world 1 🧙");
@@ -64,8 +61,8 @@ async function demoTest(visibleFor=200) {
   const button = new QPushButton();
   button.setText("Push Push Push!");
   button.setObjectName("btn");
-  const nodeguiLogo = new QIcon(resolveOrThrow( "extras/assets/nodegui.png"))
-  const icon = new QIcon(resolveOrThrow( "extras/assets/start_icon.png"));
+  const nodeguiLogo = new QIcon(resolveOrThrow("extras/assets/nodegui.png"))
+  const icon = new QIcon(resolveOrThrow("extras/assets/start_icon.png"));
   button.setIcon(icon);
   const tabs = new QTabWidget();
   tabs.setTabsClosable(true);
@@ -98,18 +95,18 @@ async function demoTest(visibleFor=200) {
   imageLabel.setPixmap(pixmap);
   scrollArea.setWidget(imageLabel);
   function testQPixmapSave(fileName: string, format?: ReadWriteImageFormats) {
-    // try {
-    //   existsSync(fileName) && unlinkSync(fileName);
-    //   expect(!existsSync(fileName)).toBe(true)
-    //    expect(pixmap.save(fileName, format)).toBe(true)
-    //    expect(existsSync(fileName)).toBe(true)
-    //   // ideally we want to use file-type, jimp or magica to verify tmp.png has the correct encoding and/or is identical to source img.
-    //    expect(readFileSync(fileName).byteLength).toBeGreaterThan(1000) 
-    // } catch (error) {
-    //   console.error("QPixmap.save test failed", error, error.stack);
-    // } finally {
-    //   unlinkSync(fileName);
-    // }
+    try {
+      existsSync(fileName) && unlinkSync(fileName);
+      expect(!existsSync(fileName)).toBe(true)
+      expect(pixmap.save(fileName, format)).toBe(true)
+      expect(existsSync(fileName)).toBe(true)
+      // ideally we want to use file-type, jimp or magica to verify tmp.png has the correct encoding and/or is identical to source img.
+      expect(readFileSync(fileName).byteLength).toBeGreaterThan(1000)
+    } catch (error) {
+      console.error("QPixmap.save test failed", error, error.stack);
+    } finally {
+      unlinkSync(fileName);
+    }
   }
   testQPixmapSave("tmp.png");
   testQPixmapSave("tmp.jpg");
@@ -130,9 +127,8 @@ async function demoTest(visibleFor=200) {
     rootView.layout.addWidget(scrollArea);
     rootView.layout.addWidget(dial);
   }
-  // (async () => {
   win.setCentralWidget(rootView);
- await  win.setStyleSheet(`
+  await win.setStyleSheet(`
   #root {
     flex: 1;
     height: '100%';
@@ -144,23 +140,9 @@ async function demoTest(visibleFor=200) {
   await win.setWindowTitle("NodeGUI Demo")
   win.resize(400, 700);
   expect(win.size().width).toBe(400);
-  // (global as any).win = win; // To prevent win from being garbage collected.
-  // (global as any).systemTray = tray; // To prevent system tray from being garbage collected.
-  // const app = new QApplication()
   win.show();
-  // await sleep(visibleFor);
-// console.log('sasdasd, ', visibleFor);
-  // await sleep(visibleFor);
-
   await win.setWindowState(WindowState.WindowActive);
-  // const r = app.exec()
-  // await sleep(visibleFor);
   // win.close();
   await sleep(visibleFor);
-  // app.quit()
-  // app.exit(0)
-  // QApplication.instance().exit(0);
-  // QApplication.instance().quit();
-  // await sleep(1000);
 }
 
