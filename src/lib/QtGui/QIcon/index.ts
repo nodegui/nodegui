@@ -25,12 +25,7 @@ export class QIcon extends Component {
       this.native = new addon.QIcon();
     }
   }
-  pixmap = (
-    width: number,
-    height: number,
-    mode?: QIconMode,
-    state?: QIconState
-  ): QPixmap => {
+  pixmap = (width: number, height: number, mode?: QIconMode, state?: QIconState): QPixmap => {
     let nativePixmap;
     if (mode && state) {
       nativePixmap = this.native.pixmap(width, height, mode, state);

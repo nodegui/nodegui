@@ -5,7 +5,7 @@ import { NativeElement } from "../../core/Component";
 import { QIcon } from "../../QtGui/QIcon";
 
 export const QSystemTrayIconEvents = Object.freeze({
-  ...BaseWidgetEvents,
+  ...BaseWidgetEvents
 });
 export class QSystemTrayIcon extends EventWidget {
   native: NativeElement;

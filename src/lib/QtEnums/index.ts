@@ -1,4 +1,3 @@
-
 export { AlignmentFlag } from "./AlignmentFlag";
 export { AnchorPoint } from "./AnchorPoint";
 export { ApplicationAttribute } from "./ApplicationAttribute";

@@ -8,10 +8,10 @@ export enum WindowType {
   Tool = 0x00000012,
   ToolTip = 0x00000014,
   SplashScreen = 0x00000017,
-  Desktop =	0x00000011,
+  Desktop = 0x00000011,
   SubWindow = 0x00000012,
-  ForeignWindow	= 0x00000021,
-  CoverWindow	= 0x00000041,
+  ForeignWindow = 0x00000021,
+  CoverWindow = 0x00000041,
   //There are also a number of flags which you can use to customize the appearance of top-level windows. These have no effect on other windows
   MSWindowsFixedSizeDialogHint = 0x00000100,
   MSWindowsOwnDC = 0x00000200,
@@ -24,7 +24,7 @@ export enum WindowType {
   WindowSystemMenuHint = 0x00002000,
   WindowMinimizeButtonHint = 0x00004000,
   WindowMaximizeButtonHint = 0x00008000,
-  WindowMinMaxButtonsHint =	0x00012000,
+  WindowMinMaxButtonsHint = 0x00012000,
   WindowCloseButtonHint = 0x08000000,
   WindowContextHelpButtonHint = 0x00010000,
   MacWindowToolBarButtonHint = 0x10000000,
@@ -37,5 +37,5 @@ export enum WindowType {
   WindowOverridesSystemGestures = 0x00100000,
   WindowDoesNotAcceptFocus = 0x00200000,
   MaximizeUsingFullscreenGeometryHint = 0x00400000,
-  WindowType_Mask = 0x000000ff,
+  WindowType_Mask = 0x000000ff
 }

@@ -8,9 +8,7 @@ export class QClipboard extends Component {
     if (checkIfNativeElement(native)) {
       this.native = native;
     } else {
-      throw new Error(
-        "QClipboard cannot be initialised this way. Use QApplication::clipboard()"
-      );
+      throw new Error("QClipboard cannot be initialised this way. Use QApplication::clipboard()");
     }
   }
   clear = (mode: QClipboardMode) => {

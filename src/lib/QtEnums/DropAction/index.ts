@@ -3,6 +3,6 @@ export enum DropAction {
   MoveAction = 0x2,
   LinkAction = 0x4,
   ActionMask = 0xff,
-  IgnoreAction	= 0x0,
+  IgnoreAction = 0x0,
   TargetMoveAction = 0x8002
 }

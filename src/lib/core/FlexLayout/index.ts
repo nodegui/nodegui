@@ -21,14 +21,9 @@ export class FlexLayout extends NodeLayout {
     beforeChildFlexNode?: FlexNode
   ) => {
     const childYogaNode = childFlexNode || childWidget.getFlexNode();
-    const beforeChildYogaNode =
-      beforeChildFlexNode || beforeChildWidget.getFlexNode();
+    const beforeChildYogaNode = beforeChildFlexNode || beforeChildWidget.getFlexNode();
     this.children.add(childWidget); // No orderer required yet, so just inserting at the end.
-    this.native.insertChildBefore(
-      childWidget.native,
-      beforeChildYogaNode,
-      childYogaNode
-    );
+    this.native.insertChildBefore(childWidget.native, beforeChildYogaNode, childYogaNode);
   };
 
   removeWidget = (childWidget: NodeWidget, childFlexNode?: FlexNode) => {

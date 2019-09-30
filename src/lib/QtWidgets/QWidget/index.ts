@@ -7,11 +7,7 @@ import { WidgetAttribute, WindowType } from "../../QtEnums";
 import { QIcon } from "../../QtGui/QIcon";
 import { QCursor } from "../../QtGui/QCursor";
 import { CursorShape, WindowState } from "../../QtEnums";
-import {
-  applyStyleSheet,
-  StyleSheet,
-  prepareInlineStyleSheet
-} from "../../core/Style/StyleSheet";
+import { applyStyleSheet, StyleSheet, prepareInlineStyleSheet } from "../../core/Style/StyleSheet";
 import { checkIfNativeElement } from "../../utils/helpers";
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell

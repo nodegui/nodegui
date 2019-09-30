@@ -5,6 +5,6 @@ export enum TextInteractionFlag {
   LinksAccessibleByMouse = 4,
   LinksAccessibleByKeyboard = 8,
   TextEditable = 16,
-  TextEditorInteraction	= 19,
-  TextBrowserInteraction	= 13
+  TextEditorInteraction = 19,
+  TextBrowserInteraction = 13
 }

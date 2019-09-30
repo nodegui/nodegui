@@ -29,13 +29,9 @@ export { QPushButton, QPushButtonEvents } from "./lib/QtWidgets/QPushButton";
 export { QSpinBox, QSpinBoxEvents } from "./lib/QtWidgets/QSpinBox";
 export { QRadioButton, QRadioButtonEvents } from "./lib/QtWidgets/QRadioButton";
 export { QTabWidget, QTabWidgetEvents } from "./lib/QtWidgets/QTabWidget";
-export {
-  QPlainTextEdit,
-  QPlainTextEditEvents,
-  LineWrapMode
-} from "./lib/QtWidgets/QPlainTextEdit";
+export { QPlainTextEdit, QPlainTextEditEvents, LineWrapMode } from "./lib/QtWidgets/QPlainTextEdit";
 export { QScrollArea, QScrollAreaEvents } from "./lib/QtWidgets/QScrollArea";
-export { QSystemTrayIcon, QSystemTrayIconEvents } from './lib/QtWidgets/QSystemTrayIcon';
+export { QSystemTrayIcon, QSystemTrayIconEvents } from "./lib/QtWidgets/QSystemTrayIcon";
 // Layouts:
 export { QGridLayout } from "./lib/QtWidgets/QGridLayout";
 export { FlexLayout } from "./lib/core/FlexLayout";
