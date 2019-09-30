@@ -116,14 +116,16 @@ async function demoTest(visibleFor = 200) {
       expect(readFileSync(fileName).byteLength).toBeGreaterThan(1000)
     } catch (error) {
       console.error("QPixmap.save test failed", error, error.stack);
+      expect(error).toBeUndefined()
     } finally {
-      unlinkSync(fileName);
+      // unlinkSync(fileName);
     }
   }
   testQPixmapSave("tmp.png");
   testQPixmapSave("tmp.jpg");
   testQPixmapSave("tmp_jpg", "JPG");
   testQPixmapSave("tmp_bmp", "BMP");
+
   const trayIcon = new QIcon(resolveOrThrow("extras/assets/nodegui.png"));
   const tray = new QSystemTrayIcon();
   tray.setIcon(trayIcon);

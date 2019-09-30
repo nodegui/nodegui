@@ -21,12 +21,8 @@ import {
   QCheckBoxEvents,
   QSystemTrayIcon,
   ReadWriteImageFormats,
-  QPushButtonEvents
 } from "./index";
-import { ok, equal } from "assert";
-import { existsSync, unlinkSync, readFileSync } from "fs";
 import { resolve } from "path"
-
 
 const win = new QMainWindow();
 
@@ -45,8 +41,19 @@ checkbox.setText("Check me out?");
 checkbox.setObjectName("check");
 checkbox.setChecked(true);
 checkbox.addEventListener(QCheckBoxEvents.toggled, checked => {
-  console.log(`${checked ? 'checked' : 'unchecked'}`);
   label1.setInlineStyle(`color: ${checked ? 'green' : 'red'}`);
+  // Let's load an image file using QPixmap and then save it back to a file encoded in one of the supported formats.
+  // Note that although relative paths are supported, desktop applications are invoked form arbitrary working directories 
+  // so is safer to reference files relative to known locations, in this case using __dirname which is this file's directory (dist/src).
+  const pixmap = new QPixmap(resolve(__dirname, "../extras/assets/kitchen.png"));
+  const someFormats: ReadWriteImageFormats[] = ['BMP', 'JPG', 'PNG'];
+  const randomFormat = someFormats[Math.trunc(Math.random() * 3 - 0.1)];
+  const imageFile =  `tmpSavedImage.${randomFormat.toLowerCase()}`;
+  if (pixmap.save(imageFile,randomFormat)) {
+    textEdit.setPlainText(`A new image was saved at \n"${imageFile}" !`);
+  } else {
+    textEdit.setPlainText(`An error just occurred trying to save an image at \n"${imageFile}" !`);
+  }
 });
 
 const dial = new QDial();
@@ -99,7 +106,6 @@ rootView.setLayout(new FlexLayout());
 const textEdit = new QPlainTextEdit();
 textEdit.setPlainText("Hello");
 textEdit.setWordWrapMode(QTextOptionWrapMode.NoWrap);
-
 const scrollArea = new QScrollArea();
 scrollArea.setInlineStyle("flex: 1; width:'100%';");
 
@@ -109,25 +115,6 @@ const pixmap = new QPixmap(
 );
 imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
-
-function testQPixmapSave(fileName: string, format?: ReadWriteImageFormats) {
-  try {
-    existsSync(fileName) && unlinkSync(fileName);
-    ok(!existsSync(fileName));
-    equal(pixmap.save(fileName, format), true);
-    ok(existsSync(fileName));
-    // ideally we want to use file-type, jimp or magica to verify tmp.png has the correct encoding and/or is identical to source img.
-    ok(readFileSync(fileName).byteLength > 1000);
-  } catch (error) {
-    console.error("QPixmap.save test failed", error, error.stack);
-  } finally {
-    unlinkSync(fileName);
-  }
-}
-testQPixmapSave("tmp.png");
-testQPixmapSave("tmp.jpg");
-testQPixmapSave("tmp_jpg", "JPG");
-testQPixmapSave("tmp_bmp", "BMP");
 
 const trayIcon = new QIcon(
   resolve(__dirname, "../extras/assets/nodegui_white.png")
@@ -148,9 +135,9 @@ if (rootView.layout) {
   rootView.layout.addWidget(dial);
 }
 
-(async ()=>{
-win.setCentralWidget(rootView);
-win.setStyleSheet(`
+(async () => {
+  win.setCentralWidget(rootView);
+  win.setStyleSheet(`
   #root {
     flex: 1;
     height: '100%';
