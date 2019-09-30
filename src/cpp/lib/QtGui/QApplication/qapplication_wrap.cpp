@@ -14,6 +14,7 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports)
     Napi::Function func = DefineClass(env, CLASSNAME, {
         InstanceMethod("processEvents", &QApplicationWrap::processEvents),
         InstanceMethod("exec", &QApplicationWrap::exec),
+        InstanceMethod("exit", &QApplicationWrap::exit),
         InstanceMethod("quit", &QApplicationWrap::quit),
         StaticMethod("instance", &StaticQApplicationWrapMethods::instance),
         StaticMethod("clipboard", &StaticQApplicationWrapMethods::clipboard),

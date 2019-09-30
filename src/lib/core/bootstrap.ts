@@ -4,9 +4,9 @@
     run the callbacks, however since we only run uv loop on requests, the
     callbacks wouldn't be called until something else activated the uv loop,
     which would delay the callbacks for arbitrary long time. So we should
-    initiatively activate the uv loop once setImmediate and process.nextTick is
+    initially activate the uv loop once setImmediate and process.nextTick is
     called.
-    This is required inorder to make the timers work nicely due to merger of event loops
+    This is required in order to make the timers work nicely due to merger of event loops
 */
 
 const noop = () => {};
