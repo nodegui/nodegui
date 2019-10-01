@@ -140,6 +140,25 @@ The behaviour is similar to what we see on the web.
 
 > For more in depth examples see here: https://doc.qt.io/qt-5/stylesheet-syntax.html#cascading
 
+## Properties
+
+NodeGui style sheets is a css string.
+
+For example:
+
+```
+const textStyle = `
+  color: 'green';
+  padding: 12;
+  height: '100%';
+`;
+
+```
+
+Here if you look carefully, you would notice that there are some differences in the way we write style properties as compared to web.
+The quotes you see around `'green'` and `'100%'` are necessary so that Qt doesnt interpret them as numbers.
+So the rule of thumb is that any integer based property like margin, border, etc can be written without quotes while any string property, it is better to surround them with quotes. PS: Qt does recognise some string based properties without quotes also.
+
 ## Supported properties
 
 Since we are not running inside a web browser, there are few differences in the properties you could use in NodeGui vs in web.
