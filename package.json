@@ -18,8 +18,7 @@
   "scripts": {
     "dev": "npm run build && qode dist/demo.js",
     "postinstall": "npm run build:addon",
-    "prepare": "npm run prettier && npm run build",
-    "prettier": "npx prettier --write --parser typescript --single-quote false --tab-width 2 --print-width 120 \"src/**/*.ts\"",
+    "prettier": "npx prettier --write \"src/**/*.ts\"",
     "build": "tsc && npm run build:addon",
     "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
     "docs": "serve docs"
