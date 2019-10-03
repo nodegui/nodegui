@@ -18,6 +18,11 @@ You can also attempt to download Qode directly from
 [nodegui/qode/releases](https://github.com/nodegui/qode/releases)
 if installing via `npm` is failing.
 
+### My program fails to execute in Linux
+
+Although in most Linux desktop distributions it shouldn't be necessary, on lightweight distributions it might happen that basic xorg libraries are missing and if so the application will fails with an error like `qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in`. If so, you could try installing `qt` package or making sure [Qt dependencies are present](https://doc.qt.io/qt-5/linux-requirements.html).
+
+
 ## Javascript widgets are missing methods and properties as compared to QT widget?
 
 As you would have noticed, the list of methods and properties are less compared to what is present in the Qt's corresponding widget class. This is because we havent written wrappers for them yet. You can help add more methods by following the development guide for contributors. Overtime this gap would reduce.
