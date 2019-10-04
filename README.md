@@ -69,7 +69,7 @@ https://github.com/nodegui/examples
  It is easier than you think, try it 
  ```
 
-Looking to contribute? If you wish to implement a new widget/add more features and need help understanding the codebase, you can start here: [Contributing developer docs](https://github.com/nodegui/nodegui/tree/master/docs/development).
+Looking to contribute? If you wish to implement a new widget/add more features and need help understanding the codebase, you can start here: [Contributing developer docs](https://github.com/nodegui/nodegui/tree/master/website/docs/development).
 
 Please read https://github.com/nodegui/.github/blob/master/CONTRIBUTING.md
 
