@@ -6,6 +6,8 @@ import { Hero } from "../components/Hero";
 import { Features } from "../components/Features";
 import { CreateNativeApps } from "../components/CreateNativeApps";
 import { CodeExample } from "../components/CodeExample";
+import { Talks } from "../components/Talks";
+
 import "./styles.module.css";
 
 function Home() {
@@ -22,6 +24,7 @@ function Home() {
         <CreateNativeApps />
         <CodeExample />
         <Try />
+        <Talks />
       </main>
     </Layout>
   );
