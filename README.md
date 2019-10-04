@@ -48,11 +48,6 @@ https://github.com/nodegui/examples
 - 🦹🏻‍♀️ Good support for dark mode (Thanks to QT).
 - 🏅First class Typescript support. (Works on regular JS projects too 😉).
 
-## Current focus:
-
-- [ ] (Partial support is present) Easily exstensible for creating custom native widgets (like react native).
-- [ ] (Partial) Should have a decent list of stylable native widgets.
-- [ ] Easy build and packaging process.
 
 ## Getting Started
 
@@ -62,6 +57,10 @@ https://github.com/nodegui/examples
 **Community guides**
 
 - https://hibbard.eu/node-gui/ - Excellent guide from [James Hibbard](https://github.com/jameshibbard).
+
+**Talks/Podcasts**
+
+<audio data-theme="night" data-src="https://changelog.com/jsparty/96/embed" src="https://cdn.changelog.com/uploads/jsparty/96/js-party-96.mp3" preload="none" class="changelog-episode" controls></audio><p><a href="https://changelog.com/jsparty/96">JS Party 96: Performant Node desktop apps with NodeGUI</a> – Listen on <a href="https://changelog.com/">Changelog.com</a></p>
 
 ## Docs for contributing
 
