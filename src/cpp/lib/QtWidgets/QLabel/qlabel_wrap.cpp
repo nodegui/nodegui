@@ -11,6 +11,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QLabel";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setWordWrap", &QLabelWrap::setWordWrap),
+    InstanceMethod("wordWrap", &QLabelWrap::wordWrap),
     InstanceMethod("setText", &QLabelWrap::setText),
     InstanceMethod("text", &QLabelWrap::text),
     InstanceMethod("setPixmap", &QLabelWrap::setPixmap),
@@ -54,6 +55,14 @@ Napi::Value QLabelWrap::setWordWrap(const Napi::CallbackInfo& info) {
   this->instance->setWordWrap(On);
 
   return env.Null();
+}
+
+Napi::Value QLabelWrap::wordWrap(const Napi::CallbackInfo &info)
+{
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  bool isWordWrap = this->instance->wordWrap();
+  return Napi::Value::From(env, isWordWrap);
 }
 
 Napi::Value QLabelWrap::setText(const Napi::CallbackInfo& info) {

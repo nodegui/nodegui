@@ -33,4 +33,10 @@ export class QApplication extends Component {
   exit = (exitCode: number) => {
     return this.native.exit(exitCode);
   };
+  setQuitOnLastWindowClosed = (quit: Boolean) => {
+    this.native.setQuitOnLastWindowClosed(quit);
+  };
+  quitOnLastWindowClosed = () => {
+    return this.native.quitOnLastWindowClosed();
+  };
 }

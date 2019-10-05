@@ -22,6 +22,8 @@ public:
     Napi::Value exec(const Napi::CallbackInfo& info);
     Napi::Value quit(const Napi::CallbackInfo& info);
     Napi::Value exit(const Napi::CallbackInfo& info);
+    Napi::Value setQuitOnLastWindowClosed(const Napi::CallbackInfo& info);
+    Napi::Value quitOnLastWindowClosed(const Napi::CallbackInfo& info);
 };
 
 namespace StaticQApplicationWrapMethods {

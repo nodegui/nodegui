@@ -2,8 +2,7 @@
 
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 #include "core/YogaWidget/yogawidget_macro.h"
-#include "core/Events/eventwidget_macro.h"
-#include "core/Component/component_macro.h"
+#include "QtCore/QObject/qobject_macro.h"
 #include "QtGui/QIcon/qicon_wrap.h"
 #include <QSize>
 /*
@@ -16,7 +15,7 @@
 #define QWIDGET_WRAPPED_METHODS_DECLARATION \
 \
 YOGAWIDGET_WRAPPED_METHODS_DECLARATION \
-EVENTWIDGET_WRAPPED_METHODS_DECLARATION \
+QOBJECT_WRAPPED_METHODS_DECLARATION \
 \
 Napi::Value show(const Napi::CallbackInfo& info) { \
   Napi::Env env = info.Env(); \
@@ -87,13 +86,6 @@ Napi::Value setWindowTitle(const Napi::CallbackInfo& info){ \
   std::string title = napiTitle.Utf8Value(); \
   this->instance->setWindowTitle(title.c_str()); \
   return env.Null(); \
-} \
-Napi::Value inherits(const Napi::CallbackInfo& info){ \
-  Napi::Env env = info.Env(); \
-  Napi::HandleScope scope(env); \
-  Napi::String className = info[0].As<Napi::String>(); \
-  std::string s = className.Utf8Value(); \
-  return Napi::Boolean::New(env, this->instance->inherits(s.c_str())); \
 } \
 Napi::Value styleSheet(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
@@ -261,14 +253,12 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
 #define QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)  \
 \
  YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
- EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
- COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE \
+ QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
  InstanceMethod("show", &WidgetWrapName::show),  \
  InstanceMethod("resize",&WidgetWrapName::resize), \
  InstanceMethod("close",&WidgetWrapName::close), \
  InstanceMethod("setLayout",&WidgetWrapName::setLayout), \
  InstanceMethod("setStyleSheet",&WidgetWrapName::setStyleSheet), \
- InstanceMethod("inherits",&WidgetWrapName::inherits), \ 
  InstanceMethod("setCursor",&WidgetWrapName::setCursor), \
  InstanceMethod("setWindowIcon",&WidgetWrapName::setWindowIcon), \
  InstanceMethod("setWindowState",&WidgetWrapName::setWindowState), \

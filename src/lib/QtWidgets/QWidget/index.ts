@@ -1,6 +1,6 @@
 import addon from "../../utils/addon";
 import { NodeLayout } from "../QLayout";
-import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
+import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { FlexLayout } from "../../core/FlexLayout";
 import { WidgetAttribute, WindowType } from "../../QtEnums";
@@ -13,9 +13,10 @@ import {
   prepareInlineStyleSheet
 } from "../../core/Style/StyleSheet";
 import { checkIfNativeElement } from "../../utils/helpers";
+import { YogaWidget } from "../../core/YogaWidget";
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
-export abstract class NodeWidget extends EventWidget {
+export abstract class NodeWidget extends YogaWidget {
   layout?: NodeLayout;
   type: string = "widget";
   show = () => {
@@ -72,14 +73,11 @@ export abstract class NodeWidget extends EventWidget {
     // react:✓, //TODO:getter
     this.native.setWindowOpacity(opacity);
   };
-  setWindowTitle = async (title: string) => {
+  setWindowTitle = (title: string) => {
     // react:✓, //TODO:getter
     return this.native.setWindowTitle(title);
   };
-  inherits(className: string) { 
-    return this.native.inherits(className);
-  };
-  setWindowState = async (state: WindowState) => {
+  setWindowState = (state: WindowState) => {
     // react:✓, //TODO:getter
     return this.native.setWindowState(state);
   };
