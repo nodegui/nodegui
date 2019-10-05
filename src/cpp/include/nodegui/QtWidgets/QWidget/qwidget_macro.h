@@ -23,7 +23,6 @@ Napi::Value show(const Napi::CallbackInfo& info) { \
   this->instance->show(); \
   return env.Null(); \
 } \
-\
 Napi::Value resize(const Napi::CallbackInfo& info) { \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
@@ -32,12 +31,17 @@ Napi::Value resize(const Napi::CallbackInfo& info) { \
   this->instance->resize(width.Int32Value(), height.Int32Value()); \
   return env.Null(); \
 } \
-\
 Napi::Value close(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env(); \
     Napi::HandleScope scope(env); \
     bool hasClosed = this->instance->close(); \
     return Napi::Boolean::New(env, hasClosed); \
+} \
+Napi::Value isVisible(const Napi::CallbackInfo& info) { \
+    Napi::Env env = info.Env(); \
+    Napi::HandleScope scope(env); \
+    bool isVisible = this->instance->isVisible(); \
+    return Napi::Boolean::New(env, isVisible); \
 } \
 \
 Napi::Value setLayout(const Napi::CallbackInfo& info){ \
@@ -256,6 +260,7 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
  QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
  InstanceMethod("show", &WidgetWrapName::show),  \
  InstanceMethod("resize",&WidgetWrapName::resize), \
+ InstanceMethod("isVisible",&WidgetWrapName::isVisible), \
  InstanceMethod("close",&WidgetWrapName::close), \
  InstanceMethod("setLayout",&WidgetWrapName::setLayout), \
  InstanceMethod("setStyleSheet",&WidgetWrapName::setStyleSheet), \

@@ -1,15 +1,10 @@
 const { QLabel } = require("./index");
 const { QPixmap } = require("../../QtGui/QPixmap");
 describe("QLabel", () => {
-  let label;
-  beforeEach(() => {
-    label = new QLabel();
-  });
-  afterEach(() => {
-    if (label) {
-      label.close();
-      label = null;
-    }
+  let label = new QLabel();
+  afterAll(() => {
+    label.close();
+    label = null;
   });
   it("instantiate a label instance", () => {
     const label = new QLabel();

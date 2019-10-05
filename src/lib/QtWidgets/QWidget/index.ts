@@ -19,116 +19,102 @@ import { YogaWidget } from "../../core/YogaWidget";
 export abstract class NodeWidget extends YogaWidget {
   layout?: NodeLayout;
   type: string = "widget";
-  show = () => {
-    // react:✓
+  show() {
     this.native.show();
-  };
-  hide = () => {
-    // react:✓
+  }
+  hide() {
     this.native.hide();
-  };
-  close = () => {
-    // react:⛔️
+  }
+  isVisible() {
+    return this.native.isVisible();
+  }
+  close() {
     return this.native.close();
-  };
-  setStyleSheet = async (styleSheet: string) => {
-    // react:✓
+  }
+  async setStyleSheet(styleSheet: string) {
     const preparedSheet = await StyleSheet.create(styleSheet);
     await applyStyleSheet(this, preparedSheet);
-  };
-  styleSheet = (): string => {
-    // react:✓
+  }
+  styleSheet(): string {
     return this.native.styleSheet();
-  };
-  setInlineStyle = async (style: string) => {
-    // react:✓
+  }
+  async setInlineStyle(style: string) {
     const preparedSheet = await prepareInlineStyleSheet(this, style);
     await applyStyleSheet(this, preparedSheet);
-  };
+  }
   setGeometry = (x: number, y: number, w: number, h: number) => {
-    // react:✓
     this.native.setGeometry(x, y, w, h);
   };
   geometry = (): Rect => {
-    // react:✓
     return this.native.geometry();
   };
   setObjectName = (objectName: string) => {
-    // react:✓
     this.native.setObjectName(objectName);
   };
   objectName = (): string => {
-    // react:✓
     return this.native.objectName();
   };
   setMouseTracking = (isMouseTracked: boolean) => {
-    // react:✓, //TODO:getter
+    //TODO:getter
     this.native.setMouseTracking(isMouseTracked);
   };
   setEnabled = (enabled: boolean) => {
-    // react:✓, //TODO:getter
+    //TODO:getter
     this.native.setEnabled(enabled);
   };
   setWindowOpacity = (opacity: Number) => {
-    // react:✓, //TODO:getter
+    //TODO:getter
     this.native.setWindowOpacity(opacity);
   };
   setWindowTitle = (title: string) => {
-    // react:✓, //TODO:getter
+    //TODO:getter
     return this.native.setWindowTitle(title);
   };
   setWindowState = (state: WindowState) => {
-    // react:✓, //TODO:getter
+    //TODO:getter
     return this.native.setWindowState(state);
   };
   setCursor(cursor: CursorShape | QCursor) {
-    // react:✓, //TODO:getter
+    //TODO:getter
     this.native.setCursor(cursor);
   }
   setWindowIcon(icon: QIcon) {
-    // react:✓, //TODO:getter
+    //TODO:getter
     this.native.setWindowIcon(icon.native);
   }
   setMinimumSize = (minw: number, minh: number) => {
-    // react:✓
     this.native.setMinimumSize(minw, minh);
   };
   setMaximumSize = (maxw: number, maxh: number) => {
-    // react:✓
     this.native.setMaximumSize(maxw, maxh);
   };
   setFixedSize = (width: number, height: number) => {
-    // react:✓
     this.native.setFixedSize(width, height);
   };
   resize = (width: number, height: number) => {
-    // react:✓
     this.native.resize(width, height);
   };
   size = (): { width: number; height: number } => {
-    // react:✓
     return this.native.size();
   };
   move = (x: number, y: number) => {
-    // react:✓
     this.native.move(x, y);
   };
   pos = (): { x: number; y: number } => {
-    // react:✓
     return this.native.pos();
   };
-  repaint = () => {
+  repaint() {
     // react:⛔️
     this.native.repaint();
-  };
-  update = () => {
+  }
+  update() {
     // react:⛔️
     this.native.update();
-  };
-  updateGeometry = () => {
+  }
+  updateGeometry() {
     // react:⛔️
     this.native.updateGeometry();
-  };
+  }
   setAttribute = (attribute: WidgetAttribute, switchOn: boolean) => {
     // react:⛔️
     return this.native.setAttribute(attribute, switchOn);
@@ -142,7 +128,6 @@ export abstract class NodeWidget extends YogaWidget {
     return this.native.setWindowFlag(windowType, switchOn);
   };
   setLayout = (parentLayout: NodeLayout) => {
-    // react:✓
     const flexLayout = parentLayout as FlexLayout;
     if (flexLayout.setFlexNode) {
       //if flex layout set the flexnode
