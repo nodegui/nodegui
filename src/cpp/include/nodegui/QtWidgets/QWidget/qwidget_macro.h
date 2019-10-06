@@ -132,12 +132,24 @@ Napi::Value setMouseTracking(const Napi::CallbackInfo& info){ \
   this->instance->setMouseTracking(isMouseTracked.Value()); \
   return env.Null(); \
 } \
+Napi::Value hasMouseTracking(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  bool isMouseTracked = this->instance->hasMouseTracking(); \
+  return Napi::Value::From(env, isMouseTracked); \
+} \
 Napi::Value setEnabled(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
   Napi::Boolean enabled = info[0].As<Napi::Boolean>(); \
   this->instance->setEnabled(enabled.Value()); \
   return env.Null(); \
+} \
+Napi::Value isEnabled(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  bool enabled = this->instance->isEnabled(); \
+  return Napi::Value::From(env, enabled); \
 } \
 Napi::Value setFixedSize(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
@@ -274,7 +286,9 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
  InstanceMethod("setObjectName",&WidgetWrapName::setObjectName), \
  InstanceMethod("objectName",&WidgetWrapName::objectName), \
  InstanceMethod("setMouseTracking",&WidgetWrapName::setMouseTracking), \
+ InstanceMethod("hasMouseTracking",&WidgetWrapName::hasMouseTracking), \
  InstanceMethod("setEnabled",&WidgetWrapName::setEnabled), \
+ InstanceMethod("isEnabled",&WidgetWrapName::isEnabled), \
  InstanceMethod("setFixedSize",&WidgetWrapName::setFixedSize), \
  InstanceMethod("setGeometry",&WidgetWrapName::setGeometry), \
  InstanceMethod("geometry",&WidgetWrapName::geometry), \

@@ -25,7 +25,7 @@ export abstract class NodeWidget extends YogaWidget {
   hide() {
     this.native.hide();
   }
-  isVisible() {
+  isVisible(): boolean {
     return this.native.isVisible();
   }
   close() {
@@ -42,38 +42,42 @@ export abstract class NodeWidget extends YogaWidget {
     const preparedSheet = await prepareInlineStyleSheet(this, style);
     await applyStyleSheet(this, preparedSheet);
   }
-  setGeometry = (x: number, y: number, w: number, h: number) => {
+  setGeometry(x: number, y: number, w: number, h: number) {
     this.native.setGeometry(x, y, w, h);
-  };
-  geometry = (): Rect => {
+  }
+  geometry(): Rect {
     return this.native.geometry();
-  };
-  setObjectName = (objectName: string) => {
+  }
+  setObjectName(objectName: string) {
     this.native.setObjectName(objectName);
-  };
-  objectName = (): string => {
+  }
+  objectName(): string {
     return this.native.objectName();
-  };
-  setMouseTracking = (isMouseTracked: boolean) => {
-    //TODO:getter
+  }
+  setMouseTracking(isMouseTracked: boolean) {
     this.native.setMouseTracking(isMouseTracked);
-  };
-  setEnabled = (enabled: boolean) => {
-    //TODO:getter
+  }
+  hasMouseTracking(): boolean {
+    return this.native.hasMouseTracking();
+  }
+  setEnabled(enabled: boolean) {
     this.native.setEnabled(enabled);
-  };
-  setWindowOpacity = (opacity: Number) => {
+  }
+  isEnabled(): boolean {
+    return this.native.isEnabled();
+  }
+  setWindowOpacity(opacity: Number) {
     //TODO:getter
     this.native.setWindowOpacity(opacity);
-  };
-  setWindowTitle = (title: string) => {
+  }
+  setWindowTitle(title: string) {
     //TODO:getter
     return this.native.setWindowTitle(title);
-  };
-  setWindowState = (state: WindowState) => {
+  }
+  setWindowState(state: WindowState) {
     //TODO:getter
     return this.native.setWindowState(state);
-  };
+  }
   setCursor(cursor: CursorShape | QCursor) {
     //TODO:getter
     this.native.setCursor(cursor);
@@ -82,27 +86,27 @@ export abstract class NodeWidget extends YogaWidget {
     //TODO:getter
     this.native.setWindowIcon(icon.native);
   }
-  setMinimumSize = (minw: number, minh: number) => {
+  setMinimumSize(minw: number, minh: number) {
     this.native.setMinimumSize(minw, minh);
-  };
-  setMaximumSize = (maxw: number, maxh: number) => {
+  }
+  setMaximumSize(maxw: number, maxh: number) {
     this.native.setMaximumSize(maxw, maxh);
-  };
-  setFixedSize = (width: number, height: number) => {
+  }
+  setFixedSize(width: number, height: number) {
     this.native.setFixedSize(width, height);
-  };
-  resize = (width: number, height: number) => {
+  }
+  resize(width: number, height: number) {
     this.native.resize(width, height);
-  };
-  size = (): { width: number; height: number } => {
+  }
+  size(): { width: number; height: number } {
     return this.native.size();
-  };
-  move = (x: number, y: number) => {
+  }
+  move(x: number, y: number) {
     this.native.move(x, y);
-  };
-  pos = (): { x: number; y: number } => {
+  }
+  pos(): { x: number; y: number } {
     return this.native.pos();
-  };
+  }
   repaint() {
     // react:⛔️
     this.native.repaint();
@@ -115,19 +119,19 @@ export abstract class NodeWidget extends YogaWidget {
     // react:⛔️
     this.native.updateGeometry();
   }
-  setAttribute = (attribute: WidgetAttribute, switchOn: boolean) => {
+  setAttribute(attribute: WidgetAttribute, switchOn: boolean) {
     // react:⛔️
     return this.native.setAttribute(attribute, switchOn);
-  };
-  testAttribute = (attribute: WidgetAttribute): boolean => {
+  }
+  testAttribute(attribute: WidgetAttribute): boolean {
     // react:⛔️
     return this.native.testAttribute(attribute);
-  };
-  setWindowFlag = (windowType: WindowType, switchOn: boolean) => {
+  }
+  setWindowFlag(windowType: WindowType, switchOn: boolean) {
     // react:⛔️
     return this.native.setWindowFlag(windowType, switchOn);
-  };
-  setLayout = (parentLayout: NodeLayout) => {
+  }
+  setLayout(parentLayout: NodeLayout) {
     const flexLayout = parentLayout as FlexLayout;
     if (flexLayout.setFlexNode) {
       //if flex layout set the flexnode
@@ -135,7 +139,7 @@ export abstract class NodeWidget extends YogaWidget {
     }
     this.native.setLayout(parentLayout.native);
     this.layout = parentLayout;
-  };
+  }
 }
 
 type Rect = {

@@ -51,4 +51,16 @@ describe("QWidget", () => {
     view.setObjectName("abcd");
     expect(view.objectName()).toBe("abcd");
   });
+  it("setMouseTracking", () => {
+    view.setMouseTracking(true);
+    expect(view.hasMouseTracking()).toBe(true);
+    view.setMouseTracking(false);
+    expect(view.hasMouseTracking()).toBe(false);
+  });
+  it("setEnabled", () => {
+    view.setEnabled(true);
+    expect(view.isEnabled()).toBe(true);
+    view.setEnabled(false);
+    expect(view.isEnabled()).toBe(false);
+  });
 });
