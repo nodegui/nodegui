@@ -25,8 +25,9 @@ import {
 } from "./index";
 import { ok, equal } from "assert";
 import { existsSync, unlinkSync, readFileSync } from "fs";
-import { resolve } from "path"
-
+import { resolve } from "path";
+import { QMenuBar } from "./lib/QtWidgets/QMenuBar";
+import { QMenu } from "./lib/QtWidgets/QMenu";
 
 const win = new QMainWindow();
 
@@ -45,8 +46,8 @@ checkbox.setText("Check me out?");
 checkbox.setObjectName("check");
 checkbox.setChecked(true);
 checkbox.addEventListener(QCheckBoxEvents.toggled, checked => {
-  console.log(`${checked ? 'checked' : 'unchecked'}`);
-  label1.setInlineStyle(`color: ${checked ? 'green' : 'red'}`);
+  console.log(`${checked ? "checked" : "unchecked"}`);
+  label1.setInlineStyle(`color: ${checked ? "green" : "red"}`);
 });
 
 const dial = new QDial();
@@ -64,9 +65,7 @@ const nodeguiLogo = new QIcon(
   resolve(__dirname, "../extras/assets/nodegui.png")
 );
 
-const icon = new QIcon(
-  resolve(__dirname, "../extras/assets/start_icon.png")
-);
+const icon = new QIcon(resolve(__dirname, "../extras/assets/start_icon.png"));
 button.setIcon(icon);
 
 const tabs = new QTabWidget();
@@ -86,7 +85,7 @@ tabs.addTab(tab2, icon, "Tab 2");
 
 const progressBar = new QProgressBar();
 progressBar.setValue(6);
-equal(progressBar.value(), 6)
+equal(progressBar.value(), 6);
 progressBar.setMinimum(1);
 progressBar.setMaximum(15);
 
@@ -104,22 +103,8 @@ textEdit.setWordWrapMode(QTextOptionWrapMode.NoWrap);
 const scrollArea = new QScrollArea();
 scrollArea.setInlineStyle("flex: 1; width:'100%';");
 
-// NodeWidget.inherits tests
-ok(tab1.inherits("QWidget"))
-ok(tabs.inherits("QTabWidget"))
-ok(tabs.inherits("QWidget"))
-ok(tabs.inherits("QObject"))
-ok(!tabs.inherits("QProgressBar"))
-ok(progressBar.inherits("QProgressBar"))
-ok(!progressBar.inherits("QTabWidget"))
-ok(tabs.inherits("QWidget"))
-ok(tabs.inherits("QObject"))
-ok(!tabs.inherits("unknown"))
-
 const imageLabel = new QLabel();
-const pixmap = new QPixmap(
-  resolve(__dirname, "../extras/assets/kitchen.png")
-);
+const pixmap = new QPixmap(resolve(__dirname, "../extras/assets/kitchen.png"));
 imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 
@@ -147,7 +132,7 @@ const trayIcon = new QIcon(
 );
 const tray = new QSystemTrayIcon();
 tray.setIcon(trayIcon);
-tray.show()
+tray.show();
 
 if (rootView.layout) {
   rootView.layout.addWidget(tabs);
@@ -161,7 +146,13 @@ if (rootView.layout) {
   rootView.layout.addWidget(dial);
 }
 
-(async ()=>{
+const menuBar = new QMenuBar();
+const menu = new QMenu();
+win.setMenuBar(menuBar);
+menu.setTitle("hello");
+menuBar.addMenu(menu);
+menuBar.setNativeMenuBar(false);
+
 win.setCentralWidget(rootView);
 win.setStyleSheet(`
   #root {
@@ -171,12 +162,11 @@ win.setStyleSheet(`
     justify-content: 'space-around';
   }
 `);
-  win.setWindowIcon(nodeguiLogo);
-  await win.setWindowTitle("NodeGUI Demo");
-  win.resize(400, 700);
-  win.show();
-  await win.setWindowState(WindowState.WindowActive);
-})();
+win.setWindowIcon(nodeguiLogo);
+win.setWindowTitle("NodeGUI Demo");
+win.resize(400, 700);
+win.show();
+win.setWindowState(WindowState.WindowActive);
 
 (global as any).win = win; // To prevent win from being garbage collected.
 (global as any).systemTray = tray; // To prevent system tray from being garbage collected.

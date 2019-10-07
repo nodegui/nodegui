@@ -57,6 +57,8 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QPlainTextEdit/qplaintextedit_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QScrollArea/qscrollarea_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QMenuBar/qmenubar_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QMenu/qmenu_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexlayout_wrap.cpp"
     # Custom widgets (include them for automoc since they contain Q_OBJECT)
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QWidget/nwidget.hpp"
@@ -73,6 +75,8 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QScrollArea/nscrollarea.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTabWidget/ntabwidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QSystemTrayIcon/nsystemtrayicon.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QMenuBar/nmenubar.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QMenu/nmenu.hpp"
 ) 
 
 AddCommonConfig(${CORE_WIDGETS_ADDON})

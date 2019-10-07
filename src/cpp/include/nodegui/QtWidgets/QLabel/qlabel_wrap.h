@@ -17,6 +17,7 @@ class QLabelWrap : public  Napi::ObjectWrap<QLabelWrap>{
   static Napi::FunctionReference constructor;
   //wrapped methods
   Napi::Value setWordWrap(const Napi::CallbackInfo& info);
+  Napi::Value wordWrap(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
   Napi::Value text(const Napi::CallbackInfo &info);
   Napi::Value setPixmap(const Napi::CallbackInfo &info);

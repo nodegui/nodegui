@@ -2,8 +2,7 @@
 
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 #include "core/YogaWidget/yogawidget_macro.h"
-#include "core/Events/eventwidget_macro.h"
-#include "core/Component/component_macro.h"
+#include "QtCore/QObject/qobject_macro.h"
 #include "QtGui/QIcon/qicon_wrap.h"
 #include <QSize>
 /*
@@ -16,7 +15,7 @@
 #define QWIDGET_WRAPPED_METHODS_DECLARATION \
 \
 YOGAWIDGET_WRAPPED_METHODS_DECLARATION \
-EVENTWIDGET_WRAPPED_METHODS_DECLARATION \
+QOBJECT_WRAPPED_METHODS_DECLARATION \
 \
 Napi::Value show(const Napi::CallbackInfo& info) { \
   Napi::Env env = info.Env(); \
@@ -24,7 +23,6 @@ Napi::Value show(const Napi::CallbackInfo& info) { \
   this->instance->show(); \
   return env.Null(); \
 } \
-\
 Napi::Value resize(const Napi::CallbackInfo& info) { \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
@@ -33,12 +31,17 @@ Napi::Value resize(const Napi::CallbackInfo& info) { \
   this->instance->resize(width.Int32Value(), height.Int32Value()); \
   return env.Null(); \
 } \
-\
 Napi::Value close(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env(); \
     Napi::HandleScope scope(env); \
     bool hasClosed = this->instance->close(); \
     return Napi::Boolean::New(env, hasClosed); \
+} \
+Napi::Value isVisible(const Napi::CallbackInfo& info) { \
+    Napi::Env env = info.Env(); \
+    Napi::HandleScope scope(env); \
+    bool isVisible = this->instance->isVisible(); \
+    return Napi::Boolean::New(env, isVisible); \
 } \
 \
 Napi::Value setLayout(const Napi::CallbackInfo& info){ \
@@ -88,13 +91,6 @@ Napi::Value setWindowTitle(const Napi::CallbackInfo& info){ \
   this->instance->setWindowTitle(title.c_str()); \
   return env.Null(); \
 } \
-Napi::Value inherits(const Napi::CallbackInfo& info){ \
-  Napi::Env env = info.Env(); \
-  Napi::HandleScope scope(env); \
-  Napi::String className = info[0].As<Napi::String>(); \
-  std::string s = className.Utf8Value(); \
-  return Napi::Boolean::New(env, this->instance->inherits(s.c_str())); \
-} \
 Napi::Value styleSheet(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
@@ -136,12 +132,24 @@ Napi::Value setMouseTracking(const Napi::CallbackInfo& info){ \
   this->instance->setMouseTracking(isMouseTracked.Value()); \
   return env.Null(); \
 } \
+Napi::Value hasMouseTracking(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  bool isMouseTracked = this->instance->hasMouseTracking(); \
+  return Napi::Value::From(env, isMouseTracked); \
+} \
 Napi::Value setEnabled(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
   Napi::Boolean enabled = info[0].As<Napi::Boolean>(); \
   this->instance->setEnabled(enabled.Value()); \
   return env.Null(); \
+} \
+Napi::Value isEnabled(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  bool enabled = this->instance->isEnabled(); \
+  return Napi::Value::From(env, enabled); \
 } \
 Napi::Value setFixedSize(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
@@ -246,6 +254,12 @@ Napi::Value setWindowOpacity(const Napi::CallbackInfo& info){ \
   this->instance->setWindowOpacity(opacity); \
   return env.Null(); \
 } \
+Napi::Value windowOpacity(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  float opacity = this->instance->windowOpacity(); \
+  return Napi::Value::From(env, opacity); \
+} \
 Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
@@ -261,14 +275,13 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
 #define QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)  \
 \
  YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
- EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
- COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE \
+ QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
  InstanceMethod("show", &WidgetWrapName::show),  \
  InstanceMethod("resize",&WidgetWrapName::resize), \
+ InstanceMethod("isVisible",&WidgetWrapName::isVisible), \
  InstanceMethod("close",&WidgetWrapName::close), \
  InstanceMethod("setLayout",&WidgetWrapName::setLayout), \
  InstanceMethod("setStyleSheet",&WidgetWrapName::setStyleSheet), \
- InstanceMethod("inherits",&WidgetWrapName::inherits), \ 
  InstanceMethod("setCursor",&WidgetWrapName::setCursor), \
  InstanceMethod("setWindowIcon",&WidgetWrapName::setWindowIcon), \
  InstanceMethod("setWindowState",&WidgetWrapName::setWindowState), \
@@ -279,7 +292,9 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
  InstanceMethod("setObjectName",&WidgetWrapName::setObjectName), \
  InstanceMethod("objectName",&WidgetWrapName::objectName), \
  InstanceMethod("setMouseTracking",&WidgetWrapName::setMouseTracking), \
+ InstanceMethod("hasMouseTracking",&WidgetWrapName::hasMouseTracking), \
  InstanceMethod("setEnabled",&WidgetWrapName::setEnabled), \
+ InstanceMethod("isEnabled",&WidgetWrapName::isEnabled), \
  InstanceMethod("setFixedSize",&WidgetWrapName::setFixedSize), \
  InstanceMethod("setGeometry",&WidgetWrapName::setGeometry), \
  InstanceMethod("geometry",&WidgetWrapName::geometry), \
@@ -293,6 +308,7 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
  InstanceMethod("setAttribute",&WidgetWrapName::setAttribute), \
  InstanceMethod("testAttribute",&WidgetWrapName::testAttribute), \
  InstanceMethod("setWindowOpacity",&WidgetWrapName::setWindowOpacity), \
+ InstanceMethod("windowOpacity",&WidgetWrapName::windowOpacity), \
  InstanceMethod("setWindowFlag",&WidgetWrapName::setWindowFlag), \
 
 #endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE

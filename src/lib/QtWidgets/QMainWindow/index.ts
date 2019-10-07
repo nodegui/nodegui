@@ -3,6 +3,7 @@ import { NodeWidget } from "../QWidget";
 import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { NodeLayout } from "../QLayout";
+import { QMenuBar } from "../QMenuBar";
 
 export const QMainWindowEvents = Object.freeze({
   ...BaseWidgetEvents
@@ -10,6 +11,8 @@ export const QMainWindowEvents = Object.freeze({
 export class QMainWindow extends NodeWidget {
   native: NativeElement;
   public centralWidget?: NodeWidget;
+  private _menuBar?: QMenuBar;
+  private _menuBarWidget?: NodeWidget;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {
@@ -35,6 +38,16 @@ export class QMainWindow extends NodeWidget {
     // react:✓
     this.native.setCentralWidget(widget.native, widget.getFlexNode());
     this.centralWidget = widget;
+  }
+  setMenuBar(menuBar: QMenuBar) {
+    this.native.setMenuBar(menuBar.native);
+    this._menuBar = menuBar;
+  }
+  menuBar(): QMenuBar | undefined {
+    return this._menuBar;
+  }
+  setMenuWidget(menuWidget: NodeWidget) {
+    this.native.setMenuWidget(menuWidget.native);
   }
   get layout() {
     if (this.centralWidget) {

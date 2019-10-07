@@ -9,8 +9,7 @@ export const QLabelEvents = Object.freeze({
 });
 export class QLabel extends NodeWidget {
   native: NativeElement;
-  text?: string | number;
-  pixmap?: QPixmap;
+  private _pixmap?: QPixmap;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {
@@ -21,22 +20,24 @@ export class QLabel extends NodeWidget {
     super(native);
     this.native = native;
     this.parent = parent;
-    // bind member functions
-    this.setWordWrap.bind(this);
-    this.setText.bind(this);
   }
   setWordWrap(on: boolean) {
-    // react:✓ TODO://getter
     this.native.setWordWrap(on);
   }
+  wordWrap(): boolean {
+    return this.native.wordWrap();
+  }
   setText(text: string | number) {
-    // react:✓ TODO://getter
-    this.text = text;
     this.native.setText(`${text}`);
   }
+  text() {
+    return this.native.text();
+  }
   setPixmap(pixMap: QPixmap) {
-    // react:✓ TODO://getter
     this.native.setPixmap(pixMap.native);
-    this.pixmap = pixMap;
+    this._pixmap = pixMap;
+  }
+  pixmap() {
+    return this._pixmap;
   }
 }

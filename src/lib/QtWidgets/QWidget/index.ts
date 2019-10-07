@@ -1,6 +1,6 @@
 import addon from "../../utils/addon";
 import { NodeLayout } from "../QLayout";
-import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
+import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { FlexLayout } from "../../core/FlexLayout";
 import { WidgetAttribute, WindowType } from "../../QtEnums";
@@ -13,138 +13,127 @@ import {
   prepareInlineStyleSheet
 } from "../../core/Style/StyleSheet";
 import { checkIfNativeElement } from "../../utils/helpers";
+import { YogaWidget } from "../../core/YogaWidget";
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
-export abstract class NodeWidget extends EventWidget {
+export abstract class NodeWidget extends YogaWidget {
   layout?: NodeLayout;
   type: string = "widget";
-  show = () => {
-    // react:✓
+  show() {
     this.native.show();
-  };
-  hide = () => {
-    // react:✓
+  }
+  hide() {
     this.native.hide();
-  };
-  close = () => {
-    // react:⛔️
+  }
+  isVisible(): boolean {
+    return this.native.isVisible();
+  }
+  close() {
     return this.native.close();
-  };
-  setStyleSheet = async (styleSheet: string) => {
-    // react:✓
+  }
+  async setStyleSheet(styleSheet: string) {
     const preparedSheet = await StyleSheet.create(styleSheet);
     await applyStyleSheet(this, preparedSheet);
-  };
-  styleSheet = (): string => {
-    // react:✓
+  }
+  styleSheet(): string {
     return this.native.styleSheet();
-  };
-  setInlineStyle = async (style: string) => {
-    // react:✓
+  }
+  async setInlineStyle(style: string) {
     const preparedSheet = await prepareInlineStyleSheet(this, style);
     await applyStyleSheet(this, preparedSheet);
-  };
-  setGeometry = (x: number, y: number, w: number, h: number) => {
-    // react:✓
+  }
+  setGeometry(x: number, y: number, w: number, h: number) {
     this.native.setGeometry(x, y, w, h);
-  };
-  geometry = (): Rect => {
-    // react:✓
+  }
+  geometry(): Rect {
     return this.native.geometry();
-  };
-  setObjectName = (objectName: string) => {
-    // react:✓
+  }
+  setObjectName(objectName: string) {
     this.native.setObjectName(objectName);
-  };
-  objectName = (): string => {
-    // react:✓
+  }
+  objectName(): string {
     return this.native.objectName();
-  };
-  setMouseTracking = (isMouseTracked: boolean) => {
-    // react:✓, //TODO:getter
+  }
+  setMouseTracking(isMouseTracked: boolean) {
     this.native.setMouseTracking(isMouseTracked);
-  };
-  setEnabled = (enabled: boolean) => {
-    // react:✓, //TODO:getter
+  }
+  hasMouseTracking(): boolean {
+    return this.native.hasMouseTracking();
+  }
+  setEnabled(enabled: boolean) {
     this.native.setEnabled(enabled);
-  };
-  setWindowOpacity = (opacity: Number) => {
-    // react:✓, //TODO:getter
+  }
+  isEnabled(): boolean {
+    return this.native.isEnabled();
+  }
+  setWindowOpacity(opacity: Number) {
     this.native.setWindowOpacity(opacity);
-  };
-  setWindowTitle = async (title: string) => {
-    // react:✓, //TODO:getter
+  }
+  windowOpacity() {
+    return this.native.windowOpacity();
+  }
+  setWindowTitle(title: string) {
+    //TODO:getter
     return this.native.setWindowTitle(title);
-  };
-  inherits(className: string) { 
-    return this.native.inherits(className);
-  };
-  setWindowState = async (state: WindowState) => {
-    // react:✓, //TODO:getter
+  }
+  setWindowState(state: WindowState) {
+    //TODO:getter
     return this.native.setWindowState(state);
-  };
+  }
   setCursor(cursor: CursorShape | QCursor) {
-    // react:✓, //TODO:getter
+    //TODO:getter
     this.native.setCursor(cursor);
   }
   setWindowIcon(icon: QIcon) {
-    // react:✓, //TODO:getter
+    //TODO:getter
     this.native.setWindowIcon(icon.native);
   }
-  setMinimumSize = (minw: number, minh: number) => {
-    // react:✓
+  setMinimumSize(minw: number, minh: number) {
     this.native.setMinimumSize(minw, minh);
-  };
-  setMaximumSize = (maxw: number, maxh: number) => {
-    // react:✓
+  }
+  setMaximumSize(maxw: number, maxh: number) {
     this.native.setMaximumSize(maxw, maxh);
-  };
-  setFixedSize = (width: number, height: number) => {
-    // react:✓
+  }
+  setFixedSize(width: number, height: number) {
     this.native.setFixedSize(width, height);
-  };
-  resize = (width: number, height: number) => {
-    // react:✓
+  }
+  resize(width: number, height: number) {
     this.native.resize(width, height);
-  };
-  size = (): { width: number; height: number } => {
-    // react:✓
+  }
+  size(): { width: number; height: number } {
     return this.native.size();
-  };
-  move = (x: number, y: number) => {
-    // react:✓
+  }
+  move(x: number, y: number) {
     this.native.move(x, y);
-  };
-  pos = (): { x: number; y: number } => {
-    // react:✓
+  }
+  pos(): { x: number; y: number } {
     return this.native.pos();
-  };
-  repaint = () => {
+  }
+  repaint() {
     // react:⛔️
     this.native.repaint();
-  };
-  update = () => {
+  }
+  update() {
     // react:⛔️
     this.native.update();
-  };
-  updateGeometry = () => {
+  }
+  updateGeometry() {
     // react:⛔️
     this.native.updateGeometry();
-  };
-  setAttribute = (attribute: WidgetAttribute, switchOn: boolean) => {
+  }
+  setAttribute(attribute: WidgetAttribute, switchOn: boolean) {
     // react:⛔️
     return this.native.setAttribute(attribute, switchOn);
-  };
-  testAttribute = (attribute: WidgetAttribute): boolean => {
+  }
+  testAttribute(attribute: WidgetAttribute): boolean {
     // react:⛔️
     return this.native.testAttribute(attribute);
-  };
-  setWindowFlag = (windowType: WindowType, switchOn: boolean) => {
+  }
+  setWindowFlag(windowType: WindowType, switchOn: boolean) {
     // react:⛔️
     return this.native.setWindowFlag(windowType, switchOn);
-  };
-  setLayout = (parentLayout: NodeLayout) => {
-    // react:✓
+  }
+  setLayout(parentLayout: NodeLayout) {
     const flexLayout = parentLayout as FlexLayout;
     if (flexLayout.setFlexNode) {
       //if flex layout set the flexnode
@@ -152,7 +141,7 @@ export abstract class NodeWidget extends EventWidget {
     }
     this.native.setLayout(parentLayout.native);
     this.layout = parentLayout;
-  };
+  }
 }
 
 type Rect = {

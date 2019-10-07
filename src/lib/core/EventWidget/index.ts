@@ -1,9 +1,8 @@
 import { EventEmitter } from "events";
-import { YogaWidget } from "../YogaWidget";
-import { NativeElement } from "../Component";
+import { NativeElement, Component } from "../Component";
 
 export type NativeEvent = {};
-export abstract class EventWidget extends YogaWidget {
+export abstract class EventWidget extends Component {
   private emitter: EventEmitter;
   constructor(native: NativeElement) {
     super();

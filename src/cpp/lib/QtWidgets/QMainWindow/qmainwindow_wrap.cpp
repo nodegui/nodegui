@@ -1,5 +1,6 @@
 #include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
+#include "QtWidgets/QMenuBar/qmenubar_wrap.h"
 #include "Extras/Utils/nutils.h"
 
 Napi::FunctionReference QMainWindowWrap::constructor;
@@ -10,6 +11,8 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(env, CLASSNAME, {
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)
     InstanceMethod("setCentralWidget",&QMainWindowWrap::setCentralWidget),
+    InstanceMethod("setMenuBar",&QMainWindowWrap::setMenuBar),
+    InstanceMethod("setMenuWidget",&QMainWindowWrap::setMenuWidget),
   });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -33,8 +36,6 @@ QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info): Napi::ObjectWr
   }else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
-  this->instance->setAttribute(Qt::WA_DeleteOnClose);
-  this->instance->installEventFilter(this->getInternalInstance());
 }
 
 QMainWindowWrap::~QMainWindowWrap() {
@@ -54,6 +55,31 @@ Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info){
   YGNodeRef node = this->instance->getFlexNode();
   YGNodeInsertChild(node, flexNodeRef, 0);
   this->instance->setCentralWidget(centralWidget->getInternalInstance());
+
+  return env.Null();
+}
+
+
+Napi::Value QMainWindowWrap::setMenuBar(const Napi::CallbackInfo& info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object menuObject = info[0].As<Napi::Object>();
+  QMenuBarWrap* menuBar = Napi::ObjectWrap<QMenuBarWrap>::Unwrap(menuObject);
+  
+  this->instance->layout()->setMenuBar(menuBar->getInternalInstance());
+
+  return env.Null();
+}
+
+Napi::Value QMainWindowWrap::setMenuWidget(const Napi::CallbackInfo& info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object menuObject = info[0].As<Napi::Object>();
+  QWidgetWrap* menuWidget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(menuObject);
+  
+  this->instance->setMenuWidget(menuWidget->getInternalInstance());
 
   return env.Null();
 }

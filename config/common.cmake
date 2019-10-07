@@ -1,3 +1,8 @@
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
+endif()
+
 function(AddCommonConfig addonName)
     target_compile_definitions(${addonName} PRIVATE
         SPDLOG_COMPILED_LIB

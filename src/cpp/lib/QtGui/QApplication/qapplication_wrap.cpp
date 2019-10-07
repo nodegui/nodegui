@@ -15,6 +15,8 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports)
         InstanceMethod("processEvents", &QApplicationWrap::processEvents),
         InstanceMethod("exec", &QApplicationWrap::exec),
         InstanceMethod("quit", &QApplicationWrap::quit),
+        InstanceMethod("setQuitOnLastWindowClosed", &QApplicationWrap::setQuitOnLastWindowClosed),
+        InstanceMethod("quitOnLastWindowClosed", &QApplicationWrap::quitOnLastWindowClosed),
         StaticMethod("instance", &StaticQApplicationWrapMethods::instance),
         StaticMethod("clipboard", &StaticQApplicationWrapMethods::clipboard),
         COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
@@ -98,4 +100,20 @@ Napi::Value StaticQApplicationWrapMethods::clipboard(const Napi::CallbackInfo& i
     Napi::HandleScope scope(env);
     QClipboard* clipboard = QApplication::clipboard();
     return QClipboardWrap::constructor.New({ Napi::External<QClipboard>::New(env, clipboard) });
+}
+
+Napi::Value QApplicationWrap::setQuitOnLastWindowClosed(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    Napi::Boolean quit = info[0].As<Napi::Boolean>();
+    this->instance->setQuitOnLastWindowClosed(quit.Value());
+    return env.Null();
+}
+
+Napi::Value QApplicationWrap::quitOnLastWindowClosed(const Napi::CallbackInfo& info){
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+    bool quit = this->instance->quitOnLastWindowClosed();
+    return Napi::Value::From(env, quit);
 }
