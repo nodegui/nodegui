@@ -17,7 +17,10 @@ public:
   static Napi::FunctionReference constructor;
   //wrapped methods
   Napi::Value setCentralWidget(const Napi::CallbackInfo& info);
-  
+  Napi::Value setMenuBar(const Napi::CallbackInfo& info);
+  Napi::Value menuBar(const Napi::CallbackInfo& info);
+  Napi::Value setMenuWidget(const Napi::CallbackInfo& info);
+
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };
 

@@ -254,6 +254,12 @@ Napi::Value setWindowOpacity(const Napi::CallbackInfo& info){ \
   this->instance->setWindowOpacity(opacity); \
   return env.Null(); \
 } \
+Napi::Value windowOpacity(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  float opacity = this->instance->windowOpacity(); \
+  return Napi::Value::From(env, opacity); \
+} \
 Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
   Napi::Env env = info.Env(); \
   Napi::HandleScope scope(env); \
@@ -302,6 +308,7 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
  InstanceMethod("setAttribute",&WidgetWrapName::setAttribute), \
  InstanceMethod("testAttribute",&WidgetWrapName::testAttribute), \
  InstanceMethod("setWindowOpacity",&WidgetWrapName::setWindowOpacity), \
+ InstanceMethod("windowOpacity",&WidgetWrapName::windowOpacity), \
  InstanceMethod("setWindowFlag",&WidgetWrapName::setWindowFlag), \
 
 #endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE

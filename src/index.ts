@@ -4,7 +4,11 @@ import "./lib/core/bootstrap";
 export * from "./lib/QtEnums";
 // Gui:
 export { QApplication } from "./lib/QtGui/QApplication";
-export { QPixmap, ReadWriteImageFormats, ImageFormats } from "./lib/QtGui/QPixmap";
+export {
+  QPixmap,
+  ReadWriteImageFormats,
+  ImageFormats
+} from "./lib/QtGui/QPixmap";
 export { QIcon, QIconMode, QIconState } from "./lib/QtGui/QIcon";
 export { QCursor } from "./lib/QtGui/QCursor";
 export { QTextOptionWrapMode } from "./lib/QtGui/QTextOption";
@@ -29,13 +33,18 @@ export { QPushButton, QPushButtonEvents } from "./lib/QtWidgets/QPushButton";
 export { QSpinBox, QSpinBoxEvents } from "./lib/QtWidgets/QSpinBox";
 export { QRadioButton, QRadioButtonEvents } from "./lib/QtWidgets/QRadioButton";
 export { QTabWidget, QTabWidgetEvents } from "./lib/QtWidgets/QTabWidget";
+export { QMenu, QMenuEvents } from "./lib/QtWidgets/QMenu";
+export { QMenuBar, QMenuBarEvents } from "./lib/QtWidgets/QMenuBar";
 export {
   QPlainTextEdit,
   QPlainTextEditEvents,
   LineWrapMode
 } from "./lib/QtWidgets/QPlainTextEdit";
 export { QScrollArea, QScrollAreaEvents } from "./lib/QtWidgets/QScrollArea";
-export { QSystemTrayIcon, QSystemTrayIconEvents } from './lib/QtWidgets/QSystemTrayIcon';
+export {
+  QSystemTrayIcon,
+  QSystemTrayIconEvents
+} from "./lib/QtWidgets/QSystemTrayIcon";
 // Layouts:
 export { QGridLayout } from "./lib/QtWidgets/QGridLayout";
 export { FlexLayout } from "./lib/core/FlexLayout";

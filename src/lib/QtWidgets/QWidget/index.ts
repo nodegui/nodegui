@@ -67,8 +67,10 @@ export abstract class NodeWidget extends YogaWidget {
     return this.native.isEnabled();
   }
   setWindowOpacity(opacity: Number) {
-    //TODO:getter
     this.native.setWindowOpacity(opacity);
+  }
+  windowOpacity() {
+    return this.native.windowOpacity();
   }
   setWindowTitle(title: string) {
     //TODO:getter

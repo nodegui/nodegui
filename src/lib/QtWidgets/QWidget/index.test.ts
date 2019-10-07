@@ -63,4 +63,12 @@ describe("QWidget", () => {
     view.setEnabled(false);
     expect(view.isEnabled()).toBe(false);
   });
+  it("setFixedSize", () => {
+    view.setFixedSize(10, 12);
+    expect(view.size()).toEqual({ width: 10, height: 12 });
+  });
+  it("setWindowOpacity", () => {
+    view.setWindowOpacity(0.6);
+    expect(view.windowOpacity().toFixed(1)).toBe(`0.6`);
+  });
 });
