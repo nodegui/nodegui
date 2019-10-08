@@ -30,7 +30,7 @@ export const CreateNativeApps = () => {
           <a href="https://www.qt.io/" target="_blank">
             Qt
           </a>{" "}
-          which is a mature dekstop apps framework. NodeGui widgets are
+          which is a mature desktop apps framework. NodeGui widgets are
           extremely customizable just like in the web but does{" "}
           <strong>NOT</strong> use a Web browser under the hood.
         </p>
