@@ -15,6 +15,7 @@ module.exports = {
       "api/QRadioButton",
       "api/QScrollArea",
       "api/QSpinBox",
+      "api/QSystemTrayIcon",
       "api/QTabWidget",
       "api/QWidget"
     ],
