@@ -57,6 +57,7 @@ https://github.com/nodegui/examples
 
 **Community guides**
 
+- https://blog.logrocket.com/electron-alternatives-exploring-nodegui-and-react-nodegui/ - Electron alternatives: Exploring NodeGUI and React NodeGUI by [Siegfried Grimbeek](https://blog.logrocket.com/author/siegfriedgrimbeek/).
 - https://hibbard.eu/node-gui/ - Excellent guide from [James Hibbard](https://github.com/jameshibbard).
 
 **Talks/Podcasts**
