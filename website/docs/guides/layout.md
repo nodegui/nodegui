@@ -3,7 +3,7 @@ sidebar_label: Layout
 title: Layout
 ---
 
-NodeGui uses a layout system to automatically arranging child widgets within a widget to ensure that they make good use of the available space.
+NodeGui uses a layout system to automatically arrange child widgets within a widget to ensure that they make good use of the available space.
 
 ## Fixed Dimensions
 
