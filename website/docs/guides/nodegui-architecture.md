@@ -7,7 +7,7 @@ By looking at how NodeGui works internally, we would get a clear picture on why 
 
 ## Qode
 
-NodeGui uses Qt for creating Windows and other UI element. Hence it exports thin wrappers of native C++ widgets from Qt into Javascript world. Now, every Qt application needs to initialize an instance of `QApplication` before creating widgets. The way we do it in C++ Qt application is (dont worry if it doesnt make sense right now):
+NodeGui uses Qt for creating Windows and other UI elements. Hence it exports thin wrappers of native C++ widgets from Qt into Javascript world. Now, every Qt application needs to initialize an instance of `QApplication` before creating widgets. The way we do it in C++ Qt application is (dont worry if it doesnt make sense right now):
 
 ```cpp
  #include <QApplication>
