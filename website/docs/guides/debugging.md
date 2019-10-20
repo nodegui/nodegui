@@ -9,8 +9,8 @@ Whenever your NodeGui application is not behaving the way you wanted it to,
 an array of debugging tools might help you find coding errors, performance
 bottlenecks, or optimization opportunities.
 
-Since a NodeGui application runs on Qode. And Qode is essentially Node.Js. We can consider a NodeGui app as a regular NodeJs app. Hence, you can use any debugging tool that you use with Node.Js
-One of the most popular way of debugging a Node.Js app is by making use of the [Chromium Developer Tools][node-inspect].
+Since a NodeGui application runs on Qode. And Qode is essentially NodeJs. We can consider a NodeGui app as a regular NodeJs app. Hence, you can use any debugging tool that you use with NodeJs
+One of the most popular ways of debugging a NodeJs app is by making use of the [Chromium Developer Tools][node-inspect].
 
 Google offers [excellent documentation for their developer tools][devtools].
 We recommend that you make yourself familiar with them - they are usually one
