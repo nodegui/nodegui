@@ -32,7 +32,7 @@ Then following questions arise:
 - **What if we run Qt on a separate thread?** : No this is not possible since Qt has a requirement that it needs to run on the main thread.
 - **What if we run Node on a separate thread?** : This would mean we need to build a complex bridge between Node and Qt threads to make them communicate. A strict no no.
 
-So in order to make both NodeJs and Qt work together we need to find a way to merge these two event loop into one. This is achieved by a custom NodeJs binary we call as `Qode`.
+So in order to make both NodeJs and Qt work together we need to find a way to merge these two event loops into one. This is achieved by a custom NodeJs binary we call as `Qode`.
 
 Qode is a lightly modified fork of Node.js that merges Node's event loop with Qt's event loop. The idea of merging event loops is inspired by Electron and [other](https://github.com/yue) Gui libraries developed by [zcbenz (Cheng Zhao)](https://github.com/zcbenz). It has been detailed in a post here: [Electron internals](https://electronjs.org/blog/electron-internals-node-integration). Hence, we reused the logic from electron to achieve smooth integration between Qt and NodeJs.
 
