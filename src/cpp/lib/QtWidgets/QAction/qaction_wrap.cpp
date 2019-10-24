@@ -13,6 +13,8 @@ Napi::Object QActionWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QAction";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setText", &QActionWrap::setText),
+    InstanceMethod("setIcon", &QActionWrap::setIcon),
+    InstanceMethod("setMenu", &QActionWrap::setMenu),
     COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
     EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)
   });
@@ -49,5 +51,25 @@ Napi::Value QActionWrap::setText(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
   Napi::String text = info[0].As<Napi::String>();
   this->instance->setText(QString::fromStdString(text.Utf8Value()));
+  return env.Null();
+}
+
+Napi::Value QActionWrap::setIcon(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object iconObject = info[0].As<Napi::Object>();
+  QIconWrap *iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
+  this->instance->setIcon(*iconWrap->getInternalInstance());
+  return env.Null();
+}
+
+Napi::Value QActionWrap::setMenu(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object menuObject = info[0].As<Napi::Object>();
+  QMenuWrap *menuWrap = Napi::ObjectWrap<QMenuWrap>::Unwrap(menuObject);
+  this->instance->setMenu(menuWrap->getInternalInstance());
   return env.Null();
 }

@@ -3,13 +3,15 @@ import { NodeWidget } from "../QWidget";
 import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { QMenu } from "../QMenu";
+import { QIcon } from "../../QtGui/QIcon";
 
 export const QActionEvents = Object.freeze({
   ...BaseWidgetEvents
 });
 export class QAction extends EventWidget {
   native: NativeElement;
-  contextMenu?: QMenu;
+  icon?: QIcon;
+  menu?: QMenu;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {
@@ -22,5 +24,13 @@ export class QAction extends EventWidget {
   }
   setText(text: string) {
     this.native.setText(text);
+  }
+  setIcon(icon: QIcon) {
+    this.icon = icon;
+    this.native.setIcon(icon.native);
+  }
+  setMenu(menu: QMenu) {
+    this.menu = menu;
+    this.native.setMenu(menu.native);
   }
 }
