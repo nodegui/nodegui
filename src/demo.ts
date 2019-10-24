@@ -6,6 +6,7 @@ import { QSystemTrayIcon } from "./lib/QtWidgets/QSystemTrayIcon";
 import { QAction } from "./lib/QtWidgets/QAction";
 import { QApplication } from "./lib/QtGui/QApplication";
 import { QKeySequence } from "./lib/QtGui/QKeySequence";
+import { ShortcutContext } from "./lib/QtEnums";
 
 const win = new QMainWindow();
 
@@ -34,6 +35,7 @@ showHideAction.addEventListener("triggered", () => {
   }
 });
 showHideAction.setShortcut(new QKeySequence("Ctrl+L"));
+showHideAction.setShortcutContext(ShortcutContext.ApplicationShortcut);
 menu.addAction(showHideAction);
 
 const subMenu = new QMenu();
@@ -51,6 +53,7 @@ quitAction.addEventListener("triggered", () => {
   const app = QApplication.instance();
   app.exit(0);
 });
+quitAction.setEnabled(false);
 menu.addAction(quitAction);
 
 win.setWindowTitle("NodeGUI Demo");

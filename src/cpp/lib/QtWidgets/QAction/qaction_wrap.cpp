@@ -4,7 +4,7 @@
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "Extras/Utils/nutils.h"
 #include <QWidget>
-#include <iostream>
+#include <QDebug>
 
 
 Napi::FunctionReference QActionWrap::constructor;
@@ -14,9 +14,11 @@ Napi::Object QActionWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QAction";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setText", &QActionWrap::setText),
+    InstanceMethod("setEnabled", &QActionWrap::setEnabled),
     InstanceMethod("setIcon", &QActionWrap::setIcon),
     InstanceMethod("setMenu", &QActionWrap::setMenu),
     InstanceMethod("setShortcut", &QActionWrap::setShortcut),
+    InstanceMethod("setShortcutContext", &QActionWrap::setShortcutContext),
     COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
     EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)
   });
@@ -56,6 +58,14 @@ Napi::Value QActionWrap::setText(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+Napi::Value QActionWrap::setEnabled(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Boolean enabled = info[0].As<Napi::Boolean>();
+  this->instance->setEnabled(enabled.Value());
+  return env.Null();
+}
+
 Napi::Value QActionWrap::setIcon(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -86,3 +96,14 @@ Napi::Value QActionWrap::setShortcut(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+
+Napi::Value QActionWrap::setShortcutContext(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Number shortcutContextEnum = info[0].As<Napi::Number>();
+  int shortCutContext = shortcutContextEnum.Int32Value();
+  this->instance->setShortcutContext(static_cast<Qt::ShortcutContext>(shortCutContext));
+  qDebug()<<"shortCutContext: "<<shortCutContext;
+  return env.Null();
+}

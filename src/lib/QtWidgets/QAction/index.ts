@@ -5,6 +5,7 @@ import { NativeElement } from "../../core/Component";
 import { QMenu } from "../QMenu";
 import { QIcon } from "../../QtGui/QIcon";
 import { QKeySequence } from "../../QtGui/QKeySequence";
+import { ShortcutContext } from "../../QtEnums";
 
 export const QActionEvents = Object.freeze({
   ...BaseWidgetEvents,
@@ -30,6 +31,9 @@ export class QAction extends EventWidget {
   setText(text: string) {
     this.native.setText(text);
   }
+  setEnabled(enabled: boolean) {
+    this.native.setEnabled(enabled);
+  }
   setIcon(icon: QIcon) {
     this.icon = icon;
     this.native.setIcon(icon.native);
@@ -40,5 +44,8 @@ export class QAction extends EventWidget {
   }
   setShortcut(keysequence: QKeySequence) {
     this.native.setShortcut(keysequence.native);
+  }
+  setShortcutContext(shortcutContext: ShortcutContext) {
+    this.native.setShortcutContext(shortcutContext);
   }
 }
