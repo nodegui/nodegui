@@ -6,7 +6,7 @@
 
 class QKeyEventWrap : public  Napi::ObjectWrap<QKeyEventWrap>{
  private:
-  std::unique_ptr<QKeyEvent> instance;
+  QKeyEvent* instance;
   
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
