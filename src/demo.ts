@@ -7,6 +7,7 @@ import { QAction } from "./lib/QtWidgets/QAction";
 import { QApplication } from "./lib/QtGui/QApplication";
 import { QKeySequence } from "./lib/QtGui/QKeySequence";
 import { ShortcutContext } from "./lib/QtEnums";
+import { QMenuBar } from "./lib/QtWidgets/QMenuBar";
 
 const win = new QMainWindow();
 
@@ -19,6 +20,9 @@ tray.setIcon(trayIcon);
 tray.show();
 tray.setToolTip("hello");
 const menu = new QMenu();
+const menuBar = new QMenuBar();
+win.setMenuBar(menuBar);
+
 tray.setContextMenu(menu);
 
 const showHideAction = new QAction();
@@ -53,12 +57,14 @@ quitAction.addEventListener("triggered", () => {
   const app = QApplication.instance();
   app.exit(0);
 });
-quitAction.setEnabled(false);
+
 menu.addAction(quitAction);
 
+menu.setTitle("TestMenu");
 win.setWindowTitle("NodeGUI Demo");
 win.resize(400, 700);
 win.show();
+// menuBar.addMenu(menu);
 
 const qApp = QApplication.instance();
 qApp.setQuitOnLastWindowClosed(false);
