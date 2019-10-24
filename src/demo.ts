@@ -4,6 +4,7 @@ import path from "path";
 import { QIcon } from "./lib/QtGui/QIcon";
 import { QSystemTrayIcon } from "./lib/QtWidgets/QSystemTrayIcon";
 import { QAction } from "./lib/QtWidgets/QAction";
+import { QApplication } from "./lib/QtGui/QApplication";
 
 const win = new QMainWindow();
 
@@ -21,6 +22,9 @@ tray.setContextMenu(menu);
 const action1 = new QAction();
 action1.setText("action1");
 action1.setIcon(trayIcon);
+action1.addEventListener("triggered", () => {
+  console.log("Hello triggered action1");
+});
 menu.addAction(action1);
 
 const subMenu = new QMenu();
@@ -31,6 +35,14 @@ const action2 = new QAction();
 action2.setMenu(subMenu);
 action2.setText("subMenu");
 menu.addAction(action2);
+
+const quitAction = new QAction();
+quitAction.setText("Quit");
+quitAction.addEventListener("triggered", () => {
+  const app = QApplication.instance();
+  app.exit(0);
+});
+menu.addAction(quitAction);
 
 win.setWindowTitle("NodeGUI Demo");
 win.resize(400, 700);

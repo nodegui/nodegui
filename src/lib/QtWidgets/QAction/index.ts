@@ -6,7 +6,11 @@ import { QMenu } from "../QMenu";
 import { QIcon } from "../../QtGui/QIcon";
 
 export const QActionEvents = Object.freeze({
-  ...BaseWidgetEvents
+  ...BaseWidgetEvents,
+  triggered: "triggered",
+  changed: "changed",
+  hovered: "hovered",
+  toggled: "toggled"
 });
 export class QAction extends EventWidget {
   native: NativeElement;
