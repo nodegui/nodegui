@@ -18,6 +18,7 @@ class QActionWrap : public  Napi::ObjectWrap<QActionWrap>{
   Napi::Value setText(const Napi::CallbackInfo& info);
   Napi::Value setIcon(const Napi::CallbackInfo& info);
   Napi::Value setMenu(const Napi::CallbackInfo& info);
+  Napi::Value setShortcut(const Napi::CallbackInfo& info);
 
   EVENTWIDGET_WRAPPED_METHODS_DECLARATION
 };

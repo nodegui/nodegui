@@ -1,5 +1,6 @@
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
+#include "QtGui/QKeySequence/qkeysequence_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "Extras/Utils/nutils.h"
 #include <QWidget>
@@ -15,6 +16,7 @@ Napi::Object QActionWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("setText", &QActionWrap::setText),
     InstanceMethod("setIcon", &QActionWrap::setIcon),
     InstanceMethod("setMenu", &QActionWrap::setMenu),
+    InstanceMethod("setShortcut", &QActionWrap::setShortcut),
     COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
     EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)
   });
@@ -73,3 +75,14 @@ Napi::Value QActionWrap::setMenu(const Napi::CallbackInfo& info) {
   this->instance->setMenu(menuWrap->getInternalInstance());
   return env.Null();
 }
+
+Napi::Value QActionWrap::setShortcut(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object shortcutSequence = info[0].As<Napi::Object>();
+  QKeySequenceWrap *keysequence = Napi::ObjectWrap<QKeySequenceWrap>::Unwrap(shortcutSequence);
+  this->instance->setShortcut(*keysequence->getInternalInstance());
+  return env.Null();
+}
+

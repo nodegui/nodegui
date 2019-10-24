@@ -4,6 +4,7 @@ import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { QMenu } from "../QMenu";
 import { QIcon } from "../../QtGui/QIcon";
+import { QKeySequence } from "../../QtGui/QKeySequence";
 
 export const QActionEvents = Object.freeze({
   ...BaseWidgetEvents,
@@ -36,5 +37,8 @@ export class QAction extends EventWidget {
   setMenu(menu: QMenu) {
     this.menu = menu;
     this.native.setMenu(menu.native);
+  }
+  setShortcut(keysequence: QKeySequence) {
+    this.native.setShortcut(keysequence.native);
   }
 }

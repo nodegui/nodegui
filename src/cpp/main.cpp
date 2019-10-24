@@ -3,6 +3,7 @@
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
+#include "QtGui/QKeySequence/qkeysequence_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
@@ -36,6 +37,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QClipboardWrap::init(env, exports);
     QWidgetWrap::init(env, exports);
     QPixmapWrap::init(env, exports);
+    QKeySequenceWrap::init(env, exports);
     QIconWrap::init(env, exports);
     QCursorWrap::init(env, exports);
     QGridLayoutWrap::init(env, exports);
