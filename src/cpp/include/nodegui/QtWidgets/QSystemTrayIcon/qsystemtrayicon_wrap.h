@@ -19,6 +19,8 @@ class QSystemTrayIconWrap : public  Napi::ObjectWrap<QSystemTrayIconWrap>{
   Napi::Value hide(const Napi::CallbackInfo& info);
   Napi::Value setIcon(const Napi::CallbackInfo& info);
   Napi::Value isVisible(const Napi::CallbackInfo& info);
+  Napi::Value setToolTip(const Napi::CallbackInfo& info);
+  Napi::Value setContextMenu(const Napi::CallbackInfo& info);
 
   EVENTWIDGET_WRAPPED_METHODS_DECLARATION
 };

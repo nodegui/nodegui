@@ -45,6 +45,7 @@ export {
   QSystemTrayIcon,
   QSystemTrayIconEvents
 } from "./lib/QtWidgets/QSystemTrayIcon";
+export { QAction, QActionEvents } from "./lib/QtWidgets/QAction";
 // Layouts:
 export { QGridLayout } from "./lib/QtWidgets/QGridLayout";
 export { FlexLayout } from "./lib/core/FlexLayout";
