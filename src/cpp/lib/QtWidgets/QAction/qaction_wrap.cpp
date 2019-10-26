@@ -19,6 +19,10 @@ Napi::Object QActionWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("setMenu", &QActionWrap::setMenu),
     InstanceMethod("setShortcut", &QActionWrap::setShortcut),
     InstanceMethod("setShortcutContext", &QActionWrap::setShortcutContext),
+    InstanceMethod("isCheckable", &QActionWrap::isCheckable),
+    InstanceMethod("setCheckable", &QActionWrap::setCheckable),
+    InstanceMethod("isChecked", &QActionWrap::isChecked),
+    InstanceMethod("setChecked", &QActionWrap::setChecked),
     COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
     EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)
   });
@@ -105,5 +109,47 @@ Napi::Value QActionWrap::setShortcutContext(const Napi::CallbackInfo& info) {
   int shortCutContext = shortcutContextEnum.Int32Value();
   this->instance->setShortcutContext(static_cast<Qt::ShortcutContext>(shortCutContext));
   qDebug()<<"shortCutContext: "<<shortCutContext;
+  return env.Null();
+}
+
+Napi::Value QActionWrap::isCheckable(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Boolean::New(env, this->instance->isCheckable());
+}
+
+Napi::Value QActionWrap::setCheckable(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  if (info.Length() == 1) {
+    Napi::Boolean isCheckable = info[0].As<Napi::Boolean>();
+    this->instance->setCheckable(isCheckable);
+  } else {
+    Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
+  }
+
+  return env.Null();
+}
+
+Napi::Value QActionWrap::isChecked(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Boolean::New(env, this->instance->isChecked());
+}
+
+Napi::Value QActionWrap::setChecked(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  if (info.Length() == 1) {
+    Napi::Boolean isChecked = info[0].As<Napi::Boolean>();
+    this->instance->setChecked(isChecked);
+  } else {
+    Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
+  }
+
   return env.Null();
 }
