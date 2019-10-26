@@ -1,5 +1,6 @@
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
+#include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "Extras/Utils/nutils.h"
 #include <QWidget>
 #include <iostream>
@@ -15,6 +16,8 @@ Napi::Object QSystemTrayIconWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("hide", &QSystemTrayIconWrap::hide),
     InstanceMethod("setIcon", &QSystemTrayIconWrap::setIcon),
     InstanceMethod("isVisible", &QSystemTrayIconWrap::isVisible),
+    InstanceMethod("setToolTip", &QSystemTrayIconWrap::setToolTip),
+    InstanceMethod("setContextMenu", &QSystemTrayIconWrap::setContextMenu),
 
     COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
     EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QSystemTrayIconWrap)
@@ -81,3 +84,21 @@ Napi::Value QSystemTrayIconWrap::isVisible(const Napi::CallbackInfo& info) {
   return Napi::Boolean::New(env, visibility);
 }
 
+Napi::Value QSystemTrayIconWrap::setToolTip(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::String toolTip = info[0].As<Napi::String>();
+  this->instance->setToolTip(QString::fromStdString(toolTip.Utf8Value()));
+  return env.Null();
+}
+
+Napi::Value QSystemTrayIconWrap::setContextMenu(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object menuObject = info[0].As<Napi::Object>();
+  QMenuWrap *menuWrap = Napi::ObjectWrap<QMenuWrap>::Unwrap(menuObject);
+  this->instance->setContextMenu(menuWrap->getInternalInstance());
+  return env.Null();
+}

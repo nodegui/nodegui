@@ -1,6 +1,7 @@
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include <nodegui/QtWidgets/QWidget/qwidget_wrap.h>
 #include <nodegui/Extras/Utils/nutils.h>
+#include "QtWidgets/QAction/qaction_wrap.h"
 #include <QWidget>
 
 Napi::FunctionReference QMenuWrap::constructor;
@@ -10,6 +11,7 @@ Napi::Object QMenuWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QMenu";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setTitle", &QMenuWrap::setTitle),
+    InstanceMethod("addAction", &QMenuWrap::addAction),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMenuWrap)
   });
   constructor = Napi::Persistent(func);
@@ -49,5 +51,16 @@ Napi::Value QMenuWrap::setTitle(const Napi::CallbackInfo& info) {
   Napi::String message = info[0].As<Napi::String>();
   this->instance->setTitle(QString::fromStdString(message.Utf8Value()));
 
+  return env.Null();
+}
+
+Napi::Value QMenuWrap::addAction(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object actionObject = info[0].As<Napi::Object>();
+  QActionWrap *actionWrap = Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
+  this->instance->addAction(actionWrap->getInternalInstance()); 
+  //TODO: see if we need to return from here an pointer to qaction or not.
   return env.Null();
 }

@@ -15,6 +15,7 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports)
         InstanceMethod("processEvents", &QApplicationWrap::processEvents),
         InstanceMethod("exec", &QApplicationWrap::exec),
         InstanceMethod("quit", &QApplicationWrap::quit),
+        InstanceMethod("exit", &QApplicationWrap::exit),
         InstanceMethod("setQuitOnLastWindowClosed", &QApplicationWrap::setQuitOnLastWindowClosed),
         InstanceMethod("quitOnLastWindowClosed", &QApplicationWrap::quitOnLastWindowClosed),
         StaticMethod("instance", &StaticQApplicationWrapMethods::instance),

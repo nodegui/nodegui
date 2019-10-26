@@ -4,6 +4,7 @@ import "./lib/core/bootstrap";
 export * from "./lib/QtEnums";
 // Gui:
 export { QApplication } from "./lib/QtGui/QApplication";
+export { QKeySequence } from "./lib/QtGui/QKeySequence";
 export {
   QPixmap,
   ReadWriteImageFormats,
@@ -45,6 +46,8 @@ export {
   QSystemTrayIcon,
   QSystemTrayIconEvents
 } from "./lib/QtWidgets/QSystemTrayIcon";
+export { QAction, QActionEvents } from "./lib/QtWidgets/QAction";
+export { QShortcut, QShortcutEvents } from "./lib/QtWidgets/QShortcut";
 // Layouts:
 export { QGridLayout } from "./lib/QtWidgets/QGridLayout";
 export { FlexLayout } from "./lib/core/FlexLayout";

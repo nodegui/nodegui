@@ -3,12 +3,14 @@ import { NodeWidget } from "../QWidget";
 import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { QIcon } from "../../QtGui/QIcon";
+import { QMenu } from "../QMenu";
 
 export const QSystemTrayIconEvents = Object.freeze({
-  ...BaseWidgetEvents,
+  ...BaseWidgetEvents
 });
 export class QSystemTrayIcon extends EventWidget {
   native: NativeElement;
+  contextMenu?: QMenu;
   constructor(parent?: NodeWidget) {
     let native;
     if (parent) {
@@ -18,11 +20,6 @@ export class QSystemTrayIcon extends EventWidget {
     }
     super(native);
     this.native = native;
-    // bind member functions
-    this.show = this.show.bind(this);
-    this.hide = this.hide.bind(this);
-    this.setIcon = this.setIcon.bind(this);
-    this.isVisible = this.isVisible.bind(this);
   }
   show() {
     this.native.show();
@@ -35,5 +32,12 @@ export class QSystemTrayIcon extends EventWidget {
   }
   isVisible(): boolean {
     return this.native.isVisible();
+  }
+  setToolTip(tooltip: string) {
+    this.native.setToolTip(tooltip);
+  }
+  setContextMenu(menu: QMenu) {
+    this.contextMenu = menu;
+    this.native.setContextMenu(this.contextMenu.native);
   }
 }

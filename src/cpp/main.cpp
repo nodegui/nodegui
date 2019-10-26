@@ -3,6 +3,7 @@
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
+#include "QtGui/QKeySequence/qkeysequence_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
@@ -21,6 +22,8 @@
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include "QtWidgets/QScrollArea/qscrollarea_wrap.h"
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
+#include "QtWidgets/QAction/qaction_wrap.h"
+#include "QtWidgets/QShortcut/qshortcut_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
 #include <napi.h>
@@ -35,6 +38,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QClipboardWrap::init(env, exports);
     QWidgetWrap::init(env, exports);
     QPixmapWrap::init(env, exports);
+    QKeySequenceWrap::init(env, exports);
     QIconWrap::init(env, exports);
     QCursorWrap::init(env, exports);
     QGridLayoutWrap::init(env, exports);
@@ -53,6 +57,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QLabelWrap::init(env, exports);
     QScrollAreaWrap::init(env, exports);
     QSystemTrayIconWrap::init(env, exports);
+    QActionWrap::init(env, exports);
+    QShortcutWrap::init(env, exports);
     QMenuWrap::init(env, exports);
     QMenuBarWrap::init(env, exports);
     return exports;
