@@ -1,7 +1,7 @@
 # NodeGUI
 
 [![Join the NodeGUI community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/nodegui)
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors)
 [![JS Party #96](https://img.shields.io/badge/JS%20Party-%2396-FFCD00.svg)](https://changelog.com/jsparty/96)
 
 Build **performant**, **native** and **cross-platform** desktop applications with **JavaScript** + powerful **CSS like styling**.🚀
@@ -135,6 +135,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/illBeRoy"><img src="https://avatars2.githubusercontent.com/u/6681893?v=4" width="100px;" alt="Roy Sommer"/><br /><sub><b>Roy Sommer</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=illBeRoy" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/paulocoghi"><img src="https://avatars1.githubusercontent.com/u/378397?v=4" width="100px;" alt="Paulo Coghi"/><br /><sub><b>Paulo Coghi</b></sub></a><br /><a href="#ideas-paulocoghi" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://balthild.com"><img src="https://avatars2.githubusercontent.com/u/2662758?v=4" width="100px;" alt="Balthild Ires"/><br /><sub><b>Balthild Ires</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=balthild" title="Code">💻</a></td>
+    <td align="center"><a href="https://dimitarnestorov.com"><img src="https://avatars0.githubusercontent.com/u/8790386?v=4" width="100px;" alt="Dimitar Nestorov"/><br /><sub><b>Dimitar Nestorov</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=dimitarnestorov" title="Code">💻</a></td>
   </tr>
 </table>
 
