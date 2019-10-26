@@ -1,16 +1,16 @@
 import addon from "../../utils/addon";
 import { NodeWidget } from "../QWidget";
-import { EventWidget } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { QKeySequence } from "../../QtGui/QKeySequence";
 import { ShortcutContext } from "../../QtEnums";
+import { QObject } from "../../QtCore/QObject";
 
 export const QShortcutEvents = Object.freeze({
   activated: "activated",
   activatedAmbiguously: "activatedAmbiguously"
 });
 
-export class QShortcut extends EventWidget {
+export class QShortcut extends QObject {
   native: NativeElement;
   constructor(parent: NodeWidget) {
     let native = new addon.QShortcut(parent.native);

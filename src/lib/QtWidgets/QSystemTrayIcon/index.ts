@@ -1,14 +1,15 @@
 import addon from "../../utils/addon";
 import { NodeWidget } from "../QWidget";
-import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
+import { BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { QIcon } from "../../QtGui/QIcon";
 import { QMenu } from "../QMenu";
+import { QObject } from "../../QtCore/QObject";
 
 export const QSystemTrayIconEvents = Object.freeze({
   ...BaseWidgetEvents
 });
-export class QSystemTrayIcon extends EventWidget {
+export class QSystemTrayIcon extends QObject {
   native: NativeElement;
   contextMenu?: QMenu;
   constructor(parent?: NodeWidget) {

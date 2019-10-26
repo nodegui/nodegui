@@ -5,7 +5,6 @@ module.exports = {
       "api/QApplication",
       "api/QCheckBox",
       "api/QDial",
-      "api/QIcon",
       "api/QLabel",
       "api/QLineEdit",
       "api/QMainWindow",
@@ -15,12 +14,23 @@ module.exports = {
       "api/QRadioButton",
       "api/QScrollArea",
       "api/QSpinBox",
-      "api/QSystemTrayIcon",
       "api/QTabWidget",
-      "api/QWidget"
+      "api/QWidget",
+      "api/QMenu",
+      "api/QMenuBar"
     ],
     Layouts: ["api/FlexLayout", "api/QGridLayout"],
-    Modules: ["api/QClipboard", "api/QCursor", "api/QPixmap", "api/QtEnums"],
+    Modules: [
+      "api/QClipboard",
+      "api/QCursor",
+      "api/QPixmap",
+      "api/QtEnums",
+      "api/QShortcut",
+      "api/QAction",
+      "api/QKeySequence",
+      "api/QIcon",
+      "api/QSystemTrayIcon"
+    ],
     "Internal Modules": [
       "api/Component",
       "api/EventWidget",

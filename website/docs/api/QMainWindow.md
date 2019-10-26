@@ -58,3 +58,15 @@ Additionally it also has the following instance methods:
 Sets the given widget to be the main window's central widget.
 
 - `widget` NodeWidget - Any widget that inherits from NodeWidget class.
+
+### `win.setMenuBar(menuBar)`
+
+Sets the given menuBar to be the window's menubar widget.
+
+- `menuBar` [QMenuBar](api/QMenuBar)
+
+### `win.setMenuWidget(menuWidget)`
+
+Sets the given widget to be the window's menubar widget.
+
+- `menuWidget` NodeWidget

@@ -1,6 +1,6 @@
 ---
-sidebar_label: QSsystemTrayIcon
-title: QSsystemTrayIcon
+sidebar_label: QSystemTrayIcon
+title: QSystemTrayIcon
 ---
 
 > Create and control system tray icon.

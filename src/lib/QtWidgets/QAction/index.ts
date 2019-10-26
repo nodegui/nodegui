@@ -1,11 +1,11 @@
 import addon from "../../utils/addon";
 import { NodeWidget } from "../QWidget";
-import { EventWidget, BaseWidgetEvents } from "../../core/EventWidget";
 import { NativeElement } from "../../core/Component";
 import { QMenu } from "../QMenu";
 import { QIcon } from "../../QtGui/QIcon";
 import { QKeySequence } from "../../QtGui/QKeySequence";
 import { ShortcutContext } from "../../QtEnums";
+import { QObject } from "../../QtCore/QObject";
 
 export const QActionEvents = Object.freeze({
   triggered: "triggered",
@@ -13,7 +13,7 @@ export const QActionEvents = Object.freeze({
   hovered: "hovered",
   toggled: "toggled"
 });
-export class QAction extends EventWidget {
+export class QAction extends QObject {
   native: NativeElement;
   icon?: QIcon;
   menu?: QMenu;
