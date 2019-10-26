@@ -8,7 +8,6 @@ import { QKeySequence } from "../../QtGui/QKeySequence";
 import { ShortcutContext } from "../../QtEnums";
 
 export const QActionEvents = Object.freeze({
-  ...BaseWidgetEvents,
   triggered: "triggered",
   changed: "changed",
   hovered: "hovered",

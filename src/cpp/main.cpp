@@ -23,6 +23,7 @@
 #include "QtWidgets/QScrollArea/qscrollarea_wrap.h"
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
+#include "QtWidgets/QShortcut/qshortcut_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
 #include <napi.h>
@@ -57,6 +58,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
     QScrollAreaWrap::init(env, exports);
     QSystemTrayIconWrap::init(env, exports);
     QActionWrap::init(env, exports);
+    QShortcutWrap::init(env, exports);
     QMenuWrap::init(env, exports);
     QMenuBarWrap::init(env, exports);
     return exports;

@@ -8,9 +8,16 @@ import { QApplication } from "./lib/QtGui/QApplication";
 import { QKeySequence } from "./lib/QtGui/QKeySequence";
 import { ShortcutContext } from "./lib/QtEnums";
 import { QMenuBar } from "./lib/QtWidgets/QMenuBar";
+import { QShortcut, QShortcutEvents } from "./lib/QtWidgets/QShortcut";
 
 const win = new QMainWindow();
-
+const shortcut = new QShortcut(win);
+shortcut.setKey(new QKeySequence("Ctrl+M"));
+shortcut.setEnabled(true);
+shortcut.addEventListener(QShortcutEvents.activated, () => {
+  console.log("Shortcut Activated");
+});
+(global as any).shortcut = shortcut;
 const trayIcon = new QIcon(
   path.resolve(__dirname, "../extras/assets/nodegui_white.png")
 );
