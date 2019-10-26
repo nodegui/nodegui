@@ -44,3 +44,13 @@ Returns a pixmap with the requested size, mode, and state, generating one if nec
 - `height`: number
 - `mode?`: QIconMode
 - `state?`: QIconState
+
+### `icon.isMask()`
+
+Returns true if this icon has been marked as a mask image. It calls the native method [QIcon: isMask](https://doc.qt.io/qt-5/qicon.html#isMask).
+
+### `icon.setIsMask(isMask)`
+
+Indicate that this icon is a mask image, and hence can potentially be modified based on where it's displayed. It calls the native method [QIcon: setIsMask](https://doc.qt.io/qt-5/qicon.html#setIsMask).
+
+- `isMask`: boolean

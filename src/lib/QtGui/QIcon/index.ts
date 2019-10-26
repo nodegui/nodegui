@@ -41,4 +41,12 @@ export class QIcon extends Component {
     }
     return new QPixmap(nativePixmap);
   };
+
+  isMask(): boolean {
+    return this.native.isMask();
+  }
+
+  setIsMask(isMask: boolean) {
+    this.native.setIsMask(isMask);
+  }
 }

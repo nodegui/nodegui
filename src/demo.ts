@@ -21,6 +21,7 @@ shortcut.addEventListener(QShortcutEvents.activated, () => {
 const trayIcon = new QIcon(
   path.resolve(__dirname, "../extras/assets/nodegui_white.png")
 );
+trayIcon.setIsMask(true);
 
 const tray = new QSystemTrayIcon();
 tray.setIcon(trayIcon);
