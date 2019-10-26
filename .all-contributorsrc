@@ -121,6 +121,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "dimitarnestorov",
+      "name": "Dimitar Nestorov",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8790386?v=4",
+      "profile": "https://dimitarnestorov.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
