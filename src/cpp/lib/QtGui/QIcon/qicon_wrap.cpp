@@ -11,6 +11,8 @@ Napi::Object QIconWrap::init(Napi::Env env, Napi::Object exports)
     char CLASSNAME[] = "QIcon";
     Napi::Function func = DefineClass(env, CLASSNAME, {
         InstanceMethod("pixmap", &QIconWrap::pixmap),
+        InstanceMethod("isMask", &QIconWrap::isMask),
+        InstanceMethod("setIsMask", &QIconWrap::setIsMask),
         COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
     });
     constructor = Napi::Persistent(func);
@@ -73,4 +75,30 @@ Napi::Value QIconWrap::pixmap(const Napi::CallbackInfo& info)
     QPixmap* pixmap = new QPixmap(this->instance->pixmap(width, height, mode, state));
     auto instance = QPixmapWrap::constructor.New({ Napi::External<QPixmap>::New(env, pixmap) });
     return instance;
+}
+
+Napi::Value QIconWrap::isMask(const Napi::CallbackInfo& info)
+{
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    return Napi::Boolean::New(env, this->instance->isMask());
+}
+
+Napi::Value QIconWrap::setIsMask(const Napi::CallbackInfo& info)
+{
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    if (info.Length() == 1)
+    {
+        Napi::Boolean isMask = info[0].As<Napi::Boolean>();
+        this->instance->setIsMask(isMask.Value());
+    }
+    else
+    {
+        Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
+    }
+
+    return env.Null();
 }

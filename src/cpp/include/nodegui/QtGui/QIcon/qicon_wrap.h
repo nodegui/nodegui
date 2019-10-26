@@ -18,4 +18,6 @@ public:
     QIcon *getInternalInstance();
     // Wrapped methods
     Napi::Value pixmap(const Napi::CallbackInfo& info);
+    Napi::Value isMask(const Napi::CallbackInfo& info);
+    Napi::Value setIsMask(const Napi::CallbackInfo& info);
 };
