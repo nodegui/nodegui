@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[121],{58:function(e){e.exports=JSON.parse('{"id":"development/wrapping_widgets","title":"wrapping_widgets","description":"# Exporting a new method from a widget","source":"@site/docs/development/wrapping_widgets.md","permalink":"/docs/development/wrapping_widgets"}')}}]);
