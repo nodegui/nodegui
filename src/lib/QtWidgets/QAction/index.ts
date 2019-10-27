@@ -47,4 +47,16 @@ export class QAction extends QObject {
   setShortcutContext(shortcutContext: ShortcutContext) {
     this.native.setShortcutContext(shortcutContext);
   }
+  isCheckable(): boolean {
+    return this.native.isCheckable();
+  }
+  setCheckable(isCheckable: boolean) {
+    this.native.setCheckable(isCheckable);
+  }
+  isChecked(): boolean {
+    return this.native.isChecked();
+  }
+  setChecked(isChecked: boolean) {
+    this.native.setChecked(isChecked);
+  }
 }

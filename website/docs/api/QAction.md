@@ -74,3 +74,32 @@ This property holds the action's key sequence. It calls the native method [QActi
 This property holds the context in which the action is valid. It calls the native method [QAction: setShortcutContext](https://doc.qt.io/qt-5/qaction.html#shortcutContext-prop).
 
 - `contextEnum` - ShortcutContext enum.
+
+### `action.isCheckable()`
+
+Returns true if this action has been marked as checkable. It calls the native method [QIcon: isCheckable](https://doc.qt.io/qt-5/qaction.html#checkable-prop).
+
+### `icon.setCheckable(isCheckable)`
+
+Indicate that this action is checkable.
+
+A checkable action is one which has an on/off state. For example, in a word processor, a Bold toolbar button may be either on or off. An action which is not a toggle action is a command action; a command action is simply executed, e.g. file save. By default, this property is `false`.
+
+
+It calls the native method [QIcon: setCheckable](https://doc.qt.io/qt-5/qaction.html#checkable-prop).
+
+- `isCheckable`: boolean
+
+### `action.isChecked()`
+
+Returns true if this action has been marked as checked. It calls the native method [QIcon: isChecked](https://doc.qt.io/qt-5/qaction.html#checked-prop).
+
+### `icon.setChecked(isChecked)`
+
+Indicate that this action is checked.
+
+Only checkable actions can be checked. By default, this is false (the action is unchecked).
+
+It calls the native method [QIcon: setChecked](https://doc.qt.io/qt-5/qaction.html#checkable-prop).
+
+- `isChecked`: boolean

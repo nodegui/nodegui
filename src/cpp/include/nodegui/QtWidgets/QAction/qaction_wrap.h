@@ -21,6 +21,10 @@ class QActionWrap : public  Napi::ObjectWrap<QActionWrap>{
   Napi::Value setMenu(const Napi::CallbackInfo& info);
   Napi::Value setShortcut(const Napi::CallbackInfo& info);
   Napi::Value setShortcutContext(const Napi::CallbackInfo& info);
+  Napi::Value isCheckable(const Napi::CallbackInfo& info);
+  Napi::Value setCheckable(const Napi::CallbackInfo& info);
+  Napi::Value isChecked(const Napi::CallbackInfo& info);
+  Napi::Value setChecked(const Napi::CallbackInfo& info);
 
   EVENTWIDGET_WRAPPED_METHODS_DECLARATION
 };

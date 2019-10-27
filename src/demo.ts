@@ -33,6 +33,23 @@ win.setMenuBar(menuBar);
 
 tray.setContextMenu(menu);
 
+const showActionCheckable = new QAction();
+showActionCheckable.setCheckable(true);
+showActionCheckable.setChecked(true);
+showActionCheckable.setText("Show");
+showActionCheckable.addEventListener("triggered", () => {
+  if (win.isVisible()) {
+    win.hide();
+    showHideAction.setText("Show");
+    showActionCheckable.setChecked(false);
+  } else {
+    win.show();
+    showHideAction.setText("Hide");
+    showActionCheckable.setChecked(true);
+  }
+});
+menu.addAction(showActionCheckable);
+
 const showHideAction = new QAction();
 showHideAction.setText("Hide");
 showHideAction.setIcon(trayIcon);
@@ -41,9 +58,11 @@ showHideAction.addEventListener("triggered", () => {
   if (win.isVisible()) {
     win.hide();
     showHideAction.setText("Show");
+    showActionCheckable.setChecked(false);
   } else {
     win.show();
     showHideAction.setText("Hide");
+    showActionCheckable.setChecked(true);
   }
 });
 showHideAction.setShortcut(new QKeySequence("Ctrl+L"));
