@@ -53,7 +53,7 @@ for JavaScript development.
 - CMake 3.1 and up (Installation instructions can be found here: https://cmake.org/install/)
 - Currently supported Node.Js versions are 12.x and up.
 
-We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
+We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily.
 
 We strongly recommend Powershell as preferred terminal in Windows.
 
