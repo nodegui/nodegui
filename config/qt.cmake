@@ -4,6 +4,7 @@
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(QT_VERSION_MAJOR 5)
+set(QT_VERSION_MINOR 13)
 add_executable(Qt5::moc IMPORTED)
 
 function(AddQtSupport addonName)
@@ -13,7 +14,6 @@ function(AddQtSupport addonName)
     )
     string(REPLACE "\n" "" QT_HOME_DIR "${QT_HOME_DIR}")
     string(REPLACE "\"" "" QT_HOME_DIR "${QT_HOME_DIR}")
-
     if (APPLE) 
         # createQtMacSymlinks()
         set(CUSTOM_QT_MOC_PATH "${QT_HOME_DIR}/bin/moc")
@@ -53,7 +53,6 @@ function(AddQtSupport addonName)
 
     if(LINUX)
         set(CUSTOM_QT_MOC_PATH "${QT_HOME_DIR}/bin/moc")
-       
         target_include_directories(${addonName} PRIVATE
             "${QT_HOME_DIR}/include"
             "${QT_HOME_DIR}/include/QtCore"
@@ -69,7 +68,7 @@ function(AddQtSupport addonName)
 
     # set custom moc executable location
     set_target_properties(Qt5::moc PROPERTIES IMPORTED_LOCATION "${CUSTOM_QT_MOC_PATH}")
-
+    
 endfunction(AddQtSupport addonName)
 
 # function(createQtMacSymlinks)
