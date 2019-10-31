@@ -54,6 +54,7 @@ https://github.com/nodegui/examples
 
 - Check out [nodegui-starter](https://github.com/nodegui/nodegui-starter) to get up and running with your own React NodeGUI app!
 - Read through the [docs](https://nodegui.github.io/nodegui).
+- Checkout the examples: https://github.com/nodegui/examples .
 
 **Community guides**
 
