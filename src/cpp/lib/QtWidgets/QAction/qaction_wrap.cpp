@@ -153,3 +153,24 @@ Napi::Value QActionWrap::setChecked(const Napi::CallbackInfo& info) {
 
   return env.Null();
 }
+
+Napi::Value QActionWrap::isSeparator(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Boolean::New(env, this->instance->isSeparator());
+}
+
+Napi::Value QActionWrap::setSeparator(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  if (info.Length() == 1) {
+    Napi::Boolean isSeparator = info[0].As<Napi::Boolean>();
+    this->instance->setSeparator(isSeparator);
+  } else {
+    Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
+  }
+
+  return env.Null();
+}
