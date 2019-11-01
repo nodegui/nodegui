@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@nodegui/qode": "^1.0.5",
-    "cmake-js": "^5.3.2",
+    "cmake-js": "^6.0.0",
     "cross-env": "^6.0.0",
     "cuid": "^2.1.6",
     "node-addon-api": "^1.6.3",
