@@ -100,6 +100,17 @@ https://github.com/nodegui/.github/blob/master/CODE_OF_CONDUCT.md
 
 MIT
 
+## Backers 🚀
+
+Thanks goes to these wonderful people.
+
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/johnsusek"><img src="https://avatars1.githubusercontent.com/u/611996?s=460&v=4" width="100px;" alt="John Susek"/><br /><sub><b>John Susek</b></sub></a></td>
+  </tr>
+</table>
+
 
 ## Maintainers ✨
 
