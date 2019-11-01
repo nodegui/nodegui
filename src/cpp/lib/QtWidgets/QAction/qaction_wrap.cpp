@@ -23,6 +23,8 @@ Napi::Object QActionWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("setCheckable", &QActionWrap::setCheckable),
     InstanceMethod("isChecked", &QActionWrap::isChecked),
     InstanceMethod("setChecked", &QActionWrap::setChecked),
+    InstanceMethod("isSeparator", &QActionWrap::isSeparator),
+    InstanceMethod("setSeparator", &QActionWrap::setSeparator),
     COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
     EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)
   });
@@ -147,6 +149,27 @@ Napi::Value QActionWrap::setChecked(const Napi::CallbackInfo& info) {
   if (info.Length() == 1) {
     Napi::Boolean isChecked = info[0].As<Napi::Boolean>();
     this->instance->setChecked(isChecked);
+  } else {
+    Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
+  }
+
+  return env.Null();
+}
+
+Napi::Value QActionWrap::isSeparator(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Boolean::New(env, this->instance->isSeparator());
+}
+
+Napi::Value QActionWrap::setSeparator(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  if (info.Length() == 1) {
+    Napi::Boolean isSeparator = info[0].As<Napi::Boolean>();
+    this->instance->setSeparator(isSeparator);
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }

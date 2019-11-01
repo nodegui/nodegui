@@ -77,29 +77,43 @@ This property holds the context in which the action is valid. It calls the nativ
 
 ### `action.isCheckable()`
 
-Returns true if this action has been marked as checkable. It calls the native method [QIcon: isCheckable](https://doc.qt.io/qt-5/qaction.html#checkable-prop).
+Returns true if this action has been marked as checkable. It calls the native method [QAction: isCheckable](https://doc.qt.io/qt-5/qaction.html#checkable-prop).
 
-### `icon.setCheckable(isCheckable)`
+### `action.setCheckable(isCheckable)`
 
 Indicate that this action is checkable.
 
 A checkable action is one which has an on/off state. For example, in a word processor, a Bold toolbar button may be either on or off. An action which is not a toggle action is a command action; a command action is simply executed, e.g. file save. By default, this property is `false`.
 
 
-It calls the native method [QIcon: setCheckable](https://doc.qt.io/qt-5/qaction.html#checkable-prop).
+It calls the native method [QAction: setCheckable](https://doc.qt.io/qt-5/qaction.html#checkable-prop).
 
 - `isCheckable`: boolean
 
 ### `action.isChecked()`
 
-Returns true if this action has been marked as checked. It calls the native method [QIcon: isChecked](https://doc.qt.io/qt-5/qaction.html#checked-prop).
+Returns true if this action has been marked as checked. It calls the native method [QAction: isChecked](https://doc.qt.io/qt-5/qaction.html#checked-prop).
 
-### `icon.setChecked(isChecked)`
+### `action.setChecked(isChecked)`
 
 Indicate that this action is checked.
 
 Only checkable actions can be checked. By default, this is false (the action is unchecked).
 
-It calls the native method [QIcon: setChecked](https://doc.qt.io/qt-5/qaction.html#checkable-prop).
+It calls the native method [QAction: setChecked](https://doc.qt.io/qt-5/qaction.html#checkable-prop).
 
 - `isChecked`: boolean
+
+### `action.isSeparator()`
+
+Returns `true` if this action is a separator action; otherwise it returns `false`. It calls the native method [QAction: isSeparator](https://doc.qt.io/qt-5/qaction.html#isSeparator).
+
+### `action.setSeparator(isSeparator)`
+
+If `isSeparator` is `true` then this action will be considered a separator.
+
+How a separator is represented depends on the widget it is inserted into. Under most circumstances the text, submenu, and icon will be ignored for separator actions.
+
+It calls the native method [QAction: setSeparator](https://doc.qt.io/qt-5/qaction.html#setSeparator).
+
+- `isSeparator`: boolean
