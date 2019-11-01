@@ -59,4 +59,10 @@ export class QAction extends QObject {
   setChecked(isChecked: boolean) {
     this.native.setChecked(isChecked);
   }
+  isSeparator(): boolean {
+    return this.native.isSeparator();
+  }
+  setSeparator(isSeparator: boolean) {
+    this.native.setSeparator(isSeparator);
+  }
 }

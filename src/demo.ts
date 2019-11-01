@@ -78,6 +78,10 @@ actionWithSubmenu.setMenu(subMenu);
 actionWithSubmenu.setText("subMenu");
 menu.addAction(actionWithSubmenu);
 
+const separatorAction = new QAction();
+separatorAction.setSeparator(true);
+menu.addAction(separatorAction);
+
 const quitAction = new QAction();
 quitAction.setText("Quit");
 quitAction.addEventListener("triggered", () => {

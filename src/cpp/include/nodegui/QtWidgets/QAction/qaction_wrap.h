@@ -25,6 +25,8 @@ class QActionWrap : public  Napi::ObjectWrap<QActionWrap>{
   Napi::Value setCheckable(const Napi::CallbackInfo& info);
   Napi::Value isChecked(const Napi::CallbackInfo& info);
   Napi::Value setChecked(const Napi::CallbackInfo& info);
+  Napi::Value isSeparator(const Napi::CallbackInfo& info);
+  Napi::Value setSeparator(const Napi::CallbackInfo& info);
 
   EVENTWIDGET_WRAPPED_METHODS_DECLARATION
 };
