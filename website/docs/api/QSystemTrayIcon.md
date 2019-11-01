@@ -21,7 +21,7 @@ const trayIcon = new QIcon(
 const tray = new QSystemTrayIcon();
 tray.show();
 
-global.trayIcon = trayIcon; // prevent's gc of trayIcon
+global.tray = tray; // prevents garbage collection of tray
 ```
 
 ### `new QSystemTrayIcon(parent?)`
