@@ -19,7 +19,7 @@ export class QMenu extends NodeWidget {
     }
     super(native);
     this.native = native;
-    this.parent = parent;
+    this.nodeParent = parent;
     this.actions = new Set();
   }
   setTitle(title: string) {

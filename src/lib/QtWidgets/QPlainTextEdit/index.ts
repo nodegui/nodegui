@@ -33,7 +33,7 @@ export class QPlainTextEdit extends QAbstractScrollArea {
     }
     super(native);
     this.native = native;
-    this.parent = parent;
+    this.nodeParent = parent;
     // bind member functions
     this.setPlainText.bind(this);
     this.setPlaceholderText.bind(this);

@@ -166,7 +166,7 @@ export class QWidget extends NodeWidget {
       native = new addon.QWidget();
     }
     super(native);
-    this.parent = parent;
+    this.nodeParent = parent;
     this.native = native;
   }
 }

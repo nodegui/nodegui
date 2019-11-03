@@ -17,7 +17,7 @@ export class QRadioButton extends NodeWidget {
     }
     super(native);
     this.native = native;
-    this.parent = parent;
+    this.nodeParent = parent;
     // bind member functions
     this.setText.bind(this);
   }

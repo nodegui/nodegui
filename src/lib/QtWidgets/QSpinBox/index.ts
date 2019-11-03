@@ -19,7 +19,7 @@ export class QSpinBox extends NodeWidget {
       native = new addon.QSpinBox();
     }
     super(native);
-    this.parent = parent;
+    this.nodeParent = parent;
     this.native = native;
     // bind member functions
     this.setPrefix.bind(this);

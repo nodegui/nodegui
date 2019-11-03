@@ -22,7 +22,7 @@ export class QMainWindow extends NodeWidget {
     }
     super(native);
     this.native = native;
-    this.parent = parent;
+    this.nodeParent = parent;
     // bind member functions
     this.setCentralWidget.bind(this);
     this.setLayout = (parentLayout: NodeLayout) => {

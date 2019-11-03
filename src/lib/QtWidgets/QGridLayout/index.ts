@@ -9,17 +9,17 @@ export class QGridLayout extends NodeLayout {
     super();
     if (parent) {
       this.native = new addon.QGridLayout(parent.native);
-      this.parent = parent;
+      this.nodeParent = parent;
     } else {
       this.native = new addon.QGridLayout();
     }
   }
   addWidget = (widget: NodeWidget) => {
     this.native.addWidget(widget.native);
-    this.children.add(widget);
+    this.nodeChildren.add(widget);
   };
   removeWidget = (widget: NodeWidget) => {
     this.native.removeWidget(widget.native);
-    this.children.delete(widget);
+    this.nodeChildren.delete(widget);
   };
 }
