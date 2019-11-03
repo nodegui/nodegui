@@ -22,7 +22,7 @@ export class QPushButton extends NodeWidget {
       native = new addon.QPushButton();
     }
     super(native);
-    this.parent = parent;
+    this.nodeParent = parent;
     this.native = native;
     // bind member functions
     this.setText.bind(this);

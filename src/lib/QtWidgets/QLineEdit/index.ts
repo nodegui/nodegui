@@ -25,7 +25,7 @@ export class QLineEdit extends NodeWidget {
     }
     super(native);
     this.native = native;
-    this.parent = parent;
+    this.nodeParent = parent;
     // bind member functions
     this.setText.bind(this);
     this.text.bind(this);

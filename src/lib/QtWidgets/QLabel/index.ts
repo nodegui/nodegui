@@ -19,7 +19,7 @@ export class QLabel extends NodeWidget {
     }
     super(native);
     this.native = native;
-    this.parent = parent;
+    this.nodeParent = parent;
   }
   setWordWrap(on: boolean) {
     this.native.setWordWrap(on);

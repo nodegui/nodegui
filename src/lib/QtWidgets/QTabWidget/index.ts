@@ -23,14 +23,14 @@ export class QTabWidget extends NodeWidget {
       native = new addon.QTabWidget();
     }
     super(native);
-    this.parent = parent;
+    this.nodeParent = parent;
     this.native = native;
     // bind member functions
     this.addTab.bind(this);
   }
 
   addTab(page: NodeWidget, icon: QIcon, label: string) {
-    this.children.add(page);
+    this.nodeChildren.add(page);
     this.native.addTab(page.native, icon.native, label);
   }
 

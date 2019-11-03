@@ -10,7 +10,7 @@ export class FlexLayout extends NodeLayout {
 
   addWidget = (childWidget: NodeWidget, childFlexNode?: FlexNode) => {
     const childYogaNode = childFlexNode || childWidget.getFlexNode();
-    this.children.add(childWidget);
+    this.nodeChildren.add(childWidget);
     this.native.addWidget(childWidget.native, childYogaNode);
   };
 
@@ -23,7 +23,7 @@ export class FlexLayout extends NodeLayout {
     const childYogaNode = childFlexNode || childWidget.getFlexNode();
     const beforeChildYogaNode =
       beforeChildFlexNode || beforeChildWidget.getFlexNode();
-    this.children.add(childWidget); // No orderer required yet, so just inserting at the end.
+    this.nodeChildren.add(childWidget); // No orderer required yet, so just inserting at the end.
     this.native.insertChildBefore(
       childWidget.native,
       beforeChildYogaNode,
@@ -32,11 +32,11 @@ export class FlexLayout extends NodeLayout {
   };
 
   removeWidget = (childWidget: NodeWidget, childFlexNode?: FlexNode) => {
-    if (!this.children.has(childWidget)) {
+    if (!this.nodeChildren.has(childWidget)) {
       return;
     }
     const childYogaNode = childFlexNode || childWidget.getFlexNode();
-    this.children.delete(childWidget);
+    this.nodeChildren.delete(childWidget);
     this.native.removeWidget(childWidget.native, childYogaNode);
   };
 
