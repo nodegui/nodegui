@@ -39,4 +39,10 @@ export class QScrollArea extends QAbstractScrollArea {
     }
     return null;
   }
+  setWidgetResizable(resizable: boolean) {
+    this.native.setWidgetResizable(resizable);
+  }
+  widgetResizable(): boolean {
+    return this.native.widgetResizable();
+  }
 }

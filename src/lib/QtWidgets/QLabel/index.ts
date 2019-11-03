@@ -40,4 +40,7 @@ export class QLabel extends NodeWidget {
   pixmap() {
     return this._pixmap;
   }
+  setOpenExternalLinks(open: boolean) {
+    this.native.setOpenExternalLinks(open);
+  }
 }
