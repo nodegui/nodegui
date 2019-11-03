@@ -20,6 +20,7 @@ public:
   Napi::Value setMenuBar(const Napi::CallbackInfo& info);
   Napi::Value menuBar(const Napi::CallbackInfo& info);
   Napi::Value setMenuWidget(const Napi::CallbackInfo& info);
+  Napi::Value center(const Napi::CallbackInfo &info);
 
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };

@@ -10,6 +10,9 @@ import { QKeySequence } from "./lib/QtGui/QKeySequence";
 import { ShortcutContext } from "./lib/QtEnums";
 import { QMenuBar } from "./lib/QtWidgets/QMenuBar";
 import { QShortcut, QShortcutEvents } from "./lib/QtWidgets/QShortcut";
+import { QPushButton } from "./lib/QtWidgets/QPushButton";
+import { FlexLayout } from "./lib/core/FlexLayout";
+import { QWidget } from "./lib/QtWidgets/QWidget";
 
 const win = new QMainWindow();
 const shortcut = new QShortcut(win);
@@ -93,15 +96,35 @@ quitAction.addEventListener("triggered", () => {
 menu.addAction(quitAction);
 
 menu.setTitle("TestMenu");
-const label = new QLabel();
-label.setOpenExternalLinks(true);
-label.setText(`<a href="https://www.google.com">Google</a>`);
-label.show();
-(global as any).label = label;
-win.setWindowTitle("NodeGUI Demo");
-win.resize(400, 700);
-win.show();
 // menuBar.addMenu(menu);
+
+const button = new QPushButton();
+button.setText("Center");
+button.addEventListener("clicked", () => {
+  win.center();
+});
+
+const rootView = new QWidget();
+
+rootView.setObjectName("root");
+rootView.setLayout(new FlexLayout());
+if (rootView.layout) {
+  rootView.layout.addWidget(button);
+}
+
+win.setCentralWidget(rootView);
+win.setStyleSheet(`
+  #root {
+    flex: 1;
+    height: '100%';
+    align-items: 'center';
+    justify-content: 'center';
+  }
+`);
+
+win.setWindowTitle("NodeGUI Demo");
+win.show();
+win.resize(400, 700);
 
 const qApp = QApplication.instance();
 qApp.setQuitOnLastWindowClosed(false);

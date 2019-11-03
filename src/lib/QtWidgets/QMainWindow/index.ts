@@ -56,4 +56,7 @@ export class QMainWindow extends NodeWidget {
       return super.layout;
     }
   }
+  center() {
+    this.native.center();
+  }
 }
