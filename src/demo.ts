@@ -95,7 +95,7 @@ menu.addAction(quitAction);
 menu.setTitle("TestMenu");
 const label = new QLabel();
 label.setOpenExternalLinks(true);
-label.setText(`<a href="chrome://inspect">Yolo</a>`);
+label.setText(`<a href="https://www.google.com">Google</a>`);
 label.show();
 (global as any).label = label;
 win.setWindowTitle("NodeGUI Demo");
