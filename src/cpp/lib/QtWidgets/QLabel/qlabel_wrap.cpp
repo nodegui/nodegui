@@ -15,6 +15,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
     InstanceMethod("setText", &QLabelWrap::setText),
     InstanceMethod("text", &QLabelWrap::text),
     InstanceMethod("setPixmap", &QLabelWrap::setPixmap),
+    InstanceMethod("setOpenExternalLinks",&QLabelWrap::setOpenExternalLinks),
     QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)
   });
   constructor = Napi::Persistent(func);
@@ -93,5 +94,13 @@ Napi::Value QLabelWrap::setPixmap(const Napi::CallbackInfo &info)
   Napi::Object pixmapObject = info[0].As<Napi::Object>();
   QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(pixmapObject);
   this->instance->setPixmap(*pixmapWrap->getInternalInstance());
+  return env.Null();
+}
+
+Napi::Value QLabelWrap::setOpenExternalLinks(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Boolean open = info[0].As<Napi::Boolean>();
+  this->instance->setOpenExternalLinks(open.Value());
   return env.Null();
 }

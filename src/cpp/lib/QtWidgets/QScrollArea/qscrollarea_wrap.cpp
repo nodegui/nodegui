@@ -9,6 +9,10 @@ Napi::Object QScrollAreaWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QScrollArea";
   Napi::Function func = DefineClass(env, CLASSNAME, {
     InstanceMethod("setWidget", &QScrollAreaWrap::setWidget),
+    InstanceMethod("takeWidget", &QScrollAreaWrap::takeWidget),
+    InstanceMethod("setWidgetResizable", &QScrollAreaWrap::setWidgetResizable),
+    InstanceMethod("widgetResizable", &QScrollAreaWrap::widgetResizable),
+
     QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QScrollAreaWrap)
   });
   constructor = Napi::Persistent(func);
@@ -54,4 +58,20 @@ Napi::Value QScrollAreaWrap::takeWidget(const Napi::CallbackInfo& info) {
   this->instance->takeWidget(); 
   // We will not return the value here since we are doing it in js side anyway
   return env.Null();
+}
+
+Napi::Value QScrollAreaWrap::setWidgetResizable(const Napi::CallbackInfo &info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Boolean resizable = info[0].As<Napi::Boolean>();
+  this->instance->setWidgetResizable(resizable.Value()); 
+  return env.Null();
+}
+
+Napi::Value QScrollAreaWrap::widgetResizable(const Napi::CallbackInfo &info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Boolean resizable = info[0].As<Napi::Boolean>();
+  bool value = this->instance->widgetResizable(); 
+  return Napi::Value::From(env, value);
 }

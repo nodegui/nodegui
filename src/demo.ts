@@ -2,6 +2,7 @@ import { QMainWindow } from "./index";
 import { QMenu } from "./lib/QtWidgets/QMenu";
 import path from "path";
 import { QIcon } from "./lib/QtGui/QIcon";
+import { QLabel } from "./lib/QtWidgets/QLabel";
 import { QSystemTrayIcon } from "./lib/QtWidgets/QSystemTrayIcon";
 import { QAction } from "./lib/QtWidgets/QAction";
 import { QApplication } from "./lib/QtGui/QApplication";
@@ -92,6 +93,11 @@ quitAction.addEventListener("triggered", () => {
 menu.addAction(quitAction);
 
 menu.setTitle("TestMenu");
+const label = new QLabel();
+label.setOpenExternalLinks(true);
+label.setText(`<a href="https://www.google.com">Google</a>`);
+label.show();
+(global as any).label = label;
 win.setWindowTitle("NodeGUI Demo");
 win.resize(400, 700);
 win.show();

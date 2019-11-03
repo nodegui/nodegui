@@ -18,6 +18,8 @@ class QScrollAreaWrap : public  Napi::ObjectWrap<QScrollAreaWrap>{
   //wrapped methods
   Napi::Value setWidget(const Napi::CallbackInfo &info);
   Napi::Value takeWidget(const Napi::CallbackInfo &info);
+  Napi::Value setWidgetResizable(const Napi::CallbackInfo &info);
+  Napi::Value widgetResizable(const Napi::CallbackInfo &info);
 
   QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION 
 };
