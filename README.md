@@ -120,6 +120,7 @@ People maintaining this project.
 <table>
   <tr>
     <td align="center"><a href="https://blog.atulr.com"><img src="https://avatars2.githubusercontent.com/u/4029423?v=4" width="100px;" alt="Atul R"/><br /><sub><b>Atul R</b></sub></a></td>
+    <td align="center"><a href="https://github.com/dimitarnestorov"><img src="https://avatars3.githubusercontent.com/u/8790386?s=460&v=4" width="100px;" alt="Dimitar"/><br /><sub><b>Dimitar Nestorov</b></sub></a></td>
   </tr>
 </table>
 
