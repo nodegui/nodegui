@@ -118,14 +118,13 @@ Clone and run the code in this tutorial by using the
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
-# Clone the repository
-$ git clone https://github.com/nodegui/nodegui-starter
-# Go into the repository
-$ cd nodegui-starter
-# Install dependencies
-$ npm install
-# Run the app
-$ npm start
+ git clone https://github.com/nodegui/nodegui-starter
+
+ cd nodegui-starter
+
+ npm install
+
+ npm start
 ```
 
 That's it!
