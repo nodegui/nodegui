@@ -46,7 +46,7 @@ Flexbox is designed to provide a consistent layout on different screen sizes. Yo
 
 Lets say you want to build a UI that has a parent view which has two child widgets. One a label with text Hello and another a view with background color white. Now you want the label to occupy 1/3 of the available space while the white colored child view to occupy the remaining 2/3 space.
 
-<img src="/img/docs/flex-layout-1.png" alt="flex layout example 1" style={{maxWidth: 700, width:'100%'}}/>
+<img src="../img/docs/flex-layout-1.png" alt="flex layout example 1" style={{maxWidth: 700, width:'100%'}}/>
 
 The code for that would look something like this:
 
