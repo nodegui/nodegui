@@ -42,6 +42,23 @@ export const Talks = () => {
                 ></audio>
               </div>
             </li>
+            <li>
+              <div>
+                <p>
+                  <a href="https://www.meetup.com/KarmaJS/events/265554520/">
+                    KarmaJS Nov'19 Stockholm
+                  </a>
+                </p>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/8jH5gaEEDv4"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </li>
           </ul>
           <Spacing />
         </Center>

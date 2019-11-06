@@ -49,13 +49,14 @@ Clone and run the code by using the
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
- git clone https://github.com/nodegui/nodegui-starter
 
- cd nodegui-starter
+git clone https://github.com/nodegui/nodegui-starter
 
- npm install
+cd nodegui-starter
 
- npm start
+npm install
+
+npm start
 ```
 
 [quick-start]: https://github.com/nodegui/nodegui-starter
