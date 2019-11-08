@@ -2,7 +2,6 @@ import addon from '../../utils/addon';
 import { NodeWidget } from '../QWidget';
 import { BaseWidgetEvents } from '../../core/EventWidget';
 import { NativeElement } from '../../core/Component';
-import { QIcon } from '../../QtGui/QIcon';
 
 export const QSpinBoxEvents = Object.freeze({
     ...BaseWidgetEvents,
@@ -21,22 +20,12 @@ export class QSpinBox extends NodeWidget {
         super(native);
         this.nodeParent = parent;
         this.native = native;
-        // bind member functions
-        this.setPrefix.bind(this);
-        this.setSuffix.bind(this);
-        this.cleanText.bind(this);
-        this.setSingleStep.bind(this);
-        this.setRange.bind(this);
-        this.maximum.bind(this);
-        this.minimum.bind(this);
-        this.setValue.bind(this);
-        this.value.bind(this);
     }
-    setPrefix(prefix: string) {
+    setPrefix(prefix: string): void {
         // react:✓
         this.native.setPrefix(prefix);
     }
-    setSuffix(suffix: string) {
+    setSuffix(suffix: string): void {
         // react:✓
         this.native.setSuffix(suffix);
     }
@@ -44,11 +33,11 @@ export class QSpinBox extends NodeWidget {
         // react:✓
         return this.native.cleanText();
     }
-    setSingleStep(val: number) {
+    setSingleStep(val: number): void {
         // react:✓
         this.native.setSingleStep(val);
     }
-    setRange(minimum: number, maximum: number) {
+    setRange(minimum: number, maximum: number): void {
         // react:✓
         this.native.setRange(minimum, maximum);
     }
@@ -60,7 +49,7 @@ export class QSpinBox extends NodeWidget {
         // react:✓
         return this.native.minimum();
     }
-    setValue(val: number) {
+    setValue(val: number): void {
         // react:✓
         this.native.setValue(val);
     }

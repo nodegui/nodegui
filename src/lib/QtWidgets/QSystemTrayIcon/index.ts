@@ -22,22 +22,22 @@ export class QSystemTrayIcon extends QObject {
         super(native);
         this.native = native;
     }
-    show() {
+    show(): void {
         this.native.show();
     }
-    hide() {
+    hide(): void {
         this.native.hide();
     }
-    setIcon(icon: QIcon) {
+    setIcon(icon: QIcon): void {
         this.native.setIcon(icon.native);
     }
     isVisible(): boolean {
         return this.native.isVisible();
     }
-    setToolTip(tooltip: string) {
+    setToolTip(tooltip: string): void {
         this.native.setToolTip(tooltip);
     }
-    setContextMenu(menu: QMenu) {
+    setContextMenu(menu: QMenu): void {
         this.contextMenu = menu;
         this.native.setContextMenu(this.contextMenu.native);
     }

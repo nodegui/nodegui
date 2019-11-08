@@ -41,7 +41,7 @@ export class QIcon extends Component {
         return this.native.isMask();
     }
 
-    setIsMask(isMask: boolean) {
+    setIsMask(isMask: boolean): void {
         this.native.setIsMask(isMask);
     }
 }

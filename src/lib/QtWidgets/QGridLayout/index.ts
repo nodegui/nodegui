@@ -14,12 +14,12 @@ export class QGridLayout extends NodeLayout {
             this.native = new addon.QGridLayout();
         }
     }
-    addWidget = (widget: NodeWidget) => {
+    addWidget(widget: NodeWidget): void {
         this.native.addWidget(widget.native);
         this.nodeChildren.add(widget);
-    };
-    removeWidget = (widget: NodeWidget) => {
+    }
+    removeWidget(widget: NodeWidget): void {
         this.native.removeWidget(widget.native);
         this.nodeChildren.delete(widget);
-    };
+    }
 }

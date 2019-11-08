@@ -11,15 +11,15 @@ export class QClipboard extends Component {
             throw new Error('QClipboard cannot be initialised this way. Use QApplication::clipboard()');
         }
     }
-    clear = (mode: QClipboardMode) => {
+    clear(mode: QClipboardMode): void {
         this.native.clear(mode);
-    };
-    setText = (text: string, mode: QClipboardMode) => {
+    }
+    setText(text: string, mode: QClipboardMode): void {
         this.native.setText(text, mode);
-    };
-    text = (mode: QClipboardMode): string => {
+    }
+    text(mode: QClipboardMode): string {
         return this.native.text(mode);
-    };
+    }
 }
 
 export enum QClipboardMode {

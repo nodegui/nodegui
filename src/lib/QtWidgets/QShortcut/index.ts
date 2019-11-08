@@ -17,16 +17,16 @@ export class QShortcut extends QObject {
         super(native);
         this.native = native;
     }
-    setEnabled(enabled: boolean) {
+    setEnabled(enabled: boolean): void {
         this.native.setEnabled(enabled);
     }
-    setAutoRepeat(on: boolean) {
+    setAutoRepeat(on: boolean): void {
         this.native.setAutoRepeat(on);
     }
-    setKey(keysequence: QKeySequence) {
+    setKey(keysequence: QKeySequence): void {
         this.native.setKey(keysequence.native);
     }
-    setContext(shortcutContext: ShortcutContext) {
+    setContext(shortcutContext: ShortcutContext): void {
         this.native.setContext(shortcutContext);
     }
 }

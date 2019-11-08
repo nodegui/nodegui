@@ -29,10 +29,10 @@ export class QMenuBar extends NodeWidget {
         this.nodeParent = parent;
     }
 
-    addMenu(menu: QMenu) {
+    addMenu(menu: QMenu): void {
         this.native.addMenu(menu.native);
     }
-    setNativeMenuBar(nativeMenuBar: boolean) {
+    setNativeMenuBar(nativeMenuBar: boolean): void {
         this.native.setNativeMenuBar(nativeMenuBar);
     }
 }

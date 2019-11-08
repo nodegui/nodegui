@@ -29,16 +29,16 @@ export class QTabWidget extends NodeWidget {
         this.addTab.bind(this);
     }
 
-    addTab(page: NodeWidget, icon: QIcon, label: string) {
+    addTab(page: NodeWidget, icon: QIcon, label: string): void {
         this.nodeChildren.add(page);
         this.native.addTab(page.native, icon.native, label);
     }
 
-    setTabPosition(tabPosition: TabPosition) {
+    setTabPosition(tabPosition: TabPosition): void {
         this.native.setTabPosition(tabPosition);
     }
 
-    setCurrentIndex(index: number) {
+    setCurrentIndex(index: number): void {
         this.native.setCurrentIndex(index);
     }
 
@@ -46,11 +46,11 @@ export class QTabWidget extends NodeWidget {
         return this.native.currentIndex();
     }
 
-    removeTab(index: number) {
+    removeTab(index: number): void {
         this.native.removeTab(index);
     }
 
-    setTabsClosable(closeable: boolean) {
+    setTabsClosable(closeable: boolean): void {
         this.native.setTabsClosable(closeable);
     }
 }

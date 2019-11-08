@@ -22,7 +22,7 @@ export class QMenu extends NodeWidget {
         this.nodeParent = parent;
         this.actions = new Set();
     }
-    setTitle(title: string) {
+    setTitle(title: string): void {
         this.native.setTitle(title);
     }
     addAction(action: QAction): QAction {

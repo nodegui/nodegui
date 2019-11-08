@@ -21,26 +21,26 @@ export class QLabel extends NodeWidget {
         this.native = native;
         this.nodeParent = parent;
     }
-    setWordWrap(on: boolean) {
+    setWordWrap(on: boolean): void {
         this.native.setWordWrap(on);
     }
     wordWrap(): boolean {
         return this.native.wordWrap();
     }
-    setText(text: string | number) {
+    setText(text: string | number): void {
         this.native.setText(`${text}`);
     }
-    text() {
+    text(): string {
         return this.native.text();
     }
-    setPixmap(pixMap: QPixmap) {
+    setPixmap(pixMap: QPixmap): void {
         this.native.setPixmap(pixMap.native);
         this._pixmap = pixMap;
     }
-    pixmap() {
+    pixmap(): QPixmap | undefined {
         return this._pixmap;
     }
-    setOpenExternalLinks(open: boolean) {
+    setOpenExternalLinks(open: boolean): void {
         this.native.setOpenExternalLinks(open);
     }
 }

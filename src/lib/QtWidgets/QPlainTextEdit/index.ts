@@ -34,22 +34,12 @@ export class QPlainTextEdit extends QAbstractScrollArea {
         super(native);
         this.native = native;
         this.nodeParent = parent;
-        // bind member functions
-        this.setPlainText.bind(this);
-        this.setPlaceholderText.bind(this);
-        this.toPlainText.bind(this);
-        this.setReadOnly.bind(this);
-        this.clear.bind(this);
-        this.setWordWrapMode.bind(this);
-        this.wordWrapMode.bind(this);
-        this.setLineWrapMode.bind(this);
-        this.lineWrapMode.bind(this);
     }
-    setPlainText(text: string | number) {
+    setPlainText(text: string | number): void {
         // react:✓
         this.native.setPlainText(`${text}`);
     }
-    setPlaceholderText(text: string) {
+    setPlaceholderText(text: string): void {
         // react:✓, //TODO:getter
         this.placeholderText = text;
         this.native.setPlaceholderText(text);
@@ -58,21 +48,21 @@ export class QPlainTextEdit extends QAbstractScrollArea {
         // react:✓
         return this.native.toPlainText();
     }
-    setReadOnly(isReadOnly: boolean) {
+    setReadOnly(isReadOnly: boolean): void {
         // react:✓
         this.native.setReadOnly(isReadOnly);
     }
-    clear() {
+    clear(): void {
         // react:✓
         this.native.clear();
     }
-    setWordWrapMode(mode: QTextOptionWrapMode) {
+    setWordWrapMode(mode: QTextOptionWrapMode): void {
         this.native.setWordWrapMode(mode);
     }
     wordWrapMode(): QTextOptionWrapMode {
         return this.native.wordWrapMode();
     }
-    setLineWrapMode(mode: LineWrapMode) {
+    setLineWrapMode(mode: LineWrapMode): void {
         this.native.setLineWrapMode(mode);
     }
     lineWrapMode(): LineWrapMode {

@@ -26,14 +26,8 @@ export class QLineEdit extends NodeWidget {
         super(native);
         this.native = native;
         this.nodeParent = parent;
-        // bind member functions
-        this.setText.bind(this);
-        this.text.bind(this);
-        this.setPlaceholderText.bind(this);
-        this.setReadOnly.bind(this);
-        this.clear.bind(this);
     }
-    setText(text: string) {
+    setText(text: string): void {
         // react:✓
         text && this.native.setText(text);
     }
@@ -41,16 +35,16 @@ export class QLineEdit extends NodeWidget {
         // react:✓
         return this.native.text();
     }
-    setPlaceholderText(text: string) {
+    setPlaceholderText(text: string): void {
         // react:✓ TODO://getter
         this.placeholderText = text;
         this.native.setPlaceholderText(text);
     }
-    setReadOnly(isReadOnly: boolean) {
+    setReadOnly(isReadOnly: boolean): void {
         // react:✓ TODO://getter
         this.native.setReadOnly(isReadOnly);
     }
-    clear() {
+    clear(): void {
         // react:✓
         this.native.clear();
     }

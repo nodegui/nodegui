@@ -21,7 +21,7 @@ export class QRadioButton extends NodeWidget {
         // bind member functions
         this.setText.bind(this);
     }
-    setText(text: string | number) {
+    setText(text: string | number): void {
         // react:✓ TODO://getter
         this.native.setText(`${text}`);
     }

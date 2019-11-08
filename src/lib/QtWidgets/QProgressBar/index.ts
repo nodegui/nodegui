@@ -19,14 +19,8 @@ export class QProgressBar extends NodeWidget {
         super(native);
         this.native = native;
         this.nodeParent = parent;
-        // bind member functions
-        this.setValue.bind(this);
-        this.setMinimum.bind(this);
-        this.setMaximum.bind(this);
-        this.setOrientation.bind(this);
-        this.value.bind(this);
     }
-    setValue(value: number) {
+    setValue(value: number): void {
         // react:✓
         this.native.setValue(value);
     }
@@ -34,15 +28,15 @@ export class QProgressBar extends NodeWidget {
         // react:✓
         return this.native.value();
     }
-    setMinimum(min: number) {
+    setMinimum(min: number): void {
         // react:✓ TODO://getter
         this.native.setMinimum(min);
     }
-    setMaximum(max: number) {
+    setMaximum(max: number): void {
         // react:✓ TODO://getter
         this.native.setMaximum(max);
     }
-    setOrientation(orientation: Orientation) {
+    setOrientation(orientation: Orientation): void {
         // react:✓ TODO://getter
         this.native.setOrientation(orientation);
     }
