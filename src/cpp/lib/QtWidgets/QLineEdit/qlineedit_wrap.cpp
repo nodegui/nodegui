@@ -24,7 +24,7 @@ Napi::Object QLineEditWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-NLineEdit* QLineEditWrap::getInternalInstance() { return this->instance.get(); }
+NLineEdit* QLineEditWrap::getInternalInstance() { return this->instance; }
 
 QLineEditWrap::QLineEditWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QLineEditWrap>(info) {
@@ -35,11 +35,9 @@ QLineEditWrap::QLineEditWrap(const Napi::CallbackInfo& info)
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = std::make_unique<NLineEdit>(
-        parentWidgetWrap
-            ->getInternalInstance());  // this sets the parent to current widget
+    this->instance = new NLineEdit(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
-    this->instance = std::make_unique<NLineEdit>();
+    this->instance = new NLineEdit();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
@@ -50,7 +48,7 @@ QLineEditWrap::QLineEditWrap(const Napi::CallbackInfo& info)
                        &extrautils::measureQtWidget);
 }
 
-QLineEditWrap::~QLineEditWrap() { this->instance.reset(); }
+QLineEditWrap::~QLineEditWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QLineEditWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

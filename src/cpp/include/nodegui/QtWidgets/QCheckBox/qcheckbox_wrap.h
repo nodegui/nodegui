@@ -5,10 +5,11 @@
 
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ncheckbox.hpp"
+#include <QPointer>
 
 class QCheckBoxWrap : public Napi::ObjectWrap<QCheckBoxWrap> {
  private:
-  std::unique_ptr<NCheckBox> instance;
+  QPointer<NCheckBox> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

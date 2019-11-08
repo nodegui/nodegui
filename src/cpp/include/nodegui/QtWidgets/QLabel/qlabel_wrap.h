@@ -3,12 +3,14 @@
 #include <napi.h>
 #include <stdlib.h>
 
+#include <QPointer>
+
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nlabel.hpp"
 
 class QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {
  private:
-  std::unique_ptr<NLabel> instance;
+  QPointer<NLabel> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

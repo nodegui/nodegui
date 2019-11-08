@@ -2,13 +2,15 @@
 
 #include <napi.h>
 
+#include <QPointer>
+
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QTabWidget/ntabwidget.hpp"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
 class QTabWidgetWrap : public Napi::ObjectWrap<QTabWidgetWrap> {
  private:
-  NTabWidget *instance;
+  QPointer<NTabWidget> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

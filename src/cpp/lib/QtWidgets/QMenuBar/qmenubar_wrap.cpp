@@ -22,7 +22,7 @@ Napi::Object QMenuBarWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-NMenuBar* QMenuBarWrap::getInternalInstance() { return this->instance.get(); }
+NMenuBar* QMenuBarWrap::getInternalInstance() { return this->instance; }
 
 QMenuBarWrap::QMenuBarWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMenuBarWrap>(info) {
@@ -31,18 +31,16 @@ QMenuBarWrap::QMenuBarWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     if (info[0].IsExternal()) {
-      this->instance = std::unique_ptr<NMenuBar>(
-          info[0].As<Napi::External<NMenuBar>>().Data());
+      this->instance =
+          new NMenuBar(info[0].As<Napi::External<NMenuBar>>().Data());
     } else {
       Napi::Object parentObject = info[0].As<Napi::Object>();
       QWidgetWrap* parentWidgetWrap =
           Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-      this->instance = std::make_unique<NMenuBar>(
-          parentWidgetWrap->getInternalInstance());  // this sets the parent to
-                                                     // current widget
+      this->instance = new NMenuBar(parentWidgetWrap->getInternalInstance());
     }
   } else if (info.Length() == 0) {
-    this->instance = std::make_unique<NMenuBar>();
+    this->instance = new NMenuBar();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
@@ -53,7 +51,7 @@ QMenuBarWrap::QMenuBarWrap(const Napi::CallbackInfo& info)
                        &extrautils::measureQtWidget);
 }
 
-QMenuBarWrap::~QMenuBarWrap() { this->instance.reset(); }
+QMenuBarWrap::~QMenuBarWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QMenuBarWrap::addMenu(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

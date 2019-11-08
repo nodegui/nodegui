@@ -3,10 +3,10 @@
 #include <napi.h>
 
 #include <QApplication>
-
+#include <QPointer>
 class QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
  private:
-  QApplication* instance;
+  QPointer<QApplication> instance;
   static int argc;
   static char** argv;
   bool _wasManuallyCreated = false;

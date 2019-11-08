@@ -1,6 +1,5 @@
 #include "QtWidgets/QShortcut/qshortcut_wrap.h"
 
-#include <QDebug>
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
@@ -37,19 +36,14 @@ QShortcutWrap::QShortcutWrap(const Napi::CallbackInfo& info)
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NShortcut(
-        parentWidgetWrap
-            ->getInternalInstance());  // this sets the parent to current widget
+    this->instance = new NShortcut(parentWidgetWrap->getInternalInstance());
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
 }
 
-QShortcutWrap::~QShortcutWrap() {
-  // delete this->instance; This will be destroyed by the qmenu (since it takes
-  // the ownership)
-}
+QShortcutWrap::~QShortcutWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QShortcutWrap::setEnabled(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -85,6 +79,5 @@ Napi::Value QShortcutWrap::setContext(const Napi::CallbackInfo& info) {
   Napi::Number shortcutContextEnum = info[0].As<Napi::Number>();
   int shortCutContext = shortcutContextEnum.Int32Value();
   this->instance->setContext(static_cast<Qt::ShortcutContext>(shortCutContext));
-  qDebug() << "shortCutContext: " << shortCutContext;
   return env.Null();
 }

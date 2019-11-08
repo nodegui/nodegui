@@ -3,13 +3,15 @@
 #include <napi.h>
 #include <stdlib.h>
 
+#include <QPointer>
+
 #include "QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ndial.hpp"
 
 class QDialWrap : public Napi::ObjectWrap<QDialWrap> {
  private:
-  std::unique_ptr<NDial> instance;
+  QPointer<NDial> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

@@ -3,12 +3,14 @@
 #include <napi.h>
 #include <stdlib.h>
 
+#include <QPointer>
+
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "nscrollarea.hpp"
 
 class QScrollAreaWrap : public Napi::ObjectWrap<QScrollAreaWrap> {
  private:
-  std::unique_ptr<NScrollArea> instance;
+  QPointer<NScrollArea> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

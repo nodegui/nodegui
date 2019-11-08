@@ -3,12 +3,14 @@
 #include <napi.h>
 #include <stdlib.h>
 
+#include <QPointer>
+
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nmainwindow.hpp"
 
 class QMainWindowWrap : public Napi::ObjectWrap<QMainWindowWrap> {
  private:
-  std::unique_ptr<NMainWindow> instance;
+  QPointer<NMainWindow> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

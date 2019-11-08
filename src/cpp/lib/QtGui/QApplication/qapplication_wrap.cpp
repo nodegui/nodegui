@@ -45,7 +45,7 @@ QApplicationWrap::QApplicationWrap(const Napi::CallbackInfo& info)
 }
 QApplicationWrap::~QApplicationWrap() {
   if (this->_wasManuallyCreated) {
-    delete this->instance;
+    extrautils::safeDelete(this->instance);
   }
 }
 

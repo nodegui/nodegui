@@ -1,6 +1,5 @@
 #include "core/FlexLayout/flexlayout.h"
 
-#include <QDebug>
 #include <QWidget>
 
 #include "core/YogaWidget/yogawidget.h"

@@ -21,7 +21,7 @@ Napi::Object QCheckBoxWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-NCheckBox* QCheckBoxWrap::getInternalInstance() { return this->instance.get(); }
+NCheckBox* QCheckBoxWrap::getInternalInstance() { return this->instance; }
 
 QCheckBoxWrap::QCheckBoxWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QCheckBoxWrap>(info) {
@@ -32,11 +32,9 @@ QCheckBoxWrap::QCheckBoxWrap(const Napi::CallbackInfo& info)
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = std::make_unique<NCheckBox>(
-        parentWidgetWrap
-            ->getInternalInstance());  // this sets the parent to current widget
+    this->instance = new NCheckBox(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
-    this->instance = std::make_unique<NCheckBox>();
+    this->instance = new NCheckBox();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
@@ -47,7 +45,7 @@ QCheckBoxWrap::QCheckBoxWrap(const Napi::CallbackInfo& info)
                        &extrautils::measureQtWidget);
 }
 
-QCheckBoxWrap::~QCheckBoxWrap() { this->instance.reset(); }
+QCheckBoxWrap::~QCheckBoxWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QCheckBoxWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

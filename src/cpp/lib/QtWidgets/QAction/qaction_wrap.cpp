@@ -1,6 +1,5 @@
 #include "QtWidgets/QAction/qaction_wrap.h"
 
-#include <QDebug>
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
@@ -45,9 +44,7 @@ QActionWrap::QActionWrap(const Napi::CallbackInfo& info)
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NAction(
-        parentWidgetWrap
-            ->getInternalInstance());  // this sets the parent to current widget
+    this->instance = new NAction(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new NAction();
   } else {
@@ -56,10 +53,7 @@ QActionWrap::QActionWrap(const Napi::CallbackInfo& info)
   }
 }
 
-QActionWrap::~QActionWrap() {
-  // delete this->instance; This will be destroyed by the qmenu (since it takes
-  // the ownership)
-}
+QActionWrap::~QActionWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QActionWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -116,7 +110,6 @@ Napi::Value QActionWrap::setShortcutContext(const Napi::CallbackInfo& info) {
   int shortCutContext = shortcutContextEnum.Int32Value();
   this->instance->setShortcutContext(
       static_cast<Qt::ShortcutContext>(shortCutContext));
-  qDebug() << "shortCutContext: " << shortCutContext;
   return env.Null();
 }
 

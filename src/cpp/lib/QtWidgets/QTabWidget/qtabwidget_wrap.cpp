@@ -27,6 +27,8 @@ Napi::Object QTabWidgetWrap::init(Napi::Env env, Napi::Object exports) {
 
 NTabWidget* QTabWidgetWrap::getInternalInstance() { return this->instance; }
 
+QTabWidgetWrap::~QTabWidgetWrap() { extrautils::safeDelete(this->instance); }
+
 QTabWidgetWrap::QTabWidgetWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QTabWidgetWrap>(info) {
   Napi::Env env = info.Env();
@@ -50,8 +52,6 @@ QTabWidgetWrap::QTabWidgetWrap(const Napi::CallbackInfo& info)
   YGNodeSetMeasureFunc(this->instance->getFlexNode(),
                        &extrautils::measureQtWidget);
 }
-
-QTabWidgetWrap::~QTabWidgetWrap() { delete this->instance; }
 
 Napi::Value QTabWidgetWrap::addTab(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

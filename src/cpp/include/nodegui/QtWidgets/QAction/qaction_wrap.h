@@ -2,12 +2,13 @@
 
 #include <napi.h>
 
+#include <QPointer>
+
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "naction.hpp"
-
 class QActionWrap : public Napi::ObjectWrap<QActionWrap> {
  private:
-  NAction* instance;
+  QPointer<NAction> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
