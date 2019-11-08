@@ -1,9 +1,10 @@
 /*
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
- * This source code is licensed under the MIT license found in the LICENSE
- * file in the root directory of this source tree.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
+
 #include "log.h"
 
 #include "YGConfig.h"
@@ -27,8 +28,8 @@ void vlog(YGConfig* config, YGNode* node, YGLogLevel level, void* context,
 }
 }  // namespace
 
-void Log::log(YGNode* node, YGLogLevel level, void* context, const char* format,
-              ...) noexcept {
+YOGA_EXPORT void Log::log(YGNode* node, YGLogLevel level, void* context,
+                          const char* format, ...) noexcept {
   va_list args;
   va_start(args, format);
   vlog(node == nullptr ? nullptr : node->getConfig(), node, level, context,
