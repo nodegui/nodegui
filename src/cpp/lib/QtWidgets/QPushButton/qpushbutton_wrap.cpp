@@ -20,9 +20,7 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-NPushButton* QPushButtonWrap::getInternalInstance() {
-  return this->instance.get();
-}
+NPushButton* QPushButtonWrap::getInternalInstance() { return this->instance; }
 
 QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QPushButtonWrap>(info) {
@@ -33,11 +31,9 @@ QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info)
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = std::make_unique<NPushButton>(
-        parentWidgetWrap
-            ->getInternalInstance());  // this sets the parent to current widget
+    this->instance = new NPushButton(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
-    this->instance = std::make_unique<NPushButton>();
+    this->instance = new NPushButton();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
@@ -48,7 +44,7 @@ QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info)
                        &extrautils::measureQtWidget);
 }
 
-QPushButtonWrap::~QPushButtonWrap() { this->instance.reset(); }
+QPushButtonWrap::~QPushButtonWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QPushButtonWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

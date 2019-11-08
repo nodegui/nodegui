@@ -2,12 +2,13 @@
 
 #include <napi.h>
 
+#include <QPointer>
+
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nsystemtrayicon.hpp"
-
 class QSystemTrayIconWrap : public Napi::ObjectWrap<QSystemTrayIconWrap> {
  private:
-  NSystemTrayIcon* instance;
+  QPointer<NSystemTrayIcon> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

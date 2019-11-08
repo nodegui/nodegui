@@ -22,9 +22,7 @@ Napi::Object QScrollAreaWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-NScrollArea* QScrollAreaWrap::getInternalInstance() {
-  return this->instance.get();
-}
+NScrollArea* QScrollAreaWrap::getInternalInstance() { return this->instance; }
 
 QScrollAreaWrap::QScrollAreaWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QScrollAreaWrap>(info) {
@@ -35,18 +33,16 @@ QScrollAreaWrap::QScrollAreaWrap(const Napi::CallbackInfo& info)
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = std::make_unique<NScrollArea>(
-        parentWidgetWrap
-            ->getInternalInstance());  // this sets the parent to current widget
+    this->instance = new NScrollArea(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
-    this->instance = std::make_unique<NScrollArea>();
+    this->instance = new NScrollArea();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
 }
 
-QScrollAreaWrap::~QScrollAreaWrap() { this->instance.reset(); }
+QScrollAreaWrap::~QScrollAreaWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QScrollAreaWrap::setWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

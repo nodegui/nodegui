@@ -20,9 +20,7 @@ Napi::Object QRadioButtonWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-NRadioButton* QRadioButtonWrap::getInternalInstance() {
-  return this->instance.get();
-}
+NRadioButton* QRadioButtonWrap::getInternalInstance() { return this->instance; }
 
 QRadioButtonWrap::QRadioButtonWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QRadioButtonWrap>(info) {
@@ -33,11 +31,9 @@ QRadioButtonWrap::QRadioButtonWrap(const Napi::CallbackInfo& info)
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = std::make_unique<NRadioButton>(
-        parentWidgetWrap
-            ->getInternalInstance());  // this sets the parent to current widget
+    this->instance = new NRadioButton(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
-    this->instance = std::make_unique<NRadioButton>();
+    this->instance = new NRadioButton();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
@@ -48,7 +44,9 @@ QRadioButtonWrap::QRadioButtonWrap(const Napi::CallbackInfo& info)
                        &extrautils::measureQtWidget);
 }
 
-QRadioButtonWrap::~QRadioButtonWrap() { this->instance.reset(); }
+QRadioButtonWrap::~QRadioButtonWrap() {
+  extrautils::safeDelete(this->instance);
+}
 
 Napi::Value QRadioButtonWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

@@ -3,11 +3,13 @@
 #include <nodegui/QtWidgets/QWidget/qwidget_macro.h>
 #include <stdlib.h>
 
+#include <QPointer>
+
 #include "nmenubar.hpp"
 
 class QMenuBarWrap : public Napi::ObjectWrap<QMenuBarWrap> {
  private:
-  std::unique_ptr<NMenuBar> instance;
+  QPointer<NMenuBar> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

@@ -3,13 +3,15 @@
 #include <napi.h>
 #include <stdlib.h>
 
+#include <QPointer>
+
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nplaintextedit.hpp"
 
 class QPlainTextEditWrap : public Napi::ObjectWrap<QPlainTextEditWrap> {
  private:
-  std::unique_ptr<NPlainTextEdit> instance;
+  QPointer<NPlainTextEdit> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

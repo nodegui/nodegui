@@ -4,12 +4,13 @@
 #include <stdlib.h>
 
 #include <QGridLayout>
+#include <QPointer>
 
 #include "QtWidgets/QLayout/qlayout_macro.h"
 
 class QGridLayoutWrap : public Napi::ObjectWrap<QGridLayoutWrap> {
  private:
-  std::unique_ptr<QGridLayout> instance;
+  QPointer<QGridLayout> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

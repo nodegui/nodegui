@@ -3,13 +3,15 @@
 #include <napi.h>
 #include <stdlib.h>
 
+#include <QPointer>
+
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "npushbutton.hpp"
 
 class QPushButtonWrap : public Napi::ObjectWrap<QPushButtonWrap> {
  private:
-  std::unique_ptr<NPushButton> instance;
+  QPointer<NPushButton> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

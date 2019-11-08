@@ -3,12 +3,14 @@
 #include <napi.h>
 #include <stdlib.h>
 
+#include <QPointer>
+
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nradiobutton.hpp"
 
 class QRadioButtonWrap : public Napi::ObjectWrap<QRadioButtonWrap> {
  private:
-  std::unique_ptr<NRadioButton> instance;
+  QPointer<NRadioButton> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

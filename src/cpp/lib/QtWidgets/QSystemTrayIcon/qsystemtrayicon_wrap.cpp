@@ -52,7 +52,9 @@ QSystemTrayIconWrap::QSystemTrayIconWrap(const Napi::CallbackInfo& info)
   }
 }
 
-QSystemTrayIconWrap::~QSystemTrayIconWrap() { delete this->instance; }
+QSystemTrayIconWrap::~QSystemTrayIconWrap() {
+  extrautils::safeDelete(this->instance);
+}
 
 Napi::Value QSystemTrayIconWrap::show(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

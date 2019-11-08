@@ -5,7 +5,6 @@
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
-
 Napi::FunctionReference QLabelWrap::constructor;
 
 Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
@@ -26,7 +25,9 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-NLabel* QLabelWrap::getInternalInstance() { return this->instance.get(); }
+NLabel* QLabelWrap::getInternalInstance() { return this->instance; }
+
+QLabelWrap::~QLabelWrap() { extrautils::safeDelete(this->instance); }
 
 QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QLabelWrap>(info) {
@@ -37,11 +38,9 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info)
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = std::make_unique<NLabel>(
-        parentWidgetWrap
-            ->getInternalInstance());  // this sets the parent to current widget
+    this->instance = new NLabel(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
-    this->instance = std::make_unique<NLabel>();
+    this->instance = new NLabel();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
@@ -51,8 +50,6 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info)
   YGNodeSetMeasureFunc(this->instance->getFlexNode(),
                        &extrautils::measureQtWidget);
 }
-
-QLabelWrap::~QLabelWrap() { this->instance.reset(); }
 
 Napi::Value QLabelWrap::setWordWrap(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

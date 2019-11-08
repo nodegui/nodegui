@@ -23,6 +23,7 @@ world.setStyleSheet(`
     border: 1px solid blue;
     qproperty-alignment: AlignCenter;
 `);
+
 if (view.layout) {
     view.layout.addWidget(hello);
     view.layout.addWidget(world);

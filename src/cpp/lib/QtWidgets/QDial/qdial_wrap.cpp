@@ -25,7 +25,7 @@ Napi::Object QDialWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-NDial* QDialWrap::getInternalInstance() { return this->instance.get(); }
+NDial* QDialWrap::getInternalInstance() { return this->instance; }
 
 QDialWrap::QDialWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QDialWrap>(info) {
@@ -36,11 +36,9 @@ QDialWrap::QDialWrap(const Napi::CallbackInfo& info)
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = std::make_unique<NDial>(
-        parentWidgetWrap
-            ->getInternalInstance());  // this sets the parent to current widget
+    this->instance = new NDial(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
-    this->instance = std::make_unique<NDial>();
+    this->instance = new NDial();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
@@ -51,7 +49,7 @@ QDialWrap::QDialWrap(const Napi::CallbackInfo& info)
                        &extrautils::measureQtWidget);
 }
 
-QDialWrap::~QDialWrap() { this->instance.reset(); }
+QDialWrap::~QDialWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QDialWrap::setNotchesVisible(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

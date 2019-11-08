@@ -4,13 +4,14 @@
 #include <stdlib.h>
 
 #include <QLayout>
+#include <QPointer>
 
 #include "QtWidgets/QLayout/qlayout_macro.h"
 
 // ABSTRACT CLASS
 class QLayoutWrap : public Napi::ObjectWrap<QLayoutWrap> {
  private:
-  std::unique_ptr<QLayout> instance;
+  QPointer<QLayout> instance;
 
  public:
   static void init(Napi::Env env);

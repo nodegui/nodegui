@@ -3,13 +3,15 @@
 #include <napi.h>
 #include <stdlib.h>
 
+#include <QPointer>
+
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nspinbox.hpp"
 
 class QSpinBoxWrap : public Napi::ObjectWrap<QSpinBoxWrap> {
  private:
-  std::unique_ptr<NSpinBox> instance;
+  QPointer<NSpinBox> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

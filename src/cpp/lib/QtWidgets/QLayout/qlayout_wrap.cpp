@@ -1,5 +1,6 @@
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 
+#include "Extras/Utils/nutils.h"
 Napi::FunctionReference QLayoutWrap::constructor;
 
 void QLayoutWrap::init(Napi::Env env) {
@@ -9,7 +10,7 @@ void QLayoutWrap::init(Napi::Env env) {
   constructor = Napi::Persistent(func);
 }
 
-QLayout* QLayoutWrap::getInternalInstance() { return this->instance.get(); }
+QLayout* QLayoutWrap::getInternalInstance() { return this->instance; }
 
 QLayoutWrap::QLayoutWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QLayoutWrap>(info) {
@@ -17,4 +18,4 @@ QLayoutWrap::QLayoutWrap(const Napi::CallbackInfo& info)
   Napi::HandleScope scope(env);
 }
 
-QLayoutWrap::~QLayoutWrap() { this->instance.reset(); }
+QLayoutWrap::~QLayoutWrap() { extrautils::safeDelete(this->instance); }

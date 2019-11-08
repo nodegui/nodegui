@@ -2,12 +2,14 @@
 
 #include <napi.h>
 
+#include <QPointer>
+
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nshortcut.hpp"
 
 class QShortcutWrap : public Napi::ObjectWrap<QShortcutWrap> {
  private:
-  NShortcut* instance;
+  QPointer<NShortcut> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

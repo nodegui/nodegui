@@ -3,12 +3,14 @@
 #include <napi.h>
 #include <stdlib.h>
 
+#include <QPointer>
+
 #include "QtWidgets/QLayout/qlayout_macro.h"
 #include "flexlayout.h"
 
 class FlexLayoutWrap : public Napi::ObjectWrap<FlexLayoutWrap> {
  private:
-  std::unique_ptr<FlexLayout> instance;
+  QPointer<FlexLayout> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
