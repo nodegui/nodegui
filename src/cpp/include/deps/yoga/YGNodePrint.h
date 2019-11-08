@@ -13,12 +13,9 @@
 namespace facebook {
 namespace yoga {
 
-void YGNodeToString(
-    std::string& str,
-    YGNodeRef node,
-    YGPrintOptions options,
-    uint32_t level);
+void YGNodeToString(std::string& str, YGNodeRef node, YGPrintOptions options,
+                    uint32_t level);
 
-} // namespace yoga
-} // namespace facebook
+}  // namespace yoga
+}  // namespace facebook
 #endif

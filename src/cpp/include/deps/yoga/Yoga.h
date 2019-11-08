@@ -33,40 +33,30 @@ typedef struct YGConfig* YGConfigRef;
 typedef struct YGNode* YGNodeRef;
 typedef const struct YGNode* YGNodeConstRef;
 
-typedef YGSize (*YGMeasureFunc)(
-    YGNodeRef node,
-    float width,
-    YGMeasureMode widthMode,
-    float height,
-    YGMeasureMode heightMode);
+typedef YGSize (*YGMeasureFunc)(YGNodeRef node, float width,
+                                YGMeasureMode widthMode, float height,
+                                YGMeasureMode heightMode);
 typedef float (*YGBaselineFunc)(YGNodeRef node, float width, float height);
 typedef void (*YGDirtiedFunc)(YGNodeRef node);
 typedef void (*YGPrintFunc)(YGNodeRef node);
 typedef void (*YGNodeCleanupFunc)(YGNodeRef node);
-typedef int (*YGLogger)(
-    YGConfigRef config,
-    YGNodeRef node,
-    YGLogLevel level,
-    const char* format,
-    va_list args);
-typedef YGNodeRef (
-    *YGCloneNodeFunc)(YGNodeRef oldNode, YGNodeRef owner, int childIndex);
+typedef int (*YGLogger)(YGConfigRef config, YGNodeRef node, YGLogLevel level,
+                        const char* format, va_list args);
+typedef YGNodeRef (*YGCloneNodeFunc)(YGNodeRef oldNode, YGNodeRef owner,
+                                     int childIndex);
 
 // YGNode
 WIN_EXPORT YGNodeRef YGNodeNew(void);
 WIN_EXPORT YGNodeRef YGNodeNewWithConfig(YGConfigRef config);
 WIN_EXPORT YGNodeRef YGNodeClone(YGNodeRef node);
 WIN_EXPORT void YGNodeFree(YGNodeRef node);
-WIN_EXPORT void YGNodeFreeRecursiveWithCleanupFunc(
-    YGNodeRef node,
-    YGNodeCleanupFunc cleanup);
+WIN_EXPORT void YGNodeFreeRecursiveWithCleanupFunc(YGNodeRef node,
+                                                   YGNodeCleanupFunc cleanup);
 WIN_EXPORT void YGNodeFreeRecursive(YGNodeRef node);
 WIN_EXPORT void YGNodeReset(YGNodeRef node);
 
-WIN_EXPORT void YGNodeInsertChild(
-    YGNodeRef node,
-    YGNodeRef child,
-    uint32_t index);
+WIN_EXPORT void YGNodeInsertChild(YGNodeRef node, YGNodeRef child,
+                                  uint32_t index);
 
 WIN_EXPORT void YGNodeRemoveChild(YGNodeRef node, YGNodeRef child);
 WIN_EXPORT void YGNodeRemoveAllChildren(YGNodeRef node);
@@ -74,22 +64,17 @@ WIN_EXPORT YGNodeRef YGNodeGetChild(YGNodeRef node, uint32_t index);
 WIN_EXPORT YGNodeRef YGNodeGetOwner(YGNodeRef node);
 WIN_EXPORT YGNodeRef YGNodeGetParent(YGNodeRef node);
 WIN_EXPORT uint32_t YGNodeGetChildCount(YGNodeRef node);
-WIN_EXPORT void YGNodeSetChildren(
-    YGNodeRef owner,
-    const YGNodeRef children[],
-    uint32_t count);
+WIN_EXPORT void YGNodeSetChildren(YGNodeRef owner, const YGNodeRef children[],
+                                  uint32_t count);
 
-WIN_EXPORT void YGNodeSetIsReferenceBaseline(
-    YGNodeRef node,
-    bool isReferenceBaseline);
+WIN_EXPORT void YGNodeSetIsReferenceBaseline(YGNodeRef node,
+                                             bool isReferenceBaseline);
 
 WIN_EXPORT bool YGNodeIsReferenceBaseline(YGNodeRef node);
 
-WIN_EXPORT void YGNodeCalculateLayout(
-    YGNodeRef node,
-    float availableWidth,
-    float availableHeight,
-    YGDirection ownerDirection);
+WIN_EXPORT void YGNodeCalculateLayout(YGNodeRef node, float availableWidth,
+                                      float availableHeight,
+                                      YGDirection ownerDirection);
 
 // Mark a node as dirty. Only valid for nodes with a custom measure function
 // set.
@@ -110,18 +95,10 @@ WIN_EXPORT void YGNodePrint(YGNodeRef node, YGPrintOptions options);
 WIN_EXPORT bool YGFloatIsUndefined(float value);
 
 WIN_EXPORT bool YGNodeCanUseCachedMeasurement(
-    YGMeasureMode widthMode,
-    float width,
-    YGMeasureMode heightMode,
-    float height,
-    YGMeasureMode lastWidthMode,
-    float lastWidth,
-    YGMeasureMode lastHeightMode,
-    float lastHeight,
-    float lastComputedWidth,
-    float lastComputedHeight,
-    float marginRow,
-    float marginColumn,
+    YGMeasureMode widthMode, float width, YGMeasureMode heightMode,
+    float height, YGMeasureMode lastWidthMode, float lastWidth,
+    YGMeasureMode lastHeightMode, float lastHeight, float lastComputedWidth,
+    float lastComputedHeight, float marginRow, float marginColumn,
     YGConfigRef config);
 
 WIN_EXPORT void YGNodeCopyStyle(YGNodeRef dstNode, YGNodeRef srcNode);
@@ -146,19 +123,16 @@ bool YGNodeLayoutGetDidUseLegacyFlag(YGNodeRef node);
 WIN_EXPORT void YGNodeStyleSetDirection(YGNodeRef node, YGDirection direction);
 WIN_EXPORT YGDirection YGNodeStyleGetDirection(YGNodeConstRef node);
 
-WIN_EXPORT void YGNodeStyleSetFlexDirection(
-    YGNodeRef node,
-    YGFlexDirection flexDirection);
+WIN_EXPORT void YGNodeStyleSetFlexDirection(YGNodeRef node,
+                                            YGFlexDirection flexDirection);
 WIN_EXPORT YGFlexDirection YGNodeStyleGetFlexDirection(YGNodeConstRef node);
 
-WIN_EXPORT void YGNodeStyleSetJustifyContent(
-    YGNodeRef node,
-    YGJustify justifyContent);
+WIN_EXPORT void YGNodeStyleSetJustifyContent(YGNodeRef node,
+                                             YGJustify justifyContent);
 WIN_EXPORT YGJustify YGNodeStyleGetJustifyContent(YGNodeConstRef node);
 
-WIN_EXPORT void YGNodeStyleSetAlignContent(
-    YGNodeRef node,
-    YGAlign alignContent);
+WIN_EXPORT void YGNodeStyleSetAlignContent(YGNodeRef node,
+                                           YGAlign alignContent);
 WIN_EXPORT YGAlign YGNodeStyleGetAlignContent(YGNodeConstRef node);
 
 WIN_EXPORT void YGNodeStyleSetAlignItems(YGNodeRef node, YGAlign alignItems);
@@ -167,9 +141,8 @@ WIN_EXPORT YGAlign YGNodeStyleGetAlignItems(YGNodeConstRef node);
 WIN_EXPORT void YGNodeStyleSetAlignSelf(YGNodeRef node, YGAlign alignSelf);
 WIN_EXPORT YGAlign YGNodeStyleGetAlignSelf(YGNodeConstRef node);
 
-WIN_EXPORT void YGNodeStyleSetPositionType(
-    YGNodeRef node,
-    YGPositionType positionType);
+WIN_EXPORT void YGNodeStyleSetPositionType(YGNodeRef node,
+                                           YGPositionType positionType);
 WIN_EXPORT YGPositionType YGNodeStyleGetPositionType(YGNodeConstRef node);
 
 WIN_EXPORT void YGNodeStyleSetFlexWrap(YGNodeRef node, YGWrap flexWrap);
@@ -195,32 +168,22 @@ WIN_EXPORT void YGNodeStyleSetFlexBasisPercent(YGNodeRef node, float flexBasis);
 WIN_EXPORT void YGNodeStyleSetFlexBasisAuto(YGNodeRef node);
 WIN_EXPORT YGValue YGNodeStyleGetFlexBasis(YGNodeConstRef node);
 
-WIN_EXPORT void YGNodeStyleSetPosition(
-    YGNodeRef node,
-    YGEdge edge,
-    float position);
-WIN_EXPORT void YGNodeStyleSetPositionPercent(
-    YGNodeRef node,
-    YGEdge edge,
-    float position);
+WIN_EXPORT void YGNodeStyleSetPosition(YGNodeRef node, YGEdge edge,
+                                       float position);
+WIN_EXPORT void YGNodeStyleSetPositionPercent(YGNodeRef node, YGEdge edge,
+                                              float position);
 WIN_EXPORT YGValue YGNodeStyleGetPosition(YGNodeConstRef node, YGEdge edge);
 
 WIN_EXPORT void YGNodeStyleSetMargin(YGNodeRef node, YGEdge edge, float margin);
-WIN_EXPORT void YGNodeStyleSetMarginPercent(
-    YGNodeRef node,
-    YGEdge edge,
-    float margin);
+WIN_EXPORT void YGNodeStyleSetMarginPercent(YGNodeRef node, YGEdge edge,
+                                            float margin);
 WIN_EXPORT void YGNodeStyleSetMarginAuto(YGNodeRef node, YGEdge edge);
 WIN_EXPORT YGValue YGNodeStyleGetMargin(YGNodeConstRef node, YGEdge edge);
 
-WIN_EXPORT void YGNodeStyleSetPadding(
-    YGNodeRef node,
-    YGEdge edge,
-    float padding);
-WIN_EXPORT void YGNodeStyleSetPaddingPercent(
-    YGNodeRef node,
-    YGEdge edge,
-    float padding);
+WIN_EXPORT void YGNodeStyleSetPadding(YGNodeRef node, YGEdge edge,
+                                      float padding);
+WIN_EXPORT void YGNodeStyleSetPaddingPercent(YGNodeRef node, YGEdge edge,
+                                             float padding);
 WIN_EXPORT YGValue YGNodeStyleGetPadding(YGNodeConstRef node, YGEdge edge);
 
 WIN_EXPORT void YGNodeStyleSetBorder(YGNodeRef node, YGEdge edge, float border);
@@ -290,22 +253,16 @@ WIN_EXPORT float YGNodeLayoutGetPadding(YGNodeRef node, YGEdge edge);
 
 WIN_EXPORT void YGConfigSetLogger(YGConfigRef config, YGLogger logger);
 WIN_EXPORT void YGAssert(bool condition, const char* message);
-WIN_EXPORT void YGAssertWithNode(
-    YGNodeRef node,
-    bool condition,
-    const char* message);
-WIN_EXPORT void YGAssertWithConfig(
-    YGConfigRef config,
-    bool condition,
-    const char* message);
+WIN_EXPORT void YGAssertWithNode(YGNodeRef node, bool condition,
+                                 const char* message);
+WIN_EXPORT void YGAssertWithConfig(YGConfigRef config, bool condition,
+                                   const char* message);
 // Set this to number of pixels in 1 point to round calculation results If you
 // want to avoid rounding - set PointScaleFactor to 0
-WIN_EXPORT void YGConfigSetPointScaleFactor(
-    YGConfigRef config,
-    float pixelsInPoint);
+WIN_EXPORT void YGConfigSetPointScaleFactor(YGConfigRef config,
+                                            float pixelsInPoint);
 void YGConfigSetShouldDiffLayoutWithoutLegacyStretchBehaviour(
-    YGConfigRef config,
-    bool shouldDiffLayout);
+    YGConfigRef config, bool shouldDiffLayout);
 
 // Yoga previously had an error where containers would take the maximum space
 // possible instead of the minimum like they are supposed to. In practice this
@@ -313,8 +270,7 @@ void YGConfigSetShouldDiffLayoutWithoutLegacyStretchBehaviour(
 // was such a long-standing bug we must allow legacy users to switch back to
 // this behaviour.
 WIN_EXPORT void YGConfigSetUseLegacyStretchBehaviour(
-    YGConfigRef config,
-    bool useLegacyStretchBehaviour);
+    YGConfigRef config, bool useLegacyStretchBehaviour);
 
 // YGConfig
 WIN_EXPORT YGConfigRef YGConfigNew(void);
@@ -323,21 +279,17 @@ WIN_EXPORT void YGConfigCopy(YGConfigRef dest, YGConfigRef src);
 WIN_EXPORT int32_t YGConfigGetInstanceCount(void);
 
 WIN_EXPORT void YGConfigSetExperimentalFeatureEnabled(
-    YGConfigRef config,
-    YGExperimentalFeature feature,
-    bool enabled);
+    YGConfigRef config, YGExperimentalFeature feature, bool enabled);
 WIN_EXPORT bool YGConfigIsExperimentalFeatureEnabled(
-    YGConfigRef config,
-    YGExperimentalFeature feature);
+    YGConfigRef config, YGExperimentalFeature feature);
 
 // Using the web defaults is the preferred configuration for new projects. Usage
 // of non web defaults should be considered as legacy.
 WIN_EXPORT void YGConfigSetUseWebDefaults(YGConfigRef config, bool enabled);
 WIN_EXPORT bool YGConfigGetUseWebDefaults(YGConfigRef config);
 
-WIN_EXPORT void YGConfigSetCloneNodeFunc(
-    YGConfigRef config,
-    YGCloneNodeFunc callback);
+WIN_EXPORT void YGConfigSetCloneNodeFunc(YGConfigRef config,
+                                         YGCloneNodeFunc callback);
 
 // Export only for C#
 WIN_EXPORT YGConfigRef YGConfigGetDefault(void);
@@ -345,11 +297,8 @@ WIN_EXPORT YGConfigRef YGConfigGetDefault(void);
 WIN_EXPORT void YGConfigSetContext(YGConfigRef config, void* context);
 WIN_EXPORT void* YGConfigGetContext(YGConfigRef config);
 
-WIN_EXPORT float YGRoundValueToPixelGrid(
-    float value,
-    float pointScaleFactor,
-    bool forceCeil,
-    bool forceFloor);
+WIN_EXPORT float YGRoundValueToPixelGrid(float value, float pointScaleFactor,
+                                         bool forceCeil, bool forceFloor);
 
 YG_EXTERN_C_END
 
@@ -359,9 +308,8 @@ YG_EXTERN_C_END
 #include <vector>
 
 // Calls f on each node in the tree including the given node argument.
-void YGTraversePreOrder(
-    YGNodeRef node,
-    std::function<void(YGNodeRef node)>&& f);
+void YGTraversePreOrder(YGNodeRef node,
+                        std::function<void(YGNodeRef node)>&& f);
 
 void YGNodeSetChildren(YGNodeRef owner, const std::vector<YGNodeRef>& children);
 

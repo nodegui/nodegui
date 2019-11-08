@@ -1,4 +1,4 @@
 export enum CursorMoveStyle {
-  LogicalMoveStyle = 0,
-  VisualMoveStyle = 1
+    LogicalMoveStyle = 0,
+    VisualMoveStyle = 1,
 }

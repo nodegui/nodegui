@@ -1,4 +1,4 @@
 export enum BGMode {
-  TransparentMode = 0,
-  OpaqueMode = 1
+    TransparentMode = 0,
+    OpaqueMode = 1,
 }

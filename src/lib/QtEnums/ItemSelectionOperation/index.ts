@@ -1,4 +1,4 @@
 export enum ItemSelectionOperation {
-  ReplaceSelection = 0,
-  AddToSelection = 1
+    ReplaceSelection = 0,
+    AddToSelection = 1,
 }

@@ -2,22 +2,23 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include "nspinbox.hpp"
-#include "QtWidgets/QWidget/qwidget_macro.h"
 
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "nspinbox.hpp"
 
-class QSpinBoxWrap : public  Napi::ObjectWrap<QSpinBoxWrap> {
+class QSpinBoxWrap : public Napi::ObjectWrap<QSpinBoxWrap> {
  private:
   std::unique_ptr<NSpinBox> instance;
+
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QSpinBoxWrap(const Napi::CallbackInfo &info);
   ~QSpinBoxWrap();
   NSpinBox *getInternalInstance();
-  //class constructor
+  // class constructor
   static Napi::FunctionReference constructor;
-  //wrapped methods
+  // wrapped methods
   Napi::Value setPrefix(const Napi::CallbackInfo &info);
   Napi::Value setSingleStep(const Napi::CallbackInfo &info);
   Napi::Value setSuffix(const Napi::CallbackInfo &info);

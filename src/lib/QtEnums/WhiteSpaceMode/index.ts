@@ -1,5 +1,5 @@
 export enum WhiteSpaceMode {
-  WhiteSpaceNormal = 0,
-  WhiteSpacePre = 1,
-  WhiteSpaceNoWrap = 2
+    WhiteSpaceNormal = 0,
+    WhiteSpacePre = 1,
+    WhiteSpaceNoWrap = 2,
 }

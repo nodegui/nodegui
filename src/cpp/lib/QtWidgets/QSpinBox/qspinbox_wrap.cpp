@@ -1,55 +1,59 @@
 #include "QtWidgets/QSpinBox/qspinbox_wrap.h"
-#include "QtWidgets/QWidget/qwidget_wrap.h"
-#include "QtGui/QIcon/qicon_wrap.h"
+
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QIcon/qicon_wrap.h"
+#include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QSpinBoxWrap::constructor;
 
 Napi::Object QSpinBoxWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QSpinBox";
-  Napi::Function func = DefineClass(env, CLASSNAME, {    
-  InstanceMethod("setPrefix", &QSpinBoxWrap::setPrefix),
-  InstanceMethod("setSingleStep", &QSpinBoxWrap::setSingleStep),
-  InstanceMethod("setSuffix", &QSpinBoxWrap::setSuffix),
-  InstanceMethod("setRange", &QSpinBoxWrap::setRange),
-  InstanceMethod("setValue", &QSpinBoxWrap::setValue),
-  InstanceMethod("cleanText", &QSpinBoxWrap::cleanText),
-  InstanceMethod("maximum", &QSpinBoxWrap::maximum),
-  InstanceMethod("minimum", &QSpinBoxWrap::minimum),
-  InstanceMethod("value", &QSpinBoxWrap::value),
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("setPrefix", &QSpinBoxWrap::setPrefix),
+       InstanceMethod("setSingleStep", &QSpinBoxWrap::setSingleStep),
+       InstanceMethod("setSuffix", &QSpinBoxWrap::setSuffix),
+       InstanceMethod("setRange", &QSpinBoxWrap::setRange),
+       InstanceMethod("setValue", &QSpinBoxWrap::setValue),
+       InstanceMethod("cleanText", &QSpinBoxWrap::cleanText),
+       InstanceMethod("maximum", &QSpinBoxWrap::maximum),
+       InstanceMethod("minimum", &QSpinBoxWrap::minimum),
+       InstanceMethod("value", &QSpinBoxWrap::value),
 
-  QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QSpinBoxWrap)
-  });
+       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QSpinBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
 }
 
-NSpinBox* QSpinBoxWrap::getInternalInstance() {
-  return this->instance.get();
-}
+NSpinBox* QSpinBoxWrap::getInternalInstance() { return this->instance.get(); }
 
-QSpinBoxWrap::QSpinBoxWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QSpinBoxWrap>(info) {
+QSpinBoxWrap::QSpinBoxWrap(const Napi::CallbackInfo& info)
+    : Napi::ObjectWrap<QSpinBoxWrap>(info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  
-  if(info.Length() == 1) {
+
+  if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = std::make_unique<NSpinBox>(parentWidgetWrap->getInternalInstance()); //this sets the parent to current widget
-  } else if (info.Length() == 0){
+    QWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    this->instance = std::make_unique<NSpinBox>(
+        parentWidgetWrap
+            ->getInternalInstance());  // this sets the parent to current widget
+  } else if (info.Length() == 0) {
     this->instance = std::make_unique<NSpinBox>();
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
+    Napi::TypeError::New(env, "Wrong number of arguments")
+        .ThrowAsJavaScriptException();
   }
-  // Adds measure function on yoga node so that widget size is calculated based on its text also.
-  YGNodeSetMeasureFunc(this->instance->getFlexNode(), &extrautils::measureQtWidget);
+  // Adds measure function on yoga node so that widget size is calculated based
+  // on its text also.
+  YGNodeSetMeasureFunc(this->instance->getFlexNode(),
+                       &extrautils::measureQtWidget);
 }
 
-QSpinBoxWrap::~QSpinBoxWrap() {
-  this->instance.reset();
-}
+QSpinBoxWrap::~QSpinBoxWrap() { this->instance.reset(); }
 
 Napi::Value QSpinBoxWrap::setPrefix(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -66,7 +70,7 @@ Napi::Value QSpinBoxWrap::setSingleStep(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Number val = info[0].As<Napi::Number>();
-  this->instance->setSingleStep(val.Int32Value()); 
+  this->instance->setSingleStep(val.Int32Value());
   return env.Null();
 }
 
@@ -86,7 +90,7 @@ Napi::Value QSpinBoxWrap::setRange(const Napi::CallbackInfo& info) {
 
   Napi::Number minimum = info[0].As<Napi::Number>();
   Napi::Number maximum = info[1].As<Napi::Number>();
-  this->instance->setRange(minimum.Int32Value(), maximum.Int32Value()); 
+  this->instance->setRange(minimum.Int32Value(), maximum.Int32Value());
   return env.Null();
 }
 
@@ -95,7 +99,7 @@ Napi::Value QSpinBoxWrap::setValue(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Number val = info[0].As<Napi::Number>();
-  this->instance->setValue(val.Int32Value()); 
+  this->instance->setValue(val.Int32Value());
   return env.Null();
 }
 

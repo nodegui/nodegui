@@ -5,12 +5,14 @@
  * file in the root directory of this source tree.
  */
 #include "YGLayout.h"
+
 #include "Utils.h"
 
 using namespace facebook;
 
 bool YGLayout::operator==(YGLayout layout) const {
-  bool isEqual = YGFloatArrayEqual(position, layout.position) &&
+  bool isEqual =
+      YGFloatArrayEqual(position, layout.position) &&
       YGFloatArrayEqual(dimensions, layout.dimensions) &&
       YGFloatArrayEqual(margin, layout.margin) &&
       YGFloatArrayEqual(border, layout.border) &&

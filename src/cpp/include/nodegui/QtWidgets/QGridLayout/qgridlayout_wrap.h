@@ -2,23 +2,24 @@
 
 #include <napi.h>
 #include <stdlib.h>
+
 #include <QGridLayout>
+
 #include "QtWidgets/QLayout/qlayout_macro.h"
 
-class QGridLayoutWrap : public  Napi::ObjectWrap<QGridLayoutWrap>{
+class QGridLayoutWrap : public Napi::ObjectWrap<QGridLayoutWrap> {
  private:
   std::unique_ptr<QGridLayout> instance;
-  
+
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QGridLayoutWrap(const Napi::CallbackInfo& info);
   ~QGridLayoutWrap();
   QGridLayout* getInternalInstance();
-  //class constructor
+  // class constructor
   static Napi::FunctionReference constructor;
-  //wrapped methods
+  // wrapped methods
   Napi::Value addWidget(const Napi::CallbackInfo& info);
   Napi::Value removeWidget(const Napi::CallbackInfo& info);
   QLAYOUT_WRAPPED_METHODS_DECLARATION
 };
-

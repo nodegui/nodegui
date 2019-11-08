@@ -8,9 +8,10 @@
 #ifndef FMT_TIME_H_
 #define FMT_TIME_H_
 
-#include "format.h"
 #include <ctime>
 #include <locale>
+
+#include "format.h"
 
 FMT_BEGIN_NAMESPACE
 
@@ -18,7 +19,7 @@ FMT_BEGIN_NAMESPACE
 // Usage: f FMT_NOMACRO()
 #define FMT_NOMACRO
 
-namespace internal{
+namespace internal {
 inline null<> localtime_r FMT_NOMACRO(...) { return null<>(); }
 inline null<> localtime_s(...) { return null<>(); }
 inline null<> gmtime_r(...) { return null<>(); }
@@ -31,7 +32,7 @@ inline std::tm localtime(std::time_t time) {
     std::time_t time_;
     std::tm tm_;
 
-    dispatcher(std::time_t t): time_(t) {}
+    dispatcher(std::time_t t) : time_(t) {}
 
     bool run() {
       using namespace fmt::internal;
@@ -58,8 +59,7 @@ inline std::tm localtime(std::time_t time) {
   };
   dispatcher lt(time);
   // Too big time values may be unsupported.
-  if (!lt.run())
-    FMT_THROW(format_error("time_t value out of range"));
+  if (!lt.run()) FMT_THROW(format_error("time_t value out of range"));
   return lt.tm_;
 }
 
@@ -69,7 +69,7 @@ inline std::tm gmtime(std::time_t time) {
     std::time_t time_;
     std::tm tm_;
 
-    dispatcher(std::time_t t): time_(t) {}
+    dispatcher(std::time_t t) : time_(t) {}
 
     bool run() {
       using namespace fmt::internal;
@@ -95,8 +95,7 @@ inline std::tm gmtime(std::time_t time) {
   };
   dispatcher gt(time);
   // Too big time values may be unsupported.
-  if (!gt.run())
-    FMT_THROW(format_error("time_t value out of range"));
+  if (!gt.run()) FMT_THROW(format_error("time_t value out of range"));
   return gt.tm_;
 }
 
@@ -110,18 +109,16 @@ inline std::size_t strftime(wchar_t *str, std::size_t count,
                             const wchar_t *format, const std::tm *time) {
   return std::wcsftime(str, count, format, time);
 }
-}
+}  // namespace internal
 
 template <typename Char>
 struct formatter<std::tm, Char> {
   template <typename ParseContext>
   auto parse(ParseContext &ctx) -> decltype(ctx.begin()) {
     auto it = ctx.begin();
-    if (it != ctx.end() && *it == ':')
-      ++it;
+    if (it != ctx.end() && *it == ':') ++it;
     auto end = it;
-    while (end != ctx.end() && *end != '}')
-      ++end;
+    while (end != ctx.end() && *end != '}') ++end;
     tm_format.reserve(internal::to_unsigned(end - it + 1));
     tm_format.append(it, end);
     tm_format.push_back('\0');
@@ -135,7 +132,7 @@ struct formatter<std::tm, Char> {
     for (;;) {
       std::size_t size = buf.capacity() - start;
       std::size_t count =
-        internal::strftime(&buf[start], size, &tm_format[0], &tm);
+          internal::strftime(&buf[start], size, &tm_format[0], &tm);
       if (count != 0) {
         buf.resize(start + count);
         break;

@@ -6,11 +6,11 @@
  */
 #pragma once
 
-#include "YGValue.h"
-
 #include <cmath>
 #include <cstdint>
 #include <limits>
+
+#include "YGValue.h"
 
 static_assert(
     std::numeric_limits<float>::is_iec559,
@@ -42,7 +42,7 @@ namespace detail {
 class CompactValue {
   friend constexpr bool operator==(CompactValue, CompactValue) noexcept;
 
-public:
+ public:
   static constexpr auto LOWER_BOUND = 1.08420217e-19f;
   static constexpr auto UPPER_BOUND_POINT = 36893485948395847680.0f;
   static constexpr auto UPPER_BOUND_PERCENT = 18446742974197923840.0f;
@@ -129,14 +129,13 @@ public:
   }
 
   bool isUndefined() const noexcept {
-    return (
-        payload_.repr != AUTO_BITS && payload_.repr != ZERO_BITS_POINT &&
-        payload_.repr != ZERO_BITS_PERCENT && std::isnan(payload_.value));
+    return (payload_.repr != AUTO_BITS && payload_.repr != ZERO_BITS_POINT &&
+            payload_.repr != ZERO_BITS_PERCENT && std::isnan(payload_.value));
   }
 
   bool isAuto() const noexcept { return payload_.repr == AUTO_BITS; }
 
-private:
+ private:
   union Payload {
     float value;
     uint32_t repr;
@@ -178,6 +177,6 @@ constexpr bool operator!=(CompactValue a, CompactValue b) noexcept {
   return !(a == b);
 }
 
-} // namespace detail
-} // namespace yoga
-} // namespace facebook
+}  // namespace detail
+}  // namespace yoga
+}  // namespace facebook

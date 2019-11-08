@@ -6,10 +6,11 @@
  */
 #pragma once
 
+#include <yoga/YGEnums.h>
+
 #include <cstddef>
 #include <limits>
 #include <type_traits>
-#include <yoga/YGEnums.h>
 
 namespace facebook {
 namespace yoga {
@@ -23,8 +24,8 @@ constexpr size_t log2ceil(size_t n) {
 // The number of bits necessary to represent enums defined with YG_ENUM_SEQ_DECL
 template <typename Enum>
 constexpr size_t bitWidth() {
-  static_assert(
-      enums::count<Enum>() > 0, "Enums must have at least one entries");
+  static_assert(enums::count<Enum>() > 0,
+                "Enums must have at least one entries");
   return log2ceil(enums::count<Enum>() - 1);
 }
 
@@ -71,25 +72,22 @@ struct IndexedType<0, T, Ts...> {
   using Type = T;
 };
 
-} // namespace detail
+}  // namespace detail
 
 template <typename Storage, typename... Fields>
 class Bitfield {
-  static_assert(
-      std::is_integral<Storage>::value,
-      "Bitfield needs an integral storage type");
-  static_assert(
-      std::is_unsigned<Storage>::value,
-      "Bitfield needs an unsigned storage type");
+  static_assert(std::is_integral<Storage>::value,
+                "Bitfield needs an integral storage type");
+  static_assert(std::is_unsigned<Storage>::value,
+                "Bitfield needs an unsigned storage type");
   static_assert(sizeof...(Fields) > 0, "Bitfield needs at least one member");
 
   using BitTraits = detail::BitTraits<Storage, Fields...>;
 
 #if !defined(_MSC_VER) || _MSC_VER > 1914
-  static_assert(
-      BitTraits::shift(0) + BitTraits::width(0) <=
-          std::numeric_limits<Storage>::digits,
-      "Specified storage type is too narrow to hold all types");
+  static_assert(BitTraits::shift(0) + BitTraits::width(0) <=
+                    std::numeric_limits<Storage>::digits,
+                "Specified storage type is too narrow to hold all types");
 #endif
 
   template <size_t Idx>
@@ -98,7 +96,7 @@ class Bitfield {
   template <size_t Idx, typename Value, typename... Values>
   static constexpr Storage initStorage(Value value, Values... values) {
     return ((value << BitTraits::shift(Idx)) & BitTraits::mask(Idx)) |
-        initStorage<Idx + 1, Values...>(values...);
+           initStorage<Idx + 1, Values...>(values...);
   }
 
   template <size_t Idx>
@@ -108,15 +106,16 @@ class Bitfield {
 
   Storage storage_ = 0;
 
-public:
+ public:
   template <size_t Idx>
   class Ref {
     Bitfield& bitfield_;
 
-  public:
+   public:
     Ref(Bitfield& bitfield) : bitfield_(bitfield) {}
     Ref& operator=(TypeAt<Idx> value) {
-      bitfield_.storage_ = (bitfield_.storage_ & ~BitTraits::mask(Idx)) |
+      bitfield_.storage_ =
+          (bitfield_.storage_ & ~BitTraits::mask(Idx)) |
           ((value << BitTraits::shift(Idx)) & BitTraits::mask(Idx));
       return *this;
     }
@@ -130,8 +129,8 @@ public:
 
   template <size_t Idx>
   constexpr TypeAt<Idx> at() const {
-    return static_cast<TypeAt<Idx>>(
-        (storage_ & BitTraits::mask(Idx)) >> BitTraits::shift(Idx));
+    return static_cast<TypeAt<Idx>>((storage_ & BitTraits::mask(Idx)) >>
+                                    BitTraits::shift(Idx));
   }
 
   template <size_t Idx>
@@ -140,5 +139,5 @@ public:
   }
 };
 
-} // namespace yoga
-} // namespace facebook
+}  // namespace yoga
+}  // namespace facebook

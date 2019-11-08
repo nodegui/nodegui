@@ -12,18 +12,18 @@
 const noop = () => {};
 
 const wrapWithActivateUvLoop = (func: Function) => {
-  return (...args: any[]) => {
-    const activateUvLoop = (process as any).activateUvLoop || noop;
-    activateUvLoop();
-    return func(...args);
-  };
+    return (...args: any[]) => {
+        const activateUvLoop = (process as any).activateUvLoop || noop;
+        activateUvLoop();
+        return func(...args);
+    };
 };
 
 const main = () => {
-  process.nextTick = wrapWithActivateUvLoop(process.nextTick);
-  global.setImmediate = wrapWithActivateUvLoop(global.setImmediate);
-  global.setTimeout = wrapWithActivateUvLoop(global.setTimeout);
-  global.setInterval = wrapWithActivateUvLoop(global.setInterval);
+    process.nextTick = wrapWithActivateUvLoop(process.nextTick);
+    global.setImmediate = wrapWithActivateUvLoop(global.setImmediate);
+    global.setTimeout = wrapWithActivateUvLoop(global.setTimeout);
+    global.setInterval = wrapWithActivateUvLoop(global.setInterval);
 };
 
 main();

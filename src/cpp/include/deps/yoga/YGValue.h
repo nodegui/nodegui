@@ -7,6 +7,7 @@
 #pragma once
 
 #include <math.h>
+
 #include "YGEnums.h"
 #include "YGMacros.h"
 
@@ -15,7 +16,7 @@ YG_EXTERN_C_BEGIN
 // Not defined in MSVC++
 #ifndef NAN
 static const uint32_t __nan = 0x7fc00000;
-#define NAN (*(const float*) __nan)
+#define NAN (*(const float*)__nan)
 #endif
 
 #define YGUndefined NAN
@@ -76,8 +77,8 @@ inline YGValue operator"" _percent(unsigned long long value) {
   return operator"" _percent(static_cast<long double>(value));
 }
 
-} // namespace literals
-} // namespace yoga
-} // namespace facebook
+}  // namespace literals
+}  // namespace yoga
+}  // namespace facebook
 
 #endif
