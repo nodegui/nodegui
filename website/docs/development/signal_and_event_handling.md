@@ -33,8 +33,8 @@ EventWidget adds `addEventListener` method to the widget which can be called
 like this:
 
 ```js
-button.addEventListener("clicked", () => {
-  console.log("clicked");
+button.addEventListener('clicked', () => {
+    console.log('clicked');
 });
 ```
 
@@ -44,44 +44,42 @@ So the user can then use it as below:
 
 ```js
 button.addEventListener(QPushButtonEvents.clicked, () => {
-  console.log("clicked");
+    console.log('clicked');
 });
 ```
 
 Example:
 
 ```js
-import addon from "../../core/addon";
-import { NodeWidget } from "../../QtGui/QWidget";
-import { BaseWidgetEvents } from "../../core/EventWidget";
+import addon from '../../core/addon';
+import { NodeWidget } from '../../QtGui/QWidget';
+import { BaseWidgetEvents } from '../../core/EventWidget';
 
 export const QPushButtonEvents = Object.freeze({
-  ...BaseWidgetEvents,
-  clicked: "clicked",
-  pressed: "pressed",
-  released: "released",
-  toggled: "toggled"
+    ...BaseWidgetEvents,
+    clicked: 'clicked',
+    pressed: 'pressed',
+    released: 'released',
+    toggled: 'toggled',
 });
 
 export class QPushButton extends NodeWidget {
-  native: NativeElement;
-  constructor(parent?: NodeWidget) {
-    let native;
-    if (parent) {
-      native = new addon.QPushButton(parent.native);
-    } else {
-      native = new addon.QPushButton();
+    native: NativeElement;
+    constructor(parent?: NodeWidget) {
+        let native;
+        if (parent) {
+            native = new addon.QPushButton(parent.native);
+        } else {
+            native = new addon.QPushButton();
+        }
+        super(native);
+        this.parent = parent;
+        this.native = native;
     }
-    super(native);
-    this.parent = parent;
-    this.native = native;
-    // bind member functions
-    this.setText.bind(this);
-  }
 
-  setText(text: string | number) {
-    this.native.setText(`${text}`);
-  }
+    setText(text: string | number) {
+        this.native.setText(`${text}`);
+    }
 }
 ```
 
