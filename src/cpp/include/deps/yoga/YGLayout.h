@@ -16,22 +16,22 @@ struct YGLayout {
   std::array<float, 4> border = {};
   std::array<float, 4> padding = {};
 
-private:
+ private:
   static constexpr size_t directionIdx = 0;
   static constexpr size_t didUseLegacyFlagIdx = 1;
   static constexpr size_t doesLegacyStretchFlagAffectsLayoutIdx = 2;
   static constexpr size_t hadOverflowIdx = 3;
-  facebook::yoga::Bitfield<uint8_t, YGDirection, bool, bool, bool> flags_ =
-      {YGDirectionInherit, false, false, false};
+  facebook::yoga::Bitfield<uint8_t, YGDirection, bool, bool, bool> flags_ = {
+      YGDirectionInherit, false, false, false};
 
-public:
+ public:
   uint32_t computedFlexBasisGeneration = 0;
   YGFloatOptional computedFlexBasis = {};
 
   // Instead of recomputing the entire layout every single time, we cache some
   // information to break early when nothing changed
   uint32_t generationCount = 0;
-  YGDirection lastOwnerDirection = (YGDirection) -1;
+  YGDirection lastOwnerDirection = (YGDirection)-1;
 
   uint32_t nextCachedMeasurementsIndex = 0;
   std::array<YGCachedMeasurement, YG_MAX_CACHED_RESULT_COUNT>

@@ -1,7 +1,7 @@
 export enum QTextOptionWrapMode {
-  NoWrap,
-  WordWrap,
-  ManualWrap,
-  WrapAnywhere,
-  WrapAtWordBoundaryOrAnywhere
+    NoWrap,
+    WordWrap,
+    ManualWrap,
+    WrapAnywhere,
+    WrapAtWordBoundaryOrAnywhere,
 }

@@ -8,8 +8,9 @@
 #ifndef FMT_OSTREAM_H_
 #define FMT_OSTREAM_H_
 
-#include "format.h"
 #include <ostream>
+
+#include "format.h"
 
 FMT_BEGIN_NAMESPACE
 namespace internal {
@@ -53,14 +54,16 @@ struct test_stream : std::basic_ostream<Char> {
   void operator<<(null);
 };
 
-// Checks if T has a user-defined operator<< (e.g. not a member of std::ostream).
+// Checks if T has a user-defined operator<< (e.g. not a member of
+// std::ostream).
 template <typename T, typename Char>
 class is_streamable {
  private:
   template <typename U>
-  static decltype(
-    internal::declval<test_stream<Char>&>()
-      << internal::declval<U>(), std::true_type()) test(int);
+  static decltype(internal::declval<test_stream<Char> &>()
+                      << internal::declval<U>(),
+                  std::true_type())
+  test(int);
 
   template <typename>
   static std::false_type test(...);
@@ -101,20 +104,18 @@ void format_value(basic_buffer<Char> &buffer, const T &value) {
 // function (not a member of std::ostream).
 template <typename T, typename Char>
 struct convert_to_int<T, Char, void> {
-  static const bool value =
-    convert_to_int<T, Char, int>::value &&
-    !internal::is_streamable<T, Char>::value;
+  static const bool value = convert_to_int<T, Char, int>::value &&
+                            !internal::is_streamable<T, Char>::value;
 };
 
 // Formats an object of type T that has an overloaded ostream operator<<.
 template <typename T, typename Char>
 struct formatter<T, Char,
-    typename std::enable_if<
-      internal::is_streamable<T, Char>::value &&
-      !internal::format_type<
-        typename buffer_context<Char>::type, T>::value>::type>
+                 typename std::enable_if<
+                     internal::is_streamable<T, Char>::value &&
+                     !internal::format_type<typename buffer_context<Char>::type,
+                                            T>::value>::type>
     : formatter<basic_string_view<Char>, Char> {
-
   template <typename Context>
   auto format(const T &value, Context &ctx) -> decltype(ctx.out()) {
     basic_memory_buffer<Char> buffer;
@@ -125,9 +126,9 @@ struct formatter<T, Char,
 };
 
 template <typename Char>
-inline void vprint(std::basic_ostream<Char> &os,
-                   basic_string_view<Char> format_str,
-                   basic_format_args<typename buffer_context<Char>::type> args) {
+inline void vprint(
+    std::basic_ostream<Char> &os, basic_string_view<Char> format_str,
+    basic_format_args<typename buffer_context<Char>::type> args) {
   basic_memory_buffer<Char> buffer;
   internal::vformat_to(buffer, format_str, args);
   internal::write(os, buffer);
@@ -142,9 +143,9 @@ inline void vprint(std::basic_ostream<Char> &os,
   \endrst
  */
 template <typename S, typename... Args>
-inline typename std::enable_if<internal::is_string<S>::value>::type
-print(std::basic_ostream<FMT_CHAR(S)> &os, const S &format_str,
-      const Args & ... args) {
+inline typename std::enable_if<internal::is_string<S>::value>::type print(
+    std::basic_ostream<FMT_CHAR(S)> &os, const S &format_str,
+    const Args &... args) {
   internal::checked_args<S, Args...> ca(format_str, args...);
   vprint(os, to_string_view(format_str), *ca);
 }

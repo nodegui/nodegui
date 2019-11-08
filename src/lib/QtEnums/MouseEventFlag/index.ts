@@ -1,3 +1,3 @@
 export enum MouseEventFlag {
-  MouseEventCreatedDoubleClick = 0x01
+    MouseEventCreatedDoubleClick = 0x01,
 }

@@ -1,48 +1,48 @@
-import addon from "../../utils/addon";
-import { NodeWidget } from "../QWidget";
-import { BaseWidgetEvents } from "../../core/EventWidget";
-import { NativeElement } from "../../core/Component";
-import { QAbstractScrollArea } from "../QAbstractScrollArea";
+import addon from '../../utils/addon';
+import { NodeWidget } from '../QWidget';
+import { BaseWidgetEvents } from '../../core/EventWidget';
+import { NativeElement } from '../../core/Component';
+import { QAbstractScrollArea } from '../QAbstractScrollArea';
 
 export const QScrollAreaEvents = Object.freeze({
-  ...BaseWidgetEvents
+    ...BaseWidgetEvents,
 });
 export class QScrollArea extends QAbstractScrollArea {
-  native: NativeElement;
-  contentWidget?: NodeWidget | null;
-  constructor(parent?: NodeWidget) {
-    let native;
-    if (parent) {
-      native = new addon.QScrollArea(parent.native);
-    } else {
-      native = new addon.QScrollArea();
+    native: NativeElement;
+    contentWidget?: NodeWidget | null;
+    constructor(parent?: NodeWidget) {
+        let native;
+        if (parent) {
+            native = new addon.QScrollArea(parent.native);
+        } else {
+            native = new addon.QScrollArea();
+        }
+        super(native);
+        this.native = native;
+        this.nodeParent = parent;
+        // bind member functions
+        this.setWidget.bind(this);
+        this.takeWidget.bind(this);
     }
-    super(native);
-    this.native = native;
-    this.nodeParent = parent;
-    // bind member functions
-    this.setWidget.bind(this);
-    this.takeWidget.bind(this);
-  }
-  setWidget(widget: NodeWidget) {
-    // react:✓, //TODO:getter
-    this.contentWidget = widget;
-    this.native.setWidget(widget.native);
-  }
-  takeWidget(): NodeWidget | null {
-    // react:✓
-    const contentWidget = this.contentWidget;
-    this.contentWidget = null;
-    if (contentWidget) {
-      this.native.takeWidget();
-      return contentWidget;
+    setWidget(widget: NodeWidget) {
+        // react:✓, //TODO:getter
+        this.contentWidget = widget;
+        this.native.setWidget(widget.native);
     }
-    return null;
-  }
-  setWidgetResizable(resizable: boolean) {
-    this.native.setWidgetResizable(resizable);
-  }
-  widgetResizable(): boolean {
-    return this.native.widgetResizable();
-  }
+    takeWidget(): NodeWidget | null {
+        // react:✓
+        const contentWidget = this.contentWidget;
+        this.contentWidget = null;
+        if (contentWidget) {
+            this.native.takeWidget();
+            return contentWidget;
+        }
+        return null;
+    }
+    setWidgetResizable(resizable: boolean) {
+        this.native.setWidgetResizable(resizable);
+    }
+    widgetResizable(): boolean {
+        return this.native.widgetResizable();
+    }
 }

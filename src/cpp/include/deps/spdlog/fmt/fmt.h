@@ -19,7 +19,7 @@
 #endif
 #include "bundled/core.h"
 #include "bundled/format.h"
-#else // external fmtlib
+#else  // external fmtlib
 #include <fmt/core.h>
 #include <fmt/format.h>
 #endif

@@ -9,20 +9,13 @@
 #include "Yoga.h"
 
 struct YGConfig {
-  using LogWithContextFn = int (*)(
-      YGConfigRef config,
-      YGNodeRef node,
-      YGLogLevel level,
-      void* context,
-      const char* format,
-      va_list args);
-  using CloneWithContextFn = YGNodeRef (*)(
-      YGNodeRef node,
-      YGNodeRef owner,
-      int childIndex,
-      void* cloneContext);
+  using LogWithContextFn = int (*)(YGConfigRef config, YGNodeRef node,
+                                   YGLogLevel level, void* context,
+                                   const char* format, va_list args);
+  using CloneWithContextFn = YGNodeRef (*)(YGNodeRef node, YGNodeRef owner,
+                                           int childIndex, void* cloneContext);
 
-private:
+ private:
   union {
     CloneWithContextFn withContext;
     YGCloneNodeFunc noContext;
@@ -34,7 +27,7 @@ private:
   bool cloneNodeUsesContext_;
   bool loggerUsesContext_;
 
-public:
+ public:
   bool useWebDefaults = false;
   bool useLegacyStretchBehaviour = false;
   bool shouldDiffLayoutWithoutLegacyStretchBehaviour = false;
@@ -56,11 +49,8 @@ public:
   }
   void setLogger(std::nullptr_t) { setLogger(YGLogger{nullptr}); }
 
-  YGNodeRef cloneNode(
-      YGNodeRef node,
-      YGNodeRef owner,
-      int childIndex,
-      void* cloneContext);
+  YGNodeRef cloneNode(YGNodeRef node, YGNodeRef owner, int childIndex,
+                      void* cloneContext);
   void setCloneNodeCallback(YGCloneNodeFunc cloneNode) {
     cloneNodeCallback_.noContext = cloneNode;
     cloneNodeUsesContext_ = false;

@@ -1,4 +1,4 @@
 export enum SizeMode {
-  AbsoluteSize = 0,
-  RelativeSize = 1
+    AbsoluteSize = 0,
+    RelativeSize = 1,
 }

@@ -1,20 +1,22 @@
 #pragma once
 
-#include <QEvent>
-#include "core/Events/eventsmap.h"
 #include <napi.h>
 
+#include <QEvent>
+
+#include "core/Events/eventsmap.h"
+
 class EventWidget {
-public:
-    Napi::FunctionReference emitOnNode;
-    std::unordered_map<QEvent::Type, std::string> subscribedEvents;
+ public:
+  Napi::FunctionReference emitOnNode;
+  std::unordered_map<QEvent::Type, std::string> subscribedEvents;
 
-    void subscribeToQtEvent(std::string evtString);
-    void unSubscribeToQtEvent(std::string evtString);
+  void subscribeToQtEvent(std::string evtString);
+  void unSubscribeToQtEvent(std::string evtString);
 
-    void event(QEvent* event);
+  void event(QEvent* event);
 
-    void connectWidgetSignalsToEventEmitter();
-    
-    ~EventWidget();
+  void connectWidgetSignalsToEventEmitter();
+
+  ~EventWidget();
 };

@@ -1,5 +1,5 @@
 export enum CheckState {
-  Unchecked = 0,
-  PartiallyChecked = 1,
-  Checked = 2
+    Unchecked = 0,
+    PartiallyChecked = 1,
+    Checked = 2,
 }

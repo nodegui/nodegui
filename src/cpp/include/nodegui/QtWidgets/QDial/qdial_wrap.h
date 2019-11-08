@@ -2,22 +2,23 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include <stdlib.h>
-#include "ndial.hpp"
-#include "QtWidgets/QWidget/qwidget_macro.h"
-#include "QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 
-class QDialWrap : public  Napi::ObjectWrap<QDialWrap>{
+#include "QtWidgets/QAbstractSlider/qabstractslider_macro.h"
+#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "ndial.hpp"
+
+class QDialWrap : public Napi::ObjectWrap<QDialWrap> {
  private:
   std::unique_ptr<NDial> instance;
+
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QDialWrap(const Napi::CallbackInfo& info);
   ~QDialWrap();
   NDial* getInternalInstance();
-  //class constructor
+  // class constructor
   static Napi::FunctionReference constructor;
-  //wrapped methods
+  // wrapped methods
   Napi::Value setNotchesVisible(const Napi::CallbackInfo& info);
   Napi::Value setWrapping(const Napi::CallbackInfo& info);
   Napi::Value setNotchTarget(const Napi::CallbackInfo& info);
@@ -27,5 +28,3 @@ class QDialWrap : public  Napi::ObjectWrap<QDialWrap>{
 
   QABSTRACTSLIDER_WRAPPED_METHODS_DECLARATION
 };
-
-

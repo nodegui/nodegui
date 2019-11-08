@@ -1,5 +1,5 @@
 export enum TileRule {
-  StretchTile = 0,
-  RepeatTile = 1,
-  RoundTile = 2
+    StretchTile = 0,
+    RepeatTile = 1,
+    RoundTile = 2,
 }
