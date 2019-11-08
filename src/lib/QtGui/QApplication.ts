@@ -1,7 +1,7 @@
-import addon from '../../utils/addon';
-import { Component, NativeElement } from '../../core/Component';
-import { checkIfNativeElement } from '../../utils/helpers';
-import { QClipboard } from '../QClipboard';
+import addon from '../utils/addon';
+import { Component, NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
+import { QClipboard } from './QClipboard';
 
 type arg = NativeElement;
 export class QApplication extends Component {

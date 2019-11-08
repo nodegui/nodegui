@@ -1,7 +1,7 @@
-import addon from '../../utils/addon';
-import { Component, NativeElement } from '../../core/Component';
-import { AspectRatioMode } from '../../QtEnums';
-import { checkIfNativeElement } from '../../utils/helpers';
+import addon from '../utils/addon';
+import { Component, NativeElement } from '../core/Component';
+import { AspectRatioMode } from '../QtEnums';
+import { checkIfNativeElement } from '../utils/helpers';
 
 export type ImageFormats = 'BMP' | 'GIF' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'PGM' | 'PPM' | 'XBM' | 'XPM';
 export type ReadWriteImageFormats = 'BMP' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'XBM' | 'XPM';

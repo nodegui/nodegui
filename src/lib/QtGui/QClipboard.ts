@@ -1,5 +1,5 @@
-import { Component, NativeElement } from '../../core/Component';
-import { checkIfNativeElement } from '../../utils/helpers';
+import { Component, NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 export class QClipboard extends Component {
     native: NativeElement;

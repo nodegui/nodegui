@@ -1,6 +1,6 @@
-import addon from '../../utils/addon';
-import { Component, NativeElement } from '../../core/Component';
-import { QPixmap } from '../../QtGui/QPixmap';
+import addon from '../utils/addon';
+import { Component, NativeElement } from '../core/Component';
+import { QPixmap } from './QPixmap';
 
 export enum QIconMode {
     Normal,

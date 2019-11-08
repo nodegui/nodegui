@@ -1,8 +1,8 @@
-import addon from '../../utils/addon';
-import { NodeWidget } from '../../QtWidgets/QWidget';
-import { NodeLayout } from '../../QtWidgets/QLayout';
-import { FlexNode } from '../YogaWidget';
-import { NativeElement } from '../Component';
+import addon from '../utils/addon';
+import { NodeWidget } from '../QtWidgets/QWidget';
+import { NodeLayout } from '../QtWidgets/QLayout';
+import { FlexNode } from './YogaWidget';
+import { NativeElement } from './Component';
 
 export class FlexLayout extends NodeLayout {
     native: NativeElement = new addon.FlexLayout();

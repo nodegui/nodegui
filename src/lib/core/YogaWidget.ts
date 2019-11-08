@@ -1,4 +1,4 @@
-import { QObject } from '../../QtCore/QObject';
+import { QObject } from '../QtCore/QObject';
 
 export type FlexNode = {};
 export abstract class YogaWidget extends QObject {

@@ -1,6 +1,6 @@
-import addon from '../../utils/addon';
-import { Component, NativeElement } from '../../core/Component';
-import { QPixmap } from '../QPixmap';
+import addon from '../utils/addon';
+import { Component, NativeElement } from '../core/Component';
+import { QPixmap } from './QPixmap';
 
 type arg = NativeElement | number | QPixmap;
 export class QCursor extends Component {

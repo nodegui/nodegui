@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import { NativeElement, Component } from '../Component';
+import { NativeElement, Component } from './Component';
 
 export type NativeEvent = {};
 export abstract class EventWidget extends Component {

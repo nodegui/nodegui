@@ -1,5 +1,5 @@
-import addon from '../../utils/addon';
-import { Component, NativeElement } from '../../core/Component';
+import addon from '../utils/addon';
+import { Component, NativeElement } from '../core/Component';
 
 export class QKeySequence extends Component {
     native: NativeElement;
