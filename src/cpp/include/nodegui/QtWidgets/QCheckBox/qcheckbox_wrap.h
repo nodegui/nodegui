@@ -3,9 +3,10 @@
 #include <napi.h>
 #include <stdlib.h>
 
+#include <QPointer>
+
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ncheckbox.hpp"
-#include <QPointer>
 
 class QCheckBoxWrap : public Napi::ObjectWrap<QCheckBoxWrap> {
  private:
