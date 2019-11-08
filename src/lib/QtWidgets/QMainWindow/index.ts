@@ -12,7 +12,6 @@ export class QMainWindow extends NodeWidget {
     native: NativeElement;
     public centralWidget?: NodeWidget;
     private _menuBar?: QMenuBar;
-    private _menuBarWidget?: NodeWidget;
     constructor(parent?: NodeWidget) {
         let native;
         if (parent) {
@@ -25,7 +24,7 @@ export class QMainWindow extends NodeWidget {
         this.nodeParent = parent;
         // bind member functions
         this.setCentralWidget.bind(this);
-        this.setLayout = (parentLayout: NodeLayout) => {
+        this.setLayout = (parentLayout: NodeLayout): void => {
             if (this.centralWidget) {
                 this.centralWidget.setLayout(parentLayout);
             } else {
@@ -34,29 +33,29 @@ export class QMainWindow extends NodeWidget {
             }
         };
     }
-    setCentralWidget(widget: NodeWidget) {
+    setCentralWidget(widget: NodeWidget): void {
         // react:✓
         this.native.setCentralWidget(widget.native, widget.getFlexNode());
         this.centralWidget = widget;
     }
-    setMenuBar(menuBar: QMenuBar) {
+    setMenuBar(menuBar: QMenuBar): void {
         this.native.setMenuBar(menuBar.native);
         this._menuBar = menuBar;
     }
     menuBar(): QMenuBar | undefined {
         return this._menuBar;
     }
-    setMenuWidget(menuWidget: NodeWidget) {
+    setMenuWidget(menuWidget: NodeWidget): void {
         this.native.setMenuWidget(menuWidget.native);
     }
-    get layout() {
+    get layout(): NodeLayout | undefined {
         if (this.centralWidget) {
             return this.centralWidget.layout;
         } else {
             return super.layout;
         }
     }
-    center() {
+    center(): void {
         this.native.center();
     }
 }

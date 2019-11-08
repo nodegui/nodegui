@@ -1,6 +1,6 @@
 import { NativeElement } from '../core/Component';
 
-export const checkIfNativeElement = (arg: any) => {
+export function checkIfNativeElement(arg: any): boolean {
     const nativeArg = arg as NativeElement;
     return typeof nativeArg === 'object' && nativeArg.type === 'native';
-};
+}

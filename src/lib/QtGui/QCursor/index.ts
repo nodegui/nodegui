@@ -13,10 +13,10 @@ export class QCursor extends Component {
             this.native = new addon.QCursor();
         }
     }
-    pos = (): { x: number; y: number } => {
+    pos(): { x: number; y: number } {
         return this.native.pos();
-    };
-    setPos = (x: number, y: number) => {
+    }
+    setPos(x: number, y: number): void {
         return this.native.setPos(x, y);
-    };
+    }
 }

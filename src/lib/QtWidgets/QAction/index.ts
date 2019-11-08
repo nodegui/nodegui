@@ -27,42 +27,42 @@ export class QAction extends QObject {
         super(native);
         this.native = native;
     }
-    setText(text: string) {
+    setText(text: string): void {
         this.native.setText(text);
     }
-    setEnabled(enabled: boolean) {
+    setEnabled(enabled: boolean): void {
         this.native.setEnabled(enabled);
     }
-    setIcon(icon: QIcon) {
+    setIcon(icon: QIcon): void {
         this.icon = icon;
         this.native.setIcon(icon.native);
     }
-    setMenu(menu: QMenu) {
+    setMenu(menu: QMenu): void {
         this.menu = menu;
         this.native.setMenu(menu.native);
     }
-    setShortcut(keysequence: QKeySequence) {
+    setShortcut(keysequence: QKeySequence): void {
         this.native.setShortcut(keysequence.native);
     }
-    setShortcutContext(shortcutContext: ShortcutContext) {
+    setShortcutContext(shortcutContext: ShortcutContext): void {
         this.native.setShortcutContext(shortcutContext);
     }
     isCheckable(): boolean {
         return this.native.isCheckable();
     }
-    setCheckable(isCheckable: boolean) {
+    setCheckable(isCheckable: boolean): void {
         this.native.setCheckable(isCheckable);
     }
     isChecked(): boolean {
         return this.native.isChecked();
     }
-    setChecked(isChecked: boolean) {
+    setChecked(isChecked: boolean): void {
         this.native.setChecked(isChecked);
     }
     isSeparator(): boolean {
         return this.native.isSeparator();
     }
-    setSeparator(isSeparator: boolean) {
+    setSeparator(isSeparator: boolean): void {
         this.native.setSeparator(isSeparator);
     }
 }

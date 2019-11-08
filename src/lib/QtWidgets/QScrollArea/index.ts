@@ -20,11 +20,8 @@ export class QScrollArea extends QAbstractScrollArea {
         super(native);
         this.native = native;
         this.nodeParent = parent;
-        // bind member functions
-        this.setWidget.bind(this);
-        this.takeWidget.bind(this);
     }
-    setWidget(widget: NodeWidget) {
+    setWidget(widget: NodeWidget): void {
         // react:✓, //TODO:getter
         this.contentWidget = widget;
         this.native.setWidget(widget.native);
@@ -39,7 +36,7 @@ export class QScrollArea extends QAbstractScrollArea {
         }
         return null;
     }
-    setWidgetResizable(resizable: boolean) {
+    setWidgetResizable(resizable: boolean): void {
         this.native.setWidgetResizable(resizable);
     }
     widgetResizable(): boolean {

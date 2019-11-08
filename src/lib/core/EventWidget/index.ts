@@ -14,12 +14,12 @@ export abstract class EventWidget extends Component {
         }
     }
 
-    addEventListener = (eventType: string, callback: (payload?: NativeEvent | any) => void) => {
+    addEventListener(eventType: string, callback: (payload?: NativeEvent | any) => void): void {
         this.native.subscribeToQtEvent(eventType);
         this.emitter.addListener(eventType, callback);
-    };
+    }
 
-    removeEventListener = (eventType: string, callback?: (payload?: NativeEvent | any) => void) => {
+    removeEventListener(eventType: string, callback?: (payload?: NativeEvent | any) => void): void {
         if (callback) {
             this.emitter.removeListener(eventType, callback);
         } else {
@@ -28,7 +28,7 @@ export abstract class EventWidget extends Component {
         if (this.emitter.listenerCount(eventType) < 1) {
             this.native.unSubscribeToQtEvent(eventType);
         }
-    };
+    }
 }
 
 export const BaseWidgetEvents = Object.freeze({

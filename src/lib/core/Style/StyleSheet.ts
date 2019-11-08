@@ -14,7 +14,7 @@ export class StyleSheet {
     };
 }
 
-export const prepareInlineStyleSheet = async (widget: NodeWidget, rawStyle: string) => {
+export async function prepareInlineStyleSheet(widget: NodeWidget, rawStyle: string): Promise<string> {
     const inlineStyle = await StyleSheet.create(rawStyle);
     // Make sure to not calculate ObjectName in the same pass of event loop as other props (incase of react) since the order will matter in that case
     // So doing it in multiple passes of event loop allows objectName to be set before using it. The above await solves it.
@@ -28,9 +28,9 @@ export const prepareInlineStyleSheet = async (widget: NodeWidget, rawStyle: stri
         ${inlineStyle}
       }
   `;
-};
+}
 
-export const applyStyleSheet = async (widget: NodeWidget, styleSheet: string) => {
+export async function applyStyleSheet(widget: NodeWidget, styleSheet: string): Promise<void> {
     widget.native.setStyleSheet(styleSheet);
     widget.layout ? widget.layout.update() : widget.update();
-};
+}

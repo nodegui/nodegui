@@ -14,29 +14,29 @@ export class QApplication extends Component {
             this.native = new addon.QApplication();
         }
     }
-    static clipboard = (): QClipboard => {
+    static clipboard(): QClipboard {
         return new QClipboard(addon.QApplication.clipboard());
-    };
-    processEvents = () => {
+    }
+    processEvents(): void {
         this.native.processEvents();
-    };
-    exec = (): number => {
+    }
+    exec(): number {
         return this.native.exec();
-    };
-    static instance = (): QApplication => {
+    }
+    static instance(): QApplication {
         const nativeQApp = addon.QApplication.instance();
         return new QApplication(nativeQApp);
-    };
-    quit = () => {
+    }
+    quit(): number {
         return this.native.quit();
-    };
-    exit = (exitCode: number) => {
+    }
+    exit(exitCode: number): number {
         return this.native.exit(exitCode);
-    };
-    setQuitOnLastWindowClosed = (quit: boolean) => {
+    }
+    setQuitOnLastWindowClosed(quit: boolean): void {
         this.native.setQuitOnLastWindowClosed(quit);
-    };
-    quitOnLastWindowClosed = () => {
+    }
+    quitOnLastWindowClosed(): boolean {
         return this.native.quitOnLastWindowClosed();
-    };
+    }
 }

@@ -24,19 +24,16 @@ export class QPushButton extends NodeWidget {
         super(native);
         this.nodeParent = parent;
         this.native = native;
-        // bind member functions
-        this.setText.bind(this);
-        this.setFlat.bind(this);
     }
-    setText(text: string | number) {
+    setText(text: string | number): void {
         // react:✓, //TODO:getter
         this.native.setText(`${text}`);
     }
-    setFlat(isFlat: boolean) {
+    setFlat(isFlat: boolean): void {
         // react:✓, //TODO:getter
         this.native.setFlat(isFlat);
     }
-    setIcon(icon: QIcon) {
+    setIcon(icon: QIcon): void {
         // react:✓, //TODO:getter
         this.native.setIcon(icon.native);
     }
