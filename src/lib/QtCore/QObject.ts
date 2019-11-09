@@ -7,6 +7,9 @@ export abstract class NodeObject extends EventWidget {
     inherits(className: string): boolean {
         return this.native.inherits(className);
     }
+    setProperty(name: string, value: any): boolean {
+        return this.native.setProperty(name, value);
+    }
 }
 
 export class QObject extends NodeObject {
