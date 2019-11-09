@@ -3,14 +3,14 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
-import { QObject } from '../QtCore/QObject';
+import { NObject } from '../QtCore/QObject';
 
 export const QShortcutEvents = Object.freeze({
     activated: 'activated',
     activatedAmbiguously: 'activatedAmbiguously',
 });
 
-export class QShortcut extends QObject {
+export class QShortcut extends NObject {
     native: NativeElement;
     constructor(parent: NodeWidget) {
         const native = new addon.QShortcut(parent.native);

@@ -1,7 +1,29 @@
 import { EventWidget } from '../core/EventWidget';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
+import addon from '../utils/addon';
 
-export abstract class QObject extends EventWidget {
+export abstract class NObject extends EventWidget {
     inherits(className: string): boolean {
         return this.native.inherits(className);
+    }
+}
+
+export class QObject extends NObject {
+    native: NativeElement;
+    constructor(arg?: NObject | NativeElement) {
+        let native;
+        let parent;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg as NObject) {
+            parent = arg as NObject;
+            native = new addon.QObject(parent.native);
+        } else {
+            native = new addon.QObject();
+        }
+        super(native);
+        this.nodeParent = parent;
+        this.native = native;
     }
 }

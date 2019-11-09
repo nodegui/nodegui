@@ -4,12 +4,12 @@ import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
 import { QMenu } from './QMenu';
-import { QObject } from '../QtCore/QObject';
+import { NObject } from '../QtCore/QObject';
 
 export const QSystemTrayIconEvents = Object.freeze({
     ...BaseWidgetEvents,
 });
-export class QSystemTrayIcon extends QObject {
+export class QSystemTrayIcon extends NObject {
     native: NativeElement;
     contextMenu?: QMenu;
     constructor(parent?: NodeWidget) {
