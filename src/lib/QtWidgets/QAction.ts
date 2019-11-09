@@ -5,7 +5,7 @@ import { QMenu } from './QMenu';
 import { QIcon } from '../QtGui/QIcon';
 import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
-import { NObject } from '../QtCore/QObject';
+import { NodeObject } from '../QtCore/QObject';
 
 export const QActionEvents = Object.freeze({
     triggered: 'triggered',
@@ -13,7 +13,7 @@ export const QActionEvents = Object.freeze({
     hovered: 'hovered',
     toggled: 'toggled',
 });
-export class QAction extends NObject {
+export class QAction extends NodeObject {
     native: NativeElement;
     icon?: QIcon;
     menu?: QMenu;
