@@ -1,8 +1,8 @@
+#include "Extras/Utils/nutils.h"
+
 #include <QDebug>
 #include <QWidget>
 #include <string>
-
-#include "Extras/Utils/nutils.h"
 
 YGSize extrautils::measureQtWidget(YGNodeRef node, float width,
                                    YGMeasureMode widthMode, float height,
