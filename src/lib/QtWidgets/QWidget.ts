@@ -44,12 +44,6 @@ export abstract class NodeWidget extends YogaWidget {
     geometry(): Rect {
         return this.native.geometry();
     }
-    setObjectName(objectName: string): void {
-        this.native.setObjectName(objectName);
-    }
-    objectName(): string {
-        return this.native.objectName();
-    }
     setMouseTracking(isMouseTracked: boolean): void {
         this.native.setMouseTracking(isMouseTracked);
     }

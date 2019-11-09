@@ -10,6 +10,12 @@ export abstract class NodeObject extends EventWidget {
     setProperty(name: string, value: any): boolean {
         return this.native.setProperty(name, value);
     }
+    setObjectName(objectName: string): void {
+        this.native.setObjectName(objectName);
+    }
+    objectName(): string {
+        return this.native.objectName();
+    }
 }
 
 export class QObject extends NodeObject {

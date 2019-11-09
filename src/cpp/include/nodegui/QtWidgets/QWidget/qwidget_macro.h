@@ -117,20 +117,6 @@
     return env.Null();                                                     \
   }                                                                        \
                                                                            \
-  Napi::Value setObjectName(const Napi::CallbackInfo& info) {              \
-    Napi::Env env = info.Env();                                            \
-    Napi::HandleScope scope(env);                                          \
-    Napi::String objectName = info[0].As<Napi::String>();                  \
-    this->instance->setObjectName(                                         \
-        QString::fromStdString(objectName.Utf8Value()));                   \
-    return env.Null();                                                     \
-  }                                                                        \
-  Napi::Value objectName(const Napi::CallbackInfo& info) {                 \
-    Napi::Env env = info.Env();                                            \
-    Napi::HandleScope scope(env);                                          \
-    QString objectName = this->instance->objectName();                     \
-    return Napi::String::New(env, objectName.toStdString());               \
-  }                                                                        \
   Napi::Value setMouseTracking(const Napi::CallbackInfo& info) {           \
     Napi::Env env = info.Env();                                            \
     Napi::HandleScope scope(env);                                          \
@@ -298,8 +284,6 @@
       InstanceMethod("styleSheet", &WidgetWrapName::styleSheet),             \
       InstanceMethod("hide", &WidgetWrapName::hide),                         \
       InstanceMethod("move", &WidgetWrapName::move),                         \
-      InstanceMethod("setObjectName", &WidgetWrapName::setObjectName),       \
-      InstanceMethod("objectName", &WidgetWrapName::objectName),             \
       InstanceMethod("setMouseTracking", &WidgetWrapName::setMouseTracking), \
       InstanceMethod("hasMouseTracking", &WidgetWrapName::hasMouseTracking), \
       InstanceMethod("setEnabled", &WidgetWrapName::setEnabled),             \
