@@ -1,6 +1,5 @@
-#include "QtGui/QKeySequence/qkeysequence_wrap.h"
-
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QKeySequence/qkeysequence_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "deps/spdlog/spdlog.h"
 
@@ -32,6 +31,7 @@ QKeySequenceWrap::QKeySequenceWrap(const Napi::CallbackInfo &info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 QKeySequenceWrap::~QKeySequenceWrap() { this->instance.reset(); }

@@ -1,11 +1,10 @@
-#include "QtWidgets/QMenu/qmenu_wrap.h"
-
 #include <nodegui/Extras/Utils/nutils.h>
 #include <nodegui/QtWidgets/QWidget/qwidget_wrap.h>
 
 #include <QWidget>
 
 #include "QtWidgets/QAction/qaction_wrap.h"
+#include "QtWidgets/QMenu/qmenu_wrap.h"
 
 Napi::FunctionReference QMenuWrap::constructor;
 
@@ -40,6 +39,7 @@ QMenuWrap::QMenuWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
   // Adds measure function on yoga node so that widget size is calculated based
   // on its text also.
   YGNodeSetMeasureFunc(this->instance->getFlexNode(),

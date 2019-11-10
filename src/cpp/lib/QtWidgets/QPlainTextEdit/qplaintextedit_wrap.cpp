@@ -1,9 +1,8 @@
 
-#include "QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
-
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QPlainTextEditWrap::constructor;
@@ -52,6 +51,7 @@ QPlainTextEditWrap::QPlainTextEditWrap(const Napi::CallbackInfo &info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
   // Adds measure function on yoga node so that widget size is calculated based
   // on its text also.
   YGNodeSetMeasureFunc(this->instance->getFlexNode(),

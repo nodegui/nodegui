@@ -1,6 +1,5 @@
-#include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
-
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QGridLayoutWrap::constructor;
@@ -37,6 +36,7 @@ QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 Napi::Value QGridLayoutWrap::addWidget(const Napi::CallbackInfo& info) {

@@ -1,9 +1,8 @@
 
-#include "QtWidgets/QProgressBar/qprogressbar_wrap.h"
-
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QProgressBar/qprogressbar_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QProgressBarWrap::constructor;
@@ -42,6 +41,7 @@ QProgressBarWrap::QProgressBarWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
   // Adds measure function on yoga node so that widget size is calculated based
   // on its own size.
   YGNodeSetMeasureFunc(this->instance->getFlexNode(),

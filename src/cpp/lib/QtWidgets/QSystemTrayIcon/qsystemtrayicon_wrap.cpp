@@ -1,10 +1,9 @@
-#include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
-
 #include <QWidget>
 #include <iostream>
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
+#include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QSystemTrayIconWrap::constructor;
@@ -20,9 +19,7 @@ Napi::Object QSystemTrayIconWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("isVisible", &QSystemTrayIconWrap::isVisible),
        InstanceMethod("setToolTip", &QSystemTrayIconWrap::setToolTip),
        InstanceMethod("setContextMenu", &QSystemTrayIconWrap::setContextMenu),
-
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
-           EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QSystemTrayIconWrap)});
+       EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QSystemTrayIconWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -50,6 +47,7 @@ QSystemTrayIconWrap::QSystemTrayIconWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 QSystemTrayIconWrap::~QSystemTrayIconWrap() {

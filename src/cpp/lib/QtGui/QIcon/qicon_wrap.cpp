@@ -1,6 +1,5 @@
-#include "QtGui/QIcon/qicon_wrap.h"
-
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QIcon/qicon_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "deps/spdlog/spdlog.h"
 
@@ -34,6 +33,7 @@ QIconWrap::QIconWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 QIconWrap::~QIconWrap() { this->instance.reset(); }

@@ -1,6 +1,5 @@
-#include "QtGui/QCursor/qcursor_wrap.h"
-
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QCursor/qcursor_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "deps/spdlog/spdlog.h"
 
@@ -33,6 +32,7 @@ QCursorWrap::QCursorWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 QCursorWrap::~QCursorWrap() { this->instance.reset(); }

@@ -10,8 +10,12 @@
 namespace extrautils {
 YGSize measureQtWidget(YGNodeRef node, float width, YGMeasureMode widthMode,
                        float height, YGMeasureMode heightMode);
+
 QVariant* convertToQVariant(Napi::Env& env, Napi::Value& value);
+
 bool isNapiValueInt(Napi::Env& env, Napi::Value& num);
+
+std::string getNapiObjectClassName(Napi::Object& object);
 
 template <typename T>
 void safeDelete(QPointer<T> component) {

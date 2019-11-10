@@ -1,9 +1,8 @@
-#include "QtWidgets/QLabel/qlabel_wrap.h"
-
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
+#include "QtWidgets/QLabel/qlabel_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 Napi::FunctionReference QLabelWrap::constructor;
 
@@ -45,6 +44,7 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
   // Adds measure function on yoga node so that widget size is calculated based
   // on its text also.
   YGNodeSetMeasureFunc(this->instance->getFlexNode(),

@@ -4,6 +4,9 @@
 
 #include <QApplication>
 #include <QPointer>
+
+#include "core/Component/component_macro.h"
+
 class QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
  private:
   QPointer<QApplication> instance;
@@ -24,6 +27,8 @@ class QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
   Napi::Value exit(const Napi::CallbackInfo& info);
   Napi::Value setQuitOnLastWindowClosed(const Napi::CallbackInfo& info);
   Napi::Value quitOnLastWindowClosed(const Napi::CallbackInfo& info);
+
+  COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
 namespace StaticQApplicationWrapMethods {

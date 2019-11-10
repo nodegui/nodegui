@@ -1,6 +1,5 @@
-#include "QtGui/QClipboard/qclipboard_wrap.h"
-
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "deps/spdlog/spdlog.h"
 
 Napi::FunctionReference QClipboardWrap::constructor;
@@ -29,6 +28,7 @@ QClipboardWrap::QClipboardWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Incorrect initialization of QClipboardWrap")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 QClipboard* QClipboardWrap::getInternalInstance() { return this->instance; }

@@ -1,9 +1,8 @@
-#include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
-
 #include <QApplication>
 #include <QDesktopWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
@@ -46,6 +45,7 @@ QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {

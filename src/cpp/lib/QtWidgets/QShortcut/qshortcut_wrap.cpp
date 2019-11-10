@@ -1,10 +1,9 @@
-#include "QtWidgets/QShortcut/qshortcut_wrap.h"
-
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QKeySequence/qkeysequence_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
+#include "QtWidgets/QShortcut/qshortcut_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QShortcutWrap::constructor;
@@ -18,8 +17,7 @@ Napi::Object QShortcutWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setAutoRepeat", &QShortcutWrap::setAutoRepeat),
        InstanceMethod("setKey", &QShortcutWrap::setKey),
        InstanceMethod("setContext", &QShortcutWrap::setContext),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
-           EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QShortcutWrap)});
+       EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QShortcutWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -41,6 +39,7 @@ QShortcutWrap::QShortcutWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 QShortcutWrap::~QShortcutWrap() { extrautils::safeDelete(this->instance); }

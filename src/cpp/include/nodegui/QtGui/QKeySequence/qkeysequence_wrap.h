@@ -19,4 +19,6 @@ class QKeySequenceWrap : public Napi::ObjectWrap<QKeySequenceWrap> {
   QKeySequence *getInternalInstance();
   // Wrapped methods
   Napi::Value count(const Napi::CallbackInfo &info);
+
+  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

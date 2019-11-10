@@ -2,6 +2,7 @@
 
 #include <QWidget>
 
+#include "core/Component/component_macro.h"
 #include "eventwidget.h"
 
 /*
@@ -13,7 +14,7 @@
 
 #ifndef EVENTWIDGET_WRAPPED_METHODS_DECLARATION
 #define EVENTWIDGET_WRAPPED_METHODS_DECLARATION                      \
-                                                                     \
+  COMPONENT_WRAPPED_METHODS_DECLARATION                              \
   Napi::Value initNodeEventEmitter(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env();                                      \
     this->instance->emitOnNode =                                     \
@@ -39,7 +40,7 @@
 
 #ifndef EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 #define EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
-                                                                  \
+  COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE                         \
   InstanceMethod("initNodeEventEmitter",                          \
                  &WidgetWrapName::initNodeEventEmitter),          \
       InstanceMethod("subscribeToQtEvent",                        \

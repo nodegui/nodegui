@@ -2,7 +2,7 @@
 
 #include <QSize>
 
-#include "core/Component/component_macro.h"
+#include "QtCore/QObject/qobject_macro.h"
 /*
 
     This macro adds common QLayout exported methods
@@ -12,6 +12,7 @@
 
 #ifndef QLAYOUT_WRAPPED_METHODS_DECLARATION
 #define QLAYOUT_WRAPPED_METHODS_DECLARATION                \
+  COMPONENT_WRAPPED_METHODS_DECLARATION                    \
                                                            \
   Napi::Value activate(const Napi::CallbackInfo& info) {   \
     Napi::Env env = info.Env();                            \
