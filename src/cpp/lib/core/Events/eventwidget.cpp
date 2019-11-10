@@ -2,6 +2,10 @@
 
 #include <napi.h>
 
+#include <QKeyEvent>
+
+#include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
+
 #include "deps/spdlog/spdlog.h"
 
 void EventWidget::subscribeToQtEvent(std::string evtString) {
@@ -41,11 +45,25 @@ void EventWidget::event(QEvent* event) {
       std::string eventTypeString = subscribedEvents.at(evtType);
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
+      std::vector<napi_value> args;
 
-      Napi::Value nativeEvent = Napi::External<QEvent>::New(env, event);
-      std::vector<napi_value> args = {Napi::String::New(env, eventTypeString),
-                                      nativeEvent};
+      switch (evtType) {
+        case QEvent::KeyPress:
+        case QEvent::KeyRelease: {
+          // Cast to QKeyEvent and create a JS friendly keyEvent object 
+          QKeyEvent* nativeKeyEvent = static_cast<QKeyEvent*>(event);
+          Napi::Object keyEvent = QKeyEventWrap::constructor.New(
+              {Napi::External<QKeyEvent>::New(env, nativeKeyEvent)});
 
+          args = {Napi::String::New(env, eventTypeString), keyEvent};
+          break;
+        }
+
+        default: {
+          Napi::Value nativeEvent = Napi::External<QEvent>::New(env, event);
+          args = {Napi::String::New(env, eventTypeString), nativeEvent};
+        }
+      }
       this->emitOnNode.Call(args);
     } catch (...) {
       // Do nothing
