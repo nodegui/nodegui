@@ -1,5 +1,6 @@
-#include "Extras/Utils/nutils.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
+
+#include "Extras/Utils/nutils.h"
 
 Napi::FunctionReference QVariantWrap::constructor;
 

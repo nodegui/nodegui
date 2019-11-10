@@ -1,6 +1,7 @@
+#include "QtGui/QPixmap/qpixmap_wrap.h"
+
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
-#include "QtGui/QPixmap/qpixmap_wrap.h"
 
 Napi::FunctionReference QPixmapWrap::constructor;
 
