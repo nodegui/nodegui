@@ -23,7 +23,7 @@ export { QWidget, QWidgetEvents } from './lib/QtWidgets/QWidget';
 export { QCheckBox, QCheckBoxEvents } from './lib/QtWidgets/QCheckBox';
 export { QLabel, QLabelEvents } from './lib/QtWidgets/QLabel';
 export { QDial, QDialEvents } from './lib/QtWidgets/QDial';
-export { QLineEdit, QLineEditEvents } from './lib/QtWidgets/QLineEdit';
+export { QLineEdit, QLineEditEvents, EchoMode } from './lib/QtWidgets/QLineEdit';
 export { QMainWindow, QMainWindowEvents } from './lib/QtWidgets/QMainWindow';
 export { QProgressBar, QProgressBarEvents } from './lib/QtWidgets/QProgressBar';
 export { QPushButton, QPushButtonEvents } from './lib/QtWidgets/QPushButton';

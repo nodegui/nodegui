@@ -18,6 +18,7 @@ Napi::Object QLineEditWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("text", &QLineEditWrap::text),
        InstanceMethod("setReadOnly", &QLineEditWrap::setReadOnly),
        InstanceMethod("clear", &QLineEditWrap::clear),
+       InstanceMethod("setEchoMode", &QLineEditWrap::setEchoMode),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLineEditWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -81,9 +82,19 @@ Napi::Value QLineEditWrap::setPlaceholderText(const Napi::CallbackInfo& info) {
   this->instance->setPlaceholderText(text.Utf8Value().c_str());
   return env.Null();
 }
+
 Napi::Value QLineEditWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   this->instance->clear();
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::setEchoMode(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Number mode = info[0].As<Napi::Number>();
+  this->instance->setEchoMode(
+      static_cast<QLineEdit::EchoMode>(mode.Int32Value()));
   return env.Null();
 }
