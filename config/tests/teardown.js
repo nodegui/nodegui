@@ -1,3 +1,3 @@
 module.exports = async () => {
-  global.qApp.quit();
+    global.qApp.quit();
 };

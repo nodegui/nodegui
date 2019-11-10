@@ -2,6 +2,7 @@ import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
 import { AspectRatioMode } from '../QtEnums';
 import { checkIfNativeElement } from '../utils/helpers';
+import { QVariant } from '../QtCore/QVariant';
 
 export type ImageFormats = 'BMP' | 'GIF' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'PGM' | 'PPM' | 'XBM' | 'XPM';
 export type ReadWriteImageFormats = 'BMP' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'XBM' | 'XPM';
@@ -36,4 +37,13 @@ export class QPixmap extends Component {
         }
         return new QPixmap(nativePixmap);
     };
+    height(): number {
+        return this.native.height();
+    }
+    width(): number {
+        return this.native.width();
+    }
+    static fromQVariant(variant: QVariant): QPixmap {
+        return addon.QPixmap.fromQVariant(variant.native);
+    }
 }

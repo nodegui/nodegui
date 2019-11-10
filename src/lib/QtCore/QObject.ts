@@ -2,6 +2,7 @@ import { EventWidget } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import addon from '../utils/addon';
+import { QVariant } from './QVariant';
 
 export abstract class NodeObject extends EventWidget {
     inherits(className: string): boolean {
@@ -10,6 +11,10 @@ export abstract class NodeObject extends EventWidget {
     setProperty(name: string, value: any): boolean {
         const finalValue = value.native || value;
         return this.native.setProperty(name, finalValue);
+    }
+    property(name: string): QVariant {
+        const nativeVariant = this.native.property(name);
+        return new QVariant(nativeVariant);
     }
     setObjectName(objectName: string): void {
         this.native.setObjectName(objectName);

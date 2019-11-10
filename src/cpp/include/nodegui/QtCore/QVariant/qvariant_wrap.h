@@ -1,0 +1,25 @@
+#pragma once
+
+#include <napi.h>
+
+#include <QSharedPointer>
+
+#include "core/Component/component_macro.h"
+
+class QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
+ private:
+  QSharedPointer<QVariant> instance;
+
+ public:
+  static Napi::Object init(Napi::Env env, Napi::Object exports);
+  QVariantWrap(const Napi::CallbackInfo& info);
+  QVariant* getInternalInstance();
+  // class constructor
+  static Napi::FunctionReference constructor;
+  Napi::Value toString(const Napi::CallbackInfo& info);
+  Napi::Value toInt(const Napi::CallbackInfo& info);
+  Napi::Value toDouble(const Napi::CallbackInfo& info);
+  Napi::Value toBool(const Napi::CallbackInfo& info);
+  // wrapped methods
+  COMPONENT_WRAPPED_METHODS_DECLARATION
+};
