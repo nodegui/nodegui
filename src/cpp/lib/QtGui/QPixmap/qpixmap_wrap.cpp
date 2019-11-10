@@ -1,5 +1,6 @@
-#include "Extras/Utils/nutils.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
+
+#include "Extras/Utils/nutils.h"
 #include "deps/spdlog/spdlog.h"
 
 Napi::FunctionReference QPixmapWrap::constructor;

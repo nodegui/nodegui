@@ -1,5 +1,6 @@
-#include "Extras/Utils/nutils.h"
 #include "QtGui/QKeySequence/qkeysequence_wrap.h"
+
+#include "Extras/Utils/nutils.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "deps/spdlog/spdlog.h"
 

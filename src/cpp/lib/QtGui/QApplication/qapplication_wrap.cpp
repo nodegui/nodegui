@@ -1,5 +1,6 @@
-#include "Extras/Utils/nutils.h"
 #include "QtGui/QApplication/qapplication_wrap.h"
+
+#include "Extras/Utils/nutils.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 
 Napi::FunctionReference QApplicationWrap::constructor;

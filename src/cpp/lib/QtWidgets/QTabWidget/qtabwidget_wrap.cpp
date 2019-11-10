@@ -1,8 +1,9 @@
+#include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
+
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QIcon/qicon_wrap.h"
-#include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QTabWidgetWrap::constructor;
