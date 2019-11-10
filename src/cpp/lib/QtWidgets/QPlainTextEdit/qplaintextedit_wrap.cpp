@@ -1,8 +1,9 @@
 
+#include "QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
+
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
-#include "QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QPlainTextEditWrap::constructor;

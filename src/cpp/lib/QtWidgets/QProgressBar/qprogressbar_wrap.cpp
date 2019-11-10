@@ -1,8 +1,9 @@
 
+#include "QtWidgets/QProgressBar/qprogressbar_wrap.h"
+
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
-#include "QtWidgets/QProgressBar/qprogressbar_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QProgressBarWrap::constructor;

@@ -1,6 +1,7 @@
+#include "QtWidgets/QSpinBox/qspinbox_wrap.h"
+
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QIcon/qicon_wrap.h"
-#include "QtWidgets/QSpinBox/qspinbox_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QSpinBoxWrap::constructor;
