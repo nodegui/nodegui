@@ -19,4 +19,6 @@ class QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap> {
   Napi::Value clear(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
   Napi::Value text(const Napi::CallbackInfo& info);
+
+  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

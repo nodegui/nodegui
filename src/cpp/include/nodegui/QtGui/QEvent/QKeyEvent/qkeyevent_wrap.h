@@ -5,6 +5,8 @@
 
 #include <QKeyEvent>
 
+#include "core/Component/component_macro.h"
+
 class QKeyEventWrap : public Napi::ObjectWrap<QKeyEventWrap> {
  private:
   QKeyEvent* instance;
@@ -18,5 +20,6 @@ class QKeyEventWrap : public Napi::ObjectWrap<QKeyEventWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value text(const Napi::CallbackInfo& info);
-  // Napi::Value setFlexNode(const Napi::CallbackInfo& info);
+
+  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

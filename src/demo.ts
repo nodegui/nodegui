@@ -3,6 +3,7 @@ import { QWidget } from './lib/QtWidgets/QWidget';
 import { FlexLayout } from './lib/core/FlexLayout';
 import { QLabel } from './lib/QtWidgets/QLabel';
 import { AlignmentFlag } from './lib/QtEnums';
+import { QPixmap } from './lib/QtGui/QPixmap';
 
 const win = new QMainWindow();
 const view = new QWidget();
@@ -23,6 +24,8 @@ world.setStyleSheet(`
     border: 1px solid blue;
     qproperty-alignment: AlignCenter;
 `);
+const pixmap = new QPixmap('/Users/atulr/Project/nodegui/nodegui/extras/assets/kitchen.png');
+hello.setProperty('pixmap', pixmap);
 
 hello.setProperty('alignment', AlignmentFlag.AlignCenter);
 

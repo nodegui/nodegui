@@ -1,8 +1,11 @@
 #include "Extras/Utils/nutils.h"
 
 #include <QDebug>
+#include <QMetaType>
 #include <QWidget>
 #include <string>
+
+#include "core/Component/component_wrap.h"
 
 YGSize extrautils::measureQtWidget(YGNodeRef node, float width,
                                    YGMeasureMode widthMode, float height,
@@ -37,6 +40,14 @@ bool extrautils::isNapiValueInt(Napi::Env& env, Napi::Value& num) {
       .Value();
 }
 
+std::string extrautils::getNapiObjectClassName(Napi::Object& object) {
+  return object.Get("constructor")
+      .As<Napi::Object>()
+      .Get("name")
+      .As<Napi::String>()
+      .Utf8Value();
+}
+
 QVariant* extrautils::convertToQVariant(Napi::Env& env, Napi::Value& value) {
   // Warning: Make sure you delete the QVariant fron this function upon use.
   if (value.IsBoolean()) {
@@ -62,8 +73,12 @@ QVariant* extrautils::convertToQVariant(Napi::Env& env, Napi::Value& value) {
     // TODO: fix this
     return new QVariant();
   } else if (value.IsObject()) {
-    // TODO: fix this
-    return new QVariant();
+    Napi::Object object = value.As<Napi::Object>();
+    std::string className = getNapiObjectClassName(object);
+    int typeId = QMetaType::type(className.c_str());
+    ComponentWrap* componentWrap =
+        Napi::ObjectWrap<ComponentWrap>::Unwrap(object);
+    return new QVariant(typeId, componentWrap->rawData);
   } else if (value.IsFunction()) {
     return new QVariant();
   } else if (value.IsPromise()) {

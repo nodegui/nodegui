@@ -3,8 +3,6 @@
 #include <QString>
 
 #include "Extras/Utils/nutils.h"
-#include "core/Component/component_macro.h"
-#include "deps/spdlog/spdlog.h"
 
 Napi::FunctionReference QKeyEventWrap::constructor;
 
@@ -34,6 +32,7 @@ QKeyEventWrap::QKeyEventWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 QKeyEventWrap::~QKeyEventWrap() {

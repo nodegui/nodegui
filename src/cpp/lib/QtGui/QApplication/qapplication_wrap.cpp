@@ -2,7 +2,6 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
-#include "core/Component/component_macro.h"
 
 Napi::FunctionReference QApplicationWrap::constructor;
 int QApplicationWrap::argc = 0;
@@ -42,6 +41,7 @@ QApplicationWrap::QApplicationWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 QApplicationWrap::~QApplicationWrap() {
   if (this->_wasManuallyCreated) {

@@ -8,7 +8,8 @@ export abstract class NodeObject extends EventWidget {
         return this.native.inherits(className);
     }
     setProperty(name: string, value: any): boolean {
-        return this.native.setProperty(name, value);
+        const finalValue = value.native || value;
+        return this.native.setProperty(name, finalValue);
     }
     setObjectName(objectName: string): void {
         this.native.setObjectName(objectName);

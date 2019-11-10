@@ -21,4 +21,6 @@ class QIconWrap : public Napi::ObjectWrap<QIconWrap> {
   Napi::Value pixmap(const Napi::CallbackInfo& info);
   Napi::Value isMask(const Napi::CallbackInfo& info);
   Napi::Value setIsMask(const Napi::CallbackInfo& info);
+
+  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

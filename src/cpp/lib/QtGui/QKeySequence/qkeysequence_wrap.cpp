@@ -32,6 +32,7 @@ QKeySequenceWrap::QKeySequenceWrap(const Napi::CallbackInfo &info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 QKeySequenceWrap::~QKeySequenceWrap() { this->instance.reset(); }

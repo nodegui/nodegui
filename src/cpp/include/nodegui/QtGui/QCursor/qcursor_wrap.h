@@ -20,4 +20,6 @@ class QCursorWrap : public Napi::ObjectWrap<QCursorWrap> {
   // Wrapped methods
   Napi::Value pos(const Napi::CallbackInfo& info);
   Napi::Value setPos(const Napi::CallbackInfo& info);
+
+  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

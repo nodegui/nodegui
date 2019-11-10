@@ -26,8 +26,7 @@ Napi::Object QActionWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setChecked", &QActionWrap::setChecked),
        InstanceMethod("isSeparator", &QActionWrap::isSeparator),
        InstanceMethod("setSeparator", &QActionWrap::setSeparator),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
-           EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)});
+       EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -51,6 +50,7 @@ QActionWrap::QActionWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 QActionWrap::~QActionWrap() { extrautils::safeDelete(this->instance); }

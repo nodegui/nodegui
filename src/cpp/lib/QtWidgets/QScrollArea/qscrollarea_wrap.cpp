@@ -40,7 +40,7 @@ QScrollAreaWrap::QScrollAreaWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-  this->instance->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+  this->rawData = this->getInternalInstance();
   // Adds measure function on yoga node so that widget size is calculated based
   // on its own size.
   YGNodeSetMeasureFunc(this->instance->getFlexNode(),

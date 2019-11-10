@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Extras/Utils/nutils.h"
-#include "core/Component/component_macro.h"
 #include "core/Events/eventwidget_macro.h"
 /*
 
@@ -53,7 +52,6 @@
 #define QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(ComponentWrapName)          \
                                                                           \
   EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(ComponentWrapName)            \
-  COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE                                 \
                                                                           \
   InstanceMethod("inherits", &ComponentWrapName::inherits),               \
       InstanceMethod("setProperty", &ComponentWrapName::setProperty),     \

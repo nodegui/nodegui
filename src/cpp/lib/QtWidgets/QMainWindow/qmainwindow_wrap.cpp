@@ -46,6 +46,7 @@ QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {

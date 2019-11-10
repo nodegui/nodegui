@@ -38,6 +38,7 @@ QPixmapWrap::QPixmapWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 QPixmapWrap::~QPixmapWrap() { this->instance.reset(); }

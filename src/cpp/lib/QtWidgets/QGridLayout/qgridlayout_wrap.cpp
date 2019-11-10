@@ -37,6 +37,7 @@ QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->rawData = this->getInternalInstance();
 }
 
 Napi::Value QGridLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
