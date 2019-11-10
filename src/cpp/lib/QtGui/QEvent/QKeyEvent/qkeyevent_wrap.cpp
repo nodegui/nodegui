@@ -12,6 +12,10 @@ Napi::Object QKeyEventWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func =
       DefineClass(env, CLASSNAME,
                   {InstanceMethod("text", &QKeyEventWrap::text),
+                   InstanceMethod("key", &QKeyEventWrap::key),
+                   InstanceMethod("modifiers", &QKeyEventWrap::modifiers),
+                   InstanceMethod("count", &QKeyEventWrap::count),
+                   InstanceMethod("isAutoRepeat", &QKeyEventWrap::isAutoRepeat),
                    COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -44,4 +48,28 @@ Napi::Value QKeyEventWrap::text(const Napi::CallbackInfo& info) {
   QString text = this->instance->text();
   Napi::String keyValue = Napi::String::New(env, text.toStdString());
   return keyValue;
+}
+
+Napi::Value QKeyEventWrap::key(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int key = static_cast<int>(this->instance->key());
+  return Napi::Number::From(env, key);
+}
+
+Napi::Value QKeyEventWrap::modifiers(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int key = static_cast<int>(this->instance->modifiers());
+  return Napi::Number::From(env, key);
+}
+
+Napi::Value QKeyEventWrap::count(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int count = static_cast<int>(this->instance->count());
+  return Napi::Number::From(env, count);
+}
+
+Napi::Value QKeyEventWrap::isAutoRepeat(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool isAutoRepeat = static_cast<bool>(this->instance->isAutoRepeat());
+  return Napi::Boolean::From(env, isAutoRepeat);
 }
