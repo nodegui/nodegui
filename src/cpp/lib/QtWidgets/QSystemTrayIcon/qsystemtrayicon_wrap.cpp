@@ -1,10 +1,9 @@
-#include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
-
 #include <QWidget>
 #include <iostream>
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
+#include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QSystemTrayIconWrap::constructor;

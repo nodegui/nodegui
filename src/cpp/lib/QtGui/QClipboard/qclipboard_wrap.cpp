@@ -1,6 +1,5 @@
-#include "QtGui/QClipboard/qclipboard_wrap.h"
-
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "deps/spdlog/spdlog.h"
 
 Napi::FunctionReference QClipboardWrap::constructor;

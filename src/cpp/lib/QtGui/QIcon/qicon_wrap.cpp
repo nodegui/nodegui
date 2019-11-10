@@ -1,6 +1,5 @@
-#include "QtGui/QIcon/qicon_wrap.h"
-
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QIcon/qicon_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "deps/spdlog/spdlog.h"
 

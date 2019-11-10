@@ -1,9 +1,8 @@
-#include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
-
 #include <QApplication>
 #include <QDesktopWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 

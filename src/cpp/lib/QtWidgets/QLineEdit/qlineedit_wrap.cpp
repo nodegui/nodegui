@@ -1,9 +1,8 @@
 
-#include "QtWidgets/QLineEdit/qlineedit_wrap.h"
-
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QLineEdit/qlineedit_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QLineEditWrap::constructor;

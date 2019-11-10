@@ -1,6 +1,5 @@
-#include "QtCore/QObject/qobject_wrap.h"
-
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QObject/qobject_wrap.h"
 
 Napi::FunctionReference QObjectWrap::constructor;
 

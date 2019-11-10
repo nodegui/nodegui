@@ -1,8 +1,7 @@
 
-#include "core/FlexLayout/flexlayout_wrap.h"
-
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
+#include "core/FlexLayout/flexlayout_wrap.h"
 
 Napi::FunctionReference FlexLayoutWrap::constructor;
 

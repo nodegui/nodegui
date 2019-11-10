@@ -1,8 +1,7 @@
-#include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
-
 #include <QString>
 
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 
 Napi::FunctionReference QKeyEventWrap::constructor;
 

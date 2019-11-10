@@ -1,10 +1,9 @@
-#include "QtWidgets/QShortcut/qshortcut_wrap.h"
-
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QKeySequence/qkeysequence_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
+#include "QtWidgets/QShortcut/qshortcut_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QShortcutWrap::constructor;
