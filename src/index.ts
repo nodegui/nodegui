@@ -37,6 +37,8 @@ export { QScrollArea, QScrollAreaEvents } from './lib/QtWidgets/QScrollArea';
 export { QSystemTrayIcon, QSystemTrayIconEvents } from './lib/QtWidgets/QSystemTrayIcon';
 export { QAction, QActionEvents } from './lib/QtWidgets/QAction';
 export { QShortcut, QShortcutEvents } from './lib/QtWidgets/QShortcut';
+// Core
+export { QObject, NodeObject } from './lib/QtCore/QObject';
 // Layouts:
 export { QGridLayout } from './lib/QtWidgets/QGridLayout';
 export { FlexLayout } from './lib/core/FlexLayout';

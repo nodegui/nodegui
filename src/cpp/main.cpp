@@ -1,5 +1,6 @@
 #include <napi.h>
 
+#include "QtCore/QObject/qobject_wrap.h"
 #include "QtGui/QApplication/qapplication_wrap.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
@@ -36,6 +37,7 @@ void InitPrivateHelpers(Napi::Env env) {
 Napi::Object Main(Napi::Env env, Napi::Object exports) {
   InitPrivateHelpers(env);
   QApplicationWrap::init(env, exports);
+  QObjectWrap::init(env, exports);
   QClipboardWrap::init(env, exports);
   QWidgetWrap::init(env, exports);
   QPixmapWrap::init(env, exports);
