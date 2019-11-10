@@ -13,4 +13,13 @@ export class QKeyEvent {
     key = (): string => {
         return this.native.key();
     };    
+    modifiers = (): number => {
+        return this.native.modifiers();
+    };    
+    count = (): number => {
+        return this.native.count();
+    };    
+    isAutoRepeat = (): boolean => {
+        return this.native.isAutoRepeat();
+    };    
 }
