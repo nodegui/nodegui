@@ -7,8 +7,8 @@ export enum EchoMode {
     Normal,
     NoEcho,
     Password,
-    PasswordEchoOnEdit,    
-};
+    PasswordEchoOnEdit,
+}
 export const QLineEditEvents = Object.freeze({
     ...BaseWidgetEvents,
     cursorPositionChanged: 'cursorPositionChanged',
