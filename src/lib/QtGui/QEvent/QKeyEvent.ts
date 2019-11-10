@@ -10,4 +10,7 @@ export class QKeyEvent {
     text = (): string => {
         return this.native.text();
     };
+    key = (): string => {
+        return this.native.key();
+    };    
 }

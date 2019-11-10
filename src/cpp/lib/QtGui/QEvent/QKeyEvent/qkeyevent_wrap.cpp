@@ -12,6 +12,7 @@ Napi::Object QKeyEventWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func =
       DefineClass(env, CLASSNAME,
                   {InstanceMethod("text", &QKeyEventWrap::text),
+                   InstanceMethod("key", &QKeyEventWrap::key),
                    COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -44,4 +45,10 @@ Napi::Value QKeyEventWrap::text(const Napi::CallbackInfo& info) {
   QString text = this->instance->text();
   Napi::String keyValue = Napi::String::New(env, text.toStdString());
   return keyValue;
+}
+
+Napi::Value QKeyEventWrap::key(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int key = static_cast<int>(this->instance->key());
+  return Napi::Number::From(env, key);
 }

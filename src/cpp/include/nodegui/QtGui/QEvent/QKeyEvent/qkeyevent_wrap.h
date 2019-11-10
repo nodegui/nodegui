@@ -20,6 +20,7 @@ class QKeyEventWrap : public Napi::ObjectWrap<QKeyEventWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value text(const Napi::CallbackInfo& info);
+  Napi::Value key(const Napi::CallbackInfo& info);
 
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };
