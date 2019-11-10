@@ -3,6 +3,12 @@ import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 
+export enum EchoMode {
+    Normal,
+    NoEcho,
+    Password,
+    PasswordEchoOnEdit,    
+};
 export const QLineEditEvents = Object.freeze({
     ...BaseWidgetEvents,
     cursorPositionChanged: 'cursorPositionChanged',
@@ -47,5 +53,8 @@ export class QLineEdit extends NodeWidget {
     clear(): void {
         // react:✓
         this.native.clear();
+    }
+    setEchoMode(mode: EchoMode): void {
+        this.native.setEchoMode(mode);
     }
 }
