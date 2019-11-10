@@ -10,7 +10,7 @@ export class QKeyEvent {
     text = (): string => {
         return this.native.text();
     };
-    key = (): string => {
+    key = (): number => {
         return this.native.key();
     };    
     modifiers = (): number => {
