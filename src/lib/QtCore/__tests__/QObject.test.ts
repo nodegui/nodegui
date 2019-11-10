@@ -9,4 +9,9 @@ describe('QObject', () => {
         component.setObjectName('hello');
         expect(component.objectName()).toEqual('hello');
     });
+    it('setProperty', () => {
+        component.setProperty('objectName', 'testObjName');
+        const variant = component.property('objectName');
+        expect(variant.toString()).toEqual('testObjName');
+    });
 });

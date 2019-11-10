@@ -1,6 +1,5 @@
 #include "Extras/Utils/nutils.h"
 
-#include <QDebug>
 #include <QMetaType>
 #include <QWidget>
 #include <string>
@@ -91,8 +90,8 @@ QVariant* extrautils::convertToQVariant(Napi::Env& env, Napi::Value& value) {
     // TODO: fix this
     return new QVariant();
   } else if (value.IsExternal()) {
-    // TODO: fix this
-    return new QVariant();
+    QVariant* variant = value.As<Napi::External<QVariant>>().Data();
+    return variant;
   } else {
     return new QVariant();
   }

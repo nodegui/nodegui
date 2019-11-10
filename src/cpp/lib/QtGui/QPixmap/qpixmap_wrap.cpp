@@ -1,19 +1,22 @@
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 
 #include "Extras/Utils/nutils.h"
-#include "deps/spdlog/spdlog.h"
+#include "QtCore/QVariant/qvariant_wrap.h"
 
 Napi::FunctionReference QPixmapWrap::constructor;
 
 Napi::Object QPixmapWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QPixmap";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {InstanceMethod("load", &QPixmapWrap::load),
-                   InstanceMethod("save", &QPixmapWrap::save),
-                   InstanceMethod("scaled", &QPixmapWrap::scaled),
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("load", &QPixmapWrap::load),
+       InstanceMethod("save", &QPixmapWrap::save),
+       InstanceMethod("scaled", &QPixmapWrap::scaled),
+       InstanceMethod("height", &QPixmapWrap::height),
+       InstanceMethod("width", &QPixmapWrap::width),
+       StaticMethod("fromQVariant", &StaticQPixmapWrapMethods::fromQVariant),
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -96,5 +99,30 @@ Napi::Value QPixmapWrap::scaled(const Napi::CallbackInfo& info) {
       new QPixmap(this->instance->scaled(width, height, aspectRatioMode));
   auto instance = QPixmapWrap::constructor.New(
       {Napi::External<QPixmap>::New(env, updatedPixMap)});
+  return instance;
+}
+
+Napi::Value QPixmapWrap::height(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return Napi::Value::From(env, this->instance->height());
+}
+Napi::Value QPixmapWrap::width(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return Napi::Value::From(env, this->instance->width());
+}
+
+Napi::Value StaticQPixmapWrapMethods::fromQVariant(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Object variantObject = info[0].As<Napi::Object>();
+  QVariantWrap* variantWrap =
+      Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
+  QVariant* variant = variantWrap->getInternalInstance();
+  QPixmap pixmap = variant->value<QPixmap>();
+  auto instance = QPixmapWrap::constructor.New(
+      {Napi::External<QPixmap>::New(env, new QPixmap(pixmap))});
   return instance;
 }

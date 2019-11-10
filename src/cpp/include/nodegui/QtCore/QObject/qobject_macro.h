@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QVariant/qvariant_wrap.h"
 #include "core/Events/eventwidget_macro.h"
 /*
 
@@ -31,6 +32,17 @@
     this->instance->setProperty(name.Utf8Value().c_str(), *variant);         \
     return env.Null();                                                       \
   }                                                                          \
+  Napi::Value property(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                              \
+    Napi::HandleScope scope(env);                                            \
+    Napi::String name = info[0].As<Napi::String>();                          \
+    Napi::Value value = info[1];                                             \
+    QVariant* variant =                                                      \
+        new QVariant(this->instance->property(name.Utf8Value().c_str()));    \
+    auto variantWrap = QVariantWrap::constructor.New(                        \
+        {Napi::External<QVariant>::New(env, variant)});                      \
+    return variantWrap;                                                      \
+  }                                                                          \
   Napi::Value setObjectName(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                              \
     Napi::HandleScope scope(env);                                            \
@@ -55,6 +67,7 @@
                                                                           \
   InstanceMethod("inherits", &ComponentWrapName::inherits),               \
       InstanceMethod("setProperty", &ComponentWrapName::setProperty),     \
+      InstanceMethod("property", &ComponentWrapName::property),           \
       InstanceMethod("setObjectName", &ComponentWrapName::setObjectName), \
       InstanceMethod("objectName", &ComponentWrapName::objectName),
 
