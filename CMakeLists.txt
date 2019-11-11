@@ -44,6 +44,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QKeySequence/qkeysequence_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QObject/qobject_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QVariant/qvariant_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QSize/qsize_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QWidget/qwidget_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QGridLayout/qgridlayout_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QDial/qdial_wrap.cpp"

@@ -64,7 +64,9 @@ describe('QWidget', () => {
     });
     it('setFixedSize', () => {
         view.setFixedSize(10, 12);
-        expect(view.size()).toEqual({ width: 10, height: 12 });
+        const size = view.size();
+        expect(size.width()).toBe(10);
+        expect(size.height()).toBe(12);
     });
     it('setWindowOpacity', () => {
         view.setWindowOpacity(0.6);

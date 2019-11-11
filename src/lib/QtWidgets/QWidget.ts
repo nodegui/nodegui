@@ -10,6 +10,7 @@ import { CursorShape, WindowState } from '../QtEnums';
 import { applyStyleSheet, StyleSheet, prepareInlineStyleSheet } from '../core/Style/StyleSheet';
 import { checkIfNativeElement } from '../utils/helpers';
 import { YogaWidget } from '../core/YogaWidget';
+import { QSize } from '../QtCore/QSize';
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
 export abstract class NodeWidget extends YogaWidget {
@@ -90,8 +91,8 @@ export abstract class NodeWidget extends YogaWidget {
     resize(width: number, height: number): void {
         this.native.resize(width, height);
     }
-    size(): { width: number; height: number } {
-        return this.native.size();
+    size(): QSize {
+        return new QSize(this.native.size());
     }
     move(x: number, y: number): void {
         this.native.move(x, y);
