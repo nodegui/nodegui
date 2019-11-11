@@ -130,6 +130,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "msairio",
+      "name": "Mikko Sairio",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/3404389?v=4",
+      "profile": "https://www.greatapes.fi",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
