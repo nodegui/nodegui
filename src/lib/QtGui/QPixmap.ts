@@ -21,14 +21,13 @@ export class QPixmap extends Component {
             this.native = new addon.QPixmap();
         }
     }
-    load = (imageUrl: string): boolean => {
+    load(imageUrl: string): boolean {
         return this.native.load(imageUrl);
-    };
-    save = (fileName: string, format?: ReadWriteImageFormats): boolean => {
-        //TODO: quality argument
+    }
+    save(fileName: string, format?: ReadWriteImageFormats): boolean {
         return format ? this.native.save(fileName, format) : this.native.save(fileName);
-    };
-    scaled = (width: number, height: number, aspectRatioMode?: AspectRatioMode): QPixmap => {
+    }
+    scaled(width: number, height: number, aspectRatioMode?: AspectRatioMode): QPixmap {
         let nativePixmap;
         if (aspectRatioMode) {
             nativePixmap = this.native.scaled(width, height, aspectRatioMode);
@@ -36,7 +35,7 @@ export class QPixmap extends Component {
             nativePixmap = this.native.scaled(width, height);
         }
         return new QPixmap(nativePixmap);
-    };
+    }
     height(): number {
         return this.native.height();
     }

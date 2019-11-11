@@ -40,6 +40,7 @@ export { QShortcut, QShortcutEvents } from './lib/QtWidgets/QShortcut';
 // Core
 export { QObject, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
+export { QSize } from './lib/QtCore/QSize';
 // Layouts:
 export { QGridLayout } from './lib/QtWidgets/QGridLayout';
 export { FlexLayout } from './lib/core/FlexLayout';

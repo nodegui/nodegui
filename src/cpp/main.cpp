@@ -1,6 +1,7 @@
 #include <napi.h>
 
 #include "QtCore/QObject/qobject_wrap.h"
+#include "QtCore/QSize/qsize_wrap.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
 #include "QtGui/QApplication/qapplication_wrap.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
@@ -40,6 +41,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QApplicationWrap::init(env, exports);
   QObjectWrap::init(env, exports);
   QVariantWrap::init(env, exports);
+  QSizeWrap::init(env, exports);
   QClipboardWrap::init(env, exports);
   QWidgetWrap::init(env, exports);
   QPixmapWrap::init(env, exports);
