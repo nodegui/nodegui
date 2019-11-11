@@ -221,7 +221,7 @@
     Napi::HandleScope scope(env);                                           \
     QSize size = this->instance->size();                                    \
     auto sizeWrap = QSizeWrap::constructor.New({Napi::External<QSize>::New( \
-        env, new QSize(size.width(),size.height()))});                      \
+        env, new QSize(size.width(), size.height()))});                     \
     return sizeWrap;                                                        \
   }                                                                         \
   Napi::Value setAttribute(const Napi::CallbackInfo& info) {                \
