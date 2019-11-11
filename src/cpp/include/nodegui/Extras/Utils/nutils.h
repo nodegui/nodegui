@@ -18,8 +18,8 @@ bool isNapiValueInt(Napi::Env& env, Napi::Value& num);
 std::string getNapiObjectClassName(Napi::Object& object);
 
 template <typename T>
-void safeDelete(QPointer<T> component) {
-  if (component.isNull()) {
+void safeDelete(QPointer<T>& component) {
+  if (!component.isNull()) {
     delete component;
   }
 }
