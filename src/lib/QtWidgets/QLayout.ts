@@ -1,8 +1,8 @@
-import { Component } from '../core/Component';
 import { NodeWidget } from './QWidget';
+import { NodeObject } from '../QtCore/QObject';
 
 // All Layouts should extend this abstract class.
-export abstract class NodeLayout extends Component {
+export abstract class NodeLayout extends NodeObject {
     type = 'layout';
     abstract addWidget(childWidget: NodeWidget, ...args: any[]): void;
     activate = (): boolean => {

@@ -10,7 +10,7 @@ void QLayoutWrap::init(Napi::Env env) {
   constructor = Napi::Persistent(func);
 }
 
-QLayout* QLayoutWrap::getInternalInstance() { return this->instance; }
+NLayout* QLayoutWrap::getInternalInstance() { return this->instance; }
 
 QLayoutWrap::QLayoutWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QLayoutWrap>(info) {

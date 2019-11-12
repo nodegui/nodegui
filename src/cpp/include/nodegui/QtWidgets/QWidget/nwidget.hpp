@@ -12,7 +12,7 @@ class NWidget : public QWidget, public NodeWidget {
  public:
   using QWidget::QWidget;
   // https://doc.qt.io/qt-5/stylesheet-reference.html
-  void paintEvent(QPaintEvent *e) {
+  void paintEvent(QPaintEvent *e) override {
     QStyleOption opt;
     opt.init(this);
     QPainter p(this);

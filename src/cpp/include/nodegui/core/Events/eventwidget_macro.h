@@ -52,7 +52,7 @@
 
 #ifndef EVENTWIDGET_IMPLEMENTATIONS
 #define EVENTWIDGET_IMPLEMENTATIONS(BaseWidgetName) \
-  bool event(QEvent* event) {                       \
+  bool event(QEvent* event) override {              \
     EventWidget::event(event);                      \
     return BaseWidgetName::event(event);            \
   }
