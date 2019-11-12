@@ -2,6 +2,7 @@
 
 #include <QLayout>
 
+#include "core/Events/eventwidget_macro.h"
 #include "deps/yoga/YGNode.h"
 
 /*
@@ -17,7 +18,7 @@ YGNodeNew(); FlexLayout * flayout = new FlexLayout(container,root);
     flayout->addWidget(btn2, child2);
  */
 
-class FlexLayout : public QLayout {
+class FlexLayout : public QLayout, public EventWidget {
  private:
   YGNodeRef node;
   YGNodeRef getRootNode(YGNodeRef node);
@@ -41,4 +42,6 @@ class FlexLayout : public QLayout {
   void setGeometry(const QRect &rect) override;
   void setFlexNode(YGNodeRef parentNode);
   static NodeContext *getNodeContext(YGNodeRef node);
+
+  EVENTWIDGET_IMPLEMENTATIONS(FlexLayout)
 };

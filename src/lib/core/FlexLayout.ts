@@ -5,7 +5,12 @@ import { FlexNode } from './YogaWidget';
 import { NativeElement } from './Component';
 
 export class FlexLayout extends NodeLayout {
-    native: NativeElement = new addon.FlexLayout();
+    native: NativeElement;
+    constructor() {
+        const native = new addon.FlexLayout();
+        super(native);
+        this.native = native;
+    }
     protected flexNode?: FlexNode;
 
     addWidget(childWidget: NodeWidget, childFlexNode?: FlexNode): void {

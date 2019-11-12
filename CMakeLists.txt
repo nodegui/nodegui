@@ -86,6 +86,8 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QShortcut/nshortcut.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QMenuBar/nmenubar.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QMenu/nmenu.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QLayout/nlayout.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QGridLayout/ngridlayout.hpp"
 ) 
 
 AddCommonConfig(${CORE_WIDGETS_ADDON})

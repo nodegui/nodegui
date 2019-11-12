@@ -18,7 +18,7 @@ Napi::Object QGridLayoutWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-QGridLayout* QGridLayoutWrap::getInternalInstance() { return this->instance; }
+NGridLayout* QGridLayoutWrap::getInternalInstance() { return this->instance; }
 QGridLayoutWrap::~QGridLayoutWrap() { extrautils::safeDelete(this->instance); }
 
 QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info)
@@ -30,9 +30,9 @@ QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info)
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = new QGridLayout(parentWidgetWrap->getInternalInstance());
+    this->instance = new NGridLayout(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
-    this->instance = new QGridLayout();
+    this->instance = new NGridLayout();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();

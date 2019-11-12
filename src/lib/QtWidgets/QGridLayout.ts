@@ -6,13 +6,15 @@ import { NativeElement } from '../core/Component';
 export class QGridLayout extends NodeLayout {
     native: NativeElement;
     constructor(parent?: NodeWidget) {
-        super();
+        let native: NativeElement;
         if (parent) {
-            this.native = new addon.QGridLayout(parent.native);
-            this.nodeParent = parent;
+            native = new addon.QGridLayout(parent.native);
         } else {
-            this.native = new addon.QGridLayout();
+            native = new addon.QGridLayout();
         }
+        super(native);
+        this.nodeParent = parent;
+        this.native = native;
     }
     addWidget(widget: NodeWidget): void {
         this.native.addWidget(widget.native);

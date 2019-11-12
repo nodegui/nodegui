@@ -6,18 +6,19 @@
 #include <QLayout>
 #include <QPointer>
 
+#include "QtWidgets/QLayout/nlayout.hpp"
 #include "QtWidgets/QLayout/qlayout_macro.h"
 
 // ABSTRACT CLASS
 class QLayoutWrap : public Napi::ObjectWrap<QLayoutWrap> {
  private:
-  QPointer<QLayout> instance;
+  QPointer<NLayout> instance;
 
  public:
   static void init(Napi::Env env);
   QLayoutWrap(const Napi::CallbackInfo& info);
   ~QLayoutWrap();
-  QLayout* getInternalInstance();
+  NLayout* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
