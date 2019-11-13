@@ -184,4 +184,9 @@ void FlexLayout::setGeometry(const QRect& rect) {
   }
 }
 
-void FlexLayout::setFlexNode(YGNodeRef parentNode) { this->node = parentNode; }
+void FlexLayout::setFlexNode(YGNodeRef parentNode) {
+  this->node = parentNode;
+  QLayoutItem* layoutItem = new QWidgetItem(this->parentWidget());
+  NodeContext* ctx = new NodeContext(layoutItem);
+  YGNodeSetContext(this->node, static_cast<void*>(ctx));
+}
