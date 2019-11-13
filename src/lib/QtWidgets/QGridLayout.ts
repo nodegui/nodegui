@@ -16,8 +16,8 @@ export class QGridLayout extends NodeLayout {
         this.nodeParent = parent;
         this.native = native;
     }
-    addWidget(widget: NodeWidget): void {
-        this.native.addWidget(widget.native);
+    addWidget(widget: NodeWidget, row = 0, col = 0, rowSpan = 1, colSpan = 1): void {
+        this.native.addWidget(widget.native, row, col, rowSpan, colSpan);
         this.nodeChildren.add(widget);
     }
     removeWidget(widget: NodeWidget): void {

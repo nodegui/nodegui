@@ -30,6 +30,7 @@
 #include "QtWidgets/QShortcut/qshortcut_wrap.h"
 #include "QtWidgets/QSpinBox/qspinbox_wrap.h"
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
+#include "QtWidgets/QStackedWidget/qstackedwidget_wrap.h"
 #include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
@@ -59,6 +60,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QCheckBoxWrap::init(env, exports);
   QProgressBarWrap::init(env, exports);
   QRadioButtonWrap::init(env, exports);
+  QStackedWidgetWrap::init(env, exports);
   QTabWidgetWrap::init(env, exports);
   QLineEditWrap::init(env, exports);
   QKeyEventWrap::init(env, exports);

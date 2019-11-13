@@ -30,6 +30,7 @@ export { QProgressBar, QProgressBarEvents } from './lib/QtWidgets/QProgressBar';
 export { QPushButton, QPushButtonEvents } from './lib/QtWidgets/QPushButton';
 export { QSpinBox, QSpinBoxEvents } from './lib/QtWidgets/QSpinBox';
 export { QRadioButton, QRadioButtonEvents } from './lib/QtWidgets/QRadioButton';
+export { QStackedWidget, QStackedWidgetEvents } from './lib/QtWidgets/QStackedWidget';
 export { QTabWidget, QTabWidgetEvents } from './lib/QtWidgets/QTabWidget';
 export { QMenu, QMenuEvents } from './lib/QtWidgets/QMenu';
 export { QMenuBar, QMenuBarEvents } from './lib/QtWidgets/QMenuBar';

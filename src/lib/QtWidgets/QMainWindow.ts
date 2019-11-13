@@ -61,9 +61,9 @@ export class QMainWindow extends NodeWidget {
     get layout(): NodeLayout | undefined {
         if (this.centralWidget) {
             return this.centralWidget.layout;
-        } else {
-            return super.layout;
         }
+
+        return super.layout;
     }
     center(): void {
         this.native.center();
