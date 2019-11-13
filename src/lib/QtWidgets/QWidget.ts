@@ -133,6 +133,9 @@ export abstract class NodeWidget extends YogaWidget {
         this.native.setLayout(parentLayout.native);
         this.layout = parentLayout;
     }
+    adjustSize(): void {
+        this.native.adjustSize();
+    }
 }
 
 type Rect = {
