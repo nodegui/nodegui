@@ -1,5 +1,6 @@
 #include "core/FlexLayout/flexlayout.h"
 
+#include <QDebug>
 #include <QWidget>
 
 #include "core/YogaWidget/yogawidget.h"
@@ -151,33 +152,36 @@ void FlexLayout::setGeometry(const QRect& rect) {
   if (!this->node) {
     return;
   }
-  YGNodeRef rootNode = getRootNode(this->node);
-  QWidget* parentWidget = this->parentWidget();
-  QWidget* window = parentWidget->window();
-  YGDirection direction = YGNodeStyleGetDirection(rootNode);
-  YGNodeCalculateLayout(rootNode, window->width(), window->height(), direction);
-  uint count = YGNodeGetChildCount(this->node);
+  if (rect != geometry()) {
+    YGNodeRef rootNode = getRootNode(this->node);
+    QWidget* parentWidget = this->parentWidget();
+    QWidget* window = parentWidget->window();
+    YGDirection direction = YGNodeStyleGetDirection(rootNode);
+    YGNodeCalculateLayout(rootNode, window->width(), window->height(),
+                          direction);
+    uint count = YGNodeGetChildCount(this->node);
 
-  for (uint i = 0; i < count; ++i) {
-    YGNode* childNode = YGNodeGetChild(this->node, i);
-    int width = static_cast<uint>(YGNodeLayoutGetWidth(childNode));
-    int height = static_cast<uint>(YGNodeLayoutGetHeight(childNode));
-    int left = static_cast<uint>(YGNodeLayoutGetLeft(childNode));
-    int top = static_cast<uint>(YGNodeLayoutGetTop(childNode));
+    for (uint i = 0; i < count; ++i) {
+      YGNode* childNode = YGNodeGetChild(this->node, i);
+      int width = static_cast<uint>(YGNodeLayoutGetWidth(childNode));
+      int height = static_cast<uint>(YGNodeLayoutGetHeight(childNode));
+      int left = static_cast<uint>(YGNodeLayoutGetLeft(childNode));
+      int top = static_cast<uint>(YGNodeLayoutGetTop(childNode));
 
-    QRect childRect(left, top, width, height);
-    NodeContext* ctx = getNodeContext(childNode);
-    if (ctx) {
-      QLayoutItem* childLayoutItem = ctx->item;
-      QWidget* childWidget = childLayoutItem->widget();
-      if (childWidget) {
-        childWidget->setGeometry(childRect);
-      } else {
-        childLayoutItem->setGeometry(childRect);
+      QRect childRect(left, top, width, height);
+      NodeContext* ctx = getNodeContext(childNode);
+      if (ctx) {
+        QLayoutItem* childLayoutItem = ctx->item;
+        QWidget* childWidget = childLayoutItem->widget();
+        if (childWidget) {
+          childWidget->setGeometry(childRect);
+        } else {
+          childLayoutItem->setGeometry(childRect);
+        }
       }
     }
+    QLayout::setGeometry(rect);
   }
-  QLayout::setGeometry(rect);
 }
 
 void FlexLayout::setFlexNode(YGNodeRef parentNode) { this->node = parentNode; }
