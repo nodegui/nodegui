@@ -126,11 +126,11 @@ export abstract class NodeWidget extends YogaWidget {
     }
     setLayout(parentLayout: NodeLayout): void {
         const flexLayout = parentLayout as FlexLayout;
+        this.native.setLayout(parentLayout.native);
         if (flexLayout.setFlexNode) {
             //if flex layout set the flexnode
             flexLayout.setFlexNode(this.getFlexNode());
         }
-        this.native.setLayout(parentLayout.native);
         this.layout = parentLayout;
     }
     adjustSize(): void {
