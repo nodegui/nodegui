@@ -7,19 +7,19 @@ export class QKeyEvent {
     constructor(event: NativeEvent) {
         this.native = new addon.QKeyEvent(event);
     }
-    text = (): string => {
+    text(): string {
         return this.native.text();
-    };
-    key = (): number => {
+    }
+    key(): number {
         return this.native.key();
-    };
-    modifiers = (): number => {
+    }
+    modifiers(): number {
         return this.native.modifiers();
-    };
-    count = (): number => {
+    }
+    count(): number {
         return this.native.count();
-    };
-    isAutoRepeat = (): boolean => {
+    }
+    isAutoRepeat(): boolean {
         return this.native.isAutoRepeat();
-    };
+    }
 }
