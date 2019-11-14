@@ -1,44 +1,20 @@
-import { QMainWindow } from './index';
-import { QWidget } from './lib/QtWidgets/QWidget';
-import { FlexLayout } from './lib/core/FlexLayout';
-import { QLabel, QLabelEvents } from './lib/QtWidgets/QLabel';
-import { AlignmentFlag } from './lib/QtEnums';
-import { QPixmap } from './lib/QtGui/QPixmap';
-import { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
+import { QWidget, QMainWindow, FlexLayout, QLabel } from './index';
 
 const win = new QMainWindow();
-const view = new QWidget();
-view.setLayout(new FlexLayout());
-view.setStyleSheet(`
-    flex: 1;
-    width: '100%';
-    height: '100%';
+const center = new QWidget();
+center.setInlineStyle(`
+  border: 4px solid pink;
 `);
-const hello = new QLabel();
-hello.setText('Hello');
-hello.setStyleSheet(`
-    border: 1px solid blue;
-`);
-const world = new QLabel();
-world.setText('World');
-world.addEventListener(QLabelEvents.MouseButtonPress, e => {
-    const event = new QMouseEvent(e);
-    console.log('clicked!', event.x(), event.y());
-});
-world.setStyleSheet(`
-    border: 1px solid blue;
-    qproperty-alignment: AlignCenter;
-`);
-const pixmap = new QPixmap('/Users/atulr/Project/nodegui/nodegui/extras/assets/kitchen.png');
-hello.setProperty('pixmap', pixmap);
+center.setLayout(new FlexLayout());
 
-hello.setProperty('alignment', AlignmentFlag.AlignCenter);
+const label = new QLabel();
+label.setInlineStyle(`
+  height: 400px;
+  border: 3px solid green;
+`);
+label.setText(`Helloooo`);
 
-if (view.layout) {
-    view.layout.addWidget(hello);
-    view.layout.addWidget(world);
-}
-win.setCentralWidget(view);
+center.layout?.addWidget(label);
+win.setCentralWidget(center);
 win.show();
-
-(global as any).win = win; // To prevent win from being garbage collected.
+(global as any).win = win;
