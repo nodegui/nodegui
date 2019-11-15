@@ -6,10 +6,8 @@
 #include <QVariant>
 
 #include "core/FlexLayout/flexlayout.h"
-
+#include "core/FlexLayout/flexutils.h"
 namespace extrautils {
-YGSize measureQtWidget(YGNodeRef node, float width, YGMeasureMode widthMode,
-                       float height, YGMeasureMode heightMode);
 
 QVariant* convertToQVariant(Napi::Env& env, Napi::Value& value);
 

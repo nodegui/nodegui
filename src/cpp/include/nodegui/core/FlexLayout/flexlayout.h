@@ -24,10 +24,6 @@ class FlexLayout : public QLayout, public EventWidget {
   YGNodeRef getRootNode(YGNodeRef node);
 
  public:
-  struct NodeContext {
-    NodeContext(QLayoutItem *i) { item = i; }
-    QLayoutItem *item;
-  };
   FlexLayout(QWidget *parentWidget = nullptr, YGNodeRef parentNode = nullptr);
   ~FlexLayout() override;
   QSize sizeHint() const override;
@@ -41,7 +37,6 @@ class FlexLayout : public QLayout, public EventWidget {
   void removeWidget(QWidget *childWidget, YGNodeRef childNode);
   void setGeometry(const QRect &rect) override;
   void setFlexNode(YGNodeRef parentNode);
-  static NodeContext *getNodeContext(YGNodeRef node);
 
   EVENTWIDGET_IMPLEMENTATIONS(FlexLayout)
 };

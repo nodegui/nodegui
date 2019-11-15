@@ -49,7 +49,7 @@ QMenuBarWrap::QMenuBarWrap(const Napi::CallbackInfo& info)
   // Adds measure function on yoga node so that widget size is calculated based
   // on its text also.
   YGNodeSetMeasureFunc(this->instance->getFlexNode(),
-                       &extrautils::measureQtWidget);
+                       &flexutils::measureQtWidget);
 }
 
 QMenuBarWrap::~QMenuBarWrap() { extrautils::safeDelete(this->instance); }

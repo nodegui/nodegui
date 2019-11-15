@@ -9,7 +9,6 @@ center.setLayout(new FlexLayout());
 
 const label = new QLabel();
 label.setInlineStyle(`
-  height: 400px;
   border: 3px solid green;
 `);
 label.setText(`Helloooo`);
