@@ -1,9 +1,10 @@
 import { QMainWindow } from './index';
 import { QWidget } from './lib/QtWidgets/QWidget';
 import { FlexLayout } from './lib/core/FlexLayout';
-import { QLabel } from './lib/QtWidgets/QLabel';
+import { QLabel, QLabelEvents } from './lib/QtWidgets/QLabel';
 import { AlignmentFlag } from './lib/QtEnums';
 import { QPixmap } from './lib/QtGui/QPixmap';
+import { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
 
 const win = new QMainWindow();
 const view = new QWidget();
@@ -19,7 +20,11 @@ hello.setStyleSheet(`
     border: 1px solid blue;
 `);
 const world = new QLabel();
-world.setText('World');
+world.setText('Worldddd');
+world.addEventListener(QLabelEvents.MouseButtonPress, (e) => {
+    const event = new QMouseEvent(e)
+    console.log("clicked!", event.x(), event.y())
+})
 world.setStyleSheet(`
     border: 1px solid blue;
     qproperty-alignment: AlignCenter;
