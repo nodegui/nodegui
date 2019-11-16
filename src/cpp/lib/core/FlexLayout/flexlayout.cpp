@@ -74,8 +74,8 @@ int FlexLayout::count() const {
 void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode) {
   if (!this->node) {
     qWarning() << "Flex layout's parent yoga node not set yet. Set it using "
-               "setFlexNode. \n"
-            << "Child widget will not be added to Flex Layout";
+                  "setFlexNode. \n"
+               << "Child widget will not be added to Flex Layout";
     return;
   }
   uint count = YGNodeGetChildCount(this->node);
@@ -91,8 +91,8 @@ void FlexLayout::insertChildBefore(QWidget* childWidget,
                                    YGNodeRef childNode) {
   if (!this->node) {
     qWarning() << "Flex layout's parent yoga node not set yet. Set it using "
-               "setFlexNode. \n"
-            << "childwidget cant be inserted";
+                  "setFlexNode. \n"
+               << "childwidget cant be inserted";
     return;
   }
   uint count = YGNodeGetChildCount(this->node);
@@ -113,8 +113,8 @@ void FlexLayout::insertChildBefore(QWidget* childWidget,
 void FlexLayout::removeWidget(QWidget* childWidget, YGNodeRef childNode) {
   if (!this->node) {
     qWarning() << "Flex layout's parent yoga node not set yet. Set it using "
-               "setFlexNode. "
-            << "childwidget cant be removed";
+                  "setFlexNode. "
+               << "childwidget cant be removed";
     return;
   }
   FlexNodeContext* ctx = flexutils::getFlexNodeContext(childNode);
