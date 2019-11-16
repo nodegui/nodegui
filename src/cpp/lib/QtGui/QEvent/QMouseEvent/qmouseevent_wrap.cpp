@@ -9,16 +9,15 @@ Napi::FunctionReference QMouseEventWrap::constructor;
 Napi::Object QMouseEventWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QMouseEvent";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {InstanceMethod("button", &QMouseEventWrap::button),
-                   InstanceMethod("x", &QMouseEventWrap::x),
-                   InstanceMethod("y", &QMouseEventWrap::y),
-                  //  InstanceMethod("key", &QMouseEventWrap::key),
-                  //  InstanceMethod("modifiers", &QMouseEventWrap::modifiers),
-                  //  InstanceMethod("count", &QMouseEventWrap::count),
-                  //  InstanceMethod("isAutoRepeat", &QMouseEventWrap::isAutoRepeat),
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("button", &QMouseEventWrap::button),
+       InstanceMethod("x", &QMouseEventWrap::x),
+       InstanceMethod("y", &QMouseEventWrap::y),
+       InstanceMethod("globalX", &QMouseEventWrap::globalX),
+       InstanceMethod("globalY", &QMouseEventWrap::globalY),
+
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -45,13 +44,6 @@ QMouseEventWrap::~QMouseEventWrap() {
   // Do not destroy instance here. It will be done by Qt Event loop.
 }
 
-// Napi::Value QMouseEventWrap::button(const Napi::CallbackInfo& info) {
-//   Napi::Env env = info.Env();
-//   QString button = this->instance->button();
-//   Napi::String keyValue = Napi::String::New(env, text.toStdString());
-//   return keyValue;
-// }
-
 Napi::Value QMouseEventWrap::button(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int button = static_cast<int>(this->instance->button());
@@ -70,20 +62,14 @@ Napi::Value QMouseEventWrap::y(const Napi::CallbackInfo& info) {
   return Napi::Number::From(env, y);
 }
 
-// Napi::Value QKeyEventWrap::modifiers(const Napi::CallbackInfo& info) {
-//   Napi::Env env = info.Env();
-//   int key = static_cast<int>(this->instance->modifiers());
-//   return Napi::Number::From(env, key);
-// }
+Napi::Value QMouseEventWrap::globalX(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int globalX = static_cast<int>(this->instance->globalX());
+  return Napi::Number::From(env, globalX);
+}
 
-// Napi::Value QKeyEventWrap::count(const Napi::CallbackInfo& info) {
-//   Napi::Env env = info.Env();
-//   int count = static_cast<int>(this->instance->count());
-//   return Napi::Number::From(env, count);
-// }
-
-// Napi::Value QKeyEventWrap::isAutoRepeat(const Napi::CallbackInfo& info) {
-//   Napi::Env env = info.Env();
-//   bool isAutoRepeat = static_cast<bool>(this->instance->isAutoRepeat());
-//   return Napi::Boolean::From(env, isAutoRepeat);
-// }
+Napi::Value QMouseEventWrap::globalY(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int globalY = static_cast<int>(this->instance->globalY());
+  return Napi::Number::From(env, globalY);
+}

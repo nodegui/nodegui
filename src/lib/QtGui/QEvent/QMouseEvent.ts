@@ -16,4 +16,10 @@ export class QMouseEvent {
     y = (): number => {
         return this.native.y();
     };
+    globalX = (): number => {
+        return this.native.globalX();
+    };
+    globalY = (): number => {
+        return this.native.globalY();
+    };
 }

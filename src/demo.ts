@@ -20,11 +20,11 @@ hello.setStyleSheet(`
     border: 1px solid blue;
 `);
 const world = new QLabel();
-world.setText('Worldddd');
-world.addEventListener(QLabelEvents.MouseButtonPress, (e) => {
-    const event = new QMouseEvent(e)
-    console.log("clicked!", event.x(), event.y())
-})
+world.setText('World');
+world.addEventListener(QLabelEvents.MouseButtonPress, e => {
+    const event = new QMouseEvent(e);
+    console.log('clicked!', event.x(), event.y());
+});
 world.setStyleSheet(`
     border: 1px solid blue;
     qproperty-alignment: AlignCenter;

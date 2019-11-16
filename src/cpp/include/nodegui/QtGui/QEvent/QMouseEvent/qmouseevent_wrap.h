@@ -22,10 +22,9 @@ class QMouseEventWrap : public Napi::ObjectWrap<QMouseEventWrap> {
   Napi::Value button(const Napi::CallbackInfo& info);
   Napi::Value x(const Napi::CallbackInfo& info);
   Napi::Value y(const Napi::CallbackInfo& info);
-  // Napi::Value key(const Napi::CallbackInfo& info);
-  // Napi::Value modifiers(const Napi::CallbackInfo& info);
-  // Napi::Value count(const Napi::CallbackInfo& info);
-  // Napi::Value isAutoRepeat(const Napi::CallbackInfo& info);
+  Napi::Value globalX(const Napi::CallbackInfo& info);
+  Napi::Value globalY(const Napi::CallbackInfo& info);
+
 
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };
