@@ -60,3 +60,11 @@ YGSize flexutils::measureQtWidget(YGNodeRef node, float _width,
   };
 }
 
+void flexutils::configureFlexNode(QWidget* widget, YGNodeRef node,
+                                  bool isLeafNode) {
+  FlexNodeContext* ctx = new FlexNodeContext(widget);
+  YGNodeSetContext(node, ctx);
+  if (isLeafNode) {
+    YGNodeSetMeasureFunc(node, &flexutils::measureQtWidget);
+  }
+}

@@ -38,10 +38,9 @@ QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-  // Adds measure function on yoga node so that widget size is calculated based
-  // on its text also.
-  YGNodeSetMeasureFunc(this->instance->getFlexNode(),
-                       &flexutils::measureQtWidget);
+  this->rawData = extrautils::configureQWidget(
+      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
+      true);
 }
 
 QPushButtonWrap::~QPushButtonWrap() { extrautils::safeDelete(this->instance); }

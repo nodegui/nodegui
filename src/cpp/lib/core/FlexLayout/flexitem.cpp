@@ -11,13 +11,14 @@ FlexItem::FlexItem() {
   YGNodeStyleSetFlex(this->node, 1);
   YGNodeStyleSetMinHeight(this->node, 0);
   YGNodeStyleSetMinWidth(this->node, 0);
-  FlexNodeContext* ctx = new FlexNodeContext(this);
-  YGNodeSetContext(this->node, ctx);
 }
 
 YGNodeRef FlexItem::getFlexNode() const { return this->node; }
 
 FlexItem::~FlexItem() {
-  delete flexutils::getFlexNodeContext(this->node);
+  FlexNodeContext* ctx = flexutils::getFlexNodeContext(this->node);
+  if (ctx != nullptr) {
+    delete ctx;
+  };
   YGNodeFree(this->node);
 }

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <napi.h>
-#include <stdlib.h>
 
 #include <QPointer>
 
@@ -13,6 +12,7 @@ class QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {
   QPointer<NLabel> instance;
 
  public:
+  QWIDGET_WRAPPED_METHODS_DECLARATION
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QLabelWrap(const Napi::CallbackInfo& info);
   ~QLabelWrap();
@@ -26,6 +26,4 @@ class QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {
   Napi::Value text(const Napi::CallbackInfo& info);
   Napi::Value setPixmap(const Napi::CallbackInfo& info);
   Napi::Value setOpenExternalLinks(const Napi::CallbackInfo& info);
-
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

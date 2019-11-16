@@ -32,7 +32,7 @@ QVariantWrap::QVariantWrap(const Napi::CallbackInfo& info)
   } else {
     this->instance = QSharedPointer<QVariant>(new QVariant());
   }
-  this->rawData = this->getInternalInstance();
+  this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }
 
 Napi::Value QVariantWrap::toString(const Napi::CallbackInfo& info) {

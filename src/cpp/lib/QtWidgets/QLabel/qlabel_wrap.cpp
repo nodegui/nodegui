@@ -45,11 +45,10 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = this->getInternalInstance();
-  // Adds measure function on yoga node so that widget size is calculated based
-  // on its text also.
-  YGNodeSetMeasureFunc(this->instance->getFlexNode(),
-                       &flexutils::measureQtWidget);
+  auto flexNode = this->getInternalInstance()->getFlexNode();
+  YGNodeSetNodeType(flexNode, YGNodeType::YGNodeTypeText);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), flexNode, true);
 }
 
 Napi::Value QLabelWrap::setWordWrap(const Napi::CallbackInfo& info) {

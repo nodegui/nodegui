@@ -21,6 +21,7 @@ YGSize measureQtWidget(YGNodeRef node, float width, YGMeasureMode widthMode,
 const QRect getFlexNodeGeometry(YGNodeRef node);
 void setFlexNodeGeometry(YGNodeRef node, const QRect& geometry);
 FlexNodeContext* getFlexNodeContext(YGNodeRef node);
-void configureFlexNode(bool isLeafNode);
+void configureFlexNode(QWidget* widget, YGNodeRef node,
+                       bool isLeafNode = false);
 
 }  // namespace flexutils

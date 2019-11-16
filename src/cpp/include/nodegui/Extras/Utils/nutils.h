@@ -10,10 +10,12 @@
 namespace extrautils {
 
 QVariant* convertToQVariant(Napi::Env& env, Napi::Value& value);
-
 bool isNapiValueInt(Napi::Env& env, Napi::Value& num);
-
 std::string getNapiObjectClassName(Napi::Object& object);
+void* configureQWidget(QWidget* widget, YGNodeRef node,
+                       bool isLeafNode = false);
+void* configureQObject(QObject* object);
+void* configureComponent(void* component);
 
 template <typename T>
 void safeDelete(QPointer<T>& component) {
