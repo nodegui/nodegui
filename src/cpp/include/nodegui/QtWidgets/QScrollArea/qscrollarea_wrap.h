@@ -12,6 +12,7 @@ class QScrollAreaWrap : public Napi::ObjectWrap<QScrollAreaWrap> {
  private:
   QPointer<NScrollArea> instance;
   YGNodeRef scrollNode;
+
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QScrollAreaWrap(const Napi::CallbackInfo &info);
