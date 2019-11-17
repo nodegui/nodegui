@@ -150,12 +150,10 @@ void FlexLayout::setGeometry(const QRect& rect) {
   }
   YGNodeRef rootNode = FlexLayout::getRootNode(this->node);
   YGDirection direction = YGNodeStyleGetDirection(rootNode);
-  FlexNodeContext* rootCtx = flexutils::getFlexNodeContext(rootNode);
-  QSize rootSize = rootCtx->widget()->size();
-  YGNodeStyleSetWidth(rootNode, rootSize.width());
-  YGNodeStyleSetHeight(rootNode, rootSize.height());
-  YGNodeCalculateLayout(rootNode, rootSize.width(), rootSize.height(),
-                        direction);
+  YGNodeStyleSetMaxHeight(rootNode, QWIDGETSIZE_MAX);
+  YGNodeStyleSetMaxWidth(rootNode, QWIDGETSIZE_MAX);
+  YGNodeCalculateLayout(rootNode, 0, 0, direction);
+
   uint count = YGNodeGetChildCount(this->node);
 
   for (uint i = 0; i < count; ++i) {

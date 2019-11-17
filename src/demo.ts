@@ -1,19 +1,51 @@
-import { QWidget, QMainWindow, FlexLayout, QLabel } from './index';
+import { QWidget, QScrollArea, QMainWindow, FlexLayout, QLabel } from './index';
 
-const win = new QMainWindow();
-const center = new QWidget();
-center.setInlineStyle(`
-  border: 4px solid pink;
-`);
-center.setLayout(new FlexLayout());
+const main = async (): Promise<void> => {
+    const win = new QMainWindow();
+    const scrollArea = new QScrollArea();
+    const center = new QWidget();
+    const label = new QLabel();
+    label.setText(`
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    `);
 
-const label = new QLabel();
-label.setInlineStyle(`
-  border: 3px solid green;
-`);
-label.setText(`Helloooo`);
+    await scrollArea.setInlineStyle('border: 1px solid yellow;');
+    await center.setInlineStyle(`border: 3px solid blue;`);
+    await label.setInlineStyle(`border: 2px solid green;padding: 10;`);
 
-center.layout?.addWidget(label);
-win.setCentralWidget(center);
-win.show();
-(global as any).win = win;
+    center.setLayout(new FlexLayout());
+    center.layout?.addWidget(label);
+    scrollArea.setWidget(center);
+    win.setCentralWidget(scrollArea);
+    win.show();
+    (global as any).win = win;
+};
+
+main();
