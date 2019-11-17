@@ -7,19 +7,19 @@ export class QMouseEvent {
     constructor(event: NativeEvent) {
         this.native = new addon.QMouseEvent(event);
     }
-    button = (): string => {
+    button(): string {
         return this.native.button();
-    };
-    x = (): number => {
+    }
+    x(): number {
         return this.native.x();
-    };
-    y = (): number => {
+    }
+    y(): number {
         return this.native.y();
-    };
-    globalX = (): number => {
+    }
+    globalX(): number {
         return this.native.globalX();
-    };
-    globalY = (): number => {
+    }
+    globalY(): number {
         return this.native.globalY();
-    };
+    }
 }

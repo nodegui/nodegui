@@ -9,15 +9,15 @@ Napi::FunctionReference QMouseEventWrap::constructor;
 Napi::Object QMouseEventWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QMouseEvent";
-  Napi::Function func = DefineClass(
-      env, CLASSNAME,
-      {InstanceMethod("button", &QMouseEventWrap::button),
-       InstanceMethod("x", &QMouseEventWrap::x),
-       InstanceMethod("y", &QMouseEventWrap::y),
-       InstanceMethod("globalX", &QMouseEventWrap::globalX),
-       InstanceMethod("globalY", &QMouseEventWrap::globalY),
+  Napi::Function func =
+      DefineClass(env, CLASSNAME,
+                  {InstanceMethod("button", &QMouseEventWrap::button),
+                   InstanceMethod("x", &QMouseEventWrap::x),
+                   InstanceMethod("y", &QMouseEventWrap::y),
+                   InstanceMethod("globalX", &QMouseEventWrap::globalX),
+                   InstanceMethod("globalY", &QMouseEventWrap::globalY),
 
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -37,7 +37,7 @@ QMouseEventWrap::QMouseEventWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = this->getInternalInstance();
+  this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }
 
 QMouseEventWrap::~QMouseEventWrap() {
