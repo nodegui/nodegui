@@ -139,6 +139,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "pepf",
+      "name": "Pepijn",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1265435?v=4",
+      "profile": "http://blog.pepf.nl",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
