@@ -3,7 +3,7 @@ import cuid from 'cuid';
 import nodeguiAutoPrefixer from 'postcss-nodegui-autoprefixer';
 import { NodeWidget } from '../../QtWidgets/QWidget';
 export class StyleSheet {
-    static create = async (cssString: string): Promise<string> => {
+    static async create(cssString: string): Promise<string> {
         const { css } = await postcss([nodeguiAutoPrefixer()])
             .process(cssString, { from: undefined })
             .catch(err => {
@@ -11,7 +11,7 @@ export class StyleSheet {
                 return { css: cssString };
             });
         return css;
-    };
+    }
 }
 
 export async function prepareInlineStyleSheet(widget: NodeWidget, rawStyle: string): Promise<string> {

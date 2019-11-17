@@ -1,44 +1,51 @@
-import { QMainWindow } from './index';
-import { QWidget } from './lib/QtWidgets/QWidget';
-import { FlexLayout } from './lib/core/FlexLayout';
-import { QLabel, QLabelEvents } from './lib/QtWidgets/QLabel';
-import { AlignmentFlag } from './lib/QtEnums';
-import { QPixmap } from './lib/QtGui/QPixmap';
-import { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
+import { QWidget, QScrollArea, QMainWindow, FlexLayout, QLabel } from './index';
 
-const win = new QMainWindow();
-const view = new QWidget();
-view.setLayout(new FlexLayout());
-view.setStyleSheet(`
-    flex: 1;
-    width: '100%';
-    height: '100%';
-`);
-const hello = new QLabel();
-hello.setText('Hello');
-hello.setStyleSheet(`
-    border: 1px solid blue;
-`);
-const world = new QLabel();
-world.setText('World');
-world.addEventListener(QLabelEvents.MouseButtonPress, e => {
-    const event = new QMouseEvent(e);
-    console.log('clicked!', event.x(), event.y());
-});
-world.setStyleSheet(`
-    border: 1px solid blue;
-    qproperty-alignment: AlignCenter;
-`);
-const pixmap = new QPixmap('/Users/atulr/Project/nodegui/nodegui/extras/assets/kitchen.png');
-hello.setProperty('pixmap', pixmap);
+const main = async (): Promise<void> => {
+    const win = new QMainWindow();
+    const scrollArea = new QScrollArea();
+    const center = new QWidget();
+    const label = new QLabel();
+    label.setText(`
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    Hellloooooo
+    `);
 
-hello.setProperty('alignment', AlignmentFlag.AlignCenter);
+    await scrollArea.setInlineStyle('border: 1px solid yellow;');
+    await center.setInlineStyle(`border: 3px solid blue;`);
+    await label.setInlineStyle(`border: 2px solid green;padding: 10;`);
 
-if (view.layout) {
-    view.layout.addWidget(hello);
-    view.layout.addWidget(world);
-}
-win.setCentralWidget(view);
-win.show();
+    center.setLayout(new FlexLayout());
+    center.layout?.addWidget(label);
+    scrollArea.setWidget(center);
+    win.setCentralWidget(scrollArea);
+    win.show();
+    (global as any).win = win;
+};
 
-(global as any).win = win; // To prevent win from being garbage collected.
+main();

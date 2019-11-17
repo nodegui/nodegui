@@ -5,9 +5,9 @@ import { NodeObject } from '../QtCore/QObject';
 export abstract class NodeLayout extends NodeObject {
     type = 'layout';
     abstract addWidget(childWidget: NodeWidget, ...args: any[]): void;
-    activate = (): boolean => {
+    activate(): boolean {
         return this.native.activate();
-    };
+    }
     invalidate(): void {
         this.native.invalidate();
     }

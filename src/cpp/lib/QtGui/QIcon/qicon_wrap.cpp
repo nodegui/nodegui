@@ -34,7 +34,7 @@ QIconWrap::QIconWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = this->getInternalInstance();
+  this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }
 
 QIconWrap::~QIconWrap() { this->instance.reset(); }

@@ -40,11 +40,14 @@ QScrollAreaWrap::QScrollAreaWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = this->getInternalInstance();
-  // Adds measure function on yoga node so that widget size is calculated based
-  // on its own size.
-  YGNodeSetMeasureFunc(this->instance->getFlexNode(),
-                       &extrautils::measureQtWidget);
+  this->scrollNode = YGNodeNew();
+  YGConfigSetUseWebDefaults(this->scrollNode->getConfig(), true);
+  FlexNodeContext* scrollNodeCtx = new FlexNodeContext(this->instance);
+  YGNodeSetContext(this->scrollNode, scrollNodeCtx);
+
+  this->rawData = extrautils::configureQWidget(
+      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
+      true);
 }
 
 QScrollAreaWrap::~QScrollAreaWrap() { extrautils::safeDelete(this->instance); }
@@ -53,8 +56,11 @@ Napi::Value QScrollAreaWrap::setWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Object contentWidget = info[0].As<Napi::Object>();
+  Napi::External<YGNode> centralWidgetFlexNode =
+      info[1].As<Napi::External<YGNode>>();
   QWidgetWrap* contentWidgetWrap =
       Napi::ObjectWrap<QWidgetWrap>::Unwrap(contentWidget);
+  YGNodeInsertChild(this->scrollNode, centralWidgetFlexNode.Data(), 0);
   this->instance->setWidget(contentWidgetWrap->getInternalInstance());
   return env.Null();
 }

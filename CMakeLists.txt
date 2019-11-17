@@ -15,6 +15,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/main.cpp"
     # core internals
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/Extras/Utils/nutils.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexutils.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexlayout.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexitem.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/YogaWidget/nodestyle.cpp"

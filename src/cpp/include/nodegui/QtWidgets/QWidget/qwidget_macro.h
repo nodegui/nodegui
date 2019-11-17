@@ -262,6 +262,12 @@
     this->instance->setWindowFlag(static_cast<Qt::WindowType>(windowType),  \
                                   switchOn);                                \
     return env.Null();                                                      \
+  }                                                                         \
+  Napi::Value adjustSize(const Napi::CallbackInfo& info) {                  \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    this->instance->adjustSize();                                           \
+    return env.Null();                                                      \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -302,6 +308,7 @@
       InstanceMethod("testAttribute", &WidgetWrapName::testAttribute),       \
       InstanceMethod("setWindowOpacity", &WidgetWrapName::setWindowOpacity), \
       InstanceMethod("windowOpacity", &WidgetWrapName::windowOpacity),       \
-      InstanceMethod("setWindowFlag", &WidgetWrapName::setWindowFlag),
+      InstanceMethod("setWindowFlag", &WidgetWrapName::setWindowFlag),       \
+      InstanceMethod("adjustSize", &WidgetWrapName::adjustSize),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE

@@ -5,28 +5,7 @@
 #include <string>
 
 #include "core/Component/component_wrap.h"
-
-YGSize extrautils::measureQtWidget(YGNodeRef node, float width,
-                                   YGMeasureMode widthMode, float height,
-                                   YGMeasureMode heightMode) {
-  FlexLayout::NodeContext* ctx = FlexLayout::getNodeContext(node);
-  if (ctx) {
-    QLayoutItem* childLayoutItem = ctx->item;
-    QWidget* widget = childLayoutItem->widget();
-    float width = 0.0;
-    float height = 0.0;
-    if (widget) {
-      QSize size = widget->sizeHint();
-      width = static_cast<float>(size.width());
-      height = static_cast<float>(size.height());
-      return YGSize{
-          width,
-          height,
-      };
-    }
-  }
-  return YGSize{width, height};
-}
+#include "core/FlexLayout/flexutils.h"
 
 bool extrautils::isNapiValueInt(Napi::Env& env, Napi::Value& num) {
   return env.Global()
@@ -95,4 +74,14 @@ QVariant* extrautils::convertToQVariant(Napi::Env& env, Napi::Value& value) {
   } else {
     return new QVariant();
   }
+}
+
+void* extrautils::configureComponent(void* component) { return component; }
+void* extrautils::configureQObject(QObject* object) {
+  return configureComponent(object);
+}
+void* extrautils::configureQWidget(QWidget* widget, YGNodeRef node,
+                                   bool isLeafNode) {
+  flexutils::configureFlexNode(widget, node, isLeafNode);
+  return configureQObject(widget);
 }

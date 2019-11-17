@@ -46,7 +46,8 @@ QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = this->getInternalInstance();
+  this->rawData = extrautils::configureQWidget(
+      this->getInternalInstance(), this->getInternalInstance()->getFlexNode());
 }
 
 Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {
@@ -54,16 +55,13 @@ Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object widgetObject = info[0].As<Napi::Object>();
+  Napi::External<YGNode> centralWidgetFlexNode =
+      info[1].As<Napi::External<YGNode>>();
   QWidgetWrap* centralWidget =
       Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);
-
-  Napi::External<YGNode> flexNodeObject = info[1].As<Napi::External<YGNode>>();
-  YGNodeRef flexNodeRef = flexNodeObject.Data();
-
-  YGNodeRef node = this->instance->getFlexNode();
-  YGNodeInsertChild(node, flexNodeRef, 0);
+  YGNodeInsertChild(this->instance->getFlexNode(), centralWidgetFlexNode.Data(),
+                    0);
   this->instance->setCentralWidget(centralWidget->getInternalInstance());
-
   return env.Null();
 }
 

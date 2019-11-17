@@ -25,6 +25,5 @@ class QMouseEventWrap : public Napi::ObjectWrap<QMouseEventWrap> {
   Napi::Value globalX(const Napi::CallbackInfo& info);
   Napi::Value globalY(const Napi::CallbackInfo& info);
 
-
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };

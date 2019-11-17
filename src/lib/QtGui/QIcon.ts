@@ -25,7 +25,7 @@ export class QIcon extends Component {
             this.native = new addon.QIcon();
         }
     }
-    pixmap = (width: number, height: number, mode?: QIconMode, state?: QIconState): QPixmap => {
+    pixmap(width: number, height: number, mode?: QIconMode, state?: QIconState): QPixmap {
         let nativePixmap;
         if (mode && state) {
             nativePixmap = this.native.pixmap(width, height, mode, state);
@@ -35,12 +35,10 @@ export class QIcon extends Component {
             nativePixmap = this.native.pixmap(width, height);
         }
         return new QPixmap(nativePixmap);
-    };
-
+    }
     isMask(): boolean {
         return this.native.isMask();
     }
-
     setIsMask(isMask: boolean): void {
         this.native.setIsMask(isMask);
     }

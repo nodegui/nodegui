@@ -45,11 +45,9 @@ QSpinBoxWrap::QSpinBoxWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = this->getInternalInstance();
-  // Adds measure function on yoga node so that widget size is calculated based
-  // on its text also.
-  YGNodeSetMeasureFunc(this->instance->getFlexNode(),
-                       &extrautils::measureQtWidget);
+  this->rawData = extrautils::configureQWidget(
+      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
+      true);
 }
 
 QSpinBoxWrap::~QSpinBoxWrap() { extrautils::safeDelete(this->instance); }

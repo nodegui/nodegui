@@ -29,7 +29,7 @@ QClipboardWrap::QClipboardWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Incorrect initialization of QClipboardWrap")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = this->getInternalInstance();
+  this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }
 
 QClipboard* QClipboardWrap::getInternalInstance() { return this->instance; }

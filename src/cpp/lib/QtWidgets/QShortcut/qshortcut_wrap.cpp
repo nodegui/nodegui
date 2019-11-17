@@ -40,7 +40,7 @@ QShortcutWrap::QShortcutWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = this->getInternalInstance();
+  this->rawData = extrautils::configureQObject(this->getInternalInstance());
 }
 
 QShortcutWrap::~QShortcutWrap() { extrautils::safeDelete(this->instance); }
