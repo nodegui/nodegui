@@ -1,7 +1,7 @@
 # NodeGUI
 
 [![Join the NodeGUI community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/nodegui)
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors)
 [![JS Party #96](https://img.shields.io/badge/JS%20Party-%2396-FFCD00.svg)](https://changelog.com/jsparty/96)
 
 Build **performant**, **native** and **cross-platform** desktop applications with **Node.js** and **CSS like styling**.🚀
@@ -154,6 +154,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://www.greatapes.fi"><img src="https://avatars3.githubusercontent.com/u/3404389?v=4" width="100px;" alt="Mikko Sairio"/><br /><sub><b>Mikko Sairio</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=msairio" title="Code">💻</a></td>
+    <td align="center"><a href="http://blog.pepf.nl"><img src="https://avatars1.githubusercontent.com/u/1265435?v=4" width="100px;" alt="Pepijn"/><br /><sub><b>Pepijn</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=pepf" title="Code">💻</a></td>
   </tr>
 </table>
 
