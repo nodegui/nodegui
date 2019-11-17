@@ -21,7 +21,7 @@ YGNodeNew(); FlexLayout * flayout = new FlexLayout(container,root);
 class FlexLayout : public QLayout, public EventWidget {
  private:
   YGNodeRef node;
-  YGNodeRef getRootNode(YGNodeRef node);
+  YGNodeRef getRootNode(YGNodeRef node) const;
 
  public:
   FlexLayout(QWidget *parentWidget = nullptr, YGNodeRef parentNode = nullptr);

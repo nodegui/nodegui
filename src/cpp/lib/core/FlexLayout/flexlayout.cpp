@@ -29,46 +29,9 @@ FlexLayout::~FlexLayout() {
   YGNodeRemoveAllChildren(this->node);
 }
 
-QSize FlexLayout::sizeHint() const {
-  if (!this->node) {
-    return QSize(0, 0);
-  }
-  int width = static_cast<uint>(YGNodeLayoutGetWidth(this->node));
-  int height = static_cast<uint>(YGNodeLayoutGetHeight(this->node));
-  return QSize(width, height);
-}
-
 void FlexLayout::addItem(QLayoutItem* item) {
   // Noop: We already have addWidget doing all the hard work.
-}
-
-QLayoutItem* FlexLayout::itemAt(int index) const {
-  if (!this->node || index >= YGNodeGetChildCount(this->node)) {
-    return nullptr;
-  }
-  YGNodeRef childNode = YGNodeGetChild(this->node, static_cast<uint>(index));
-  FlexNodeContext* childCtx = flexutils::getFlexNodeContext(childNode);
-  return childCtx->layoutItem();
-}
-
-QLayoutItem* FlexLayout::takeAt(int index) {
-  if (!this->node || index >= YGNodeGetChildCount(this->node)) {
-    return nullptr;
-  }
-  YGNodeRef childNode = YGNodeGetChild(this->node, static_cast<uint>(index));
-  FlexNodeContext* ctx = flexutils::getFlexNodeContext(childNode);
-  QLayoutItem* childLayoutItem = ctx->layoutItem();
-  ctx->setLayoutItem(nullptr);
-  YGNodeRemoveChild(this->node, childNode);
-  return childLayoutItem;
-}
-
-int FlexLayout::count() const {
-  if (!this->node) {
-    return 0;
-  }
-  float childCount = YGNodeGetChildCount(this->node);
-  return static_cast<uint>(childCount);
+  return;
 }
 
 void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode) {
@@ -81,7 +44,8 @@ void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode) {
   uint count = YGNodeGetChildCount(this->node);
   YGNodeInsertChild(this->node, childNode, count);
   FlexNodeContext* childCtx = flexutils::getFlexNodeContext(childNode);
-  childCtx->setLayoutItem(new QWidgetItem(childWidget));
+  auto layoutitem = new QWidgetItem(childWidget);
+  childCtx->setLayoutItem(layoutitem);
   QLayout::addWidget(childWidget);
   this->invalidate();
 }
@@ -110,6 +74,37 @@ void FlexLayout::insertChildBefore(QWidget* childWidget,
   this->invalidate();
 }
 
+QLayoutItem* FlexLayout::itemAt(int index) const {
+  if (!this->node ||
+      index >= static_cast<int>(YGNodeGetChildCount(this->node))) {
+    return nullptr;
+  }
+  YGNodeRef childNode = YGNodeGetChild(this->node, static_cast<uint>(index));
+  FlexNodeContext* childCtx = flexutils::getFlexNodeContext(childNode);
+  return childCtx->layoutItem();
+}
+
+QLayoutItem* FlexLayout::takeAt(int index) {
+  if (!this->node ||
+      index >= static_cast<int>(YGNodeGetChildCount(this->node))) {
+    return nullptr;
+  }
+  YGNodeRef childNode = YGNodeGetChild(this->node, static_cast<uint>(index));
+  FlexNodeContext* ctx = flexutils::getFlexNodeContext(childNode);
+  QLayoutItem* childLayoutItem = ctx->layoutItem();
+  ctx->setLayoutItem(nullptr);
+  YGNodeRemoveChild(this->node, childNode);
+  return childLayoutItem;
+}
+
+int FlexLayout::count() const {
+  if (!this->node) {
+    return 0;
+  }
+  float childCount = YGNodeGetChildCount(this->node);
+  return static_cast<int>(childCount);
+}
+
 void FlexLayout::removeWidget(QWidget* childWidget, YGNodeRef childNode) {
   if (!this->node) {
     qWarning() << "Flex layout's parent yoga node not set yet. Set it using "
@@ -127,7 +122,7 @@ void FlexLayout::removeWidget(QWidget* childWidget, YGNodeRef childNode) {
   this->invalidate();
 }
 
-YGNodeRef FlexLayout::getRootNode(YGNodeRef node) {
+YGNodeRef FlexLayout::getRootNode(YGNodeRef node) const {
   YGNodeRef parent = node->getOwner();
   if (!parent) {
     return node;
@@ -136,32 +131,41 @@ YGNodeRef FlexLayout::getRootNode(YGNodeRef node) {
   }
 }
 
+QSize FlexLayout::sizeHint() const {
+  QSize totalSize;
+  YGNodeRef parentNode = this->node;
+  YGNodeRef rootNode = getRootNode(parentNode);
+  YGDirection rootDirection = YGNodeStyleGetDirection(rootNode);
+  YGNodeStyleSetMaxHeight(rootNode, QWIDGETSIZE_MAX);
+  YGNodeStyleSetMaxWidth(rootNode, QWIDGETSIZE_MAX);
+  YGNodeCalculateLayout(rootNode, 0, 0, rootDirection);
+  totalSize.rwidth() = YGNodeLayoutGetWidth(this->node);
+  totalSize.rheight() = YGNodeLayoutGetHeight(this->node);
+  return totalSize;
+}
+
 void FlexLayout::setGeometry(const QRect& rect) {
   if (!this->node) {
     return;
   }
-  if (rect.isValid()) {
-    flexutils::setFlexNodeGeometry(this->node, rect);
-  }
-  if (rect != geometry()) {
-    YGNodeRef rootNode = getRootNode(this->node);
-    YGDirection direction = YGNodeStyleGetDirection(rootNode);
-    YGNodeCalculateLayout(rootNode, QWIDGETSIZE_MAX, QWIDGETSIZE_MAX,
-                          direction);
-    uint count = YGNodeGetChildCount(this->node);
+  YGNodeRef rootNode = FlexLayout::getRootNode(this->node);
+  YGDirection direction = YGNodeStyleGetDirection(rootNode);
+  FlexNodeContext* rootCtx = flexutils::getFlexNodeContext(rootNode);
+  QSize rootSize = rootCtx->widget()->size();
+  YGNodeStyleSetWidth(rootNode, rootSize.width());
+  YGNodeStyleSetHeight(rootNode, rootSize.height());
+  YGNodeCalculateLayout(rootNode, rootSize.width(), rootSize.height(),
+                        direction);
+  uint count = YGNodeGetChildCount(this->node);
 
-    for (uint i = 0; i < count; ++i) {
-      YGNode* childNode = YGNodeGetChild(this->node, i);
-      QRect childRect = flexutils::getFlexNodeGeometry(childNode);
-
-      FlexNodeContext* childCtx = flexutils::getFlexNodeContext(childNode);
-      QLayoutItem* childLayoutItem = childCtx->layoutItem();
-      if (childLayoutItem) {
-        childLayoutItem->setGeometry(childRect);
-      }
-    }
-    QLayout::setGeometry(rect);
+  for (uint i = 0; i < count; ++i) {
+    YGNode* childNode = YGNodeGetChild(this->node, i);
+    QRect childRect = flexutils::getFlexNodeGeometry(childNode);
+    FlexNodeContext* ctx = flexutils::getFlexNodeContext(childNode);
+    QLayoutItem* childItem = ctx->layoutItem();
+    childItem->setGeometry(childRect);
   }
+  QLayout::setGeometry(rect);
 }
 
 void FlexLayout::setFlexNode(YGNodeRef parentNode) { this->node = parentNode; }
