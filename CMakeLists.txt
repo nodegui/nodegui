@@ -10,10 +10,10 @@ set(CORE_WIDGETS_ADDON "nodegui_core")
 
 project(${CORE_WIDGETS_ADDON})
 
-add_library(${CORE_WIDGETS_ADDON} SHARED  
+add_library(${CORE_WIDGETS_ADDON} SHARED
     "${CMAKE_JS_SRC}"
     "${PROJECT_SOURCE_DIR}/src/cpp/main.cpp"
-    # core internals 
+    # core internals
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/Extras/Utils/nutils.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexlayout.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexitem.cpp"
@@ -34,10 +34,11 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/Yoga.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/event/event.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/internal/experiments.cpp"
-    # wrapped cpps 
+    # wrapped cpps
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QApplication/qapplication_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QClipboard/qclipboard_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QKeyEvent/qkeyevent_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QMouseEvent/qmouseevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QPixmap/qpixmap_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QIcon/qicon_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QCursor/qcursor_wrap.cpp"
@@ -88,14 +89,14 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QMenu/nmenu.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QLayout/nlayout.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QGridLayout/ngridlayout.hpp"
-) 
+)
 
 AddCommonConfig(${CORE_WIDGETS_ADDON})
 AddQtSupport(${CORE_WIDGETS_ADDON})
 AddNapiSupport(${CORE_WIDGETS_ADDON})
 
-target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE 
-    "${CMAKE_JS_INC}" 
+target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE
+    "${CMAKE_JS_INC}"
     "${PROJECT_SOURCE_DIR}"
     "${PROJECT_SOURCE_DIR}/src/cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include"

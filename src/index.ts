@@ -12,6 +12,7 @@ export { QTextOptionWrapMode } from './lib/QtGui/QTextOption';
 export { QClipboard, QClipboardMode } from './lib/QtGui/QClipboard';
 // Events: Maybe a separate module ?
 export { QKeyEvent } from './lib/QtGui/QEvent/QKeyEvent';
+export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
 export { NativeEvent, BaseWidgetEvents } from './lib/core/EventWidget';
 // Abstract:
 export { NodeWidget } from './lib/QtWidgets/QWidget';
