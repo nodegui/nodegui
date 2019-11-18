@@ -7,7 +7,7 @@ import { WidgetAttribute, WindowType } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
 import { QCursor } from '../QtGui/QCursor';
 import { CursorShape, WindowState } from '../QtEnums';
-import { applyStyleSheet, StyleSheet, prepareInlineStyleSheet } from '../core/Style/StyleSheet';
+import { StyleSheet, prepareInlineStyleSheet } from '../core/Style/StyleSheet';
 import { checkIfNativeElement } from '../utils/helpers';
 import { YogaWidget } from '../core/YogaWidget';
 import { QSize } from '../QtCore/QSize';
@@ -30,14 +30,14 @@ export abstract class NodeWidget extends YogaWidget {
     }
     async setStyleSheet(styleSheet: string): Promise<void> {
         const preparedSheet = await StyleSheet.create(styleSheet);
-        await applyStyleSheet(this, preparedSheet);
+        this.native.setStyleSheet(preparedSheet);
     }
     styleSheet(): string {
         return this.native.styleSheet();
     }
     async setInlineStyle(style: string): Promise<void> {
         const preparedSheet = await prepareInlineStyleSheet(this, style);
-        await applyStyleSheet(this, preparedSheet);
+        this.native.setStyleSheet(preparedSheet);
     }
     setGeometry(x: number, y: number, w: number, h: number): void {
         this.native.setGeometry(x, y, w, h);

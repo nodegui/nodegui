@@ -10,6 +10,7 @@
 FlexLayout::FlexLayout(QWidget* parentWidget, YGNodeRef parentNode)
     : QLayout(parentWidget) {
   this->node = parentNode;
+  this->setSizeConstraint(QLayout::SetFixedSize);
 }
 
 FlexLayout::~FlexLayout() {
@@ -131,28 +132,23 @@ YGNodeRef FlexLayout::getRootNode(YGNodeRef node) const {
   }
 }
 
+Qt::Orientations FlexLayout::expandingDirections() const {
+  return Qt::Vertical | Qt::Horizontal;
+}
+
+bool FlexLayout::hasHeightForWidth() const { return false; }
+
 QSize FlexLayout::sizeHint() const {
-  QSize totalSize;
-  YGNodeRef parentNode = this->node;
-  YGNodeRef rootNode = getRootNode(parentNode);
-  YGDirection rootDirection = YGNodeStyleGetDirection(rootNode);
-  YGNodeStyleSetMaxHeight(rootNode, QWIDGETSIZE_MAX);
-  YGNodeStyleSetMaxWidth(rootNode, QWIDGETSIZE_MAX);
-  YGNodeCalculateLayout(rootNode, 0, 0, rootDirection);
-  totalSize.rwidth() = YGNodeLayoutGetWidth(this->node);
-  totalSize.rheight() = YGNodeLayoutGetHeight(this->node);
-  return totalSize;
+  calculateLayout();
+  return QSize(YGNodeLayoutGetWidth(this->node),
+               YGNodeLayoutGetHeight(this->node));
 }
 
 void FlexLayout::setGeometry(const QRect& rect) {
   if (!this->node) {
     return;
   }
-  YGNodeRef rootNode = FlexLayout::getRootNode(this->node);
-  YGDirection direction = YGNodeStyleGetDirection(rootNode);
-  YGNodeStyleSetMaxHeight(rootNode, QWIDGETSIZE_MAX);
-  YGNodeStyleSetMaxWidth(rootNode, QWIDGETSIZE_MAX);
-  YGNodeCalculateLayout(rootNode, 0, 0, direction);
+  calculateLayout();
 
   uint count = YGNodeGetChildCount(this->node);
 
@@ -167,3 +163,12 @@ void FlexLayout::setGeometry(const QRect& rect) {
 }
 
 void FlexLayout::setFlexNode(YGNodeRef parentNode) { this->node = parentNode; }
+
+void FlexLayout::calculateLayout() const {
+  YGNodeRef parentNode = this->node;
+  YGNodeRef rootNode = getRootNode(parentNode);
+  YGDirection rootDirection = YGNodeStyleGetDirection(rootNode);
+  YGNodeStyleSetMaxHeight(rootNode, QWIDGETSIZE_MAX);
+  YGNodeStyleSetMaxWidth(rootNode, QWIDGETSIZE_MAX);
+  YGNodeCalculateLayout(rootNode, 0, 0, rootDirection);
+}
