@@ -1,5 +1,4 @@
 import { QWidget, QScrollArea, QMainWindow, FlexLayout, QLabel } from './index';
-import { QSize } from './lib/QtCore/QSize';
 
 const win = new QMainWindow();
 const scrollArea = new QScrollArea();
