@@ -29,8 +29,3 @@ export async function prepareInlineStyleSheet(widget: NodeWidget, rawStyle: stri
       }
   `;
 }
-
-export async function applyStyleSheet(widget: NodeWidget, styleSheet: string): Promise<void> {
-    widget.native.setStyleSheet(styleSheet);
-    widget.layout ? widget.layout.update() : widget.update();
-}
