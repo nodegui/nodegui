@@ -1,7 +1,6 @@
 #include "QtWidgets/QPushButton/qpushbutton_wrap.h"
 
 #include "Extras/Utils/nutils.h"
-#include "QtGui/QIcon/qicon_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QPushButtonWrap::constructor;
@@ -9,12 +8,10 @@ Napi::FunctionReference QPushButtonWrap::constructor;
 Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QPushButton";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {InstanceMethod("setText", &QPushButtonWrap::setText),
-                   InstanceMethod("setFlat", &QPushButtonWrap::setFlat),
-                   InstanceMethod("setIcon", &QPushButtonWrap::setIcon),
-                   QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("setFlat", &QPushButtonWrap::setFlat),
+       QABSTRACTBUTTON_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -45,31 +42,11 @@ QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info)
 
 QPushButtonWrap::~QPushButtonWrap() { extrautils::safeDelete(this->instance); }
 
-Napi::Value QPushButtonWrap::setText(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  Napi::String napiText = info[0].As<Napi::String>();
-  std::string text = napiText.Utf8Value();
-  this->instance->setText(text.c_str());
-  return env.Null();
-}
-
 Napi::Value QPushButtonWrap::setFlat(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
   Napi::Boolean isFlat = info[0].As<Napi::Boolean>();
   this->instance->setFlat(isFlat.Value());
-  return env.Null();
-}
-
-Napi::Value QPushButtonWrap::setIcon(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  Napi::Object iconObject = info[0].As<Napi::Object>();
-  QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
-  this->instance->setIcon(*iconWrap->getInternalInstance());
   return env.Null();
 }

@@ -2,11 +2,12 @@ import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
+import { QAbstractButton } from './QAbstractButton';
 
 export const QRadioButtonEvents = Object.freeze({
     ...BaseWidgetEvents,
 });
-export class QRadioButton extends NodeWidget {
+export class QRadioButton extends QAbstractButton {
     native: NativeElement;
     constructor(parent?: NodeWidget) {
         let native;
@@ -18,9 +19,5 @@ export class QRadioButton extends NodeWidget {
         super(native);
         this.native = native;
         this.nodeParent = parent;
-    }
-    setText(text: string | number): void {
-        // react:✓ TODO://getter
-        this.native.setText(`${text}`);
     }
 }
