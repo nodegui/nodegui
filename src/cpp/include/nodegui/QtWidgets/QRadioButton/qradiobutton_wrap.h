@@ -5,6 +5,7 @@
 
 #include <QPointer>
 
+#include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nradiobutton.hpp"
 
@@ -20,7 +21,6 @@ class QRadioButtonWrap : public Napi::ObjectWrap<QRadioButtonWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value setText(const Napi::CallbackInfo& info);
 
-  QWIDGET_WRAPPED_METHODS_DECLARATION
+  QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
 };

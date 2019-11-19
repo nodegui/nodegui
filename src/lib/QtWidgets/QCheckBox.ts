@@ -2,12 +2,13 @@ import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
+import { QAbstractButton } from './QAbstractButton';
 
 export const QCheckBoxEvents = Object.freeze({
     ...BaseWidgetEvents,
     toggled: 'toggled',
 });
-export class QCheckBox extends NodeWidget {
+export class QCheckBox extends QAbstractButton {
     native: NativeElement;
     constructor(parent?: NodeWidget) {
         let native;
@@ -20,16 +21,10 @@ export class QCheckBox extends NodeWidget {
         this.native = native;
         this.nodeParent = parent;
     }
-    setText(text: string): void {
-        // react:✓ //TODO:getter
-        this.native.setText(text);
-    }
     setChecked(check: boolean): void {
-        // react:✓
         this.native.setChecked(check);
     }
     isChecked(): boolean {
-        // react:✓
         return this.native.isChecked();
     }
 }

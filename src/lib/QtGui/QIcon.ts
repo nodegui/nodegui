@@ -1,6 +1,8 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
 import { QPixmap } from './QPixmap';
+import { QVariant } from '../QtCore/QVariant';
+import { checkIfNativeElement } from '../utils/helpers';
 
 export enum QIconMode {
     Normal,
@@ -21,6 +23,8 @@ export class QIcon extends Component {
         if (typeof arg === 'string') {
             const imageUrl = arg;
             this.native = new addon.QIcon(imageUrl);
+        } else if (checkIfNativeElement(arg)) {
+            this.native = arg as NativeElement;
         } else {
             this.native = new addon.QIcon();
         }
@@ -41,5 +45,11 @@ export class QIcon extends Component {
     }
     setIsMask(isMask: boolean): void {
         this.native.setIsMask(isMask);
+    }
+    cacheKey(): number {
+        return this.native.cacheKey();
+    }
+    static fromQVariant(variant: QVariant): QIcon {
+        return addon.QIcon.fromQVariant(variant.native);
     }
 }

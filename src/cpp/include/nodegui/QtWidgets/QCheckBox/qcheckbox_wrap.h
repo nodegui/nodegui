@@ -5,6 +5,7 @@
 
 #include <QPointer>
 
+#include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ncheckbox.hpp"
 
@@ -20,9 +21,8 @@ class QCheckBoxWrap : public Napi::ObjectWrap<QCheckBoxWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value setText(const Napi::CallbackInfo& info);
   Napi::Value isChecked(const Napi::CallbackInfo& info);
   Napi::Value setChecked(const Napi::CallbackInfo& info);
 
-  QWIDGET_WRAPPED_METHODS_DECLARATION
+  QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
 };

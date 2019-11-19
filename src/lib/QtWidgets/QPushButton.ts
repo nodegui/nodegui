@@ -2,7 +2,7 @@ import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
-import { QIcon } from '../QtGui/QIcon';
+import { QAbstractButton } from './QAbstractButton';
 
 export const QPushButtonEvents = Object.freeze({
     ...BaseWidgetEvents,
@@ -12,7 +12,7 @@ export const QPushButtonEvents = Object.freeze({
     toggled: 'toggled',
 });
 
-export class QPushButton extends NodeWidget {
+export class QPushButton extends QAbstractButton {
     native: NativeElement;
     constructor(parent?: NodeWidget) {
         let native;
@@ -25,16 +25,7 @@ export class QPushButton extends NodeWidget {
         this.nodeParent = parent;
         this.native = native;
     }
-    setText(text: string | number): void {
-        // react:✓, //TODO:getter
-        this.native.setText(`${text}`);
-    }
     setFlat(isFlat: boolean): void {
-        // react:✓, //TODO:getter
         this.native.setFlat(isFlat);
-    }
-    setIcon(icon: QIcon): void {
-        // react:✓, //TODO:getter
-        this.native.setIcon(icon.native);
     }
 }
