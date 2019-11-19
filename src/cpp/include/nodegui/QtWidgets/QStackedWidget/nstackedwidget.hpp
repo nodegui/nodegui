@@ -9,7 +9,8 @@ class NStackedWidget : public QStackedWidget, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QStackedWidget)
  public:
-  using QStackedWidget::QStackedWidget;  // inherit all constructors of QStackedWidget
+  using QStackedWidget::QStackedWidget;  // inherit all constructors of
+                                         // QStackedWidget
 
   void connectWidgetSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here

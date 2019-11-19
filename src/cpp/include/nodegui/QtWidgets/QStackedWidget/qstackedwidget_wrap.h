@@ -20,8 +20,8 @@ class QStackedWidgetWrap : public Napi::ObjectWrap<QStackedWidgetWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value addWidget(const Napi::CallbackInfo& info);
-  Napi::Value removeWidget(const Napi::CallbackInfo& info);
+  Napi::Value addWidget(const Napi::CallbackInfo &info);
+  Napi::Value removeWidget(const Napi::CallbackInfo &info);
   Napi::Value setCurrentIndex(const Napi::CallbackInfo &info);
   Napi::Value currentIndex(const Napi::CallbackInfo &info);
   Napi::Value setCurrentWidget(const Napi::CallbackInfo &info);

@@ -16,16 +16,21 @@ Napi::Object QStackedWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("removeWidget", &QStackedWidgetWrap::removeWidget),
        InstanceMethod("setCurrentIndex", &QStackedWidgetWrap::setCurrentIndex),
        InstanceMethod("currentIndex", &QStackedWidgetWrap::currentIndex),
-       InstanceMethod("setCurrentWidget", &QStackedWidgetWrap::setCurrentWidget),
+       InstanceMethod("setCurrentWidget",
+                      &QStackedWidgetWrap::setCurrentWidget),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QStackedWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
 }
 
-NStackedWidget* QStackedWidgetWrap::getInternalInstance() { return this->instance; }
+NStackedWidget* QStackedWidgetWrap::getInternalInstance() {
+  return this->instance;
+}
 
-QStackedWidgetWrap::~QStackedWidgetWrap() { extrautils::safeDelete(this->instance); }
+QStackedWidgetWrap::~QStackedWidgetWrap() {
+  extrautils::safeDelete(this->instance);
+}
 
 QStackedWidgetWrap::QStackedWidgetWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QStackedWidgetWrap>(info) {
@@ -37,7 +42,8 @@ QStackedWidgetWrap::QStackedWidgetWrap(const Napi::CallbackInfo& info)
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
     this->instance = new NStackedWidget(
-        parentWidgetWrap->getInternalInstance());  // this sets the parent to current widget
+        parentWidgetWrap
+            ->getInternalInstance());  // this sets the parent to current widget
   } else if (info.Length() == 0) {
     this->instance = new NStackedWidget();
   } else {
@@ -71,7 +77,8 @@ Napi::Value QStackedWidgetWrap::removeWidget(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value QStackedWidgetWrap::setCurrentIndex(const Napi::CallbackInfo& info) {
+Napi::Value QStackedWidgetWrap::setCurrentIndex(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Number index = info[0].As<Napi::Number>();
@@ -86,7 +93,8 @@ Napi::Value QStackedWidgetWrap::currentIndex(const Napi::CallbackInfo& info) {
   return Napi::Number::New(env, value);
 }
 
-Napi::Value QStackedWidgetWrap::setCurrentWidget(const Napi::CallbackInfo& info) {
+Napi::Value QStackedWidgetWrap::setCurrentWidget(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 

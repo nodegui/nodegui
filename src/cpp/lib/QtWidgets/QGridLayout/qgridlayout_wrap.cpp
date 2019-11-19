@@ -50,7 +50,8 @@ Napi::Value QGridLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   Napi::Number qrowSpan = info[3].As<Napi::Number>();
   Napi::Number qcolSpan = info[4].As<Napi::Number>();
   QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
-  this->instance->addWidget(widget->getInternalInstance(), qrow, qcol, qrowSpan, qcolSpan);
+  this->instance->addWidget(widget->getInternalInstance(), qrow, qcol, qrowSpan,
+                            qcolSpan);
 
   return env.Null();
 }
