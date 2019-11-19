@@ -10,7 +10,6 @@
 FlexLayout::FlexLayout(QWidget* parentWidget, YGNodeRef parentNode)
     : QLayout(parentWidget) {
   this->node = parentNode;
-  this->setSizeConstraint(QLayout::SetFixedSize);
 }
 
 FlexLayout::~FlexLayout() {
@@ -148,7 +147,14 @@ void FlexLayout::setGeometry(const QRect& rect) {
   if (!this->node) {
     return;
   }
+  if (this->sizeConstraint() != QLayout::SetFixedSize) {
+    YGNodeStyleSetHeight(this->node, rect.height());
+    YGNodeStyleSetWidth(this->node, rect.width());
+  }
+
   calculateLayout();
+  QRect calculatedRect = flexutils::getFlexNodeGeometry(this->node);
+  QLayout::setGeometry(calculatedRect);
 
   uint count = YGNodeGetChildCount(this->node);
 
@@ -159,7 +165,6 @@ void FlexLayout::setGeometry(const QRect& rect) {
     QLayoutItem* childItem = ctx->layoutItem();
     childItem->setGeometry(childRect);
   }
-  QLayout::setGeometry(rect);
 }
 
 void FlexLayout::setFlexNode(YGNodeRef parentNode) { this->node = parentNode; }
