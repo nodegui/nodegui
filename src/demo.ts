@@ -41,6 +41,7 @@ label.setInlineStyle(`border: 2px solid green;padding: 10;`);
 
 center.setLayout(new FlexLayout());
 center.layout?.addWidget(label);
+center.layout?.setProperty('sizeConstraint', 3);
 scrollArea.setWidget(center);
 win.setCentralWidget(scrollArea);
 win.show();
