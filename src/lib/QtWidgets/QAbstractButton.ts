@@ -1,5 +1,6 @@
 import { NodeWidget } from './QWidget';
 import { QIcon } from '../QtGui/QIcon';
+import { QSize } from '../QtCore/QSize';
 
 export abstract class QAbstractButton extends NodeWidget {
     setText(text: string): void {
@@ -7,5 +8,12 @@ export abstract class QAbstractButton extends NodeWidget {
     }
     setIcon(icon: QIcon): void {
         this.native.setIcon(icon.native);
+    }
+    setIconSize(iconSize: QSize): void {
+        this.setProperty('iconSize', iconSize.native);
+    }
+    iconSize(): QSize {
+        const iconSize = this.property('iconSize');
+        return QSize.fromQVariant(iconSize);
     }
 }
