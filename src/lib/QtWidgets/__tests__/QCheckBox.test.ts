@@ -1,6 +1,7 @@
 import { QCheckBox } from '../QCheckBox';
 import { QIcon } from '../../QtGui/QIcon';
 import path from 'path';
+import { QSize } from '../../QtCore/QSize';
 
 describe('QCheckBox', () => {
     it('instantiate a button instance', () => {
@@ -25,5 +26,15 @@ describe('QCheckBox', () => {
         expect(button.isChecked()).toEqual(true);
         button.setChecked(false);
         expect(button.isChecked()).toEqual(false);
+    });
+    it('setIconSize', () => {
+        const button = new QCheckBox();
+        const testImagePath = path.resolve(__dirname, 'assets', 'nodegui.png');
+        const icon = new QIcon(testImagePath);
+        button.setIcon(icon);
+        button.setIconSize(new QSize(111, 111));
+        const returnedSize = button.iconSize();
+        expect(returnedSize.width()).toBe(111);
+        expect(returnedSize.height()).toBe(111);
     });
 });
