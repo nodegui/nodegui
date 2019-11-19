@@ -50,10 +50,9 @@ QStackedWidgetWrap::QStackedWidgetWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-  // Adds measure function on yoga node so that widget size is calculated based
-  // on its text also.
-  YGNodeSetMeasureFunc(this->instance->getFlexNode(),
-                       &extrautils::measureQtWidget);
+  this->rawData = extrautils::configureQWidget(
+      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
+      true);
 }
 
 Napi::Value QStackedWidgetWrap::addWidget(const Napi::CallbackInfo& info) {
