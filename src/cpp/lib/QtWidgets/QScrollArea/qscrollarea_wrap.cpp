@@ -56,11 +56,9 @@ Napi::Value QScrollAreaWrap::setWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Object contentWidget = info[0].As<Napi::Object>();
-  Napi::External<YGNode> centralWidgetFlexNode =
-      info[1].As<Napi::External<YGNode>>();
   QWidgetWrap* contentWidgetWrap =
       Napi::ObjectWrap<QWidgetWrap>::Unwrap(contentWidget);
-  YGNodeInsertChild(this->scrollNode, centralWidgetFlexNode.Data(), 0);
+
   this->instance->setWidget(contentWidgetWrap->getInternalInstance());
   return env.Null();
 }

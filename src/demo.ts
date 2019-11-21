@@ -47,3 +47,36 @@ win.setCentralWidget(scrollArea);
 win.show();
 
 (global as any).win = win;
+
+// const win = new QMainWindow();
+const view = new QWidget();
+view.setLayout(new FlexLayout());
+view.setObjectName('view');
+const left = new QWidget();
+left.setObjectName('left');
+const right = new QWidget();
+right.setObjectName('right');
+view.layout?.addWidget(left);
+view.layout?.addWidget(right);
+view.show();
+
+view.setStyleSheet(`
+    #view {
+        border: 1px solid yellow;
+    }
+
+    #left {
+        flex: 1;
+       background-color: 'red';
+    }
+
+    #right {
+        flex: 1;
+       background-color: 'green';
+    }
+`);
+center.layout?.addWidget(view);
+// win.setCentralWidget(view);
+// win.show();
+// win.resize(300, 300);
+// (global as any).win = win;

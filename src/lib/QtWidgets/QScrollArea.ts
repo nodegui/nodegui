@@ -24,7 +24,7 @@ export class QScrollArea extends QAbstractScrollArea {
     setWidget(widget: NodeWidget): void {
         // react:✓, //TODO:getter
         this.contentWidget = widget;
-        this.native.setWidget(widget.native, widget.getFlexNode());
+        this.native.setWidget(widget.native);
     }
     takeWidget(): NodeWidget | null {
         // react:✓

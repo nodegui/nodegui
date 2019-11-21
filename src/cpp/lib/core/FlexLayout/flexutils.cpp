@@ -3,6 +3,7 @@
 FlexNodeContext::FlexNodeContext(void* widget) {
   this->_widget = widget;
   this->_layoutItem = nullptr;
+  this->isSizeControlled = false;
 }
 
 QWidget* FlexNodeContext::widget() {

@@ -34,8 +34,9 @@ export class QMainWindow extends NodeWidget {
     }
     setCentralWidget(widget: NodeWidget): void {
         // react:✓
-        this.native.setCentralWidget(widget.native, widget.getFlexNode());
+        this.native.setCentralWidget(widget.native);
         this.centralWidget = widget;
+        this.centralWidget.setFlexNodeSizeControlled(true);
     }
     setMenuBar(menuBar: QMenuBar): void {
         this.native.setMenuBar(menuBar.native);

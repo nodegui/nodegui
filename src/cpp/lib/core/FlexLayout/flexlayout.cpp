@@ -147,9 +147,11 @@ void FlexLayout::setGeometry(const QRect& rect) {
   if (!this->node) {
     return;
   }
-  if (this->sizeConstraint() != QLayout::SetFixedSize) {
-    YGNodeStyleSetHeight(this->node, rect.height());
+
+  FlexNodeContext* layoutNodeCtx = flexutils::getFlexNodeContext(this->node);
+  if (parentWidget()->isWindow() || layoutNodeCtx->isSizeControlled) {
     YGNodeStyleSetWidth(this->node, rect.width());
+    YGNodeStyleSetHeight(this->node, rect.height());
   }
 
   calculateLayout();
