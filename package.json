@@ -16,7 +16,7 @@
     "license": "MIT",
     "private": false,
     "scripts": {
-        "dev": "npm run build && qode --inspect dist/demo.js",
+        "dev": "npm run build && qode  dist/demo.js",
         "postinstall": "npm run build:addon",
         "build": "tsc && npm run build:addon",
         "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",

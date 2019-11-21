@@ -10,6 +10,7 @@ class FlexNodeContext {
   QLayoutItem* _layoutItem;
 
  public:
+  bool isSizeControlled;
   FlexNodeContext(void* widget);
   QWidget* widget();
   QLayoutItem* layoutItem();

@@ -55,12 +55,8 @@ Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object widgetObject = info[0].As<Napi::Object>();
-  Napi::External<YGNode> centralWidgetFlexNode =
-      info[1].As<Napi::External<YGNode>>();
   QWidgetWrap* centralWidget =
       Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);
-  YGNodeInsertChild(this->instance->getFlexNode(), centralWidgetFlexNode.Data(),
-                    0);
   this->instance->setCentralWidget(centralWidget->getInternalInstance());
   return env.Null();
 }
