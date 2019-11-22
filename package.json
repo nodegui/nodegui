@@ -20,7 +20,7 @@
         "postinstall": "npm run build:addon",
         "build": "tsc && npm run build:addon",
         "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
-        "test": "qode ./node_modules/.bin/jest -i",
+        "test": "qode ./node_modules/jest/bin/jest -i",
         "lint:cpp": "clang-format -i --glob=src/cpp/**/*.[h,c]*",
         "lint:ts": "tsc --noEmit && eslint './src/**/*.{ts,tsx,js,jsx}' --fix"
     },
