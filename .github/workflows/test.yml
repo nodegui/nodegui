@@ -1,6 +1,6 @@
-on: push
-# release:
-#   types: [created]
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
 jobs:
     build:
         strategy:
