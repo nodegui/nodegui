@@ -41,5 +41,5 @@ class FlexLayout : public QLayout, public EventWidget {
   Qt::Orientations expandingDirections() const override;
   bool hasHeightForWidth() const override;
 
-  EVENTWIDGET_IMPLEMENTATIONS(FlexLayout)
+  EVENTWIDGET_IMPLEMENTATIONS(QLayout)
 };

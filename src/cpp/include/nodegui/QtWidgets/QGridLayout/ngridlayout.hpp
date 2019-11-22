@@ -6,6 +6,6 @@
 class NGridLayout : public QGridLayout, public EventWidget {
  public:
   Q_OBJECT
-  EVENTWIDGET_IMPLEMENTATIONS(NGridLayout)
+  EVENTWIDGET_IMPLEMENTATIONS(QGridLayout)
   using QGridLayout::QGridLayout;
 };

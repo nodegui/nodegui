@@ -1,0 +1,25 @@
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
+jobs:
+    build:
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-18.04, windows-latest, macos-latest]
+        runs-on: ${{ matrix.os }}
+        steps:
+            - uses: actions/checkout@master
+            - uses: actions/setup-node@master
+              with:
+                  node-version: '13.x'
+            - name: Install deps
+              run: npm install
+            - name: Build nodegui
+              run: npm run build
+            - name: Run tests
+              run: npm run test
+            - name: Run linters for cpp
+              run: npm run lint:cpp
+            - name: Run linters for ts
+              run: npm run lint:ts
