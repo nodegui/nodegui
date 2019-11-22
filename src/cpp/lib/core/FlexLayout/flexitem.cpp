@@ -4,10 +4,7 @@
 
 #include "core/FlexLayout/flexutils.h"
 
-FlexItem::FlexItem() {
-  this->node = YGNodeNew();
-  YGConfigSetUseWebDefaults(this->node->getConfig(), true);
-}
+FlexItem::FlexItem() { this->node = YGNodeNew(); }
 
 YGNodeRef FlexItem::getFlexNode() const { return this->node; }
 
