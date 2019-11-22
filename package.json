@@ -25,7 +25,7 @@
         "lint:ts": "tsc --noEmit && eslint './src/**/*.{ts,tsx,js,jsx}' --fix"
     },
     "dependencies": {
-        "@nodegui/qode": "^1.0.5",
+        "@nodegui/qode": "^1.0.6",
         "cmake-js": "^6.0.0",
         "cross-env": "^6.0.0",
         "cuid": "^2.1.6",
