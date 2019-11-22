@@ -14,7 +14,6 @@ function(AddCommonConfig addonName)
         cxx_variadic_templates
         cxx_variable_templates
     )
-    set_target_properties(${addonName} PROPERTIES CXX_STANDARD 14 CXX_STANDARD_REQUIRED ON)
     if (WIN32) 
         target_compile_definitions(${addonName} PRIVATE
             ENUM_BITFIELDS_NOT_SUPPORTED
