@@ -50,6 +50,6 @@ export class QIcon extends Component {
         return this.native.cacheKey();
     }
     static fromQVariant(variant: QVariant): QIcon {
-        return addon.QIcon.fromQVariant(variant.native);
+        return new QIcon(addon.QIcon.fromQVariant(variant.native));
     }
 }
