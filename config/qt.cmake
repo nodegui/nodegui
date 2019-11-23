@@ -12,8 +12,16 @@ function(AddQtSupport addonName)
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         OUTPUT_VARIABLE QT_HOME_DIR
     )
+
+    if(DEFINED ENV{QT_INSTALL_DIR})
+        # Allows to use custom Qt installation via QT_INSTALL_DIR env variable
+        message(STATUS "Using Custom QT installation for ${addonName} QT_INSTALL_DIR:$ENV{QT_INSTALL_DIR}")
+        set(QT_HOME_DIR "$ENV{QT_INSTALL_DIR}")
+    endif()
+
     string(REPLACE "\n" "" QT_HOME_DIR "${QT_HOME_DIR}")
     string(REPLACE "\"" "" QT_HOME_DIR "${QT_HOME_DIR}")
+
     if (APPLE) 
         # createQtMacSymlinks()
         set(CUSTOM_QT_MOC_PATH "${QT_HOME_DIR}/bin/moc")
