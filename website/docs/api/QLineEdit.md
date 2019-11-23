@@ -61,6 +61,14 @@ Sets the lineEdit to be read only. lineEdit property holds whether the line edit
 
 - `isReadOnly` boolean
 
+### `lineEdit.setEchoMode(echoMode)`
+
+Sets the property that determines how the text entered in the line edit is displayed (or echoed) to the user.
+
+The widget's display and the ability to copy or drag the text is affected by this setting.
+
+- `echoMode` EchoMode
+
 ### `lineEdit.clear()`
 
 Clears the lineEdit.
