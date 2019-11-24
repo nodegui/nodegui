@@ -30,6 +30,6 @@ export class QSize extends Component {
         return this.native.height();
     }
     static fromQVariant(variant: QVariant): QSize {
-        return addon.QSize.fromQVariant(variant.native);
+        return new QSize(addon.QSize.fromQVariant(variant.native));
     }
 }

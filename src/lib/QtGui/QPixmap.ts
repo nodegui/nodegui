@@ -43,6 +43,6 @@ export class QPixmap extends Component {
         return this.native.width();
     }
     static fromQVariant(variant: QVariant): QPixmap {
-        return addon.QPixmap.fromQVariant(variant.native);
+        return new QPixmap(addon.QPixmap.fromQVariant(variant.native));
     }
 }
