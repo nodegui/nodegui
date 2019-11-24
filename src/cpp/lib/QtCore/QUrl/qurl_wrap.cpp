@@ -27,11 +27,12 @@ QUrlWrap::QUrlWrap(const Napi::CallbackInfo& info)
   if (info.Length() == 2) {
     std::string url = info[0].As<Napi::String>().Utf8Value();
     int parseMode = info[1].As<Napi::Number>().Int32Value();
-    this->instance = std::make_unique<QUrl>(QString::fromStdString(url), static_cast<QUrl::ParsingMode>(parseMode));
+    this->instance = std::make_unique<QUrl>(
+        QString::fromStdString(url), static_cast<QUrl::ParsingMode>(parseMode));
   } else if (info.Length() == 1) {
     if (info[0].IsExternal()) {
-       this->instance =
-        std::unique_ptr<QUrl>(info[0].As<Napi::External<QUrl>>().Data());
+      this->instance =
+          std::unique_ptr<QUrl>(info[0].As<Napi::External<QUrl>>().Data());
     } else {
       std::string url = info[0].As<Napi::String>().Utf8Value();
       this->instance = std::make_unique<QUrl>(QString::fromStdString(url));
@@ -72,7 +73,7 @@ Napi::Value StaticQUrlWrapMethods::fromQVariant(
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
   QVariant* variant = variantWrap->getInternalInstance();
   QUrl url = variant->value<QUrl>();
-  auto instance = QUrlWrap::constructor.New({Napi::External<QUrl>::New(
-      env, new QUrl(url))});
+  auto instance = QUrlWrap::constructor.New(
+      {Napi::External<QUrl>::New(env, new QUrl(url))});
   return instance;
 }
