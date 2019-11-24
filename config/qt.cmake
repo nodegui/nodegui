@@ -22,8 +22,7 @@ function(AddQtSupport addonName)
     string(REPLACE "\n" "" QT_HOME_DIR "${QT_HOME_DIR}")
     string(REPLACE "\"" "" QT_HOME_DIR "${QT_HOME_DIR}")
 
-    if (APPLE) 
-        # createQtMacSymlinks()
+    if(APPLE) 
         set(CUSTOM_QT_MOC_PATH "${QT_HOME_DIR}/bin/moc")
 
         target_include_directories(${addonName} PRIVATE
@@ -73,20 +72,8 @@ function(AddQtSupport addonName)
             "${QT_HOME_DIR}/lib/libQt5Widgets.so"
         )
     endif()    
-
+    
     # set custom moc executable location
     set_target_properties(Qt5::moc PROPERTIES IMPORTED_LOCATION "${CUSTOM_QT_MOC_PATH}")
     
 endfunction(AddQtSupport addonName)
-
-# function(createQtMacSymlinks)
-#     message("Creating qt symlinks")
-#     execute_process(
-#         COMMAND 'mkdir -p ${QT_HOME_DIR}/include'
-#         COMMAND 'ln -sfn ${QT_HOME_DIR}/lib/QtCore.framework/Versions/5/Headers ${QT_HOME_DIR}/include/QtCore'
-#         COMMAND 'ln -sfn ${QT_HOME_DIR}/lib/QtGui.framework/Versions/5/Headers ${QT_HOME_DIR}/include/QtGui'
-#         COMMAND 'ln -sfn ${QT_HOME_DIR}/lib/QtWidgets.framework/Versions/5/Headers ${QT_HOME_DIR}/include/QtWidgets'
-#         WORKING_DIRECTORY ${QT_HOME_DIR}
-#     )
-# endfunction()
-

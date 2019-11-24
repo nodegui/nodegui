@@ -49,3 +49,4 @@ export { FlexLayout } from './lib/core/FlexLayout';
 // Others:
 export { StyleSheet } from './lib/core/Style/StyleSheet';
 export { NativeElement, Component } from './lib/core/Component';
+export { checkIfNativeElement } from './lib/utils/helpers';
