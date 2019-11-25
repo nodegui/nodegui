@@ -139,17 +139,20 @@ bool FlexLayout::hasHeightForWidth() const { return false; }
 
 QSize FlexLayout::sizeHint() const {
   calculateLayout();
-  return QSize(YGNodeLayoutGetWidth(this->node),
-               YGNodeLayoutGetHeight(this->node));
+  QSize sizeHint = QSize(YGNodeLayoutGetWidth(this->node),
+                         YGNodeLayoutGetHeight(this->node));
+  // qDebug() << "sizeHint" << this->parentWidget() << sizeHint;
+  return sizeHint;
 }
 
 void FlexLayout::setGeometry(const QRect& rect) {
   if (!this->node) {
     return;
   }
-
+  // qDebug() << "setGeometry" << rect << this->parentWidget();
   FlexNodeContext* layoutNodeCtx = flexutils::getFlexNodeContext(this->node);
   if (parentWidget()->isWindow() || layoutNodeCtx->isSizeControlled) {
+    // qDebug() << "controlled" << this->parentWidget();
     YGNodeStyleSetWidth(this->node, rect.width());
     YGNodeStyleSetHeight(this->node, rect.height());
   }
@@ -157,6 +160,7 @@ void FlexLayout::setGeometry(const QRect& rect) {
   calculateLayout();
   QRect calculatedRect = flexutils::getFlexNodeGeometry(this->node);
   QLayout::setGeometry(calculatedRect);
+  // qDebug() << "calculatedRect" << calculatedRect << this->parentWidget();
 
   uint count = YGNodeGetChildCount(this->node);
 
@@ -165,6 +169,7 @@ void FlexLayout::setGeometry(const QRect& rect) {
     QRect childRect = flexutils::getFlexNodeGeometry(childNode);
     FlexNodeContext* ctx = flexutils::getFlexNodeContext(childNode);
     QLayoutItem* childItem = ctx->layoutItem();
+    // qDebug() << "child" << childRect << childItem->widget();
     childItem->setGeometry(childRect);
   }
 }
@@ -175,7 +180,8 @@ void FlexLayout::calculateLayout() const {
   YGNodeRef parentNode = this->node;
   YGNodeRef rootNode = getRootNode(parentNode);
   YGDirection rootDirection = YGNodeStyleGetDirection(rootNode);
-  YGNodeStyleSetMaxHeight(rootNode, QWIDGETSIZE_MAX);
-  YGNodeStyleSetMaxWidth(rootNode, QWIDGETSIZE_MAX);
-  YGNodeCalculateLayout(rootNode, 0, 0, rootDirection);
+  float rootWidth = YGNodeLayoutGetWidth(rootNode);
+  float rootHeight = YGNodeLayoutGetHeight(rootNode);
+
+  YGNodeCalculateLayout(rootNode, rootWidth, rootHeight, rootDirection);
 }

@@ -28,15 +28,15 @@ export abstract class NodeWidget extends YogaWidget {
     close(): boolean {
         return this.native.close();
     }
-    async setStyleSheet(styleSheet: string): Promise<void> {
-        const preparedSheet = await StyleSheet.create(styleSheet);
+    setStyleSheet(styleSheet: string): void {
+        const preparedSheet = StyleSheet.create(styleSheet);
         this.native.setStyleSheet(preparedSheet);
     }
     styleSheet(): string {
         return this.native.styleSheet();
     }
-    async setInlineStyle(style: string): Promise<void> {
-        const preparedSheet = await prepareInlineStyleSheet(this, style);
+    setInlineStyle(style: string): void {
+        const preparedSheet = prepareInlineStyleSheet(this, style);
         this.native.setStyleSheet(preparedSheet);
     }
     setGeometry(x: number, y: number, w: number, h: number): void {
