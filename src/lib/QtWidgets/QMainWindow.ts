@@ -10,7 +10,7 @@ export const QMainWindowEvents = Object.freeze({
 });
 export class QMainWindow extends NodeWidget {
     native: NativeElement;
-    public centralWidget?: NodeWidget;
+    public centralWidget?: NodeWidget | null;
     private _menuBar?: QMenuBar;
     constructor(parent?: NodeWidget) {
         let native;
@@ -37,6 +37,16 @@ export class QMainWindow extends NodeWidget {
         this.native.setCentralWidget(widget.native);
         this.centralWidget = widget;
         this.centralWidget.setFlexNodeSizeControlled(true);
+    }
+    takeCentralWidget(): NodeWidget | null {
+        // react:✓
+        const centralWidget = this.centralWidget;
+        this.centralWidget = null;
+        if (centralWidget) {
+            this.native.takeCentralWidget();
+            return centralWidget;
+        }
+        return null;
     }
     setMenuBar(menuBar: QMenuBar): void {
         this.native.setMenuBar(menuBar.native);
