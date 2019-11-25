@@ -14,16 +14,13 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QMainWindow";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {
-          InstanceMethod(
-              "setCentralWidget", &QMainWindowWrap::setCentralWidget),
-          InstanceMethod(
-              "takeCentralWidget", &QMainWindowWrap::takeCentralWidget),
-          InstanceMethod("setMenuBar", &QMainWindowWrap::setMenuBar),
-          InstanceMethod("setMenuWidget", &QMainWindowWrap::setMenuWidget),
-          InstanceMethod("center", &QMainWindowWrap::center),
-          QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)
-          
+      {InstanceMethod("setCentralWidget", &QMainWindowWrap::setCentralWidget),
+       InstanceMethod("takeCentralWidget", &QMainWindowWrap::takeCentralWidget),
+       InstanceMethod("setMenuBar", &QMainWindowWrap::setMenuBar),
+       InstanceMethod("setMenuWidget", &QMainWindowWrap::setMenuWidget),
+       InstanceMethod("center", &QMainWindowWrap::center),
+       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)
+
       });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
