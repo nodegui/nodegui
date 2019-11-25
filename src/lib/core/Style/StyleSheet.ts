@@ -3,19 +3,18 @@ import cuid from 'cuid';
 import nodeguiAutoPrefixer from 'postcss-nodegui-autoprefixer';
 import { NodeWidget } from '../../QtWidgets/QWidget';
 export class StyleSheet {
-    static async create(cssString: string): Promise<string> {
-        const { css } = await postcss([nodeguiAutoPrefixer()])
-            .process(cssString, { from: undefined })
-            .catch(err => {
-                console.warn(`Error autoprefixing`, err);
-                return { css: cssString };
-            });
-        return css;
+    static create(cssString: string): string {
+        try {
+            return postcss([nodeguiAutoPrefixer()]).process(cssString).css;
+        } catch (err) {
+            console.error(err);
+            return '';
+        }
     }
 }
 
-export async function prepareInlineStyleSheet(widget: NodeWidget, rawStyle: string): Promise<string> {
-    const inlineStyle = await StyleSheet.create(rawStyle);
+export function prepareInlineStyleSheet(widget: NodeWidget, rawStyle: string): string {
+    const inlineStyle = StyleSheet.create(rawStyle);
     // Make sure to not calculate ObjectName in the same pass of event loop as other props (incase of react) since the order will matter in that case
     // So doing it in multiple passes of event loop allows objectName to be set before using it. The above await solves it.
     let cssId = widget.objectName();
