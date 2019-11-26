@@ -2,20 +2,15 @@
 
 #include <napi.h>
 
-#include "deps/spdlog/spdlog.h"
-
 void EventWidget::subscribeToQtEvent(std::string evtString) {
   try {
     int evtType = EventsMap::eventTypes.at(evtString);
     this->subscribedEvents.insert(
         {static_cast<QEvent::Type>(evtType), evtString});
-    spdlog::info("EventWidget: subscribed to {} : {}, size: {}",
-                 evtString.c_str(), evtType, subscribedEvents.size());
   } catch (...) {
-    spdlog::info(
-        "EventWidget: Couldn't subscribe to qt event {}. If this is a signal "
-        "you can safely ignore this warning",
-        evtString.c_str());
+    qDebug() << "EventWidget: Couldn't subscribe to qt event"
+             << evtString.c_str()
+             << ". If this is a signal you can safely ignore this warning";
   }
 }
 
@@ -24,13 +19,10 @@ void EventWidget::unSubscribeToQtEvent(std::string evtString) {
     int evtType = EventsMap::eventTypes.at(evtString);
     this->subscribedEvents.erase(
         static_cast<QEvent::Type>(evtType));  // erasing by key
-    spdlog::info("EventWidget: unsubscribed to {} : {}", evtString.c_str(),
-                 evtType);
   } catch (...) {
-    spdlog::info(
-        "EventWidget: Couldn't unsubscribe to qt event {}. If this is a signal "
-        "you can safely ignore this warning",
-        evtString.c_str());
+    qDebug() << "EventWidget: Couldn't unsubscribe to qt event "
+             << evtString.c_str()
+             << ". If this is a signal you can safely ignore this warning ";
   }
 }
 
