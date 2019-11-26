@@ -19,8 +19,8 @@ describe('QWidget', () => {
         view.hide();
         expect(view.isVisible()).toEqual(false);
     });
-    it('setStyleSheet', async () => {
-        await view.setStyleSheet(`
+    it('setStyleSheet', () => {
+        view.setStyleSheet(`
     #test {
       color: blue;
     }`);
@@ -29,9 +29,19 @@ describe('QWidget', () => {
       color: blue;
     }`);
     });
-    it('setInlineStyle', async () => {
+    it('setInlineStyle', () => {
         view.setObjectName('test');
-        await view.setInlineStyle('color: black;');
+        view.setInlineStyle('color: black;');
+        expect(view.styleSheet()).toEqual(`
+      #test {
+        color: black;
+      }
+  `);
+    });
+    it('correct inline stylesheet after objectName has been set', () => {
+        view.setObjectName('someobjectName');
+        view.setInlineStyle('color: black;');
+        view.setObjectName('test');
         expect(view.styleSheet()).toEqual(`
       #test {
         color: black;

@@ -15,6 +15,7 @@ import { QSize } from '../QtCore/QSize';
 // Implement all native QWidget methods here so that all widgets get access to those aswell
 export abstract class NodeWidget extends YogaWidget {
     layout?: NodeLayout;
+    _rawInlineStyle = '';
     type = 'widget';
     show(): void {
         this.native.show();
@@ -36,6 +37,7 @@ export abstract class NodeWidget extends YogaWidget {
         return this.native.styleSheet();
     }
     setInlineStyle(style: string): void {
+        this._rawInlineStyle = style;
         const preparedSheet = prepareInlineStyleSheet(this, style);
         this.native.setStyleSheet(preparedSheet);
     }
@@ -135,6 +137,12 @@ export abstract class NodeWidget extends YogaWidget {
     }
     adjustSize(): void {
         this.native.adjustSize();
+    }
+    setObjectName(objectName: string): void {
+        super.setObjectName(objectName);
+        if (this._rawInlineStyle) {
+            this.setInlineStyle(this._rawInlineStyle);
+        }
     }
 }
 
