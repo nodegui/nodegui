@@ -14,12 +14,13 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QMainWindow";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {
-          QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap) InstanceMethod(
-              "setCentralWidget", &QMainWindowWrap::setCentralWidget),
-          InstanceMethod("setMenuBar", &QMainWindowWrap::setMenuBar),
-          InstanceMethod("setMenuWidget", &QMainWindowWrap::setMenuWidget),
-          InstanceMethod("center", &QMainWindowWrap::center),
+      {InstanceMethod("setCentralWidget", &QMainWindowWrap::setCentralWidget),
+       InstanceMethod("takeCentralWidget", &QMainWindowWrap::takeCentralWidget),
+       InstanceMethod("setMenuBar", &QMainWindowWrap::setMenuBar),
+       InstanceMethod("setMenuWidget", &QMainWindowWrap::setMenuWidget),
+       InstanceMethod("center", &QMainWindowWrap::center),
+       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)
+
       });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -58,6 +59,14 @@ Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {
   QWidgetWrap* centralWidget =
       Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);
   this->instance->setCentralWidget(centralWidget->getInternalInstance());
+  return env.Null();
+}
+
+Napi::Value QMainWindowWrap::takeCentralWidget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->takeCentralWidget();
+  // We will not return the value here since we are doing it in js side anyway
   return env.Null();
 }
 
