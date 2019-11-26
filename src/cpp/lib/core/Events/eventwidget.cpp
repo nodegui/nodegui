@@ -2,6 +2,8 @@
 
 #include <napi.h>
 
+#include <QDebug>
+
 void EventWidget::subscribeToQtEvent(std::string evtString) {
   try {
     int evtType = EventsMap::eventTypes.at(evtString);
