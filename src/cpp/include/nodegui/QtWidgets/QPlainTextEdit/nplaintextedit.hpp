@@ -3,7 +3,6 @@
 #include <QPlainTextEdit>
 
 #include "core/NodeWidget/nodewidget.h"
-#include "deps/spdlog/spdlog.h"
 
 class NPlainTextEdit : public QPlainTextEdit, public NodeWidget {
   Q_OBJECT

@@ -2,7 +2,7 @@
 #pragma once
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
-#include "deps/spdlog/spdlog.h"
+
 /*
 
     This macro adds common QAbstractScrollArea exported methods
