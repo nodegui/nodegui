@@ -35,6 +35,7 @@
 #include "core/FlexLayout/flexlayout_wrap.h"
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env) {
+  extrautils::initAppSettings();
   QLayoutWrap::init(env);  // Abstact class wrapper for pointing to any layout
 }
 
