@@ -1,5 +1,7 @@
 #include "Extras/Utils/nutils.h"
 
+#include <QApplication>
+#include <QFont>
 #include <QMetaType>
 #include <QWidget>
 #include <string>
@@ -84,4 +86,12 @@ void* extrautils::configureQWidget(QWidget* widget, YGNodeRef node,
                                    bool isLeafNode) {
   flexutils::configureFlexNode(widget, node, isLeafNode);
   return configureQObject(widget);
+}
+
+void extrautils::initAppSettings() {
+  QFont f = QApplication::font();
+  if (f.defaultFamily().isEmpty()) {
+    f.setFamily("Sans-Serif");
+    QApplication::setFont(f);
+  }
 }

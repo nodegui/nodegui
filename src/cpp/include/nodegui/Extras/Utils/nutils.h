@@ -23,4 +23,5 @@ void safeDelete(QPointer<T>& component) {
     delete component;
   }
 }
+void initAppSettings();
 }  // namespace extrautils
