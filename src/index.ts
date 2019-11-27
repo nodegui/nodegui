@@ -19,6 +19,7 @@ export { NodeWidget } from './lib/QtWidgets/QWidget';
 export { NodeLayout } from './lib/QtWidgets/QLayout';
 export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider } from './lib/QtWidgets/QAbstractSlider';
+export { QAbstractButton } from './lib/QtWidgets/QAbstractButton';
 // Widgets:
 export { QWidget, QWidgetEvents } from './lib/QtWidgets/QWidget';
 export { QCheckBox, QCheckBoxEvents } from './lib/QtWidgets/QCheckBox';
