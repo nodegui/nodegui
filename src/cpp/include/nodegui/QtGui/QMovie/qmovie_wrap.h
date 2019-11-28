@@ -33,5 +33,6 @@ class QMovieWrap : public Napi::ObjectWrap<QMovieWrap> {
   Napi::Value state(const Napi::CallbackInfo& info);
   Napi::Value currentFrameNumber(const Napi::CallbackInfo& info);
   Napi::Value currentPixmap(const Napi::CallbackInfo& info);
+  Napi::Value loadFromData(const Napi::CallbackInfo& info);
   QOBJECT_WRAPPED_METHODS_DECLARATION
 };

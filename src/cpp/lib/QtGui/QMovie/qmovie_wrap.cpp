@@ -1,8 +1,9 @@
-#include "QtGui/QMovie/qmovie_wrap.h"
-
+#include <QBuffer>
+#include <QByteArray>
 #include <QDebug>
 
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QMovie/qmovie_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 
 Napi::FunctionReference QMovieWrap::constructor;
@@ -25,6 +26,7 @@ Napi::Object QMovieWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("state", &QMovieWrap::state),
        InstanceMethod("currentFrameNumber", &QMovieWrap::currentFrameNumber),
        InstanceMethod("currentPixmap", &QMovieWrap::currentPixmap),
+       InstanceMethod("loadFromData", &QMovieWrap::loadFromData),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QMovieWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -157,4 +159,19 @@ Napi::Value QMovieWrap::currentPixmap(const Napi::CallbackInfo& info) {
   auto instance = QPixmapWrap::constructor.New(
       {Napi::External<QPixmap>::New(env, new QPixmap(pixmap))});
   return instance;
+}
+
+Napi::Value QMovieWrap::loadFromData(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  bool loadSuccess = false;
+
+  Napi::Buffer<const char> buffer = info[0].As<Napi::Buffer<const char>>();
+  QByteArray byteArray = QByteArray(buffer.Data(), buffer.Length());
+  QBuffer* bufferDevice = new QBuffer();
+  bufferDevice->setData(byteArray);
+  this->instance->setDevice(bufferDevice);
+  // loadSuccess = this->instance->loadFromData(, );
+  loadSuccess = true;
+  return Napi::Boolean::New(env, loadSuccess);
 }

@@ -2,6 +2,7 @@ import { QMovie, MovieState } from '../QMovie';
 import path from 'path';
 import { QPixmap } from '../QPixmap';
 import { QSize } from '../../QtCore/QSize';
+import fs from 'fs';
 
 const testImagePath = path.resolve(__dirname, 'assets', 'fine.gif');
 describe('QMovie', () => {
@@ -73,5 +74,17 @@ describe('QMovie', () => {
         movie.jumpToNextFrame();
         const pixmap = movie.currentPixmap();
         expect(pixmap.height()).toBe(200);
+    });
+    it('custom: loadFromData', () => {
+        const movie = new QMovie();
+        const arrayBuffer = fs.readFileSync(testImagePath, null).buffer;
+        const isLoaded = movie.loadFromData(Buffer.from(arrayBuffer));
+        expect(isLoaded).toBe(true);
+        movie.start();
+        movie.stop();
+        movie.jumpToFrame(2);
+        const pixmap = movie.currentPixmap();
+        expect(pixmap).toBeInstanceOf(QPixmap);
+        expect(pixmap.height()).toBe(270);
     });
 });
