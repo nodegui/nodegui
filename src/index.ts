@@ -7,6 +7,7 @@ export { QApplication } from './lib/QtGui/QApplication';
 export { QKeySequence } from './lib/QtGui/QKeySequence';
 export { QPixmap, ImageFormats } from './lib/QtGui/QPixmap';
 export { QIcon, QIconMode, QIconState } from './lib/QtGui/QIcon';
+export { QMovie, CacheMode, MovieState } from './lib/QtGui/QMovie';
 export { QCursor } from './lib/QtGui/QCursor';
 export { QTextOptionWrapMode } from './lib/QtGui/QTextOption';
 export { QClipboard, QClipboardMode } from './lib/QtGui/QClipboard';
@@ -43,6 +44,7 @@ export { QShortcut, QShortcutEvents } from './lib/QtWidgets/QShortcut';
 export { QObject, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';
+export { QRect } from './lib/QtCore/QRect';
 export { QUrl, ParsingMode } from './lib/QtCore/QUrl';
 // Layouts:
 export { QGridLayout } from './lib/QtWidgets/QGridLayout';
