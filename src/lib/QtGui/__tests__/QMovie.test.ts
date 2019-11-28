@@ -78,8 +78,7 @@ describe('QMovie', () => {
     it('custom: loadFromData', () => {
         const movie = new QMovie();
         const arrayBuffer = fs.readFileSync(testImagePath, null).buffer;
-        const isLoaded = movie.loadFromData(Buffer.from(arrayBuffer));
-        expect(isLoaded).toBe(true);
+        movie.loadFromData(Buffer.from(arrayBuffer));
         movie.start();
         movie.stop();
         movie.jumpToFrame(2);

@@ -36,8 +36,8 @@ export class QMovie extends QObject {
         this.native.setFileName(fileName);
         this.jumpToFrame(0);
     }
-    loadFromData(buffer: Buffer): boolean {
-        return this.native.loadFromData(buffer);
+    loadFromData(buffer: Buffer): void {
+        this.native.loadFromData(buffer);
     }
     fileName(): string {
         return this.native.fileName();
