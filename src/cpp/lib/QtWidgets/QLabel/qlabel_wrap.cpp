@@ -3,8 +3,8 @@
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
-#include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "QtGui/QMovie/qmovie_wrap.h"
+#include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 Napi::FunctionReference QLabelWrap::constructor;
 

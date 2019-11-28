@@ -39,12 +39,15 @@ export class QLabel extends NodeWidget {
         this.native.setPixmap(pixMap.native);
         this._pixmap = pixMap;
     }
+    pixmap(): QPixmap | undefined {
+        return this._pixmap;
+    }
     setMovie(movie: QMovie): void {
         this.native.setMovie(movie.native);
         this._movie = movie;
     }
-    pixmap(): QPixmap | undefined {
-        return this._pixmap;
+    movie(): QMovie | undefined {
+        return this._movie;
     }
     setOpenExternalLinks(open: boolean): void {
         this.native.setOpenExternalLinks(open);

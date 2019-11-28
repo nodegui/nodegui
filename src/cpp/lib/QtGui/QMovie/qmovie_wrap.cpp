@@ -1,7 +1,9 @@
 #include "QtGui/QMovie/qmovie_wrap.h"
 
 #include <QDebug>
+
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QPixmap/qpixmap_wrap.h"
 
 Napi::FunctionReference QMovieWrap::constructor;
 
@@ -11,7 +13,9 @@ Napi::Object QMovieWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("setFileName", &QMovieWrap::setFileName),
+       InstanceMethod("fileName", &QMovieWrap::fileName),
        InstanceMethod("setFormat", &QMovieWrap::setFormat),
+       InstanceMethod("format", &QMovieWrap::format),
        InstanceMethod("setScaledSize", &QMovieWrap::setScaledSize),
        InstanceMethod("start", &QMovieWrap::start),
        InstanceMethod("stop", &QMovieWrap::stop),
@@ -19,6 +23,8 @@ Napi::Object QMovieWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("jumpToNextFrame", &QMovieWrap::jumpToNextFrame),
        InstanceMethod("jumpToFrame", &QMovieWrap::jumpToFrame),
        InstanceMethod("state", &QMovieWrap::state),
+       InstanceMethod("currentFrameNumber", &QMovieWrap::currentFrameNumber),
+       InstanceMethod("currentPixmap", &QMovieWrap::currentPixmap),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QMovieWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -59,6 +65,13 @@ Napi::Value QMovieWrap::setFileName(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+Napi::Value QMovieWrap::fileName(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QString fileName = this->instance->fileName();
+  return Napi::Value::From(env, fileName.toStdString());
+}
+
 Napi::Value QMovieWrap::setFormat(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -67,6 +80,13 @@ Napi::Value QMovieWrap::setFormat(const Napi::CallbackInfo& info) {
   QByteArray byteArray(format.c_str(), format.length());
   this->instance->setFormat(byteArray);
   return env.Null();
+}
+
+Napi::Value QMovieWrap::format(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QByteArray format = this->instance->format();
+  return Napi::Value::From(env, format.toStdString());
 }
 
 Napi::Value QMovieWrap::setScaledSize(const Napi::CallbackInfo& info) {
@@ -104,16 +124,16 @@ Napi::Value QMovieWrap::setPaused(const Napi::CallbackInfo& info) {
 Napi::Value QMovieWrap::jumpToNextFrame(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  this->instance->jumpToNextFrame();
-  return env.Null();
+  bool jumped = this->instance->jumpToNextFrame();
+  return Napi::Value::From(env, jumped);
 }
 
 Napi::Value QMovieWrap::jumpToFrame(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Number frameNo = info[0].As<Napi::Number>();
-  this->instance->jumpToFrame(frameNo.Int32Value());
-  return env.Null();
+  bool jumped = this->instance->jumpToFrame(frameNo.Int32Value());
+  return Napi::Value::From(env, jumped);
 }
 
 Napi::Value QMovieWrap::state(const Napi::CallbackInfo& info) {
@@ -121,4 +141,20 @@ Napi::Value QMovieWrap::state(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
   QMovie::MovieState state = this->instance->state();
   return Napi::Value::From(env, static_cast<int>(state));
+}
+
+Napi::Value QMovieWrap::currentFrameNumber(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int currentFrameNumber = this->instance->currentFrameNumber();
+  return Napi::Value::From(env, currentFrameNumber);
+}
+
+Napi::Value QMovieWrap::currentPixmap(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QPixmap pixmap = this->instance->currentPixmap();
+  auto instance = QPixmapWrap::constructor.New(
+      {Napi::External<QPixmap>::New(env, new QPixmap(pixmap))});
+  return instance;
 }

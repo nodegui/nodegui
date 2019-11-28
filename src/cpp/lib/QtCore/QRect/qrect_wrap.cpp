@@ -12,8 +12,12 @@ Napi::Object QRectWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("setHeight", &QRectWrap::setHeight),
        InstanceMethod("setWidth", &QRectWrap::setWidth),
+       InstanceMethod("setLeft", &QRectWrap::setLeft),
+       InstanceMethod("setTop", &QRectWrap::setTop),
        InstanceMethod("height", &QRectWrap::height),
        InstanceMethod("width", &QRectWrap::width),
+       InstanceMethod("left", &QRectWrap::left),
+       InstanceMethod("top", &QRectWrap::top),
        StaticMethod("fromQVariant", &StaticQRectWrapMethods::fromQVariant),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
@@ -26,7 +30,13 @@ QRectWrap::QRectWrap(const Napi::CallbackInfo& info)
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  if (info.Length() == 1) {
+  if (info.Length() == 4) {
+    int x = info[0].As<Napi::Number>().Int32Value();
+    int y = info[1].As<Napi::Number>().Int32Value();
+    int width = info[2].As<Napi::Number>().Int32Value();
+    int height = info[3].As<Napi::Number>().Int32Value();
+    this->instance = std::make_unique<QRect>(x, y, width, height);
+  } else if (info.Length() == 1) {
     this->instance =
         std::unique_ptr<QRect>(info[0].As<Napi::External<QRect>>().Data());
   } else if (info.Length() == 0) {
@@ -56,6 +66,21 @@ Napi::Value QRectWrap::setWidth(const Napi::CallbackInfo& info) {
   this->instance->setWidth(width);
   return env.Null();
 }
+
+Napi::Value QRectWrap::setLeft(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int value = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setLeft(value);
+  return env.Null();
+}
+Napi::Value QRectWrap::setTop(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int value = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setTop(value);
+  return env.Null();
+}
 Napi::Value QRectWrap::height(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -65,6 +90,16 @@ Napi::Value QRectWrap::width(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->width());
+}
+Napi::Value QRectWrap::left(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return Napi::Value::From(env, this->instance->left());
+}
+Napi::Value QRectWrap::top(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return Napi::Value::From(env, this->instance->top());
 }
 
 Napi::Value StaticQRectWrapMethods::fromQVariant(

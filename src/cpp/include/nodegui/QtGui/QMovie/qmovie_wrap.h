@@ -21,7 +21,9 @@ class QMovieWrap : public Napi::ObjectWrap<QMovieWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value setFileName(const Napi::CallbackInfo& info);
+  Napi::Value fileName(const Napi::CallbackInfo& info);
   Napi::Value setFormat(const Napi::CallbackInfo& info);
+  Napi::Value format(const Napi::CallbackInfo& info);
   Napi::Value setScaledSize(const Napi::CallbackInfo& info);
   Napi::Value start(const Napi::CallbackInfo& info);
   Napi::Value stop(const Napi::CallbackInfo& info);
@@ -29,5 +31,7 @@ class QMovieWrap : public Napi::ObjectWrap<QMovieWrap> {
   Napi::Value jumpToNextFrame(const Napi::CallbackInfo& info);
   Napi::Value jumpToFrame(const Napi::CallbackInfo& info);
   Napi::Value state(const Napi::CallbackInfo& info);
+  Napi::Value currentFrameNumber(const Napi::CallbackInfo& info);
+  Napi::Value currentPixmap(const Napi::CallbackInfo& info);
   QOBJECT_WRAPPED_METHODS_DECLARATION
 };

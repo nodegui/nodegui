@@ -4,6 +4,7 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { QObject } from '../QtCore/QObject';
 import { QSize } from '../QtCore/QSize';
 import { BaseWidgetEvents } from '../core/EventWidget';
+import { QPixmap } from './QPixmap';
 
 export const QMovieEvents = Object.freeze({
     ...BaseWidgetEvents,
@@ -16,7 +17,7 @@ export const QMovieEvents = Object.freeze({
     updated: 'updated',
 });
 
-type supportedFormats = 'GIF' | 'WEBP';
+type supportedFormats = 'gif' | 'webp';
 export class QMovie extends QObject {
     native: NativeElement;
     constructor(arg?: QObject | NativeElement) {
@@ -35,9 +36,16 @@ export class QMovie extends QObject {
         this.native.setFileName(fileName);
         this.jumpToFrame(0);
     }
+    fileName(): string {
+        return this.native.fileName();
+    }
     setFormat(formatName: supportedFormats): void {
         this.native.setFormat(formatName);
     }
+    format(): string {
+        return this.native.format();
+    }
+
     setScaledSize(size: QSize): void {
         this.native.setScaledSize(size.native);
     }
@@ -64,6 +72,12 @@ export class QMovie extends QObject {
     }
     state(): MovieState {
         return this.native.state();
+    }
+    currentFrameNumber(): number {
+        return this.native.currentFrameNumber();
+    }
+    currentPixmap(): QPixmap {
+        return new QPixmap(this.native.currentPixmap());
     }
 }
 
