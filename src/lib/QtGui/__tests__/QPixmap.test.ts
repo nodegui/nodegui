@@ -47,6 +47,14 @@ describe('QPixmap', () => {
         expect(isLoaded).toBe(true);
         expect(pixmap.height()).toBe(1083);
     });
+    it('load from data', () => {
+        const pixmap = new QPixmap();
+        expect(pixmap.height()).toBe(0);
+        const arrayBuffer = fs.readFileSync(testImagePath, null).buffer;
+        const isLoaded = pixmap.loadFromData(Buffer.from(arrayBuffer));
+        expect(isLoaded).toBe(true);
+        expect(pixmap.height()).toBe(1083);
+    });
     it('save to a file', async () => {
         const outputFilePath = path.resolve(__dirname, 'assets', 'nodegui_save.png');
         await new Promise(resolve => fs.unlink(outputFilePath, resolve));
