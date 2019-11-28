@@ -11,6 +11,7 @@ Napi::Object QPixmapWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("load", &QPixmapWrap::load),
+       InstanceMethod("loadFromData", &QPixmapWrap::loadFromData),
        InstanceMethod("save", &QPixmapWrap::save),
        InstanceMethod("scaled", &QPixmapWrap::scaled),
        InstanceMethod("height", &QPixmapWrap::height),
@@ -56,6 +57,29 @@ Napi::Value QPixmapWrap::load(const Napi::CallbackInfo& info) {
     Napi::String url = info[0].As<Napi::String>();
     QString imageUrl = QString::fromUtf8(url.Utf8Value().c_str());
     loadSuccess = this->instance->load(imageUrl);
+  } else {
+    Napi::TypeError::New(env, "Wrong number of arguments")
+        .ThrowAsJavaScriptException();
+  }
+  return Napi::Boolean::New(env, loadSuccess);
+}
+
+Napi::Value QPixmapWrap::loadFromData(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  bool loadSuccess = false;
+
+  if (info.Length() > 0 && info.Length() < 3) {
+    Napi::Buffer<uchar> buffer = info[0].As<Napi::Buffer<uchar>>();
+
+    if (info.Length() > 1) {
+      Napi::String format = info[1].As<Napi::String>();
+      loadSuccess = this->instance->loadFromData(buffer.Data(), buffer.Length(),
+                                                 format.Utf8Value().c_str());
+    } else {
+      loadSuccess =
+          this->instance->loadFromData(buffer.Data(), buffer.Length());
+    }
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();

@@ -3,6 +3,7 @@
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QMovie/qmovie_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 Napi::FunctionReference QLabelWrap::constructor;
@@ -17,6 +18,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("setText", &QLabelWrap::setText),
                    InstanceMethod("text", &QLabelWrap::text),
                    InstanceMethod("setPixmap", &QLabelWrap::setPixmap),
+                   InstanceMethod("setMovie", &QLabelWrap::setMovie),
                    InstanceMethod("setOpenExternalLinks",
                                   &QLabelWrap::setOpenExternalLinks),
                    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)});
@@ -94,6 +96,16 @@ Napi::Value QLabelWrap::setPixmap(const Napi::CallbackInfo& info) {
   Napi::Object pixmapObject = info[0].As<Napi::Object>();
   QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(pixmapObject);
   this->instance->setPixmap(*pixmapWrap->getInternalInstance());
+  return env.Null();
+}
+
+Napi::Value QLabelWrap::setMovie(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object movieObject = info[0].As<Napi::Object>();
+  QMovieWrap* movieWrap = Napi::ObjectWrap<QMovieWrap>::Unwrap(movieObject);
+  this->instance->setMovie(movieWrap->getInternalInstance());
   return env.Null();
 }
 

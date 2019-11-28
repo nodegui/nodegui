@@ -3,6 +3,7 @@ import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QPixmap } from '../QtGui/QPixmap';
+import { QMovie } from '../QtGui/QMovie';
 
 export const QLabelEvents = Object.freeze({
     ...BaseWidgetEvents,
@@ -10,6 +11,7 @@ export const QLabelEvents = Object.freeze({
 export class QLabel extends NodeWidget {
     native: NativeElement;
     private _pixmap?: QPixmap;
+    private _movie?: QMovie;
     constructor(parent?: NodeWidget) {
         let native;
         if (parent) {
@@ -39,6 +41,13 @@ export class QLabel extends NodeWidget {
     }
     pixmap(): QPixmap | undefined {
         return this._pixmap;
+    }
+    setMovie(movie: QMovie): void {
+        this.native.setMovie(movie.native);
+        this._movie = movie;
+    }
+    movie(): QMovie | undefined {
+        return this._movie;
     }
     setOpenExternalLinks(open: boolean): void {
         this.native.setOpenExternalLinks(open);

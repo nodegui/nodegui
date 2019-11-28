@@ -1,5 +1,6 @@
 import { QLabel } from '../QLabel';
 import { QPixmap } from '../../QtGui/QPixmap';
+import { QMovie } from '../../QtGui/QMovie';
 
 describe('QLabel', () => {
     const label = new QLabel();
@@ -27,5 +28,11 @@ describe('QLabel', () => {
         const pixMap = new QPixmap();
         label.setPixmap(pixMap);
         expect(label.pixmap()).toEqual(pixMap);
+    });
+    it('setMovie', () => {
+        const label = new QLabel();
+        const movie = new QMovie();
+        label.setMovie(movie);
+        expect(label.movie()).toEqual(movie);
     });
 });

@@ -4,8 +4,7 @@ import { AspectRatioMode } from '../QtEnums';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from '../QtCore/QVariant';
 
-export type ImageFormats = 'BMP' | 'GIF' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'PGM' | 'PPM' | 'XBM' | 'XPM';
-export type ReadWriteImageFormats = 'BMP' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'XBM' | 'XPM';
+export type ImageFormats = 'BMP' | 'GIF' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'PGM' | 'PPM' | 'XBM' | 'XPM' | 'SVG';
 
 type arg = string | NativeElement;
 export class QPixmap extends Component {
@@ -24,7 +23,10 @@ export class QPixmap extends Component {
     load(imageUrl: string): boolean {
         return this.native.load(imageUrl);
     }
-    save(fileName: string, format?: ReadWriteImageFormats): boolean {
+    loadFromData(buffer: Buffer, format?: ImageFormats): boolean {
+        return format ? this.native.loadFromData(buffer, format) : this.native.loadFromData(buffer);
+    }
+    save(fileName: string, format?: ImageFormats): boolean {
         return format ? this.native.save(fileName, format) : this.native.save(fileName);
     }
     scaled(width: number, height: number, aspectRatioMode?: AspectRatioMode): QPixmap {

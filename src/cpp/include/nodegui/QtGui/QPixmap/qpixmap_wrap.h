@@ -19,6 +19,7 @@ class QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {
   QPixmap* getInternalInstance();
   // Wrapped methods
   Napi::Value load(const Napi::CallbackInfo& info);
+  Napi::Value loadFromData(const Napi::CallbackInfo& info);
   Napi::Value save(const Napi::CallbackInfo& info);
   Napi::Value scaled(const Napi::CallbackInfo& info);
   Napi::Value height(const Napi::CallbackInfo& info);
