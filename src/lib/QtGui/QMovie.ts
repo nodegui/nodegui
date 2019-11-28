@@ -3,7 +3,20 @@ import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QObject } from '../QtCore/QObject';
 import { QSize } from '../QtCore/QSize';
+import { BaseWidgetEvents } from '../core/EventWidget';
 
+export const QMovieEvents = Object.freeze({
+    ...BaseWidgetEvents,
+    error: 'error',
+    finished: 'finished',
+    frameChanged: 'frameChanged',
+    resized: 'resized',
+    started: 'started',
+    stateChanged: 'stateChanged',
+    updated: 'updated',
+});
+
+type supportedFormats = 'GIF' | 'WEBP';
 export class QMovie extends QObject {
     native: NativeElement;
     constructor(arg?: QObject | NativeElement) {
@@ -20,8 +33,9 @@ export class QMovie extends QObject {
     }
     setFileName(fileName: string): void {
         this.native.setFileName(fileName);
+        this.jumpToFrame(0);
     }
-    setFormat(formatName: string): void {
+    setFormat(formatName: supportedFormats): void {
         this.native.setFormat(formatName);
     }
     setScaledSize(size: QSize): void {
@@ -36,11 +50,14 @@ export class QMovie extends QObject {
     stop(): void {
         this.native.stop();
     }
-    setPaused(): void {
-        this.native.setPaused();
+    setPaused(paused: boolean): void {
+        this.native.setPaused(paused);
     }
     jumpToNextFrame(): boolean {
         return this.native.jumpToNextFrame();
+    }
+    jumpToFrame(frame: number): boolean {
+        return this.native.jumpToFrame(frame);
     }
     setCacheMode(cacheMode: CacheMode): void {
         this.setProperty('cacheMode', cacheMode);
