@@ -29,7 +29,7 @@
         "cmake-js": "^6.0.0",
         "cross-env": "^6.0.0",
         "cuid": "^2.1.6",
-        "node-addon-api": "^1.6.3",
+        "node-addon-api": "^2.0.0",
         "postcss-nodegui-autoprefixer": "0.0.7"
     },
     "devDependencies": {
