@@ -25,6 +25,7 @@ export class QScrollArea extends QAbstractScrollArea {
         // react:✓, //TODO:getter
         this.contentWidget = widget;
         this.native.setWidget(widget.native);
+        this.contentWidget.setFlexNodeSizeControlled(this.widgetResizable());
     }
     takeWidget(): NodeWidget | null {
         // react:✓
@@ -38,6 +39,9 @@ export class QScrollArea extends QAbstractScrollArea {
     }
     setWidgetResizable(resizable: boolean): void {
         this.native.setWidgetResizable(resizable);
+        if (this.contentWidget) {
+            this.contentWidget.setFlexNodeSizeControlled(resizable);
+        }
     }
     widgetResizable(): boolean {
         return this.native.widgetResizable();

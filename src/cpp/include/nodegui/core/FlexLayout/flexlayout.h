@@ -28,6 +28,7 @@ class FlexLayout : public QLayout, public EventWidget {
   FlexLayout(QWidget *parentWidget = nullptr, YGNodeRef parentNode = nullptr);
   ~FlexLayout() override;
   QSize sizeHint() const override;
+  QSize minimumSize() const override;
   void addItem(QLayoutItem *) override;
   QLayoutItem *itemAt(int index) const override;
   QLayoutItem *takeAt(int index) override;
