@@ -17,13 +17,13 @@ export class QBoxLayout extends NodeLayout {
         this.nodeParent = parent;
         this.native = native;
     }
-    addLayout(layout: NodeLayout, stretch: number = 0): void {
+    addLayout(layout: NodeLayout, stretch = 0): void {
         this.native.addLayout(layout.native, stretch);
     }
     addSpacing(size: number): void {
         this.native.addSpacing(size);
     }
-    addStretch(stretch: number = 0): void {
+    addStretch(stretch = 0): void {
         this.native.addStretch(stretch);
     }
     addStrut(size: number): void {
@@ -36,7 +36,7 @@ export class QBoxLayout extends NodeLayout {
     direction(): Direction {
         return this.native.direction();
     }
-    insertLayout(index: number, layout: NodeLayout, stretch: number = 0): void {
+    insertLayout(index: number, layout: NodeLayout, stretch = 0): void {
         this.native.insertLayout(index, layout.native, stretch);
     }
     removeWidget(widget: NodeWidget): void {

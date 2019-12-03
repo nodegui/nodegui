@@ -34,16 +34,18 @@ QBoxLayoutWrap::QBoxLayoutWrap(const Napi::CallbackInfo& info)
   Napi::HandleScope scope(env);
 
   if (info.Length() == 2) {
-    QBoxLayout::Direction dir = static_cast<QBoxLayout::Direction>(info[0].As<Napi::Number>().Int32Value());
+    QBoxLayout::Direction dir = static_cast<QBoxLayout::Direction>(
+        info[0].As<Napi::Number>().Int32Value());
     Napi::Object parentObject = info[1].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NBoxLayout(dir, parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 1){
-    QBoxLayout::Direction dir = static_cast<QBoxLayout::Direction>(info[0].As<Napi::Number>().Int32Value());
+    this->instance =
+        new NBoxLayout(dir, parentWidgetWrap->getInternalInstance());
+  } else if (info.Length() == 1) {
+    QBoxLayout::Direction dir = static_cast<QBoxLayout::Direction>(
+        info[0].As<Napi::Number>().Int32Value());
     this->instance = new NBoxLayout(dir);
-  }
-  else {
+  } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
@@ -124,7 +126,8 @@ Napi::Value QBoxLayoutWrap::removeWidget(const Napi::CallbackInfo& info) {
 Napi::Value QBoxLayoutWrap::setDirection(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  QBoxLayout::Direction dir = static_cast<QBoxLayout::Direction>(info[0].As<Napi::Number>().Int32Value());
+  QBoxLayout::Direction dir = static_cast<QBoxLayout::Direction>(
+      info[0].As<Napi::Number>().Int32Value());
   this->instance->setDirection(dir);
   return env.Null();
 }
