@@ -23,11 +23,14 @@ class FlexLayout : public QLayout, public EventWidget {
   YGNodeRef node;
   YGNodeRef getRootNode(YGNodeRef node) const;
   void calculateLayout() const;
+  void restoreNodeMinStyle(YGValue &previousMinWidth,
+                           YGValue &previousMinHeight);
 
  public:
   FlexLayout(QWidget *parentWidget = nullptr, YGNodeRef parentNode = nullptr);
   ~FlexLayout() override;
   QSize sizeHint() const override;
+  QSize minimumSize() const override;
   void addItem(QLayoutItem *) override;
   QLayoutItem *itemAt(int index) const override;
   QLayoutItem *takeAt(int index) override;
@@ -38,7 +41,6 @@ class FlexLayout : public QLayout, public EventWidget {
   void removeWidget(QWidget *childWidget, YGNodeRef childNode);
   void setGeometry(const QRect &rect) override;
   void setFlexNode(YGNodeRef parentNode);
-  Qt::Orientations expandingDirections() const override;
   bool hasHeightForWidth() const override;
 
   EVENTWIDGET_IMPLEMENTATIONS(QLayout)

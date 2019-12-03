@@ -17,11 +17,11 @@ void FlexNodeContext::setLayoutItem(QLayoutItem* item) {
   this->_layoutItem = item;
 }
 
-const QRect flexutils::getFlexNodeGeometry(YGNodeRef node) {
-  int width = static_cast<uint>(YGNodeLayoutGetWidth(node));
-  int height = static_cast<uint>(YGNodeLayoutGetHeight(node));
-  int left = static_cast<uint>(YGNodeLayoutGetLeft(node));
-  int top = static_cast<uint>(YGNodeLayoutGetTop(node));
+QRect flexutils::getFlexNodeGeometry(YGNodeRef node) {
+  int width = static_cast<int>(YGNodeLayoutGetWidth(node));
+  int height = static_cast<int>(YGNodeLayoutGetHeight(node));
+  int left = static_cast<int>(YGNodeLayoutGetLeft(node));
+  int top = static_cast<int>(YGNodeLayoutGetTop(node));
   const QRect geometry(left, top, width, height);
   return geometry;
 }
@@ -45,6 +45,19 @@ FlexNodeContext* flexutils::getFlexNodeContext(YGNodeRef node) {
   void* rawCtx = YGNodeGetContext(node);
   FlexNodeContext* ctx = static_cast<FlexNodeContext*>(rawCtx);
   return ctx;
+}
+
+// if true, it means this node's size can controlled by external things like
+// resize handles in case of qmainwindow etc
+bool flexutils::isFlexNodeSizeControlled(YGNodeRef node) {
+  if (!node) {
+    return false;
+  }
+  FlexNodeContext* ctx = getFlexNodeContext(node);
+  if (ctx->widget()->isWindow() || ctx->isSizeControlled) {
+    return true;
+  }
+  return false;
 }
 
 YGSize flexutils::measureQtWidget(YGNodeRef node, float _width,

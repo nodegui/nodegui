@@ -19,9 +19,10 @@ class FlexNodeContext {
 namespace flexutils {
 YGSize measureQtWidget(YGNodeRef node, float width, YGMeasureMode widthMode,
                        float height, YGMeasureMode heightMode);
-const QRect getFlexNodeGeometry(YGNodeRef node);
+QRect getFlexNodeGeometry(YGNodeRef node);
 void setFlexNodeGeometry(YGNodeRef node, const QRect& geometry);
 FlexNodeContext* getFlexNodeContext(YGNodeRef node);
+bool isFlexNodeSizeControlled(YGNodeRef node);
 void configureFlexNode(QWidget* widget, YGNodeRef node,
                        bool isLeafNode = false);
 
