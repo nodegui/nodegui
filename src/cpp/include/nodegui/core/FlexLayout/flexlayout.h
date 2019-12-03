@@ -23,6 +23,8 @@ class FlexLayout : public QLayout, public EventWidget {
   YGNodeRef node;
   YGNodeRef getRootNode(YGNodeRef node) const;
   void calculateLayout() const;
+  void restoreNodeMinStyle(YGValue &previousMinWidth,
+                           YGValue &previousMinHeight);
 
  public:
   FlexLayout(QWidget *parentWidget = nullptr, YGNodeRef parentNode = nullptr);

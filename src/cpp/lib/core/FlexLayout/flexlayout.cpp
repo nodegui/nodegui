@@ -134,17 +134,12 @@ YGNodeRef FlexLayout::getRootNode(YGNodeRef node) const {
 bool FlexLayout::hasHeightForWidth() const { return false; }
 
 QSize FlexLayout::sizeHint() const {
-  calculateLayout();
-  QSize sizeHint = QSize(YGNodeLayoutGetWidth(this->node),
-                         YGNodeLayoutGetHeight(this->node));
-  return sizeHint;
+  // This will be calculated in minimumSize
+  return QSize(YGNodeLayoutGetWidth(this->node),
+               YGNodeLayoutGetHeight(this->node));
 }
 
 QSize FlexLayout::minimumSize() const {
-  if (flexutils::isFlexNodeSizeControlled(this->node)) {
-    YGNodeStyleSetMinHeight(this->node, 0);
-    YGNodeStyleSetMinWidth(this->node, 0);
-  }
   calculateLayout();
   QSize minSize = QSize(YGNodeLayoutGetWidth(this->node),
                         YGNodeLayoutGetHeight(this->node));
@@ -156,17 +151,18 @@ void FlexLayout::setGeometry(const QRect& rect) {
     return;
   }
   if (!rect.isValid() || rect != geometry()) {
-    if (flexutils::isFlexNodeSizeControlled(this->node)) {
+    bool isSizeControlled = flexutils::isFlexNodeSizeControlled(this->node);
+    YGNodeMarkDirtyAndPropogateToDescendants(this->node);
+    YGValue prevStyleMinWidth = YGNodeStyleGetMinWidth(this->node);
+    YGValue prevStyleMinHeight = YGNodeStyleGetMinHeight(this->node);
+    if (isSizeControlled) {
       YGNodeStyleSetMinHeight(this->node, rect.height());
       YGNodeStyleSetMinWidth(this->node, rect.width());
     }
-    YGNodeMarkDirtyAndPropogateToDescendants(this->node);
-    calculateLayout();
-    QLayout::setGeometry(rect);
-    qDebug() << "widget calculated size" << this->parentWidget()
-             << flexutils::getFlexNodeGeometry(this->node);
-    uint count = YGNodeGetChildCount(this->node);
 
+    calculateLayout();
+
+    uint count = YGNodeGetChildCount(this->node);
     for (uint i = 0; i < count; ++i) {
       YGNode* childNode = YGNodeGetChild(this->node, i);
       QRect childRect = flexutils::getFlexNodeGeometry(childNode);
@@ -174,13 +170,33 @@ void FlexLayout::setGeometry(const QRect& rect) {
       QLayoutItem* childItem = ctx->layoutItem();
       childItem->setGeometry(childRect);
     }
+    if (isSizeControlled) {
+      restoreNodeMinStyle(prevStyleMinWidth, prevStyleMinHeight);
+    }
   }
+  QLayout::setGeometry(rect);
 }
 
 void FlexLayout::setFlexNode(YGNodeRef parentNode) { this->node = parentNode; }
 
 void FlexLayout::calculateLayout() const {
-  YGNodeRef rootNode = getRootNode(this->node);
-  YGDirection rootDirection = YGNodeStyleGetDirection(rootNode);
-  YGNodeCalculateLayout(rootNode, YGUndefined, YGUndefined, rootDirection);
+  if (YGNodeIsDirty(this->node)) {
+    YGNodeRef rootNode = getRootNode(this->node);
+    YGDirection rootDirection = YGNodeStyleGetDirection(rootNode);
+    YGNodeCalculateLayout(rootNode, YGUndefined, YGUndefined, rootDirection);
+  }
+}
+
+void FlexLayout::restoreNodeMinStyle(YGValue& previousMinWidth,
+                                     YGValue& previousMinHeight) {
+  if (previousMinHeight.unit == YGUnitPercent) {
+    YGNodeStyleSetMinHeightPercent(this->node, previousMinHeight.value);
+  } else {
+    YGNodeStyleSetMinHeight(this->node, previousMinHeight.value);
+  }
+  if (previousMinWidth.unit == YGUnitPercent) {
+    YGNodeStyleSetMinWidthPercent(this->node, previousMinWidth.value);
+  } else {
+    YGNodeStyleSetMinWidth(this->node, previousMinWidth.value);
+  }
 }
