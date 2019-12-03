@@ -47,6 +47,19 @@ FlexNodeContext* flexutils::getFlexNodeContext(YGNodeRef node) {
   return ctx;
 }
 
+// if true, it means this node's size can controlled by external things like
+// resize handles in case of qmainwindow etc
+bool flexutils::isFlexNodeSizeControlled(YGNodeRef node) {
+  if (!node) {
+    return false;
+  }
+  FlexNodeContext* ctx = getFlexNodeContext(node);
+  if (ctx->widget()->isWindow() || ctx->isSizeControlled) {
+    return true;
+  }
+  return false;
+}
+
 YGSize flexutils::measureQtWidget(YGNodeRef node, float _width,
                                   YGMeasureMode widthMode, float _height,
                                   YGMeasureMode heightMode) {

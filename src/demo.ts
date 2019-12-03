@@ -1,50 +1,40 @@
-import { QWidget, QMainWindow, FlexLayout, QLabel } from './index';
+import { QWidget, QMainWindow, FlexLayout, QGridLayout, QLabel } from './index';
 import { QScrollArea } from './lib/QtWidgets/QScrollArea';
 
-const win = new QMainWindow();
-const center = new QWidget();
-const label = new QLabel();
 const scrollArea = new QScrollArea();
+scrollArea.setObjectName('scrollArea');
+scrollArea.setWidgetResizable(true);
+// scrollArea.resize(500, 500);
+const center = new QWidget();
+center.setObjectName('center');
+const label = new QLabel();
+label.setObjectName('label');
 
 label.setText(`
-😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    `);
+Hellloooooo123
+Hellloooooo
+`);
 
 center.setInlineStyle(`border: 3px solid blue;`);
-label.setInlineStyle(`border: 2px solid green;padding: 10;font-family: "Sans serif";`);
-scrollArea.setWidget(label);
+label.setInlineStyle(`border: 2px solid green;padding: 10;flex:1;font-family: "Sans serif";`);
+// center.setLayout(new QGridLayout());
 center.setLayout(new FlexLayout());
-center.layout?.addWidget(scrollArea);
-win.setCentralWidget(center);
-win.show();
-scrollArea.setInlineStyle(`flex: 1;`);
+center.layout?.addWidget(label);
+scrollArea.setWidget(center);
+console.log('SHOW scrollArea');
+scrollArea.show();
+console.log('SET TEXT');
+setTimeout(() => {
+    label.setText(`Heloo
+    Heloo
+    Jello
+    Hoell
+    jaksjd
+    asjdkajdk
+    aksjdkajsdkja
+    ajksjdakjsd
+    jkasjdkajd
+    ajksdjakjs`);
+}, 3000);
 
-(global as any).win = win;
+(global as any).scrollArea = scrollArea;

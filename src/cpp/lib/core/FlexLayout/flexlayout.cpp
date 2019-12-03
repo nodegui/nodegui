@@ -131,10 +131,6 @@ YGNodeRef FlexLayout::getRootNode(YGNodeRef node) const {
   }
 }
 
-Qt::Orientations FlexLayout::expandingDirections() const {
-  return Qt::Horizontal | Qt::Vertical;
-}
-
 bool FlexLayout::hasHeightForWidth() const { return false; }
 
 QSize FlexLayout::sizeHint() const {
@@ -145,6 +141,10 @@ QSize FlexLayout::sizeHint() const {
 }
 
 QSize FlexLayout::minimumSize() const {
+  if (flexutils::isFlexNodeSizeControlled(this->node)) {
+    YGNodeStyleSetMinHeight(this->node, 0);
+    YGNodeStyleSetMinWidth(this->node, 0);
+  }
   calculateLayout();
   QSize minSize = QSize(YGNodeLayoutGetWidth(this->node),
                         YGNodeLayoutGetHeight(this->node));
@@ -156,9 +156,7 @@ void FlexLayout::setGeometry(const QRect& rect) {
     return;
   }
   if (!rect.isValid() || rect != geometry()) {
-    FlexNodeContext* layoutNodeCtx = flexutils::getFlexNodeContext(this->node);
-    if (parentWidget()->isWindow() || layoutNodeCtx->isSizeControlled) {
-      qDebug() << "setMinHeight" << rect;
+    if (flexutils::isFlexNodeSizeControlled(this->node)) {
       YGNodeStyleSetMinHeight(this->node, rect.height());
       YGNodeStyleSetMinWidth(this->node, rect.width());
     }

@@ -39,7 +39,6 @@ class FlexLayout : public QLayout, public EventWidget {
   void removeWidget(QWidget *childWidget, YGNodeRef childNode);
   void setGeometry(const QRect &rect) override;
   void setFlexNode(YGNodeRef parentNode);
-  Qt::Orientations expandingDirections() const override;
   bool hasHeightForWidth() const override;
 
   EVENTWIDGET_IMPLEMENTATIONS(QLayout)
