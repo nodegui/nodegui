@@ -134,7 +134,7 @@ YGNodeRef FlexLayout::getRootNode(YGNodeRef node) const {
 bool FlexLayout::hasHeightForWidth() const { return false; }
 
 QSize FlexLayout::sizeHint() const {
-  // This will be calculated in minimumSize
+  calculateLayout();
   return QSize(YGNodeLayoutGetWidth(this->node),
                YGNodeLayoutGetHeight(this->node));
 }
