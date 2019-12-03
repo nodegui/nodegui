@@ -6,6 +6,7 @@ import { Direction } from '../QtEnums';
 
 export class QBoxLayout extends NodeLayout {
     native: NativeElement;
+    layout: NodeLayout | null;
     constructor(dir: Direction, parent?: NodeWidget) {
         let native: NativeElement;
         if (parent) {
@@ -16,9 +17,11 @@ export class QBoxLayout extends NodeLayout {
         super(native);
         this.nodeParent = parent;
         this.native = native;
+        this.layout = null;
     }
     addLayout(layout: NodeLayout, stretch = 0): void {
         this.native.addLayout(layout.native, stretch);
+        this.layout = layout;
     }
     addSpacing(size: number): void {
         this.native.addSpacing(size);
@@ -38,6 +41,7 @@ export class QBoxLayout extends NodeLayout {
     }
     insertLayout(index: number, layout: NodeLayout, stretch = 0): void {
         this.native.insertLayout(index, layout.native, stretch);
+        this.layout = layout;
     }
     removeWidget(widget: NodeWidget): void {
         this.native.removeWidget(widget.native);
