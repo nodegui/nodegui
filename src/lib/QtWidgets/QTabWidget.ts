@@ -15,6 +15,7 @@ export const QTabWidgetEvents = Object.freeze({
 
 export class QTabWidget extends NodeWidget {
     native: NativeElement;
+    tabs: NodeWidget[];
     constructor(parent?: NodeWidget) {
         let native;
         if (parent) {
@@ -24,12 +25,14 @@ export class QTabWidget extends NodeWidget {
         }
         super(native);
         this.nodeParent = parent;
+        this.tabs = [];
         this.native = native;
     }
 
     addTab(page: NodeWidget, icon: QIcon, label: string): void {
-        this.nodeChildren.add(page);
         this.native.addTab(page.native, icon.native, label);
+        this.tabs.push(page);
+        page.setFlexNodeSizeControlled(true);
     }
 
     setTabPosition(tabPosition: TabPosition): void {
@@ -46,6 +49,9 @@ export class QTabWidget extends NodeWidget {
 
     removeTab(index: number): void {
         this.native.removeTab(index);
+        const toRemove = this.tabs[index];
+        toRemove.setFlexNodeSizeControlled(false);
+        this.tabs.splice(index, 1);
     }
 
     setTabsClosable(closeable: boolean): void {
