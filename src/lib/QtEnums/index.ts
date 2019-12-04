@@ -19,6 +19,7 @@ export { CursorMoveStyle } from './CursorMoveStyle';
 export { CursorShape } from './CursorShape';
 export { DateFormat } from './DateFormat';
 export { DayOfWeek } from './DayOfWeek';
+export { Direction } from './Direction';
 export { DockWidgetArea } from './DockWidgetArea';
 export { DropAction } from './DropAction';
 export { Edge } from './Edge';

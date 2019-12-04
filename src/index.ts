@@ -47,6 +47,7 @@ export { QSize } from './lib/QtCore/QSize';
 export { QRect } from './lib/QtCore/QRect';
 export { QUrl, ParsingMode } from './lib/QtCore/QUrl';
 // Layouts:
+export { QBoxLayout } from './lib/QtWidgets/QBoxLayout';
 export { QGridLayout } from './lib/QtWidgets/QGridLayout';
 export { FlexLayout } from './lib/core/FlexLayout';
 // Others:
