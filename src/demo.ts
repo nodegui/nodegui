@@ -1,59 +1,52 @@
-import { QWidget, QMainWindow, QLabel, QBoxLayout, QPushButton } from './index';
-import { Direction } from './lib/QtEnums';
+import { QWidget, QScrollArea, FlexLayout, QPushButton } from './index';
+import { QLabel } from './lib/QtWidgets/QLabel';
+import { QMainWindow } from './lib/QtWidgets/QMainWindow';
 
 const win = new QMainWindow();
-const center = new QWidget();
-const btn1 = new QPushButton();
-const btn2 = new QPushButton();
-const boxLayout = new QBoxLayout(Direction.LeftToRight);
-btn1.setText(`
-😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    Hellloooooo
-    `);
-btn2.setText(`
-    Helllo2
-`);
+const scroll = new QScrollArea();
+const top = new QWidget();
+top.setLayout(new FlexLayout());
 
-center.setInlineStyle(`border: 3px solid blue`);
-btn1.setInlineStyle(`padding: 10;font-family: "Sans serif";`);
-btn2.setInlineStyle(`padding: 10;font-family: "Sans serif";`);
-center.setLayout(boxLayout);
-boxLayout.addWidget(btn1);
-boxLayout.addWidget(btn2);
-const box2 = new QBoxLayout(Direction.BottomToTop);
-const lbl1 = new QLabel();
-const lbl2 = new QLabel();
-lbl1.setText('lbl1');
-lbl2.setText('lbl2');
-lbl1.setInlineStyle(`border: 2px solid blue;`);
-lbl2.setInlineStyle(`border: 2px solid green;`);
-box2.addWidget(lbl1);
-box2.addWidget(lbl2);
-btn1.addEventListener('clicked', () => {
-    console.log('direction', boxLayout.direction());
-    boxLayout.addLayout(box2, 2);
+const center = new QWidget();
+center.setLayout(new FlexLayout());
+
+const btn = new QPushButton();
+btn.setText('helloo');
+
+const text = new QLabel();
+text.setText('1 oncererer');
+btn.addEventListener('clicked', () => {
+    text.setText(`
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    Yoloooooooooo
+    `);
 });
-btn2.addEventListener('clicked', () => {
-    boxLayout.addSpacing(20);
-});
-win.setCentralWidget(center);
+
+center.layout?.addWidget(btn);
+center.layout?.addWidget(text);
+scroll.setWidgetResizable(true);
+center.setInlineStyle(`border: 3px solid blue; align-items:'center'; justify-content:'center';flex:1;`);
+scroll.setWidget(top);
+top.layout?.addWidget(center);
+top.setInlineStyle(`border: 1px solid yellow;`);
+win.setCentralWidget(scroll);
 win.show();
 
 (global as any).win = win;

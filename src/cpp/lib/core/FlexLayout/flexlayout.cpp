@@ -152,10 +152,10 @@ void FlexLayout::setGeometry(const QRect& rect) {
   }
   if (!rect.isValid() || rect != geometry()) {
     bool isSizeControlled = flexutils::isFlexNodeSizeControlled(this->node);
-    YGNodeMarkDirtyAndPropogateToDescendants(this->node);
     YGValue prevStyleMinWidth = YGNodeStyleGetMinWidth(this->node);
     YGValue prevStyleMinHeight = YGNodeStyleGetMinHeight(this->node);
     if (isSizeControlled) {
+      YGNodeMarkDirtyAndPropogateToDescendants(this->node);
       YGNodeStyleSetMinHeight(this->node, rect.height());
       YGNodeStyleSetMinWidth(this->node, rect.width());
     }
