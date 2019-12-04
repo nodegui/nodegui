@@ -30,6 +30,7 @@ export class QTabWidget extends NodeWidget {
     addTab(page: NodeWidget, icon: QIcon, label: string): void {
         this.nodeChildren.add(page);
         this.native.addTab(page.native, icon.native, label);
+        page.setFlexNodeSizeControlled(true);
     }
 
     setTabPosition(tabPosition: TabPosition): void {
