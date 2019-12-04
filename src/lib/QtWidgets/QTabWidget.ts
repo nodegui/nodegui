@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidget } from './QWidget';
+import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
@@ -15,7 +15,7 @@ export const QTabWidgetEvents = Object.freeze({
 
 export class QTabWidget extends NodeWidget {
     native: NativeElement;
-    tabs: QWidget[];
+    tabs: NodeWidget[];
     constructor(parent?: NodeWidget) {
         let native;
         if (parent) {
