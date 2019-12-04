@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidget } from './QWidget';
+import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 
