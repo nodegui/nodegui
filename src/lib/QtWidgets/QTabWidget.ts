@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
@@ -15,6 +15,7 @@ export const QTabWidgetEvents = Object.freeze({
 
 export class QTabWidget extends NodeWidget {
     native: NativeElement;
+    tabs: QWidget[];
     constructor(parent?: NodeWidget) {
         let native;
         if (parent) {
@@ -24,12 +25,13 @@ export class QTabWidget extends NodeWidget {
         }
         super(native);
         this.nodeParent = parent;
+        this.tabs = [];
         this.native = native;
     }
 
     addTab(page: NodeWidget, icon: QIcon, label: string): void {
-        this.nodeChildren.add(page);
         this.native.addTab(page.native, icon.native, label);
+        this.tabs.push(page);
         page.setFlexNodeSizeControlled(true);
     }
 
@@ -47,6 +49,9 @@ export class QTabWidget extends NodeWidget {
 
     removeTab(index: number): void {
         this.native.removeTab(index);
+        const toRemove = this.tabs[index];
+        toRemove.setFlexNodeSizeControlled(false);
+        this.tabs.splice(index, 1);
     }
 
     setTabsClosable(closeable: boolean): void {
