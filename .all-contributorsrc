@@ -148,11 +148,21 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "slidinghotdog",
+      "name": "slidinghotdog",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/33790211?v=4",
+      "profile": "https://github.com/slidinghotdog",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "nodegui",
   "projectOwner": "nodegui",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }
