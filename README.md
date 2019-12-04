@@ -160,6 +160,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://www.greatapes.fi"><img src="https://avatars3.githubusercontent.com/u/3404389?v=4" width="100px;" alt="Mikko Sairio"/><br /><sub><b>Mikko Sairio</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=msairio" title="Code">💻</a></td>
     <td align="center"><a href="http://blog.pepf.nl"><img src="https://avatars1.githubusercontent.com/u/1265435?v=4" width="100px;" alt="Pepijn"/><br /><sub><b>Pepijn</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=pepf" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/slidinghotdog"><img src="https://avatars3.githubusercontent.com/u/33790211?v=4" width="100px;" alt="slidinghotdog"/><br /><sub><b>slidinghotdog</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=slidinghotdog" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.bundyo.org"><img src="https://avatars1.githubusercontent.com/u/98318?v=4" width="100px;" alt="Bundyo (Kamen Bundev)"/><br /><sub><b>Bundyo (Kamen Bundev)</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=bundyo" title="Code">💻</a></td>
   </tr>
 </table>
 

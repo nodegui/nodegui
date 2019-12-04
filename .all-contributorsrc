@@ -157,6 +157,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "bundyo",
+      "name": "Bundyo (Kamen Bundev)",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/98318?v=4",
+      "profile": "http://www.bundyo.org",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
