@@ -6,3 +6,4 @@ dist
 .cache
 coverage
 .DS_Store
+/.idea/
