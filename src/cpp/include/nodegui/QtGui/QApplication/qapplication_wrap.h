@@ -34,4 +34,5 @@ class QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
 namespace StaticQApplicationWrapMethods {
 Napi::Value instance(const Napi::CallbackInfo& info);
 Napi::Value clipboard(const Napi::CallbackInfo& info);
+Napi::Value style(const Napi::CallbackInfo& info);
 }  // namespace StaticQApplicationWrapMethods

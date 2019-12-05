@@ -2,6 +2,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
+#include "QtGui/QStyle/qstyle_wrap.h"
 
 Napi::FunctionReference QApplicationWrap::constructor;
 int QApplicationWrap::argc = 0;
@@ -22,6 +23,7 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
                       &QApplicationWrap::quitOnLastWindowClosed),
        StaticMethod("instance", &StaticQApplicationWrapMethods::instance),
        StaticMethod("clipboard", &StaticQApplicationWrapMethods::clipboard),
+       StaticMethod("style", &StaticQApplicationWrapMethods::style),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -97,6 +99,15 @@ Napi::Value StaticQApplicationWrapMethods::clipboard(
   QClipboard* clipboard = QApplication::clipboard();
   return QClipboardWrap::constructor.New(
       {Napi::External<QClipboard>::New(env, clipboard)});
+}
+
+Napi::Value StaticQApplicationWrapMethods::style(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QStyle* style = QApplication::style();
+  return QStyleWrap::constructor.New(
+      {Napi::External<QStyle>::New(env, style)});
 }
 
 Napi::Value QApplicationWrap::setQuitOnLastWindowClosed(

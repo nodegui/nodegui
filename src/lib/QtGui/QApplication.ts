@@ -2,6 +2,7 @@ import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QClipboard } from './QClipboard';
+import { QStyle } from './QStyle';
 
 type arg = NativeElement;
 export class QApplication extends Component {
@@ -38,5 +39,8 @@ export class QApplication extends Component {
     }
     quitOnLastWindowClosed(): boolean {
         return this.native.quitOnLastWindowClosed();
+    }
+    static style(): QStyle {
+        return new QStyle(addon.QApplication.style());
     }
 }
