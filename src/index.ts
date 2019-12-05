@@ -11,6 +11,7 @@ export { QMovie, CacheMode, MovieState, QMovieEvents } from './lib/QtGui/QMovie'
 export { QCursor } from './lib/QtGui/QCursor';
 export { QTextOptionWrapMode } from './lib/QtGui/QTextOption';
 export { QClipboard, QClipboardMode } from './lib/QtGui/QClipboard';
+export { QStyle, QStylePixelMetric } from './lib/QtGui/QStyle';
 // Events: Maybe a separate module ?
 export { QKeyEvent } from './lib/QtGui/QEvent/QKeyEvent';
 export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';

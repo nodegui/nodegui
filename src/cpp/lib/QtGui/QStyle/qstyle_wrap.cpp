@@ -1,0 +1,41 @@
+#include "QtGui/QStyle/qstyle_wrap.h"
+
+#include "Extras/Utils/nutils.h"
+
+Napi::FunctionReference QStyleWrap::constructor;
+
+Napi::Object QStyleWrap::init(Napi::Env env, Napi::Object exports) {
+  Napi::HandleScope scope(env);
+  char CLASSNAME[] = "QStyle";
+  Napi::Function func =
+      DefineClass(env, CLASSNAME,
+                  {InstanceMethod("pixelMetric", &QStyleWrap::pixelMetric),
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+  constructor = Napi::Persistent(func);
+  exports.Set(CLASSNAME, func);
+  return exports;
+}
+
+QStyleWrap::QStyleWrap(const Napi::CallbackInfo& info)
+    : Napi::ObjectWrap<QStyleWrap>(info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  if (info[0].IsExternal()) {
+    this->instance = info[0].As<Napi::External<QStyle>>().Data();
+  } else {
+    Napi::TypeError::New(env, "Incorrect initialization of QStyleWrap")
+        .ThrowAsJavaScriptException();
+  }
+  this->rawData = extrautils::configureComponent(this->getInternalInstance());
+}
+
+QStyle* QStyleWrap::getInternalInstance() { return this->instance; }
+
+Napi::Value QStyleWrap::pixelMetric(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int metricInt = info[0].As<Napi::Number>().Int32Value();
+  QStyle::PixelMetric metric = static_cast<QStyle::PixelMetric>(metricInt);
+
+  return Napi::Value::From(env, this->instance->pixelMetric(metric));
+}
