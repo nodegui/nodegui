@@ -18,6 +18,7 @@
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QBoxLayout/qboxlayout_wrap.h"
 #include "QtWidgets/QCheckBox/qcheckbox_wrap.h"
+#include "QtWidgets/QComboBox/qcombobox_wrap.h"
 #include "QtWidgets/QDial/qdial_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QLabel/qlabel_wrap.h"
@@ -60,6 +61,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QMovieWrap::init(env, exports);
   QStyleWrap::init(env, exports);
   QCursorWrap::init(env, exports);
+  QComboBoxWrap::init(env, exports);
   QBoxLayoutWrap::init(env, exports);
   QGridLayoutWrap::init(env, exports);
   FlexLayoutWrap::init(env, exports);

@@ -57,6 +57,7 @@ export { ScreenOrientation } from './ScreenOrientation';
 export { ScrollBarPolicy } from './ScrollBarPolicy';
 export { ScrollPhase } from './ScrollPhase';
 export { ShortcutContext } from './ShortcutContext';
+export { SizeAdjustPolicy } from './SizeAdjustPolicy';
 export { SizeHint } from './SizeHint';
 export { SizeMode } from './SizeMode';
 export { SortOrder } from './SortOrder';
