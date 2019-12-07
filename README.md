@@ -161,6 +161,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://blog.pepf.nl"><img src="https://avatars1.githubusercontent.com/u/1265435?v=4" width="100px;" alt="Pepijn"/><br /><sub><b>Pepijn</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=pepf" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/slidinghotdog"><img src="https://avatars3.githubusercontent.com/u/33790211?v=4" width="100px;" alt="slidinghotdog"/><br /><sub><b>slidinghotdog</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=slidinghotdog" title="Code">💻</a></td>
     <td align="center"><a href="http://www.bundyo.org"><img src="https://avatars1.githubusercontent.com/u/98318?v=4" width="100px;" alt="Bundyo (Kamen Bundev)"/><br /><sub><b>Bundyo (Kamen Bundev)</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=bundyo" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/feng8848"><img src="https://avatars2.githubusercontent.com/u/40539968?v=4" width="100px;" alt="feng8848"/><br /><sub><b>feng8848</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=feng8848" title="Code">💻</a></td>
   </tr>
 </table>
 
