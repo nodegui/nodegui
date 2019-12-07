@@ -1,8 +1,7 @@
-#include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
-
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QGroupBoxWrap::constructor;
@@ -10,19 +9,19 @@ Napi::FunctionReference QGroupBoxWrap::constructor;
 Napi::Object QGroupBoxWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QGroupBox";
-  Napi::Function func = DefineClass(
-      env, CLASSNAME,
-      {InstanceMethod("alignment", &QGroupBoxWrap::alignment),
-       InstanceMethod("isCheckable", &QGroupBoxWrap::isCheckable),
-       InstanceMethod("isChecked", &QGroupBoxWrap::isChecked),
-       InstanceMethod("isFlat", &QGroupBoxWrap::isFlat),
-       InstanceMethod("setAlignment", &QGroupBoxWrap::setAlignment),
-       InstanceMethod("setCheckable", &QGroupBoxWrap::setCheckable),
-       InstanceMethod("setFlat", &QGroupBoxWrap::setFlat),
-       InstanceMethod("setTitle", &QGroupBoxWrap::setTitle),
-       InstanceMethod("title", &QGroupBoxWrap::title),
-       InstanceMethod("setChecked", &QGroupBoxWrap::setChecked),
-       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QGroupBoxWrap)});
+  Napi::Function func =
+      DefineClass(env, CLASSNAME,
+                  {InstanceMethod("alignment", &QGroupBoxWrap::alignment),
+                   InstanceMethod("isCheckable", &QGroupBoxWrap::isCheckable),
+                   InstanceMethod("isChecked", &QGroupBoxWrap::isChecked),
+                   InstanceMethod("isFlat", &QGroupBoxWrap::isFlat),
+                   InstanceMethod("setAlignment", &QGroupBoxWrap::setAlignment),
+                   InstanceMethod("setCheckable", &QGroupBoxWrap::setCheckable),
+                   InstanceMethod("setFlat", &QGroupBoxWrap::setFlat),
+                   InstanceMethod("setTitle", &QGroupBoxWrap::setTitle),
+                   InstanceMethod("title", &QGroupBoxWrap::title),
+                   InstanceMethod("setChecked", &QGroupBoxWrap::setChecked),
+                   QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QGroupBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -48,7 +47,7 @@ QGroupBoxWrap::QGroupBoxWrap(const Napi::CallbackInfo& info)
   }
   this->rawData = extrautils::configureQWidget(
       this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      true);
+      false);
 }
 
 QGroupBoxWrap::~QGroupBoxWrap() { extrautils::safeDelete(this->instance); }
@@ -83,7 +82,7 @@ Napi::Value QGroupBoxWrap::isFlat(const Napi::CallbackInfo& info) {
 
 Napi::Value QGroupBoxWrap::setAlignment(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env); 
+  Napi::HandleScope scope(env);
   int alignment = info[0].As<Napi::Number>().Int32Value();
   this->instance->setAlignment(alignment);
   return env.Null();
@@ -108,7 +107,7 @@ Napi::Value QGroupBoxWrap::setFlat(const Napi::CallbackInfo& info) {
 Napi::Value QGroupBoxWrap::setTitle(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  std::string text = info[0].As<Napi::String>().Utf8Value();    
+  std::string text = info[0].As<Napi::String>().Utf8Value();
   this->instance->setTitle(text.c_str());
   return env.Null();
 }
