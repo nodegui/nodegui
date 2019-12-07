@@ -8,7 +8,7 @@ export const QComboBoxEvents = Object.freeze({
     currentIndexChanged: 'currentIndexChanged',
     currentTextChanged: 'currentTextChanged',
     editTextChanged: 'editTextChanged',
-    ...BaseWidgetEvents
+    ...BaseWidgetEvents,
 });
 export class QComboBox extends NodeWidget {
     native: NativeElement;
@@ -26,14 +26,14 @@ export class QComboBox extends NodeWidget {
     addItem(value: string): void {
         this.native.addItem(value);
     }
-    insertItem(index:number, text: string): void {
+    insertItem(index: number, text: string): void {
         this.native.insertItem(index, text);
     }
     currentIndex(): number {
         return this.native.currentIndex();
     }
     currentText(): string {
-        return this.native.currentText(orientation);
+        return this.native.currentText();
     }
     insertSeparator(index: number): void {
         this.native.insertSeparator(index);

@@ -6,8 +6,8 @@
 #include <QPointer>
 
 #include "Extras/Utils/nutils.h"
-#include "QtWidgets/QWidget/qwidget_macro.h"
 #include "QtWidgets/QComboBox/ncombobox.hpp"
+#include "QtWidgets/QWidget/qwidget_macro.h"
 
 class QComboBoxWrap : public Napi::ObjectWrap<QComboBoxWrap> {
  private:
