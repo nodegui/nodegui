@@ -43,6 +43,7 @@ export { QScrollArea, QScrollAreaEvents } from './lib/QtWidgets/QScrollArea';
 export { QSystemTrayIcon, QSystemTrayIconEvents } from './lib/QtWidgets/QSystemTrayIcon';
 export { QAction, QActionEvents } from './lib/QtWidgets/QAction';
 export { QShortcut, QShortcutEvents } from './lib/QtWidgets/QShortcut';
+export { QGroupBox, QGroupBoxEvents } from './lib/QtWidgets/QGroupBox';
 // Core
 export { QObject, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';

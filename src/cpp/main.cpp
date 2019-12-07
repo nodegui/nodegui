@@ -21,6 +21,7 @@
 #include "QtWidgets/QComboBox/qcombobox_wrap.h"
 #include "QtWidgets/QDial/qdial_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
+#include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
 #include "QtWidgets/QLabel/qlabel_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 #include "QtWidgets/QLineEdit/qlineedit_wrap.h"
@@ -64,6 +65,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QComboBoxWrap::init(env, exports);
   QBoxLayoutWrap::init(env, exports);
   QGridLayoutWrap::init(env, exports);
+  QGroupBoxWrap::init(env, exports);
   FlexLayoutWrap::init(env, exports);
   QMainWindowWrap::init(env, exports);
   QPushButtonWrap::init(env, exports);
