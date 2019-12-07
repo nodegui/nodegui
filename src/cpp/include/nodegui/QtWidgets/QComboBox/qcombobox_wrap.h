@@ -1,0 +1,39 @@
+#pragma once
+
+#include <napi.h>
+#include <stdlib.h>
+
+#include <QPointer>
+
+#include "Extras/Utils/nutils.h"
+#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "QtWidgets/QComboBox/ncombobox.hpp"
+
+class QComboBoxWrap : public Napi::ObjectWrap<QComboBoxWrap> {
+ private:
+  QPointer<NComboBox> instance;
+
+ public:
+  static Napi::Object init(Napi::Env env, Napi::Object exports);
+  QComboBoxWrap(const Napi::CallbackInfo& info);
+  ~QComboBoxWrap();
+  NComboBox* getInternalInstance();
+  // class constructor
+  static Napi::FunctionReference constructor;
+  // wrapped methods
+  Napi::Value addItem(const Napi::CallbackInfo& info);
+  Napi::Value insertItem(const Napi::CallbackInfo& info);
+  Napi::Value currentIndex(const Napi::CallbackInfo& info);
+  Napi::Value currentText(const Napi::CallbackInfo& info);
+  Napi::Value insertSeparator(const Napi::CallbackInfo& info);
+  Napi::Value itemText(const Napi::CallbackInfo& info);
+  Napi::Value removeItem(const Napi::CallbackInfo& info);
+  Napi::Value sizeAdjustPolicy(const Napi::CallbackInfo& info);
+  Napi::Value setSizeAdjustPolicy(const Napi::CallbackInfo& info);
+  Napi::Value maxVisibleItems(const Napi::CallbackInfo& info);
+  Napi::Value setMaxVisibleItems(const Napi::CallbackInfo& info);
+  Napi::Value isEditable(const Napi::CallbackInfo& info);
+  Napi::Value setEditable(const Napi::CallbackInfo& info);
+
+  QWIDGET_WRAPPED_METHODS_DECLARATION
+};

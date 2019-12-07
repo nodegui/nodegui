@@ -106,8 +106,7 @@ Napi::Value StaticQApplicationWrapMethods::style(
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   QStyle* style = QApplication::style();
-  return QStyleWrap::constructor.New(
-      {Napi::External<QStyle>::New(env, style)});
+  return QStyleWrap::constructor.New({Napi::External<QStyle>::New(env, style)});
 }
 
 Napi::Value QApplicationWrap::setQuitOnLastWindowClosed(
