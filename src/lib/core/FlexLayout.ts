@@ -14,6 +14,9 @@ export class FlexLayout extends NodeLayout {
     protected flexNode?: FlexNode;
 
     addWidget(childWidget: NodeWidget, childFlexNode?: FlexNode): void {
+        if (this.nodeChildren.has(childWidget)) {
+            return;
+        }
         const childYogaNode = childFlexNode || childWidget.getFlexNode();
         this.nodeChildren.add(childWidget);
         this.native.addWidget(childWidget.native, childYogaNode);
@@ -25,6 +28,9 @@ export class FlexLayout extends NodeLayout {
         childFlexNode?: FlexNode,
         beforeChildFlexNode?: FlexNode,
     ): void {
+        if (this.nodeChildren.has(childWidget)) {
+            return;
+        }
         const childYogaNode = childFlexNode || childWidget.getFlexNode();
         const beforeChildYogaNode = beforeChildFlexNode || beforeChildWidget.getFlexNode();
         this.nodeChildren.add(childWidget); // No orderer required yet, so just inserting at the end.
