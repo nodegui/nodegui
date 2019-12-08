@@ -20,13 +20,13 @@ export class QVariant extends Component {
     toString(): string {
         return this.native.toString();
     }
-    toInt(): string {
+    toInt(): number {
         return this.native.toInt();
     }
-    toDouble(): string {
+    toDouble(): number {
         return this.native.toDouble();
     }
-    toBool(): string {
+    toBool(): boolean {
         return this.native.toBool();
     }
 }
