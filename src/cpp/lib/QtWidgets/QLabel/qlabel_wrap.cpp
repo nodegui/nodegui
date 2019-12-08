@@ -76,7 +76,7 @@ Napi::Value QLabelWrap::setText(const Napi::CallbackInfo& info) {
 
   Napi::String text = info[0].As<Napi::String>();
   std::string label = text.Utf8Value();
-  this->instance->setText(label.c_str());
+  this->instance->setText(QString::fromUtf8(label.c_str()));
 
   return env.Null();
 }

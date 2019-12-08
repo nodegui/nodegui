@@ -10,9 +10,9 @@ void EventWidget::subscribeToQtEvent(std::string evtString) {
     this->subscribedEvents.insert(
         {static_cast<QEvent::Type>(evtType), evtString});
   } catch (...) {
-    qDebug() << "EventWidget: Couldn't subscribe to qt event"
-             << evtString.c_str()
-             << ". If this is a signal you can safely ignore this warning";
+    // qDebug() << "EventWidget: Couldn't subscribe to qt event"
+    //          << evtString.c_str()
+    //          << ". If this is a signal you can safely ignore this warning";
   }
 }
 
@@ -22,9 +22,9 @@ void EventWidget::unSubscribeToQtEvent(std::string evtString) {
     this->subscribedEvents.erase(
         static_cast<QEvent::Type>(evtType));  // erasing by key
   } catch (...) {
-    qDebug() << "EventWidget: Couldn't unsubscribe to qt event "
-             << evtString.c_str()
-             << ". If this is a signal you can safely ignore this warning ";
+    // qDebug() << "EventWidget: Couldn't unsubscribe to qt event "
+    //          << evtString.c_str()
+    //          << ". If this is a signal you can safely ignore this warning ";
   }
 }
 
