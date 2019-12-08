@@ -20,7 +20,7 @@
                                                                            \
     Napi::String napiText = info[0].As<Napi::String>();                    \
     std::string text = napiText.Utf8Value();                               \
-    this->instance->setText(text.c_str());                                 \
+    this->instance->setText(QString::fromUtf8(text.c_str()));              \
     return env.Null();                                                     \
   }                                                                        \
                                                                            \
