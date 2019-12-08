@@ -23,6 +23,8 @@ class QComboBoxWrap : public Napi::ObjectWrap<QComboBoxWrap> {
   // wrapped methods
   Napi::Value addItem(const Napi::CallbackInfo& info);
   Napi::Value insertItem(const Napi::CallbackInfo& info);
+  Napi::Value addItems(const Napi::CallbackInfo& info);
+  Napi::Value insertItems(const Napi::CallbackInfo& info);
   Napi::Value currentIndex(const Napi::CallbackInfo& info);
   Napi::Value currentText(const Napi::CallbackInfo& info);
   Napi::Value insertSeparator(const Napi::CallbackInfo& info);

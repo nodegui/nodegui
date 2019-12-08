@@ -15,6 +15,8 @@ Napi::Object QComboBoxWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("addItem", &QComboBoxWrap::addItem),
        InstanceMethod("insertItem", &QComboBoxWrap::insertItem),
+       InstanceMethod("addItems", &QComboBoxWrap::addItems),
+       InstanceMethod("insertItems", &QComboBoxWrap::insertItems),
        InstanceMethod("currentIndex", &QComboBoxWrap::currentIndex),
        InstanceMethod("currentText", &QComboBoxWrap::currentText),
        InstanceMethod("insertSeparator", &QComboBoxWrap::insertSeparator),
@@ -76,6 +78,39 @@ Napi::Value QComboBoxWrap::insertItem(const Napi::CallbackInfo& info) {
   std::string text = info[1].As<Napi::String>().Utf8Value();
 
   this->instance->insertItem(index, text.c_str());
+  return env.Null();
+}
+
+Napi::Value QComboBoxWrap::addItems(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Array textsNapi = info[0].As<Napi::Array>();
+  QList<QString> list;
+  for (int i = 0; i < textsNapi.Length(); i++) {
+    Napi::Value textNapi = textsNapi[i];
+    list.append(textNapi.As<Napi::String>().Utf8Value().c_str());
+  }
+  QStringList texts = QStringList(list);
+
+  this->instance->addItems(texts);
+  return env.Null();
+}
+
+Napi::Value QComboBoxWrap::insertItems(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int index = info[0].As<Napi::Number>().Int32Value();
+  Napi::Array textsNapi = info[1].As<Napi::Array>();
+  QList<QString> list;
+  for (int i = 0; i < textsNapi.Length(); i++) {
+    Napi::Value textNapi = textsNapi[i];
+    list.append(textNapi.As<Napi::String>().Utf8Value().c_str());
+  }
+  QStringList texts = QStringList(list);
+
+  this->instance->insertItems(index, texts);
   return env.Null();
 }
 
