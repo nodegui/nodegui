@@ -18,12 +18,7 @@ export const QFileDialogEvents = Object.freeze({
 
 export class QFileDialog extends NodeWidget {
     native: NativeElement;
-    constructor(
-        parent: NodeWidget | undefined = undefined,
-        caption: string = 'Select File',
-        directory: string = '',
-        filter: string = '',
-    ) {
+    constructor(parent: NodeWidget | undefined = undefined, caption = 'Select File', directory = '', filter = '') {
         let native;
         if (parent) {
             native = new addon.QFileDialog(parent.native, caption, directory, filter);
@@ -49,7 +44,7 @@ export class QFileDialog extends NodeWidget {
     setLabelText(label: DialogLabel, text: string): void {
         this.native.setLabelText(label, text);
     }
-    setOption(option: Option, on: boolean = true) {
+    setOption(option: Option, on = true): void {
         this.native.setOption(option, on);
     }
     acceptMode(): AcceptMode {
@@ -67,16 +62,16 @@ export class QFileDialog extends NodeWidget {
     viewMode(): ViewMode {
         return this.property('viewMode').toInt();
     }
-    setAcceptMode(acceptMode: AcceptMode) {
+    setAcceptMode(acceptMode: AcceptMode): void {
         this.setProperty('acceptMode', acceptMode);
     }
-    setDefaultSuffix(defaultSuffix: string) {
+    setDefaultSuffix(defaultSuffix: string): void {
         this.setProperty('defaultSuffix', defaultSuffix);
     }
-    setFileMode(fileMode: FileMode) {
+    setFileMode(fileMode: FileMode): void {
         this.setProperty('fileMode', fileMode);
     }
-    setOptions(options: Option) {
+    setOptions(options: Option): void {
         this.setProperty('options', options);
     }
 }

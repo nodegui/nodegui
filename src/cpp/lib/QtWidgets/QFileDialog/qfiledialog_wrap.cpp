@@ -124,8 +124,7 @@ Napi::Value QFileDialogWrap::setOption(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   int optionInt = info[0].As<Napi::Number>().Int32Value();
-  QFileDialog::Option option =
-      static_cast<QFileDialog::Option>(optionInt);
+  QFileDialog::Option option = static_cast<QFileDialog::Option>(optionInt);
   bool on = info[1].As<Napi::Boolean>().Value();
 
   this->instance->setOption(option, on);
