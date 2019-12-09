@@ -32,7 +32,7 @@ export class QComboBox extends NodeWidget {
     addItems(texts: string[]): void {
         this.native.addItems(texts);
     }
-    insertItems(index:number, texts: string[]): void {
+    insertItems(index: number, texts: string[]): void {
         this.native.insertItems(index, texts);
     }
     currentIndex(): number {
