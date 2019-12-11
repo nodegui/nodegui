@@ -9,9 +9,10 @@ button.setText('World');
 const hello = new QLabel();
 hello.setText('Hello');
 
-center.setLayout(new FlexLayout());
-center.layout?.addWidget(button);
-center.layout?.addWidget(hello);
+center.setLayout(layout);
+layout.addWidget(button);
+layout.addWidget(hello);
+layout.addWidget(table);
 
 win.setCentralWidget(center);
 win.show();
