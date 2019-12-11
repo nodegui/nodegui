@@ -8,6 +8,15 @@ import { NodeObject } from '../QtCore/QObject';
 
 export const QSystemTrayIconEvents = Object.freeze({
     ...BaseWidgetEvents,
+    activated: 'activated',
+    messageClicked: 'messageClicked',
+});
+export const QSystemTrayIconActivationReason = Object.freeze({
+    Unknown: 0,
+    Context: 1,
+    DoubleClick: 2,
+    Trigger: 3,
+    MiddleClick: 4,
 });
 export class QSystemTrayIcon extends NodeObject {
     native: NativeElement;
