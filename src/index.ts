@@ -37,6 +37,8 @@ export { QSpinBox, QSpinBoxEvents } from './lib/QtWidgets/QSpinBox';
 export { QRadioButton, QRadioButtonEvents } from './lib/QtWidgets/QRadioButton';
 export { QStackedWidget, QStackedWidgetEvents } from './lib/QtWidgets/QStackedWidget';
 export { QTabWidget, QTabWidgetEvents } from './lib/QtWidgets/QTabWidget';
+export { QTableWidget, QTableWidgetEvents } from './lib/QtWidgets/QTableWidget';
+export { QTableWidgetItem } from './lib/QtWidgets/QTableWidgetItem';
 export { QMenu, QMenuEvents } from './lib/QtWidgets/QMenu';
 export { QMenuBar, QMenuBarEvents } from './lib/QtWidgets/QMenuBar';
 export { QPlainTextEdit, QPlainTextEditEvents, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';

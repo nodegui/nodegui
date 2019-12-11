@@ -6,9 +6,7 @@
 #include <QTableWidgetItem>
 
 #include "Extras/Utils/nutils.h"
-
 #include "core/Component/component_wrap.h"
-
 
 class QTableWidgetItemWrap : public Napi::ObjectWrap<QTableWidgetItemWrap> {
  private:
@@ -22,8 +20,6 @@ class QTableWidgetItemWrap : public Napi::ObjectWrap<QTableWidgetItemWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  //Napi::Value flags(const Napi::CallbackInfo& info);
-  //Napi::Value setFlags(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
   Napi::Value setToolTip(const Napi::CallbackInfo& info);
   Napi::Value setTextAlignment(const Napi::CallbackInfo& info);

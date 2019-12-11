@@ -12,9 +12,7 @@ Napi::Object QTableWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QTableWidgetItem";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {//InstanceMethod("flags", &QTableWidgetItemWrap::flags),
-       //InstanceMethod("setFlags", &QTableWidgetItemWrap::setFlags),
-       InstanceMethod("setText", &QTableWidgetItemWrap::setText),
+      {InstanceMethod("setText", &QTableWidgetItemWrap::setText),
        InstanceMethod("setToolTip", &QTableWidgetItemWrap::setToolTip),
        InstanceMethod("setTextAlignment",
                       &QTableWidgetItemWrap::setTextAlignment),
@@ -22,8 +20,7 @@ Napi::Object QTableWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("text", &QTableWidgetItemWrap::text),
        InstanceMethod("toolTip", &QTableWidgetItemWrap::toolTip),
 
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
-       });
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -32,9 +29,7 @@ Napi::Object QTableWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
 QTableWidgetItem* QTableWidgetItemWrap::getInternalInstance() {
   return this->instance;
 }
-QTableWidgetItemWrap::~QTableWidgetItemWrap() {
-  delete this->instance;
-}
+QTableWidgetItemWrap::~QTableWidgetItemWrap() { delete this->instance; }
 
 QTableWidgetItemWrap::QTableWidgetItemWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QTableWidgetItemWrap>(info) {
@@ -52,24 +47,7 @@ QTableWidgetItemWrap::QTableWidgetItemWrap(const Napi::CallbackInfo& info)
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
-  //this->rawData = this->instance;
 }
-
-/* Napi::Value QTableWidgetItemWrap::flags(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  Qt::ItemFlags* qflags = new Qt::ItemFlags(this->instance->flags());
-  auto flags = qflags->Int();
-  return Napi::Number::New(env, flags);
-}
-Napi::Value QTableWidgetItemWrap::setFlags(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  int mask = info[0].As<Napi::Number>().Int32Value();
-  Qt::ItemFlags* flags = Qt::ItemFlags::operator&(mask);
-  this->instance->setFlags(flags);
-  return env.Null();
-} */
 Napi::Value QTableWidgetItemWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);

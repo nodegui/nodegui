@@ -21,8 +21,6 @@
 #include "QtWidgets/QComboBox/qcombobox_wrap.h"
 #include "QtWidgets/QDial/qdial_wrap.h"
 #include "QtWidgets/QFileDialog/qfiledialog_wrap.h"
-#include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
-#include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
 #include "QtWidgets/QLabel/qlabel_wrap.h"
@@ -41,6 +39,8 @@
 #include "QtWidgets/QStackedWidget/qstackedwidget_wrap.h"
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
+#include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
+#include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
 // These cant be instantiated in JS Side

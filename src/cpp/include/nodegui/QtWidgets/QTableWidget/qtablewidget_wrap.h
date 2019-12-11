@@ -37,5 +37,24 @@ class QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   Napi::Value insertRow(const Napi::CallbackInfo& info);
   Napi::Value removeRow(const Napi::CallbackInfo& info);
   Napi::Value scrollToItem(const Napi::CallbackInfo& info);
+  // FROM TABLEVIEW
+  Napi::Value hideColumn(const Napi::CallbackInfo& info);
+  Napi::Value hideRow(const Napi::CallbackInfo& info);
+  Napi::Value resizeColumnToContents(const Napi::CallbackInfo& info);
+  Napi::Value resizeColumnsToContents(const Napi::CallbackInfo& info);
+  Napi::Value resizeRowToContents(const Napi::CallbackInfo& info);
+  Napi::Value resizeRowsToContents(const Napi::CallbackInfo& info);
+  Napi::Value selectColumn(const Napi::CallbackInfo& info);
+  Napi::Value selectRow(const Napi::CallbackInfo& info);
+  Napi::Value setShowGrid(const Napi::CallbackInfo& info);
+  Napi::Value showGrid(const Napi::CallbackInfo& info);
+  Napi::Value showColumn(const Napi::CallbackInfo& info);
+  Napi::Value showRow(const Napi::CallbackInfo& info);
+  Napi::Value sortByColumn(const Napi::CallbackInfo& info);
+  Napi::Value setColumnWidth(const Napi::CallbackInfo& info);
+  Napi::Value setRowHeight(const Napi::CallbackInfo& info);
+  Napi::Value setSortingEnabled(const Napi::CallbackInfo& info);
+  Napi::Value isSortingEnabled(const Napi::CallbackInfo& info);
+
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };
