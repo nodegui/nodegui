@@ -11,5 +11,22 @@ class NSystemTrayIcon : public QSystemTrayIcon, public EventWidget {
  public:
   using QSystemTrayIcon::QSystemTrayIcon;  // inherit all constructors of
                                            // QSystemTrayIcon
-  void connectWidgetSignalsToEventEmitter() {}
+  void connectWidgetSignalsToEventEmitter() {
+    QObject::connect(this, &QSystemTrayIcon::activated, [=](int reason) {
+      Napi::Env env = this->emitOnNode.Env();
+      Napi::HandleScope scope(env);
+      this->emitOnNode.Call({
+          Napi::String::New(env, "activated"),
+          Napi::Value::From(env, reason),
+      });
+    });
+
+    QObject::connect(this, &QSystemTrayIcon::messageClicked, [=]() {
+      Napi::Env env = this->emitOnNode.Env();
+      Napi::HandleScope scope(env);
+      this->emitOnNode.Call({
+          Napi::String::New(env, "messageClicked"),
+      });
+    });
+  }
 };

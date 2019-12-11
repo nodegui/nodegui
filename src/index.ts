@@ -41,7 +41,11 @@ export { QMenu, QMenuEvents } from './lib/QtWidgets/QMenu';
 export { QMenuBar, QMenuBarEvents } from './lib/QtWidgets/QMenuBar';
 export { QPlainTextEdit, QPlainTextEditEvents, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
 export { QScrollArea, QScrollAreaEvents } from './lib/QtWidgets/QScrollArea';
-export { QSystemTrayIcon, QSystemTrayIconEvents } from './lib/QtWidgets/QSystemTrayIcon';
+export {
+    QSystemTrayIcon,
+    QSystemTrayIconEvents,
+    QSystemTrayIconActivationReason,
+} from './lib/QtWidgets/QSystemTrayIcon';
 export { QAction, QActionEvents } from './lib/QtWidgets/QAction';
 export { QShortcut, QShortcutEvents } from './lib/QtWidgets/QShortcut';
 export { QGroupBox, QGroupBoxEvents } from './lib/QtWidgets/QGroupBox';
