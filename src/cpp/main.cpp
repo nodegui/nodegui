@@ -22,6 +22,8 @@
 #include "QtWidgets/QComboBox/qcombobox_wrap.h"
 #include "QtWidgets/QDial/qdial_wrap.h"
 #include "QtWidgets/QFileDialog/qfiledialog_wrap.h"
+#include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
+#include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
 #include "QtWidgets/QLabel/qlabel_wrap.h"
@@ -68,6 +70,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QComboBoxWrap::init(env, exports);
   QBoxLayoutWrap::init(env, exports);
   QFileDialogWrap::init(env, exports);
+  QTableWidgetWrap::init(env, exports);
+  QTableWidgetItemWrap::init(env, exports);
   QGridLayoutWrap::init(env, exports);
   QGroupBoxWrap::init(env, exports);
   FlexLayoutWrap::init(env, exports);
