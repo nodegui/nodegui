@@ -138,6 +138,15 @@ export abstract class NodeWidget extends YogaWidget {
     adjustSize(): void {
         this.native.adjustSize();
     }
+    activateWindow(): void {
+        this.native.activateWindow();
+    }
+    raise(): void {
+        this.native.raise();
+    }
+    lower(): void {
+        this.native.lower();
+    }
     setObjectName(objectName: string): void {
         super.setObjectName(objectName);
         if (this._rawInlineStyle) {

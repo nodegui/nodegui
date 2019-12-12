@@ -268,6 +268,24 @@
     Napi::HandleScope scope(env);                                           \
     this->instance->adjustSize();                                           \
     return env.Null();                                                      \
+  }                                                                         \
+  Napi::Value activateWindow(const Napi::CallbackInfo& info) {              \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    this->instance->activateWindow();                                       \
+    return env.Null();                                                      \
+  }                                                                         \
+  Napi::Value raise(const Napi::CallbackInfo& info) {                       \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    this->instance->raise();                                                \
+    return env.Null();                                                      \
+  }                                                                         \
+  Napi::Value lower(const Napi::CallbackInfo& info) {                       \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    this->instance->lower();                                                \
+    return env.Null();                                                      \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -309,6 +327,9 @@
       InstanceMethod("setWindowOpacity", &WidgetWrapName::setWindowOpacity), \
       InstanceMethod("windowOpacity", &WidgetWrapName::windowOpacity),       \
       InstanceMethod("setWindowFlag", &WidgetWrapName::setWindowFlag),       \
-      InstanceMethod("adjustSize", &WidgetWrapName::adjustSize),
+      InstanceMethod("adjustSize", &WidgetWrapName::adjustSize),             \
+      InstanceMethod("activateWindow", &WidgetWrapName::activateWindow),     \
+      InstanceMethod("raise", &WidgetWrapName::raise),                       \
+      InstanceMethod("lower", &WidgetWrapName::lower),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
