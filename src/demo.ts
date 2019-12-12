@@ -7,7 +7,7 @@ import {
     AlignmentFlag,
     QTableWidget,
     QTableWidgetItem,
-    QTableWidgetEvents
+    QTableWidgetEvents,
 } from './index';
 
 const win = new QMainWindow();
