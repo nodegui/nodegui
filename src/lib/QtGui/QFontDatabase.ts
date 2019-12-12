@@ -61,10 +61,10 @@ export class QFontDatabase extends Component {
     weight(family: string, style: string): number {
         return this.native.weight(family, style);
     }
-    addApplicationFont(fileName: string): number {
-        return this.native.addApplicationFont(fileName);
+    static addApplicationFont(fileName: string): number {
+        return addon.QFontDatabase.addApplicationFont(fileName);
     }
-    removeApplicationFont(id: number): boolean {
-        return this.native.removeApplicationFont(id);
+    static removeApplicationFont(id: number): boolean {
+        return addon.QFontDatabase.removeApplicationFont(id);
     }
 }
