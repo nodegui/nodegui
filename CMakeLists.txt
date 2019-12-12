@@ -88,7 +88,6 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QDial/ndial.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QFileDialog/nfiledialog.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTableWidget/ntablewidget.hpp"
-    #"${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTableWidgetItem/ntablewidgetitem.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QLineEdit/nlineedit.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QMainWindow/nmainwindow.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QProgressBar/nprogressbar.hpp"
