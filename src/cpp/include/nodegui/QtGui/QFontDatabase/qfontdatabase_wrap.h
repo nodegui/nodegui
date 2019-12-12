@@ -20,7 +20,7 @@ class QFontDatabaseWrap : public Napi::ObjectWrap<QFontDatabaseWrap> {
   Napi::Value bold(const Napi::CallbackInfo& info);
   Napi::Value italic(const Napi::CallbackInfo& info);
   Napi::Value weight(const Napi::CallbackInfo& info);
-
+ 
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
