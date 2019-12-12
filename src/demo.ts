@@ -1,29 +1,13 @@
-import {
-    QMainWindow,
-    QPushButton,
-    QLabel,
-    QWidget,
-    FlexLayout,
-    QFileDialog,
-    QFileDialogEvents,
-    FileMode,
-    DialogLabel,
-} from './index';
+import { QMainWindow, QPushButton, QLabel, QWidget, FlexLayout } from './index';
 
 const win = new QMainWindow();
 const center = new QWidget();
 
 const button = new QPushButton();
-button.setText('Open File Dialog');
+button.setText('World');
 
 const hello = new QLabel();
-hello.setText('hello text');
-
-const file = new QFileDialog(center, 'Select File', `${process.env.HOME}`);
-file.setFileMode(FileMode.ExistingFiles);
-file.setLabelText(DialogLabel.Accept, 'New Accept Label!');
-file.addEventListener(QFileDialogEvents.filesSelected, (selected: string[]) => console.log('text', selected));
-button.addEventListener('clicked', () => file.open());
+hello.setText('Hello');
 
 center.setLayout(new FlexLayout());
 center.layout?.addWidget(button);
