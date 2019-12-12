@@ -8,15 +8,16 @@ Napi::Object QFontDatabaseWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QFontDatabase";
   Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {InstanceMethod("bold", &QFontDatabaseWrap::bold),
-                   InstanceMethod("italic", &QFontDatabaseWrap::italic),
-                   InstanceMethod("weight", &QFontDatabaseWrap::weight),
-                   InstanceMethod("addApplicationFont", 
-                                  &QFontDatabaseWrap::addApplicationFont),
-                   InstanceMethod("removeApplicationFont", 
-                                  &QFontDatabaseWrap::removeApplicationFont),
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+      DefineClass(
+          env, CLASSNAME,
+          {InstanceMethod("bold", &QFontDatabaseWrap::bold),
+           InstanceMethod("italic", &QFontDatabaseWrap::italic),
+           InstanceMethod("weight", &QFontDatabaseWrap::weight),
+           StaticMethod("addApplicationFont", 
+                        &StaticQFontDatabaseWrapMethods::addApplicationFont),
+           StaticMethod("removeApplicationFont", 
+                        &StaticQFontDatabaseWrapMethods::removeApplicationFont),
+           COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -64,7 +65,7 @@ Napi::Value QFontDatabaseWrap::weight(const Napi::CallbackInfo& info) {
   return Napi::Value::From(env, result);
 }
 
-Napi::Value QFontDatabaseWrap::addApplicationFont(
+Napi::Value StaticQFontDatabaseWrapMethods::addApplicationFont(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -74,7 +75,7 @@ Napi::Value QFontDatabaseWrap::addApplicationFont(
   return Napi::Value::From(env, id);
 }
 
-Napi::Value QFontDatabaseWrap::removeApplicationFont(
+Napi::Value StaticQFontDatabaseWrapMethods::removeApplicationFont(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
