@@ -1,7 +1,5 @@
 #include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
 
-#include <QWidget>
-
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
@@ -58,7 +56,7 @@ Napi::Object QTableWidgetWrap::init(Napi::Env env, Napi::Object exports) {
                       &QTableWidgetWrap::setSortingEnabled),
        InstanceMethod("isSortingEnabled", &QTableWidgetWrap::isSortingEnabled),
 
-       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QTableWidgetWrap)});
+       QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QTableWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

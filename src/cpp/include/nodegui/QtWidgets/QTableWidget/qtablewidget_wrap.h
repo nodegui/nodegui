@@ -6,8 +6,8 @@
 #include <QPointer>
 
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "QtWidgets/QTableWidget/ntablewidget.hpp"
-#include "QtWidgets/QWidget/qwidget_macro.h"
 
 class QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
  private:
@@ -56,5 +56,5 @@ class QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   Napi::Value setSortingEnabled(const Napi::CallbackInfo& info);
   Napi::Value isSortingEnabled(const Napi::CallbackInfo& info);
 
-  QWIDGET_WRAPPED_METHODS_DECLARATION
+  QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
 };

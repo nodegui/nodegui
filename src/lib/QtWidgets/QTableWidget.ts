@@ -4,6 +4,8 @@ import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement, Component } from '../core/Component';
 import { ScrollHint, SortOrder } from '../QtEnums';
 import { QTableWidgetItem } from './QTableWidgetItem';
+import { QAbstractScrollArea } from './QAbstractScrollArea';
+
 export const QTableWidgetEvents = Object.freeze({
     ...BaseWidgetEvents,
     cellActivated: 'cellActivated',
@@ -24,7 +26,7 @@ interface Range {
     rowCount: number;
 }
 
-export class QTableWidget extends NodeWidget {
+export class QTableWidget extends QAbstractScrollArea {
     native: NativeElement;
     items: Set<NativeElement | Component>;
     constructor(rows: number, columns: number, parent?: NodeWidget) {
