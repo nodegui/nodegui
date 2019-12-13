@@ -1,4 +1,4 @@
-import { QMainWindow, QPushButton, QLabel, QWidget, FlexLayout, QTreeWidgetItem, QTreeWidget } from './index';
+import {FlexLayout, QLabel, QMainWindow, QPushButton, QTreeWidget, QTreeWidgetItem, QWidget} from './index';
 
 const win = new QMainWindow();
 const center = new QWidget();
@@ -10,8 +10,8 @@ const hello = new QLabel();
 hello.setText('Hello');
 
 const tree = new QTreeWidget();
-const tree_item = new QTreeWidgetItem(tree);
-tree_item.setText(0, 'Hello!');
+const item1 = new QTreeWidgetItem(tree, ['Hello!']);
+const item2 = new QTreeWidgetItem(item1, ['Hello again!']);
 
 center.setLayout(new FlexLayout());
 center.layout?.addWidget(button);

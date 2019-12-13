@@ -11,12 +11,17 @@ export class QTreeWidgetItem extends Component {
         this.items = new Set();
         if (parent) {
             this.nodeParent = parent;
-            if (strings) {
-                this.native = new addon.QTreeWidgetItem(parent.native, strings);
+            let parentType;
+            if (parent instanceof QTreeWidgetItem) {
+                parentType = 'item';
             } else {
-                this.native = new addon.QTreeWidgetItem(parent.native);
+                parentType = 'tree';
             }
-            parent.items.add(this);
+            if (strings) {
+                this.native = new addon.QTreeWidgetItem(parent.native, strings, parentType);
+            } else {
+                this.native = new addon.QTreeWidgetItem(parent.native, parentType);
+            }
         } else if (strings) {
             this.native = new addon.QTreeWidgetItem(strings);
         } else {
