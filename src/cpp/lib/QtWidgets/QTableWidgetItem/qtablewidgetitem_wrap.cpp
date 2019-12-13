@@ -1,7 +1,5 @@
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
 
-//#include <QWidget>
-
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"
 
