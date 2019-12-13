@@ -20,11 +20,11 @@ class QTreeWidgetWrap : public Napi::ObjectWrap<QTreeWidgetWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   Napi::Value addTopLevelItem(const Napi::CallbackInfo& info);
-  //Napi::Value addTopLevelItems(const Napi::CallbackInfo& info);
-  //Napi::Value setHeaderHidden(const Napi::CallbackInfo& info);
-  //Napi::Value setHorizontalScrollBarPolicy(const Napi::CallbackInfo& info);
-  //Napi::Value setVerticalScrollBarPolicy(const Napi::CallbackInfo& info);
-  //Napi::Value takeTopLevelItem(const Napi::CallbackInfo& info);
-  //Napi::Value findItems(const Napi::CallbackInfo& info);
+  // Napi::Value addTopLevelItems(const Napi::CallbackInfo& info);
+  // Napi::Value setHeaderHidden(const Napi::CallbackInfo& info);
+  // Napi::Value setHorizontalScrollBarPolicy(const Napi::CallbackInfo& info);
+  // Napi::Value setVerticalScrollBarPolicy(const Napi::CallbackInfo& info);
+  // Napi::Value takeTopLevelItem(const Napi::CallbackInfo& info);
+  // Napi::Value findItems(const Napi::CallbackInfo& info);
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };

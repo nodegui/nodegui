@@ -3,18 +3,18 @@
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
-#include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
+#include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QTreeWidgetWrap::constructor;
 
 Napi::Object QTreeWidgetWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QTreeWidget";
-  Napi::Function func = DefineClass(env, CLASSNAME, {
-    InstanceMethod("addTopLevelItem", &QTreeWidgetWrap::addTopLevelItem),
-    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QTreeWidgetWrap)
-  });
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("addTopLevelItem", &QTreeWidgetWrap::addTopLevelItem),
+       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QTreeWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -50,7 +50,8 @@ Napi::Value QTreeWidgetWrap::addTopLevelItem(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object itemObject = info[0].As<Napi::Object>();
-  QTreeWidgetItemWrap* itemWrap = Napi::ObjectWrap<QTreeWidgetItemWrap>::Unwrap(itemObject);
+  QTreeWidgetItemWrap* itemWrap =
+      Napi::ObjectWrap<QTreeWidgetItemWrap>::Unwrap(itemObject);
   QTreeWidgetItem* item = itemWrap->getInternalInstance();
   this->instance->addTopLevelItem(item);
   return env.Null();

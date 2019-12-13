@@ -17,6 +17,7 @@ export class QTreeWidgetItem extends Component {
     // The last parameter below corresponds to the constructor above.
     constructor(arg: any = null) {
         super();
+        /* eslint-disable */
         if (arguments[0] instanceof Array && arguments.length == 1) {
             this.native = new addon.QTreeWidgetItem(arguments[0], 1);
         } else if (arguments[0] instanceof QTreeWidget && arguments.length == 1) {
@@ -28,6 +29,7 @@ export class QTreeWidgetItem extends Component {
         } else {
             this.native = new addon.QTreeWidgetItem();
         }
+        /* eslint-enable */
     }
 
     setText(column: number, text: string): void {

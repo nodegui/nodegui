@@ -11,6 +11,5 @@ class NTreeWidget : public QTreeWidget, public NodeWidget {
  public:
   using QTreeWidget::QTreeWidget;  // inherit all constructors of QTreeWidget
 
-  void connectWidgetSignalsToEventEmitter() {
-  }
+  void connectWidgetSignalsToEventEmitter() {}
 };

@@ -6,9 +6,7 @@
 #include <QTreeWidgetItem>
 
 #include "Extras/Utils/nutils.h"
-
 #include "core/Component/component_wrap.h"
-
 
 class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
  private:

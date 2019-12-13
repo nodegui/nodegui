@@ -40,9 +40,9 @@
 #include "QtWidgets/QStackedWidget/qstackedwidget_wrap.h"
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
-#include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "QtWidgets/QTreeWidget/qtreewidget_wrap.h"
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
+#include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env) {
