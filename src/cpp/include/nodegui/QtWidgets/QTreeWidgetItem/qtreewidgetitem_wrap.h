@@ -9,23 +9,23 @@
 #include "core/Component/component_wrap.h"
 
 class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
-private:
-    QTreeWidgetItem *instance;
+ private:
+  QTreeWidgetItem *instance;
 
-public:
-    static Napi::Object init(Napi::Env env, Napi::Object exports);
+ public:
+  static Napi::Object init(Napi::Env env, Napi::Object exports);
 
-    QTreeWidgetItemWrap(const Napi::CallbackInfo &info);
+  QTreeWidgetItemWrap(const Napi::CallbackInfo &info);
 
-    ~QTreeWidgetItemWrap();
+  ~QTreeWidgetItemWrap();
 
-    QTreeWidgetItem *getInternalInstance();
+  QTreeWidgetItem *getInternalInstance();
 
-    // class constructor
-    static Napi::FunctionReference constructor;
+  // class constructor
+  static Napi::FunctionReference constructor;
 
-    // wrapped methods
-    Napi::Value setText(const Napi::CallbackInfo &info);
+  // wrapped methods
+  Napi::Value setText(const Napi::CallbackInfo &info);
 
-    COMPONENT_WRAPPED_METHODS_DECLARATION
+  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

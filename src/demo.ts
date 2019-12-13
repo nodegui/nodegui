@@ -12,6 +12,8 @@ hello.setText('Hello');
 const tree = new QTreeWidget();
 const item1 = new QTreeWidgetItem(tree, ['Hello!']);
 const item2 = new QTreeWidgetItem(item1, ['Hello again!']);
+const item3 = new QTreeWidgetItem(['Hello!!']);
+tree.addTopLevelItem(item3);
 
 center.setLayout(new FlexLayout());
 center.layout?.addWidget(button);

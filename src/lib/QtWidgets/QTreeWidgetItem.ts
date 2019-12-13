@@ -6,24 +6,24 @@ export class QTreeWidgetItem extends Component {
     native: NativeElement;
     items: Set<NativeElement | Component>;
 
-    constructor(parent?: QTreeWidgetItem | QTreeWidget, strings?: string[]) {
+    constructor(arg?: QTreeWidgetItem | QTreeWidget | string[], strings?: string[]) {
         super();
         this.items = new Set();
-        if (parent) {
-            this.nodeParent = parent;
+        if (arg instanceof QTreeWidgetItem || arg instanceof QTreeWidget) {
+            this.nodeParent = arg;
             let parentType;
-            if (parent instanceof QTreeWidgetItem) {
+            if (arg instanceof QTreeWidgetItem) {
                 parentType = 'item';
             } else {
                 parentType = 'tree';
             }
             if (strings) {
-                this.native = new addon.QTreeWidgetItem(parent.native, strings, parentType);
+                this.native = new addon.QTreeWidgetItem(arg.native, strings, parentType);
             } else {
-                this.native = new addon.QTreeWidgetItem(parent.native, parentType);
+                this.native = new addon.QTreeWidgetItem(arg.native, parentType);
             }
-        } else if (strings) {
-            this.native = new addon.QTreeWidgetItem(strings);
+        } else if (Array.isArray(arg)) {
+            this.native = new addon.QTreeWidgetItem(arg);
         } else {
             this.native = new addon.QTreeWidgetItem();
         }
