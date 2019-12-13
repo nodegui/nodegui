@@ -6,7 +6,7 @@
 #include <QPointer>
 
 #include "QtWidgets/QLayout/qlayout_macro.h"
-#include "flexlayout.h"
+#include "flexlayout.hpp"
 
 class FlexLayoutWrap : public Napi::ObjectWrap<FlexLayoutWrap> {
  private:
