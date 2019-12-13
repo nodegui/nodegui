@@ -4,6 +4,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QTreeWidget/qtreewidget_wrap.h"
+#include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "core/Component/component_wrap.h"
 
 Napi::FunctionReference QTreeWidgetItemWrap::constructor;
@@ -26,48 +27,60 @@ QTreeWidgetItem* QTreeWidgetItemWrap::getInternalInstance() {
 }
 QTreeWidgetItemWrap::~QTreeWidgetItemWrap() { delete this->instance; }
 
-QTreeWidgetItemWrap::QTreeWidgetItemWrap(const Napi::CallbackInfo& info)
-    : Napi::ObjectWrap<QTreeWidgetItemWrap>(info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  if (info.Length() == 0) {
-    this->instance = new QTreeWidgetItem();
-  } else if (info.Length() >= 1) {
-    int constructorType = info[info.Length() - 1].As<Napi::Number>();
-    if (constructorType == 1) {
-      Napi::Array stringsNapi = info[0].As<Napi::Array>();
-      QList<QString> list;
-      for (int i = 0; i < stringsNapi.Length(); i++) {
-        Napi::Value stringNapi = stringsNapi[i];
-        list.append(stringNapi.As<Napi::String>().Utf8Value().c_str());
-      }
-      QStringList strings = QStringList(list);
-      this->instance = new QTreeWidgetItem(strings);
-    } else if (constructorType == 2) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QTreeWidgetWrap* parentWidgetWrap =
-          Napi::ObjectWrap<QTreeWidgetWrap>::Unwrap(parentObject);
-      QTreeWidget* parent = parentWidgetWrap->getInternalInstance();
-      this->instance = new QTreeWidgetItem(parent);
-    } else if (constructorType == 3) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QTreeWidgetWrap* parentWidgetWrap =
-          Napi::ObjectWrap<QTreeWidgetWrap>::Unwrap(parentObject);
-      QTreeWidget* parent = parentWidgetWrap->getInternalInstance();
-      Napi::Array stringsNapi = info[1].As<Napi::Array>();
-      QList<QString> list;
-      for (int i = 0; i < stringsNapi.Length(); i++) {
-        Napi::Value stringNapi = stringsNapi[i];
-        list.append(stringNapi.As<Napi::String>().Utf8Value().c_str());
-      }
-      QStringList strings = QStringList(list);
-      this->instance = new QTreeWidgetItem(parent, strings);
+
+QTreeWidgetItemWrap::QTreeWidgetItemWrap(const Napi::CallbackInfo& info): Napi::ObjectWrap<QTreeWidgetItemWrap>(info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    if (info.Length() == 2) {
+        Napi::Array stringsNapi = info[1].As<Napi::Array>();
+        QList<QString> list;
+        for (int i = 0; i < stringsNapi.Length(); i++) {
+            Napi::Value stringNapi = stringsNapi[i];
+            list.append(stringNapi.As<Napi::String>().Utf8Value().c_str());
+        }
+        QStringList strings = QStringList(list);
+
+        try{
+            Napi::Object parentObject = info[0].As<Napi::Object>();
+            QTreeWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QTreeWidgetWrap>::Unwrap(parentObject);
+            QTreeWidget* parent = parentWidgetWrap->getInternalInstance();
+            this->instance = new QTreeWidgetItem(parent);
+        } catch (int n) {
+            Napi::Object itemObject = info[0].As<Napi::Object>();
+            QTreeWidgetItemWrap* itemWidgetWrap = Napi::ObjectWrap<QTreeWidgetItemWrap>::Unwrap(itemObject);
+            QTreeWidgetItem* item = itemWidgetWrap->getInternalInstance();
+            this->instance = new QTreeWidgetItem(item);
+        }
+    } else if(info.Length() == 1){
+        if (info[0].IsArray()){
+            Napi::Array stringsNapi = info[1].As<Napi::Array>();
+            QList<QString> list;
+            for (int i = 0; i < stringsNapi.Length(); i++) {
+                Napi::Value stringNapi = stringsNapi[i];
+                list.append(stringNapi.As<Napi::String>().Utf8Value().c_str());
+            }
+            QStringList strings = QStringList(list);
+            this->instance = new QTreeWidgetItem(strings);
+        } else {
+            try{
+                Napi::Object parentObject = info[0].As<Napi::Object>();
+                QTreeWidgetWrap* parentWidgetWrap = Napi::ObjectWrap<QTreeWidgetWrap>::Unwrap(parentObject);
+                QTreeWidget* parent = parentWidgetWrap->getInternalInstance();
+                this->instance = new QTreeWidgetItem(parent);
+            } catch (int n) {
+                Napi::Object itemObject = info[0].As<Napi::Object>();
+                QTreeWidgetItemWrap* itemWidgetWrap = Napi::ObjectWrap<QTreeWidgetItemWrap>::Unwrap(itemObject);
+                QTreeWidgetItem* item = itemWidgetWrap->getInternalInstance();
+                this->instance = new QTreeWidgetItem(item);
+            }
+        }
+    } else if (info.Length() == 0) {
+        this->instance = new QTreeWidgetItem();
+    } else {
+        Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
     }
-  } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
-        .ThrowAsJavaScriptException();
-  }
-  this->rawData = extrautils::configureComponent(this->getInternalInstance());
+    this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }
 
 Napi::Value QTreeWidgetItemWrap::setText(const Napi::CallbackInfo& info) {
