@@ -1,4 +1,4 @@
-import {QMainWindow, QPushButton, QLabel, QWidget, FlexLayout, QTreeWidgetItem, QTreeWidget} from './index';
+import { QMainWindow, QPushButton, QLabel, QWidget, FlexLayout, QTreeWidgetItem, QTreeWidget } from './index';
 
 const win = new QMainWindow();
 const center = new QWidget();

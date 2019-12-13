@@ -2,7 +2,6 @@ import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
 import { QTreeWidget } from '../..';
 
-
 export class QTreeWidgetItem extends Component {
     native: NativeElement;
 
@@ -21,9 +20,10 @@ export class QTreeWidgetItem extends Component {
         if (arguments[0] instanceof Array && arguments.length == 1) {
             this.native = new addon.QTreeWidgetItem(arguments[0], 1);
         } else if (arguments[0] instanceof QTreeWidget && arguments.length == 1) {
+            arguments[0].items.add(this);
             this.native = new addon.QTreeWidgetItem(arguments[0].native, 2);
         } else if (arguments[0] instanceof QTreeWidget && arguments[1] instanceof Array && arguments.length == 2) {
-            console.log(arguments[0], arguments[1], 3);
+            arguments[0].items.add(this);
             this.native = new addon.QTreeWidgetItem(arguments[0].native, arguments[1], 3);
         } else {
             this.native = new addon.QTreeWidgetItem();
