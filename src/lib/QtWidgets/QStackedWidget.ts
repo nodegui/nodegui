@@ -25,6 +25,7 @@ export class QStackedWidget extends NodeWidget {
     addWidget(widget: NodeWidget): void {
         this.native.addWidget(widget.native);
         this.nodeChildren.add(widget);
+        widget.setFlexNodeSizeControlled(true);
     }
 
     removeWidget(widget: NodeWidget): void {

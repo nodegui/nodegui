@@ -34,6 +34,7 @@ export { QMainWindow, QMainWindowEvents } from './lib/QtWidgets/QMainWindow';
 export { QProgressBar, QProgressBarEvents } from './lib/QtWidgets/QProgressBar';
 export { QComboBox, QComboBoxEvents } from './lib/QtWidgets/QComboBox';
 export { QPushButton, QPushButtonEvents } from './lib/QtWidgets/QPushButton';
+export { QToolButton, QToolButtonEvents, ToolButtonPopupMode } from './lib/QtWidgets/QToolButton';
 export { QSpinBox, QSpinBoxEvents } from './lib/QtWidgets/QSpinBox';
 export { QRadioButton, QRadioButtonEvents } from './lib/QtWidgets/QRadioButton';
 export { QStackedWidget, QStackedWidgetEvents } from './lib/QtWidgets/QStackedWidget';
