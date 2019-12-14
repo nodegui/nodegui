@@ -7,17 +7,16 @@ Napi::FunctionReference QFontDatabaseWrap::constructor;
 Napi::Object QFontDatabaseWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QFontDatabase";
-  Napi::Function func =
-      DefineClass(
-          env, CLASSNAME,
-          {InstanceMethod("bold", &QFontDatabaseWrap::bold),
-           InstanceMethod("italic", &QFontDatabaseWrap::italic),
-           InstanceMethod("weight", &QFontDatabaseWrap::weight),
-           StaticMethod("addApplicationFont", 
-                        &StaticQFontDatabaseWrapMethods::addApplicationFont),
-           StaticMethod("removeApplicationFont", 
-                        &StaticQFontDatabaseWrapMethods::removeApplicationFont),
-           COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("bold", &QFontDatabaseWrap::bold),
+       InstanceMethod("italic", &QFontDatabaseWrap::italic),
+       InstanceMethod("weight", &QFontDatabaseWrap::weight),
+       StaticMethod("addApplicationFont",
+                    &StaticQFontDatabaseWrapMethods::addApplicationFont),
+       StaticMethod("removeApplicationFont",
+                    &StaticQFontDatabaseWrapMethods::removeApplicationFont),
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -31,8 +30,8 @@ QFontDatabaseWrap::QFontDatabaseWrap(const Napi::CallbackInfo& info)
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }
 
-QFontDatabase* QFontDatabaseWrap::getInternalInstance() { 
-  return this->instance.get(); 
+QFontDatabase* QFontDatabaseWrap::getInternalInstance() {
+  return this->instance.get();
 }
 
 Napi::Value QFontDatabaseWrap::bold(const Napi::CallbackInfo& info) {
@@ -70,8 +69,8 @@ Napi::Value StaticQFontDatabaseWrapMethods::addApplicationFont(
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   std::string fileName = info[0].As<Napi::String>().Utf8Value();
-  int id = 
-    QFontDatabase::addApplicationFont(QString::fromUtf8(fileName.c_str()));
+  int id =
+      QFontDatabase::addApplicationFont(QString::fromUtf8(fileName.c_str()));
   return Napi::Value::From(env, id);
 }
 
