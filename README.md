@@ -111,6 +111,7 @@ Thanks goes to these wonderful people.
 <!-- prettier-ignore -->
 <table>
   <tr>
+    <td align="center"><a href="https://github.com/yazla"><img src="https://avatars1.githubusercontent.com/u/681281?s=460&v=4" width="100px;" alt="Yuriy Yazlovytskyy"/><br /><sub><b>Yuriy Yazlovytskyy</b></sub></a></td>
     <td align="center"><a href="https://github.com/johnsusek"><img src="https://avatars1.githubusercontent.com/u/611996?s=460&v=4" width="100px;" alt="John Susek"/><br /><sub><b>John Susek</b></sub></a></td>
      <td align="center"><a href="https://github.com/Spharax"><img src="https://avatars2.githubusercontent.com/u/2892381?s=460&v=4" width="100px;" alt="Marc Dijoux"/><br /><sub><b>Marc Dijoux</b></sub></a></td>
   </tr>

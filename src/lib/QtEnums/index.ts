@@ -59,6 +59,7 @@ export { Option } from './Option';
 export { Orientation } from './Orientation';
 export { ScreenOrientation } from './ScreenOrientation';
 export { ScrollBarPolicy } from './ScrollBarPolicy';
+export { ScrollHint } from './ScrollHint';
 export { ScrollPhase } from './ScrollPhase';
 export { ShortcutContext } from './ShortcutContext';
 export { SizeAdjustPolicy } from './SizeAdjustPolicy';
