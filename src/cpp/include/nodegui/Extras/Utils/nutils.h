@@ -5,7 +5,7 @@
 #include <QPointer>
 #include <QVariant>
 
-#include "core/FlexLayout/flexlayout.h"
+#include "core/FlexLayout/flexlayout.hpp"
 #include "core/FlexLayout/flexutils.h"
 namespace extrautils {
 

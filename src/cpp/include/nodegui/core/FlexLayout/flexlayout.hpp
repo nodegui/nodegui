@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QLayout>
+#include <QTimer>
 
 #include "core/Events/eventwidget_macro.h"
 #include "deps/yoga/YGNode.h"
@@ -19,12 +20,20 @@ YGNodeNew(); FlexLayout * flayout = new FlexLayout(container,root);
  */
 
 class FlexLayout : public QLayout, public EventWidget {
+  Q_OBJECT
  private:
   YGNodeRef node;
   YGNodeRef getRootNode(YGNodeRef node) const;
   void calculateLayout() const;
   void restoreNodeMinStyle(YGValue &previousMinWidth,
                            YGValue &previousMinHeight);
+
+  // performance memebers
+  QTimer throttleTimer;
+  QRect cachedRect;
+  // end of performance memeber
+ private slots:
+  void performLayout();
 
  public:
   FlexLayout(QWidget *parentWidget = nullptr, YGNodeRef parentNode = nullptr);
@@ -45,3 +54,5 @@ class FlexLayout : public QLayout, public EventWidget {
 
   EVENTWIDGET_IMPLEMENTATIONS(QLayout)
 };
+
+// class FlexLayoutWorker: public Q
