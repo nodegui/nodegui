@@ -1,9 +1,10 @@
+#include "core/FlexLayout/flexlayout.hpp"
+
 #include <QDebug>
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
 #include "core/FlexLayout/flexitem.h"
-#include "core/FlexLayout/flexlayout.hpp"
 #include "core/FlexLayout/flexutils.h"
 #include "core/YogaWidget/yogawidget.h"
 
