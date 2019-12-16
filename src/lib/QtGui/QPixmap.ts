@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
-import { AspectRatioMode } from '../QtEnums';
+import { AspectRatioMode, TransformationMode } from '../QtEnums';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from '../QtCore/QVariant';
 
@@ -29,13 +29,20 @@ export class QPixmap extends Component {
     save(fileName: string, format?: ImageFormats): boolean {
         return format ? this.native.save(fileName, format) : this.native.save(fileName);
     }
-    scaled(width: number, height: number, aspectRatioMode?: AspectRatioMode): QPixmap {
-        let nativePixmap;
+    scaled(
+        width: number,
+        height: number,
+        aspectRatioMode?: AspectRatioMode,
+        transformationMode?: TransformationMode,
+    ): QPixmap {
+        const args = [width, height];
         if (aspectRatioMode) {
-            nativePixmap = this.native.scaled(width, height, aspectRatioMode);
-        } else {
-            nativePixmap = this.native.scaled(width, height);
+            args.push(aspectRatioMode);
         }
+        if (aspectRatioMode && transformationMode) {
+            args.push(transformationMode);
+        }
+        const nativePixmap = this.native.scaled(...args);
         return new QPixmap(nativePixmap);
     }
     height(): number {
