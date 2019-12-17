@@ -2,10 +2,11 @@ import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { Component, NativeElement } from '../core/Component';
-import { QTreeWidgetItem } from '../..';
+import { QTreeWidgetItem, ScrollBarPolicy } from '../..';
 
 export const QTreeWidgetEvents = Object.freeze({
     ...BaseWidgetEvents,
+    itemSelectionChanged: 'itemSelectionChanged',
 });
 
 export class QTreeWidget extends NodeWidget {
@@ -31,6 +32,15 @@ export class QTreeWidget extends NodeWidget {
     }
 
     setHeaderHidden(hide: boolean) {
-        this.native.setHeaderHidden(hide);
+        this.native.setProperty('headerHidden', hide);
+    }
+    setHorizontalScrollBarPolicy(policy: ScrollBarPolicy) {
+        this.native.setProperty('horizontalScrollBarPolicy', policy);
+    }
+    setVerticalScrollBarPolicy(policy: ScrollBarPolicy) {
+        this.native.setProperty('verticalScrollBarPolicy', policy);
+    }
+    selectedItems(): QTreeWidgetItem[] {
+        return this.native.selectedItems();
     }
 }

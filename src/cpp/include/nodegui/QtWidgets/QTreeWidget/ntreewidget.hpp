@@ -12,5 +12,11 @@ class NTreeWidget : public QTreeWidget, public NodeWidget {
  public:
   using QTreeWidget::QTreeWidget;  // inherit all constructors of QTreeWidget
 
-  void connectWidgetSignalsToEventEmitter() {}
+  void connectWidgetSignalsToEventEmitter() {
+      QObject::connect(this, &QTreeWidget::itemSelectionChanged, [=]() {
+        Napi::Env env = this->emitOnNode.Env();
+        Napi::HandleScope scope(env);
+        this->emitOnNode.Call({Napi::String::New(env, "itemSelectionChanged")});
+      });
+  }
 };
