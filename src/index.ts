@@ -32,7 +32,7 @@ export { QFileDialog, QFileDialogEvents } from './lib/QtWidgets/QFileDialog';
 export { QLineEdit, QLineEditEvents, EchoMode } from './lib/QtWidgets/QLineEdit';
 export { QMainWindow, QMainWindowEvents } from './lib/QtWidgets/QMainWindow';
 export { QProgressBar, QProgressBarEvents } from './lib/QtWidgets/QProgressBar';
-export { QComboBox, QComboBoxEvents } from './lib/QtWidgets/QComboBox';
+export { QComboBox, QComboBoxEvents, InsertPolicy } from './lib/QtWidgets/QComboBox';
 export { QPushButton, QPushButtonEvents } from './lib/QtWidgets/QPushButton';
 export { QToolButton, QToolButtonEvents, ToolButtonPopupMode } from './lib/QtWidgets/QToolButton';
 export { QSpinBox, QSpinBoxEvents } from './lib/QtWidgets/QSpinBox';

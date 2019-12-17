@@ -3,6 +3,8 @@ import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { SizeAdjustPolicy } from '../QtEnums';
+import { QIcon } from '../QtGui/QIcon';
+import { QVariant } from '../QtCore/QVariant';
 
 export const QComboBoxEvents = Object.freeze({
     currentIndexChanged: 'currentIndexChanged',
@@ -23,11 +25,19 @@ export class QComboBox extends NodeWidget {
         this.native = native;
         this.nodeParent = parent;
     }
-    addItem(value: string): void {
-        this.native.addItem(value);
+    addItem(icon: QIcon | undefined, text: string, userData: QVariant = new QVariant()): void {
+        if (icon) {
+            this.native.addItem(icon.native, text, userData.native);
+        } else {
+            this.native.addItem(text, userData.native);
+        }
     }
-    insertItem(index: number, text: string): void {
-        this.native.insertItem(index, text);
+    insertItem(index: number, icon: QIcon | undefined, text: string, userData: QVariant = new QVariant()): void {
+        if (icon) {
+            this.native.insertItem(index, icon.native, text, userData.native);
+        } else {
+            this.native.insertItem(index, text, userData.native);
+        }
     }
     addItems(texts: string[]): void {
         this.native.addItems(texts);
@@ -44,8 +54,11 @@ export class QComboBox extends NodeWidget {
     insertSeparator(index: number): void {
         this.native.insertSeparator(index);
     }
-    itemText(index: number): void {
-        this.native.itemText(index);
+    itemText(index: number): string {
+        return this.native.itemText(index);
+    }
+    itemData(index: number): QVariant {
+        return new QVariant(this.native.itemData(index));
     }
     removeItem(index: number): void {
         this.native.removeItem(index);
@@ -68,4 +81,17 @@ export class QComboBox extends NodeWidget {
     setEditable(editable: boolean): void {
         this.native.setEditable(editable);
     }
+    clear(): void {
+        this.native.clear();
+    }
+}
+
+export enum InsertPolicy {
+    NoInsert,
+    InsertAtTop,
+    InsertAtCurrent,
+    InsertAtBottom,
+    InsertAfterCurrent,
+    InsertBeforeCurrent,
+    InsertAlphabetically,
 }

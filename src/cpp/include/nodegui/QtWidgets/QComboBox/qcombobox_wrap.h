@@ -29,6 +29,7 @@ class QComboBoxWrap : public Napi::ObjectWrap<QComboBoxWrap> {
   Napi::Value currentText(const Napi::CallbackInfo& info);
   Napi::Value insertSeparator(const Napi::CallbackInfo& info);
   Napi::Value itemText(const Napi::CallbackInfo& info);
+  Napi::Value itemData(const Napi::CallbackInfo& info);
   Napi::Value removeItem(const Napi::CallbackInfo& info);
   Napi::Value sizeAdjustPolicy(const Napi::CallbackInfo& info);
   Napi::Value setSizeAdjustPolicy(const Napi::CallbackInfo& info);
@@ -36,6 +37,7 @@ class QComboBoxWrap : public Napi::ObjectWrap<QComboBoxWrap> {
   Napi::Value setMaxVisibleItems(const Napi::CallbackInfo& info);
   Napi::Value isEditable(const Napi::CallbackInfo& info);
   Napi::Value setEditable(const Napi::CallbackInfo& info);
+  Napi::Value clear(const Napi::CallbackInfo& info);
 
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };
