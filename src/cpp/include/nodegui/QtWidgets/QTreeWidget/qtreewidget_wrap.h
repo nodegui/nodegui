@@ -25,7 +25,7 @@ class QTreeWidgetWrap : public Napi::ObjectWrap<QTreeWidgetWrap> {
   static Napi::FunctionReference constructor;
 
   Napi::Value addTopLevelItem(const Napi::CallbackInfo &info);
-  Napi::Value selectedItems(const Napi::CallbackInfo& info);
+  Napi::Value selectedItems(const Napi::CallbackInfo &info);
 
   // Napi::Value addTopLevelItems(const Napi::CallbackInfo& info);
   // Napi::Value setHorizontalScrollBarPolicy(const Napi::CallbackInfo& info);

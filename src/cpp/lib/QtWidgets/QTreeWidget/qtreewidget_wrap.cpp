@@ -14,7 +14,7 @@ Napi::Object QTreeWidgetWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("addTopLevelItem", &QTreeWidgetWrap::addTopLevelItem),
-      InstanceMethod("selectedItems", &QTreeWidgetWrap::selectedItems),
+       InstanceMethod("selectedItems", &QTreeWidgetWrap::selectedItems),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QTreeWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -61,7 +61,7 @@ Napi::Value QTreeWidgetWrap::selectedItems(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  QList<QTreeWidgetItem> items = this->instance->selectedItems();
+  QList<QTreeWidgetItem*> items = this->instance->selectedItems();
   Napi::Array napiItems = Napi::Array::New(env, items.size());
 
   return napiItems;
