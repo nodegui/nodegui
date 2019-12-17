@@ -61,7 +61,7 @@ Napi::Value QTreeWidgetWrap::selectedItems(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  QList<QTreeWidgetItemWrap> items = this->instance->selectedItems();
+  QList<QTreeWidgetItem> items = this->instance->selectedItems();
   Napi::Array napiItems = Napi::Array::New(env, items.size());
 
   return napiItems;
