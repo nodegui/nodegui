@@ -1,8 +1,9 @@
-#include "core/FlexLayout/flexlayout.h"
+#include "core/FlexLayout/flexlayout.hpp"
 
 #include <QDebug>
 #include <QWidget>
 
+#include "Extras/Utils/nutils.h"
 #include "core/FlexLayout/flexitem.h"
 #include "core/FlexLayout/flexutils.h"
 #include "core/YogaWidget/yogawidget.h"
@@ -10,6 +11,12 @@
 FlexLayout::FlexLayout(QWidget* parentWidget, YGNodeRef parentNode)
     : QLayout(parentWidget) {
   this->node = parentNode;
+  // Throttle the setGeometry calls that may happen when dealing with huge
+  // lists.
+  this->throttleTimer.setTimerType(Qt::PreciseTimer);
+  this->throttleTimer.setSingleShot(true);
+  QObject::connect(&this->throttleTimer, &QTimer::timeout, this,
+                   &FlexLayout::performLayout);
 }
 
 FlexLayout::~FlexLayout() {
@@ -147,9 +154,19 @@ QSize FlexLayout::minimumSize() const {
 }
 
 void FlexLayout::setGeometry(const QRect& rect) {
+  this->cachedRect = rect;
+  if (this->throttleTimer.isActive()) {
+    return;
+  }
+  this->throttleTimer.start(10);
+  // This will call performLayout and throttle requests between 10ms.
+}
+
+void FlexLayout::performLayout() {
   if (!this->node) {
     return;
   }
+  QRect rect = this->cachedRect;
   if (!rect.isValid() || rect != geometry()) {
     bool isSizeControlled = flexutils::isFlexNodeSizeControlled(this->node);
     YGValue prevStyleMinWidth = YGNodeStyleGetMinWidth(this->node);

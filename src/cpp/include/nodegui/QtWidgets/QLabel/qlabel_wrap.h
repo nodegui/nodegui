@@ -20,6 +20,14 @@ class QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
+  Napi::Value setAlignment(const Napi::CallbackInfo& info);
+  Napi::Value alignment(const Napi::CallbackInfo& info);
+  Napi::Value setIndent(const Napi::CallbackInfo& info);
+  Napi::Value indent(const Napi::CallbackInfo& info);
+  Napi::Value setMargin(const Napi::CallbackInfo& info);
+  Napi::Value margin(const Napi::CallbackInfo& info);
+  Napi::Value setTextFormat(const Napi::CallbackInfo& info);
+  Napi::Value textFormat(const Napi::CallbackInfo& info);
   Napi::Value setWordWrap(const Napi::CallbackInfo& info);
   Napi::Value wordWrap(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
@@ -27,4 +35,6 @@ class QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {
   Napi::Value setPixmap(const Napi::CallbackInfo& info);
   Napi::Value setMovie(const Napi::CallbackInfo& info);
   Napi::Value setOpenExternalLinks(const Napi::CallbackInfo& info);
+  Napi::Value openExternalLinks(const Napi::CallbackInfo& info);
+  Napi::Value clear(const Napi::CallbackInfo& info);
 };
