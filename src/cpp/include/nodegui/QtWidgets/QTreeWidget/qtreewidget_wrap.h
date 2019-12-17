@@ -27,7 +27,7 @@ class QTreeWidgetWrap : public Napi::ObjectWrap<QTreeWidgetWrap> {
   Napi::Value addTopLevelItem(const Napi::CallbackInfo &info);
 
   // Napi::Value addTopLevelItems(const Napi::CallbackInfo& info);
-  // Napi::Value setHeaderHidden(const Napi::CallbackInfo& info);
+  Napi::Value setHeaderHidden(const Napi::CallbackInfo& info);
   // Napi::Value setHorizontalScrollBarPolicy(const Napi::CallbackInfo& info);
   // Napi::Value setVerticalScrollBarPolicy(const Napi::CallbackInfo& info);
   // Napi::Value takeTopLevelItem(const Napi::CallbackInfo& info);

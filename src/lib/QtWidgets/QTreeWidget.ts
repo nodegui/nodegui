@@ -11,6 +11,7 @@ export const QTreeWidgetEvents = Object.freeze({
 export class QTreeWidget extends NodeWidget {
     native: NativeElement;
     items: Set<NativeElement | Component>;
+
     constructor(parent?: NodeWidget) {
         let native;
         if (parent) {
@@ -23,8 +24,13 @@ export class QTreeWidget extends NodeWidget {
         this.nodeParent = parent;
         this.items = new Set();
     }
+
     addTopLevelItem(item: QTreeWidgetItem): void {
         this.items.add(item);
         this.native.addTopLevelItem(item.native);
+    }
+
+    setHeaderHidden(hide: boolean) {
+        this.native.setHeaderHidden(hide);
     }
 }

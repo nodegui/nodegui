@@ -14,6 +14,7 @@ Napi::Object QTreeWidgetWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("addTopLevelItem", &QTreeWidgetWrap::addTopLevelItem),
+      InstanceMethod("setHeaderHidden", &QTreeWidgetWrap::setHeaderHidden),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QTreeWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -54,5 +55,13 @@ Napi::Value QTreeWidgetWrap::addTopLevelItem(const Napi::CallbackInfo& info) {
       Napi::ObjectWrap<QTreeWidgetItemWrap>::Unwrap(itemObject);
   QTreeWidgetItem* item = itemWrap->getInternalInstance();
   this->instance->addTopLevelItem(item);
+  return env.Null();
+}
+Napi::Value QTreeWidgetWrap::setHeaderHidden(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Boolean hidden = info[0].As<Napi::Boolean>();
+  this->instance->setHeaderHidden(hidden);
   return env.Null();
 }
