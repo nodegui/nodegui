@@ -8,10 +8,8 @@ Napi::FunctionReference QPointWrap::constructor;
 Napi::Object QPointWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QPoint";
-  Napi::Function func = DefineClass(
-      env, CLASSNAME,
-      {
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+  Napi::Function func =
+      DefineClass(env, CLASSNAME, {COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -41,4 +39,3 @@ QPointWrap::QPointWrap(const Napi::CallbackInfo& info)
 QPointWrap::~QPointWrap() { this->instance.reset(); }
 
 QPoint* QPointWrap::getInternalInstance() { return this->instance.get(); }
-

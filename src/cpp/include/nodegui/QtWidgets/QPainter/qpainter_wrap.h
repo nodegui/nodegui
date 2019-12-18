@@ -25,6 +25,7 @@ class QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   Napi::Value end(const Napi::CallbackInfo& info);
   Napi::Value rotate(const Napi::CallbackInfo& info);
   Napi::Value setPen(const Napi::CallbackInfo& info);
+  Napi::Value setRenderHint(const Napi::CallbackInfo& info);
   Napi::Value setBrush(const Napi::CallbackInfo& info);
   Napi::Value drawLine(const Napi::CallbackInfo& info);
   Napi::Value scale(const Napi::CallbackInfo& info);

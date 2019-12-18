@@ -1,8 +1,8 @@
 #include "QtWidgets/QPainter/qpainter_wrap.h"
 
 #include "Extras/Utils/nutils.h"
-#include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QColor/qcolor_wrap.h"
+#include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/Component/component_wrap.h"
 
@@ -11,21 +11,22 @@ Napi::FunctionReference QPainterWrap::constructor;
 Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QPainter";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {InstanceMethod("drawText", &QPainterWrap::drawText),
-                   InstanceMethod("begin", &QPainterWrap::begin),
-                   InstanceMethod("end", &QPainterWrap::end),
-                   InstanceMethod("rotate", &QPainterWrap::rotate),
-                   InstanceMethod("setPen", &QPainterWrap::setPen),
-                   InstanceMethod("setBrush", &QPainterWrap::setBrush),
-                   InstanceMethod("drawLine", &QPainterWrap::drawLine),
-                   InstanceMethod("scale", &QPainterWrap::scale),
-                   InstanceMethod("translate", &QPainterWrap::translate),
-                   InstanceMethod("drawConvexPolygon", &QPainterWrap::drawConvexPolygon),
-                   InstanceMethod("save", &QPainterWrap::save),
-                   InstanceMethod("restore", &QPainterWrap::restore),
-COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("drawText", &QPainterWrap::drawText),
+       InstanceMethod("begin", &QPainterWrap::begin),
+       InstanceMethod("end", &QPainterWrap::end),
+       InstanceMethod("rotate", &QPainterWrap::rotate),
+       InstanceMethod("setPen", &QPainterWrap::setPen),
+       InstanceMethod("setBrush", &QPainterWrap::setBrush),
+       InstanceMethod("drawLine", &QPainterWrap::drawLine),
+       InstanceMethod("scale", &QPainterWrap::scale),
+       InstanceMethod("translate", &QPainterWrap::translate),
+       InstanceMethod("setRenderHint", &QPainterWrap::setRenderHint),
+       InstanceMethod("drawConvexPolygon", &QPainterWrap::drawConvexPolygon),
+       InstanceMethod("save", &QPainterWrap::save),
+       InstanceMethod("restore", &QPainterWrap::restore),
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -88,8 +89,18 @@ Napi::Value QPainterWrap::rotate(const Napi::CallbackInfo& info) {
 Napi::Value QPainterWrap::setPen(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  int color = info[0].As<Napi::Number>().Int32Value();
-  this->instance->setPen(color);
+  Napi::String napiType = info[1].As<Napi::String>();
+    std::string type = napiType.Utf8Value();
+
+  if (type == "color") {
+    Napi::Object colorObject = info[0].As<Napi::Object>();
+    QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
+    QColor* color = colorWrap->getInternalInstance();
+  this->instance->setPen(*color);
+  } else if (type == "style") {
+    Qt::PenStyle style = (Qt::PenStyle)info[0].As<Napi::Number>().Int32Value();
+  this->instance->setPen(style);
+  }
   return env.Null();
 }
 Napi::Value QPainterWrap::drawLine(const Napi::CallbackInfo& info) {
@@ -148,10 +159,18 @@ Napi::Value QPainterWrap::setBrush(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-    Napi::Object colorObject = info[0].As<Napi::Object>();
-    QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
-    QColor* color = colorWrap->getInternalInstance();
-    QBrush* brush = new QBrush(*color);
+  Napi::Object colorObject = info[0].As<Napi::Object>();
+  QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
+  QColor* color = colorWrap->getInternalInstance();
+  QBrush* brush = new QBrush(*color);
   this->instance->setBrush(*brush);
+  return env.Null();
+}
+Napi::Value QPainterWrap::setRenderHint(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QPainter::RenderHint hint = (QPainter::RenderHint)info[0].As<Napi::Number>().Int32Value();
+
+  this->instance->setRenderHint(hint, true);
   return env.Null();
 }

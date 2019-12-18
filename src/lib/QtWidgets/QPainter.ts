@@ -1,6 +1,16 @@
 import addon from '../utils/addon';
 import {Component, NativeElement} from '../core/Component';
-import {QColor, QPoint} from "../..";
+import {PenStyle, QColor, QPoint} from '../..';
+
+export enum RenderHint {
+    Antialiasing = 0x01,
+    TextAntialiasing = 0x02,
+    SmoothPixmapTransform = 0x04,
+    HighQualityAntialiasing = 0x08,
+    NonCosmeticDefaultPen = 0x10,
+    Qt4CompatiblePainting = 0x20,
+    LosslessImageRendering = 0x40,
+}
 
 export class QPainter extends Component {
     native: NativeElement;
@@ -28,23 +38,31 @@ export class QPainter extends Component {
         return this.native.end();
     }
 
-    rotate(angle: Number): void {
+    rotate(angle: number): void {
         this.native.rotate(angle);
     }
 
-    setPen(color: Number): void {
-        this.native.setPen(color);
+    setPen(arg: PenStyle | QColor): void {
+        if (typeof arg == 'number') {
+            this.native.setPen(arg, 'style');
+        } else if (arg instanceof QColor) {
+            this.native.setPen(arg.native, 'color');
+        }
     }
 
-    drawLine(x1: Number, y1: number, x2: Number, y2: Number): void {
+    setRenderHint(hint: RenderHint, on = true) {
+        this.native.setRenderHint(hint, on);
+    }
+
+    drawLine(x1: number, y1: number, x2: number, y2: number): void {
         this.native.drawLine(x1, y1, x2, y2);
     }
 
-    scale(sx: Number, sy: Number): void {
+    scale(sx: number, sy: number): void {
         this.native.scale(sx, sy);
     }
 
-    translate(dx: Number, dy: Number): void {
+    translate(dx: number, dy: number): void {
         this.native.translate(dx, dy);
     }
 
