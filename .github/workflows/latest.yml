@@ -31,7 +31,10 @@ jobs:
                   name: Latest Master Release
                   body: >
                       Latest auto release corresponding to commit ${{github.sha}} 🔥. 
-                      To install do, npm install https://github.com/@nodegui/nodegui/releases/download/latest-master/nodegui-master.tgz
+                      To install do: 
+                      ```
+                       npm install https://github.com/nodegui/nodegui/releases/download/latest-master/nodegui-master.tgz
+                      ```
                   assets: >
                       nodegui-nodegui-1.0.0-master.tgz:nodegui-master.tgz:application/tar+gzip
                   recreate: true

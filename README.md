@@ -68,7 +68,7 @@ npm install @nodegui/nodegui
 To install the latest version available on master branch:
 
 ```
-npm install https://github.com/@nodegui/nodegui/releases/download/latest-master/nodegui-master.tgz
+npm install https://github.com/nodegui/nodegui/releases/download/latest-master/nodegui-master.tgz
 ```
 
 **Community guides**
