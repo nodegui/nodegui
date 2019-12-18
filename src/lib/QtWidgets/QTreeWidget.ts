@@ -2,16 +2,15 @@ import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { Component, NativeElement } from '../core/Component';
-import { QTreeWidgetItem, ScrollBarPolicy } from '../..';
+import { QAbstractScrollArea, QTreeWidgetItem } from '../..';
 
 export const QTreeWidgetEvents = Object.freeze({
     ...BaseWidgetEvents,
     itemSelectionChanged: 'itemSelectionChanged',
 });
 
-export class QTreeWidget extends NodeWidget {
+export class QTreeWidget extends QAbstractScrollArea {
     native: NativeElement;
-    items: Set<NativeElement | Component>;
 
     constructor(parent?: NodeWidget) {
         let native;
@@ -23,24 +22,20 @@ export class QTreeWidget extends NodeWidget {
         super(native);
         this.native = native;
         this.nodeParent = parent;
-        this.items = new Set();
     }
 
     addTopLevelItem(item: QTreeWidgetItem): void {
-        this.items.add(item);
         this.native.addTopLevelItem(item.native);
     }
 
     setHeaderHidden(hide: boolean) {
         this.native.setProperty('headerHidden', hide);
     }
-    setHorizontalScrollBarPolicy(policy: ScrollBarPolicy) {
-        this.native.setProperty('horizontalScrollBarPolicy', policy);
-    }
-    setVerticalScrollBarPolicy(policy: ScrollBarPolicy) {
-        this.native.setProperty('verticalScrollBarPolicy', policy);
-    }
+
     selectedItems(): QTreeWidgetItem[] {
-        return this.native.selectedItems();
+        const nativeItems = this.native.selectedItems();
+        return nativeItems.map(function(eachItem: QTreeWidgetItem) {
+            return new QTreeWidgetItem(eachItem);
+        });
     }
 }

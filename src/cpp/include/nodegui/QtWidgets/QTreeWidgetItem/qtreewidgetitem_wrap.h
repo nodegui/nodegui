@@ -26,6 +26,11 @@ class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
 
   // wrapped methods
   Napi::Value setText(const Napi::CallbackInfo &info);
-
+  Napi::Value parent(const Napi::CallbackInfo &info);
+  Napi::Value childCount(const Napi::CallbackInfo &info);
+  Napi::Value child(const Napi::CallbackInfo &info);
+  Napi::Value text(const Napi::CallbackInfo &info);
+  Napi::Value setSelected(const Napi::CallbackInfo &info);
+  Napi::Value setExpanded(const Napi::CallbackInfo &info);
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };

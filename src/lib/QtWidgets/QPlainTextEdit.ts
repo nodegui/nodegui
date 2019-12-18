@@ -68,4 +68,7 @@ export class QPlainTextEdit extends QAbstractScrollArea {
     lineWrapMode(): LineWrapMode {
         return this.native.lineWrapMode();
     }
+    insertPlainText(text: string | number): void {
+        this.native.insertPlainText(`${text}`);
+    }
 }
