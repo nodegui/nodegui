@@ -1,28 +1,26 @@
 #include "QtWidgets/QPainter/qpainter_wrap.h"
 
 #include "Extras/Utils/nutils.h"
-#include "core/Component/component_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
+#include "core/Component/component_wrap.h"
 
 Napi::FunctionReference QPainterWrap::constructor;
 
 Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QPainter";
-  Napi::Function func = DefineClass(
-      env, CLASSNAME,
-      {InstanceMethod("drawText", &QPainterWrap::drawText),
-      InstanceMethod("begin", &QPainterWrap::drawText),
-      InstanceMethod("end", &QPainterWrap::drawText),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+  Napi::Function func =
+      DefineClass(env, CLASSNAME,
+                  {InstanceMethod("drawText", &QPainterWrap::drawText),
+                   InstanceMethod("begin", &QPainterWrap::begin),
+                   InstanceMethod("end", &QPainterWrap::end),
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
 }
 
-QPainter* QPainterWrap::getInternalInstance() {
-  return this->instance;
-}
+QPainter* QPainterWrap::getInternalInstance() { return this->instance; }
 QPainterWrap::~QPainterWrap() { delete this->instance; }
 
 QPainterWrap::QPainterWrap(const Napi::CallbackInfo& info)
@@ -32,7 +30,8 @@ QPainterWrap::QPainterWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     Napi::Object deviceObject = info[0].As<Napi::Object>();
-    QWidgetWrap *deviceWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(deviceObject);
+    QWidgetWrap* deviceWrap =
+        Napi::ObjectWrap<QWidgetWrap>::Unwrap(deviceObject);
     this->instance = new QPainter(deviceWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new QPainter();
@@ -57,8 +56,8 @@ Napi::Value QPainterWrap::begin(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object deviceObject = info[0].As<Napi::Object>();
-  QWidgetWrap *deviceWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(deviceObject);
-  QWidget *device = deviceWrap->getInternalInstance();
+  QWidgetWrap* deviceWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(deviceObject);
+  QWidget* device = deviceWrap->getInternalInstance();
   bool ret = this->instance->begin(device);
   return Napi::Value::From(env, ret);
 }
