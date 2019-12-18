@@ -2,6 +2,7 @@
 
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
+#include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtCore/QUrl/qurl_wrap.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
@@ -61,6 +62,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QVariantWrap::init(env, exports);
   QSizeWrap::init(env, exports);
   QRectWrap::init(env, exports);
+  QPointWrap::init(env, exports);
   QUrlWrap::init(env, exports);
   QClipboardWrap::init(env, exports);
   QWidgetWrap::init(env, exports);

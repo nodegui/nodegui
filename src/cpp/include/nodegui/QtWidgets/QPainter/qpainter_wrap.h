@@ -23,6 +23,11 @@ class QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   Napi::Value drawText(const Napi::CallbackInfo& info);
   Napi::Value begin(const Napi::CallbackInfo& info);
   Napi::Value end(const Napi::CallbackInfo& info);
-
+  Napi::Value rotate(const Napi::CallbackInfo& info);
+  Napi::Value setPen(const Napi::CallbackInfo& info);
+  Napi::Value drawLine(const Napi::CallbackInfo& info);
+  Napi::Value scale(const Napi::CallbackInfo& info);
+  Napi::Value translate(const Napi::CallbackInfo& info);
+  Napi::Value drawConvexPolygon(const Napi::CallbackInfo& info);
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };
