@@ -118,14 +118,15 @@ Napi::Value QPainterWrap::drawConvexPolygon(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Array pointsNapi = info[0].As<Napi::Array>();
-  QList<QPoint*> list;
+  QList<QPoint*> points;
   for (int i = 0; i < pointsNapi.Length(); i++) {
-    Napi::Object itemObject = pointsNapi[i].As<Napi::Object>();
-    QPointWrap* itemWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(itemObject);
-    QPoint* item = itemWrap->getInternalInstance();
-    list.append(item);
+    Napi::Value pointNapi = pointsNapi[i];
+    Napi::Object pointObject = pointNapi.As<Napi::Object>();
+    QPointWrap* pointWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(pointObject);
+    QPoint* point = pointWrap->getInternalInstance();
+    points.append(point);
   }
-  int count = info[1].As<Napi::Number>().Int32Value();
-  this->instance->drawConvexPolygon(list, count);
+  int pointCount = info[1].As<Napi::Number>().Int32Value();
+  this->instance->drawConvexPolygon(points, pointCount);
   return env.Null();
 }

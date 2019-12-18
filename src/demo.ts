@@ -18,6 +18,7 @@ win.addEventListener(QMainWindowEvents.Paint, () => {
     const painter = new QPainter(win);
     painter.scale(side / 200.0, side / 200.0);
     painter.translate(win.geometry().width / 2, win.geometry().height / 2);
+    painter.drawConvexPolygon(hourHand, 3);
     for (let i = 0; i < 12; ++i) {
         painter.drawLine(88, 0, 96, 0);
         painter.rotate(30.0);
