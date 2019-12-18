@@ -164,6 +164,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://www.bundyo.org"><img src="https://avatars1.githubusercontent.com/u/98318?v=4" width="100px;" alt=""/><br /><sub><b>Bundyo (Kamen Bundev)</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=bundyo" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/feng8848"><img src="https://avatars2.githubusercontent.com/u/40539968?v=4" width="100px;" alt=""/><br /><sub><b>feng8848</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=feng8848" title="Code">💻</a></td>
     <td align="center"><a href="https://karelov.info"><img src="https://avatars3.githubusercontent.com/u/2384454?v=4" width="100px;" alt=""/><br /><sub><b>Maksim Karelov</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=Ty3uK" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/mspencer92"><img src="https://avatars2.githubusercontent.com/u/1910455?v=4" width="100px;" alt=""/><br /><sub><b>mspencer92</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=mspencer92" title="Code">💻</a></td>
   </tr>
 </table>
 
