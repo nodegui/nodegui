@@ -11,7 +11,7 @@ export class QTreeWidgetItem extends Component {
             this.native = parent as NativeElement;
         } else {
             if (parent instanceof QTreeWidgetItem || parent instanceof QTreeWidget) {
-                this.nodeParent = parent;
+                this.setNodeParent(parent);
                 const type = parent instanceof QTreeWidgetItem ? 'item' : 'tree';
                 if (strings) {
                     this.native = new addon.QTreeWidgetItem(parent.native, strings, type);
@@ -19,7 +19,8 @@ export class QTreeWidgetItem extends Component {
                     this.native = new addon.QTreeWidgetItem(parent.native, type);
                 }
             } else if (Array.isArray(parent)) {
-                this.native = new addon.QTreeWidgetItem(parent);
+                const strings = parent;
+                this.native = new addon.QTreeWidgetItem(strings);
             } else {
                 this.native = new addon.QTreeWidgetItem();
             }

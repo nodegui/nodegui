@@ -21,7 +21,7 @@ export class QTreeWidget extends QAbstractScrollArea {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
 
     addTopLevelItem(item: QTreeWidgetItem): void {

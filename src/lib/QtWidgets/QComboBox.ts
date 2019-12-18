@@ -21,7 +21,7 @@ export class QComboBox extends NodeWidget {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
     addItem(value: string): void {
         this.native.addItem(value);

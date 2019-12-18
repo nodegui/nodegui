@@ -33,7 +33,7 @@ export class QPlainTextEdit extends QAbstractScrollArea {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
     setPlainText(text: string | number): void {
         // react:✓

@@ -26,7 +26,7 @@ export class QMenuBar extends NodeWidget {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
 
     addMenu(menu: QMenu): void {

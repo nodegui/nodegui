@@ -27,7 +27,7 @@ export class QFileDialog extends NodeWidget {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
     open(): void {
         this.native.open();

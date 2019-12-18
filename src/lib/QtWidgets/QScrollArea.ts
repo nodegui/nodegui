@@ -19,7 +19,7 @@ export class QScrollArea extends QAbstractScrollArea {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
         this.setWidgetResizable(true);
     }
     setWidget(widget: NodeWidget): void {

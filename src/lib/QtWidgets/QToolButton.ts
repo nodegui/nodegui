@@ -33,7 +33,7 @@ export class QToolButton extends QAbstractButton {
             native = new addon.QToolButton();
         }
         super(native);
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
         this.native = native;
     }
     setArrowType(type: ArrowType): void {

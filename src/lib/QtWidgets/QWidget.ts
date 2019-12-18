@@ -193,7 +193,7 @@ export class QWidget extends NodeWidget {
             native = new addon.QWidget();
         }
         super(native);
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
         this.native = native;
     }
 }

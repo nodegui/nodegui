@@ -23,7 +23,7 @@ export class QLabel extends NodeWidget {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {
         this.native.setAlignment(alignment);
