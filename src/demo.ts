@@ -5,9 +5,9 @@ const center = new QWidget();
 
 const tree = new QTreeWidget();
 
-const item1 = new QTreeWidgetItem(tree, ['Hello!']);
-const item2 = new QTreeWidgetItem(item1, ['Hello again!']);
-const item3 = new QTreeWidgetItem(['Hello!!']);
+const item1 = new QTreeWidgetItem(tree, ['Hello item1!']);
+const item2 = new QTreeWidgetItem(item1, ['Hello item2!']);
+const item3 = new QTreeWidgetItem(['Hello item3!!']);
 tree.addTopLevelItem(item3);
 tree.addEventListener('itemSelectionChanged', () => {
     const items = tree.selectedItems();

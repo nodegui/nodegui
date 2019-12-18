@@ -11,7 +11,7 @@ export const QTreeWidgetEvents = Object.freeze({
 
 export class QTreeWidget extends QAbstractScrollArea {
     native: NativeElement;
-
+    topLevelItems: Set<QTreeWidgetItem>;
     constructor(parent?: NodeWidget) {
         let native;
         if (parent) {
@@ -22,9 +22,11 @@ export class QTreeWidget extends QAbstractScrollArea {
         super(native);
         this.native = native;
         this.setNodeParent(parent);
+        this.topLevelItems = new Set<QTreeWidgetItem>();
     }
 
     addTopLevelItem(item: QTreeWidgetItem): void {
+        this.topLevelItems.add(item);
         this.native.addTopLevelItem(item.native);
     }
 

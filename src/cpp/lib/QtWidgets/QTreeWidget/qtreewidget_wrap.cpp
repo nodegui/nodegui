@@ -65,11 +65,12 @@ Napi::Value QTreeWidgetWrap::selectedItems(const Napi::CallbackInfo& info) {
   Napi::Array napiItems = Napi::Array::New(env, items.size());
   for (int i = 0; i < items.size(); i++) {
     QTreeWidgetItem* item = items[i];
+    // disable deletion of the native instance for these by passing true
     Napi::Object val = QTreeWidgetItemWrap::constructor.New(
-        {Napi::External<QTreeWidgetItem>::New(env, item)});
+        {Napi::External<QTreeWidgetItem>::New(env, item),
+         Napi::Boolean::New(env, true)});
     napiItems[i] = val;
   }
 
   return napiItems;
-  return env.Null();
 }

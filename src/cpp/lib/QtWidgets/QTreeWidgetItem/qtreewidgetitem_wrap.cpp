@@ -32,8 +32,7 @@ QTreeWidgetItem *QTreeWidgetItemWrap::getInternalInstance() {
 }
 
 QTreeWidgetItemWrap::~QTreeWidgetItemWrap() {
-  if (this->instance->parent() == nullptr) {
-    qDebug() << "this->instance->parent" << this->instance->parent();
+  if (!this->disableDeletion) {
     delete this->instance;
   }
 }
@@ -41,9 +40,15 @@ QTreeWidgetItemWrap::QTreeWidgetItemWrap(const Napi::CallbackInfo &info)
     : Napi::ObjectWrap<QTreeWidgetItemWrap>(info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  if (info[0].IsExternal()) {
+
+  if (info.Length() > 0 && info[0].IsExternal()) {
+    // --- if external ---
     this->instance = info[0].As<Napi::External<QTreeWidgetItem>>().Data();
+    if (info.Length() == 2) {
+      this->disableDeletion = info[1].As<Napi::Boolean>().Value();
+    }
   } else {
+    // --- regular cases ---
     if (info.Length() == 3) {
       Napi::Array stringsNapi = info[1].As<Napi::Array>();
       QList<QString> list;
@@ -97,7 +102,6 @@ QTreeWidgetItemWrap::QTreeWidgetItemWrap(const Napi::CallbackInfo &info)
       }
       QStringList strings = QStringList(list);
       this->instance = new QTreeWidgetItem(strings);
-
     } else if (info.Length() == 0) {
       this->instance = new QTreeWidgetItem();
     } else {
@@ -126,8 +130,10 @@ Napi::Value QTreeWidgetItemWrap::parent(const Napi::CallbackInfo &info) {
     return env.Null();
   } else {
     QTreeWidgetItem *item = this->instance->parent();
+    // disable deletion of the native instance for these by passing true
     Napi::Object val = QTreeWidgetItemWrap::constructor.New(
-        {Napi::External<QTreeWidgetItem>::New(env, item)});
+        {Napi::External<QTreeWidgetItem>::New(env, item),
+         Napi::Boolean::New(env, true)});
     return val;
   }
 }
@@ -147,8 +153,10 @@ Napi::Value QTreeWidgetItemWrap::child(const Napi::CallbackInfo &info) {
     return env.Null();
   } else {
     QTreeWidgetItem *item = this->instance->child(index);
+    // disable deletion of the native instance for these by passing true
     Napi::Object val = QTreeWidgetItemWrap::constructor.New(
-        {Napi::External<QTreeWidgetItem>::New(env, item)});
+        {Napi::External<QTreeWidgetItem>::New(env, item),
+         Napi::Boolean::New(env, true)});
     return val;
   }
 }

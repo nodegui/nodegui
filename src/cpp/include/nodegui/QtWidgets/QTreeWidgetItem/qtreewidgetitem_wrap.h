@@ -11,6 +11,7 @@
 class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
  private:
   QTreeWidgetItem *instance;
+  bool disableDeletion;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
