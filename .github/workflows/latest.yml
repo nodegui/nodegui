@@ -1,6 +1,7 @@
 on:
-    push
-    # types: [opened, synchronize, reopened]
+    push:
+        branches:
+            - master # Push events on master branch
 jobs:
     build:
         strategy:
