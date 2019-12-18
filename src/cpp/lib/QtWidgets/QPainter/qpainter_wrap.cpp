@@ -2,6 +2,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
+#include "QtCore/QColor/qcolor_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/Component/component_wrap.h"
 
@@ -17,10 +18,13 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("end", &QPainterWrap::end),
                    InstanceMethod("rotate", &QPainterWrap::rotate),
                    InstanceMethod("setPen", &QPainterWrap::setPen),
+                   InstanceMethod("setBrush", &QPainterWrap::setBrush),
                    InstanceMethod("drawLine", &QPainterWrap::drawLine),
                    InstanceMethod("scale", &QPainterWrap::scale),
                    InstanceMethod("translate", &QPainterWrap::translate),
                    InstanceMethod("drawConvexPolygon", &QPainterWrap::drawConvexPolygon),
+                   InstanceMethod("save", &QPainterWrap::save),
+                   InstanceMethod("restore", &QPainterWrap::restore),
 COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -71,8 +75,8 @@ Napi::Value QPainterWrap::begin(const Napi::CallbackInfo& info) {
 Napi::Value QPainterWrap::end(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  this->instance->end();
-  return env.Null();
+  bool ret = this->instance->end();
+  return Napi::Value::From(env, ret);
 }
 Napi::Value QPainterWrap::rotate(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -118,15 +122,36 @@ Napi::Value QPainterWrap::drawConvexPolygon(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Array pointsNapi = info[0].As<Napi::Array>();
-  QList<QPoint*> points;
+  QPolygon polygon;
   for (int i = 0; i < pointsNapi.Length(); i++) {
-    Napi::Value pointNapi = pointsNapi[i];
-    Napi::Object pointObject = pointNapi.As<Napi::Object>();
+    Napi::Object pointObject = pointsNapi.Get(i).As<Napi::Object>();
     QPointWrap* pointWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(pointObject);
     QPoint* point = pointWrap->getInternalInstance();
-    points.append(point);
+    polygon << *point;
   }
-  int pointCount = info[1].As<Napi::Number>().Int32Value();
-  this->instance->drawConvexPolygon(points, pointCount);
+  this->instance->drawConvexPolygon(polygon);
+  return env.Null();
+}
+Napi::Value QPainterWrap::save(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->save();
+  return env.Null();
+}
+Napi::Value QPainterWrap::restore(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->restore();
+  return env.Null();
+}
+Napi::Value QPainterWrap::setBrush(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+    Napi::Object colorObject = info[0].As<Napi::Object>();
+    QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
+    QColor* color = colorWrap->getInternalInstance();
+    QBrush* brush = new QBrush(*color);
+  this->instance->setBrush(*brush);
   return env.Null();
 }

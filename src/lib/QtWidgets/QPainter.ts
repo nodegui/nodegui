@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import {Component, NativeElement} from '../core/Component';
-import {QPoint} from "../..";
+import {QColor, QPoint} from "../..";
 
 export class QPainter extends Component {
     native: NativeElement;
@@ -24,8 +24,8 @@ export class QPainter extends Component {
         return this.native.begin(device.native);
     }
 
-    end(): void {
-        this.native.end();
+    end(): boolean {
+        return this.native.end();
     }
 
     rotate(angle: Number): void {
@@ -47,8 +47,21 @@ export class QPainter extends Component {
     translate(dx: Number, dy: Number): void {
         this.native.translate(dx, dy);
     }
-    drawConvexPolygon(points: QPoint[], pointCount: Number): void{
-        this.native.drawConvexPolygon(points, pointCount);
+
+    drawConvexPolygon(points: QPoint[]): void {
+        const nativePoints = points.map(point => point.native);
+        this.native.drawConvexPolygon(nativePoints);
     }
 
+    save(): void {
+        this.native.save();
+    }
+
+    restore(): void {
+        this.native.restore();
+    }
+
+    setBrush(color: QColor) {
+        this.native.setBrush(color.native);
+    }
 }
