@@ -20,6 +20,7 @@ tree.addEventListener('itemSelectionChanged', () => {
             }
         }
         console.log(item.childCount());
+        (global as any).gc();
     });
 });
 center.setLayout(new FlexLayout());

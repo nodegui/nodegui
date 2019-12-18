@@ -12,17 +12,11 @@ export class QTreeWidgetItem extends Component {
         } else {
             if (parent instanceof QTreeWidgetItem || parent instanceof QTreeWidget) {
                 this.nodeParent = parent;
+                const type = parent instanceof QTreeWidgetItem ? 'item' : 'tree';
                 if (strings) {
-                    this.native = new addon.QTreeWidgetItem(
-                        parent.native,
-                        strings,
-                        parent instanceof QTreeWidgetItem ? 'item' : 'tree',
-                    );
+                    this.native = new addon.QTreeWidgetItem(parent.native, strings, type);
                 } else {
-                    this.native = new addon.QTreeWidgetItem(
-                        parent.native,
-                        parent instanceof QTreeWidgetItem ? 'item' : 'tree',
-                    );
+                    this.native = new addon.QTreeWidgetItem(parent.native, type);
                 }
             } else if (Array.isArray(parent)) {
                 this.native = new addon.QTreeWidgetItem(parent);

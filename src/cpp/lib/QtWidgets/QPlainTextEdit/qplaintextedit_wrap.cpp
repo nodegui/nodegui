@@ -134,7 +134,8 @@ Napi::Value QPlainTextEditWrap::lineWrapMode(const Napi::CallbackInfo &info) {
   return Napi::Number::From(env, value);
 }
 
-Napi::Value QPlainTextEditWrap::insertPlainText(const Napi::CallbackInfo &info) {
+Napi::Value QPlainTextEditWrap::insertPlainText(
+    const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::String plainText = info[0].As<Napi::String>();

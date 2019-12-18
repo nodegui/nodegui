@@ -13,10 +13,10 @@ export abstract class QAbstractScrollArea extends NodeWidget {
         }
         return this.viewportWidget;
     }
-    setHorizontalScrollBarPolicy(policy: ScrollBarPolicy) {
+    setHorizontalScrollBarPolicy(policy: ScrollBarPolicy): void {
         this.native.setProperty('horizontalScrollBarPolicy', policy);
     }
-    setVerticalScrollBarPolicy(policy: ScrollBarPolicy) {
+    setVerticalScrollBarPolicy(policy: ScrollBarPolicy): void {
         this.native.setProperty('verticalScrollBarPolicy', policy);
     }
 }

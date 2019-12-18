@@ -1,7 +1,7 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
-import { Component, NativeElement } from '../core/Component';
+import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QTreeWidgetItem } from '../..';
 
 export const QTreeWidgetEvents = Object.freeze({
@@ -28,7 +28,7 @@ export class QTreeWidget extends QAbstractScrollArea {
         this.native.addTopLevelItem(item.native);
     }
 
-    setHeaderHidden(hide: boolean) {
+    setHeaderHidden(hide: boolean): void {
         this.native.setProperty('headerHidden', hide);
     }
 
