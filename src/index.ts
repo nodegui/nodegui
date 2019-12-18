@@ -47,6 +47,7 @@ export { QPlainTextEdit, QPlainTextEditEvents, LineWrapMode } from './lib/QtWidg
 export { QScrollArea, QScrollAreaEvents } from './lib/QtWidgets/QScrollArea';
 export { QTreeWidget, QTreeWidgetEvents } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
+export { QPainter } from './lib/QtWidgets/QPainter';
 
 export {
     QSystemTrayIcon,
