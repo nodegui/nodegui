@@ -23,6 +23,7 @@ Napi::Object QPlainTextEditWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("wordWrapMode", &QPlainTextEditWrap::wordWrapMode),
        InstanceMethod("setLineWrapMode", &QPlainTextEditWrap::setLineWrapMode),
        InstanceMethod("lineWrapMode", &QPlainTextEditWrap::lineWrapMode),
+       InstanceMethod("insertPlainText", &QPlainTextEditWrap::insertPlainText),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPlainTextEditWrap)
            QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(
                QPlainTextEditWrap)});
@@ -131,4 +132,13 @@ Napi::Value QPlainTextEditWrap::lineWrapMode(const Napi::CallbackInfo &info) {
   Napi::HandleScope scope(env);
   int value = static_cast<int>(this->instance->lineWrapMode());
   return Napi::Number::From(env, value);
+}
+
+Napi::Value QPlainTextEditWrap::insertPlainText(
+    const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::String plainText = info[0].As<Napi::String>();
+  this->instance->insertPlainText(plainText.Utf8Value().c_str());
+  return env.Null();
 }

@@ -18,7 +18,7 @@ export class QProgressBar extends NodeWidget {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
     setValue(value: number): void {
         // react:✓

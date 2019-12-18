@@ -43,6 +43,8 @@
 #include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
 #include "QtWidgets/QToolButton/qtoolbutton_wrap.h"
+#include "QtWidgets/QTreeWidget/qtreewidget_wrap.h"
+#include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
 // These cant be instantiated in JS Side
@@ -73,6 +75,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QFileDialogWrap::init(env, exports);
   QTableWidgetWrap::init(env, exports);
   QTableWidgetItemWrap::init(env, exports);
+  QTreeWidgetWrap::init(env, exports);
+  QTreeWidgetItemWrap::init(env, exports);
   QGridLayoutWrap::init(env, exports);
   QGroupBoxWrap::init(env, exports);
   FlexLayoutWrap::init(env, exports);

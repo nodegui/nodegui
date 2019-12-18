@@ -45,6 +45,9 @@ export { QMenu, QMenuEvents } from './lib/QtWidgets/QMenu';
 export { QMenuBar, QMenuBarEvents } from './lib/QtWidgets/QMenuBar';
 export { QPlainTextEdit, QPlainTextEditEvents, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
 export { QScrollArea, QScrollAreaEvents } from './lib/QtWidgets/QScrollArea';
+export { QTreeWidget, QTreeWidgetEvents } from './lib/QtWidgets/QTreeWidget';
+export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
+
 export {
     QSystemTrayIcon,
     QSystemTrayIconEvents,

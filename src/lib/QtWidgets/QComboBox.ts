@@ -23,7 +23,7 @@ export class QComboBox extends NodeWidget {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
     addItem(icon: QIcon | undefined, text: string, userData: QVariant = new QVariant()): void {
         if (icon) {

@@ -24,7 +24,7 @@ export class QTabWidget extends NodeWidget {
             native = new addon.QTabWidget();
         }
         super(native);
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
         this.tabs = [];
         this.native = native;
     }

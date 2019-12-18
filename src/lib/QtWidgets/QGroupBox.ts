@@ -20,7 +20,7 @@ export class QGroupBox extends NodeWidget {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
     alignment(): AlignmentFlag {
         return this.native.alignment();

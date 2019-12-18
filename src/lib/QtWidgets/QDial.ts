@@ -23,7 +23,7 @@ export class QDial extends QAbstractSlider {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
     setNotchesVisible(visible: boolean): void {
         // react:✓

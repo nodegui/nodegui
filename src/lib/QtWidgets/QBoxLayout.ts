@@ -15,7 +15,7 @@ export class QBoxLayout extends NodeLayout {
             native = new addon.QBoxLayout(dir);
         }
         super(native);
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
         this.native = native;
         this.childLayouts = new Set();
     }

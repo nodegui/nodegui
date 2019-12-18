@@ -18,6 +18,6 @@ export class QRadioButton extends QAbstractButton {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
 }

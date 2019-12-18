@@ -33,7 +33,7 @@ export class QPlainTextEdit extends QAbstractScrollArea {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
     setPlainText(text: string | number): void {
         // react:✓
@@ -67,5 +67,8 @@ export class QPlainTextEdit extends QAbstractScrollArea {
     }
     lineWrapMode(): LineWrapMode {
         return this.native.lineWrapMode();
+    }
+    insertPlainText(text: string | number): void {
+        this.native.insertPlainText(`${text}`);
     }
 }
