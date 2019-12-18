@@ -1,6 +1,6 @@
-import {Component, NativeElement} from '../core/Component';
+import { Component, NativeElement } from '../core/Component';
 import addon from '../utils/addon';
-import {checkIfNativeElement} from '../utils/helpers';
+import { checkIfNativeElement } from '../utils/helpers';
 
 export class QColor extends Component {
     native: NativeElement;

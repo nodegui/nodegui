@@ -90,16 +90,16 @@ Napi::Value QPainterWrap::setPen(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::String napiType = info[1].As<Napi::String>();
-    std::string type = napiType.Utf8Value();
+  std::string type = napiType.Utf8Value();
 
   if (type == "color") {
     Napi::Object colorObject = info[0].As<Napi::Object>();
     QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
     QColor* color = colorWrap->getInternalInstance();
-  this->instance->setPen(*color);
+    this->instance->setPen(*color);
   } else if (type == "style") {
     Qt::PenStyle style = (Qt::PenStyle)info[0].As<Napi::Number>().Int32Value();
-  this->instance->setPen(style);
+    this->instance->setPen(style);
   }
   return env.Null();
 }
@@ -169,7 +169,8 @@ Napi::Value QPainterWrap::setBrush(const Napi::CallbackInfo& info) {
 Napi::Value QPainterWrap::setRenderHint(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  QPainter::RenderHint hint = (QPainter::RenderHint)info[0].As<Napi::Number>().Int32Value();
+  QPainter::RenderHint hint =
+      (QPainter::RenderHint)info[0].As<Napi::Number>().Int32Value();
 
   this->instance->setRenderHint(hint, true);
   return env.Null();

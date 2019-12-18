@@ -87,4 +87,4 @@ export { WindowFrameSection } from './WindowFrameSection';
 export { WindowModality } from './WindowModality';
 export { WindowState } from './WindowState';
 export { WindowType } from './WindowType';
-export {PenStyle} from './PenStyle';
+export { PenStyle } from './PenStyle';

@@ -33,32 +33,43 @@ function repaint(): void {
 setTimeout(repaint, 1000);
 win.addEventListener(QMainWindowEvents.Paint, () => {
     const time = new Date();
+
     const painter = new QPainter(win);
     painter.setRenderHint(RenderHint.Antialiasing);
     painter.translate(win.geometry().width / 2, win.geometry().height / 2);
     painter.scale(side / 200.0, side / 200.0);
+
     painter.setPen(PenStyle.NoPen);
     painter.setBrush(hourColor);
+
     painter.save();
     painter.rotate(30.0 * (time.getHours() + time.getMinutes() / 60.0));
     painter.drawConvexPolygon(hourHand);
     painter.restore();
+
     painter.setPen(hourColor);
+
     for (let i = 0; i < 12; ++i) {
         painter.drawLine(88, 0, 96, 0);
         painter.rotate(30.0);
     }
+
+    painter.setPen(PenStyle.NoPen);
     painter.setBrush(minuteColor);
+
     painter.save();
     painter.rotate(6.0 * (time.getMinutes() + time.getSeconds() / 60.0));
     painter.drawConvexPolygon(minuteHand);
     painter.restore();
-    painter.save();
+
     painter.setBrush(secondColor);
     painter.setPen(PenStyle.NoPen);
+
+    painter.save();
     painter.rotate(360 * (time.getSeconds() / 60.0));
     painter.drawConvexPolygon(secondHand);
     painter.restore();
+
     painter.setPen(minuteColor);
     for (let j = 0; j < 60; ++j) {
         if (j % 5 != 0) {

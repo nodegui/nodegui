@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
-import {Component, NativeElement} from '../core/Component';
-import {PenStyle, QColor, QPoint} from '../..';
+import { Component, NativeElement } from '../core/Component';
+import { PenStyle, QColor, QPoint } from '../..';
 
 export enum RenderHint {
     Antialiasing = 0x01,
