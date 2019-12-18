@@ -17,8 +17,8 @@
     "private": false,
     "scripts": {
         "dev": "npm run build && qode  dist/demo.js",
-        "postinstall": "npm run build:addon",
         "build": "tsc && npm run build:addon",
+        "postinstall": "npm run build:addon",
         "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
         "test": "qode ./node_modules/jest/bin/jest -i",
         "lint:cpp": "clang-format -i --glob=src/cpp/**/*.[h,c]*",

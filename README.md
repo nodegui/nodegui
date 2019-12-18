@@ -39,41 +39,54 @@ https://github.com/nodegui/examples
 
 ## Features
 
-- 🧬 Cross platform. Should work on major Linux flavours, Windows and MacOS.
-- 📉 Low CPU and memory footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
-- 💅 Styling with CSS (includes actual cascading). Also has full support for Flexbox layout (thanks to Yoga).
-- ✅ Complete Nodejs api support (Currently runs on Node v12.x - and is easily upgradable). Hence has access to all nodejs compatible npm modules.
-- 🎪 Native widget event listener support. Supports all events available from Qt / NodeJs.
-- 💸 Can be used for Commercial applications.
-- 🕵️‍♂️ Good Devtools support.
-- 📚 Good documentation and website.
-- 🧙‍♂️ Good documentation for contributors.
-- 🦹🏻‍♀️ Good support for dark mode (Thanks to QT).
-- 🏅First class Typescript support. (Works on regular JS projects too 😉).
-
+-   🧬 Cross platform. Should work on major Linux flavours, Windows and MacOS.
+-   📉 Low CPU and memory footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
+-   💅 Styling with CSS (includes actual cascading). Also has full support for Flexbox layout (thanks to Yoga).
+-   ✅ Complete Nodejs api support (Currently runs on Node v12.x - and is easily upgradable). Hence has access to all nodejs compatible npm modules.
+-   🎪 Native widget event listener support. Supports all events available from Qt / NodeJs.
+-   💸 Can be used for Commercial applications.
+-   🕵️‍♂️ Good Devtools support.
+-   📚 Good documentation and website.
+-   🧙‍♂️ Good documentation for contributors.
+-   🦹🏻‍♀️ Good support for dark mode (Thanks to QT).
+-   🏅First class Typescript support. (Works on regular JS projects too 😉).
 
 ## Getting Started
 
-- Check out [nodegui-starter](https://github.com/nodegui/nodegui-starter) to get up and running with your own React NodeGUI app!
-- Read through the [docs](https://nodegui.github.io/nodegui).
-- Checkout the examples: https://github.com/nodegui/examples .
+-   Check out [nodegui-starter](https://github.com/nodegui/nodegui-starter) to get up and running with your own React NodeGUI app!
+-   Read through the [docs](https://nodegui.github.io/nodegui).
+-   Checkout the examples: https://github.com/nodegui/examples .
+
+## Installation
+
+To install latest stable release:
+
+```
+npm install @nodegui/nodegui
+```
+
+To install the latest version available on master branch:
+
+```
+npm install https://github.com/@nodegui/nodegui/releases/download/latest-master/nodegui-master.tgz
+```
 
 **Community guides**
 
-- https://blog.logrocket.com/electron-alternatives-exploring-nodegui-and-react-nodegui/ - Electron alternatives: Exploring NodeGUI and React NodeGUI by [Siegfried Grimbeek](https://blog.logrocket.com/author/siegfriedgrimbeek/).
-- https://hibbard.eu/node-gui/ - Excellent guide from [James Hibbard](https://github.com/jameshibbard).
+-   https://blog.logrocket.com/electron-alternatives-exploring-nodegui-and-react-nodegui/ - Electron alternatives: Exploring NodeGUI and React NodeGUI by [Siegfried Grimbeek](https://blog.logrocket.com/author/siegfriedgrimbeek/).
+-   https://hibbard.eu/node-gui/ - Excellent guide from [James Hibbard](https://github.com/jameshibbard).
 
 **Talks/Podcasts**
 
-- [NodeGui and React NodeGui at KarmaJS Nov 2019 meetup: https://www.youtube.com/watch?v=8jH5gaEEDv4](https://www.youtube.com/watch?v=8jH5gaEEDv4)
+-   [NodeGui and React NodeGui at KarmaJS Nov 2019 meetup: https://www.youtube.com/watch?v=8jH5gaEEDv4](https://www.youtube.com/watch?v=8jH5gaEEDv4)
 
-- <audio data-theme="night" data-src="https://changelog.com/jsparty/96/embed" src="https://cdn.changelog.com/uploads/jsparty/96/js-party-96.mp3" preload="none" class="changelog-episode" controls></audio><p><a href="https://changelog.com/jsparty/96">JS Party 96: Performant Node desktop apps with NodeGUI</a> – Listen on <a href="https://changelog.com/">Changelog.com</a></p>
+-   <audio data-theme="night" data-src="https://changelog.com/jsparty/96/embed" src="https://cdn.changelog.com/uploads/jsparty/96/js-party-96.mp3" preload="none" class="changelog-episode" controls></audio><p><a href="https://changelog.com/jsparty/96">JS Party 96: Performant Node desktop apps with NodeGUI</a> – Listen on <a href="https://changelog.com/">Changelog.com</a></p>
 
 ## Docs for contributing
 
- ``` 
- It is easier than you think, try it 
- ```
+```
+It is easier than you think, try it
+```
 
 Looking to contribute? If you wish to implement a new widget/add more features and need help understanding the codebase, you can start here: [Contributing developer docs](https://github.com/nodegui/nodegui/tree/master/website/docs/development).
 
@@ -81,11 +94,13 @@ Please read https://github.com/nodegui/.github/blob/master/CONTRIBUTING.md
 
 ## Building
 
-`npm run build [--qt_home_dir=/path/to/qt]`
+`npm run build`
+
+Optionally set `QT_INSTALL_DIR='/path/to/qt'` environment variable to build using your own version of Qt.
 
 ## Funding
 
-NodeGUI is an open source project and requires your support. If you like this project, please consider supporting my work by clicking on the Sponsor button on this Github repository or via Ko-Fi. 
+NodeGUI is an open source project and requires your support. If you like this project, please consider supporting my work by clicking on the Sponsor button on this Github repository or via Ko-Fi.
 Alternatively, Issues on NodeGui can be funded by anyone via Issuehunt and the amount will be distributed to respective contributors.
 
 <p>
@@ -94,7 +109,7 @@ Alternatively, Issues on NodeGui can be funded by anyone via Issuehunt and the a
 
 ## Special Thanks
 
-- [Logo: Thanks to Vishwas Shetty from the Noun Project.](https://github.com/nodegui/nodegui/blob/master/extras/legal/logo/thanks.md) 
+-   [Logo: Thanks to Vishwas Shetty from the Noun Project.](https://github.com/nodegui/nodegui/blob/master/extras/legal/logo/thanks.md)
 
 ## Code of Conduct
 
@@ -117,7 +132,6 @@ Thanks goes to these wonderful people.
   </tr>
 </table>
 
-
 ## Maintainers ✨
 
 People maintaining this project.
@@ -129,7 +143,6 @@ People maintaining this project.
     <td align="center"><a href="https://github.com/dimitarnestorov"><img src="https://avatars3.githubusercontent.com/u/8790386?s=460&v=4" width="100px;" alt="Dimitar"/><br /><sub><b>Dimitar Nestorov</b></sub></a></td>
   </tr>
 </table>
-
 
 ## Contributors ✨
 
@@ -170,6 +183,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
