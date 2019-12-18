@@ -1,4 +1,4 @@
-import { FlexLayout, QMainWindow, QTreeWidget, QTreeWidgetItem, QWidget } from './index';
+import { QMainWindow, QTreeWidget, QTreeWidgetItem, QSystemTrayIcon, QIcon, QWidget, FlexLayout } from './index';
 
 const win = new QMainWindow();
 const center = new QWidget();
@@ -29,4 +29,10 @@ center.layout?.addWidget(tree);
 win.setCentralWidget(center);
 win.show();
 
+const systray = new QSystemTrayIcon();
+systray.setIcon(new QIcon());
+systray.show();
+systray.showMessage('Hello', 'world');
+
 (global as any).win = win;
+(global as any).systray = systray;
