@@ -1,6 +1,7 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
-import { checkIfNativeElement, QTreeWidget } from '../..';
+import { checkIfNativeElement } from '../utils/helpers';
+import { QTreeWidget } from './QTreeWidget';
 
 export class QTreeWidgetItem extends Component {
     native: NativeElement;

@@ -22,13 +22,13 @@ describe('QRect', () => {
     });
     it('left', () => {
         const rect = new QRect();
-        rect.setHeight(200);
-        expect(rect.height()).toBe(200);
+        rect.setLeft(200);
+        expect(rect.left()).toBe(200);
     });
     it('top', () => {
         const rect = new QRect();
-        rect.setHeight(200);
-        expect(rect.height()).toBe(200);
+        rect.setTop(200);
+        expect(rect.top()).toBe(200);
     });
     it('initialize from QVariant', () => {
         const rect = new QRect(10, 10, 300, 200);

@@ -1,6 +1,8 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
-import { PenStyle, QColor, QPoint } from '../..';
+import { PenStyle } from '../QtEnums';
+import { QColor } from '../QtCore/QColor';
+import { QPoint } from '../QtCore/QPoint';
 
 export enum RenderHint {
     Antialiasing = 0x01,
@@ -50,7 +52,7 @@ export class QPainter extends Component {
         }
     }
 
-    setRenderHint(hint: RenderHint, on = true) {
+    setRenderHint(hint: RenderHint, on = true): void {
         this.native.setRenderHint(hint, on);
     }
 
@@ -79,7 +81,7 @@ export class QPainter extends Component {
         this.native.restore();
     }
 
-    setBrush(color: QColor) {
+    setBrush(color: QColor): void {
         this.native.setBrush(color.native);
     }
 }

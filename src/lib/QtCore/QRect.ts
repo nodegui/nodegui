@@ -5,8 +5,7 @@ import { QVariant } from './QVariant';
 
 export class QRect extends Component {
     native: NativeElement;
-    //eslint-disable-next-line @typescript-eslint/no-inferrable-types
-    constructor(arg?: NativeElement | number, y: number = 0, width: number = 0, height: number = 0) {
+    constructor(arg?: NativeElement | number, y = 0, width = 0, height = 0) {
         super();
         const count = arguments.length;
         if (count > 1) {

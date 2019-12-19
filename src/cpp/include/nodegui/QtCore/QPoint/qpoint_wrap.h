@@ -1,7 +1,6 @@
 #pragma once
 
 #include <napi.h>
-#include <stdlib.h>
 
 #include <QPoint>
 
@@ -18,7 +17,10 @@ class QPointWrap : public Napi::ObjectWrap<QPointWrap> {
   ~QPointWrap();
   QPoint* getInternalInstance();
   // Wrapped methods
-
+  Napi::Value setX(const Napi::CallbackInfo& info);
+  Napi::Value setY(const Napi::CallbackInfo& info);
+  Napi::Value x(const Napi::CallbackInfo& info);
+  Napi::Value y(const Napi::CallbackInfo& info);
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
