@@ -4,6 +4,8 @@
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QVariant/qvariant_wrap.h"
+#include "QtGui/QIcon/qicon_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QComboBoxWrap::constructor;
@@ -21,6 +23,7 @@ Napi::Object QComboBoxWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("currentText", &QComboBoxWrap::currentText),
        InstanceMethod("insertSeparator", &QComboBoxWrap::insertSeparator),
        InstanceMethod("itemText", &QComboBoxWrap::itemText),
+       InstanceMethod("itemData", &QComboBoxWrap::itemData),
        InstanceMethod("removeItem", &QComboBoxWrap::removeItem),
        InstanceMethod("sizeAdjustPolicy", &QComboBoxWrap::sizeAdjustPolicy),
        InstanceMethod("setSizeAdjustPolicy",
@@ -29,6 +32,7 @@ Napi::Object QComboBoxWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setMaxVisibleItems", &QComboBoxWrap::setMaxVisibleItems),
        InstanceMethod("isEditable", &QComboBoxWrap::isEditable),
        InstanceMethod("setEditable", &QComboBoxWrap::setEditable),
+       InstanceMethod("clear", &QComboBoxWrap::clear),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QComboBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -63,10 +67,25 @@ QComboBoxWrap::QComboBoxWrap(const Napi::CallbackInfo& info)
 Napi::Value QComboBoxWrap::addItem(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
+  if (info.Length() == 3) {
+    Napi::Object iconWrap = info[0].As<Napi::Object>();
+    QIconWrap* iconWrapValue = Napi::ObjectWrap<QIconWrap>::Unwrap(iconWrap);
+    QIcon* icon = iconWrapValue->getInternalInstance();
+    std::string text = info[1].As<Napi::String>().Utf8Value();
+    Napi::Object variantWrap = info[2].As<Napi::Object>();
+    QVariantWrap* variantWrapValue =
+        Napi::ObjectWrap<QVariantWrap>::Unwrap(variantWrap);
+    QVariant* variant = variantWrapValue->getInternalInstance();
+    this->instance->addItem(*icon, text.c_str(), *variant);
+  } else {
+    std::string text = info[0].As<Napi::String>().Utf8Value();
+    Napi::Object variantWrap = info[1].As<Napi::Object>();
+    QVariantWrap* variantWrapValue =
+        Napi::ObjectWrap<QVariantWrap>::Unwrap(variantWrap);
+    QVariant* variant = variantWrapValue->getInternalInstance();
+    this->instance->addItem(text.c_str(), *variant);
+  }
 
-  std::string text = info[0].As<Napi::String>().Utf8Value();
-
-  this->instance->addItem(text.c_str());
   return env.Null();
 }
 
@@ -147,6 +166,17 @@ Napi::Value QComboBoxWrap::itemText(const Napi::CallbackInfo& info) {
   return Napi::String::New(env, this->instance->itemText(index).toStdString());
 }
 
+Napi::Value QComboBoxWrap::itemData(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int index = info[0].As<Napi::Number>().Int32Value();
+  QVariant* variant = new QVariant(this->instance->itemData(index));
+  auto variantWrap = QVariantWrap::constructor.New(
+      {Napi::External<QVariant>::New(env, variant)});
+  return variantWrap;
+}
+
 Napi::Value QComboBoxWrap::removeItem(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -203,5 +233,13 @@ Napi::Value QComboBoxWrap::setEditable(const Napi::CallbackInfo& info) {
   bool editable = info[0].As<Napi::Boolean>().Value();
 
   this->instance->setEditable(editable);
+  return env.Null();
+}
+
+Napi::Value QComboBoxWrap::clear(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  this->instance->clear();
   return env.Null();
 }

@@ -11,17 +11,27 @@ Napi::FunctionReference QLabelWrap::constructor;
 Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QLabel";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {InstanceMethod("setWordWrap", &QLabelWrap::setWordWrap),
-                   InstanceMethod("wordWrap", &QLabelWrap::wordWrap),
-                   InstanceMethod("setText", &QLabelWrap::setText),
-                   InstanceMethod("text", &QLabelWrap::text),
-                   InstanceMethod("setPixmap", &QLabelWrap::setPixmap),
-                   InstanceMethod("setMovie", &QLabelWrap::setMovie),
-                   InstanceMethod("setOpenExternalLinks",
-                                  &QLabelWrap::setOpenExternalLinks),
-                   QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("setAlignment", &QLabelWrap::setAlignment),
+       InstanceMethod("alignment", &QLabelWrap::alignment),
+       InstanceMethod("setIndent", &QLabelWrap::setIndent),
+       InstanceMethod("indent", &QLabelWrap::indent),
+       InstanceMethod("setMargin", &QLabelWrap::setMargin),
+       InstanceMethod("margin", &QLabelWrap::margin),
+       InstanceMethod("setTextFormat", &QLabelWrap::setTextFormat),
+       InstanceMethod("textFormat", &QLabelWrap::textFormat),
+       InstanceMethod("setWordWrap", &QLabelWrap::setWordWrap),
+       InstanceMethod("wordWrap", &QLabelWrap::wordWrap),
+       InstanceMethod("setText", &QLabelWrap::setText),
+       InstanceMethod("text", &QLabelWrap::text),
+       InstanceMethod("setPixmap", &QLabelWrap::setPixmap),
+       InstanceMethod("setMovie", &QLabelWrap::setMovie),
+       InstanceMethod("setOpenExternalLinks",
+                      &QLabelWrap::setOpenExternalLinks),
+       InstanceMethod("openExternalLinks", &QLabelWrap::openExternalLinks),
+       InstanceMethod("clear", &QLabelWrap::clear),
+       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -51,6 +61,72 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info)
   YGNodeSetNodeType(flexNode, YGNodeType::YGNodeTypeText);
   this->rawData =
       extrautils::configureQWidget(this->getInternalInstance(), flexNode, true);
+}
+
+Napi::Value QLabelWrap::setAlignment(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int alignment = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setAlignment(static_cast<Qt::Alignment>(alignment));
+  return env.Null();
+}
+
+Napi::Value QLabelWrap::alignment(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int alignment = static_cast<int>(this->instance->alignment());
+  return Napi::Value::From(env, alignment);
+}
+
+Napi::Value QLabelWrap::setIndent(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int indent = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setIndent(indent);
+  return env.Null();
+}
+
+Napi::Value QLabelWrap::indent(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Value::From(env, this->instance->indent());
+}
+
+Napi::Value QLabelWrap::setMargin(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int margin = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setMargin(margin);
+  return env.Null();
+}
+
+Napi::Value QLabelWrap::margin(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Value::From(env, this->instance->margin());
+}
+
+Napi::Value QLabelWrap::setTextFormat(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int format = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setTextFormat(static_cast<Qt::TextFormat>(format));
+  return env.Null();
+}
+
+Napi::Value QLabelWrap::textFormat(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int format = static_cast<int>(this->instance->textFormat());
+  return Napi::Value::From(env, format);
 }
 
 Napi::Value QLabelWrap::setWordWrap(const Napi::CallbackInfo& info) {
@@ -114,5 +190,20 @@ Napi::Value QLabelWrap::setOpenExternalLinks(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
   Napi::Boolean open = info[0].As<Napi::Boolean>();
   this->instance->setOpenExternalLinks(open.Value());
+  return env.Null();
+}
+
+Napi::Value QLabelWrap::openExternalLinks(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Value::From(env, this->instance->openExternalLinks());
+}
+
+Napi::Value QLabelWrap::clear(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  this->instance->clear();
   return env.Null();
 }

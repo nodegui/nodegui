@@ -38,7 +38,7 @@ export class QTableWidget extends QAbstractScrollArea {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
         this.items = new Set();
     }
     selectedRanges(): Range[] {

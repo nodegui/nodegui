@@ -89,6 +89,12 @@
         static_cast<Qt::WindowState>(state.Int32Value()));                  \
     return env.Null();                                                      \
   }                                                                         \
+  Napi::Value windowState(const Napi::CallbackInfo& info) {                 \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    int state = static_cast<int>(this->instance->windowState());            \
+    return Napi::Value::From(env, state);                                   \
+  }                                                                         \
   Napi::Value setWindowTitle(const Napi::CallbackInfo& info) {              \
     Napi::Env env = info.Env();                                             \
     Napi::HandleScope scope(env);                                           \
@@ -96,6 +102,12 @@
     std::string title = napiTitle.Utf8Value();                              \
     this->instance->setWindowTitle(title.c_str());                          \
     return env.Null();                                                      \
+  }                                                                         \
+  Napi::Value windowTitle(const Napi::CallbackInfo& info) {                 \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    QString title = this->instance->windowTitle();                          \
+    return Napi::String::New(env, title.toStdString());                     \
   }                                                                         \
   Napi::Value styleSheet(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                             \
@@ -161,17 +173,6 @@
     int height = info[3].As<Napi::Number>().Int32Value();                   \
     this->instance->setGeometry(x, y, width, height);                       \
     return env.Null();                                                      \
-  }                                                                         \
-  Napi::Value geometry(const Napi::CallbackInfo& info) {                    \
-    Napi::Env env = info.Env();                                             \
-    Napi::HandleScope scope(env);                                           \
-    QRect geometry = this->instance->geometry();                            \
-    Napi::Object geometryObj = Napi::Object::New(env);                      \
-    geometryObj.Set("width", geometry.width());                             \
-    geometryObj.Set("height", geometry.height());                           \
-    geometryObj.Set("x", geometry.x());                                     \
-    geometryObj.Set("y", geometry.y());                                     \
-    return geometryObj;                                                     \
   }                                                                         \
   Napi::Value setMaximumSize(const Napi::CallbackInfo& info) {              \
     Napi::Env env = info.Env();                                             \
@@ -286,6 +287,30 @@
     Napi::HandleScope scope(env);                                           \
     this->instance->lower();                                                \
     return env.Null();                                                      \
+  }                                                                         \
+  Napi::Value showFullScreen(const Napi::CallbackInfo& info) {              \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    this->instance->showFullScreen();                                       \
+    return env.Null();                                                      \
+  }                                                                         \
+  Napi::Value showMaximized(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    this->instance->showMaximized();                                        \
+    return env.Null();                                                      \
+  }                                                                         \
+  Napi::Value showMinimized(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    this->instance->showMinimized();                                        \
+    return env.Null();                                                      \
+  }                                                                         \
+  Napi::Value showNormal(const Napi::CallbackInfo& info) {                  \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    this->instance->showNormal();                                           \
+    return env.Null();                                                      \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -304,7 +329,9 @@
       InstanceMethod("setCursor", &WidgetWrapName::setCursor),               \
       InstanceMethod("setWindowIcon", &WidgetWrapName::setWindowIcon),       \
       InstanceMethod("setWindowState", &WidgetWrapName::setWindowState),     \
+      InstanceMethod("windowState", &WidgetWrapName::windowState),           \
       InstanceMethod("setWindowTitle", &WidgetWrapName::setWindowTitle),     \
+      InstanceMethod("windowTitle", &WidgetWrapName::windowTitle),           \
       InstanceMethod("styleSheet", &WidgetWrapName::styleSheet),             \
       InstanceMethod("hide", &WidgetWrapName::hide),                         \
       InstanceMethod("move", &WidgetWrapName::move),                         \
@@ -314,7 +341,6 @@
       InstanceMethod("isEnabled", &WidgetWrapName::isEnabled),               \
       InstanceMethod("setFixedSize", &WidgetWrapName::setFixedSize),         \
       InstanceMethod("setGeometry", &WidgetWrapName::setGeometry),           \
-      InstanceMethod("geometry", &WidgetWrapName::geometry),                 \
       InstanceMethod("setMaximumSize", &WidgetWrapName::setMaximumSize),     \
       InstanceMethod("setMinimumSize", &WidgetWrapName::setMinimumSize),     \
       InstanceMethod("repaint", &WidgetWrapName::repaint),                   \
@@ -330,6 +356,10 @@
       InstanceMethod("adjustSize", &WidgetWrapName::adjustSize),             \
       InstanceMethod("activateWindow", &WidgetWrapName::activateWindow),     \
       InstanceMethod("raise", &WidgetWrapName::raise),                       \
-      InstanceMethod("lower", &WidgetWrapName::lower),
+      InstanceMethod("lower", &WidgetWrapName::lower),                       \
+      InstanceMethod("showFullScreen", &WidgetWrapName::showFullScreen),     \
+      InstanceMethod("showMaximized", &WidgetWrapName::showMaximized),       \
+      InstanceMethod("showMinimized", &WidgetWrapName::showMinimized),       \
+      InstanceMethod("showNormal", &WidgetWrapName::showNormal),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE

@@ -1,24 +1,16 @@
 {
     "name": "@nodegui/nodegui",
-    "version": "0.9.1",
+    "version": "0.11.0",
     "description": "A cross platform library to build native desktop apps.",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
-    "files": [
-        "dist",
-        "config",
-        "CMakeLists.txt",
-        "src/cpp",
-        "extras/legal",
-        "plugin"
-    ],
     "author": "Atul R <atulanand94@gmail.com>",
     "license": "MIT",
     "private": false,
     "scripts": {
         "dev": "npm run build && qode  dist/demo.js",
-        "postinstall": "npm run build:addon",
         "build": "tsc && npm run build:addon",
+        "postinstall": "npm run build:addon",
         "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
         "test": "qode ./node_modules/jest/bin/jest -i",
         "lint:cpp": "clang-format -i --glob=src/cpp/**/*.[h,c]*",

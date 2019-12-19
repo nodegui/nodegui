@@ -1,0 +1,38 @@
+on:
+    push:
+        branches:
+            - master # Push events on master branch
+jobs:
+    build:
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-18.04]
+        runs-on: ${{ matrix.os }}
+        steps:
+            - uses: actions/checkout@master
+            - uses: actions/setup-node@master
+              with:
+                  node-version: '13.x'
+            - name: Install deps
+              run: npm install --ignore-scripts
+            - name: Build nodegui
+              run: npx tsc
+            - name: Archive using npm pack
+              run: npm --no-git-tag-version version 1.0.0-master && npm pack
+            - uses: actions/upload-artifact@v1
+              with:
+                  name: latest-release
+                  path: nodegui-nodegui-1.0.0-master.tgz
+            - uses: nodegui/create-release@master
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  code: latest-master
+                  name: Latest Master Release
+                  body: >
+                      Latest auto release corresponding to commit ${{github.sha}} 🔥. 
+                      To install do: 
+                      `npm install https://github.com/nodegui/nodegui/releases/download/latest-master/nodegui-master.tgz`
+                  assets: >
+                      nodegui-nodegui-1.0.0-master.tgz:nodegui-master.tgz:application/tar+gzip
+                  recreate: true

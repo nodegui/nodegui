@@ -19,7 +19,7 @@ export class QCheckBox extends QAbstractButton {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
     setChecked(check: boolean): void {
         this.native.setChecked(check);

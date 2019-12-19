@@ -22,7 +22,7 @@ export class QPushButton extends QAbstractButton {
             native = new addon.QPushButton();
         }
         super(native);
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
         this.native = native;
     }
     setFlat(isFlat: boolean): void {

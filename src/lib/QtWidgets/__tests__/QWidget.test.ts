@@ -51,10 +51,10 @@ describe('QWidget', () => {
     it('setGeometry', () => {
         view.setGeometry(10, 11, 12, 13);
         const rect = view.geometry();
-        expect(rect.x).toEqual(10);
-        expect(rect.y).toEqual(11);
-        expect(rect.width).toEqual(12);
-        expect(rect.height).toEqual(13);
+        expect(rect.left()).toEqual(10);
+        expect(rect.top()).toEqual(11);
+        expect(rect.width()).toEqual(12);
+        expect(rect.height()).toEqual(13);
     });
     it('setObjectName', () => {
         view.setObjectName('abcd');

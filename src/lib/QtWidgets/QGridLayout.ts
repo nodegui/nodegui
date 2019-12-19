@@ -13,7 +13,7 @@ export class QGridLayout extends NodeLayout {
             native = new addon.QGridLayout();
         }
         super(native);
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
         this.native = native;
     }
     addWidget(widget: NodeWidget, row = 0, col = 0, rowSpan = 1, colSpan = 1): void {

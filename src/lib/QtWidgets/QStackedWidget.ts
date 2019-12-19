@@ -18,13 +18,14 @@ export class QStackedWidget extends NodeWidget {
             native = new addon.QStackedWidget();
         }
         super(native);
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
         this.native = native;
     }
 
     addWidget(widget: NodeWidget): void {
         this.native.addWidget(widget.native);
         this.nodeChildren.add(widget);
+        widget.setFlexNodeSizeControlled(true);
     }
 
     removeWidget(widget: NodeWidget): void {

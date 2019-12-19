@@ -21,7 +21,7 @@ export class QMainWindow extends NodeWidget {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
 
         this.setLayout = (parentLayout: NodeLayout): void => {
             if (this.centralWidget) {

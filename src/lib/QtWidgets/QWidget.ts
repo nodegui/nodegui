@@ -11,6 +11,7 @@ import { StyleSheet, prepareInlineStyleSheet } from '../core/Style/StyleSheet';
 import { checkIfNativeElement } from '../utils/helpers';
 import { YogaWidget } from '../core/YogaWidget';
 import { QSize } from '../QtCore/QSize';
+import { QRect } from '../QtCore/QRect';
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
 export abstract class NodeWidget extends YogaWidget {
@@ -44,8 +45,8 @@ export abstract class NodeWidget extends YogaWidget {
     setGeometry(x: number, y: number, w: number, h: number): void {
         this.native.setGeometry(x, y, w, h);
     }
-    geometry(): Rect {
-        return this.native.geometry();
+    geometry(): QRect {
+        return QRect.fromQVariant(this.property('geometry'));
     }
     setMouseTracking(isMouseTracked: boolean): void {
         this.native.setMouseTracking(isMouseTracked);
@@ -66,12 +67,16 @@ export abstract class NodeWidget extends YogaWidget {
         return this.native.windowOpacity();
     }
     setWindowTitle(title: string): void {
-        //TODO:getter
         return this.native.setWindowTitle(title);
     }
+    windowTitle(): string {
+        return this.native.windowTitle();
+    }
     setWindowState(state: WindowState): void {
-        //TODO:getter
         return this.native.setWindowState(state);
+    }
+    windowState(): number {
+        return this.native.windowState();
     }
     setCursor(cursor: CursorShape | QCursor): void {
         //TODO:getter
@@ -153,19 +158,23 @@ export abstract class NodeWidget extends YogaWidget {
             this.setInlineStyle(this._rawInlineStyle);
         }
     }
+    showFullScreen(): void {
+        this.native.showFullScreen();
+    }
+    showMinimized(): void {
+        this.native.showMinimized();
+    }
+    showMaximized(): void {
+        this.native.showMaximized();
+    }
+    showNormal(): void {
+        this.native.showNormal();
+    }
 }
-
-type Rect = {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-};
-type arg = NodeWidget | NativeElement;
 
 export class QWidget extends NodeWidget {
     native: NativeElement;
-    constructor(arg?: arg) {
+    constructor(arg?: NodeWidget | NativeElement) {
         let native;
         let parent;
         if (checkIfNativeElement(arg)) {
@@ -177,7 +186,7 @@ export class QWidget extends NodeWidget {
             native = new addon.QWidget();
         }
         super(native);
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
         this.native = native;
     }
 }

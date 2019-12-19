@@ -1,6 +1,8 @@
 #include <napi.h>
 
+#include "QtCore/QColor/qcolor_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
+#include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtCore/QUrl/qurl_wrap.h"
@@ -30,6 +32,7 @@
 #include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
+#include "QtWidgets/QPainter/qpainter_wrap.h"
 #include "QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
 #include "QtWidgets/QProgressBar/qprogressbar_wrap.h"
 #include "QtWidgets/QPushButton/qpushbutton_wrap.h"
@@ -42,6 +45,9 @@
 #include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
 #include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
+#include "QtWidgets/QToolButton/qtoolbutton_wrap.h"
+#include "QtWidgets/QTreeWidget/qtreewidget_wrap.h"
+#include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
 // These cant be instantiated in JS Side
@@ -57,6 +63,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QVariantWrap::init(env, exports);
   QSizeWrap::init(env, exports);
   QRectWrap::init(env, exports);
+  QPointWrap::init(env, exports);
+  QColorWrap::init(env, exports);
   QUrlWrap::init(env, exports);
   QClipboardWrap::init(env, exports);
   QWidgetWrap::init(env, exports);
@@ -72,11 +80,15 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QFileDialogWrap::init(env, exports);
   QTableWidgetWrap::init(env, exports);
   QTableWidgetItemWrap::init(env, exports);
+  QPainterWrap::init(env, exports);
+  QTreeWidgetWrap::init(env, exports);
+  QTreeWidgetItemWrap::init(env, exports);
   QGridLayoutWrap::init(env, exports);
   QGroupBoxWrap::init(env, exports);
   FlexLayoutWrap::init(env, exports);
   QMainWindowWrap::init(env, exports);
   QPushButtonWrap::init(env, exports);
+  QToolButtonWrap::init(env, exports);
   QSpinBoxWrap::init(env, exports);
   QCheckBoxWrap::init(env, exports);
   QProgressBarWrap::init(env, exports);

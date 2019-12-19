@@ -32,4 +32,5 @@ class QPlainTextEditWrap : public Napi::ObjectWrap<QPlainTextEditWrap> {
   Napi::Value wordWrapMode(const Napi::CallbackInfo &info);
   Napi::Value setLineWrapMode(const Napi::CallbackInfo &info);
   Napi::Value lineWrapMode(const Napi::CallbackInfo &info);
+  Napi::Value insertPlainText(const Napi::CallbackInfo &info);
 };

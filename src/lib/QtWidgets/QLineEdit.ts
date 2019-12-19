@@ -31,7 +31,7 @@ export class QLineEdit extends NodeWidget {
         }
         super(native);
         this.native = native;
-        this.nodeParent = parent;
+        this.setNodeParent(parent);
     }
     setText(text: string): void {
         // react:✓

@@ -32,8 +32,9 @@ export { QFileDialog, QFileDialogEvents } from './lib/QtWidgets/QFileDialog';
 export { QLineEdit, QLineEditEvents, EchoMode } from './lib/QtWidgets/QLineEdit';
 export { QMainWindow, QMainWindowEvents } from './lib/QtWidgets/QMainWindow';
 export { QProgressBar, QProgressBarEvents } from './lib/QtWidgets/QProgressBar';
-export { QComboBox, QComboBoxEvents } from './lib/QtWidgets/QComboBox';
+export { QComboBox, QComboBoxEvents, InsertPolicy } from './lib/QtWidgets/QComboBox';
 export { QPushButton, QPushButtonEvents } from './lib/QtWidgets/QPushButton';
+export { QToolButton, QToolButtonEvents, ToolButtonPopupMode } from './lib/QtWidgets/QToolButton';
 export { QSpinBox, QSpinBoxEvents } from './lib/QtWidgets/QSpinBox';
 export { QRadioButton, QRadioButtonEvents } from './lib/QtWidgets/QRadioButton';
 export { QStackedWidget, QStackedWidgetEvents } from './lib/QtWidgets/QStackedWidget';
@@ -44,6 +45,10 @@ export { QMenu, QMenuEvents } from './lib/QtWidgets/QMenu';
 export { QMenuBar, QMenuBarEvents } from './lib/QtWidgets/QMenuBar';
 export { QPlainTextEdit, QPlainTextEditEvents, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
 export { QScrollArea, QScrollAreaEvents } from './lib/QtWidgets/QScrollArea';
+export { QTreeWidget, QTreeWidgetEvents } from './lib/QtWidgets/QTreeWidget';
+export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
+export { QPainter, RenderHint } from './lib/QtWidgets/QPainter';
+
 export {
     QSystemTrayIcon,
     QSystemTrayIconEvents,
@@ -57,6 +62,8 @@ export { QObject, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';
 export { QRect } from './lib/QtCore/QRect';
+export { QPoint } from './lib/QtCore/QPoint';
+export { QColor } from './lib/QtCore/QColor';
 export { QUrl, ParsingMode } from './lib/QtCore/QUrl';
 // Layouts:
 export { QBoxLayout } from './lib/QtWidgets/QBoxLayout';
