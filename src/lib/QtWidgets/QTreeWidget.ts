@@ -2,7 +2,8 @@ import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
-import { QAbstractScrollArea, QTreeWidgetItem } from '../..';
+import { QAbstractScrollArea } from './QAbstractScrollArea';
+import { QTreeWidgetItem } from './QTreeWidgetItem';
 
 export const QTreeWidgetEvents = Object.freeze({
     ...BaseWidgetEvents,
