@@ -23,7 +23,7 @@ const secondColor = new QColor(0, 0, 0);
 center.setLayout(layout);
 win.setWindowTitle('Analog Clock');
 win.resize(200, 200);
-const side = Math.min(win.geometry().width, win.geometry().height);
+const side = Math.min(win.geometry().width(), win.geometry().height());
 
 function repaint(): void {
     win.repaint();
@@ -36,7 +36,7 @@ win.addEventListener(QMainWindowEvents.Paint, () => {
 
     const painter = new QPainter(win);
     painter.setRenderHint(RenderHint.Antialiasing);
-    painter.translate(win.geometry().width / 2, win.geometry().height / 2);
+    painter.translate(win.geometry().width() / 2, win.geometry().height() / 2);
     painter.scale(side / 200.0, side / 200.0);
 
     painter.setPen(PenStyle.NoPen);
