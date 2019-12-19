@@ -15,6 +15,7 @@ Napi::Object QBoxLayoutWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("addStretch", &QBoxLayoutWrap::addStretch),
        InstanceMethod("addStrut", &QBoxLayoutWrap::addStrut),
        InstanceMethod("addWidget", &QBoxLayoutWrap::addWidget),
+       InstanceMethod("insertWidget", &QBoxLayoutWrap::insertWidget),
        InstanceMethod("direction", &QBoxLayoutWrap::direction),
        InstanceMethod("insertLayout", &QBoxLayoutWrap::insertLayout),
        InstanceMethod("removeWidget", &QBoxLayoutWrap::removeWidget),
@@ -92,7 +93,22 @@ Napi::Value QBoxLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
 
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
-  this->instance->addWidget(widget->getInternalInstance());
+  int stretch = info[1].As<Napi::Number>().Int32Value();
+
+  this->instance->addWidget(widget->getInternalInstance(), stretch);
+  return env.Null();
+}
+
+Napi::Value QBoxLayoutWrap::insertWidget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int index = info[0].As<Napi::Number>().Int32Value();
+  Napi::Object qwidgetObject = info[1].As<Napi::Object>();
+  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  int stretch = info[2].As<Napi::Number>().Int32Value();
+
+  this->instance->insertWidget(index, widget->getInternalInstance(), stretch);
   return env.Null();
 }
 

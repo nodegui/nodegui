@@ -32,8 +32,12 @@ export class QBoxLayout extends NodeLayout {
     addStrut(size: number): void {
         this.native.addStrut(size);
     }
-    addWidget(widget: NodeWidget): void {
-        this.native.addWidget(widget.native);
+    addWidget(widget: NodeWidget, stretch = 0): void {
+        this.native.addWidget(widget.native, stretch);
+        this.nodeChildren.add(widget);
+    }
+    insertWidget(index: number, widget: NodeWidget, stretch = 0): void {
+        this.native.insertWidget(index, widget.native, stretch);
         this.nodeChildren.add(widget);
     }
     direction(): Direction {
