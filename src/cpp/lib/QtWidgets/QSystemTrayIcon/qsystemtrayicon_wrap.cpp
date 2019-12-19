@@ -1,9 +1,10 @@
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 
+#include <QDebug>
 #include <QWidget>
-#include <iostream>
 
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QIcon/qicon_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
@@ -20,6 +21,7 @@ Napi::Object QSystemTrayIconWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("isVisible", &QSystemTrayIconWrap::isVisible),
        InstanceMethod("setToolTip", &QSystemTrayIconWrap::setToolTip),
        InstanceMethod("setContextMenu", &QSystemTrayIconWrap::setContextMenu),
+       InstanceMethod("showMessage", &QSystemTrayIconWrap::showMessage),
        EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QSystemTrayIconWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -106,5 +108,21 @@ Napi::Value QSystemTrayIconWrap::setContextMenu(
   Napi::Object menuObject = info[0].As<Napi::Object>();
   QMenuWrap* menuWrap = Napi::ObjectWrap<QMenuWrap>::Unwrap(menuObject);
   this->instance->setContextMenu(menuWrap->getInternalInstance());
+  return env.Null();
+}
+
+Napi::Value QSystemTrayIconWrap::showMessage(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::String title = info[0].As<Napi::String>();
+  Napi::String message = info[1].As<Napi::String>();
+  Napi::Object iconObject = info[2].As<Napi::Object>();
+  QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
+  Napi::Number millis = info[3].As<Napi::Number>();
+  QString msgTitle = QString::fromUtf8(title.Utf8Value().c_str());
+  QString msgMessage = QString::fromUtf8(message.Utf8Value().c_str());
+  this->instance->showMessage(msgTitle, msgMessage,
+                              *iconWrap->getInternalInstance(),
+                              millis.Int32Value());
   return env.Null();
 }

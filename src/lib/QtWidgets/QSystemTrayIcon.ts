@@ -37,6 +37,9 @@ export class QSystemTrayIcon extends NodeObject {
     hide(): void {
         this.native.hide();
     }
+    showMessage(title = '', message = '', icon: QIcon = new QIcon(), millisecondsTimeoutHint = 10000): void {
+        this.native.showMessage(title, message, icon.native, millisecondsTimeoutHint);
+    }
     setIcon(icon: QIcon): void {
         this.native.setIcon(icon.native);
     }
