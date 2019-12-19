@@ -1,6 +1,8 @@
 #include <napi.h>
 
+#include "QtCore/QColor/qcolor_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
+#include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtCore/QUrl/qurl_wrap.h"
@@ -30,6 +32,7 @@
 #include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
+#include "QtWidgets/QPainter/qpainter_wrap.h"
 #include "QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
 #include "QtWidgets/QProgressBar/qprogressbar_wrap.h"
 #include "QtWidgets/QPushButton/qpushbutton_wrap.h"
@@ -60,6 +63,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QVariantWrap::init(env, exports);
   QSizeWrap::init(env, exports);
   QRectWrap::init(env, exports);
+  QPointWrap::init(env, exports);
+  QColorWrap::init(env, exports);
   QUrlWrap::init(env, exports);
   QClipboardWrap::init(env, exports);
   QWidgetWrap::init(env, exports);
@@ -75,6 +80,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QFileDialogWrap::init(env, exports);
   QTableWidgetWrap::init(env, exports);
   QTableWidgetItemWrap::init(env, exports);
+  QPainterWrap::init(env, exports);
   QTreeWidgetWrap::init(env, exports);
   QTreeWidgetItemWrap::init(env, exports);
   QGridLayoutWrap::init(env, exports);

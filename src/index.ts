@@ -47,6 +47,7 @@ export { QPlainTextEdit, QPlainTextEditEvents, LineWrapMode } from './lib/QtWidg
 export { QScrollArea, QScrollAreaEvents } from './lib/QtWidgets/QScrollArea';
 export { QTreeWidget, QTreeWidgetEvents } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
+export { QPainter, RenderHint } from './lib/QtWidgets/QPainter';
 
 export {
     QSystemTrayIcon,
@@ -61,6 +62,8 @@ export { QObject, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';
 export { QRect } from './lib/QtCore/QRect';
+export { QPoint } from './lib/QtCore/QPoint';
+export { QColor } from './lib/QtCore/QColor';
 export { QUrl, ParsingMode } from './lib/QtCore/QUrl';
 // Layouts:
 export { QBoxLayout } from './lib/QtWidgets/QBoxLayout';
