@@ -174,17 +174,6 @@
     this->instance->setGeometry(x, y, width, height);                       \
     return env.Null();                                                      \
   }                                                                         \
-  Napi::Value geometry(const Napi::CallbackInfo& info) {                    \
-    Napi::Env env = info.Env();                                             \
-    Napi::HandleScope scope(env);                                           \
-    QRect geometry = this->instance->geometry();                            \
-    Napi::Object geometryObj = Napi::Object::New(env);                      \
-    geometryObj.Set("width", geometry.width());                             \
-    geometryObj.Set("height", geometry.height());                           \
-    geometryObj.Set("x", geometry.x());                                     \
-    geometryObj.Set("y", geometry.y());                                     \
-    return geometryObj;                                                     \
-  }                                                                         \
   Napi::Value setMaximumSize(const Napi::CallbackInfo& info) {              \
     Napi::Env env = info.Env();                                             \
     Napi::HandleScope scope(env);                                           \
@@ -352,7 +341,6 @@
       InstanceMethod("isEnabled", &WidgetWrapName::isEnabled),               \
       InstanceMethod("setFixedSize", &WidgetWrapName::setFixedSize),         \
       InstanceMethod("setGeometry", &WidgetWrapName::setGeometry),           \
-      InstanceMethod("geometry", &WidgetWrapName::geometry),                 \
       InstanceMethod("setMaximumSize", &WidgetWrapName::setMaximumSize),     \
       InstanceMethod("setMinimumSize", &WidgetWrapName::setMinimumSize),     \
       InstanceMethod("repaint", &WidgetWrapName::repaint),                   \

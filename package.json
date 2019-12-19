@@ -1,17 +1,9 @@
 {
     "name": "@nodegui/nodegui",
-    "version": "0.10.0",
+    "version": "0.11.0",
     "description": "A cross platform library to build native desktop apps.",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
-    "files": [
-        "dist",
-        "config",
-        "CMakeLists.txt",
-        "src/cpp",
-        "extras/legal",
-        "plugin"
-    ],
     "author": "Atul R <atulanand94@gmail.com>",
     "license": "MIT",
     "private": false,
