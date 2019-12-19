@@ -23,5 +23,4 @@ class QColorWrap : public Napi::ObjectWrap<QColorWrap> {
 };
 
 namespace StaticQColorWrapMethods {
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQColorWrapMethods
