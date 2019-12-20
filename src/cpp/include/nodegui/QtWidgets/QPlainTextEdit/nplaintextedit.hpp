@@ -37,11 +37,11 @@ class NPlainTextEdit : public QPlainTextEdit, public NodeWidget {
       this->emitOnNode.Call({Napi::String::New(env, "cursorPositionChanged")});
     });
     QObject::connect(
-        this, &QPlainTextEdit::modificationChanged, [=](bool charged) {
+        this, &QPlainTextEdit::modificationChanged, [=](bool changed) {
           Napi::Env env = this->emitOnNode.Env();
           Napi::HandleScope scope(env);
           this->emitOnNode.Call({Napi::String::New(env, "modificationChanged"),
-                                 Napi::Value::From(env, charged)});
+                                 Napi::Value::From(env, changed)});
         });
     QObject::connect(this, &QPlainTextEdit::redoAvailable, [=](bool available) {
       Napi::Env env = this->emitOnNode.Env();

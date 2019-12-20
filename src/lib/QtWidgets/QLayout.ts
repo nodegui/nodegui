@@ -4,8 +4,8 @@ import { NodeObject } from '../QtCore/QObject';
 // All Layouts should extend this abstract class.
 export abstract class NodeLayout<Signals> extends NodeObject<Signals> {
     type = 'layout';
-    abstract addWidget(childWidget: NodeWidget, ...args: any[]): void;
-    abstract removeWidget(childWidget: NodeWidget): void;
+    abstract addWidget(childWidget: NodeWidget<any>, ...args: any[]): void;
+    abstract removeWidget(childWidget: NodeWidget<any>): void;
     activate(): boolean {
         return this.native.activate();
     }

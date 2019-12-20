@@ -1,24 +1,25 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { AcceptMode, DialogLabel, FileMode, Option, ViewMode } from '../QtEnums';
-export const QFileDialogEvents = Object.freeze({
-    currentChanged: 'currentChanged',
-    currentUrlChanged: 'currentUrlChanged',
-    directoryEntered: 'directoryEntered',
-    directoryUrlEntered: 'directoryUrlEntered',
-    fileSelected: 'fileSelected',
-    filesSelected: 'filesSelected',
-    filterSelected: 'filterSelected',
-    urlSelected: 'urlSelected',
-    urlsSelected: 'urlsSelected',
-    ...BaseWidgetEvents,
-});
 
-export class QFileDialog extends NodeWidget {
+interface QFileDialogSignals {
+    currentChanged: (path: string) => void;
+    currentUrlChanged: (url: string) => void;
+    directoryEntered: (directory: string) => void;
+    directoryUrlEntered: (url: string) => void;
+    fileSelected: (file: string) => void;
+    filesSelected: (selected: string[]) => void;
+    filterSelected: (filter: string) => void;
+    urlSelected: (url: string) => void;
+    urlsSelected: (urls: string[]) => void;
+}
+
+export class QFileDialog extends NodeWidget<QFileDialogSignals> {
     native: NativeElement;
-    constructor(parent: NodeWidget | undefined = undefined, caption = 'Select File', directory = '', filter = '') {
+    constructor();
+    constructor(parent: NodeWidget<any>, caption?: string, directory?: string, filter?: string);
+    constructor(parent?: NodeWidget<any>, caption = 'Select File', directory = '', filter = '') {
         let native;
         if (parent) {
             native = new addon.QFileDialog(parent.native, caption, directory, filter);

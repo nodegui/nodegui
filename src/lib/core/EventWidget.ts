@@ -12,23 +12,23 @@ export abstract class EventWidget<Signals extends {}> extends Component {
         }
     }
 
-    addEventListener<SignalType extends keyof Signals>(eventType: SignalType, callback: Signals[SignalType]): void;
+    addEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;
     addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeElement) => void): void;
-    addEventListener(eventType: string, callback: (...payloads: any[]) => void): void {
-        this.native.subscribeToQtEvent(eventType);
-        this.emitter.addListener(eventType, callback);
+    addEventListener(eventOrSignalType: string, callback: (...payloads: any[]) => void): void {
+        this.native.subscribeToQtEvent(eventOrSignalType);
+        this.emitter.addListener(eventOrSignalType, callback);
     }
 
-    removeEventListener<SignalType extends keyof Signals>(eventType: SignalType, callback: Signals[SignalType]): void;
-    removeEventListener(eventType: WidgetEventTypes, callback: (payload?: NativeElement) => void): void;
-    removeEventListener(eventType: string, callback?: (...payloads: any[]) => void): void {
+    removeEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;
+    removeEventListener(eventType: WidgetEventTypes, callback: (event?: NativeElement) => void): void;
+    removeEventListener(eventOrSignalType: string, callback?: (...payloads: any[]) => void): void {
         if (callback) {
-            this.emitter.removeListener(eventType, callback);
+            this.emitter.removeListener(eventOrSignalType, callback);
         } else {
-            this.emitter.removeAllListeners(eventType);
+            this.emitter.removeAllListeners(eventOrSignalType);
         }
-        if (this.emitter.listenerCount(eventType) < 1) {
-            this.native.unSubscribeToQtEvent(eventType);
+        if (this.emitter.listenerCount(eventOrSignalType) < 1) {
+            this.native.unSubscribeToQtEvent(eventOrSignalType);
         }
     }
 }

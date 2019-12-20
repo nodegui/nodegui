@@ -1,18 +1,17 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { NodeLayout } from './QLayout';
 import { QMenuBar } from './QMenuBar';
 
-export const QMainWindowEvents = Object.freeze({
-    ...BaseWidgetEvents,
-});
-export class QMainWindow extends NodeWidget {
+type QMainWindowSignals = {};
+export class QMainWindow extends NodeWidget<QMainWindowSignals> {
     native: NativeElement;
-    public centralWidget?: NodeWidget | null;
+    public centralWidget?: NodeWidget<any> | null;
     private _menuBar?: QMenuBar;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QMainWindow(parent.native);
@@ -23,7 +22,7 @@ export class QMainWindow extends NodeWidget {
         this.native = native;
         this.setNodeParent(parent);
 
-        this.setLayout = (parentLayout: NodeLayout): void => {
+        this.setLayout = (parentLayout: NodeLayout<any>): void => {
             if (this.centralWidget) {
                 this.centralWidget.setLayout(parentLayout);
             } else {
@@ -32,13 +31,13 @@ export class QMainWindow extends NodeWidget {
             }
         };
     }
-    setCentralWidget(widget: NodeWidget): void {
+    setCentralWidget(widget: NodeWidget<any>): void {
         // react:✓
         this.native.setCentralWidget(widget.native);
         this.centralWidget = widget;
         this.centralWidget.setFlexNodeSizeControlled(true);
     }
-    takeCentralWidget(): NodeWidget | null {
+    takeCentralWidget(): NodeWidget<any> | null {
         // react:✓
         const centralWidget = this.centralWidget;
         this.centralWidget = null;
@@ -55,10 +54,10 @@ export class QMainWindow extends NodeWidget {
     menuBar(): QMenuBar | undefined {
         return this._menuBar;
     }
-    setMenuWidget(menuWidget: NodeWidget): void {
+    setMenuWidget(menuWidget: NodeWidget<any>): void {
         this.native.setMenuWidget(menuWidget.native);
     }
-    get layout(): NodeLayout | undefined {
+    get layout(): NodeLayout<any> | undefined {
         if (this.centralWidget) {
             return this.centralWidget.layout;
         }

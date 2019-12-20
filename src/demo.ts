@@ -21,6 +21,7 @@ const hourColor = new QColor(127, 0, 127);
 const minuteColor = new QColor(0, 127, 127, 191);
 const secondColor = new QColor(0, 0, 0);
 const m = new QMovie();
+new QMovie();
 center.setLayout(layout);
 win.setWindowTitle('Analog Clock');
 win.resize(200, 200);

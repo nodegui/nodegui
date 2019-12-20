@@ -1,30 +1,30 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea } from './QAbstractScrollArea';
 import { QTextOptionWrapMode } from '../QtGui/QTextOption';
 
-export const QPlainTextEditEvents = Object.freeze({
-    ...BaseWidgetEvents,
-    textChanged: 'textChanged',
-    blockCountChanged: 'blockCountChanged',
-    copyAvailable: 'copyAvailable',
-    cursorPositionChanged: 'cursorPositionChanged',
-    modificationChanged: 'modificationChanged',
-    redoAvailable: 'redoAvailable',
-    selectionChanged: 'selectionChanged',
-    undoAvailable: 'undoAvailable',
-});
+interface QPlainTextEditSignals {
+    textChanged: () => void;
+    blockCountChanged: (blockCount: number) => void;
+    copyAvailable: (yes: boolean) => void;
+    cursorPositionChanged: () => void;
+    modificationChanged: (changed: boolean) => void;
+    redoAvailable: (available: boolean) => void;
+    selectionChanged: () => void;
+    undoAvailable: (available: boolean) => void;
+}
 
 export enum LineWrapMode {
     NoWrap,
     WidgetWidth,
 }
-export class QPlainTextEdit extends QAbstractScrollArea {
+export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
     native: NativeElement;
     placeholderText?: string;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QPlainTextEdit(parent.native);

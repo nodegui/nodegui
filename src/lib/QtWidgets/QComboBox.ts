@@ -13,6 +13,8 @@ interface QComboBoxSignals {
 }
 export class QComboBox extends NodeWidget<QComboBoxSignals> {
     native: NativeElement;
+    constructor();
+    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
