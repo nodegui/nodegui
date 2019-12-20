@@ -1,7 +1,6 @@
 #pragma once
 
 #include <napi.h>
-#include <stdlib.h>
 
 #include <QBoxLayout>
 #include <QPointer>

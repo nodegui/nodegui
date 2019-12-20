@@ -19,8 +19,8 @@ export class QAction extends NodeObject<QActionSignals> {
     icon?: QIcon;
     menu?: QMenu;
     constructor();
-    constructor(parent?: NodeWidget<QActionSignals>);
-    constructor(parent?: NodeWidget<QActionSignals>) {
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QAction(parent.native);

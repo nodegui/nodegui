@@ -3,6 +3,7 @@ import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import addon from '../utils/addon';
 import { QVariant } from './QVariant';
+import { QWidget } from '../QtWidgets/QWidget';
 
 export abstract class NodeObject<Signals> extends EventWidget<Signals> {
     inherits(className: string): boolean {
@@ -24,18 +25,18 @@ export abstract class NodeObject<Signals> extends EventWidget<Signals> {
     }
 }
 
-export class QObject<Signals> extends NodeObject<Signals> {
+export class QObject extends NodeObject<QObjectSignals> {
     native: NativeElement;
     constructor();
     constructor(nativeElement: NativeElement);
-    constructor(parent: NodeObject<Signals>);
-    constructor(arg?: NodeObject<Signals> | NativeElement) {
+    constructor(parent: NodeObject<any>);
+    constructor(arg?: NodeObject<any> | NativeElement) {
         let native;
         let parent;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (arg as NodeObject<Signals>) {
-            parent = arg as NodeObject<Signals>;
+        } else if (arg as NodeObject<any>) {
+            parent = arg as NodeObject<any>;
             native = new addon.QObject(parent.native);
         } else {
             native = new addon.QObject();
@@ -45,3 +46,5 @@ export class QObject<Signals> extends NodeObject<Signals> {
         this.native = native;
     }
 }
+
+type QObjectSignals = {};

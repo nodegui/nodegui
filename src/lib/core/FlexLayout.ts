@@ -10,8 +10,8 @@ export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
     protected flexNode?: FlexNode;
 
     constructor();
-    constructor(parent: NodeWidget<FlexLayoutSignals>);
-    constructor(parent?: NodeWidget<FlexLayoutSignals>) {
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.FlexLayout(parent.native);
@@ -25,7 +25,7 @@ export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
         }
     }
 
-    addWidget(childWidget: NodeWidget<FlexLayoutSignals>, childFlexNode?: FlexNode): void {
+    addWidget(childWidget: NodeWidget<any>, childFlexNode?: FlexNode): void {
         const childYogaNode = childFlexNode || childWidget.getFlexNode();
         if (this.nodeChildren.has(childWidget)) {
             this.removeWidget(childWidget, childYogaNode);
@@ -35,8 +35,8 @@ export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
     }
 
     insertChildBefore(
-        childWidget: NodeWidget<FlexLayoutSignals>,
-        beforeChildWidget: NodeWidget<FlexLayoutSignals>,
+        childWidget: NodeWidget<any>,
+        beforeChildWidget: NodeWidget<any>,
         childFlexNode?: FlexNode,
         beforeChildFlexNode?: FlexNode,
     ): void {
@@ -49,7 +49,7 @@ export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
         this.native.insertChildBefore(childWidget.native, beforeChildYogaNode, childYogaNode);
     }
 
-    removeWidget(childWidget: NodeWidget<FlexLayoutSignals>, childFlexNode?: FlexNode): void {
+    removeWidget(childWidget: NodeWidget<any>, childFlexNode?: FlexNode): void {
         if (!this.nodeChildren.has(childWidget)) {
             return;
         }

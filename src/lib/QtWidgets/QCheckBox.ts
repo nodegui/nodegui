@@ -2,11 +2,17 @@ import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractButton } from './QAbstractButton';
+
+interface QCheckBoxSignals {
+    //List all Signals below
+    toggled: (checked: boolean) => void;
+}
+
 export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
     native: NativeElement;
     constructor();
-    constructor(parent: NodeWidget<QCheckBoxSignals>);
-    constructor(parent?: NodeWidget<QCheckBoxSignals>) {
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QCheckBox(parent.native);
@@ -23,9 +29,4 @@ export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
     isChecked(): boolean {
         return this.native.isChecked();
     }
-}
-
-interface QCheckBoxSignals {
-    //List all Signals below
-    toggled: (checked: boolean) => void;
 }

@@ -4,10 +4,13 @@ import { NodeLayout } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { Direction } from '../QtEnums';
 
-export class QBoxLayout extends NodeLayout {
+type QBoxLayoutSignals = {};
+export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     native: NativeElement;
-    childLayouts: Set<NodeLayout>;
-    constructor(dir: Direction, parent?: NodeWidget) {
+    childLayouts: Set<NodeLayout<any>>;
+    constructor(dir: Direction);
+    constructor(dir: Direction, parent: NodeWidget<any>);
+    constructor(dir: Direction, parent?: NodeWidget<any>) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QBoxLayout(dir, parent.native);
@@ -19,7 +22,7 @@ export class QBoxLayout extends NodeLayout {
         this.native = native;
         this.childLayouts = new Set();
     }
-    addLayout(layout: NodeLayout, stretch = 0): void {
+    addLayout(layout: NodeLayout<any>, stretch = 0): void {
         this.native.addLayout(layout.native, stretch);
         this.childLayouts.add(layout);
     }
@@ -32,22 +35,22 @@ export class QBoxLayout extends NodeLayout {
     addStrut(size: number): void {
         this.native.addStrut(size);
     }
-    addWidget(widget: NodeWidget, stretch = 0): void {
+    addWidget(widget: NodeWidget<any>, stretch = 0): void {
         this.native.addWidget(widget.native, stretch);
         this.nodeChildren.add(widget);
     }
-    insertWidget(index: number, widget: NodeWidget, stretch = 0): void {
+    insertWidget(index: number, widget: NodeWidget<any>, stretch = 0): void {
         this.native.insertWidget(index, widget.native, stretch);
         this.nodeChildren.add(widget);
     }
     direction(): Direction {
         return this.native.direction();
     }
-    insertLayout(index: number, layout: NodeLayout, stretch = 0): void {
+    insertLayout(index: number, layout: NodeLayout<any>, stretch = 0): void {
         this.native.insertLayout(index, layout.native, stretch);
         this.childLayouts.add(layout);
     }
-    removeWidget(widget: NodeWidget): void {
+    removeWidget(widget: NodeWidget<any>): void {
         this.native.removeWidget(widget.native);
         this.nodeChildren.delete(widget);
     }
