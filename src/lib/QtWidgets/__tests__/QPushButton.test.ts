@@ -43,4 +43,12 @@ describe('QPushButton', () => {
         expect(mock).toBeCalledWith('testName');
         expect(mock).toBeCalledTimes(1);
     });
+    it('check if signals are working from QWidget', () => {
+        const widget = new QPushButton();
+        const mock = jest.fn();
+        widget.addEventListener('windowTitleChanged', mock);
+        widget.setWindowTitle('testName');
+        expect(mock).toBeCalledWith('testName');
+        expect(mock).toBeCalledTimes(1);
+    });
 });
