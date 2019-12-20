@@ -2,7 +2,7 @@ import { NativeElement, Component } from '../core/Component';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 
-type QVariantType = Component | string | number | boolean;
+export type QVariantType = NativeElement | string | number | boolean;
 
 export class QVariant extends Component {
     native: NativeElement;
@@ -14,8 +14,7 @@ export class QVariant extends Component {
         if (checkIfNativeElement(arg)) {
             this.native = arg as NativeElement;
         } else if (arg) {
-            const component = (arg as Component).native || arg;
-            this.native = new addon.QVariant(component);
+            this.native = new addon.QVariant(arg);
         } else {
             this.native = new addon.QVariant();
         }

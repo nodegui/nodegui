@@ -29,7 +29,7 @@ describe('QVariant', () => {
     });
     it('initialize with complex objects', () => {
         const pixmap = new QPixmap(path.resolve(__dirname, 'nodegui.png'));
-        const variant = new QVariant(pixmap);
+        const variant = new QVariant(pixmap.native);
         expect(variant).toBeTruthy();
         expect(QPixmap.fromQVariant(variant).height()).toBe(pixmap.height());
     });

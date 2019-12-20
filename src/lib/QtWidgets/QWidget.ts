@@ -2,7 +2,7 @@ import addon from '../utils/addon';
 import { NodeLayout } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { FlexLayout } from '../core/FlexLayout';
-import { WidgetAttribute, WindowType } from '../QtEnums';
+import { WidgetAttribute, WindowType, ContextMenuPolicy } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
 import { QCursor } from '../QtGui/QCursor';
 import { CursorShape, WindowState } from '../QtEnums';
@@ -11,6 +11,7 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { YogaWidget } from '../core/YogaWidget';
 import { QSize } from '../QtCore/QSize';
 import { QRect } from '../QtCore/QRect';
+import { QObjectSignals } from '../QtCore/QObject';
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
 export abstract class NodeWidget<Signals> extends YogaWidget<Signals> {
@@ -157,6 +158,9 @@ export abstract class NodeWidget<Signals> extends YogaWidget<Signals> {
             this.setInlineStyle(this._rawInlineStyle);
         }
     }
+    setContextMenuPolicy(contextMenuPolicy: ContextMenuPolicy): void {
+        this.setProperty('contextMenuPolicy', contextMenuPolicy);
+    }
     showFullScreen(): void {
         this.native.showFullScreen();
     }
@@ -171,7 +175,11 @@ export abstract class NodeWidget<Signals> extends YogaWidget<Signals> {
     }
 }
 
-type QWidgetSignals = {};
+interface QWidgetSignals extends QObjectSignals {
+    windowTitleChanged: (title: string) => void;
+    windowIconChanged: (iconNative: NativeElement) => void;
+    customContextMenuRequested: (pos: { x: number; y: number }) => void;
+}
 export class QWidget extends NodeWidget<QWidgetSignals> {
     native: NativeElement;
     constructor(arg?: NodeWidget<QWidgetSignals> | NativeElement) {

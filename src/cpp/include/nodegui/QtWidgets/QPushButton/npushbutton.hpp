@@ -11,7 +11,7 @@ class NPushButton : public QPushButton, public NodeWidget {
  public:
   using QPushButton::QPushButton;  // inherit all constructors of QPushButton
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QPushButton::clicked, [=](bool checked) {
       Napi::Env env = this->emitOnNode.Env();

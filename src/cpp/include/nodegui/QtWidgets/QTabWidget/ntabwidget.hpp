@@ -11,7 +11,7 @@ class NTabWidget : public QTabWidget, public NodeWidget {
  public:
   using QTabWidget::QTabWidget;  // inherit all constructors of QTabWidget
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QTabWidget::currentChanged, [=](int index) {
       Napi::Env env = this->emitOnNode.Env();

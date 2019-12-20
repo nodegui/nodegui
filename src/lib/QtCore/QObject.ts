@@ -2,15 +2,14 @@ import { EventWidget } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import addon from '../utils/addon';
-import { QVariant } from './QVariant';
+import { QVariant, QVariantType } from './QVariant';
 
 export abstract class NodeObject<Signals> extends EventWidget<Signals> {
     inherits(className: string): boolean {
         return this.native.inherits(className);
     }
-    setProperty(name: string, value: any): boolean {
-        const finalValue = value.native || value;
-        return this.native.setProperty(name, finalValue);
+    setProperty(name: string, value: QVariantType): boolean {
+        return this.native.setProperty(name, value);
     }
     property(name: string): QVariant {
         const nativeVariant = this.native.property(name);
@@ -22,6 +21,10 @@ export abstract class NodeObject<Signals> extends EventWidget<Signals> {
     objectName(): string {
         return this.native.objectName();
     }
+}
+
+export interface QObjectSignals {
+    objectNameChanged: (objectName: string) => void;
 }
 
 export class QObject extends NodeObject<QObjectSignals> {
@@ -45,5 +48,3 @@ export class QObject extends NodeObject<QObjectSignals> {
         this.native = native;
     }
 }
-
-type QObjectSignals = {};

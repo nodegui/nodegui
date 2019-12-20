@@ -54,7 +54,7 @@ export { QAction } from './lib/QtWidgets/QAction';
 export { QShortcut } from './lib/QtWidgets/QShortcut';
 export { QGroupBox } from './lib/QtWidgets/QGroupBox';
 // Core
-export { QObject, NodeObject } from './lib/QtCore/QObject';
+export { QObject, QObjectSignals, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';
 export { QRect } from './lib/QtCore/QRect';

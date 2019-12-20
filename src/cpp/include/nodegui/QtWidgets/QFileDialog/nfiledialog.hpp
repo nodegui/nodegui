@@ -11,7 +11,7 @@ class NFileDialog : public QFileDialog, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QFileDialog)
   using QFileDialog::QFileDialog;
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(
         this, &QFileDialog::currentChanged, [=](const QString &path) {

@@ -11,7 +11,7 @@ class NCheckBox : public QCheckBox, public NodeWidget {
  public:
   using QCheckBox::QCheckBox;  // inherit all constructors of QCheckBox
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     QObject::connect(this, &QCheckBox::toggled, [=](bool checked) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);

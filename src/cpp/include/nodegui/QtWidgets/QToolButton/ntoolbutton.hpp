@@ -13,7 +13,7 @@ class NToolButton : public QToolButton, public NodeWidget {
  public:
   using QToolButton::QToolButton;  // inherit all constructors of QToolButton
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QToolButton::clicked, [=](bool checked) {
       Napi::Env env = this->emitOnNode.Env();
@@ -41,8 +41,10 @@ class NToolButton : public QToolButton, public NodeWidget {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
 
+      // disable deletion of the native instance for these by passing true
       auto instance = QActionWrap::constructor.New(
-          {Napi::External<QAction>::New(env, action)});
+          {Napi::External<QAction>::New(env, action),
+           Napi::Boolean::New(env, true)});
       this->emitOnNode.Call({Napi::String::New(env, "triggered"), instance});
     });
   }

@@ -10,7 +10,7 @@ class NShortcut : public QShortcut, public EventWidget {
   EVENTWIDGET_IMPLEMENTATIONS(QShortcut)
  public:
   using QShortcut::QShortcut;  // inherit all constructors of QShortcut
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QShortcut::activated, [=]() {
       Napi::Env env = this->emitOnNode.Env();

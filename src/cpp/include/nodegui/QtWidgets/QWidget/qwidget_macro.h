@@ -363,3 +363,34 @@
       InstanceMethod("showNormal", &WidgetWrapName::showNormal),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
+
+#ifndef QWIDGET_SIGNALS
+#define QWIDGET_SIGNALS                                                        \
+  QOBJECT_SIGNALS                                                              \
+  QObject::connect(                                                            \
+      this, &QWidget::windowTitleChanged, [=](const QString& title) {          \
+        Napi::Env env = this->emitOnNode.Env();                                \
+        Napi::HandleScope scope(env);                                          \
+        this->emitOnNode.Call({Napi::String::New(env, "windowTitleChanged"),   \
+                               Napi::Value::From(env, title.toStdString())});  \
+      });                                                                      \
+  QObject::connect(this, &QWidget::windowIconChanged, [=](const QIcon& icon) { \
+    Napi::Env env = this->emitOnNode.Env();                                    \
+    Napi::HandleScope scope(env);                                              \
+    auto instance = QIconWrap::constructor.New(                                \
+        {Napi::External<QIcon>::New(env, new QIcon(icon))});                   \
+    this->emitOnNode.Call(                                                     \
+        {Napi::String::New(env, "windowIconChanged"), instance});              \
+  });                                                                          \
+  QObject::connect(                                                            \
+      this, &QWidget::customContextMenuRequested, [=](const QPoint& pos) {     \
+        Napi::Env env = this->emitOnNode.Env();                                \
+        Napi::HandleScope scope(env);                                          \
+        auto instance = Napi::Object::New(env);                                \
+        instance.Set("x", Napi::Number::New(env, pos.x()));                    \
+        instance.Set("y", Napi::Number::New(env, pos.y()));                    \
+        this->emitOnNode.Call(                                                 \
+            {Napi::String::New(env, "customContextMenuRequested"), instance}); \
+      });
+
+#endif  // QWIDGET_SIGNALS

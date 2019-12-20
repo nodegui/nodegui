@@ -10,7 +10,7 @@ class NTableWidget : public QTableWidget, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QTableWidget)
   using QTableWidget::QTableWidget;
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(
         this, &QTableWidget::cellActivated, [=](int row, int column) {

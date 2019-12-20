@@ -11,7 +11,7 @@ class NComboBox : public QComboBox, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QComboBox)
   using QComboBox::QComboBox;
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(
         this, QOverload<int>::of(&QComboBox::currentIndexChanged),

@@ -19,7 +19,7 @@
     Napi::Env env = info.Env();                                      \
     this->instance->emitOnNode =                                     \
         Napi::Persistent(info[0].As<Napi::Function>());              \
-    this->instance->connectWidgetSignalsToEventEmitter();            \
+    this->instance->connectSignalsToEventEmitter();            \
     return env.Null();                                               \
   }                                                                  \
                                                                      \

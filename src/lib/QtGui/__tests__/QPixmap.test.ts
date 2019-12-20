@@ -24,7 +24,7 @@ describe('QPixmap', () => {
     });
     it('initialize from QVariant', () => {
         const pixmap = new QPixmap(testImagePath);
-        const variant = new QVariant(pixmap);
+        const variant = new QVariant(pixmap.native);
         expect(variant).toBeTruthy();
         expect(QPixmap.fromQVariant(variant).height()).toBe(pixmap.height());
     });

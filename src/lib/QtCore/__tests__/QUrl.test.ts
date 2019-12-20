@@ -17,7 +17,7 @@ describe('QUrl', () => {
     });
     it('initialize from QVariant', () => {
         const url = new QUrl('https://google.com');
-        const variant = new QVariant(url);
+        const variant = new QVariant(url.native);
         expect(variant).toBeTruthy();
         expect(QUrl.fromQVariant(variant).toString()).toBe('https://google.com');
     });

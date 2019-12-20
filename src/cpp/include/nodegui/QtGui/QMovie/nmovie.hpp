@@ -12,7 +12,7 @@ class NMovie : public QMovie, public EventWidget {
  public:
   using QMovie::QMovie;
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QMovie::error,
                      [=](QImageReader::ImageReaderError error) {

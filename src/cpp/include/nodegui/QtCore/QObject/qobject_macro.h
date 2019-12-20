@@ -72,3 +72,16 @@
       InstanceMethod("objectName", &ComponentWrapName::objectName),
 
 #endif  // QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
+
+#ifndef QOBJECT_SIGNALS
+#define QOBJECT_SIGNALS                                                       \
+  QObject::connect(this, &QObject::objectNameChanged,                         \
+                   [=](const QString& objectName) {                           \
+                     Napi::Env env = this->emitOnNode.Env();                  \
+                     Napi::HandleScope scope(env);                            \
+                     this->emitOnNode.Call(                                   \
+                         {Napi::String::New(env, "objectNameChanged"),        \
+                          Napi::Value::From(env, objectName.toStdString())}); \
+                   });
+
+#endif  // QOBJECT_SIGNALS

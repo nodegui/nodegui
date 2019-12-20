@@ -11,7 +11,7 @@ class NSystemTrayIcon : public QSystemTrayIcon, public EventWidget {
  public:
   // inherit all constructors of QSystemTrayIcon
   using QSystemTrayIcon::QSystemTrayIcon;
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     QObject::connect(this, &QSystemTrayIcon::activated, [=](int reason) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);

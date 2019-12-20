@@ -6,6 +6,7 @@ import { QIcon } from '../QtGui/QIcon';
 import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
 import { NodeObject } from '../QtCore/QObject';
+import { checkIfNativeElement } from '../utils/helpers';
 
 interface QActionSignals {
     triggered: (checked: boolean) => void;
@@ -19,10 +20,13 @@ export class QAction extends NodeObject<QActionSignals> {
     icon?: QIcon;
     menu?: QMenu;
     constructor();
+    constructor(native: NativeElement);
     constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: NativeElement | NodeWidget<any>) {
         let native;
-        if (parent) {
+        if (checkIfNativeElement(parent)) {
+            native = parent as NativeElement;
+        } else if (parent) {
             native = new addon.QAction(parent.native);
         } else {
             native = new addon.QAction();

@@ -38,22 +38,34 @@ QActionWrap::QActionWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QActionWrap>(info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NAction(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
-    this->instance = new NAction();
+  if (info.Length() > 0 && info[0].IsExternal()) {
+    // --- if external ---
+    this->instance = info[0].As<Napi::External<NAction>>().Data();
+    if (info.Length() == 2) {
+      this->disableDeletion = info[1].As<Napi::Boolean>().Value();
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
-        .ThrowAsJavaScriptException();
+    // --- regular cases ---
+    if (info.Length() == 1) {
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      QWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NAction(parentWidgetWrap->getInternalInstance());
+    } else if (info.Length() == 0) {
+      this->instance = new NAction();
+    } else {
+      Napi::TypeError::New(env, "Wrong number of arguments")
+          .ThrowAsJavaScriptException();
+    }
   }
   this->rawData = extrautils::configureQObject(this->getInternalInstance());
 }
 
-QActionWrap::~QActionWrap() { extrautils::safeDelete(this->instance); }
+QActionWrap::~QActionWrap() {
+  if (!this->disableDeletion) {
+    extrautils::safeDelete(this->instance);
+  }
+}
 
 Napi::Value QActionWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
