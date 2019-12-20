@@ -7,7 +7,7 @@ export { QApplication } from './lib/QtGui/QApplication';
 export { QKeySequence } from './lib/QtGui/QKeySequence';
 export { QPixmap, ImageFormats } from './lib/QtGui/QPixmap';
 export { QIcon, QIconMode, QIconState } from './lib/QtGui/QIcon';
-export { QMovie, CacheMode, MovieState, QMovieEvents } from './lib/QtGui/QMovie';
+export { QMovie, CacheMode, MovieState } from './lib/QtGui/QMovie';
 export { QCursor } from './lib/QtGui/QCursor';
 export { QTextOptionWrapMode } from './lib/QtGui/QTextOption';
 export { QClipboard, QClipboardMode } from './lib/QtGui/QClipboard';
@@ -16,7 +16,7 @@ export { QFontDatabase, SystemFont, WritingSystem } from './lib/QtGui/QFontDatab
 // Events: Maybe a separate module ?
 export { QKeyEvent } from './lib/QtGui/QEvent/QKeyEvent';
 export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
-export { NativeEvent, BaseWidgetEvents } from './lib/core/EventWidget';
+export { NativeEvent, WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
 export { NodeWidget } from './lib/QtWidgets/QWidget';
 export { NodeLayout } from './lib/QtWidgets/QLayout';
@@ -24,8 +24,8 @@ export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton } from './lib/QtWidgets/QAbstractButton';
 // Widgets:
-export { QWidget, QWidgetEvents } from './lib/QtWidgets/QWidget';
-export { QCheckBox, QCheckBoxEvents } from './lib/QtWidgets/QCheckBox';
+export { QWidget } from './lib/QtWidgets/QWidget';
+export { QCheckBox } from './lib/QtWidgets/QCheckBox';
 export { QLabel, QLabelEvents } from './lib/QtWidgets/QLabel';
 export { QDial, QDialEvents } from './lib/QtWidgets/QDial';
 export { QFileDialog, QFileDialogEvents } from './lib/QtWidgets/QFileDialog';

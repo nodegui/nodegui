@@ -1,7 +1,7 @@
 import { NodeWidget } from './QWidget';
 import { Orientation } from '../QtEnums';
 
-export abstract class QAbstractSlider extends NodeWidget {
+export abstract class QAbstractSlider<Signals> extends NodeWidget<Signals> {
     setSingleStep(step: number): void {
         this.native.setSingleStep(step);
     }

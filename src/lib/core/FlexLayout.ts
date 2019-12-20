@@ -4,7 +4,8 @@ import { NodeLayout } from '../QtWidgets/QLayout';
 import { FlexNode } from './YogaWidget';
 import { NativeElement } from './Component';
 
-export class FlexLayout extends NodeLayout {
+type FlexLayoutSignals = {};
+export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
     native: NativeElement;
     constructor() {
         const native = new addon.FlexLayout();
@@ -13,7 +14,7 @@ export class FlexLayout extends NodeLayout {
     }
     protected flexNode?: FlexNode;
 
-    addWidget(childWidget: NodeWidget, childFlexNode?: FlexNode): void {
+    addWidget(childWidget: NodeWidget<FlexLayoutSignals>, childFlexNode?: FlexNode): void {
         const childYogaNode = childFlexNode || childWidget.getFlexNode();
         if (this.nodeChildren.has(childWidget)) {
             this.removeWidget(childWidget, childYogaNode);
@@ -23,8 +24,8 @@ export class FlexLayout extends NodeLayout {
     }
 
     insertChildBefore(
-        childWidget: NodeWidget,
-        beforeChildWidget: NodeWidget,
+        childWidget: NodeWidget<FlexLayoutSignals>,
+        beforeChildWidget: NodeWidget<FlexLayoutSignals>,
         childFlexNode?: FlexNode,
         beforeChildFlexNode?: FlexNode,
     ): void {
@@ -37,7 +38,7 @@ export class FlexLayout extends NodeLayout {
         this.native.insertChildBefore(childWidget.native, beforeChildYogaNode, childYogaNode);
     }
 
-    removeWidget(childWidget: NodeWidget, childFlexNode?: FlexNode): void {
+    removeWidget(childWidget: NodeWidget<FlexLayoutSignals>, childFlexNode?: FlexNode): void {
         if (!this.nodeChildren.has(childWidget)) {
             return;
         }
