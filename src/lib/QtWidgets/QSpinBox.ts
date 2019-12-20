@@ -1,16 +1,16 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 
-export const QSpinBoxEvents = Object.freeze({
-    ...BaseWidgetEvents,
-    valueChanged: 'valueChanged',
-});
+interface QSpinBoxSignals {
+    valueChanged: (value: number) => void;
+}
 
-export class QSpinBox extends NodeWidget {
+export class QSpinBox extends NodeWidget<QSpinBoxSignals> {
     native: NativeElement;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QSpinBox(parent.native);

@@ -5,6 +5,9 @@ import { QVariant } from './QVariant';
 
 export class QRect extends Component {
     native: NativeElement;
+    constructor();
+    constructor(nativeElement: NativeElement);
+    constructor(x?: number, y?: number, width?: number, height?: number);
     constructor(arg?: NativeElement | number, y = 0, width = 0, height = 0) {
         super();
         const count = arguments.length;

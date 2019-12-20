@@ -1,16 +1,15 @@
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { NodeWidget } from './QWidget';
 import addon from '../utils/addon';
 import { QAction } from './QAction';
-export const QMenuEvents = Object.freeze({
-    ...BaseWidgetEvents,
-});
 
-export class QMenu extends NodeWidget {
+type QMenuSignals = {};
+export class QMenu extends NodeWidget<QMenuSignals> {
     native: NativeElement;
     actions: Set<QAction>;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QMenu(parent.native);

@@ -1,15 +1,14 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { Orientation } from '../QtEnums';
 
-export const QProgressBarEvents = Object.freeze({
-    ...BaseWidgetEvents,
-});
-export class QProgressBar extends NodeWidget {
+type QProgressBarSignals = {};
+export class QProgressBar extends NodeWidget<QProgressBarSignals> {
     native: NativeElement;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QProgressBar(parent.native);

@@ -1,19 +1,19 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea } from './QAbstractScrollArea';
 import { QTreeWidgetItem } from './QTreeWidgetItem';
 
-export const QTreeWidgetEvents = Object.freeze({
-    ...BaseWidgetEvents,
-    itemSelectionChanged: 'itemSelectionChanged',
-});
+interface QTreeWidgetSignals {
+    itemSelectionChanged: () => void;
+}
 
-export class QTreeWidget extends QAbstractScrollArea {
+export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
     native: NativeElement;
     topLevelItems: Set<QTreeWidgetItem>;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QTreeWidget(parent.native);

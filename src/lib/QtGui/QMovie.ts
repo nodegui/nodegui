@@ -1,37 +1,29 @@
 import addon from '../utils/addon';
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
-import { QObject } from '../QtCore/QObject';
+import { NodeObject } from '../QtCore/QObject';
 import { QSize } from '../QtCore/QSize';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { QPixmap } from './QPixmap';
-
-export const QMovieEvents = Object.freeze({
-    ...BaseWidgetEvents,
-    error: 'error',
-    finished: 'finished',
-    frameChanged: 'frameChanged',
-    resized: 'resized',
-    started: 'started',
-    stateChanged: 'stateChanged',
-    updated: 'updated',
-});
-
-type supportedFormats = 'gif' | 'webp';
-export class QMovie extends QObject {
+export class QMovie extends NodeObject<QMovieSignals> {
     native: NativeElement;
-    constructor(arg?: QObject | NativeElement) {
-        super();
+    constructor();
+    constructor(native: NativeElement);
+    constructor(parent: NodeObject<any>);
+    constructor(arg?: NodeObject<any> | NativeElement) {
+        let native: NativeElement;
         if (arg) {
             if (checkIfNativeElement(arg)) {
-                this.native = arg as NativeElement;
+                native = arg as NativeElement;
             } else {
-                this.native = new addon.QMovie(arg);
+                native = new addon.QMovie(arg);
             }
         } else {
-            this.native = new addon.QMovie();
+            native = new addon.QMovie();
         }
+        super(native);
+        this.native = native;
     }
+    //Methods
     setFileName(fileName: string): void {
         this.native.setFileName(fileName);
         this.jumpToFrame(0);
@@ -42,13 +34,12 @@ export class QMovie extends QObject {
     fileName(): string {
         return this.native.fileName();
     }
-    setFormat(formatName: supportedFormats): void {
+    setFormat(formatName: SupportedFormats): void {
         this.native.setFormat(formatName);
     }
     format(): string {
         return this.native.format();
     }
-
     setScaledSize(size: QSize): void {
         this.native.setScaledSize(size.native);
     }
@@ -84,6 +75,16 @@ export class QMovie extends QObject {
     }
 }
 
+interface QMovieSignals {
+    error: (error: ImageReaderError) => void;
+    finished: () => void;
+    frameChanged: (frameNumber?: number) => void;
+    resized: (qSizeNative?: NativeElement) => void;
+    started: () => void;
+    stateChanged: (state: MovieState) => void;
+    updated: (qRectNative: NativeElement) => void;
+}
+
 export enum CacheMode {
     CacheNone,
     CacheAll,
@@ -94,3 +95,13 @@ export enum MovieState {
     Paused,
     Running,
 }
+
+export enum ImageReaderError {
+    FileNotFoundError = 1,
+    DeviceError = 2,
+    UnsupportedFormatError = 3,
+    InvalidDataError = 4,
+    UnknownError = 0,
+}
+
+type SupportedFormats = 'gif' | 'webp';

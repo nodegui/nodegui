@@ -5,14 +5,14 @@ import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
 import { NodeObject } from '../QtCore/QObject';
 
-export const QShortcutEvents = Object.freeze({
-    activated: 'activated',
-    activatedAmbiguously: 'activatedAmbiguously',
-});
+interface QShortcutSignals {
+    activated: () => void;
+    activatedAmbiguously: () => void;
+}
 
-export class QShortcut extends NodeObject {
+export class QShortcut extends NodeObject<QShortcutSignals> {
     native: NativeElement;
-    constructor(parent: NodeWidget) {
+    constructor(parent: NodeWidget<any>) {
         const native = new addon.QShortcut(parent.native);
         super(native);
         this.native = native;

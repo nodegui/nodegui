@@ -1,9 +1,9 @@
 import { NodeWidget, QWidget } from './QWidget';
 import { ScrollBarPolicy } from '../QtEnums/ScrollBarPolicy';
 
-export abstract class QAbstractScrollArea extends NodeWidget {
-    viewportWidget?: NodeWidget;
-    setViewport(widget: NodeWidget): void {
+export abstract class QAbstractScrollArea<Signals> extends NodeWidget<Signals> {
+    viewportWidget?: NodeWidget<any>;
+    setViewport(widget: NodeWidget<any>): void {
         this.viewportWidget = widget;
         this.native.setViewport(widget.native);
     }

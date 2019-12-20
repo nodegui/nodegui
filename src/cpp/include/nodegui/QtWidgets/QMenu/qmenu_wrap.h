@@ -1,7 +1,6 @@
 #pragma once
 #include <napi.h>
 #include <nodegui/QtWidgets/QWidget/qwidget_macro.h>
-#include <stdlib.h>
 
 #include <QPointer>
 

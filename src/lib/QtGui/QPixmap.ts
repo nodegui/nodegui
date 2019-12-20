@@ -6,22 +6,24 @@ import { QVariant } from '../QtCore/QVariant';
 
 export type ImageFormats = 'BMP' | 'GIF' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'PGM' | 'PPM' | 'XBM' | 'XPM' | 'SVG';
 
-type arg = string | NativeElement;
 export class QPixmap extends Component {
     native: NativeElement;
-    constructor(arg?: arg) {
+    constructor();
+    constructor(native: NativeElement);
+    constructor(filePath: string);
+    constructor(arg?: string | NativeElement) {
         super();
         if (typeof arg === 'string') {
-            const imageUrl = arg;
-            this.native = new addon.QPixmap(imageUrl);
+            const imagePath = arg;
+            this.native = new addon.QPixmap(imagePath);
         } else if (checkIfNativeElement(arg)) {
             this.native = arg as NativeElement;
         } else {
             this.native = new addon.QPixmap();
         }
     }
-    load(imageUrl: string): boolean {
-        return this.native.load(imageUrl);
+    load(imagePath: string): boolean {
+        return this.native.load(imagePath);
     }
     loadFromData(buffer: Buffer, format?: ImageFormats): boolean {
         return format ? this.native.loadFromData(buffer, format) : this.native.loadFromData(buffer);

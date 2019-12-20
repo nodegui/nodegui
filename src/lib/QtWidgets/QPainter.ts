@@ -16,7 +16,8 @@ export enum RenderHint {
 
 export class QPainter extends Component {
     native: NativeElement;
-
+    constructor();
+    constructor(device: Component);
     constructor(device?: Component) {
         let native;
         if (device) {

@@ -5,7 +5,11 @@ import { QTreeWidget } from './QTreeWidget';
 
 export class QTreeWidgetItem extends Component {
     native: NativeElement;
-
+    constructor();
+    constructor(parent: QTreeWidgetItem, strings?: string[]);
+    constructor(parent: QTreeWidget, strings?: string[]);
+    constructor(native: NativeElement);
+    constructor(strings: string[]);
     constructor(parent?: NativeElement | QTreeWidgetItem | QTreeWidget | string[], strings?: string[]) {
         super();
         if (checkIfNativeElement(parent)) {

@@ -1,35 +1,31 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement, Component } from '../core/Component';
 import { ScrollHint, SortOrder } from '../QtEnums';
 import { QTableWidgetItem } from './QTableWidgetItem';
 import { QAbstractScrollArea } from './QAbstractScrollArea';
 
-export const QTableWidgetEvents = Object.freeze({
-    ...BaseWidgetEvents,
-    cellActivated: 'cellActivated',
-    cellChanged: 'cellChanged',
-    cellClicked: 'cellClicked',
-    cellDoubleClicked: 'cellDoubleClicked',
-    cellEntered: 'cellEntered',
-    cellPressed: 'cellPressed',
-    currentCellChanged: 'currentCellChanged',
-});
-
-interface Range {
-    topRow: number;
-    rightColumn: number;
-    bottomRow: number;
-    leftColumn: number;
-    columnCount: number;
-    rowCount: number;
+interface QTableWidgetSignals {
+    cellActivated: (row: number, col: number) => void;
+    cellChanged: (row: number, col: number) => void;
+    cellClicked: (row: number, col: number) => void;
+    cellDoubleClicked: (row: number, col: number) => void;
+    cellEntered: (row: number, col: number) => void;
+    cellPressed: (row: number, col: number) => void;
+    currentCellChanged: (
+        currentRow: number,
+        currentColumn: number,
+        previousRow: number,
+        previousColumn: number,
+    ) => void;
 }
 
-export class QTableWidget extends QAbstractScrollArea {
+export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     native: NativeElement;
     items: Set<NativeElement | Component>;
-    constructor(rows: number, columns: number, parent?: NodeWidget) {
+    constructor(rows: number, columns: number);
+    constructor(rows: number, columns: number, parent: NodeWidget<any>);
+    constructor(rows: number, columns: number, parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QTableWidget(rows, columns, parent);
@@ -50,7 +46,7 @@ export class QTableWidget extends QAbstractScrollArea {
     editItem(item: Component): void {
         this.native.editItem(item.native);
     }
-    setCellWidget(row: number, column: number, widget: NodeWidget): void {
+    setCellWidget(row: number, column: number, widget: NodeWidget<any>): void {
         this.native.setCellWidget(row, column, widget.native);
         this.items.add(widget);
     }
@@ -147,4 +143,13 @@ export class QTableWidget extends QAbstractScrollArea {
     isSortingEnabled(): boolean {
         return this.native.isSortingEnabled();
     }
+}
+
+interface Range {
+    topRow: number;
+    rightColumn: number;
+    bottomRow: number;
+    leftColumn: number;
+    columnCount: number;
+    rowCount: number;
 }

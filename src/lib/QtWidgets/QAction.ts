@@ -7,17 +7,20 @@ import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
 import { NodeObject } from '../QtCore/QObject';
 
-export const QActionEvents = Object.freeze({
-    triggered: 'triggered',
-    changed: 'changed',
-    hovered: 'hovered',
-    toggled: 'toggled',
-});
-export class QAction extends NodeObject {
+interface QActionSignals {
+    triggered: (checked: boolean) => void;
+    changed: () => void;
+    hovered: () => void;
+    toggled: (checked: boolean) => void;
+}
+
+export class QAction extends NodeObject<QActionSignals> {
     native: NativeElement;
     icon?: QIcon;
     menu?: QMenu;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QAction(parent.native);

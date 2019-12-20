@@ -7,7 +7,7 @@ export { QApplication } from './lib/QtGui/QApplication';
 export { QKeySequence } from './lib/QtGui/QKeySequence';
 export { QPixmap, ImageFormats } from './lib/QtGui/QPixmap';
 export { QIcon, QIconMode, QIconState } from './lib/QtGui/QIcon';
-export { QMovie, CacheMode, MovieState, QMovieEvents } from './lib/QtGui/QMovie';
+export { QMovie, CacheMode, MovieState } from './lib/QtGui/QMovie';
 export { QCursor } from './lib/QtGui/QCursor';
 export { QTextOptionWrapMode } from './lib/QtGui/QTextOption';
 export { QClipboard, QClipboardMode } from './lib/QtGui/QClipboard';
@@ -16,7 +16,7 @@ export { QFontDatabase, SystemFont, WritingSystem } from './lib/QtGui/QFontDatab
 // Events: Maybe a separate module ?
 export { QKeyEvent } from './lib/QtGui/QEvent/QKeyEvent';
 export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
-export { NativeEvent, BaseWidgetEvents } from './lib/core/EventWidget';
+export { WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
 export { NodeWidget } from './lib/QtWidgets/QWidget';
 export { NodeLayout } from './lib/QtWidgets/QLayout';
@@ -24,39 +24,35 @@ export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton } from './lib/QtWidgets/QAbstractButton';
 // Widgets:
-export { QWidget, QWidgetEvents } from './lib/QtWidgets/QWidget';
-export { QCheckBox, QCheckBoxEvents } from './lib/QtWidgets/QCheckBox';
-export { QLabel, QLabelEvents } from './lib/QtWidgets/QLabel';
-export { QDial, QDialEvents } from './lib/QtWidgets/QDial';
-export { QFileDialog, QFileDialogEvents } from './lib/QtWidgets/QFileDialog';
-export { QLineEdit, QLineEditEvents, EchoMode } from './lib/QtWidgets/QLineEdit';
-export { QMainWindow, QMainWindowEvents } from './lib/QtWidgets/QMainWindow';
-export { QProgressBar, QProgressBarEvents } from './lib/QtWidgets/QProgressBar';
-export { QComboBox, QComboBoxEvents, InsertPolicy } from './lib/QtWidgets/QComboBox';
-export { QPushButton, QPushButtonEvents } from './lib/QtWidgets/QPushButton';
-export { QToolButton, QToolButtonEvents, ToolButtonPopupMode } from './lib/QtWidgets/QToolButton';
-export { QSpinBox, QSpinBoxEvents } from './lib/QtWidgets/QSpinBox';
-export { QRadioButton, QRadioButtonEvents } from './lib/QtWidgets/QRadioButton';
-export { QStackedWidget, QStackedWidgetEvents } from './lib/QtWidgets/QStackedWidget';
-export { QTabWidget, QTabWidgetEvents } from './lib/QtWidgets/QTabWidget';
-export { QTableWidget, QTableWidgetEvents } from './lib/QtWidgets/QTableWidget';
+export { QWidget } from './lib/QtWidgets/QWidget';
+export { QCheckBox } from './lib/QtWidgets/QCheckBox';
+export { QLabel } from './lib/QtWidgets/QLabel';
+export { QDial } from './lib/QtWidgets/QDial';
+export { QFileDialog } from './lib/QtWidgets/QFileDialog';
+export { QLineEdit, EchoMode } from './lib/QtWidgets/QLineEdit';
+export { QMainWindow } from './lib/QtWidgets/QMainWindow';
+export { QProgressBar } from './lib/QtWidgets/QProgressBar';
+export { QComboBox, InsertPolicy } from './lib/QtWidgets/QComboBox';
+export { QPushButton } from './lib/QtWidgets/QPushButton';
+export { QToolButton, ToolButtonPopupMode } from './lib/QtWidgets/QToolButton';
+export { QSpinBox } from './lib/QtWidgets/QSpinBox';
+export { QRadioButton } from './lib/QtWidgets/QRadioButton';
+export { QStackedWidget } from './lib/QtWidgets/QStackedWidget';
+export { QTabWidget } from './lib/QtWidgets/QTabWidget';
+export { QTableWidget } from './lib/QtWidgets/QTableWidget';
 export { QTableWidgetItem } from './lib/QtWidgets/QTableWidgetItem';
-export { QMenu, QMenuEvents } from './lib/QtWidgets/QMenu';
-export { QMenuBar, QMenuBarEvents } from './lib/QtWidgets/QMenuBar';
-export { QPlainTextEdit, QPlainTextEditEvents, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
-export { QScrollArea, QScrollAreaEvents } from './lib/QtWidgets/QScrollArea';
-export { QTreeWidget, QTreeWidgetEvents } from './lib/QtWidgets/QTreeWidget';
+export { QMenu } from './lib/QtWidgets/QMenu';
+export { QMenuBar } from './lib/QtWidgets/QMenuBar';
+export { QPlainTextEdit, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
+export { QScrollArea } from './lib/QtWidgets/QScrollArea';
+export { QTreeWidget } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
 export { QPainter, RenderHint } from './lib/QtWidgets/QPainter';
 
-export {
-    QSystemTrayIcon,
-    QSystemTrayIconEvents,
-    QSystemTrayIconActivationReason,
-} from './lib/QtWidgets/QSystemTrayIcon';
-export { QAction, QActionEvents } from './lib/QtWidgets/QAction';
-export { QShortcut, QShortcutEvents } from './lib/QtWidgets/QShortcut';
-export { QGroupBox, QGroupBoxEvents } from './lib/QtWidgets/QGroupBox';
+export { QSystemTrayIcon, QSystemTrayIconActivationReason } from './lib/QtWidgets/QSystemTrayIcon';
+export { QAction } from './lib/QtWidgets/QAction';
+export { QShortcut } from './lib/QtWidgets/QShortcut';
+export { QGroupBox } from './lib/QtWidgets/QGroupBox';
 // Core
 export { QObject, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';

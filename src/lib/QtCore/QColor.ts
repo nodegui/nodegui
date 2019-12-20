@@ -2,9 +2,15 @@ import { Component, NativeElement } from '../core/Component';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from './QVariant';
+import { GlobalColor } from '../QtEnums';
 
 export class QColor extends Component {
     native: NativeElement;
+    constructor();
+    constructor(nativeElement: NativeElement);
+    constructor(colorString: string);
+    constructor(color: GlobalColor);
+    constructor(r?: number, g?: number, b?: number, a?: number);
     constructor(arg?: NativeElement | number | string, g = 0, b = 0, a = 255) {
         super();
         if (checkIfNativeElement(arg)) {

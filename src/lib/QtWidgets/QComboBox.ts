@@ -1,20 +1,21 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { SizeAdjustPolicy } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
 import { QVariant } from '../QtCore/QVariant';
 
-export const QComboBoxEvents = Object.freeze({
-    currentIndexChanged: 'currentIndexChanged',
-    currentTextChanged: 'currentTextChanged',
-    editTextChanged: 'editTextChanged',
-    ...BaseWidgetEvents,
-});
-export class QComboBox extends NodeWidget {
+interface QComboBoxSignals {
+    //List all Signals below
+    currentIndexChanged: (index: number) => void;
+    currentTextChanged: (text: string) => void;
+    editTextChanged: (text: string) => void;
+}
+export class QComboBox extends NodeWidget<QComboBoxSignals> {
     native: NativeElement;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QComboBox(parent.native);

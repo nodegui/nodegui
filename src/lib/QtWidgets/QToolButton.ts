@@ -1,6 +1,5 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractButton } from './QAbstractButton';
 import { ToolButtonStyle } from '../QtEnums/ToolButtonStyle';
@@ -14,18 +13,18 @@ export enum ToolButtonPopupMode {
     InstantPopup,
 }
 
-export const QToolButtonEvents = Object.freeze({
-    ...BaseWidgetEvents,
-    clicked: 'clicked',
-    pressed: 'pressed',
-    released: 'released',
-    toggled: 'toggled',
-    triggered: 'triggered',
-});
-
-export class QToolButton extends QAbstractButton {
+interface QToolButtonSignals {
+    clicked: (checked: boolean) => void;
+    pressed: () => void;
+    released: () => void;
+    toggled: (checked: boolean) => void;
+    triggered: (nativeAction: NativeElement) => void;
+}
+export class QToolButton extends QAbstractButton<QToolButtonSignals> {
     native: NativeElement;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QToolButton(parent.native);

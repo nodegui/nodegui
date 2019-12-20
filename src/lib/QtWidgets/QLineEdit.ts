@@ -1,6 +1,5 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 
 export enum EchoMode {
@@ -9,20 +8,21 @@ export enum EchoMode {
     Password,
     PasswordEchoOnEdit,
 }
-export const QLineEditEvents = Object.freeze({
-    ...BaseWidgetEvents,
-    cursorPositionChanged: 'cursorPositionChanged',
-    editingFinished: 'editingFinished',
-    inputRejected: 'inputRejected',
-    returnPressed: 'returnPressed',
-    selectionChanged: 'selectionChanged',
-    textChanged: 'textChanged',
-    textEdited: 'textEdited',
-});
-export class QLineEdit extends NodeWidget {
+interface QLineEditSignals {
+    cursorPositionChanged: (oldPos: number, newPos: number) => void;
+    editingFinished: () => void;
+    inputRejected: () => void;
+    returnPressed: () => void;
+    selectionChanged: () => void;
+    textChanged: (text: string) => void;
+    textEdited: (text: string) => void;
+}
+export class QLineEdit extends NodeWidget<QLineEditSignals> {
     native: NativeElement;
     placeholderText?: string;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QLineEdit(parent.native);

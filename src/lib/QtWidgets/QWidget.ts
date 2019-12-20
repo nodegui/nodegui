@@ -1,6 +1,5 @@
 import addon from '../utils/addon';
 import { NodeLayout } from './QLayout';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { FlexLayout } from '../core/FlexLayout';
 import { WidgetAttribute, WindowType } from '../QtEnums';
@@ -14,8 +13,8 @@ import { QSize } from '../QtCore/QSize';
 import { QRect } from '../QtCore/QRect';
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
-export abstract class NodeWidget extends YogaWidget {
-    layout?: NodeLayout;
+export abstract class NodeWidget<Signals> extends YogaWidget<Signals> {
+    layout?: NodeLayout<Signals>;
     _rawInlineStyle = '';
     type = 'widget';
     show(): void {
@@ -131,7 +130,7 @@ export abstract class NodeWidget extends YogaWidget {
         // react:⛔️
         return this.native.setWindowFlag(windowType, switchOn);
     }
-    setLayout(parentLayout: NodeLayout): void {
+    setLayout(parentLayout: NodeLayout<Signals>): void {
         const flexLayout = parentLayout as FlexLayout;
         this.native.setLayout(parentLayout.native);
         if (flexLayout.setFlexNode) {
@@ -172,15 +171,16 @@ export abstract class NodeWidget extends YogaWidget {
     }
 }
 
-export class QWidget extends NodeWidget {
+type QWidgetSignals = {};
+export class QWidget extends NodeWidget<QWidgetSignals> {
     native: NativeElement;
-    constructor(arg?: NodeWidget | NativeElement) {
+    constructor(arg?: NodeWidget<QWidgetSignals> | NativeElement) {
         let native;
         let parent;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (arg as NodeWidget) {
-            parent = arg as NodeWidget;
+        } else if (arg as NodeWidget<QWidgetSignals>) {
+            parent = arg as NodeWidget<QWidgetSignals>;
             native = new addon.QWidget(parent.native);
         } else {
             native = new addon.QWidget();
@@ -190,5 +190,3 @@ export class QWidget extends NodeWidget {
         this.native = native;
     }
 }
-
-export const QWidgetEvents = BaseWidgetEvents;

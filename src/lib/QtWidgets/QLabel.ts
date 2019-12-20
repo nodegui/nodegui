@@ -1,20 +1,19 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QPixmap } from '../QtGui/QPixmap';
 import { QMovie } from '../QtGui/QMovie';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 import { TextFormat } from '../QtEnums/TextFormat';
 
-export const QLabelEvents = Object.freeze({
-    ...BaseWidgetEvents,
-});
-export class QLabel extends NodeWidget {
+type QLabelSignals = {};
+export class QLabel extends NodeWidget<QLabelSignals> {
     native: NativeElement;
     private _pixmap?: QPixmap;
     private _movie?: QMovie;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QLabel(parent.native);

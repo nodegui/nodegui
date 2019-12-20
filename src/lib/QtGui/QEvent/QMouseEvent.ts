@@ -1,10 +1,9 @@
 import addon from '../../utils/addon';
 import { NativeElement } from '../../core/Component';
-import { NativeEvent } from '../../core/EventWidget';
 
 export class QMouseEvent {
     native: NativeElement;
-    constructor(event: NativeEvent) {
+    constructor(event: NativeElement) {
         this.native = new addon.QMouseEvent(event);
     }
     button(): string {

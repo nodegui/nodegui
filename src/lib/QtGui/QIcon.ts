@@ -15,14 +15,16 @@ export enum QIconState {
     On,
 }
 
-type arg = string | NativeElement;
 export class QIcon extends Component {
     native: NativeElement;
-    constructor(arg?: arg) {
+    constructor();
+    constructor(native: NativeElement);
+    constructor(filePath: string);
+    constructor(arg?: string | NativeElement) {
         super();
         if (typeof arg === 'string') {
-            const imageUrl = arg;
-            this.native = new addon.QIcon(imageUrl);
+            const imagePath = arg;
+            this.native = new addon.QIcon(imagePath);
         } else if (checkIfNativeElement(arg)) {
             this.native = arg as NativeElement;
         } else {

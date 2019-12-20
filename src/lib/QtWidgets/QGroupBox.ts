@@ -1,17 +1,17 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 
-export const QGroupBoxEvents = Object.freeze({
-    ...BaseWidgetEvents,
-    clicked: 'clicked',
-    toggled: 'toggled',
-});
-export class QGroupBox extends NodeWidget {
+interface QGroupBoxSignals {
+    clicked: (checked: boolean) => void;
+    toggled: (on: boolean) => void;
+}
+export class QGroupBox extends NodeWidget<QGroupBoxSignals> {
     native: NativeElement;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QGroupBox(parent.native);
