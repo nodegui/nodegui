@@ -1,15 +1,14 @@
 import {
     FlexLayout,
     PenStyle,
+    WidgetEventTypes,
     QColor,
     QMainWindow,
-    QMainWindowEvents,
     QPainter,
     QPoint,
     QWidget,
     RenderHint,
 } from './index';
-import { QMovie } from './lib/QtGui/QMovie';
 
 const win = new QMainWindow();
 const center = new QWidget();
@@ -20,8 +19,7 @@ const secondHand = [new QPoint(4, 8), new QPoint(-4, 8), new QPoint(0, -70)];
 const hourColor = new QColor(127, 0, 127);
 const minuteColor = new QColor(0, 127, 127, 191);
 const secondColor = new QColor(0, 0, 0);
-const m = new QMovie();
-new QMovie();
+
 center.setLayout(layout);
 win.setWindowTitle('Analog Clock');
 win.resize(200, 200);
@@ -33,7 +31,7 @@ function repaint(): void {
 }
 
 setTimeout(repaint, 1000);
-win.addEventListener(QMainWindowEvents.Paint, () => {
+win.addEventListener(WidgetEventTypes.Paint, () => {
     const time = new Date();
 
     const painter = new QPainter(win);
