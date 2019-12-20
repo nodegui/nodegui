@@ -16,13 +16,14 @@ export abstract class EventWidget<Signals extends {}> extends Component {
 
     addEventListener<SignalType extends keyof Signals>(eventType: SignalType, callback: Signals[SignalType]): void;
     addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeEvent) => void): void;
-    addEventListener(eventType: any, callback: (...payloads: any[]) => void): void {
+    addEventListener(eventType: string, callback: (...payloads: any[]) => void): void {
         this.native.subscribeToQtEvent(eventType);
         this.emitter.addListener(eventType, callback);
     }
 
+    removeEventListener<SignalType extends keyof Signals>(eventType: SignalType, callback: Signals[SignalType]): void;
     removeEventListener(eventType: WidgetEventTypes, callback: (payload?: NativeEvent) => void): void;
-    removeEventListener(eventType: any, callback?: (...payloads: any[]) => void): void {
+    removeEventListener(eventType: string, callback?: (...payloads: any[]) => void): void {
         if (callback) {
             this.emitter.removeListener(eventType, callback);
         } else {

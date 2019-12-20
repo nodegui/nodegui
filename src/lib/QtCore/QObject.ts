@@ -26,6 +26,9 @@ export abstract class NodeObject<Signals> extends EventWidget<Signals> {
 
 export class QObject<Signals> extends NodeObject<Signals> {
     native: NativeElement;
+    constructor();
+    constructor(nativeElement: NativeElement);
+    constructor(parent: NodeObject<Signals>);
     constructor(arg?: NodeObject<Signals> | NativeElement) {
         let native;
         let parent;

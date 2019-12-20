@@ -9,11 +9,12 @@ export enum ParsingMode {
     DecodedMode,
 }
 
-type argument = string | NativeElement;
-
 export class QUrl extends Component {
     native: NativeElement;
-    constructor(arg?: argument, parsingMode: ParsingMode = ParsingMode.TolerantMode) {
+    constructor();
+    constructor(nativeElement: NativeElement);
+    constructor(url: string, parsingMode?: ParsingMode);
+    constructor(arg?: string | NativeElement, parsingMode: ParsingMode = ParsingMode.TolerantMode) {
         super();
         if (!arg) {
             this.native = new addon.QUrl();

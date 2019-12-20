@@ -3,11 +3,12 @@ import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from './QVariant';
 
-type argument = number | NativeElement;
-
 export class QSize extends Component {
     native: NativeElement;
-    constructor(arg?: argument, height?: number) {
+    constructor();
+    constructor(nativeElement: NativeElement);
+    constructor(width?: number, height?: number);
+    constructor(arg?: number | NativeElement, height?: number) {
         super();
         if (!arg) {
             this.native = new addon.QSize();

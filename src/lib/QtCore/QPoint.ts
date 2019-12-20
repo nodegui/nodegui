@@ -4,6 +4,9 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from './QVariant';
 export class QPoint extends Component {
     native: NativeElement;
+    constructor();
+    constructor(nativeElement: NativeElement);
+    constructor(x?: number, y?: number);
     constructor(arg?: NativeElement | number, y = 0) {
         super();
         if (checkIfNativeElement(arg)) {
