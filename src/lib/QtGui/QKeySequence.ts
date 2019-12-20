@@ -3,6 +3,8 @@ import { Component, NativeElement } from '../core/Component';
 
 export class QKeySequence extends Component {
     native: NativeElement;
+    constructor();
+    constructor(keySequence: string);
     constructor(keySequence?: string) {
         super();
         if (typeof keySequence === 'string') {

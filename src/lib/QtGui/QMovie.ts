@@ -7,8 +7,8 @@ import { QPixmap } from './QPixmap';
 export class QMovie extends NodeObject<QMovieSignals> {
     native: NativeElement;
     constructor();
-    constructor(parent?: NodeObject<QMovieSignals>);
     constructor(native: NativeElement);
+    constructor(parent: NodeObject<QMovieSignals>);
     constructor(arg?: NodeObject<QMovieSignals> | NativeElement) {
         let native: NativeElement;
         if (arg) {

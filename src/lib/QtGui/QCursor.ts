@@ -1,11 +1,12 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
-import { QPixmap } from './QPixmap';
-
-type arg = NativeElement | number | QPixmap;
+import { CursorShape } from '../QtEnums';
 export class QCursor extends Component {
     native: NativeElement;
-    constructor(arg?: arg) {
+    constructor();
+    constructor(native: NativeElement);
+    constructor(shape: CursorShape);
+    constructor(arg?: NativeElement | CursorShape) {
         super();
         if (arg) {
             this.native = new addon.QCursor(arg);

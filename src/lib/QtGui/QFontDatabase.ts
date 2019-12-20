@@ -1,6 +1,29 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
 
+export class QFontDatabase extends Component {
+    native: NativeElement;
+    constructor() {
+        super();
+        this.native = new addon.QFontDatabase();
+    }
+    bold(family: string, style: string): boolean {
+        return this.native.bold(family, style);
+    }
+    italic(family: string, style: string): boolean {
+        return this.native.italic(family, style);
+    }
+    weight(family: string, style: string): number {
+        return this.native.weight(family, style);
+    }
+    static addApplicationFont(fileName: string): number {
+        return addon.QFontDatabase.addApplicationFont(fileName);
+    }
+    static removeApplicationFont(id: number): boolean {
+        return addon.QFontDatabase.removeApplicationFont(id);
+    }
+}
+
 export enum SystemFont {
     GeneralFont,
     FixedFont,
@@ -44,27 +67,4 @@ export enum WritingSystem {
     Ogham = 31,
     Runic = 32,
     Nko = 33,
-}
-
-export class QFontDatabase extends Component {
-    native: NativeElement;
-    constructor() {
-        super();
-        this.native = new addon.QFontDatabase();
-    }
-    bold(family: string, style: string): boolean {
-        return this.native.bold(family, style);
-    }
-    italic(family: string, style: string): boolean {
-        return this.native.italic(family, style);
-    }
-    weight(family: string, style: string): number {
-        return this.native.weight(family, style);
-    }
-    static addApplicationFont(fileName: string): number {
-        return addon.QFontDatabase.addApplicationFont(fileName);
-    }
-    static removeApplicationFont(id: number): boolean {
-        return addon.QFontDatabase.removeApplicationFont(id);
-    }
 }

@@ -4,10 +4,11 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { QClipboard } from './QClipboard';
 import { QStyle } from './QStyle';
 
-type arg = NativeElement;
 export class QApplication extends Component {
     native: NativeElement;
-    constructor(arg?: arg) {
+    constructor();
+    constructor(native: NativeElement);
+    constructor(arg?: NativeElement) {
         super();
         if (checkIfNativeElement(arg)) {
             this.native = arg as NativeElement;
