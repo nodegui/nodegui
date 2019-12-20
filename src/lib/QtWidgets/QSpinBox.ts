@@ -2,7 +2,7 @@ import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 
-interface QSpinBoxSignals {
+export interface QSpinBoxSignals {
     valueChanged: (value: number) => void;
 }
 

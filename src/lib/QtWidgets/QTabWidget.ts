@@ -4,7 +4,7 @@ import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
 import { TabPosition } from '../QtEnums';
 
-interface QTabWidgetSignals {
+export interface QTabWidgetSignals {
     currentChanged: (index: number) => void;
     tabBarClicked: (index: number) => void;
     tabBarDoubleClicked: (index: number) => void;

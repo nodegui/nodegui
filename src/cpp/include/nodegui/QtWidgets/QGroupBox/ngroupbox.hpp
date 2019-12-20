@@ -11,7 +11,7 @@ class NGroupBox : public QGroupBox, public NodeWidget {
  public:
   using QGroupBox::QGroupBox;  // inherit all constructors of QGroupBox
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     QObject::connect(this, &QGroupBox::clicked, [=](bool checked) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);

@@ -10,7 +10,7 @@ class NLineEdit : public QLineEdit, public NodeWidget {
  public:
   using QLineEdit::QLineEdit;  // inherit all constructors of QLineEdit
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QLineEdit::cursorPositionChanged,
                      [=](int oldPost, int newPos) {

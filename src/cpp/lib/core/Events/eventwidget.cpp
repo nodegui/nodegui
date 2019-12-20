@@ -47,7 +47,7 @@ void EventWidget::event(QEvent* event) {
   }
 }
 
-void EventWidget::connectWidgetSignalsToEventEmitter() {
+void EventWidget::connectSignalsToEventEmitter() {
   // Do nothing
   // This method should be overriden in sub classes to connect all signals to
   // event emiiter of node. See Push button

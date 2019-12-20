@@ -75,7 +75,7 @@ export class QMovie extends NodeObject<QMovieSignals> {
     }
 }
 
-interface QMovieSignals {
+export interface QMovieSignals {
     error: (error: ImageReaderError) => void;
     finished: () => void;
     frameChanged: (frameNumber?: number) => void;

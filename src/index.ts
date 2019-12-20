@@ -22,39 +22,43 @@ export { NodeWidget } from './lib/QtWidgets/QWidget';
 export { NodeLayout } from './lib/QtWidgets/QLayout';
 export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider } from './lib/QtWidgets/QAbstractSlider';
-export { QAbstractButton } from './lib/QtWidgets/QAbstractButton';
+export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';
 // Widgets:
-export { QWidget } from './lib/QtWidgets/QWidget';
-export { QCheckBox } from './lib/QtWidgets/QCheckBox';
-export { QLabel } from './lib/QtWidgets/QLabel';
-export { QDial } from './lib/QtWidgets/QDial';
-export { QFileDialog } from './lib/QtWidgets/QFileDialog';
-export { QLineEdit, EchoMode } from './lib/QtWidgets/QLineEdit';
-export { QMainWindow } from './lib/QtWidgets/QMainWindow';
-export { QProgressBar } from './lib/QtWidgets/QProgressBar';
-export { QComboBox, InsertPolicy } from './lib/QtWidgets/QComboBox';
-export { QPushButton } from './lib/QtWidgets/QPushButton';
-export { QToolButton, ToolButtonPopupMode } from './lib/QtWidgets/QToolButton';
-export { QSpinBox } from './lib/QtWidgets/QSpinBox';
-export { QRadioButton } from './lib/QtWidgets/QRadioButton';
-export { QStackedWidget } from './lib/QtWidgets/QStackedWidget';
-export { QTabWidget } from './lib/QtWidgets/QTabWidget';
-export { QTableWidget } from './lib/QtWidgets/QTableWidget';
+export { QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
+export { QCheckBox, QCheckBoxSignals } from './lib/QtWidgets/QCheckBox';
+export { QLabel, QLabelSignals } from './lib/QtWidgets/QLabel';
+export { QDial, QDialSignals } from './lib/QtWidgets/QDial';
+export { QFileDialog, QFileDialogSignals } from './lib/QtWidgets/QFileDialog';
+export { QLineEdit, QLineEditSignals, EchoMode } from './lib/QtWidgets/QLineEdit';
+export { QMainWindow, QMainWindowSignals } from './lib/QtWidgets/QMainWindow';
+export { QProgressBar, QProgressBarSignals } from './lib/QtWidgets/QProgressBar';
+export { QComboBox, QComboBoxSignals, InsertPolicy } from './lib/QtWidgets/QComboBox';
+export { QPushButton, QPushButtonSignals } from './lib/QtWidgets/QPushButton';
+export { QToolButton, QToolButtonSignals, ToolButtonPopupMode } from './lib/QtWidgets/QToolButton';
+export { QSpinBox, QSpinBoxSignals } from './lib/QtWidgets/QSpinBox';
+export { QRadioButton, QRadioButtonSignals } from './lib/QtWidgets/QRadioButton';
+export { QStackedWidget, QStackedWidgetSignals } from './lib/QtWidgets/QStackedWidget';
+export { QTabWidget, QTabWidgetSignals } from './lib/QtWidgets/QTabWidget';
+export { QTableWidget, QTableWidgetSignals } from './lib/QtWidgets/QTableWidget';
 export { QTableWidgetItem } from './lib/QtWidgets/QTableWidgetItem';
-export { QMenu } from './lib/QtWidgets/QMenu';
-export { QMenuBar } from './lib/QtWidgets/QMenuBar';
-export { QPlainTextEdit, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
-export { QScrollArea } from './lib/QtWidgets/QScrollArea';
-export { QTreeWidget } from './lib/QtWidgets/QTreeWidget';
+export { QMenu, QMenuSignals } from './lib/QtWidgets/QMenu';
+export { QMenuBar, QMenuBarSignals } from './lib/QtWidgets/QMenuBar';
+export { QPlainTextEdit, QPlainTextEditSignals, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
+export { QScrollArea, QScrollAreaSignals } from './lib/QtWidgets/QScrollArea';
+export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
 export { QPainter, RenderHint } from './lib/QtWidgets/QPainter';
 
-export { QSystemTrayIcon, QSystemTrayIconActivationReason } from './lib/QtWidgets/QSystemTrayIcon';
-export { QAction } from './lib/QtWidgets/QAction';
-export { QShortcut } from './lib/QtWidgets/QShortcut';
-export { QGroupBox } from './lib/QtWidgets/QGroupBox';
+export {
+    QSystemTrayIcon,
+    QSystemTrayIconSignals,
+    QSystemTrayIconActivationReason,
+} from './lib/QtWidgets/QSystemTrayIcon';
+export { QAction, QActionSignals } from './lib/QtWidgets/QAction';
+export { QShortcut, QShortcutSignals } from './lib/QtWidgets/QShortcut';
+export { QGroupBox, QGroupBoxSignals } from './lib/QtWidgets/QGroupBox';
 // Core
-export { QObject, NodeObject } from './lib/QtCore/QObject';
+export { QObject, QObjectSignals, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';
 export { QRect } from './lib/QtCore/QRect';
@@ -62,9 +66,9 @@ export { QPoint } from './lib/QtCore/QPoint';
 export { QColor } from './lib/QtCore/QColor';
 export { QUrl, ParsingMode } from './lib/QtCore/QUrl';
 // Layouts:
-export { QBoxLayout } from './lib/QtWidgets/QBoxLayout';
-export { QGridLayout } from './lib/QtWidgets/QGridLayout';
-export { FlexLayout } from './lib/core/FlexLayout';
+export { QBoxLayout, QBoxLayoutSignals } from './lib/QtWidgets/QBoxLayout';
+export { QGridLayout, QGridLayoutSignals } from './lib/QtWidgets/QGridLayout';
+export { FlexLayout, FlexLayoutSignals } from './lib/core/FlexLayout';
 // Others:
 export { StyleSheet } from './lib/core/Style/StyleSheet';
 export { NativeElement, Component } from './lib/core/Component';

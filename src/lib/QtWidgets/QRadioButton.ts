@@ -1,9 +1,9 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { QAbstractButton } from './QAbstractButton';
+import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 
-type QRadioButtonSignals = {};
+export type QRadioButtonSignals = QAbstractButtonSignals;
 export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
     native: NativeElement;
     constructor();

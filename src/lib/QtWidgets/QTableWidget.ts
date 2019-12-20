@@ -5,7 +5,7 @@ import { ScrollHint, SortOrder } from '../QtEnums';
 import { QTableWidgetItem } from './QTableWidgetItem';
 import { QAbstractScrollArea } from './QAbstractScrollArea';
 
-interface QTableWidgetSignals {
+export interface QTableWidgetSignals {
     cellActivated: (row: number, col: number) => void;
     cellChanged: (row: number, col: number) => void;
     cellClicked: (row: number, col: number) => void;

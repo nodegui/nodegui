@@ -1,14 +1,9 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { QAbstractButton } from './QAbstractButton';
+import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 
-interface QPushButtonSignals {
-    clicked: (checked: boolean) => void;
-    pressed: () => void;
-    released: () => void;
-    toggled: (checked: boolean) => void;
-}
+export type QPushButtonSignals = QAbstractButtonSignals;
 
 export class QPushButton extends QAbstractButton<QPushButtonSignals> {
     native: NativeElement;

@@ -10,7 +10,7 @@ class NDial : public QDial, public NodeWidget {
  public:
   using QDial::QDial;  // inherit all constructors of QDial
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QDial::valueChanged, [=](int value) {
       Napi::Env env = this->emitOnNode.Env();

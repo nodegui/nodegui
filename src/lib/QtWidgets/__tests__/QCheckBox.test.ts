@@ -37,4 +37,20 @@ describe('QCheckBox', () => {
         expect(returnedSize.width()).toBe(111);
         expect(returnedSize.height()).toBe(111);
     });
+    it('check if signals are working from QObject', () => {
+        const widget = new QCheckBox();
+        const mock = jest.fn();
+        widget.addEventListener('objectNameChanged', mock);
+        widget.setObjectName('testName');
+        expect(mock).toBeCalledWith('testName');
+        expect(mock).toBeCalledTimes(1);
+    });
+    it('check if signals are working from QWidget', () => {
+        const widget = new QCheckBox();
+        const mock = jest.fn();
+        widget.addEventListener('windowTitleChanged', mock);
+        widget.setWindowTitle('testName');
+        expect(mock).toBeCalledWith('testName');
+        expect(mock).toBeCalledTimes(1);
+    });
 });

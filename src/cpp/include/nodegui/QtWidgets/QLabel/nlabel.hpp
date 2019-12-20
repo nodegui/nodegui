@@ -2,6 +2,7 @@
 
 #include <QLabel>
 
+#include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
 class NLabel : public QLabel, public NodeWidget {
@@ -10,8 +11,8 @@ class NLabel : public QLabel, public NodeWidget {
  public:
   using QLabel::QLabel;  // inherit all constructors of QLabel
 
-  void connectWidgetSignalsToEventEmitter() {
-    // Qt Connects: Implement all signal connects here
+  void connectSignalsToEventEmitter() {
+    QWIDGET_SIGNALS
     QObject::connect(this, &QLabel::linkActivated, [=](const QString &link) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);

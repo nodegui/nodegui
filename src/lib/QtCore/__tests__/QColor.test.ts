@@ -60,7 +60,7 @@ describe('QColor', () => {
 
     it('initialize from QVariant', () => {
         const color = new QColor(10, 10, 10);
-        const variant = new QVariant(color);
+        const variant = new QVariant(color.native);
         expect(variant).toBeTruthy();
         expect(QColor.fromQVariant(variant).red()).toBe(10);
     });

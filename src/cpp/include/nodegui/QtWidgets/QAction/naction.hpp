@@ -10,7 +10,7 @@ class NAction : public QAction, public EventWidget {
   EVENTWIDGET_IMPLEMENTATIONS(QAction)
  public:
   using QAction::QAction;  // inherit all constructors of QAction
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QAction::triggered, [=](bool checked) {
       Napi::Env env = this->emitOnNode.Env();

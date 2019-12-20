@@ -3,7 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 
-interface QGroupBoxSignals {
+export interface QGroupBoxSignals {
     clicked: (checked: boolean) => void;
     toggled: (on: boolean) => void;
 }

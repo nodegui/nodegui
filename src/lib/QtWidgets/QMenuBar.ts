@@ -4,7 +4,7 @@ import { NodeWidget } from './QWidget';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 
-type QMenuBarSignals = {};
+export type QMenuBarSignals = {};
 
 export class QMenuBar extends NodeWidget<QMenuBarSignals> {
     native: NativeElement;

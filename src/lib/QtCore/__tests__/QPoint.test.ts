@@ -27,7 +27,7 @@ describe('QPoint', () => {
     });
     it('initialize from QVariant', () => {
         const point = new QPoint(10, 10);
-        const variant = new QVariant(point);
+        const variant = new QVariant(point.native);
         expect(variant).toBeTruthy();
         expect(QPoint.fromQVariant(variant).x()).toBe(point.x());
     });

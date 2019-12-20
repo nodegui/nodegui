@@ -4,7 +4,7 @@ import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea } from './QAbstractScrollArea';
 import { QTreeWidgetItem } from './QTreeWidgetItem';
 
-interface QTreeWidgetSignals {
+export interface QTreeWidgetSignals {
     itemSelectionChanged: () => void;
 }
 

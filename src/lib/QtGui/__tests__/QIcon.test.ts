@@ -19,7 +19,7 @@ describe('QIcon', () => {
     });
     it('initialize from QVariant', () => {
         const icon = new QIcon(testImagePath);
-        const variant = new QVariant(icon);
+        const variant = new QVariant(icon.native);
         expect(variant).toBeTruthy();
         expect(QIcon.fromQVariant(variant).cacheKey()).toBe(icon.cacheKey());
     });

@@ -4,7 +4,7 @@ import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea } from './QAbstractScrollArea';
 import { QTextOptionWrapMode } from '../QtGui/QTextOption';
 
-interface QPlainTextEditSignals {
+export interface QPlainTextEditSignals {
     textChanged: () => void;
     blockCountChanged: (blockCount: number) => void;
     copyAvailable: (yes: boolean) => void;

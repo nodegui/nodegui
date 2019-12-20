@@ -1,7 +1,7 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { QAbstractButton } from './QAbstractButton';
+import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { ToolButtonStyle } from '../QtEnums/ToolButtonStyle';
 import { ArrowType } from '../QtEnums/ArrowType';
 import { QAction } from '../QtWidgets/QAction';
@@ -13,11 +13,7 @@ export enum ToolButtonPopupMode {
     InstantPopup,
 }
 
-interface QToolButtonSignals {
-    clicked: (checked: boolean) => void;
-    pressed: () => void;
-    released: () => void;
-    toggled: (checked: boolean) => void;
+export interface QToolButtonSignals extends QAbstractButtonSignals {
     triggered: (nativeAction: NativeElement) => void;
 }
 export class QToolButton extends QAbstractButton<QToolButtonSignals> {

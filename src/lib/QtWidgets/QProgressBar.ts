@@ -3,7 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { Orientation } from '../QtEnums';
 
-type QProgressBarSignals = {};
+export type QProgressBarSignals = {};
 export class QProgressBar extends NodeWidget<QProgressBarSignals> {
     native: NativeElement;
     constructor();

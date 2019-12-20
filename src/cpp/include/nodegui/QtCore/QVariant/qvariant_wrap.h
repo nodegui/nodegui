@@ -23,3 +23,7 @@ class QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
   // wrapped methods
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };
+
+namespace StaticQVariantWrapMethods {
+Napi::Value converToQVariant(const Napi::CallbackInfo& info);
+}  // namespace StaticQVariantWrapMethods

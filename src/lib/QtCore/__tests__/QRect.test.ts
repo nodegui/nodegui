@@ -32,7 +32,7 @@ describe('QRect', () => {
     });
     it('initialize from QVariant', () => {
         const rect = new QRect(10, 10, 300, 200);
-        const variant = new QVariant(rect);
+        const variant = new QVariant(rect.native);
         expect(variant).toBeTruthy();
         expect(QRect.fromQVariant(variant).left()).toBe(rect.left());
     });

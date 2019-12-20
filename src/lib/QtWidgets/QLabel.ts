@@ -1,12 +1,12 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QPixmap } from '../QtGui/QPixmap';
 import { QMovie } from '../QtGui/QMovie';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 import { TextFormat } from '../QtEnums/TextFormat';
 
-type QLabelSignals = {};
+export type QLabelSignals = QWidgetSignals;
 export class QLabel extends NodeWidget<QLabelSignals> {
     native: NativeElement;
     private _pixmap?: QPixmap;

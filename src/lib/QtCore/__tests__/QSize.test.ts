@@ -22,7 +22,7 @@ describe('QSize', () => {
     });
     it('initialize from QVariant', () => {
         const size = new QSize(300, 200);
-        const variant = new QVariant(size);
+        const variant = new QVariant(size.native);
         expect(variant).toBeTruthy();
         expect(QSize.fromQVariant(variant).height()).toBe(size.height());
     });

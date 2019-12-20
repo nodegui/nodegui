@@ -12,7 +12,7 @@ class NStackedWidget : public QStackedWidget, public NodeWidget {
   using QStackedWidget::QStackedWidget;  // inherit all constructors of
                                          // QStackedWidget
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QStackedWidget::currentChanged, [=](int index) {
       Napi::Env env = this->emitOnNode.Env();

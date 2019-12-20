@@ -1,4 +1,4 @@
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import { QIcon } from '../QtGui/QIcon';
 import { QSize } from '../QtCore/QSize';
 
@@ -16,4 +16,10 @@ export abstract class QAbstractButton<Signals> extends NodeWidget<Signals> {
         const iconSize = this.property('iconSize');
         return QSize.fromQVariant(iconSize);
     }
+}
+export interface QAbstractButtonSignals extends QWidgetSignals {
+    clicked: (checked: boolean) => void;
+    pressed: () => void;
+    released: () => void;
+    toggled: (checked: boolean) => void;
 }

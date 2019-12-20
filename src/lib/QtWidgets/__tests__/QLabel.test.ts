@@ -35,4 +35,20 @@ describe('QLabel', () => {
         label.setMovie(movie);
         expect(label.movie()).toEqual(movie);
     });
+    it('check if signals are working', () => {
+        const widget = new QLabel();
+        const mock = jest.fn();
+        widget.addEventListener('objectNameChanged', mock);
+        widget.setObjectName('testName');
+        expect(mock).toBeCalledWith('testName');
+        expect(mock).toBeCalledTimes(1);
+    });
+    it('check if signals are working from QWidget', () => {
+        const widget = new QLabel();
+        const mock = jest.fn();
+        widget.addEventListener('windowTitleChanged', mock);
+        widget.setWindowTitle('testName');
+        expect(mock).toBeCalledWith('testName');
+        expect(mock).toBeCalledTimes(1);
+    });
 });

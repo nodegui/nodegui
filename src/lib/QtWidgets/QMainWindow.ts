@@ -4,7 +4,7 @@ import { NativeElement } from '../core/Component';
 import { NodeLayout } from './QLayout';
 import { QMenuBar } from './QMenuBar';
 
-type QMainWindowSignals = {};
+export type QMainWindowSignals = {};
 export class QMainWindow extends NodeWidget<QMainWindowSignals> {
     native: NativeElement;
     public centralWidget?: NodeWidget<any> | null;

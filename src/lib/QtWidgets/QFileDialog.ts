@@ -3,7 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { AcceptMode, DialogLabel, FileMode, Option, ViewMode } from '../QtEnums';
 
-interface QFileDialogSignals {
+export interface QFileDialogSignals {
     currentChanged: (path: string) => void;
     currentUrlChanged: (url: string) => void;
     directoryEntered: (directory: string) => void;

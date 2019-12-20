@@ -4,7 +4,7 @@ import { NodeLayout } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { Direction } from '../QtEnums';
 
-type QBoxLayoutSignals = {};
+export type QBoxLayoutSignals = {};
 export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     native: NativeElement;
     childLayouts: Set<NodeLayout<any>>;

@@ -43,3 +43,31 @@
       InstanceMethod("setIcon", &WidgetWrapName::setIcon),
 
 #endif  // QABSTRACTBUTTON_WRAPPED_METHODS_EXPORT_DEFINE
+
+#ifndef QABSTRACT_BUTTON_SIGNALS
+#define QABSTRACT_BUTTON_SIGNALS                                               \
+  QWIDGET_SIGNALS                                                              \
+  QObject::connect(this, &QAbstractButton::clicked, [=](bool checked) {        \
+    Napi::Env env = this->emitOnNode.Env();                                    \
+    Napi::HandleScope scope(env);                                              \
+    this->emitOnNode.Call(                                                     \
+        {Napi::String::New(env, "clicked"), Napi::Value::From(env, checked)}); \
+  });                                                                          \
+  QObject::connect(this, &QAbstractButton::pressed, [=]() {                    \
+    Napi::Env env = this->emitOnNode.Env();                                    \
+    Napi::HandleScope scope(env);                                              \
+    this->emitOnNode.Call({Napi::String::New(env, "pressed")});                \
+  });                                                                          \
+  QObject::connect(this, &QAbstractButton::released, [=]() {                   \
+    Napi::Env env = this->emitOnNode.Env();                                    \
+    Napi::HandleScope scope(env);                                              \
+    this->emitOnNode.Call({Napi::String::New(env, "released")});               \
+  });                                                                          \
+  QObject::connect(this, &QAbstractButton::toggled, [=](bool checked) {        \
+    Napi::Env env = this->emitOnNode.Env();                                    \
+    Napi::HandleScope scope(env);                                              \
+    this->emitOnNode.Call(                                                     \
+        {Napi::String::New(env, "toggled"), Napi::Value::From(env, checked)}); \
+  });
+
+#endif

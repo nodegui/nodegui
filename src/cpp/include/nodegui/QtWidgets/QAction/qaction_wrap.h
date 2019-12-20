@@ -9,6 +9,7 @@
 class QActionWrap : public Napi::ObjectWrap<QActionWrap> {
  private:
   QPointer<NAction> instance;
+  bool disableDeletion;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

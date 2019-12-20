@@ -11,7 +11,7 @@ class NPlainTextEdit : public QPlainTextEdit, public NodeWidget {
   using QPlainTextEdit::QPlainTextEdit;  // inherit all constructors of
                                          // QPlainTextEdit
 
-  void connectWidgetSignalsToEventEmitter() {
+  void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QPlainTextEdit::textChanged, [=]() {
       Napi::Env env = this->emitOnNode.Env();

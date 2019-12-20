@@ -16,7 +16,7 @@ class EventWidget {
 
   void event(QEvent* event);
 
-  void connectWidgetSignalsToEventEmitter();
+  void connectSignalsToEventEmitter();
 
   ~EventWidget();
 };

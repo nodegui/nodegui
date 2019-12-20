@@ -5,7 +5,7 @@ import { SizeAdjustPolicy } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
 import { QVariant } from '../QtCore/QVariant';
 
-interface QComboBoxSignals {
+export interface QComboBoxSignals {
     //List all Signals below
     currentIndexChanged: (index: number) => void;
     currentTextChanged: (text: string) => void;
