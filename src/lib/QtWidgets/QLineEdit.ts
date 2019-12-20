@@ -8,7 +8,7 @@ export enum EchoMode {
     Password,
     PasswordEchoOnEdit,
 }
-interface QLineEditSignals {
+export interface QLineEditSignals {
     cursorPositionChanged: (oldPos: number, newPos: number) => void;
     editingFinished: () => void;
     inputRejected: () => void;

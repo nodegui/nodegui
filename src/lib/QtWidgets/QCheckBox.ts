@@ -3,7 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractButton } from './QAbstractButton';
 
-interface QCheckBoxSignals {
+export interface QCheckBoxSignals {
     //List all Signals below
     toggled: (checked: boolean) => void;
 }

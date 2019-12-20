@@ -4,7 +4,7 @@ import { NodeLayout } from '../QtWidgets/QLayout';
 import { FlexNode } from './YogaWidget';
 import { NativeElement } from './Component';
 
-type FlexLayoutSignals = {};
+export type FlexLayoutSignals = {};
 export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
     native: NativeElement;
     protected flexNode?: FlexNode;

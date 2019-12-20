@@ -175,7 +175,7 @@ export abstract class NodeWidget<Signals> extends YogaWidget<Signals> {
     }
 }
 
-interface QWidgetSignals extends QObjectSignals {
+export interface QWidgetSignals extends QObjectSignals {
     windowTitleChanged: (title: string) => void;
     windowIconChanged: (iconNative: NativeElement) => void;
     customContextMenuRequested: (pos: { x: number; y: number }) => void;

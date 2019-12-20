@@ -3,7 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea } from './QAbstractScrollArea';
 
-type QScrollAreaSignals = {};
+export type QScrollAreaSignals = {};
 export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     native: NativeElement;
     contentWidget?: NodeWidget<any> | null;

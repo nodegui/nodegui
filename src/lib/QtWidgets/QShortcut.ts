@@ -5,7 +5,7 @@ import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
 import { NodeObject } from '../QtCore/QObject';
 
-interface QShortcutSignals {
+export interface QShortcutSignals {
     activated: () => void;
     activatedAmbiguously: () => void;
 }

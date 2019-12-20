@@ -3,7 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractButton } from './QAbstractButton';
 
-interface QPushButtonSignals {
+export interface QPushButtonSignals {
     clicked: (checked: boolean) => void;
     pressed: () => void;
     released: () => void;

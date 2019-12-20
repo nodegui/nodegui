@@ -13,7 +13,7 @@ export enum ToolButtonPopupMode {
     InstantPopup,
 }
 
-interface QToolButtonSignals {
+export interface QToolButtonSignals {
     clicked: (checked: boolean) => void;
     pressed: () => void;
     released: () => void;

@@ -3,7 +3,7 @@ import { NodeWidget } from './QWidget';
 import addon from '../utils/addon';
 import { QAction } from './QAction';
 
-type QMenuSignals = {};
+export type QMenuSignals = {};
 export class QMenu extends NodeWidget<QMenuSignals> {
     native: NativeElement;
     actions: Set<QAction>;

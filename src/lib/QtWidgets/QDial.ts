@@ -3,7 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSlider } from './QAbstractSlider';
 
-interface QDialSignals {
+export interface QDialSignals {
     valueChanged: (value: number) => void;
     rangeChanged: (min: number, max: number) => void;
     sliderMoved: (value: number) => void;

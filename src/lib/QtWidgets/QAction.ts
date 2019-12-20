@@ -8,7 +8,7 @@ import { ShortcutContext } from '../QtEnums';
 import { NodeObject } from '../QtCore/QObject';
 import { checkIfNativeElement } from '../utils/helpers';
 
-interface QActionSignals {
+export interface QActionSignals {
     triggered: (checked: boolean) => void;
     changed: () => void;
     hovered: () => void;

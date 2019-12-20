@@ -5,7 +5,7 @@ import { QIcon } from '../QtGui/QIcon';
 import { QMenu } from './QMenu';
 import { NodeObject } from '../QtCore/QObject';
 
-interface QSystemTrayIconSignals {
+export interface QSystemTrayIconSignals {
     activated: (reason: QSystemTrayIconActivationReason) => void;
     messageClicked: () => void;
 }

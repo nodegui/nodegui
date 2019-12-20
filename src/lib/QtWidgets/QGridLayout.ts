@@ -3,7 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NodeLayout } from './QLayout';
 import { NativeElement } from '../core/Component';
 
-type QGridLayoutSignals = {};
+export type QGridLayoutSignals = {};
 
 export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
     native: NativeElement;
