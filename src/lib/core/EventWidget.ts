@@ -1,7 +1,5 @@
 import { EventEmitter } from 'events';
 import { NativeElement, Component } from './Component';
-
-export type NativeEvent = {};
 export abstract class EventWidget<Signals extends {}> extends Component {
     private emitter: EventEmitter;
     constructor(native: NativeElement) {
@@ -15,14 +13,14 @@ export abstract class EventWidget<Signals extends {}> extends Component {
     }
 
     addEventListener<SignalType extends keyof Signals>(eventType: SignalType, callback: Signals[SignalType]): void;
-    addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeEvent) => void): void;
+    addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeElement) => void): void;
     addEventListener(eventType: string, callback: (...payloads: any[]) => void): void {
         this.native.subscribeToQtEvent(eventType);
         this.emitter.addListener(eventType, callback);
     }
 
     removeEventListener<SignalType extends keyof Signals>(eventType: SignalType, callback: Signals[SignalType]): void;
-    removeEventListener(eventType: WidgetEventTypes, callback: (payload?: NativeEvent) => void): void;
+    removeEventListener(eventType: WidgetEventTypes, callback: (payload?: NativeElement) => void): void;
     removeEventListener(eventType: string, callback?: (...payloads: any[]) => void): void {
         if (callback) {
             this.emitter.removeListener(eventType, callback);

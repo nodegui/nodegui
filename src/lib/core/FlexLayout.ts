@@ -7,12 +7,23 @@ import { NativeElement } from './Component';
 type FlexLayoutSignals = {};
 export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
     native: NativeElement;
-    constructor() {
-        const native = new addon.FlexLayout();
+    protected flexNode?: FlexNode;
+
+    constructor();
+    constructor(parent: NodeWidget<FlexLayoutSignals>);
+    constructor(parent?: NodeWidget<FlexLayoutSignals>) {
+        let native;
+        if (parent) {
+            native = new addon.FlexLayout(parent.native);
+        } else {
+            native = new addon.FlexLayout();
+        }
         super(native);
         this.native = native;
+        if (parent) {
+            this.setFlexNode(parent.getFlexNode());
+        }
     }
-    protected flexNode?: FlexNode;
 
     addWidget(childWidget: NodeWidget<FlexLayoutSignals>, childFlexNode?: FlexNode): void {
         const childYogaNode = childFlexNode || childWidget.getFlexNode();

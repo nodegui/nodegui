@@ -16,7 +16,7 @@ export { QFontDatabase, SystemFont, WritingSystem } from './lib/QtGui/QFontDatab
 // Events: Maybe a separate module ?
 export { QKeyEvent } from './lib/QtGui/QEvent/QKeyEvent';
 export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
-export { NativeEvent, WidgetEventTypes } from './lib/core/EventWidget';
+export { WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
 export { NodeWidget } from './lib/QtWidgets/QWidget';
 export { NodeLayout } from './lib/QtWidgets/QLayout';

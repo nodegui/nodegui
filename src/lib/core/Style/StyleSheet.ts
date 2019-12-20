@@ -13,7 +13,7 @@ export class StyleSheet {
     }
 }
 
-export function prepareInlineStyleSheet(widget: NodeWidget, rawStyle: string): string {
+export function prepareInlineStyleSheet<Signals>(widget: NodeWidget<Signals>, rawStyle: string): string {
     const inlineStyle = StyleSheet.create(rawStyle);
     // Make sure to not calculate ObjectName in the same pass of event loop as other props (incase of react) since the order will matter in that case
     // So doing it in multiple passes of event loop allows objectName to be set before using it. The above await solves it.
