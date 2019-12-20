@@ -13,6 +13,8 @@ Napi::Object QVariantWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("toInt", &QVariantWrap::toInt),
                    InstanceMethod("toDouble", &QVariantWrap::toDouble),
                    InstanceMethod("toBool", &QVariantWrap::toBool),
+                   StaticMethod("converToQVariant",
+                                &StaticQVariantWrapMethods::converToQVariant),
                    COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -26,9 +28,8 @@ QVariantWrap::QVariantWrap(const Napi::CallbackInfo& info)
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   if (info.Length() == 1) {
-    Napi::Value value = info[0].As<Napi::Value>();
     this->instance =
-        QSharedPointer<QVariant>(extrautils::convertToQVariant(env, value));
+        QSharedPointer<QVariant>(info[0].As<Napi::External<QVariant>>().Data());
   } else {
     this->instance = QSharedPointer<QVariant>(new QVariant());
   }
@@ -58,4 +59,17 @@ Napi::Value QVariantWrap::toBool(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
   bool value = this->instance->value<bool>();
   return Napi::Value::From(env, value);
+}
+
+Napi::Value StaticQVariantWrapMethods::converToQVariant(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Value value = info[0];
+  QVariant* variant = extrautils::convertToQVariant(env, value);
+  // Use the variant from extrautils::convertToQVariant function as is and do
+  // not create a copy to prevent memory leak
+  auto instance = QVariantWrap::constructor.New(
+      {Napi::External<QVariant>::New(env, variant)});
+  return instance;
 }

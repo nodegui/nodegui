@@ -11,10 +11,10 @@ export class QVariant extends Component {
     constructor(variant: QVariantType);
     constructor(arg?: QVariantType | NativeElement) {
         super();
-        if (checkIfNativeElement(arg)) {
+        if (checkIfNativeElement(arg) && arg instanceof addon.QVariant) {
             this.native = arg as NativeElement;
         } else if (arg) {
-            this.native = new addon.QVariant(arg);
+            this.native = new addon.QVariant.converToQVariant(arg);
         } else {
             this.native = new addon.QVariant();
         }
