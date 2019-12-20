@@ -26,6 +26,7 @@ class QBoxLayoutWrap : public Napi::ObjectWrap<QBoxLayoutWrap> {
   Napi::Value addStretch(const Napi::CallbackInfo& info);
   Napi::Value addStrut(const Napi::CallbackInfo& info);
   Napi::Value addWidget(const Napi::CallbackInfo& info);
+  Napi::Value insertWidget(const Napi::CallbackInfo& info);
   Napi::Value direction(const Napi::CallbackInfo& info);
   Napi::Value insertLayout(const Napi::CallbackInfo& info);
   Napi::Value removeWidget(const Napi::CallbackInfo& info);
