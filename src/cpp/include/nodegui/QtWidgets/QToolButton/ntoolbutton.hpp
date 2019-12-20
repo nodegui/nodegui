@@ -3,6 +3,7 @@
 #include <QAction>
 #include <QToolButton>
 
+#include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
@@ -15,28 +16,7 @@ class NToolButton : public QToolButton, public NodeWidget {
 
   void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
-    QObject::connect(this, &QToolButton::clicked, [=](bool checked) {
-      Napi::Env env = this->emitOnNode.Env();
-      Napi::HandleScope scope(env);
-      this->emitOnNode.Call(
-          {Napi::String::New(env, "clicked"), Napi::Value::From(env, checked)});
-    });
-    QObject::connect(this, &QToolButton::released, [=]() {
-      Napi::Env env = this->emitOnNode.Env();
-      Napi::HandleScope scope(env);
-      this->emitOnNode.Call({Napi::String::New(env, "released")});
-    });
-    QObject::connect(this, &QToolButton::pressed, [=]() {
-      Napi::Env env = this->emitOnNode.Env();
-      Napi::HandleScope scope(env);
-      this->emitOnNode.Call({Napi::String::New(env, "pressed")});
-    });
-    QObject::connect(this, &QToolButton::toggled, [=](bool checked) {
-      Napi::Env env = this->emitOnNode.Env();
-      Napi::HandleScope scope(env);
-      this->emitOnNode.Call(
-          {Napi::String::New(env, "toggled"), Napi::Value::From(env, checked)});
-    });
+    QABSTRACT_BUTTON_SIGNALS
     QObject::connect(this, &QToolButton::triggered, [=](QAction *action) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);

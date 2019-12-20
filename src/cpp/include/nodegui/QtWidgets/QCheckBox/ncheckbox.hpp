@@ -2,6 +2,8 @@
 
 #include <QCheckBox>
 
+#include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
+#include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -11,12 +13,5 @@ class NCheckBox : public QCheckBox, public NodeWidget {
  public:
   using QCheckBox::QCheckBox;  // inherit all constructors of QCheckBox
 
-  void connectSignalsToEventEmitter() {
-    QObject::connect(this, &QCheckBox::toggled, [=](bool checked) {
-      Napi::Env env = this->emitOnNode.Env();
-      Napi::HandleScope scope(env);
-      this->emitOnNode.Call(
-          {Napi::String::New(env, "toggled"), Napi::Value::From(env, checked)});
-    });
-  }
+  void connectSignalsToEventEmitter() { QABSTRACT_BUTTON_SIGNALS }
 };

@@ -22,7 +22,7 @@ export { NodeWidget } from './lib/QtWidgets/QWidget';
 export { NodeLayout } from './lib/QtWidgets/QLayout';
 export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider } from './lib/QtWidgets/QAbstractSlider';
-export { QAbstractButton } from './lib/QtWidgets/QAbstractButton';
+export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';
 // Widgets:
 export { QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
 export { QCheckBox, QCheckBoxSignals } from './lib/QtWidgets/QCheckBox';

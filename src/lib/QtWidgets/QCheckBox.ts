@@ -1,12 +1,9 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { QAbstractButton } from './QAbstractButton';
+import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 
-export interface QCheckBoxSignals {
-    //List all Signals below
-    toggled: (checked: boolean) => void;
-}
+export type QCheckBoxSignals = QAbstractButtonSignals;
 
 export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
     native: NativeElement;

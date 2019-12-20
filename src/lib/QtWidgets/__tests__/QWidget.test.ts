@@ -82,4 +82,12 @@ describe('QWidget', () => {
         view.setWindowOpacity(0.6);
         expect(view.windowOpacity().toFixed(1)).toBe(`0.6`);
     });
+    it('check if signals are working', () => {
+        const widget = new QWidget();
+        const mock = jest.fn();
+        widget.addEventListener('objectNameChanged', mock);
+        widget.setObjectName('testName');
+        expect(mock).toBeCalledWith('testName');
+        expect(mock).toBeCalledTimes(1);
+    });
 });
