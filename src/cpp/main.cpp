@@ -12,6 +12,7 @@
 #include "QtGui/QCursor/qcursor_wrap.h"
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include "QtGui/QEvent/QMouseEvent/qmouseevent_wrap.h"
+#include "QtGui/QEvent/QPaintEvent/qpaintevent_wrap.h"
 #include "QtGui/QFontDatabase/qfontdatabase_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
 #include "QtGui/QKeySequence/qkeysequence_wrap.h"
@@ -97,7 +98,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QTabWidgetWrap::init(env, exports);
   QLineEditWrap::init(env, exports);
   QKeyEventWrap::init(env, exports);
-  QMouseEventWrap::init(env, exports);
+  QPaintEventWrap::init(env, exports);
   QPlainTextEditWrap::init(env, exports);
   QDialWrap::init(env, exports);
   QLabelWrap::init(env, exports);

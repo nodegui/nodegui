@@ -26,6 +26,7 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("drawConvexPolygon", &QPainterWrap::drawConvexPolygon),
        InstanceMethod("save", &QPainterWrap::save),
        InstanceMethod("restore", &QPainterWrap::restore),
+       InstanceMethod("fillRect", &QPainterWrap::fillRect),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -173,5 +174,11 @@ Napi::Value QPainterWrap::setRenderHint(const Napi::CallbackInfo& info) {
       (QPainter::RenderHint)info[0].As<Napi::Number>().Int32Value();
 
   this->instance->setRenderHint(hint, true);
+  return env.Null();
+}
+Napi::Value QPainterWrap::fillRect(const Napi::CallbackInfo& info){
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  
   return env.Null();
 }
