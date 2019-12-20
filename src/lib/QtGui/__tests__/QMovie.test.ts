@@ -81,7 +81,7 @@ describe('QMovie', () => {
         movie.loadFromData(Buffer.from(arrayBuffer));
         movie.start();
         movie.stop();
-        movie.jumpToFrame(2);
+        movie.jumpToNextFrame();
         const pixmap = movie.currentPixmap();
         expect(pixmap).toBeInstanceOf(QPixmap);
         expect(pixmap.height()).toBe(270);
