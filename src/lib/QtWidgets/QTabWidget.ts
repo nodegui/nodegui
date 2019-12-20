@@ -1,22 +1,22 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
 import { TabPosition } from '../QtEnums';
 
-export const QTabWidgetEvents = Object.freeze({
-    ...BaseWidgetEvents,
-    currentChanged: 'currentChanged',
-    tabBarClicked: 'tabBarClicked',
-    tabBarDoubleClicked: 'tabBarDoubleClicked',
-    tabCloseRequested: 'tabCloseRequested',
-});
+interface QTabWidgetSignals {
+    currentChanged: (index: number) => void;
+    tabBarClicked: (index: number) => void;
+    tabBarDoubleClicked: (index: number) => void;
+    tabCloseRequested: (index: number) => void;
+}
 
-export class QTabWidget extends NodeWidget {
+export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
     native: NativeElement;
-    tabs: NodeWidget[];
-    constructor(parent?: NodeWidget) {
+    tabs: NodeWidget<any>[];
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QTabWidget(parent.native);
@@ -29,7 +29,7 @@ export class QTabWidget extends NodeWidget {
         this.native = native;
     }
 
-    addTab(page: NodeWidget, icon: QIcon, label: string): void {
+    addTab(page: NodeWidget<any>, icon: QIcon, label: string): void {
         this.native.addTab(page.native, icon.native, label);
         this.tabs.push(page);
         page.setFlexNodeSizeControlled(true);

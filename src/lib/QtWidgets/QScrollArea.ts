@@ -1,16 +1,15 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea } from './QAbstractScrollArea';
 
-export const QScrollAreaEvents = Object.freeze({
-    ...BaseWidgetEvents,
-});
-export class QScrollArea extends QAbstractScrollArea {
+type QScrollAreaSignals = {};
+export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     native: NativeElement;
-    contentWidget?: NodeWidget | null;
-    constructor(parent?: NodeWidget) {
+    contentWidget?: NodeWidget<any> | null;
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QScrollArea(parent.native);
@@ -22,13 +21,13 @@ export class QScrollArea extends QAbstractScrollArea {
         this.setNodeParent(parent);
         this.setWidgetResizable(true);
     }
-    setWidget(widget: NodeWidget): void {
+    setWidget(widget: NodeWidget<any>): void {
         // react:✓, //TODO:getter
         this.contentWidget = widget;
         this.native.setWidget(widget.native);
         this.contentWidget.setFlexNodeSizeControlled(this.widgetResizable());
     }
-    takeWidget(): NodeWidget | null {
+    takeWidget(): NodeWidget<any> | null {
         // react:✓
         const contentWidget = this.contentWidget;
         this.contentWidget = null;

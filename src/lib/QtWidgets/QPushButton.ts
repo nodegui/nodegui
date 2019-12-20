@@ -1,20 +1,20 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractButton } from './QAbstractButton';
 
-export const QPushButtonEvents = Object.freeze({
-    ...BaseWidgetEvents,
-    clicked: 'clicked',
-    pressed: 'pressed',
-    released: 'released',
-    toggled: 'toggled',
-});
+interface QPushButtonSignals {
+    clicked: (checked: boolean) => void;
+    pressed: () => void;
+    released: () => void;
+    toggled: (checked: boolean) => void;
+}
 
-export class QPushButton extends QAbstractButton {
+export class QPushButton extends QAbstractButton<QPushButtonSignals> {
     native: NativeElement;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QPushButton(parent.native);

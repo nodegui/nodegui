@@ -4,6 +4,8 @@ import { AlignmentFlag } from '../QtEnums';
 
 export class QTableWidgetItem extends Component {
     native: NativeElement;
+    constructor();
+    constructor(text: string);
     constructor(text?: string) {
         let native;
         if (text) {

@@ -171,6 +171,7 @@ export abstract class NodeWidget<Signals> extends YogaWidget<Signals> {
     }
 }
 
+type QWidgetSignals = {};
 export class QWidget extends NodeWidget<QWidgetSignals> {
     native: NativeElement;
     constructor(arg?: NodeWidget<QWidgetSignals> | NativeElement) {
@@ -189,5 +190,3 @@ export class QWidget extends NodeWidget<QWidgetSignals> {
         this.native = native;
     }
 }
-
-type QWidgetSignals = {};

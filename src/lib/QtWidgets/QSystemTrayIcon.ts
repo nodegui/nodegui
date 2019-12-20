@@ -1,27 +1,21 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { BaseWidgetEvents } from '../core/EventWidget';
 import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
 import { QMenu } from './QMenu';
 import { NodeObject } from '../QtCore/QObject';
 
-export const QSystemTrayIconEvents = Object.freeze({
-    ...BaseWidgetEvents,
-    activated: 'activated',
-    messageClicked: 'messageClicked',
-});
-export const QSystemTrayIconActivationReason = Object.freeze({
-    Unknown: 0,
-    Context: 1,
-    DoubleClick: 2,
-    Trigger: 3,
-    MiddleClick: 4,
-});
-export class QSystemTrayIcon extends NodeObject {
+interface QSystemTrayIconSignals {
+    activated: (reason: QSystemTrayIconActivationReason) => void;
+    messageClicked: () => void;
+}
+
+export class QSystemTrayIcon extends NodeObject<QSystemTrayIconSignals> {
     native: NativeElement;
     contextMenu?: QMenu;
-    constructor(parent?: NodeWidget) {
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
             native = new addon.QSystemTrayIcon(parent.native);
@@ -53,4 +47,12 @@ export class QSystemTrayIcon extends NodeObject {
         this.contextMenu = menu;
         this.native.setContextMenu(this.contextMenu.native);
     }
+}
+
+export enum QSystemTrayIconActivationReason {
+    Unknown = 0,
+    Context = 1,
+    DoubleClick = 2,
+    Trigger = 3,
+    MiddleClick = 4,
 }
