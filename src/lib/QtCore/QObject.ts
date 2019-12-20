@@ -3,7 +3,6 @@ import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import addon from '../utils/addon';
 import { QVariant } from './QVariant';
-import { QWidget } from '../QtWidgets/QWidget';
 
 export abstract class NodeObject<Signals> extends EventWidget<Signals> {
     inherits(className: string): boolean {
