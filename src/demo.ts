@@ -22,7 +22,7 @@ const secondColor = new QColor(0, 0, 0);
 
 center.setLayout(layout);
 win.setWindowTitle('Analog Clock');
-win.resize(200, 200);
+
 const side = Math.min(win.geometry().width(), win.geometry().height());
 
 function repaint(): void {
@@ -79,12 +79,9 @@ win.addEventListener(WidgetEventTypes.Paint, () => {
     }
     painter.end();
 });
-const label = new QLabel();
-label.setText('Inserted label');
-box.insertWidget(2, label, 5);
+
 win.setCentralWidget(center);
-win.resize(200, 400);
-win.setWindowTitle('box stretch');
+win.resize(400, 400);
 
 win.show();
 (global as any).win = win;
