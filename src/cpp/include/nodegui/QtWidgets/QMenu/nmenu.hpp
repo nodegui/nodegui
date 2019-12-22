@@ -1,9 +1,10 @@
 #pragma once
 
 #include <nodegui/core/NodeWidget/nodewidget.h>
-#include "QtWidgets/QWidget/qwidget_macro.h"
 
 #include <QMenu>
+
+#include "QtWidgets/QWidget/qwidget_macro.h"
 
 class NMenu : public QMenu, public NodeWidget {
   Q_OBJECT
