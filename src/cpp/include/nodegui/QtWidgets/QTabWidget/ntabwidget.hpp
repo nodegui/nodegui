@@ -2,6 +2,7 @@
 
 #include <QTabWidget>
 
+#include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -12,6 +13,7 @@ class NTabWidget : public QTabWidget, public NodeWidget {
   using QTabWidget::QTabWidget;  // inherit all constructors of QTabWidget
 
   void connectSignalsToEventEmitter() {
+    QWIDGET_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QTabWidget::currentChanged, [=](int index) {
       Napi::Env env = this->emitOnNode.Env();

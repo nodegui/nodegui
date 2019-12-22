@@ -1,6 +1,7 @@
 #pragma once
 #include <QMovie>
 
+#include "QtCore/QObject/qobject_macro.h"
 #include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "core/Events/eventwidget.h"
@@ -13,6 +14,7 @@ class NMovie : public QMovie, public EventWidget {
   using QMovie::QMovie;
 
   void connectSignalsToEventEmitter() {
+    QOBJECT_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QMovie::error,
                      [=](QImageReader::ImageReaderError error) {

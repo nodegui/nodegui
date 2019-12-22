@@ -1,7 +1,15 @@
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import { Orientation } from '../QtEnums';
 
-export abstract class QAbstractSlider<Signals> extends NodeWidget<Signals> {
+export interface QAbstractSliderSignals extends QWidgetSignals {
+    actionTriggered: (action: number) => void;
+    rangeChanged: (min: number, max: number) => void;
+    sliderMoved: (value: number) => void;
+    sliderPressed: () => void;
+    sliderReleased: () => void;
+    valueChanged: (value: number) => void;
+}
+export abstract class QAbstractSlider<Signals extends QAbstractSliderSignals> extends NodeWidget<Signals> {
     setSingleStep(step: number): void {
         this.native.setSingleStep(step);
     }

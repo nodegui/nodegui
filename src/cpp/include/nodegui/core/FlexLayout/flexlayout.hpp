@@ -3,6 +3,7 @@
 #include <QLayout>
 #include <QTimer>
 
+#include "QtWidgets/QLayout/qlayout_macro.h"
 #include "core/Events/eventwidget_macro.h"
 #include "deps/yoga/YGNode.h"
 
@@ -53,6 +54,7 @@ class FlexLayout : public QLayout, public EventWidget {
   bool hasHeightForWidth() const override;
 
   EVENTWIDGET_IMPLEMENTATIONS(QLayout)
+  void connectSignalsToEventEmitter();
 };
 
 // class FlexLayoutWorker: public Q

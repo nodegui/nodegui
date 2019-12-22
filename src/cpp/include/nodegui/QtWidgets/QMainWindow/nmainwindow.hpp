@@ -3,6 +3,7 @@
 #include <QEvent>
 #include <QMainWindow>
 
+#include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
 class NMainWindow : public QMainWindow, public NodeWidget {
@@ -10,4 +11,5 @@ class NMainWindow : public QMainWindow, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QMainWindow)
  public:
   using QMainWindow::QMainWindow;  // inherit all constructors of QMainWindow
+  void connectSignalsToEventEmitter() { QWIDGET_SIGNALS }
 };

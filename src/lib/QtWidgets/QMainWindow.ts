@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { NodeLayout } from './QLayout';
 import { QMenuBar } from './QMenuBar';
 
-export type QMainWindowSignals = {};
+export type QMainWindowSignals = QWidgetSignals;
 export class QMainWindow extends NodeWidget<QMainWindowSignals> {
     native: NativeElement;
     public centralWidget?: NodeWidget<any> | null;
@@ -32,13 +32,11 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
         };
     }
     setCentralWidget(widget: NodeWidget<any>): void {
-        // react:✓
         this.native.setCentralWidget(widget.native);
         this.centralWidget = widget;
         this.centralWidget.setFlexNodeSizeControlled(true);
     }
     takeCentralWidget(): NodeWidget<any> | null {
-        // react:✓
         const centralWidget = this.centralWidget;
         this.centralWidget = null;
         if (centralWidget) {
@@ -61,7 +59,6 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
         if (this.centralWidget) {
             return this.centralWidget.layout;
         }
-
         return super.layout;
     }
     center(): void {

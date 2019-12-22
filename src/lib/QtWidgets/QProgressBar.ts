@@ -1,9 +1,11 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { Orientation } from '../QtEnums';
 
-export type QProgressBarSignals = {};
+export interface QProgressBarSignals extends QWidgetSignals {
+    valueChanged: (value: number) => void;
+}
 export class QProgressBar extends NodeWidget<QProgressBarSignals> {
     native: NativeElement;
     constructor();

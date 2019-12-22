@@ -4,7 +4,7 @@ import { checkIfNativeElement } from '../utils/helpers';
 import addon from '../utils/addon';
 import { QVariant, QVariantType } from './QVariant';
 
-export abstract class NodeObject<Signals> extends EventWidget<Signals> {
+export abstract class NodeObject<Signals extends QObjectSignals> extends EventWidget<Signals> {
     inherits(className: string): boolean {
         return this.native.inherits(className);
     }

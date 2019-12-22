@@ -2,6 +2,7 @@
 
 #include <QAction>
 
+#include "QtCore/QObject/qobject_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -12,6 +13,7 @@ class NAction : public QAction, public EventWidget {
   using QAction::QAction;  // inherit all constructors of QAction
   void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
+    QOBJECT_SIGNALS
     QObject::connect(this, &QAction::triggered, [=](bool checked) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);

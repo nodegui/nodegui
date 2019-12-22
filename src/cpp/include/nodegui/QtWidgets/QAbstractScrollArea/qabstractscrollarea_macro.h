@@ -43,3 +43,8 @@
       InstanceMethod("viewport", &WidgetWrapName::viewport),
 
 #endif  // QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE
+
+#ifndef QABSTRACTSCROLLAREA_SIGNALS
+#define QABSTRACTSCROLLAREA_SIGNALS QWIDGET_SIGNALS
+
+#endif

@@ -2,6 +2,7 @@
 
 #include <QTreeWidget>
 
+#include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -13,6 +14,7 @@ class NTreeWidget : public QTreeWidget, public NodeWidget {
   using QTreeWidget::QTreeWidget;  // inherit all constructors of QTreeWidget
 
   void connectSignalsToEventEmitter() {
+    QABSTRACTSCROLLAREA_SIGNALS
     QObject::connect(this, &QTreeWidget::itemSelectionChanged, [=]() {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);

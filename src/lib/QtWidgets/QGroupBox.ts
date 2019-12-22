@@ -1,9 +1,9 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 
-export interface QGroupBoxSignals {
+export interface QGroupBoxSignals extends QWidgetSignals {
     clicked: (checked: boolean) => void;
     toggled: (on: boolean) => void;
 }

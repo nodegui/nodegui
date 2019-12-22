@@ -1,9 +1,19 @@
 import addon from '../utils/addon';
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
-import { NodeObject } from '../QtCore/QObject';
+import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { QSize } from '../QtCore/QSize';
 import { QPixmap } from './QPixmap';
+
+export interface QMovieSignals extends QObjectSignals {
+    error: (error: ImageReaderError) => void;
+    finished: () => void;
+    frameChanged: (frameNumber?: number) => void;
+    resized: (qSizeNative?: NativeElement) => void;
+    started: () => void;
+    stateChanged: (state: MovieState) => void;
+    updated: (qRectNative: NativeElement) => void;
+}
 export class QMovie extends NodeObject<QMovieSignals> {
     native: NativeElement;
     constructor();
@@ -73,16 +83,6 @@ export class QMovie extends NodeObject<QMovieSignals> {
     currentPixmap(): QPixmap {
         return new QPixmap(this.native.currentPixmap());
     }
-}
-
-export interface QMovieSignals {
-    error: (error: ImageReaderError) => void;
-    finished: () => void;
-    frameChanged: (frameNumber?: number) => void;
-    resized: (qSizeNative?: NativeElement) => void;
-    started: () => void;
-    stateChanged: (state: MovieState) => void;
-    updated: (qRectNative: NativeElement) => void;
 }
 
 export enum CacheMode {

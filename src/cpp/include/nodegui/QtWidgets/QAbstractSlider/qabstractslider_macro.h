@@ -89,3 +89,45 @@
       InstanceMethod("value", &WidgetWrapName::value),
 
 #endif  // QABSTRACTSLIDER_WRAPPED_METHODS_EXPORT_DEFINE
+
+#ifndef QABSTRACT_SLIDER_SIGNALS
+#define QABSTRACT_SLIDER_SIGNALS                                              \
+  QWIDGET_SIGNALS                                                             \
+  QObject::connect(this, &QAbstractSlider::actionTriggered, [=](int action) { \
+    Napi::Env env = this->emitOnNode.Env();                                   \
+    Napi::HandleScope scope(env);                                             \
+    this->emitOnNode.Call({Napi::String::New(env, "actionTriggered"),         \
+                           Napi::Value::From(env, action)});                  \
+  });                                                                         \
+  QObject::connect(this, &QAbstractSlider::sliderPressed, [=]() {             \
+    Napi::Env env = this->emitOnNode.Env();                                   \
+    Napi::HandleScope scope(env);                                             \
+    this->emitOnNode.Call({Napi::String::New(env, "sliderPressed")});         \
+  });                                                                         \
+  QObject::connect(this, &QAbstractSlider::sliderReleased, [=]() {            \
+    Napi::Env env = this->emitOnNode.Env();                                   \
+    Napi::HandleScope scope(env);                                             \
+    this->emitOnNode.Call({Napi::String::New(env, "sliderReleased")});        \
+  });                                                                         \
+  QObject::connect(this, &QAbstractSlider::valueChanged, [=](int value) {     \
+    Napi::Env env = this->emitOnNode.Env();                                   \
+    Napi::HandleScope scope(env);                                             \
+    this->emitOnNode.Call({Napi::String::New(env, "valueChanged"),            \
+                           Napi::Value::From(env, value)});                   \
+  });                                                                         \
+  QObject::connect(this, &QAbstractSlider::sliderMoved, [=](int value) {      \
+    Napi::Env env = this->emitOnNode.Env();                                   \
+    Napi::HandleScope scope(env);                                             \
+    this->emitOnNode.Call({Napi::String::New(env, "sliderMoved"),             \
+                           Napi::Value::From(env, value)});                   \
+  });                                                                         \
+  QObject::connect(                                                           \
+      this, &QAbstractSlider::rangeChanged, [=](int min, int max) {           \
+        Napi::Env env = this->emitOnNode.Env();                               \
+        Napi::HandleScope scope(env);                                         \
+        this->emitOnNode.Call({Napi::String::New(env, "rangeChanged"),        \
+                               Napi::Value::From(env, min),                   \
+                               Napi::Value::From(env, max)});                 \
+      });
+
+#endif

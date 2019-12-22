@@ -2,6 +2,7 @@
 
 #include <QTableWidget>
 
+#include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -12,6 +13,7 @@ class NTableWidget : public QTableWidget, public NodeWidget {
   using QTableWidget::QTableWidget;
   void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
+    QABSTRACTSCROLLAREA_SIGNALS
     QObject::connect(
         this, &QTableWidget::cellActivated, [=](int row, int column) {
           Napi::Env env = this->emitOnNode.Env();

@@ -1,8 +1,8 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 
-export interface QSpinBoxSignals {
+export interface QSpinBoxSignals extends QWidgetSignals {
     valueChanged: (value: number) => void;
 }
 

@@ -3,9 +3,9 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
-import { NodeObject } from '../QtCore/QObject';
+import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 
-export interface QShortcutSignals {
+export interface QShortcutSignals extends QObjectSignals {
     activated: () => void;
     activatedAmbiguously: () => void;
 }

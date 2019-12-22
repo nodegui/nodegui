@@ -1,10 +1,10 @@
 import { QMenu } from './QMenu';
 import { NativeElement } from '../core/Component';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 
-export type QMenuBarSignals = {};
+export type QMenuBarSignals = QWidgetSignals;
 
 export class QMenuBar extends NodeWidget<QMenuBarSignals> {
     native: NativeElement;

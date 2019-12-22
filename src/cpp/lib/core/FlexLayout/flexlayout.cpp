@@ -217,3 +217,5 @@ void FlexLayout::restoreNodeMinStyle(YGValue& previousMinWidth,
     YGNodeStyleSetMinWidth(this->node, previousMinWidth.value);
   }
 }
+
+void FlexLayout::connectSignalsToEventEmitter() { QLAYOUT_SIGNALS }

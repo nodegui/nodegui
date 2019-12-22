@@ -2,7 +2,7 @@ import { NodeWidget, QWidgetSignals } from './QWidget';
 import { QIcon } from '../QtGui/QIcon';
 import { QSize } from '../QtCore/QSize';
 
-export abstract class QAbstractButton<Signals> extends NodeWidget<Signals> {
+export abstract class QAbstractButton<Signals extends QAbstractButtonSignals> extends NodeWidget<Signals> {
     setText(text: string): void {
         this.native.setText(text);
     }

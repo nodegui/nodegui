@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 
 export enum EchoMode {
@@ -8,7 +8,7 @@ export enum EchoMode {
     Password,
     PasswordEchoOnEdit,
 }
-export interface QLineEditSignals {
+export interface QLineEditSignals extends QWidgetSignals {
     cursorPositionChanged: (oldPos: number, newPos: number) => void;
     editingFinished: () => void;
     inputRejected: () => void;
@@ -19,7 +19,6 @@ export interface QLineEditSignals {
 }
 export class QLineEdit extends NodeWidget<QLineEditSignals> {
     native: NativeElement;
-    placeholderText?: string;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
@@ -34,24 +33,24 @@ export class QLineEdit extends NodeWidget<QLineEditSignals> {
         this.setNodeParent(parent);
     }
     setText(text: string): void {
-        // react:✓
         text && this.native.setText(text);
     }
     text(): string {
-        // react:✓
         return this.native.text();
     }
     setPlaceholderText(text: string): void {
-        // react:✓ TODO://getter
-        this.placeholderText = text;
         this.native.setPlaceholderText(text);
     }
+    placeholderText(): string {
+        return this.property('placeholderText').toString();
+    }
     setReadOnly(isReadOnly: boolean): void {
-        // react:✓ TODO://getter
         this.native.setReadOnly(isReadOnly);
     }
+    isReadOnly(): boolean {
+        return this.property('readOnly').toBool();
+    }
     clear(): void {
-        // react:✓
         this.native.clear();
     }
     setEchoMode(mode: EchoMode): void {
