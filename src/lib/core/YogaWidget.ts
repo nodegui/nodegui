@@ -1,7 +1,7 @@
-import { NodeObject } from '../QtCore/QObject';
+import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 
 export type FlexNode = {};
-export abstract class YogaWidget<Signals> extends NodeObject<Signals> {
+export abstract class YogaWidget<Signals extends QObjectSignals> extends NodeObject<Signals> {
     getFlexNode(): FlexNode {
         return this.native.getFlexNode();
     }

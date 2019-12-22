@@ -1,15 +1,9 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { QAbstractSlider } from './QAbstractSlider';
+import { QAbstractSlider, QAbstractSliderSignals } from './QAbstractSlider';
 
-export interface QDialSignals {
-    valueChanged: (value: number) => void;
-    rangeChanged: (min: number, max: number) => void;
-    sliderMoved: (value: number) => void;
-    sliderPressed: () => void;
-    sliderReleased: () => void;
-}
+export type QDialSignals = QAbstractSliderSignals;
 export class QDial extends QAbstractSlider<QDialSignals> {
     native: NativeElement;
     constructor();

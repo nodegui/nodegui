@@ -14,7 +14,7 @@ import { QRect } from '../QtCore/QRect';
 import { QObjectSignals } from '../QtCore/QObject';
 // All Widgets should extend from NodeWidget
 // Implement all native QWidget methods here so that all widgets get access to those aswell
-export abstract class NodeWidget<Signals> extends YogaWidget<Signals> {
+export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWidget<Signals> {
     layout?: NodeLayout<Signals>;
     _rawInlineStyle = '';
     type = 'widget';

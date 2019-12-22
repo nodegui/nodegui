@@ -3,9 +3,9 @@ import { NodeWidget } from './QWidget';
 import { NativeElement, Component } from '../core/Component';
 import { ScrollHint, SortOrder } from '../QtEnums';
 import { QTableWidgetItem } from './QTableWidgetItem';
-import { QAbstractScrollArea } from './QAbstractScrollArea';
+import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 
-export interface QTableWidgetSignals {
+export interface QTableWidgetSignals extends QAbstractScrollAreaSignals {
     cellActivated: (row: number, col: number) => void;
     cellChanged: (row: number, col: number) => void;
     cellClicked: (row: number, col: number) => void;

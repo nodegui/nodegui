@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { QAbstractScrollArea } from './QAbstractScrollArea';
+import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { QTreeWidgetItem } from './QTreeWidgetItem';
 
-export interface QTreeWidgetSignals {
+export interface QTreeWidgetSignals extends QAbstractScrollAreaSignals {
     itemSelectionChanged: () => void;
 }
 

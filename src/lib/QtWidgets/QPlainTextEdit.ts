@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { QAbstractScrollArea } from './QAbstractScrollArea';
+import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { QTextOptionWrapMode } from '../QtGui/QTextOption';
 
-export interface QPlainTextEditSignals {
+export interface QPlainTextEditSignals extends QAbstractScrollAreaSignals {
     textChanged: () => void;
     blockCountChanged: (blockCount: number) => void;
     copyAvailable: (yes: boolean) => void;

@@ -5,10 +5,10 @@ import { QMenu } from './QMenu';
 import { QIcon } from '../QtGui/QIcon';
 import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
-import { NodeObject } from '../QtCore/QObject';
+import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { checkIfNativeElement } from '../utils/helpers';
 
-export interface QActionSignals {
+export interface QActionSignals extends QObjectSignals {
     triggered: (checked: boolean) => void;
     changed: () => void;
     hovered: () => void;

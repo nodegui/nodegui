@@ -2,8 +2,8 @@
 
 #include <QPlainTextEdit>
 
+#include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "core/NodeWidget/nodewidget.h"
-
 class NPlainTextEdit : public QPlainTextEdit, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QPlainTextEdit)
@@ -12,6 +12,8 @@ class NPlainTextEdit : public QPlainTextEdit, public NodeWidget {
                                          // QPlainTextEdit
 
   void connectSignalsToEventEmitter() {
+    QABSTRACTSCROLLAREA_SIGNALS
+
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QPlainTextEdit::textChanged, [=]() {
       Napi::Env env = this->emitOnNode.Env();
