@@ -10,11 +10,10 @@ Napi::FunctionReference QOpenGLWidgetWrap::constructor;
 Napi::Object QOpenGLWidgetWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QOpenGLWidget";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  { InstanceMethod("initializeGL", &QOpenGLWidgetWrap::initializeGL),
-
-                    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QOpenGLWidgetWrap)});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {
+       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QOpenGLWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -47,11 +46,4 @@ QOpenGLWidgetWrap::QOpenGLWidgetWrap(const Napi::CallbackInfo& info)
 
 QOpenGLWidgetWrap::~QOpenGLWidgetWrap() {
   extrautils::safeDelete(this->instance);
-}
-
-Napi::Value QOpenGLWidgetWrap::initializeGL(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  this->instance->initializeGL();
-  return env.Null();
 }

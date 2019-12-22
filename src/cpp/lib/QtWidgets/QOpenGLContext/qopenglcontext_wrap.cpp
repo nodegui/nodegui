@@ -1,8 +1,8 @@
 #include "QtWidgets/QOpenGLContext/qopenglcontext_wrap.h"
 
 #include "Extras/Utils/nutils.h"
-#include "QtWidgets/QOpenGLFunctions/qopenglfunctions_wrap.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
+#include "QtWidgets/QOpenGLFunctions/qopenglfunctions_wrap.h"
 
 Napi::FunctionReference QOpenGLContextWrap::constructor;
 
@@ -35,16 +35,19 @@ QOpenGLContext* QOpenGLContextWrap::getInternalInstance() {
 Napi::Value QOpenGLContextWrap::functions(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  
+
   QOpenGLFunctions* functions = this->instance->functions();
-  auto instance = QOpenGLFunctionsWrap::constructor.New({Napi::External<QOpenGLFunctions>::New(env, functions)});
+  auto instance = QOpenGLFunctionsWrap::constructor.New(
+      {Napi::External<QOpenGLFunctions>::New(env, functions)});
   return instance;
 }
 
-Napi::Value StaticQOpenGLContextWrapMethods::currentContext(const Napi::CallbackInfo& info) {
+Napi::Value StaticQOpenGLContextWrapMethods::currentContext(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   QOpenGLContext* item = QOpenGLContext::currentContext();
-  auto context = QOpenGLContextWrap::constructor.New({Napi::External<QOpenGLContext>::New(env, item)});
+  auto context = QOpenGLContextWrap::constructor.New(
+      {Napi::External<QOpenGLContext>::New(env, item)});
   return context;
 }

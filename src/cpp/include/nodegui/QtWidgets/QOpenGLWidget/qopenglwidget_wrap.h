@@ -22,7 +22,6 @@ class QOpenGLWidgetWrap : public Napi::ObjectWrap<QOpenGLWidgetWrap> {
 
   // class constructor
   static Napi::FunctionReference constructor;
-  Napi::Value initializeGL(const Napi::CallbackInfo& info);
 
   QWIDGET_WRAPPED_METHODS_DECLARATION
 };

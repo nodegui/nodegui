@@ -31,7 +31,8 @@ QOpenGLFunctionsWrap::QOpenGLFunctionsWrap(const Napi::CallbackInfo &info)
 
   if (info.Length() == 1) {
     Napi::Object deviceObject = info[0].As<Napi::Object>();
-    QOpenGLContextWrap *deviceWrap = Napi::ObjectWrap<QOpenGLContextWrap>::Unwrap(deviceObject);
+    QOpenGLContextWrap *deviceWrap =
+        Napi::ObjectWrap<QOpenGLContextWrap>::Unwrap(deviceObject);
     this->instance = new QOpenGLFunctions(deviceWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new QOpenGLFunctions();
