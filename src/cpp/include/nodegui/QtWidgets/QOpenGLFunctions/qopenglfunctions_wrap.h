@@ -25,6 +25,6 @@ class QOpenGLFunctionsWrap : public Napi::ObjectWrap<QOpenGLFunctionsWrap> {
   static Napi::FunctionReference constructor;
 
   // wrapped methods
-  //Napi::Value setText(const Napi::CallbackInfo &info);
+  // Napi::Value setText(const Napi::CallbackInfo &info);
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };

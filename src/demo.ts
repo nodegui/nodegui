@@ -13,9 +13,16 @@ import {
 import { QRect } from './lib/QtCore/QRect';
 import { NativeElement } from './lib/core/Component';
 import { QOpenGLFunctions } from './lib/QtWidgets/QOpenGLFunctions';
+import { QWidget } from './lib/QtWidgets/QWidget';
 
-const win = new QOpenGLWidget();
+export class GLWindow extends QOpenGLWidget {
+    constructor() {
+        super();
+        this.initializeGL();
+        const context = QOpenGLContext.currentContext();
+        const functions = context.functions();
+    }
+}
+const win = new GLWindow();
 win.show();
-const context = QOpenGLContext.currentContext();
-const functions = context.functions();
 (global as any).win = win;

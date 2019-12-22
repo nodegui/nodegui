@@ -10,8 +10,8 @@ class NOpenGLWidget : public QOpenGLWidget, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QOpenGLWidget)
 
  public:
-  using QOpenGLWidget::QOpenGLWidget;  // inherit all constructors of QOpenGLWidget
+  using QOpenGLWidget::QOpenGLWidget;  // inherit all constructors of
+                                       // QOpenGLWidget
 
-  void connectSignalsToEventEmitter() {
-  }
+  void connectSignalsToEventEmitter() {}
 };

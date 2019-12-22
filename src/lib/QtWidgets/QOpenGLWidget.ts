@@ -19,4 +19,7 @@ export class QOpenGLWidget extends NodeWidget<QOpenGLWidgetSignals> {
         super(native);
         this.native = native;
     }
+    initializeGL(): void {
+        this.native.initializeGL();
+    }
 }

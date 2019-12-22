@@ -15,9 +15,9 @@ class QOpenGLContextWrap : public Napi::ObjectWrap<QOpenGLContextWrap> {
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QOpenGLContextWrap(const Napi::CallbackInfo& info);
   QOpenGLContext* getInternalInstance();
-  
+
   // Wrapped methods
-  Napi::Value functions(const Napi::CallbackInfo &info);
+  Napi::Value functions(const Napi::CallbackInfo& info);
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 

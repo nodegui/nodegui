@@ -1,18 +1,19 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
 import { NativeElement, Component } from '../core/Component';
-import { QOpenGLContext } from './QOpenGLContext';
+import { checkIfNativeElement } from '../..';
 
 export class QOpenGLFunctions extends Component {
     native: NativeElement;
-    constructor(parent: QOpenGLContext) {
-        let native;
-        if (parent) {
-            native = new addon.QOpenGLFunctions(parent);
-        } else {
-            native = new addon.QOpenGLFunctions();
-        }
+    constructor(parent?: Component | NativeElement) {
         super();
-        this.native = native;
+        if (checkIfNativeElement(parent)) {
+            this.native = parent as NativeElement;
+        } else {
+            if (parent) {
+                this.native = new addon.QOpenGLFunctions(parent.native);
+            } else {
+                this.native = new addon.QOpenGLFunctions();
+            }
+        }
     }
 }
