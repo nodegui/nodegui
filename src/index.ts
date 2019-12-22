@@ -47,6 +47,9 @@ export { QMenuBar, QMenuBarSignals } from './lib/QtWidgets/QMenuBar';
 export { QPlainTextEdit, QPlainTextEditSignals, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
 export { QScrollArea, QScrollAreaSignals } from './lib/QtWidgets/QScrollArea';
 export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';
+export { QOpenGLWidget, QOpenGLWidgetSignals } from './lib/QtWidgets/QOpenGLWidget';
+export { QOpenGLContext } from './lib/QtWidgets/QOpenGLContext';
+export { QOpenGLFunctions } from './lib/QtWidgets/QOpenGLFunctions';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
 export { QPainter, RenderHint } from './lib/QtWidgets/QPainter';
 

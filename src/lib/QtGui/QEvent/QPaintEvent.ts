@@ -8,6 +8,6 @@ export class QPaintEvent {
         this.native = new addon.QPaintEvent(event);
     }
     rect(): QRect {
-        return this.native.rect();
+        return new QRect(this.native.rect());
     }
 }

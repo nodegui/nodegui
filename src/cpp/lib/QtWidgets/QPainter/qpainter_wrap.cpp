@@ -3,6 +3,7 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QColor/qcolor_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
+#include "QtCore/QRect/qrect_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/Component/component_wrap.h"
 
@@ -180,5 +181,11 @@ Napi::Value QPainterWrap::fillRect(const Napi::CallbackInfo& info){
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   
+  Napi::Object rectObject = info[0].As<Napi::Object>();
+  QRectWrap* rectWrap = Napi::ObjectWrap<QRectWrap>::Unwrap(rectObject);
+
+  Napi::Object colorObject = info[1].As<Napi::Object>();
+  QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
+  this->instance->fillRect(*rectWrap->getInternalInstance(), *colorWrap->getInternalInstance());
   return env.Null();
 }

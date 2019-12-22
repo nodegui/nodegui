@@ -3,6 +3,7 @@ import { Component, NativeElement } from '../core/Component';
 import { PenStyle } from '../QtEnums';
 import { QColor } from '../QtCore/QColor';
 import { QPoint } from '../QtCore/QPoint';
+import { QRect } from '../..';
 
 export enum RenderHint {
     Antialiasing = 0x01,
@@ -84,5 +85,9 @@ export class QPainter extends Component {
 
     setBrush(color: QColor): void {
         this.native.setBrush(color.native);
+    }
+
+    fillRect(rect: QRect, color: QColor): void {
+        this.native.fillRect(rect.native, color.native);
     }
 }

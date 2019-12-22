@@ -4,16 +4,18 @@ import {
     QColor,
     QPainter,
     QPoint,
-    QWidget,
+    QOpenGLWidget,
     RenderHint,
     GlobalColor,
     QPaintEvent,
+    QOpenGLContext,
 } from './index';
+import { QRect } from './lib/QtCore/QRect';
+import { NativeElement } from './lib/core/Component';
+import { QOpenGLFunctions } from './lib/QtWidgets/QOpenGLFunctions';
 
-const win = new QWidget();
-win.addEventListener(WidgetEventTypes.Paint, function(event: any) {
-    const paintEvent = new QPaintEvent(event);
-    console.log(paintEvent.rect());
-});
+const win = new QOpenGLWidget();
 win.show();
+const context = QOpenGLContext.currentContext();
+const functions = context.functions();
 (global as any).win = win;

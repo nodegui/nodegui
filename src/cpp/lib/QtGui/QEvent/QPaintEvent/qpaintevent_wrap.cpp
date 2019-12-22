@@ -43,6 +43,7 @@ QPaintEventWrap::~QPaintEventWrap() {
 Napi::Value QPaintEventWrap::rect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   QRect rect = this->instance->rect();
-  auto instance = QRectWrap::constructor.New({Napi::External<QRect>::New(env, rect)});
-  return rect;
+  auto instance = QRectWrap::constructor.New({Napi::External<QRect>::New(env, new QRect(rect))});
+  return instance;
 }
+

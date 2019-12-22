@@ -85,6 +85,9 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QMenu/qmenu_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QGroupBox/qgroupbox_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QTreeWidget/qtreewidget_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QOpenGLWidget/qopenglwidget_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QOpenGLContext/qopenglcontext_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QOpenGLFunctions/qopenglfunctions_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexlayout_wrap.cpp"
     # Custom widgets (include them for automoc since they contain Q_OBJECT)
@@ -119,6 +122,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QComboBox/ncombobox.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QGroupBox/ngroupbox.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTreeWidget/ntreewidget.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QOpenGLWidget/nopenglwidget.hpp"
 
 )
 

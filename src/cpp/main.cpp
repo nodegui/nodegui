@@ -48,6 +48,9 @@
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
 #include "QtWidgets/QToolButton/qtoolbutton_wrap.h"
 #include "QtWidgets/QTreeWidget/qtreewidget_wrap.h"
+#include "QtWidgets/QOpenGLWidget/qopenglwidget_wrap.h"
+#include "QtWidgets/QOpenGLContext/qopenglcontext_wrap.h"
+#include "QtWidgets/QOpenGLFunctions/qopenglfunctions_wrap.h"
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
@@ -83,6 +86,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QTableWidgetItemWrap::init(env, exports);
   QPainterWrap::init(env, exports);
   QTreeWidgetWrap::init(env, exports);
+  QOpenGLWidgetWrap::init(env, exports);
   QTreeWidgetItemWrap::init(env, exports);
   QGridLayoutWrap::init(env, exports);
   QGroupBoxWrap::init(env, exports);
@@ -108,6 +112,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QShortcutWrap::init(env, exports);
   QMenuWrap::init(env, exports);
   QMenuBarWrap::init(env, exports);
+  QOpenGLContextWrap::init(env, exports);
+  QOpenGLFunctionsWrap::init(env, exports);
   return exports;
 }
 
