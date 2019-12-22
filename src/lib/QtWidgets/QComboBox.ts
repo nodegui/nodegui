@@ -1,11 +1,11 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { SizeAdjustPolicy } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
 import { QVariant } from '../QtCore/QVariant';
 
-export interface QComboBoxSignals {
+export interface QComboBoxSignals extends QWidgetSignals {
     //List all Signals below
     currentIndexChanged: (index: number) => void;
     currentTextChanged: (text: string) => void;

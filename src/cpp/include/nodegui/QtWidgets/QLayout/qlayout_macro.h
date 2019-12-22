@@ -45,3 +45,8 @@
       InstanceMethod("update", &LayoutWrapName::update),
 
 #endif  // QLAYOUT_WRAPPED_METHODS_EXPORT_DEFINE
+
+#ifndef QLAYOUT_SIGNALS
+#define QLAYOUT_SIGNALS QOBJECT_SIGNALS
+
+#endif  // QLAYOUT_SIGNALS

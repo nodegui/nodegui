@@ -1,9 +1,9 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { AcceptMode, DialogLabel, FileMode, Option, ViewMode } from '../QtEnums';
 
-export interface QFileDialogSignals {
+export interface QFileDialogSignals extends QWidgetSignals {
     currentChanged: (path: string) => void;
     currentUrlChanged: (url: string) => void;
     directoryEntered: (directory: string) => void;

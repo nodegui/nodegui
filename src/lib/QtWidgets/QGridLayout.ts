@@ -1,9 +1,9 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NodeLayout } from './QLayout';
+import { NodeLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 
-export type QGridLayoutSignals = {};
+export type QGridLayoutSignals = QLayoutSignals;
 
 export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
     native: NativeElement;

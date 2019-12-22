@@ -2,6 +2,7 @@
 
 #include <QGroupBox>
 
+#include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -12,6 +13,7 @@ class NGroupBox : public QGroupBox, public NodeWidget {
   using QGroupBox::QGroupBox;  // inherit all constructors of QGroupBox
 
   void connectSignalsToEventEmitter() {
+    QWIDGET_SIGNALS
     QObject::connect(this, &QGroupBox::clicked, [=](bool checked) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);

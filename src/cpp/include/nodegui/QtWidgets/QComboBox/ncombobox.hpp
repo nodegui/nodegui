@@ -2,6 +2,7 @@
 
 #include <QComboBox>
 
+#include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -12,6 +13,7 @@ class NComboBox : public QComboBox, public NodeWidget {
   using QComboBox::QComboBox;
 
   void connectSignalsToEventEmitter() {
+    QWIDGET_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(
         this, QOverload<int>::of(&QComboBox::currentIndexChanged),

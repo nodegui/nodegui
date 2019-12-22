@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NodeLayout } from './QLayout';
+import { NodeLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { Direction } from '../QtEnums';
 
-export type QBoxLayoutSignals = {};
+export type QBoxLayoutSignals = QLayoutSignals;
 export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     native: NativeElement;
     childLayouts: Set<NodeLayout<any>>;
