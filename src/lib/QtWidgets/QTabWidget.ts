@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
 import { TabPosition } from '../QtEnums';
 
-export interface QTabWidgetSignals {
+export interface QTabWidgetSignals extends QWidgetSignals {
     currentChanged: (index: number) => void;
     tabBarClicked: (index: number) => void;
     tabBarDoubleClicked: (index: number) => void;

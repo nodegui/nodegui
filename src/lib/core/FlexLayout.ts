@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
 import { NodeWidget } from '../QtWidgets/QWidget';
-import { NodeLayout } from '../QtWidgets/QLayout';
+import { NodeLayout, QLayoutSignals } from '../QtWidgets/QLayout';
 import { FlexNode } from './YogaWidget';
 import { NativeElement } from './Component';
 
-export type FlexLayoutSignals = {};
+export type FlexLayoutSignals = QLayoutSignals;
 export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
     native: NativeElement;
     protected flexNode?: FlexNode;

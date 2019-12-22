@@ -2,6 +2,7 @@
 
 #include <QLineEdit>
 
+#include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
 class NLineEdit : public QLineEdit, public NodeWidget {
@@ -11,6 +12,7 @@ class NLineEdit : public QLineEdit, public NodeWidget {
   using QLineEdit::QLineEdit;  // inherit all constructors of QLineEdit
 
   void connectSignalsToEventEmitter() {
+    QWIDGET_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QLineEdit::cursorPositionChanged,
                      [=](int oldPost, int newPos) {

@@ -1,10 +1,9 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { QAbstractScrollArea } from './QAbstractScrollArea';
-import { QAbstractButtonSignals } from './QAbstractButton';
+import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 
-export type QScrollAreaSignals = QAbstractButtonSignals;
+export type QScrollAreaSignals = QAbstractScrollAreaSignals;
 export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     native: NativeElement;
     contentWidget?: NodeWidget<any> | null;

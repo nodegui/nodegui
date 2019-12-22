@@ -2,6 +2,7 @@
 
 #include <QSystemTrayIcon>
 
+#include "QtCore/QObject/qobject_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -12,6 +13,7 @@ class NSystemTrayIcon : public QSystemTrayIcon, public EventWidget {
   // inherit all constructors of QSystemTrayIcon
   using QSystemTrayIcon::QSystemTrayIcon;
   void connectSignalsToEventEmitter() {
+    QOBJECT_SIGNALS
     QObject::connect(this, &QSystemTrayIcon::activated, [=](int reason) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);

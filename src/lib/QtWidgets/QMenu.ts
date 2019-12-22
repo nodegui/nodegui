@@ -1,9 +1,9 @@
 import { NativeElement } from '../core/Component';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { QAction } from './QAction';
 
-export type QMenuSignals = {};
+export type QMenuSignals = QWidgetSignals;
 export class QMenu extends NodeWidget<QMenuSignals> {
     native: NativeElement;
     actions: Set<QAction>;

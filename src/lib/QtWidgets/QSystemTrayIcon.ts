@@ -3,9 +3,9 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
 import { QMenu } from './QMenu';
-import { NodeObject } from '../QtCore/QObject';
+import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 
-export interface QSystemTrayIconSignals {
+export interface QSystemTrayIconSignals extends QObjectSignals {
     activated: (reason: QSystemTrayIconActivationReason) => void;
     messageClicked: () => void;
 }

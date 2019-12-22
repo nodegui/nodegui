@@ -18,13 +18,12 @@ export { QKeyEvent } from './lib/QtGui/QEvent/QKeyEvent';
 export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
 export { WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
-export { NodeWidget } from './lib/QtWidgets/QWidget';
-export { NodeLayout } from './lib/QtWidgets/QLayout';
+export { NodeWidget, QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
+export { NodeLayout, QLayoutSignals } from './lib/QtWidgets/QLayout';
 export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider, QAbstractSliderSignals } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';
 // Widgets:
-export { QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
 export { QCheckBox, QCheckBoxSignals } from './lib/QtWidgets/QCheckBox';
 export { QLabel, QLabelSignals } from './lib/QtWidgets/QLabel';
 export { QDial, QDialSignals } from './lib/QtWidgets/QDial';

@@ -2,6 +2,7 @@
 
 #include <QShortcut>
 
+#include "QtCore/QObject/qobject_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -11,6 +12,7 @@ class NShortcut : public QShortcut, public EventWidget {
  public:
   using QShortcut::QShortcut;  // inherit all constructors of QShortcut
   void connectSignalsToEventEmitter() {
+    QOBJECT_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QShortcut::activated, [=]() {
       Napi::Env env = this->emitOnNode.Env();

@@ -2,6 +2,7 @@
 
 #include <QSpinBox>
 
+#include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -12,6 +13,7 @@ class NSpinBox : public QSpinBox, public NodeWidget {
   using QSpinBox::QSpinBox;  // inherit all constructors of QSpinBox
 
   void connectSignalsToEventEmitter() {
+    QWIDGET_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(
         this, QOverload<int>::of(&QSpinBox::valueChanged), [=](int val) {
