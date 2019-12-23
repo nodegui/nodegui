@@ -1,5 +1,7 @@
 #include "QtWidgets/QOpenGLFunctions/qopenglfunctions_wrap.h"
 
+#include <QDebug>
+
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QOpenGLContext/qopenglcontext_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
@@ -11,9 +13,7 @@ Napi::Object QOpenGLFunctionsWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QOpenGLFunctions";
   Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {// InstanceMethod("setText", &QOpenGLFunctionsWrap::setText),
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+      DefineClass(env, CLASSNAME, {COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -29,16 +29,20 @@ QOpenGLFunctionsWrap::QOpenGLFunctionsWrap(const Napi::CallbackInfo &info)
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  if (info.Length() == 1) {
-    Napi::Object deviceObject = info[0].As<Napi::Object>();
-    QOpenGLContextWrap *deviceWrap =
-        Napi::ObjectWrap<QOpenGLContextWrap>::Unwrap(deviceObject);
-    this->instance = new QOpenGLFunctions(deviceWrap->getInternalInstance());
+  if (info.Length() == 1 && info[0].IsExternal()) {
+    this->instance = info[0].As<Napi::External<QOpenGLFunctions>>().Data();
+  } else if (info.Length() == 1) {
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    QOpenGLContextWrap *parentWidgetWrap =
+        Napi::ObjectWrap<QOpenGLContextWrap>::Unwrap(parentObject);
+    this->instance =
+        new QOpenGLFunctions(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new QOpenGLFunctions();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
-}
+};

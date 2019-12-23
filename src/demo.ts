@@ -1,27 +1,10 @@
-import {
-    PenStyle,
-    WidgetEventTypes,
-    QColor,
-    QPainter,
-    QPoint,
-    QOpenGLWidget,
-    RenderHint,
-    GlobalColor,
-    QPaintEvent,
-    QOpenGLContext,
-} from './index';
-import { QRect } from './lib/QtCore/QRect';
-import { NativeElement } from './lib/core/Component';
-import { QOpenGLFunctions } from './lib/QtWidgets/QOpenGLFunctions';
-import { QWidget } from './lib/QtWidgets/QWidget';
+import { QOpenGLWidget, QOpenGLContext, WidgetEventTypes } from './index';
 
-export class GLWindow extends QOpenGLWidget {
-    constructor() {
-        super();
-        const context = QOpenGLContext.currentContext();
-        const functions = context.functions();
-    }
-}
-const win = new GLWindow();
+const win = new QOpenGLWidget();
+win.addEventListener(WidgetEventTypes.Paint, () => {
+    const context = QOpenGLContext.currentContext();
+    const functions = context.functions();
+    console.log(functions);
+});
 win.show();
 (global as any).win = win;

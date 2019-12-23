@@ -3,6 +3,7 @@
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QOpenGLContext/qopenglcontext_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QOpenGLWidgetWrap::constructor;
@@ -12,7 +13,8 @@ Napi::Object QOpenGLWidgetWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QOpenGLWidget";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {
+      {InstanceMethod("context", &QOpenGLWidgetWrap::context),
+       InstanceMethod("makeCurrent", &QOpenGLWidgetWrap::makeCurrent),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QOpenGLWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -46,4 +48,21 @@ QOpenGLWidgetWrap::QOpenGLWidgetWrap(const Napi::CallbackInfo& info)
 
 QOpenGLWidgetWrap::~QOpenGLWidgetWrap() {
   extrautils::safeDelete(this->instance);
+}
+
+Napi::Value QOpenGLWidgetWrap::context(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QOpenGLContext* context = this->instance->context();
+  auto instance = QOpenGLContextWrap::constructor.New(
+      {Napi::External<QOpenGLContext>::New(env, context)});
+  return instance;
+}
+Napi::Value QOpenGLWidgetWrap::makeCurrent(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  this->instance->makeCurrent();
+  return env.Null();
 }
