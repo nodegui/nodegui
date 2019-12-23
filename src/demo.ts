@@ -18,7 +18,6 @@ import { QWidget } from './lib/QtWidgets/QWidget';
 export class GLWindow extends QOpenGLWidget {
     constructor() {
         super();
-        this.initializeGL();
         const context = QOpenGLContext.currentContext();
         const functions = context.functions();
     }
