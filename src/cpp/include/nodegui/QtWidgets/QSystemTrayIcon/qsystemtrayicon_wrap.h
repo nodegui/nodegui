@@ -4,7 +4,7 @@
 
 #include <QPointer>
 
-#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "QtCore/QObject/qobject_macro.h"
 #include "nsystemtrayicon.hpp"
 class QSystemTrayIconWrap : public Napi::ObjectWrap<QSystemTrayIconWrap> {
  private:
@@ -26,5 +26,5 @@ class QSystemTrayIconWrap : public Napi::ObjectWrap<QSystemTrayIconWrap> {
   Napi::Value setContextMenu(const Napi::CallbackInfo& info);
   Napi::Value showMessage(const Napi::CallbackInfo& info);
 
-  EVENTWIDGET_WRAPPED_METHODS_DECLARATION
+  QOBJECT_WRAPPED_METHODS_DECLARATION
 };

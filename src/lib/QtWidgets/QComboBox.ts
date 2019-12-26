@@ -85,6 +85,12 @@ export class QComboBox extends NodeWidget<QComboBoxSignals> {
     clear(): void {
         this.native.clear();
     }
+    setCurrentText(text: string): void {
+        this.setProperty('currentText', text);
+    }
+    setCurrentIndex(index: number): void {
+        this.setProperty('currentIndex', index);
+    }
 }
 
 export enum InsertPolicy {

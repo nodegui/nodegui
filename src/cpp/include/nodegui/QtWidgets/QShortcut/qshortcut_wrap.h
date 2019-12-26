@@ -4,7 +4,7 @@
 
 #include <QPointer>
 
-#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "QtCore/QObject/qobject_macro.h"
 #include "nshortcut.hpp"
 
 class QShortcutWrap : public Napi::ObjectWrap<QShortcutWrap> {
@@ -24,5 +24,5 @@ class QShortcutWrap : public Napi::ObjectWrap<QShortcutWrap> {
   Napi::Value setKey(const Napi::CallbackInfo& info);
   Napi::Value setContext(const Napi::CallbackInfo& info);
 
-  EVENTWIDGET_WRAPPED_METHODS_DECLARATION
+  QOBJECT_WRAPPED_METHODS_DECLARATION
 };

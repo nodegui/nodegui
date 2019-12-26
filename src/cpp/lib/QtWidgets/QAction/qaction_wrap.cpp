@@ -26,7 +26,7 @@ Napi::Object QActionWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setChecked", &QActionWrap::setChecked),
        InstanceMethod("isSeparator", &QActionWrap::isSeparator),
        InstanceMethod("setSeparator", &QActionWrap::setSeparator),
-       EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)});
+       QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
