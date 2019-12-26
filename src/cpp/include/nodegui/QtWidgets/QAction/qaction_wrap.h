@@ -4,7 +4,7 @@
 
 #include <QPointer>
 
-#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "QtCore/QObject/qobject_macro.h"
 #include "naction.hpp"
 class QActionWrap : public Napi::ObjectWrap<QActionWrap> {
  private:
@@ -32,5 +32,5 @@ class QActionWrap : public Napi::ObjectWrap<QActionWrap> {
   Napi::Value isSeparator(const Napi::CallbackInfo& info);
   Napi::Value setSeparator(const Napi::CallbackInfo& info);
 
-  EVENTWIDGET_WRAPPED_METHODS_DECLARATION
+  QOBJECT_WRAPPED_METHODS_DECLARATION
 };

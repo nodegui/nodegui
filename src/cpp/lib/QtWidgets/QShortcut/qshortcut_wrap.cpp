@@ -18,7 +18,7 @@ Napi::Object QShortcutWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setAutoRepeat", &QShortcutWrap::setAutoRepeat),
        InstanceMethod("setKey", &QShortcutWrap::setKey),
        InstanceMethod("setContext", &QShortcutWrap::setContext),
-       EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QShortcutWrap)});
+       QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QShortcutWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

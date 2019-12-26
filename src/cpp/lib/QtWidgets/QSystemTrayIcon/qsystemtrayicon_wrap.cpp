@@ -22,7 +22,7 @@ Napi::Object QSystemTrayIconWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setToolTip", &QSystemTrayIconWrap::setToolTip),
        InstanceMethod("setContextMenu", &QSystemTrayIconWrap::setContextMenu),
        InstanceMethod("showMessage", &QSystemTrayIconWrap::showMessage),
-       EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QSystemTrayIconWrap)});
+       QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QSystemTrayIconWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
