@@ -36,3 +36,4 @@ jobs:
                   assets: >
                       nodegui-nodegui-1.0.0-master.tgz:nodegui-master.tgz:application/tar+gzip
                   recreate: true
+                  prerelease: true
