@@ -1,5 +1,6 @@
 #include "QtWidgets/QAction/qaction_wrap.h"
 
+#include <QFont>
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
@@ -26,6 +27,7 @@ Napi::Object QActionWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setChecked", &QActionWrap::setChecked),
        InstanceMethod("isSeparator", &QActionWrap::isSeparator),
        InstanceMethod("setSeparator", &QActionWrap::setSeparator),
+       InstanceMethod("setFont", &QActionWrap::setFont),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -188,5 +190,17 @@ Napi::Value QActionWrap::setSeparator(const Napi::CallbackInfo& info) {
         .ThrowAsJavaScriptException();
   }
 
+  return env.Null();
+}
+
+Napi::Value QActionWrap::setFont(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  std::string family = info[0].As<Napi::String>().Utf8Value();
+  int pointSize = info[1].As<Napi::Number>().Int32Value();
+  int weight = info[2].As<Napi::Number>().Int32Value();
+  bool italic = info[3].As<Napi::Boolean>().Value();
+  QFont f(QString::fromStdString(family.c_str()), pointSize, weight, italic);
+  this->instance->setFont(f);
   return env.Null();
 }

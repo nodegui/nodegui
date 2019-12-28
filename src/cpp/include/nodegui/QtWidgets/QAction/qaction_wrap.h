@@ -31,6 +31,7 @@ class QActionWrap : public Napi::ObjectWrap<QActionWrap> {
   Napi::Value setChecked(const Napi::CallbackInfo& info);
   Napi::Value isSeparator(const Napi::CallbackInfo& info);
   Napi::Value setSeparator(const Napi::CallbackInfo& info);
+  Napi::Value setFont(const Napi::CallbackInfo& info);
 
   QOBJECT_WRAPPED_METHODS_DECLARATION
 };
