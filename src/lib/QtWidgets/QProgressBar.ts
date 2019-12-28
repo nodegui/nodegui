@@ -10,7 +10,7 @@ export interface QProgressBarSignals extends QWidgetSignals {
  
 > Create and control progress bar widgets.
 
-**This class is a JS wrapper around Qt's [QProgressBar class](https://doc.qt.io/qt-5/qprogressbar.html)**
+* **This class is a JS wrapper around Qt's [QProgressBar class](https://doc.qt.io/qt-5/qprogressbar.html)**
 
 A `QProgressBar` provides ability to add and manipulate native progress bar widgets.
 

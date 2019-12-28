@@ -13,7 +13,7 @@
     "include": ["src"],
     "typedocOptions": {
         "mode": "file",
-        "out": "website/docs/api",
+        "out": "website/docs/api/generated",
         "plugin": ["typedoc-plugin-markdown"],
         "exclude": ["demo.ts"],
         "excludeExternals": true,

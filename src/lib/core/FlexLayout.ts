@@ -10,7 +10,7 @@ export type FlexLayoutSignals = QLayoutSignals;
  
 > Custom layout to help layout child widgets using flex layout.
 
-**This class is a JS wrapper around custom Qt layout implemented using [Yoga](https://github.com/facebook/yoga)**
+* **This class is a JS wrapper around custom Qt layout implemented using [Yoga](https://github.com/facebook/yoga)**
 
 A `FlexLayout` can be used to layout all child NodeGui widgets using flex.
 

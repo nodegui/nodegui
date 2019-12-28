@@ -9,7 +9,7 @@ export type QRadioButtonSignals = QAbstractButtonSignals;
  
 > Create and control radio button.
 
-**This class is a JS wrapper around Qt's [QRadioButton class](https://doc.qt.io/qt-5/qradiobutton.html)**
+* **This class is a JS wrapper around Qt's [QRadioButton class](https://doc.qt.io/qt-5/qradiobutton.html)**
 
 A `QRadioButton` provides ability to add and manipulate native radio button widgets.
 

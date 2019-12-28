@@ -14,7 +14,7 @@ export interface QShortcutSignals extends QObjectSignals {
  
 > The QShortcut class is used to create keyboard shortcuts.
 
-**This class is a JS wrapper around Qt's [QShortcut class](https://doc.qt.io/qt-5/qshortcut.html)**
+* **This class is a JS wrapper around Qt's [QShortcut class](https://doc.qt.io/qt-5/qshortcut.html)**
 
 ### Example
 

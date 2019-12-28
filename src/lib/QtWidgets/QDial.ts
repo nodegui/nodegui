@@ -9,7 +9,7 @@ export type QDialSignals = QAbstractSliderSignals;
  
 > Create and control dial slider widgets.
 
-**This class is a JS wrapper around Qt's [QDial class](https://doc.qt.io/qt-5/qdial.html)**
+* **This class is a JS wrapper around Qt's [QDial class](https://doc.qt.io/qt-5/qdial.html)**
 
 A `QDial` provides ability to add and manipulate native dial slider widgets.
 

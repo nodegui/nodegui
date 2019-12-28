@@ -6,7 +6,7 @@ import { CursorShape } from '../QtEnums';
  
 > The QCursor class provides scalable icons in different modes and states.
 
-**This class is a JS wrapper around Qt's [QCursor class](https://doc.qt.io/qt-5/qcursor.html)**
+* **This class is a JS wrapper around Qt's [QCursor class](https://doc.qt.io/qt-5/qcursor.html)**
 
 ### Example
 

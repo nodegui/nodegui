@@ -10,7 +10,7 @@ export type QMenuBarSignals = QWidgetSignals;
  
 > The QMenuBar class provides a menu widget for use in menu bars, context menus, and other popup menus.
 
-**This class is a JS wrapper around Qt's [QMenuBar class](https://doc.qt.io/qt-5/qmenu.html)**
+* **This class is a JS wrapper around Qt's [QMenuBar class](https://doc.qt.io/qt-5/qmenu.html)**
 
 ### Example
 

@@ -9,7 +9,7 @@ export type QCheckBoxSignals = QAbstractButtonSignals;
  
 > Create and control checkbox.
 
-**This class is a JS wrapper around Qt's [QCheckBox class](https://doc.qt.io/qt-5/qcheckbox.html)**
+* **This class is a JS wrapper around Qt's [QCheckBox class](https://doc.qt.io/qt-5/qcheckbox.html)**
 
 A `QCheckBox` provides ability to add and manipulate native checkbox widgets.
 

@@ -9,7 +9,7 @@ export type QGridLayoutSignals = QLayoutSignals;
  
 > The QGridLayout class lays out widgets in a grid.
 
-**This class is a JS wrapper around Qt's [QGridLayout](https://doc.qt.io/qt-5/qgridlayout.html)**
+* **This class is a JS wrapper around Qt's [QGridLayout](https://doc.qt.io/qt-5/qgridlayout.html)**
 
 ### Example
 

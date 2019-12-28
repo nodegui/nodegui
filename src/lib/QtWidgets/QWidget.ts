@@ -216,7 +216,7 @@ export interface QWidgetSignals extends QObjectSignals {
 /**
  > Create and control views.
 
-**This class is a JS wrapper around Qt's [QWidget class](https://doc.qt.io/qt-5/qwidget.html)**
+* **This class is a JS wrapper around Qt's [QWidget class](https://doc.qt.io/qt-5/qwidget.html)**
 
 A `QWidget` can be used to encapsulate other widgets and provide structure. It functions similar to a `div` in the web world.
 

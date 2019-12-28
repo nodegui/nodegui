@@ -11,7 +11,7 @@ export type QLabelSignals = QWidgetSignals;
  
 > Create and control text.
 
-**This class is a JS wrapper around Qt's [QLabel class](https://doc.qt.io/qt-5/qlabel.html)**
+* **This class is a JS wrapper around Qt's [QLabel class](https://doc.qt.io/qt-5/qlabel.html)**
 
 A `QLabel` provides ability to add and manipulate text.
 

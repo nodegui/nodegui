@@ -9,7 +9,7 @@ export type QScrollAreaSignals = QAbstractScrollAreaSignals;
  
 > A `QScrollArea` provides a scrolling view onto another widget.
 
-**This class is a JS wrapper around Qt's [QScrollArea class](https://doc.qt.io/qt-5/qscrollarea.html)**
+* **This class is a JS wrapper around Qt's [QScrollArea class](https://doc.qt.io/qt-5/qscrollarea.html)**
 
 ### Example
 

@@ -10,7 +10,7 @@ export interface QSpinBoxSignals extends QWidgetSignals {
  
 > Create and control spin box widgets.
 
-**This class is a JS wrapper around Qt's [QSpinBox class](https://doc.qt.io/qt-5/qspinbox.html)**
+* **This class is a JS wrapper around Qt's [QSpinBox class](https://doc.qt.io/qt-5/qspinbox.html)**
 
 A `QSpinBox` provides ability to add and manipulate native spin box widgets.
 

@@ -10,7 +10,7 @@ export type ImageFormats = 'BMP' | 'GIF' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'PGM
  
 > The QPixmap class helps hold an image in the form of off-screen image representation.
 
-**This class is a JS wrapper around Qt's [QPixmap class](https://doc.qt.io/qt-5/qpixmap.html)**
+* **This class is a JS wrapper around Qt's [QPixmap class](https://doc.qt.io/qt-5/qpixmap.html)**
 
 A `QPixmap` provides ability to store an image in the memory.
 

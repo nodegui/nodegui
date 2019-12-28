@@ -19,7 +19,7 @@ export enum QIconState {
  
 > The QIcon class provides scalable icons in different modes and states.
 
-**This class is a JS wrapper around Qt's [QIcon class](https://doc.qt.io/qt-5/qicon.html)**
+* **This class is a JS wrapper around Qt's [QIcon class](https://doc.qt.io/qt-5/qicon.html)**
 
 ### Example
 

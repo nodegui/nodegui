@@ -14,7 +14,7 @@ export interface QSystemTrayIconSignals extends QObjectSignals {
  
 > Create and control system tray icon.
 
-**This class is a JS wrapper around Qt's [QSystemTrayIcon class](https://doc.qt.io/qt-5/qsystemtrayicon.html)**
+* **This class is a JS wrapper around Qt's [QSystemTrayIcon class](https://doc.qt.io/qt-5/qsystemtrayicon.html)**
 
 A `QSystemTrayIcon` provides ability to add and manipulate native system tray icon.
 

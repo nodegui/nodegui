@@ -21,7 +21,7 @@ export interface QLineEditSignals extends QWidgetSignals {
  
 > Create and control editable text field.
 
-**This class is a JS wrapper around Qt's [QLineEdit class](https://doc.qt.io/qt-5/qlineedit.html)**
+* **This class is a JS wrapper around Qt's [QLineEdit class](https://doc.qt.io/qt-5/qlineedit.html)**
 
 A `QLineEdit` provides ability to add and manipulate native editable text field widgets.
 

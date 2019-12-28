@@ -19,7 +19,7 @@ export interface QActionSignals extends QObjectSignals {
  
 > The QAction class provides an abstract user interface action that can be inserted into widgets.
 
-**This class is a JS wrapper around Qt's [QAction class](https://doc.qt.io/qt-5/qaction.html)**
+* **This class is a JS wrapper around Qt's [QAction class](https://doc.qt.io/qt-5/qaction.html)**
 
 ### Example
 

@@ -5,7 +5,7 @@ import { checkIfNativeElement } from '../utils/helpers';
  
 > The QClipboard class provides access to the window system clipboard.
 
-**This class is a JS wrapper around Qt's [QClipboard class](https://doc.qt.io/qt-5/QClipboard.html)**
+* **This class is a JS wrapper around Qt's [QClipboard class](https://doc.qt.io/qt-5/QClipboard.html)**
 
 ### Example
 

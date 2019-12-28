@@ -9,7 +9,7 @@ export type QPushButtonSignals = QAbstractButtonSignals;
  
 > Create and control buttons.
 
-**This class is a JS wrapper around Qt's [QPushButton class](https://doc.qt.io/qt-5/qpushbutton.html)**
+* **This class is a JS wrapper around Qt's [QPushButton class](https://doc.qt.io/qt-5/qpushbutton.html)**
 
 A `QPushButton` provides ability to add and manipulate native button widgets.
 
