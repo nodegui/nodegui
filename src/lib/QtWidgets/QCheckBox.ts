@@ -5,6 +5,23 @@ import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 
 export type QCheckBoxSignals = QAbstractButtonSignals;
 
+/**
+ 
+> Create and control checkbox.
+
+**This class is a JS wrapper around Qt's [QCheckBox class](https://doc.qt.io/qt-5/qcheckbox.html)**
+
+A `QCheckBox` provides ability to add and manipulate native checkbox widgets.
+
+### Example
+
+```javascript
+const { QCheckBox } = require("@nodegui/nodegui");
+
+const checkbox = new QCheckBox();
+checkbox.setText("Hello");
+```
+ */
 export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
     native: NativeElement;
     constructor();

@@ -4,6 +4,30 @@ import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 
 export type QScrollAreaSignals = QAbstractScrollAreaSignals;
+
+/**
+ 
+> A `QScrollArea` provides a scrolling view onto another widget.
+
+**This class is a JS wrapper around Qt's [QScrollArea class](https://doc.qt.io/qt-5/qscrollarea.html)**
+
+### Example
+
+```javascript
+const { QScrollArea } = require("@nodegui/nodegui");
+
+const scrollArea = new QScrollArea();
+scrollArea.setInlineStyle("flex: 1; width:'100%';");
+
+const imageLabel = new QLabel();
+const pixmap = new QPixmap(
+  path.resolve(__dirname, "../extras/assets/kitchen.png")
+);
+imageLabel.setPixmap(pixmap);
+
+scrollArea.setWidget(imageLabel);
+```
+ */
 export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     native: NativeElement;
     contentWidget?: NodeWidget<any> | null;

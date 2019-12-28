@@ -6,6 +6,22 @@ import { Orientation } from '../QtEnums';
 export interface QProgressBarSignals extends QWidgetSignals {
     valueChanged: (value: number) => void;
 }
+/**
+ 
+> Create and control progress bar widgets.
+
+**This class is a JS wrapper around Qt's [QProgressBar class](https://doc.qt.io/qt-5/qprogressbar.html)**
+
+A `QProgressBar` provides ability to add and manipulate native progress bar widgets.
+
+### Example
+
+```javascript
+const { QProgressBar } = require("@nodegui/nodegui");
+
+const progressBar = new QProgressBar();
+```
+ */
 export class QProgressBar extends NodeWidget<QProgressBarSignals> {
     native: NativeElement;
     constructor();

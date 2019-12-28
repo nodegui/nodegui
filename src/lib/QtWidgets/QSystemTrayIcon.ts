@@ -10,6 +10,28 @@ export interface QSystemTrayIconSignals extends QObjectSignals {
     messageClicked: () => void;
 }
 
+/**
+ 
+> Create and control system tray icon.
+
+**This class is a JS wrapper around Qt's [QSystemTrayIcon class](https://doc.qt.io/qt-5/qsystemtrayicon.html)**
+
+A `QSystemTrayIcon` provides ability to add and manipulate native system tray icon.
+
+
+### Example
+
+```javascript
+const { QSystemTrayIcon, QIcon } = require("@nodegui/nodegui");
+const trayIcon = new QIcon(
+  resolve(__dirname, "some/image/file.png");
+);
+const tray = new QSystemTrayIcon();
+tray.show();
+
+global.tray = tray; // prevents garbage collection of tray
+```
+ */
 export class QSystemTrayIcon extends NodeObject<QSystemTrayIconSignals> {
     native: NativeElement;
     contextMenu?: QMenu;

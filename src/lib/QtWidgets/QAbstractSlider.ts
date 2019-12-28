@@ -9,6 +9,20 @@ export interface QAbstractSliderSignals extends QWidgetSignals {
     sliderReleased: () => void;
     valueChanged: (value: number) => void;
 }
+
+/**
+ 
+> Abstract class to add functionalities common to all slider based widgets.
+
+**This class implements all methods, properties of Qt's [QAbstractSlider class](https://doc.qt.io/qt-5/qabstractslider.html) so that it can be inherited by all slider based widgets**
+
+`QAbstractSlider` is an abstract class and hence no instances of the same should be created. It exists so that we can add similar functionalities to all slider widget's easily. If you wish to create a slider use [QDial](api/QDial.md) instead.
+
+**QAbstractSlider is the base class for all slider widgets.**
+
+QAbstractSlider will list all methods and properties that are common to all slider widgets in the NodeGui world.
+
+ */
 export abstract class QAbstractSlider<Signals extends QAbstractSliderSignals> extends NodeWidget<Signals> {
     setSingleStep(step: number): void {
         this.native.setSingleStep(step);

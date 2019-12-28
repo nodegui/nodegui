@@ -7,6 +7,24 @@ import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 import { TextFormat } from '../QtEnums/TextFormat';
 
 export type QLabelSignals = QWidgetSignals;
+/**
+ 
+> Create and control text.
+
+**This class is a JS wrapper around Qt's [QLabel class](https://doc.qt.io/qt-5/qlabel.html)**
+
+A `QLabel` provides ability to add and manipulate text.
+
+### Example
+
+```javascript
+const { QLabel } = require("@nodegui/nodegui");
+
+const label = new QLabel();
+label.setText("Hello");
+```
+
+ */
 export class QLabel extends NodeWidget<QLabelSignals> {
     native: NativeElement;
     private _pixmap?: QPixmap;

@@ -1,5 +1,32 @@
 import { EventEmitter } from 'events';
 import { NativeElement, Component } from './Component';
+
+/**
+ 
+> Abstract class that adds event handling support to all widgets.
+
+**This class implements an event emitter and merges it with Qt's event and signal system. It allows us to register and unregister event and signal listener at will from javascript**
+
+`EventWidget` is an abstract class and hence no instances of the same should be created. It exists so that we can add event handling functionalities to all widget's easily. This is an internal class.
+
+### Example
+
+```javascript
+const { QWidget, QWidgetSignals, WidgetEventTypes } = require("@nodegui/nodegui");
+
+const view = new QWidget();
+// You either listen for a widget's signal
+view.addEventListener(QWidgetSignals.windowTitleChanged, () => {
+  console.log("window title changed");
+});
+
+// or you can listen for an event
+
+view.addEventListener(WidgetEventTypes.MouseMove, () => {
+  console.log("mouse moved");
+});
+```
+ */
 export abstract class EventWidget<Signals extends {}> extends Component {
     private emitter: EventEmitter;
     constructor(native: NativeElement) {

@@ -12,8 +12,40 @@ import { YogaWidget } from '../core/YogaWidget';
 import { QSize } from '../QtCore/QSize';
 import { QRect } from '../QtCore/QRect';
 import { QObjectSignals } from '../QtCore/QObject';
-// All Widgets should extend from NodeWidget
-// Implement all native QWidget methods here so that all widgets get access to those aswell
+
+/**
+ 
+> Abstract class to add functionalities common to all Widgets.
+
+**This class implements all methods, properties of Qt's [QWidget class](https://doc.qt.io/qt-5/qwidget.html) so that it can be inherited by all widgets**
+
+`NodeWidget` is an abstract class and hence no instances of the same should be created. It exists so that we can add similar functionalities to all widget's easily. Additionally it helps in type checking process. If you wish to create a `div` like widget use [QWidget](api/QWidget.md) instead.
+
+**NodeWidget is the base class for all widgets.**
+
+### Example
+
+```javascript
+const {
+  NodeWidget,
+  QPushButton,
+  QWidget,
+  QRadioButton
+} = require("@nodegui/nodegui");
+
+// showWidget can accept any widget since it expects NodeWidget
+const showWidget = (widget: NodeWidget) => {
+  widget.show();
+};
+
+showWidget(new QPushButton());
+showWidget(new QWidget());
+showWidget(new QRadioButton());
+```
+All Widgets should extend from NodeWidget
+Implement all native QWidget methods here so that all widgets get access to those aswell
+
+ */
 export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWidget<Signals> {
     layout?: NodeLayout<Signals>;
     _rawInlineStyle = '';
@@ -180,6 +212,25 @@ export interface QWidgetSignals extends QObjectSignals {
     windowIconChanged: (iconNative: NativeElement) => void;
     customContextMenuRequested: (pos: { x: number; y: number }) => void;
 }
+
+/**
+ > Create and control views.
+
+**This class is a JS wrapper around Qt's [QWidget class](https://doc.qt.io/qt-5/qwidget.html)**
+
+A `QWidget` can be used to encapsulate other widgets and provide structure. It functions similar to a `div` in the web world.
+
+
+### Example
+
+```javascript
+const { QWidget } = require("@nodegui/nodegui");
+
+const view = new QWidget();
+view.setObjectName("container"); //Similar to setting `id` on the web
+view.setLayout(new FlexLayout());
+```
+ */
 export class QWidget extends NodeWidget<QWidgetSignals> {
     native: NativeElement;
     constructor(arg?: NodeWidget<QWidgetSignals> | NativeElement) {
