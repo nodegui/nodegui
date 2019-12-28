@@ -15,6 +15,21 @@ export enum QIconState {
     On,
 }
 
+/**
+ 
+> The QIcon class provides scalable icons in different modes and states.
+
+* **This class is a JS wrapper around Qt's [QIcon class](https://doc.qt.io/qt-5/qicon.html)**
+
+### Example
+
+```javascript
+const { QIcon } = require("@nodegui/nodegui");
+
+const imageUrl = "path/to/png";
+const icon = new QIcon(imageUrl);
+```
+ */
 export class QIcon extends Component {
     native: NativeElement;
     constructor();

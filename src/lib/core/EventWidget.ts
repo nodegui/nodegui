@@ -1,5 +1,32 @@
 import { EventEmitter } from 'events';
 import { NativeElement, Component } from './Component';
+
+/**
+ 
+> Abstract class that adds event handling support to all widgets.
+
+**This class implements an event emitter and merges it with Qt's event and signal system. It allows us to register and unregister event and signal listener at will from javascript**
+
+`EventWidget` is an abstract class and hence no instances of the same should be created. It exists so that we can add event handling functionalities to all widget's easily. This is an internal class.
+
+### Example
+
+```javascript
+const { QWidget, QWidgetSignals, WidgetEventTypes } = require("@nodegui/nodegui");
+
+const view = new QWidget();
+// You either listen for a widget's signal
+view.addEventListener('windowTitleChanged', () => {
+  console.log("window title changed");
+});
+
+// or you can listen for an event
+
+view.addEventListener(WidgetEventTypes.MouseMove, () => {
+  console.log("mouse moved");
+});
+```
+ */
 export abstract class EventWidget<Signals extends {}> extends Component {
     private emitter: EventEmitter;
     constructor(native: NativeElement) {
@@ -12,7 +39,32 @@ export abstract class EventWidget<Signals extends {}> extends Component {
         }
     }
 
+    /**
+     *
+    @param signalType SignalType is a signal from the widgets signals interface.
+    @param callback Corresponding callback for the signal as mentioned in the widget's signal interface
+    @returns void
+         
+    For example in the case of QPushButton:
+    ```js
+    const button = new QPushButton();
+    button.addEventListener('clicked',(checked)=>console.log("clicked"));
+    // here clicked is a value from QPushButtonSignals interface
+    ```
+     */
     addEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;
+
+    /**
+    
+     @param eventType
+     @param callback
+    
+     For example in the case of QPushButton:
+     ```js
+     const button = new QPushButton();
+     button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
+     ```
+     */
     addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeElement) => void): void;
     addEventListener(eventOrSignalType: string, callback: (...payloads: any[]) => void): void {
         this.native.subscribeToQtEvent(eventOrSignalType);

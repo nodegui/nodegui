@@ -6,6 +6,22 @@ export interface QSpinBoxSignals extends QWidgetSignals {
     valueChanged: (value: number) => void;
 }
 
+/**
+ 
+> Create and control spin box widgets.
+
+* **This class is a JS wrapper around Qt's [QSpinBox class](https://doc.qt.io/qt-5/qspinbox.html)**
+
+A `QSpinBox` provides ability to add and manipulate native spin box widgets.
+
+### Example
+
+```javascript
+const { QSpinBox } = require("@nodegui/nodegui");
+
+const spinBox = new QSpinBox();
+```
+ */
 export class QSpinBox extends NodeWidget<QSpinBoxSignals> {
     native: NativeElement;
     constructor();

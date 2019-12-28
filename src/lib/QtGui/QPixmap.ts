@@ -6,6 +6,23 @@ import { QVariant } from '../QtCore/QVariant';
 
 export type ImageFormats = 'BMP' | 'GIF' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'PGM' | 'PPM' | 'XBM' | 'XPM' | 'SVG';
 
+/**
+ 
+> The QPixmap class helps hold an image in the form of off-screen image representation.
+
+* **This class is a JS wrapper around Qt's [QPixmap class](https://doc.qt.io/qt-5/qpixmap.html)**
+
+A `QPixmap` provides ability to store an image in the memory.
+
+### Example
+
+```javascript
+const { QPixmap } = require("@nodegui/nodegui");
+
+const imageUrl = "path/to/png";
+const pixMap = new QPixmap(imageUrl);
+```
+ */
 export class QPixmap extends Component {
     native: NativeElement;
     constructor();

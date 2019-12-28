@@ -4,6 +4,23 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { QClipboard } from './QClipboard';
 import { QStyle } from './QStyle';
 
+/**
+ 
+> QApplication is the root object for the entire application. It manages app level settings.
+
+* **This class is a JS wrapper around Qt's [QApplication class](https://doc.qt.io/qt-5/qapplication.html)**
+
+The QApplication class manages the GUI application's control flow and main settings. In NodeGui you will never create an instance of it manually. NodeGui's internal runtime `Qode` does it for you on app start. You can access the initialised QApplication though if needed.
+
+### Example
+
+```js
+const { QApplication } = require("@nodegui/nodegui");
+
+const qApp = QApplication.instance();
+qApp.quit();
+```
+ */
 export class QApplication extends Component {
     native: NativeElement;
     constructor();

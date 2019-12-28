@@ -19,6 +19,23 @@ export enum LineWrapMode {
     NoWrap,
     WidgetWidth,
 }
+
+/**
+ 
+> Used to edit and display plain text.
+
+* **This class is a JS wrapper around Qt's [QPlainTextEdit class](https://doc.qt.io/qt-5/qplaintextedit.html)**
+
+A `QPlainTextEdit` provides ability to add and manipulate native editable text field widgets.
+
+### Example
+
+```javascript
+const { QPlainTextEdit } = require("@nodegui/nodegui");
+
+const plainTextEdit = new QPlainTextEdit();
+```
+ */
 export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
     native: NativeElement;
     placeholderText?: string;

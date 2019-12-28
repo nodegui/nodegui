@@ -5,6 +5,31 @@ import { NativeElement } from '../core/Component';
 
 export type QGridLayoutSignals = QLayoutSignals;
 
+/**
+ 
+> The QGridLayout class lays out widgets in a grid.
+
+* **This class is a JS wrapper around Qt's [QGridLayout](https://doc.qt.io/qt-5/qgridlayout.html)**
+
+### Example
+
+```javascript
+const { QGridLayout, QWidget, QLabel } = require("@nodegui/nodegui");
+
+const view = new QWidget();
+const layout = new QGridLayout();
+view.setLayout(layout);
+
+const label = new QLabel();
+label.setText("label1");
+const label2 = new QLabel();
+label2.setText("label2");
+
+layout.addWidget(label);
+layout.addWidget(label2);
+```
+
+ */
 export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
     native: NativeElement;
     constructor();

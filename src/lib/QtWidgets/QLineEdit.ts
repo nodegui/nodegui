@@ -17,6 +17,23 @@ export interface QLineEditSignals extends QWidgetSignals {
     textChanged: (text: string) => void;
     textEdited: (text: string) => void;
 }
+/**
+ 
+> Create and control editable text field.
+
+* **This class is a JS wrapper around Qt's [QLineEdit class](https://doc.qt.io/qt-5/qlineedit.html)**
+
+A `QLineEdit` provides ability to add and manipulate native editable text field widgets.
+
+### Example
+
+```javascript
+const { QLineEdit } = require("@nodegui/nodegui");
+
+const lineEdit = new QLineEdit();
+```
+
+ */
 export class QLineEdit extends NodeWidget<QLineEditSignals> {
     native: NativeElement;
     constructor();

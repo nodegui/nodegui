@@ -15,6 +15,26 @@ export interface QActionSignals extends QObjectSignals {
     toggled: (checked: boolean) => void;
 }
 
+/**
+ 
+> The QAction class provides an abstract user interface action that can be inserted into widgets.
+
+* **This class is a JS wrapper around Qt's [QAction class](https://doc.qt.io/qt-5/qaction.html)**
+
+### Example
+
+```javascript
+const { QAction, QMenu } = require("@nodegui/nodegui");
+
+const menu = new QMenu();
+const menuAction = new QAction();
+menuAction.setText("subAction");
+menuAction.addEventListener("triggered", () => {
+  console.log("Action clicked");
+});
+menu.addAction(menuAction);
+```
+ */
 export class QAction extends NodeObject<QActionSignals> {
     native: NativeElement;
     icon?: QIcon;
