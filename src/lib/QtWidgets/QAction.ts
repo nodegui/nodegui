@@ -72,4 +72,7 @@ export class QAction extends NodeObject<QActionSignals> {
     setSeparator(isSeparator: boolean): void {
         this.native.setSeparator(isSeparator);
     }
+    setFont(family: string, pointSize = -1, weight = -1, italic = false): void {
+        this.native.setFont(family, pointSize, weight, italic);
+    }
 }
