@@ -238,12 +238,21 @@ ___
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`signalType` | SignalType |
-`callback` | Signals[SignalType] |
+Name | Type | Description |
+------ | ------ | ------ |
+`signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
+`callback` | Signals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
+
+void
+
+For example in the case of QPushButton:
+```js
+const button = new QPushButton();
+button.addEventListener('clicked',(checked)=>console.log("clicked"));
+// here clicked is a value from QPushButtonSignals interface
+```
 
 ▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
 
@@ -254,6 +263,12 @@ Name | Type |
 ▪ **eventType**: *[WidgetEventTypes](../enums/widgeteventtypes.md)*
 
 ▪ **callback**: *function*
+
+For example in the case of QPushButton:
+```js
+const button = new QPushButton();
+button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
+```
 
 ▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
 

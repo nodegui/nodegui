@@ -7,6 +7,7 @@ import { QAction } from './lib/QtWidgets/QAction';
 const win = new QMainWindow();
 const center = new QWidget();
 const layout = new FlexLayout();
+
 const label = new QLabel();
 const tray = new QSystemTrayIcon();
 const menu = new QMenu();

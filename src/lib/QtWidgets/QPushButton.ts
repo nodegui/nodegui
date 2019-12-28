@@ -4,7 +4,6 @@ import { NativeElement } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 
 export type QPushButtonSignals = QAbstractButtonSignals;
-
 /**
  
 > Create and control buttons.

@@ -16,7 +16,7 @@ const { QWidget, QWidgetSignals, WidgetEventTypes } = require("@nodegui/nodegui"
 
 const view = new QWidget();
 // You either listen for a widget's signal
-view.addEventListener(QWidgetSignals.windowTitleChanged, () => {
+view.addEventListener('windowTitleChanged', () => {
   console.log("window title changed");
 });
 
@@ -39,7 +39,32 @@ export abstract class EventWidget<Signals extends {}> extends Component {
         }
     }
 
+    /**
+     *
+    @param signalType SignalType is a signal from the widgets signals interface.
+    @param callback Corresponding callback for the signal as mentioned in the widget's signal interface
+    @returns void
+         
+    For example in the case of QPushButton:
+    ```js
+    const button = new QPushButton();
+    button.addEventListener('clicked',(checked)=>console.log("clicked"));
+    // here clicked is a value from QPushButtonSignals interface
+    ```
+     */
     addEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;
+
+    /**
+    
+     @param eventType
+     @param callback
+    
+     For example in the case of QPushButton:
+     ```js
+     const button = new QPushButton();
+     button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
+     ```
+     */
     addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeElement) => void): void;
     addEventListener(eventOrSignalType: string, callback: (...payloads: any[]) => void): void {
         this.native.subscribeToQtEvent(eventOrSignalType);
