@@ -1,7 +1,7 @@
 #include "QtWidgets/QAction/qaction_wrap.h"
 
-#include <QWidget>
 #include <QFont>
+#include <QWidget>
 
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QKeySequence/qkeysequence_wrap.h"
