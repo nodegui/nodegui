@@ -35,9 +35,13 @@ sidebar_label: "QUrl"
 
 \+ **new QUrl**(): *[QUrl](qurl.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Returns:** *[QUrl](qurl.md)*
 
 \+ **new QUrl**(`nativeElement`: [NativeElement](../globals.md#nativeelement)): *[QUrl](qurl.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -48,6 +52,8 @@ Name | Type |
 **Returns:** *[QUrl](qurl.md)*
 
 \+ **new QUrl**(`url`: string, `parsingMode?`: [ParsingMode](../enums/parsingmode.md)): *[QUrl](qurl.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -70,7 +76,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

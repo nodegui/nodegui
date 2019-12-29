@@ -37,9 +37,13 @@ sidebar_label: "QPoint"
 
 \+ **new QPoint**(): *[QPoint](qpoint.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Returns:** *[QPoint](qpoint.md)*
 
 \+ **new QPoint**(`nativeElement`: [NativeElement](../globals.md#nativeelement)): *[QPoint](qpoint.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -50,6 +54,8 @@ Name | Type |
 **Returns:** *[QPoint](qpoint.md)*
 
 \+ **new QPoint**(`x?`: undefined | number, `y?`: undefined | number): *[QPoint](qpoint.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -72,7 +78,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

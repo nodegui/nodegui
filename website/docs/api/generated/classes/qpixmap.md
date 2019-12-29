@@ -54,9 +54,13 @@ const pixMap = new QPixmap(imageUrl);
 
 \+ **new QPixmap**(): *[QPixmap](qpixmap.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Returns:** *[QPixmap](qpixmap.md)*
 
 \+ **new QPixmap**(`native`: [NativeElement](../globals.md#nativeelement)): *[QPixmap](qpixmap.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -67,6 +71,8 @@ Name | Type |
 **Returns:** *[QPixmap](qpixmap.md)*
 
 \+ **new QPixmap**(`filePath`: string): *[QPixmap](qpixmap.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -88,7 +94,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

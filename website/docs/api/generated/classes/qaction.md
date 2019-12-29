@@ -55,6 +55,7 @@ menu.addAction(menuAction);
 * [setCheckable](qaction.md#setcheckable)
 * [setChecked](qaction.md#setchecked)
 * [setEnabled](qaction.md#setenabled)
+* [setFont](qaction.md#setfont)
 * [setIcon](qaction.md#seticon)
 * [setMenu](qaction.md#setmenu)
 * [setNodeParent](qaction.md#setnodeparent)
@@ -123,7 +124,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 
@@ -337,6 +338,23 @@ ___
 Name | Type |
 ------ | ------ |
 `enabled` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setFont
+
+▸ **setFont**(`family`: string, `pointSize`: number, `weight`: number, `italic`: boolean): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`family` | string | - |
+`pointSize` | number |  -1 |
+`weight` | number |  -1 |
+`italic` | boolean | false |
 
 **Returns:** *void*
 

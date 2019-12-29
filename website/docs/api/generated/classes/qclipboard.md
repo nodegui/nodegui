@@ -52,6 +52,8 @@ const text = clipboard.text(QClipboardMode.Clipboard);
 
 \+ **new QClipboard**(`native`: [NativeElement](../globals.md#nativeelement)): *[QClipboard](qclipboard.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Parameters:**
 
 Name | Type |
@@ -72,7 +74,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

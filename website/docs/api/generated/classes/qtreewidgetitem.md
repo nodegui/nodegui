@@ -39,9 +39,13 @@ sidebar_label: "QTreeWidgetItem"
 
 \+ **new QTreeWidgetItem**(): *[QTreeWidgetItem](qtreewidgetitem.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Returns:** *[QTreeWidgetItem](qtreewidgetitem.md)*
 
 \+ **new QTreeWidgetItem**(`parent`: [QTreeWidgetItem](qtreewidgetitem.md), `strings?`: string[]): *[QTreeWidgetItem](qtreewidgetitem.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -54,6 +58,8 @@ Name | Type |
 
 \+ **new QTreeWidgetItem**(`parent`: [QTreeWidget](qtreewidget.md), `strings?`: string[]): *[QTreeWidgetItem](qtreewidgetitem.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Parameters:**
 
 Name | Type |
@@ -65,6 +71,8 @@ Name | Type |
 
 \+ **new QTreeWidgetItem**(`native`: [NativeElement](../globals.md#nativeelement)): *[QTreeWidgetItem](qtreewidgetitem.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Parameters:**
 
 Name | Type |
@@ -74,6 +82,8 @@ Name | Type |
 **Returns:** *[QTreeWidgetItem](qtreewidgetitem.md)*
 
 \+ **new QTreeWidgetItem**(`strings`: string[]): *[QTreeWidgetItem](qtreewidgetitem.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -95,7 +105,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

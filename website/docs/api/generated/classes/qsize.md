@@ -37,9 +37,13 @@ sidebar_label: "QSize"
 
 \+ **new QSize**(): *[QSize](qsize.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Returns:** *[QSize](qsize.md)*
 
 \+ **new QSize**(`nativeElement`: [NativeElement](../globals.md#nativeelement)): *[QSize](qsize.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -50,6 +54,8 @@ Name | Type |
 **Returns:** *[QSize](qsize.md)*
 
 \+ **new QSize**(`width?`: undefined | number, `height?`: undefined | number): *[QSize](qsize.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -72,7 +78,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

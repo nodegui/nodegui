@@ -16,8 +16,11 @@ Its the root base class in NodeGui world.
 */
 
 export abstract class Component {
-    nodeChildren = new Set();
+    nodeChildren: Set<Component>;
     nodeParent?: Component;
+    constructor() {
+        this.nodeChildren = new Set<Component>();
+    }
     setNodeParent(parent?: Component): void {
         this.nodeParent = parent;
         parent?.nodeChildren.add(this);

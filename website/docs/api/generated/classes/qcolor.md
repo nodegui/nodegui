@@ -41,9 +41,13 @@ sidebar_label: "QColor"
 
 \+ **new QColor**(): *[QColor](qcolor.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Returns:** *[QColor](qcolor.md)*
 
 \+ **new QColor**(`nativeElement`: [NativeElement](../globals.md#nativeelement)): *[QColor](qcolor.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -55,6 +59,8 @@ Name | Type |
 
 \+ **new QColor**(`colorString`: string): *[QColor](qcolor.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Parameters:**
 
 Name | Type |
@@ -65,6 +71,8 @@ Name | Type |
 
 \+ **new QColor**(`color`: [GlobalColor](../enums/globalcolor.md)): *[QColor](qcolor.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Parameters:**
 
 Name | Type |
@@ -74,6 +82,8 @@ Name | Type |
 **Returns:** *[QColor](qcolor.md)*
 
 \+ **new QColor**(`r?`: undefined | number, `g?`: undefined | number, `b?`: undefined | number, `a?`: undefined | number): *[QColor](qcolor.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -98,7 +108,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

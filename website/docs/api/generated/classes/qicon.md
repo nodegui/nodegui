@@ -50,9 +50,13 @@ const icon = new QIcon(imageUrl);
 
 \+ **new QIcon**(): *[QIcon](qicon.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Returns:** *[QIcon](qicon.md)*
 
 \+ **new QIcon**(`native`: [NativeElement](../globals.md#nativeelement)): *[QIcon](qicon.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -63,6 +67,8 @@ Name | Type |
 **Returns:** *[QIcon](qicon.md)*
 
 \+ **new QIcon**(`filePath`: string): *[QIcon](qicon.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -84,7 +90,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

@@ -57,6 +57,10 @@ Its the root base class in NodeGui world.
 
 ## Index
 
+### Constructors
+
+* [constructor](component.md#constructor)
+
 ### Properties
 
 * [native](component.md#abstract-native)
@@ -66,6 +70,14 @@ Its the root base class in NodeGui world.
 ### Methods
 
 * [setNodeParent](component.md#setnodeparent)
+
+## Constructors
+
+###  constructor
+
+\+ **new Component**(): *[Component](component.md)*
+
+**Returns:** *[Component](component.md)*
 
 ## Properties
 
@@ -77,7 +89,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 ___
 
