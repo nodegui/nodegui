@@ -1,4 +1,4 @@
-#include "QtCore/QColor/qcolor_wrap.h"
+#include "QtGui/QColor/qcolor_wrap.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QVariant/qvariant_wrap.h"

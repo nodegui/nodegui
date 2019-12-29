@@ -1,6 +1,6 @@
 import { QColor } from '../QColor';
 import { GlobalColor } from '../../QtEnums';
-import { QVariant } from '../QVariant';
+import { QVariant } from '../../QtCore/QVariant';
 
 describe('QColor', () => {
     it('initialize empty', () => {

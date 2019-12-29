@@ -63,7 +63,7 @@ export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';
 export { QRect } from './lib/QtCore/QRect';
 export { QPoint } from './lib/QtCore/QPoint';
-export { QColor } from './lib/QtCore/QColor';
+export { QColor } from './lib/QtGui/QColor';
 export { QUrl, ParsingMode } from './lib/QtCore/QUrl';
 // Layouts:
 export { QBoxLayout, QBoxLayoutSignals } from './lib/QtWidgets/QBoxLayout';
