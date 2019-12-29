@@ -1,6 +1,5 @@
 import { Component, NativeElement } from '../core/Component';
 import addon from '../utils/addon';
-import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from '../QtCore/QVariant';
 
 export enum QFontStretch {
@@ -37,12 +36,12 @@ export enum QFontWeight {
 export class QFont extends Component {
     native: NativeElement;
     constructor();
-    constructor(nativeElement?: NativeElement);
+    constructor(font?: QFont);
     constructor(family?: string, pointSize?: number, weight?: number, italic?: boolean);
-    constructor(arg?: NativeElement | string, pointSize = -1, weight = -1, italic = false) {
+    constructor(arg?: QFont | string, pointSize = -1, weight = -1, italic = false) {
         super();
-        if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+        if (arg instanceof QFont) {
+            this.native = arg.native;
         } else if (typeof arg === 'string') {
             this.native = new addon.QFont(arg, pointSize, weight, italic);
         } else {

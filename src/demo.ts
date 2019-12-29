@@ -16,7 +16,7 @@ const action = new QAction();
 
 const font = new QFont('serif', 40, QFontWeight.ExtraLight, true);
 font.setCapitalization(QFontCapitalization.AllUppercase);
-font.setStretch(QFontStretch.Expanded);
+font.setStretch(QFontStretch.UltraCondensed);
 
 const family = font.family();
 const pointSize = font.pointSize();
@@ -30,8 +30,11 @@ action.setText('action1');
 action.setFont(font);
 menu.addAction(action);
 
-const font2 = new QFont('mono', 20, QFontWeight.DemiBold, true);
-font2.setStretch(QFontStretch.UltraCondensed);
+const font2 = new QFont(font);
+font2.setFamily('mono');
+font2.setCapitalization(QFontCapitalization.Capitalize);
+font2.setStretch(QFontStretch.ExtraExpanded);
+font2.setPointSize(20);
 
 const action2 = new QAction();
 action2.setText('action2');
