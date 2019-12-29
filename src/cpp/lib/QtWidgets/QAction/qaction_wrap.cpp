@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QFont/qfont_wrap.h"
 #include "QtGui/QKeySequence/qkeysequence_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
@@ -196,11 +197,11 @@ Napi::Value QActionWrap::setSeparator(const Napi::CallbackInfo& info) {
 Napi::Value QActionWrap::setFont(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  std::string family = info[0].As<Napi::String>().Utf8Value();
-  int pointSize = info[1].As<Napi::Number>().Int32Value();
-  int weight = info[2].As<Napi::Number>().Int32Value();
-  bool italic = info[3].As<Napi::Boolean>().Value();
-  QFont f(QString::fromStdString(family.c_str()), pointSize, weight, italic);
-  this->instance->setFont(f);
+
+  Napi::Object fontObject = info[0].As<Napi::Object>();
+  QFontWrap* fontWrap = Napi::ObjectWrap<QFontWrap>::Unwrap(fontObject);
+  QFont* font = fontWrap->getInternalInstance();
+
+  this->instance->setFont(*font);
   return env.Null();
 }

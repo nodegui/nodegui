@@ -7,6 +7,7 @@ export { QApplication } from './lib/QtGui/QApplication';
 export { QKeySequence } from './lib/QtGui/QKeySequence';
 export { QPixmap, ImageFormats } from './lib/QtGui/QPixmap';
 export { QIcon, QIconMode, QIconState } from './lib/QtGui/QIcon';
+export { QFont, QFontCapitalization, QFontStretch, QFontWeight } from './lib/QtGui/QFont';
 export { QMovie, CacheMode, MovieState } from './lib/QtGui/QMovie';
 export { QCursor } from './lib/QtGui/QCursor';
 export { QTextOptionWrapMode } from './lib/QtGui/QTextOption';

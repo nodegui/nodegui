@@ -3,6 +3,7 @@ import { QLabel } from './lib/QtWidgets/QLabel';
 import { QSystemTrayIcon } from './lib/QtWidgets/QSystemTrayIcon';
 import { QMenu } from './lib/QtWidgets/QMenu';
 import { QAction } from './lib/QtWidgets/QAction';
+import { QFont, QFontWeight, QFontCapitalization, QFontStretch } from './lib/QtGui/QFont';
 
 const win = new QMainWindow();
 const center = new QWidget();
@@ -13,10 +14,32 @@ const tray = new QSystemTrayIcon();
 const menu = new QMenu();
 const action = new QAction();
 
-action.setText('action');
-action.setFont('Mono', 20);
+const font = new QFont('serif', 40, QFontWeight.ExtraLight, true);
+font.setCapitalization(QFontCapitalization.AllUppercase);
+font.setStretch(QFontStretch.Expanded);
+
+const family = font.family();
+const pointSize = font.pointSize();
+const weight = font.weight();
+const italic = font.italic();
+const capitalization = font.capitalization();
+const stretch = font.stretch();
+console.log({ family, pointSize, weight, italic, capitalization, stretch });
+
+action.setText('action1');
+action.setFont(font);
 menu.addAction(action);
+
+const font2 = new QFont('mono', 20, QFontWeight.DemiBold, true);
+font2.setStretch(QFontStretch.UltraCondensed);
+
+const action2 = new QAction();
+action2.setText('action2');
+action2.setFont(font2);
+menu.addAction(action2);
+
 tray.setContextMenu(menu);
+
 tray.show();
 
 label.setText('Hello!');

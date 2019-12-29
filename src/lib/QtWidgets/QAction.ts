@@ -3,6 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QMenu } from './QMenu';
 import { QIcon } from '../QtGui/QIcon';
+import { QFont } from '../QtGui/QFont';
 import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
@@ -92,7 +93,7 @@ export class QAction extends NodeObject<QActionSignals> {
     setSeparator(isSeparator: boolean): void {
         this.native.setSeparator(isSeparator);
     }
-    setFont(family: string, pointSize = -1, weight = -1, italic = false): void {
-        this.native.setFont(family, pointSize, weight, italic);
+    setFont(font: QFont): void {
+        this.native.setFont(font.native);
     }
 }
