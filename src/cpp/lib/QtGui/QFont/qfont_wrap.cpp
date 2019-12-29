@@ -161,8 +161,8 @@ Napi::Value StaticQFontWrapMethods::fromQVariant(
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
   QVariant* variant = variantWrap->getInternalInstance();
-  QFont color = variant->value<QFont>();
+  QFont font = variant->value<QFont>();
   auto instance = QFontWrap::constructor.New(
-      {Napi::External<QFont>::New(env, new QFont(color))});
+      {Napi::External<QFont>::New(env, new QFont(font))});
   return instance;
 }
