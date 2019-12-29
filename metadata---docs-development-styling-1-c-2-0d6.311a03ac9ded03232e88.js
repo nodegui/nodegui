@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[120],{140:function(e){e.exports=JSON.parse('{"id":"development/styling","title":"styling","description":"# How styling works?","source":"@site/docs/development/styling.md","permalink":"/docs/development/styling"}')}}]);

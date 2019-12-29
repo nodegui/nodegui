@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[76],{164:function(n){n.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"nodegui","name":"nodegui","count":1,"permalink":"/blog/tags/nodegui"}')}}]);
