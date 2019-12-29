@@ -46,9 +46,13 @@ const cursor = new QCursor();
 
 \+ **new QCursor**(): *[QCursor](qcursor.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Returns:** *[QCursor](qcursor.md)*
 
 \+ **new QCursor**(`native`: [NativeElement](../globals.md#nativeelement)): *[QCursor](qcursor.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -59,6 +63,8 @@ Name | Type |
 **Returns:** *[QCursor](qcursor.md)*
 
 \+ **new QCursor**(`shape`: [CursorShape](../enums/cursorshape.md)): *[QCursor](qcursor.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -80,7 +86,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

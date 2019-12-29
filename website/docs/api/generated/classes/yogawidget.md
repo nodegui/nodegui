@@ -65,6 +65,8 @@ YogaWidget helps in storing all flex properties of a widget.
 
 *Inherited from [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Parameters:**
 
 Name | Type |
@@ -85,7 +87,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

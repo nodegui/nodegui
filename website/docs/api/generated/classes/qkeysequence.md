@@ -45,9 +45,13 @@ const keySequence = new QKeySequence(`Ctrl+L`);
 
 \+ **new QKeySequence**(): *[QKeySequence](qkeysequence.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Returns:** *[QKeySequence](qkeysequence.md)*
 
 \+ **new QKeySequence**(`keySequence`: string): *[QKeySequence](qkeysequence.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -69,7 +73,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

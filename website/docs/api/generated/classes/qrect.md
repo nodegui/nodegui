@@ -41,9 +41,13 @@ sidebar_label: "QRect"
 
 \+ **new QRect**(): *[QRect](qrect.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Returns:** *[QRect](qrect.md)*
 
 \+ **new QRect**(`nativeElement`: [NativeElement](../globals.md#nativeelement)): *[QRect](qrect.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -54,6 +58,8 @@ Name | Type |
 **Returns:** *[QRect](qrect.md)*
 
 \+ **new QRect**(`x?`: undefined | number, `y?`: undefined | number, `width?`: undefined | number, `height?`: undefined | number): *[QRect](qrect.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
@@ -78,7 +84,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 

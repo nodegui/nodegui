@@ -37,6 +37,8 @@ sidebar_label: "QFontDatabase"
 
 \+ **new QFontDatabase**(): *[QFontDatabase](qfontdatabase.md)*
 
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
 **Returns:** *[QFontDatabase](qfontdatabase.md)*
 
 ## Properties
@@ -51,7 +53,7 @@ ___
 
 ###  nodeChildren
 
-• **nodeChildren**: *Set‹unknown›* =  new Set()
+• **nodeChildren**: *Set‹[Component](component.md)›*
 
 *Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
 
