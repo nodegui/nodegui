@@ -1,8 +1,8 @@
 #include "QtWidgets/QPainter/qpainter_wrap.h"
 
 #include "Extras/Utils/nutils.h"
-#include "QtCore/QColor/qcolor_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
+#include "QtGui/QColor/qcolor_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/Component/component_wrap.h"
 

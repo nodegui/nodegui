@@ -1,7 +1,7 @@
 import { Component, NativeElement } from '../core/Component';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
-import { QVariant } from './QVariant';
+import { QVariant } from '../QtCore/QVariant';
 import { GlobalColor } from '../QtEnums';
 
 export class QColor extends Component {

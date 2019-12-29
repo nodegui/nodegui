@@ -1,6 +1,5 @@
 #include <napi.h>
 
-#include "QtCore/QColor/qcolor_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
@@ -9,6 +8,7 @@
 #include "QtCore/QVariant/qvariant_wrap.h"
 #include "QtGui/QApplication/qapplication_wrap.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
+#include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include "QtGui/QEvent/QMouseEvent/qmouseevent_wrap.h"

@@ -1,7 +1,7 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
 import { PenStyle } from '../QtEnums';
-import { QColor } from '../QtCore/QColor';
+import { QColor } from '../QtGui/QColor';
 import { QPoint } from '../QtCore/QPoint';
 
 export enum RenderHint {
