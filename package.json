@@ -15,7 +15,7 @@
         "test": "qode ./node_modules/jest/bin/jest -i",
         "lint:cpp": "clang-format -i --glob=src/cpp/**/*.[h,c]*",
         "lint:ts": "tsc --noEmit && cross-env eslint './src/**/*.{ts,tsx,js,jsx}' --fix",
-        "docs": "typedoc && mv ./website/website/sidebars.js ./website/docs/api/sidebar-gen.js && rm -rf website/docs/api/generated/index.md"
+        "docs": "typedoc && mv ./website/website/sidebars.js ./website/docs/api/sidebar-gen.js && echo > website/docs/api/generated/index.md"
     },
     "dependencies": {
         "@nodegui/qode": "^1.0.6",

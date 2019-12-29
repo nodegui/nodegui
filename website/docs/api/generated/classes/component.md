@@ -33,6 +33,8 @@ Its the root base class in NodeGui world.
 
   ↳ [QIcon](qicon.md)
 
+  ↳ [QFont](qfont.md)
+
   ↳ [EventWidget](eventwidget.md)
 
   ↳ [QSize](qsize.md)
