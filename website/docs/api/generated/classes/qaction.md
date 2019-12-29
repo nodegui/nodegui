@@ -345,16 +345,13 @@ ___
 
 ###  setFont
 
-▸ **setFont**(`family`: string, `pointSize`: number, `weight`: number, `italic`: boolean): *void*
+▸ **setFont**(`font`: [QFont](qfont.md)): *void*
 
 **Parameters:**
 
-Name | Type | Default |
------- | ------ | ------ |
-`family` | string | - |
-`pointSize` | number |  -1 |
-`weight` | number |  -1 |
-`italic` | boolean | false |
+Name | Type |
+------ | ------ |
+`font` | [QFont](qfont.md) |
 
 **Returns:** *void*
 
