@@ -28,7 +28,7 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     constructor(rows: number, columns: number, parent?: NodeWidget<any>) {
         let native;
         if (parent) {
-            native = new addon.QTableWidget(rows, columns, parent);
+            native = new addon.QTableWidget(rows, columns, parent.native);
         } else {
             native = new addon.QTableWidget(rows, columns);
         }

@@ -24,6 +24,7 @@ export { NodeLayout, QLayoutSignals } from './lib/QtWidgets/QLayout';
 export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider, QAbstractSliderSignals } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';
+export { QAbstractItemView, QAbstractItemViewSignals } from './lib/QtWidgets/QAbstractItemView';
 // Widgets:
 export { QCheckBox, QCheckBoxSignals } from './lib/QtWidgets/QCheckBox';
 export { QLabel, QLabelSignals } from './lib/QtWidgets/QLabel';
@@ -38,6 +39,8 @@ export { QToolButton, QToolButtonSignals, ToolButtonPopupMode } from './lib/QtWi
 export { QSpinBox, QSpinBoxSignals } from './lib/QtWidgets/QSpinBox';
 export { QRadioButton, QRadioButtonSignals } from './lib/QtWidgets/QRadioButton';
 export { QStackedWidget, QStackedWidgetSignals } from './lib/QtWidgets/QStackedWidget';
+export { QListWidget, QListWidgetSignals } from './lib/QtWidgets/QListWidget';
+export { QListWidgetItem } from './lib/QtWidgets/QListWidgetItem';
 export { QTabWidget, QTabWidgetSignals } from './lib/QtWidgets/QTabWidget';
 export { QTableWidget, QTableWidgetSignals } from './lib/QtWidgets/QTableWidget';
 export { QTableWidgetItem } from './lib/QtWidgets/QTableWidgetItem';
@@ -58,6 +61,7 @@ export { QAction, QActionSignals } from './lib/QtWidgets/QAction';
 export { QShortcut, QShortcutSignals } from './lib/QtWidgets/QShortcut';
 export { QGroupBox, QGroupBoxSignals } from './lib/QtWidgets/QGroupBox';
 // Core
+export { QModelIndex } from './lib/QtCore/QModelIndex';
 export { QObject, QObjectSignals, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';

@@ -1,5 +1,6 @@
 #include <napi.h>
 
+#include "QtCore/QModelIndex/qmodelindex_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
@@ -30,6 +31,8 @@
 #include "QtWidgets/QLabel/qlabel_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 #include "QtWidgets/QLineEdit/qlineedit_wrap.h"
+#include "QtWidgets/QListWidget/qlistwidget_wrap.h"
+#include "QtWidgets/QListWidgetItem/qlistwidgetitem_wrap.h"
 #include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
@@ -60,6 +63,7 @@ void InitPrivateHelpers(Napi::Env env) {
 Napi::Object Main(Napi::Env env, Napi::Object exports) {
   InitPrivateHelpers(env);
   QApplicationWrap::init(env, exports);
+  QModelIndexWrap::init(env, exports);
   QObjectWrap::init(env, exports);
   QVariantWrap::init(env, exports);
   QSizeWrap::init(env, exports);
@@ -80,6 +84,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QComboBoxWrap::init(env, exports);
   QBoxLayoutWrap::init(env, exports);
   QFileDialogWrap::init(env, exports);
+  QListWidgetWrap::init(env, exports);
+  QListWidgetItemWrap::init(env, exports);
   QTableWidgetWrap::init(env, exports);
   QTableWidgetItemWrap::init(env, exports);
   QPainterWrap::init(env, exports);

@@ -24,9 +24,7 @@ Napi::Object QPlainTextEditWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setLineWrapMode", &QPlainTextEditWrap::setLineWrapMode),
        InstanceMethod("lineWrapMode", &QPlainTextEditWrap::lineWrapMode),
        InstanceMethod("insertPlainText", &QPlainTextEditWrap::insertPlainText),
-       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QPlainTextEditWrap)
-           QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(
-               QPlainTextEditWrap)});
+       QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QPlainTextEditWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

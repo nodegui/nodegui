@@ -7,7 +7,7 @@
 class NLayout : public QLayout, public EventWidget {
   Q_OBJECT
  public:
-  EVENTWIDGET_IMPLEMENTATIONS(NLayout)
+  EVENTWIDGET_IMPLEMENTATIONS(QLayout)
   using QLayout::QLayout;
   void connectSignalsToEventEmitter() { QLAYOUT_SIGNALS }
 };
