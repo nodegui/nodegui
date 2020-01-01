@@ -36,6 +36,7 @@
 #include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
+#include "QtWidgets/QMessageBox/qmessagebox_wrap.h"
 #include "QtWidgets/QPainter/qpainter_wrap.h"
 #include "QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
 #include "QtWidgets/QProgressBar/qprogressbar_wrap.h"
@@ -115,6 +116,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QShortcutWrap::init(env, exports);
   QMenuWrap::init(env, exports);
   QMenuBarWrap::init(env, exports);
+  QMessageBoxWrap::init(env, exports);
   return exports;
 }
 
