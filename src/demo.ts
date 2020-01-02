@@ -1,23 +1,32 @@
-import { QMessageBox } from './index';
-import { QToolButton } from './lib/QtWidgets/QToolButton';
+import { FlexLayout, QMainWindow, QWidget } from './index';
+import { QLabel } from './lib/QtWidgets/QLabel';
+import { QFont, QFontCapitalization } from './lib/QtGui/QFont';
+import { QPushButton } from './lib/QtWidgets/QPushButton';
 
-const msgBox = new QMessageBox();
-// const msgBoxButton = msgBox.addButton('Another button');
-// console.log(msgBoxButton);
-msgBox.setText('hellllooo');
-
-const btn = new QToolButton();
-btn.setText('yolo');
-msgBox.addButton(btn);
-msgBox.addEventListener('buttonClicked', rawButtonPtr => {
-    console.log(rawButtonPtr);
-    const btn2 = new QToolButton(rawButtonPtr);
-    btn2.setText('Helloooo');
-    const newMsg = new QMessageBox();
-    newMsg.exec();
+const win = new QMainWindow();
+const center = new QWidget();
+const layout = new FlexLayout();
+center.setLayout(layout);
+const label = new QLabel();
+const font = new QFont('Mono', 14);
+label.setFont(font);
+label.setText('label 1');
+const btn = new QPushButton();
+btn.setText('Change font');
+btn.setFont(new QFont('Helvetica', 20));
+btn.addEventListener('clicked', () => {
+    const font2 = label.font();
+    font2.setCapitalization(QFontCapitalization.AllUppercase);
+    font2.setItalic(true);
+    font2.setFamily('Times');
+    console.log('point', font2.pointSize());
+    label.setFont(font2);
 });
-msgBox.exec();
+layout.addWidget(label);
+layout.addWidget(btn);
 
-(global as any).msg = msgBox;
+win.setCentralWidget(center);
+win.resize(400, 400);
 
-setInterval(() => null, 1000);
+win.show();
+(global as any).win = win;
