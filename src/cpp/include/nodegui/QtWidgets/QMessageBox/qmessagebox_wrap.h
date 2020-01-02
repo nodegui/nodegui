@@ -5,7 +5,7 @@
 #include <QPointer>
 
 #include "Extras/Utils/nutils.h"
-#include "QtWidgets/QMessageBox/nMessageBox.hpp"
+#include "QtWidgets/QMessageBox/nmessagebox.hpp"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
 class QMessageBoxWrap : public Napi::ObjectWrap<QMessageBoxWrap> {

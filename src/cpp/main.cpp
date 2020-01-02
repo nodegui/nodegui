@@ -25,6 +25,7 @@
 #include "QtWidgets/QCheckBox/qcheckbox_wrap.h"
 #include "QtWidgets/QComboBox/qcombobox_wrap.h"
 #include "QtWidgets/QDial/qdial_wrap.h"
+#include "QtWidgets/QDialog/qdialog_wrap.h"
 #include "QtWidgets/QFileDialog/qfiledialog_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
@@ -73,6 +74,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QColorWrap::init(env, exports);
   QUrlWrap::init(env, exports);
   QClipboardWrap::init(env, exports);
+  QDialogWrap::init(env, exports);
   QWidgetWrap::init(env, exports);
   QPixmapWrap::init(env, exports);
   QKeySequenceWrap::init(env, exports);
