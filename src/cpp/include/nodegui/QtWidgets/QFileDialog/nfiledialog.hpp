@@ -2,7 +2,7 @@
 
 #include <QFileDialog>
 
-#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "QtWidgets/QDialog/qdialog_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -13,7 +13,7 @@ class NFileDialog : public QFileDialog, public NodeWidget {
   using QFileDialog::QFileDialog;
 
   void connectSignalsToEventEmitter() {
-    QWIDGET_SIGNALS
+    QDIALOG_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(
         this, &QFileDialog::currentChanged, [=](const QString &path) {

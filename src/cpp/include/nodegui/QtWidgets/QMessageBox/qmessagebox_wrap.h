@@ -20,12 +20,13 @@ class QMessageBoxWrap : public Napi::ObjectWrap<QMessageBoxWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value exec(const Napi::CallbackInfo& info);
   Napi::Value setDefaultButton(const Napi::CallbackInfo& info);
   Napi::Value addButton(const Napi::CallbackInfo& info);
   Napi::Value clickedButton(const Napi::CallbackInfo& info);
+  Napi::Value accept(const Napi::CallbackInfo& info);
+  Napi::Value done(const Napi::CallbackInfo& info);
 
-  QWIDGET_WRAPPED_METHODS_DECLARATION
+  QDIALOG_WRAPPED_METHODS_DECLARATION
 };
 namespace StaticQMessageBoxWrapMethods {
 Napi::Value about(const Napi::CallbackInfo& info);

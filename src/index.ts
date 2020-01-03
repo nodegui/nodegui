@@ -51,6 +51,7 @@ export { QScrollArea, QScrollAreaSignals } from './lib/QtWidgets/QScrollArea';
 export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
 export { QPainter, RenderHint } from './lib/QtWidgets/QPainter';
+export { QDialog, QDialogSignals } from './lib/QtWidgets/QDialog';
 export { QMessageBox, StandardButton, Icon, ButtonRole } from './lib/QtWidgets/QMessageBox';
 
 export {

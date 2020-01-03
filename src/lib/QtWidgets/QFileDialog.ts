@@ -1,9 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { AcceptMode, DialogLabel, FileMode, Option, ViewMode } from '../QtEnums';
+import { NodeDialog, QDialogSignals } from './QDialog';
 
-export interface QFileDialogSignals extends QWidgetSignals {
+export interface QFileDialogSignals extends QDialogSignals {
     currentChanged: (path: string) => void;
     currentUrlChanged: (url: string) => void;
     directoryEntered: (directory: string) => void;
@@ -15,7 +16,7 @@ export interface QFileDialogSignals extends QWidgetSignals {
     urlsSelected: (urls: string[]) => void;
 }
 
-export class QFileDialog extends NodeWidget<QFileDialogSignals> {
+export class QFileDialog extends NodeDialog<QFileDialogSignals> {
     native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>, caption?: string, directory?: string, filter?: string);
@@ -29,9 +30,6 @@ export class QFileDialog extends NodeWidget<QFileDialogSignals> {
         super(native);
         this.native = native;
         this.setNodeParent(parent);
-    }
-    open(): void {
-        this.native.open();
     }
     supportedSchemes(): string[] {
         return this.native.supportedSchemes();

@@ -31,19 +31,6 @@
     int value = this->instance->result();                 \
     return Napi::Value::From(env, value);                 \
   }                                                       \
-  Napi::Value accept(const Napi::CallbackInfo& info) {    \
-    Napi::Env env = info.Env();                           \
-    Napi::HandleScope scope(env);                         \
-    this->instance->accept();                             \
-    return env.Null();                                    \
-  }                                                       \
-  Napi::Value done(const Napi::CallbackInfo& info) {      \
-    Napi::Env env = info.Env();                           \
-    Napi::HandleScope scope(env);                         \
-    Napi::Number r = info[0].As<Napi::Number>();          \
-    this->instance->done(r.Int32Value());                 \
-    return env.Null();                                    \
-  }                                                       \
   Napi::Value exec(const Napi::CallbackInfo& info) {      \
     Napi::Env env = info.Env();                           \
     Napi::HandleScope scope(env);                         \
@@ -70,8 +57,6 @@
   QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(DialogWrapName)        \
   InstanceMethod("result", &DialogWrapName::result),           \
       InstanceMethod("setResult", &DialogWrapName::setResult), \
-      InstanceMethod("accept", &DialogWrapName::accept),       \
-      InstanceMethod("done", &DialogWrapName::done),           \
       InstanceMethod("exec", &DialogWrapName::exec),           \
       InstanceMethod("open", &DialogWrapName::open),           \
       InstanceMethod("reject", &DialogWrapName::reject),

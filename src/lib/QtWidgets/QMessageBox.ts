@@ -1,10 +1,13 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
-import { NativeElement } from '../core/Component';
+import { NodeWidget } from './QWidget';
+import { NativeElement, NativeRawPointer } from '../core/Component';
 import { QPushButton } from './QPushButton';
+import { NodeDialog, QDialogSignals } from './QDialog';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface QMessageBoxSignals extends QWidgetSignals {}
+export interface QMessageBoxSignals extends QDialogSignals {
+    buttonClicked: (button: NativeRawPointer<'QAbstractButton'>) => void;
+}
 
 export enum StandardButton {
     Ok = 0x00000400,
@@ -47,7 +50,7 @@ export enum ButtonRole {
     ApplyRole,
     ResetRole,
 }
-export class QMessageBox extends NodeWidget<QMessageBoxSignals> {
+export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
     native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
@@ -62,10 +65,12 @@ export class QMessageBox extends NodeWidget<QMessageBoxSignals> {
         this.native = native;
         this.setNodeParent(parent);
     }
-    exec(): number {
-        return this.native.exec();
+    accept(): void {
+        this.native.accept();
     }
-
+    done(r: number): void {
+        this.native.done(r);
+    }
     setText(text: string): void {
         this.native.setProperty('text', text);
     }
@@ -94,12 +99,8 @@ export class QMessageBox extends NodeWidget<QMessageBoxSignals> {
         this.native.setDefaultButton(button);
     }
 
-    addButton(arg: string | QPushButton | StandardButton, role: ButtonRole = ButtonRole.NoRole): QPushButton | void {
-        if (arg instanceof QPushButton) {
-            return this.native.addButton(arg.native, role);
-        } else {
-            this.native.addButton(arg, role);
-        }
+    addButton(button: QPushButton, role: ButtonRole = ButtonRole.NoRole): void {
+        this.native.addButton(button.native, role);
     }
 
     static about(parent: NodeWidget<any>, title: string, text: string): void {

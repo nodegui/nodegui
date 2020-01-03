@@ -1,6 +1,7 @@
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { NativeRawPointer } from './Component';
 
-export type FlexNode = {};
+export type FlexNode = NativeRawPointer<'YGNodeRef'>;
 
 /**
  

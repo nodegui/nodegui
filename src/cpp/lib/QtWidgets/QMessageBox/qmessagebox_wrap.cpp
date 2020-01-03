@@ -12,12 +12,13 @@ Napi::Object QMessageBoxWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QMessageBox";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("exec", &QMessageBoxWrap::exec),
-       InstanceMethod("setDefaultButton", &QMessageBoxWrap::setDefaultButton),
+      {InstanceMethod("setDefaultButton", &QMessageBoxWrap::setDefaultButton),
        InstanceMethod("addButton", &QMessageBoxWrap::addButton),
+       InstanceMethod("accept", &QMessageBoxWrap::accept),
+       InstanceMethod("done", &QMessageBoxWrap::done),
        StaticMethod("about", &StaticQMessageBoxWrapMethods::about),
        StaticMethod("aboutQt", &StaticQMessageBoxWrapMethods::aboutQt),
-       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMessageBoxWrap)});
+       QDIALOG_WRAPPED_METHODS_EXPORT_DEFINE(QMessageBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -45,13 +46,6 @@ QMessageBoxWrap::QMessageBoxWrap(const Napi::CallbackInfo& info)
       this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
       false);
 }
-Napi::Value QMessageBoxWrap::exec(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  auto ret = this->instance->exec();
-  return Napi::Number::New(env, ret);
-}
 
 Napi::Value QMessageBoxWrap::setDefaultButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -70,30 +64,26 @@ Napi::Value QMessageBoxWrap::setDefaultButton(const Napi::CallbackInfo& info) {
 Napi::Value QMessageBoxWrap::addButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  if (info[0].IsNumber()) {
-    int button = info[0].As<Napi::Number>().Int32Value();
-    auto ret = this->instance->addButton(QMessageBox::StandardButton(button));
-    return QPushButtonWrap::constructor.New(
-        {Napi::External<QPushButton>::New(env, ret),
-         Napi::Boolean::New(env, true)});
-  } else if (info[0].IsString()) {
-    Napi::String napiText = info[0].As<Napi::String>();
-    std::string text = napiText.Utf8Value();
-    int role = info[1].As<Napi::Number>().Int32Value();
-    QPushButton* ret = this->instance->addButton(
-        QString::fromUtf8(text.c_str()), QMessageBox::ButtonRole(role));
-    auto instance = QPushButtonWrap::constructor.New(
-        {Napi::External<QPushButton>::New(env, ret)});
-    return instance;
-  } else {
-    Napi::Object buttonObject = info[0].As<Napi::Object>();
-    QPushButtonWrap* buttonWrap =
-        Napi::ObjectWrap<QPushButtonWrap>::Unwrap(buttonObject);
-    int role = info[1].As<Napi::Number>().Int32Value();
-    this->instance->addButton(buttonWrap->getInternalInstance(),
-                              QMessageBox::ButtonRole(role));
-    return env.Null();
-  }
+  Napi::Object buttonObject = info[0].As<Napi::Object>();
+  QPushButtonWrap* buttonWrap =
+      Napi::ObjectWrap<QPushButtonWrap>::Unwrap(buttonObject);
+  int role = info[1].As<Napi::Number>().Int32Value();
+  this->instance->addButton(buttonWrap->getInternalInstance(),
+                            QMessageBox::ButtonRole(role));
+  return env.Null();
+}
+Napi::Value QMessageBoxWrap::accept(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->accept();
+  return env.Null();
+}
+Napi::Value QMessageBoxWrap::done(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Number r = info[0].As<Napi::Number>();
+  this->instance->done(r.Int32Value());
+  return env.Null();
 }
 
 Napi::Value StaticQMessageBoxWrapMethods::about(

@@ -21,12 +21,6 @@ export abstract class NodeDialog<Signals extends QDialogSignals> extends NodeWid
     isSizeGripEnabled(): boolean {
         return this.property('sizeGripEnabled').toBool();
     }
-    accept(): void {
-        this.native.accept();
-    }
-    done(r: number): void {
-        this.native.done(r);
-    }
     exec(): number {
         return this.native.exec();
     }
