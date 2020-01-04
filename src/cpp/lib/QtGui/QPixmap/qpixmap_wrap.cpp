@@ -17,7 +17,7 @@ Napi::Object QPixmapWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("height", &QPixmapWrap::height),
        InstanceMethod("width", &QPixmapWrap::width),
        StaticMethod("fromQVariant", &StaticQPixmapWrapMethods::fromQVariant),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QPixmapWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

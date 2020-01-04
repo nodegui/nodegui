@@ -8,9 +8,9 @@ msgBox.setText('hellllooo');
 
 const btn = new QPushButton();
 btn.setText('yolo');
-msgBox.addButton(btn);
-msgBox.addEventListener('buttonClicked', button => {
-    console.log(button);
+// msgBox.addButton(btn);
+msgBox.addEventListener('buttonClicked', btnPointer => {
+    console.log(btnPointer);
 });
 msgBox.exec();
 

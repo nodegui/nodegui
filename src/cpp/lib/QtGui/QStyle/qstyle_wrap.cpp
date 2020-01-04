@@ -10,7 +10,7 @@ Napi::Object QStyleWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func =
       DefineClass(env, CLASSNAME,
                   {InstanceMethod("pixelMetric", &QStyleWrap::pixelMetric),
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QStyleWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

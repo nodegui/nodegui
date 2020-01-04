@@ -15,7 +15,7 @@ Napi::Object QVariantWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("toBool", &QVariantWrap::toBool),
                    StaticMethod("converToQVariant",
                                 &StaticQVariantWrapMethods::converToQVariant),
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QVariantWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

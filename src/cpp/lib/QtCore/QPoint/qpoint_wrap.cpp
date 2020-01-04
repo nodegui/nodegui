@@ -15,7 +15,7 @@ Napi::Object QPointWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setY", &QPointWrap::setY),
        InstanceMethod("y", &QPointWrap::y),
        StaticMethod("fromQVariant", &StaticQPointWrapMethods::fromQVariant),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QPointWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

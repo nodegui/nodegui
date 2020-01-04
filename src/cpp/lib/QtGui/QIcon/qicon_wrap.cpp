@@ -16,7 +16,7 @@ Napi::Object QIconWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setIsMask", &QIconWrap::setIsMask),
        InstanceMethod("cacheKey", &QIconWrap::cacheKey),
        StaticMethod("fromQVariant", &StaticQIconWrapMethods::fromQVariant),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QIconWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

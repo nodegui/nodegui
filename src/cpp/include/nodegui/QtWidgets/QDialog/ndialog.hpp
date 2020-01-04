@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QDialog>
+
 #include "QtWidgets/QDialog/qdialog_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 

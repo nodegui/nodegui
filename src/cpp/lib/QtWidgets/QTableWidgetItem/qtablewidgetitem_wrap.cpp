@@ -18,7 +18,7 @@ Napi::Object QTableWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("text", &QTableWidgetItemWrap::text),
        InstanceMethod("toolTip", &QTableWidgetItemWrap::toolTip),
 
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QTableWidgetItemWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

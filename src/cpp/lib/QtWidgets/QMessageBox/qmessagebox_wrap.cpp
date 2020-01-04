@@ -42,6 +42,7 @@ QMessageBoxWrap::QMessageBoxWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->instance->setStandardButtons(QMessageBox::NoButton);
   this->rawData = extrautils::configureQWidget(
       this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
       false);
@@ -50,15 +51,10 @@ QMessageBoxWrap::QMessageBoxWrap(const Napi::CallbackInfo& info)
 Napi::Value QMessageBoxWrap::setDefaultButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  if (info[0].IsNumber()) {
-    int button = info[0].As<Napi::Number>().Int32Value();
-    this->instance->setDefaultButton(QMessageBox::StandardButton(button));
-  } else {
-    Napi::Object buttonObject = info[0].As<Napi::Object>();
-    QPushButtonWrap* buttonWrap =
-        Napi::ObjectWrap<QPushButtonWrap>::Unwrap(buttonObject);
-    this->instance->setDefaultButton(buttonWrap->getInternalInstance());
-  }
+  Napi::Object buttonObject = info[0].As<Napi::Object>();
+  QPushButtonWrap* buttonWrap =
+      Napi::ObjectWrap<QPushButtonWrap>::Unwrap(buttonObject);
+  this->instance->setDefaultButton(buttonWrap->getInternalInstance());
   return env.Null();
 }
 Napi::Value QMessageBoxWrap::addButton(const Napi::CallbackInfo& info) {

@@ -91,16 +91,14 @@ export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
         return this.property('detailedText').toString();
     }
 
-    setStandardButtons(buttons: number): void {
-        this.native.setProperty('standardButtons', buttons);
-    }
-
-    setDefaultButton(button: number | QPushButton): void {
+    setDefaultButton(button: QPushButton): void {
         this.native.setDefaultButton(button);
+        this.nodeChildren.add(button);
     }
 
     addButton(button: QPushButton, role: ButtonRole = ButtonRole.NoRole): void {
         this.native.addButton(button.native, role);
+        this.nodeChildren.add(button);
     }
 
     static about(parent: NodeWidget<any>, title: string, text: string): void {
