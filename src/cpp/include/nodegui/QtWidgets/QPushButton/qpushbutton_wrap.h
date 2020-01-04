@@ -12,7 +12,7 @@ class QPushButtonWrap : public Napi::ObjectWrap<QPushButtonWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NPushButton> instance;
-
+  bool disableDeletion;
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QPushButtonWrap(const Napi::CallbackInfo &info);

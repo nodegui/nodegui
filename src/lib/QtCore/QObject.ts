@@ -37,7 +37,7 @@ export class QObject extends NodeObject<QObjectSignals> {
         let parent;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (arg as NodeObject<any>) {
+        } else if (arg) {
             parent = arg as NodeObject<any>;
             native = new addon.QObject(parent.native);
         } else {
