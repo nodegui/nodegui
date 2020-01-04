@@ -1,8 +1,8 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement, NativeRawPointer } from '../core/Component';
-import { QPushButton } from './QPushButton';
 import { NodeDialog, QDialogSignals } from './QDialog';
+import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface QMessageBoxSignals extends QDialogSignals {
@@ -91,12 +91,12 @@ export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
         return this.property('detailedText').toString();
     }
 
-    setDefaultButton(button: QPushButton): void {
+    setDefaultButton(button: QAbstractButton<QAbstractButtonSignals>): void {
         this.native.setDefaultButton(button);
         this.nodeChildren.add(button);
     }
 
-    addButton(button: QPushButton, role: ButtonRole = ButtonRole.NoRole): void {
+    addButton(button: QAbstractButton<QAbstractButtonSignals>, role: ButtonRole = ButtonRole.NoRole): void {
         this.native.addButton(button.native, role);
         this.nodeChildren.add(button);
     }
