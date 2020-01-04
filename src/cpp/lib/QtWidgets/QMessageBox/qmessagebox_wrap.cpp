@@ -4,8 +4,8 @@
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QObject/qobject_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
-#include "core/Component/component_wrap.h"
 
 Napi::FunctionReference QMessageBoxWrap::constructor;
 
@@ -63,10 +63,9 @@ Napi::Value QMessageBoxWrap::addButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Object buttonObject = info[0].As<Napi::Object>();
-  ComponentWrap* componentWrap =
-      Napi::ObjectWrap<ComponentWrap>::Unwrap(buttonObject);
+  QObjectWrap* qobjWrap = Napi::ObjectWrap<QObjectWrap>::Unwrap(buttonObject);
   QAbstractButton* btn =
-      reinterpret_cast<QAbstractButton*>(componentWrap->rawData);
+      qobject_cast<QAbstractButton*>(qobjWrap->getInternalInstance());
 
   int role = info[1].As<Napi::Number>().Int32Value();
   this->instance->addButton(btn, QMessageBox::ButtonRole(role));
