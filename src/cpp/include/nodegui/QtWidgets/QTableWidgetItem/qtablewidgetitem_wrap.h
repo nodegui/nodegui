@@ -8,6 +8,7 @@
 #include "core/Component/component_wrap.h"
 
 class QTableWidgetItemWrap : public Napi::ObjectWrap<QTableWidgetItemWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QTableWidgetItem* instance;
 
@@ -25,6 +26,4 @@ class QTableWidgetItemWrap : public Napi::ObjectWrap<QTableWidgetItemWrap> {
   Napi::Value textAlignment(const Napi::CallbackInfo& info);
   Napi::Value text(const Napi::CallbackInfo& info);
   Napi::Value toolTip(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

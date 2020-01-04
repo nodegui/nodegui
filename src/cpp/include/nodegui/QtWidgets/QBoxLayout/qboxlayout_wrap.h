@@ -9,6 +9,7 @@
 #include "QtWidgets/QLayout/qlayout_macro.h"
 
 class QBoxLayoutWrap : public Napi::ObjectWrap<QBoxLayoutWrap> {
+  QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NBoxLayout> instance;
 
@@ -30,5 +31,4 @@ class QBoxLayoutWrap : public Napi::ObjectWrap<QBoxLayoutWrap> {
   Napi::Value insertLayout(const Napi::CallbackInfo& info);
   Napi::Value removeWidget(const Napi::CallbackInfo& info);
   Napi::Value setDirection(const Napi::CallbackInfo& info);
-  QLAYOUT_WRAPPED_METHODS_DECLARATION
 };

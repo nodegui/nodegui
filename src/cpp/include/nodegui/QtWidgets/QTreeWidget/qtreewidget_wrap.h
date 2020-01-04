@@ -8,6 +8,7 @@
 #include "ntreewidget.hpp"
 
 class QTreeWidgetWrap : public Napi::ObjectWrap<QTreeWidgetWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NTreeWidget> instance;
 
@@ -31,5 +32,4 @@ class QTreeWidgetWrap : public Napi::ObjectWrap<QTreeWidgetWrap> {
   // Napi::Value setVerticalScrollBarPolicy(const Napi::CallbackInfo& info);
   // Napi::Value takeTopLevelItem(const Napi::CallbackInfo& info);
   // Napi::Value findItems(const Napi::CallbackInfo& info);
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

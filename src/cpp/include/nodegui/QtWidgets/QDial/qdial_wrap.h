@@ -9,6 +9,7 @@
 #include "ndial.hpp"
 
 class QDialWrap : public Napi::ObjectWrap<QDialWrap> {
+  QABSTRACTSLIDER_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NDial> instance;
 
@@ -26,6 +27,4 @@ class QDialWrap : public Napi::ObjectWrap<QDialWrap> {
   Napi::Value notchTarget(const Napi::CallbackInfo& info);
   Napi::Value notchesVisible(const Napi::CallbackInfo& info);
   Napi::Value wrapping(const Napi::CallbackInfo& info);
-
-  QABSTRACTSLIDER_WRAPPED_METHODS_DECLARATION
 };

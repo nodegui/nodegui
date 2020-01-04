@@ -9,6 +9,7 @@
 #include "nplaintextedit.hpp"
 
 class QPlainTextEditWrap : public Napi::ObjectWrap<QPlainTextEditWrap> {
+  QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NPlainTextEdit> instance;
 
@@ -21,7 +22,6 @@ class QPlainTextEditWrap : public Napi::ObjectWrap<QPlainTextEditWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
 
-  QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
   Napi::Value setPlainText(const Napi::CallbackInfo &info);
   Napi::Value setPlaceholderText(const Napi::CallbackInfo &info);
   Napi::Value toPlainText(const Napi::CallbackInfo &info);

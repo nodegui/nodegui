@@ -7,6 +7,8 @@
 #include "core/Component/component_macro.h"
 
 class QMouseEventWrap : public Napi::ObjectWrap<QMouseEventWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
+
  private:
   QMouseEvent* instance;
 
@@ -23,6 +25,4 @@ class QMouseEventWrap : public Napi::ObjectWrap<QMouseEventWrap> {
   Napi::Value y(const Napi::CallbackInfo& info);
   Napi::Value globalX(const Napi::CallbackInfo& info);
   Napi::Value globalY(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

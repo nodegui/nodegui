@@ -7,6 +7,8 @@
 #include "core/Component/component_macro.h"
 
 class QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
+
  private:
   std::unique_ptr<QPixmap> instance;
 
@@ -23,8 +25,6 @@ class QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {
   Napi::Value scaled(const Napi::CallbackInfo& info);
   Napi::Value height(const Napi::CallbackInfo& info);
   Napi::Value width(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
 namespace StaticQPixmapWrapMethods {

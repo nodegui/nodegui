@@ -9,6 +9,7 @@
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "npushbutton.hpp"
 class QPushButtonWrap : public Napi::ObjectWrap<QPushButtonWrap> {
+  QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NPushButton> instance;
 
@@ -21,6 +22,4 @@ class QPushButtonWrap : public Napi::ObjectWrap<QPushButtonWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value setFlat(const Napi::CallbackInfo &info);
-
-  QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
 };

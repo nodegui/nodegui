@@ -9,6 +9,7 @@
 #include "QtWidgets/QFileDialog/nfiledialog.hpp"
 
 class QFileDialogWrap : public Napi::ObjectWrap<QFileDialogWrap> {
+  QDIALOG_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NFileDialog> instance;
 
@@ -25,6 +26,4 @@ class QFileDialogWrap : public Napi::ObjectWrap<QFileDialogWrap> {
   Napi::Value labelText(const Napi::CallbackInfo& info);
   Napi::Value setLabelText(const Napi::CallbackInfo& info);
   Napi::Value setOption(const Napi::CallbackInfo& info);
-
-  QDIALOG_WRAPPED_METHODS_DECLARATION
 };

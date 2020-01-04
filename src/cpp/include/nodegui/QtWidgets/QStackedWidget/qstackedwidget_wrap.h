@@ -9,6 +9,7 @@
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
 class QStackedWidgetWrap : public Napi::ObjectWrap<QStackedWidgetWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NStackedWidget> instance;
 
@@ -25,6 +26,4 @@ class QStackedWidgetWrap : public Napi::ObjectWrap<QStackedWidgetWrap> {
   Napi::Value setCurrentIndex(const Napi::CallbackInfo &info);
   Napi::Value currentIndex(const Napi::CallbackInfo &info);
   Napi::Value setCurrentWidget(const Napi::CallbackInfo &info);
-
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

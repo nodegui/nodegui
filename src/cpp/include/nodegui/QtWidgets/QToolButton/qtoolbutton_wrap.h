@@ -10,6 +10,7 @@
 #include "ntoolbutton.hpp"
 
 class QToolButtonWrap : public Napi::ObjectWrap<QToolButtonWrap> {
+  QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NToolButton> instance;
 
@@ -32,6 +33,4 @@ class QToolButtonWrap : public Napi::ObjectWrap<QToolButtonWrap> {
   Napi::Value setMenu(const Napi::CallbackInfo &info);
   Napi::Value setDefaultAction(const Napi::CallbackInfo &info);
   Napi::Value showMenu(const Napi::CallbackInfo &info);
-
-  QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
 };

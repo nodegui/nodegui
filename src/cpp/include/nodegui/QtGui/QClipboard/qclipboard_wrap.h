@@ -7,6 +7,8 @@
 #include "core/Component/component_macro.h"
 
 class QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
+
  private:
   QClipboard* instance;
 
@@ -19,6 +21,4 @@ class QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap> {
   Napi::Value clear(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
   Napi::Value text(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

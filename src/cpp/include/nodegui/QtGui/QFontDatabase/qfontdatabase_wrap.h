@@ -7,6 +7,8 @@
 #include "core/Component/component_macro.h"
 
 class QFontDatabaseWrap : public Napi::ObjectWrap<QFontDatabaseWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
+
  private:
   std::unique_ptr<QFontDatabase> instance;
 
@@ -19,8 +21,6 @@ class QFontDatabaseWrap : public Napi::ObjectWrap<QFontDatabaseWrap> {
   Napi::Value bold(const Napi::CallbackInfo& info);
   Napi::Value italic(const Napi::CallbackInfo& info);
   Napi::Value weight(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
 namespace StaticQFontDatabaseWrapMethods {

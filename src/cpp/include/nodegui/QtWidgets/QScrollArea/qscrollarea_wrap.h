@@ -8,6 +8,7 @@
 #include "nscrollarea.hpp"
 
 class QScrollAreaWrap : public Napi::ObjectWrap<QScrollAreaWrap> {
+  QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NScrollArea> instance;
   YGNodeRef scrollNode;
@@ -24,6 +25,4 @@ class QScrollAreaWrap : public Napi::ObjectWrap<QScrollAreaWrap> {
   Napi::Value takeWidget(const Napi::CallbackInfo &info);
   Napi::Value setWidgetResizable(const Napi::CallbackInfo &info);
   Napi::Value widgetResizable(const Napi::CallbackInfo &info);
-
-  QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
 };

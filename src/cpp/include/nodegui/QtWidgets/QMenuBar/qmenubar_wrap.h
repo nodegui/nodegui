@@ -7,6 +7,7 @@
 #include "nmenubar.hpp"
 
 class QMenuBarWrap : public Napi::ObjectWrap<QMenuBarWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NMenuBar> instance;
 
@@ -19,6 +20,4 @@ class QMenuBarWrap : public Napi::ObjectWrap<QMenuBarWrap> {
   // wrapped methods
   Napi::Value addMenu(const Napi::CallbackInfo& info);
   Napi::Value setNativeMenuBar(const Napi::CallbackInfo& info);
-
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

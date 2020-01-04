@@ -8,6 +8,7 @@
 #include "ndialog.hpp"
 
 class QDialogWrap : public Napi::ObjectWrap<QDialogWrap> {
+  QDIALOG_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NDialog> instance;
 
@@ -19,5 +20,4 @@ class QDialogWrap : public Napi::ObjectWrap<QDialogWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  QDIALOG_WRAPPED_METHODS_DECLARATION
 };

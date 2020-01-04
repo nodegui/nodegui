@@ -9,6 +9,7 @@
 #include "ncheckbox.hpp"
 
 class QCheckBoxWrap : public Napi::ObjectWrap<QCheckBoxWrap> {
+  QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NCheckBox> instance;
 
@@ -22,6 +23,4 @@ class QCheckBoxWrap : public Napi::ObjectWrap<QCheckBoxWrap> {
   // wrapped methods
   Napi::Value isChecked(const Napi::CallbackInfo& info);
   Napi::Value setChecked(const Napi::CallbackInfo& info);
-
-  QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
 };

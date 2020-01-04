@@ -7,6 +7,7 @@
 #include "core/Component/component_macro.h"
 
 class QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QSharedPointer<QVariant> instance;
 
@@ -21,7 +22,6 @@ class QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
   Napi::Value toDouble(const Napi::CallbackInfo& info);
   Napi::Value toBool(const Napi::CallbackInfo& info);
   // wrapped methods
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
 namespace StaticQVariantWrapMethods {

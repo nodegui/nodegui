@@ -9,6 +9,7 @@
 #include "QtWidgets/QTableWidget/ntablewidget.hpp"
 
 class QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
+  QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NTableWidget> instance;
 
@@ -54,6 +55,4 @@ class QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   Napi::Value setRowHeight(const Napi::CallbackInfo& info);
   Napi::Value setSortingEnabled(const Napi::CallbackInfo& info);
   Napi::Value isSortingEnabled(const Napi::CallbackInfo& info);
-
-  QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
 };

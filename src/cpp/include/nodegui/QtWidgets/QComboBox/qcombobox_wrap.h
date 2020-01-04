@@ -9,6 +9,7 @@
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
 class QComboBoxWrap : public Napi::ObjectWrap<QComboBoxWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NComboBox> instance;
 
@@ -37,6 +38,4 @@ class QComboBoxWrap : public Napi::ObjectWrap<QComboBoxWrap> {
   Napi::Value isEditable(const Napi::CallbackInfo& info);
   Napi::Value setEditable(const Napi::CallbackInfo& info);
   Napi::Value clear(const Napi::CallbackInfo& info);
-
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

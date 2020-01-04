@@ -9,6 +9,7 @@
 #include "QtWidgets/QLayout/qlayout_macro.h"
 
 class QGridLayoutWrap : public Napi::ObjectWrap<QGridLayoutWrap> {
+  QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NGridLayout> instance;
 
@@ -22,5 +23,4 @@ class QGridLayoutWrap : public Napi::ObjectWrap<QGridLayoutWrap> {
   // wrapped methods
   Napi::Value addWidget(const Napi::CallbackInfo& info);
   Napi::Value removeWidget(const Napi::CallbackInfo& info);
-  QLAYOUT_WRAPPED_METHODS_DECLARATION
 };

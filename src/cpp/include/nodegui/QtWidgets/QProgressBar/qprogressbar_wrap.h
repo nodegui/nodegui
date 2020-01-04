@@ -8,6 +8,7 @@
 #include "nprogressbar.hpp"
 
 class QProgressBarWrap : public Napi::ObjectWrap<QProgressBarWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NProgressBar> instance;
 
@@ -24,6 +25,4 @@ class QProgressBarWrap : public Napi::ObjectWrap<QProgressBarWrap> {
   Napi::Value setMinimum(const Napi::CallbackInfo& info);
   Napi::Value setOrientation(const Napi::CallbackInfo& info);
   Napi::Value value(const Napi::CallbackInfo& info);
-
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

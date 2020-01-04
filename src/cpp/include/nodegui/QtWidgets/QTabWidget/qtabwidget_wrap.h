@@ -9,6 +9,7 @@
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
 class QTabWidgetWrap : public Napi::ObjectWrap<QTabWidgetWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NTabWidget> instance;
 
@@ -27,5 +28,5 @@ class QTabWidgetWrap : public Napi::ObjectWrap<QTabWidgetWrap> {
   Napi::Value removeTab(const Napi::CallbackInfo &info);
   Napi::Value setTabsClosable(const Napi::CallbackInfo &info);
 
-  QWIDGET_WRAPPED_METHODS_DECLARATION
+  
 };

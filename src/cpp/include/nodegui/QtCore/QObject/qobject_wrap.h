@@ -8,6 +8,7 @@
 #include "QtCore/QObject/qobject_macro.h"
 
 class QObjectWrap : public Napi::ObjectWrap<QObjectWrap> {
+  QOBJECT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NObject> instance;
 
@@ -19,5 +20,4 @@ class QObjectWrap : public Napi::ObjectWrap<QObjectWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  QOBJECT_WRAPPED_METHODS_DECLARATION
 };

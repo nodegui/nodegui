@@ -7,6 +7,8 @@
 #include "core/Component/component_macro.h"
 
 class QStyleWrap : public Napi::ObjectWrap<QStyleWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
+
  private:
   QStyle* instance;
 
@@ -17,6 +19,4 @@ class QStyleWrap : public Napi::ObjectWrap<QStyleWrap> {
   QStyle* getInternalInstance();
   // Wrapped methods
   Napi::Value pixelMetric(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

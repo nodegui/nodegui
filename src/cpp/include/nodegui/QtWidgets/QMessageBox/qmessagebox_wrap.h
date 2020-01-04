@@ -9,6 +9,7 @@
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
 class QMessageBoxWrap : public Napi::ObjectWrap<QMessageBoxWrap> {
+  QDIALOG_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NMessageBox> instance;
 
@@ -25,8 +26,6 @@ class QMessageBoxWrap : public Napi::ObjectWrap<QMessageBoxWrap> {
   Napi::Value clickedButton(const Napi::CallbackInfo& info);
   Napi::Value accept(const Napi::CallbackInfo& info);
   Napi::Value done(const Napi::CallbackInfo& info);
-
-  QDIALOG_WRAPPED_METHODS_DECLARATION
 };
 namespace StaticQMessageBoxWrapMethods {
 Napi::Value about(const Napi::CallbackInfo& info);

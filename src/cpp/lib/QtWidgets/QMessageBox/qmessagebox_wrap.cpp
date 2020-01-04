@@ -1,6 +1,7 @@
 #include "QtWidgets/QMessageBox/qmessagebox_wrap.h"
-
+#include <QDebug>
 #include <QWidget>
+#include "core/Component/component_wrap.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
@@ -61,11 +62,13 @@ Napi::Value QMessageBoxWrap::addButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Object buttonObject = info[0].As<Napi::Object>();
-  QPushButtonWrap* buttonWrap =
-      Napi::ObjectWrap<QPushButtonWrap>::Unwrap(buttonObject);
+  ComponentWrap* componentWrap =
+      Napi::ObjectWrap<ComponentWrap>::Unwrap(buttonObject);
+  QAbstractButton* btn =
+      reinterpret_cast<QAbstractButton*>(componentWrap->rawData);
+
   int role = info[1].As<Napi::Number>().Int32Value();
-  this->instance->addButton(buttonWrap->getInternalInstance(),
-                            QMessageBox::ButtonRole(role));
+  this->instance->addButton(btn, QMessageBox::ButtonRole(role));
   return env.Null();
 }
 Napi::Value QMessageBoxWrap::accept(const Napi::CallbackInfo& info) {

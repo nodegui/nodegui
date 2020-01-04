@@ -9,6 +9,8 @@
 #include "nradiobutton.hpp"
 
 class QRadioButtonWrap : public Napi::ObjectWrap<QRadioButtonWrap> {
+  QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
+
  private:
   QPointer<NRadioButton> instance;
 
@@ -20,6 +22,4 @@ class QRadioButtonWrap : public Napi::ObjectWrap<QRadioButtonWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-
-  QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
 };

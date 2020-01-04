@@ -8,6 +8,7 @@
 #include "nwidget.hpp"
 
 class QWidgetWrap : public Napi::ObjectWrap<QWidgetWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NWidget> instance;
 
@@ -19,5 +20,4 @@ class QWidgetWrap : public Napi::ObjectWrap<QWidgetWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

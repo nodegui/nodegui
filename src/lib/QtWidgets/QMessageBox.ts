@@ -3,6 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NativeElement, NativeRawPointer } from '../core/Component';
 import { NodeDialog, QDialogSignals } from './QDialog';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
+import { QPushButton } from './QPushButton';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface QMessageBoxSignals extends QDialogSignals {
@@ -91,7 +92,7 @@ export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
         return this.property('detailedText').toString();
     }
 
-    setDefaultButton(button: QAbstractButton<QAbstractButtonSignals>): void {
+    setDefaultButton(button: QPushButton): void {
         this.native.setDefaultButton(button);
         this.nodeChildren.add(button);
     }
