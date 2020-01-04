@@ -20,9 +20,7 @@ class NMessageBox : public QMessageBox, public NodeWidget {
                      [=](QAbstractButton* button) {
                        Napi::Env env = this->emitOnNode.Env();
                        Napi::HandleScope scope(env);
-                       auto value = QPushButtonWrap::constructor.New(
-                           {Napi::External<QAbstractButton>::New(env, button),
-                            Napi::Boolean::New(env, true)});
+                       auto value = Napi::External<QAbstractButton>::New(env, button);
                        this->emitOnNode.Call(
                            {Napi::String::New(env, "buttonClicked"), value});
                      });

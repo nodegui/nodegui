@@ -56,6 +56,7 @@
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
+#include "Extras/Utils/nutils.h"
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env) {
   extrautils::initAppSettings();
@@ -64,6 +65,7 @@ void InitPrivateHelpers(Napi::Env env) {
 
 Napi::Object Main(Napi::Env env, Napi::Object exports) {
   InitPrivateHelpers(env);
+  NUtilsWrap::init(env, exports);
   QApplicationWrap::init(env, exports);
   QModelIndexWrap::init(env, exports);
   QObjectWrap::init(env, exports);

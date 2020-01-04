@@ -1,13 +1,12 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
+import { NativeElement, NativeRawPointer } from '../core/Component';
 import { NodeDialog, QDialogSignals } from './QDialog';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { QPushButton } from './QPushButton';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface QMessageBoxSignals extends QDialogSignals {
-    buttonClicked: (button: NativeElement) => void;
+    buttonClicked: (buttonRawPointer: NativeRawPointer<'QAbstractButton*'>) => void;
 }
 
 export enum StandardButton {

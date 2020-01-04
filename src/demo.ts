@@ -9,11 +9,12 @@ msgBox.setText('hellllooo');
 const btn = new QPushButton();
 btn.setText('yolo');
 msgBox.addButton(btn);
-msgBox.addEventListener('buttonClicked', nativeButton => {
-    console.log(nativeButton);
-    const btn2 = new QPushButton(nativeButton);
+msgBox.addEventListener('buttonClicked', rawButtonPtr => {
+    console.log(rawButtonPtr);
+    const btn2 = new QPushButton(rawButtonPtr);
     btn2.setText('Helloooo');
-    msgBox.exec();
+    const newMsg = new QMessageBox();
+    newMsg.exec();
 });
 msgBox.exec();
 

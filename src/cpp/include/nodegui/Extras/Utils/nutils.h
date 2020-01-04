@@ -25,3 +25,14 @@ void safeDelete(QPointer<T>& component) {
 }
 void initAppSettings();
 }  // namespace extrautils
+
+class NUtilsWrap : public Napi::ObjectWrap<NUtilsWrap> {
+ public:
+  static Napi::Object init(Napi::Env env, Napi::Object exports);
+  NUtilsWrap(const Napi::CallbackInfo& info);
+  static Napi::FunctionReference constructor;
+};
+
+namespace StaticNUtilsWrapMethods {
+Napi::Value isNapiExternal(const Napi::CallbackInfo& info);
+}  // namespace StaticNUtilsWrapMethods
