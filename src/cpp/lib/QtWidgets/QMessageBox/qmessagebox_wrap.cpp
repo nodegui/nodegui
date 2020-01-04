@@ -1,10 +1,11 @@
 #include "QtWidgets/QMessageBox/qmessagebox_wrap.h"
+
 #include <QDebug>
 #include <QWidget>
-#include "core/Component/component_wrap.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
+#include "core/Component/component_wrap.h"
 
 Napi::FunctionReference QMessageBoxWrap::constructor;
 

@@ -33,5 +33,4 @@ class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
   Napi::Value text(const Napi::CallbackInfo &info);
   Napi::Value setSelected(const Napi::CallbackInfo &info);
   Napi::Value setExpanded(const Napi::CallbackInfo &info);
-  
 };
