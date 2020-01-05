@@ -36,7 +36,7 @@ Napi::Object QListWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("toolTip", &QListWidgetItemWrap::toolTip),
        InstanceMethod("setWhatsThis", &QListWidgetItemWrap::setWhatsThis),
        InstanceMethod("whatsThis", &QListWidgetItemWrap::whatsThis),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QListWidgetItemWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
