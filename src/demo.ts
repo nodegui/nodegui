@@ -1,17 +1,17 @@
 import { QMessageBox } from './index';
-import { QPushButton } from './lib/QtWidgets/QPushButton';
+import { QToolButton } from './lib/QtWidgets/QToolButton';
 
 const msgBox = new QMessageBox();
 // const msgBoxButton = msgBox.addButton('Another button');
 // console.log(msgBoxButton);
 msgBox.setText('hellllooo');
 
-const btn = new QPushButton();
+const btn = new QToolButton();
 btn.setText('yolo');
 msgBox.addButton(btn);
 msgBox.addEventListener('buttonClicked', rawButtonPtr => {
     console.log(rawButtonPtr);
-    const btn2 = new QPushButton(rawButtonPtr);
+    const btn2 = new QToolButton(rawButtonPtr);
     btn2.setText('Helloooo');
     const newMsg = new QMessageBox();
     newMsg.exec();

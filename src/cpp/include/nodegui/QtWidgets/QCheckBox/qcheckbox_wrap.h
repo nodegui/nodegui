@@ -12,6 +12,7 @@ class QCheckBoxWrap : public Napi::ObjectWrap<QCheckBoxWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NCheckBox> instance;
+  bool disableDeletion;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

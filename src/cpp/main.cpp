@@ -1,6 +1,8 @@
 #include <napi.h>
 
 #include "QtCore/QModelIndex/qmodelindex_wrap.h"
+#include "Extras/Utils/nutils.h"
+#include "QtCore/QColor/qcolor_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
@@ -56,7 +58,6 @@
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
-#include "Extras/Utils/nutils.h"
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env) {
   extrautils::initAppSettings();

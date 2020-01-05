@@ -48,7 +48,11 @@ QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info)
       true);
 }
 
-QPushButtonWrap::~QPushButtonWrap() { extrautils::safeDelete(this->instance); }
+QPushButtonWrap::~QPushButtonWrap() {
+  if (!this->disableDeletion) {
+    extrautils::safeDelete(this->instance);
+  }
+}
 
 Napi::Value QPushButtonWrap::setFlat(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

@@ -13,6 +13,7 @@ class QToolButtonWrap : public Napi::ObjectWrap<QToolButtonWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NToolButton> instance;
+  bool disableDeletion;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
