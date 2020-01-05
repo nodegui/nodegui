@@ -12,6 +12,7 @@ import { YogaWidget } from '../core/YogaWidget';
 import { QSize } from '../QtCore/QSize';
 import { QRect } from '../QtCore/QRect';
 import { QObjectSignals } from '../QtCore/QObject';
+import { QFont } from '../QtGui/QFont';
 
 /**
  
@@ -204,6 +205,12 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     showNormal(): void {
         this.native.showNormal();
+    }
+    setFont(font: QFont): void {
+        this.native.setProperty('font', font.native);
+    }
+    font(): QFont {
+        return QFont.fromQVariant(this.property('font'));
     }
 }
 

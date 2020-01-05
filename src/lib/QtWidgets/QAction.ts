@@ -96,4 +96,7 @@ export class QAction extends NodeObject<QActionSignals> {
     setFont(font: QFont): void {
         this.native.setFont(font.native);
     }
+    font(): QFont {
+        return QFont.fromQVariant(this.property('font'));
+    }
 }
