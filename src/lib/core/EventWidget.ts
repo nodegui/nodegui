@@ -53,7 +53,6 @@ export abstract class EventWidget<Signals extends {}> extends Component {
     ```
      */
     addEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;
-<<<<<<< HEAD
 
     /**
     
@@ -66,10 +65,7 @@ export abstract class EventWidget<Signals extends {}> extends Component {
      button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
      ```
      */
-    addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeElement) => void): void;
-=======
     addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeRawPointer<'QEvent'>) => void): void;
->>>>>>> Fixes inheritance and adds pointer based event listener
     addEventListener(eventOrSignalType: string, callback: (...payloads: any[]) => void): void {
         this.native.subscribeToQtEvent(eventOrSignalType);
         this.emitter.addListener(eventOrSignalType, callback);
