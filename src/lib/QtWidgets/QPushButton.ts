@@ -1,7 +1,8 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
+import { NativeElement, NativeRawPointer, Component } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
+import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
 
 export type QPushButtonSignals = QAbstractButtonSignals;
 /**
@@ -25,16 +26,25 @@ export class QPushButton extends QAbstractButton<QPushButtonSignals> {
     native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(native: NativeElement);
+    constructor(rawPointer: NativeRawPointer<any>, disableNativeDeletion?: boolean);
+    constructor(arg?: NodeWidget<any> | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
         let native;
-        if (parent) {
-            native = new addon.QPushButton(parent.native);
+        let parent: Component | undefined;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (checkIfNapiExternal(arg)) {
+            native = new addon.QPushButton(arg, disableNativeDeletion);
+        } else if (arg) {
+            const parentWidget = arg as NodeWidget<any>;
+            native = new addon.QPushButton(parentWidget.native);
+            parent = parentWidget;
         } else {
             native = new addon.QPushButton();
         }
         super(native);
-        this.setNodeParent(parent);
         this.native = native;
+        parent && this.setNodeParent(parent);
     }
     setFlat(isFlat: boolean): void {
         this.native.setFlat(isFlat);

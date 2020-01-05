@@ -9,6 +9,7 @@
 #include "nspinbox.hpp"
 
 class QSpinBoxWrap : public Napi::ObjectWrap<QSpinBoxWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NSpinBox> instance;
 
@@ -29,6 +30,4 @@ class QSpinBoxWrap : public Napi::ObjectWrap<QSpinBoxWrap> {
   Napi::Value maximum(const Napi::CallbackInfo &info);
   Napi::Value minimum(const Napi::CallbackInfo &info);
   Napi::Value value(const Napi::CallbackInfo &info);
-
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

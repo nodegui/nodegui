@@ -17,8 +17,8 @@
 #ifndef QWIDGET_WRAPPED_METHODS_DECLARATION
 #define QWIDGET_WRAPPED_METHODS_DECLARATION                                 \
                                                                             \
-  YOGAWIDGET_WRAPPED_METHODS_DECLARATION                                    \
   QOBJECT_WRAPPED_METHODS_DECLARATION                                       \
+  YOGAWIDGET_WRAPPED_METHODS_DECLARATION                                    \
                                                                             \
   Napi::Value show(const Napi::CallbackInfo& info) {                        \
     Napi::Env env = info.Env();                                             \

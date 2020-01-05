@@ -19,7 +19,7 @@ Napi::Object QColorWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setAlpha", &QColorWrap::setAlpha),
        InstanceMethod("alpha", &QColorWrap::alpha),
        StaticMethod("fromQVariant", &StaticQColorWrapMethods::fromQVariant),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QColorWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

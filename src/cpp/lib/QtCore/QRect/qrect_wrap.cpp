@@ -19,7 +19,7 @@ Napi::Object QRectWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("left", &QRectWrap::left),
        InstanceMethod("top", &QRectWrap::top),
        StaticMethod("fromQVariant", &StaticQRectWrapMethods::fromQVariant),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QRectWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

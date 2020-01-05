@@ -7,6 +7,7 @@
 #include "core/Component/component_macro.h"
 
 class QPointWrap : public Napi::ObjectWrap<QPointWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QPoint> instance;
 
@@ -21,7 +22,6 @@ class QPointWrap : public Napi::ObjectWrap<QPointWrap> {
   Napi::Value setY(const Napi::CallbackInfo& info);
   Napi::Value x(const Napi::CallbackInfo& info);
   Napi::Value y(const Napi::CallbackInfo& info);
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
 namespace StaticQPointWrapMethods {

@@ -7,6 +7,7 @@
 #include "nmenu.hpp"
 
 class QMenuWrap : public Napi::ObjectWrap<QMenuWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NMenu> instance;
 
@@ -19,6 +20,4 @@ class QMenuWrap : public Napi::ObjectWrap<QMenuWrap> {
   // wrapped methods
   Napi::Value setTitle(const Napi::CallbackInfo& info);
   Napi::Value addAction(const Napi::CallbackInfo& info);
-
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

@@ -1,5 +1,7 @@
 export type NativeElement = { type: 'native'; [key: string]: any };
 
+export type NativeRawPointer<T> = {};
+
 /**
 
 > Abstract class that is root most base class for all widgets and layouts in the NodeGui World.

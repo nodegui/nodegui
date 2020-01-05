@@ -8,6 +8,7 @@
 #include "ngroupbox.hpp"
 
 class QGroupBoxWrap : public Napi::ObjectWrap<QGroupBoxWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NGroupBox> instance;
 
@@ -29,6 +30,4 @@ class QGroupBoxWrap : public Napi::ObjectWrap<QGroupBoxWrap> {
   Napi::Value setTitle(const Napi::CallbackInfo& info);
   Napi::Value title(const Napi::CallbackInfo& info);
   Napi::Value setChecked(const Napi::CallbackInfo& info);
-
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

@@ -8,6 +8,7 @@
 #include "nshortcut.hpp"
 
 class QShortcutWrap : public Napi::ObjectWrap<QShortcutWrap> {
+  QOBJECT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NShortcut> instance;
 
@@ -23,6 +24,4 @@ class QShortcutWrap : public Napi::ObjectWrap<QShortcutWrap> {
   Napi::Value setAutoRepeat(const Napi::CallbackInfo& info);
   Napi::Value setKey(const Napi::CallbackInfo& info);
   Napi::Value setContext(const Napi::CallbackInfo& info);
-
-  QOBJECT_WRAPPED_METHODS_DECLARATION
 };

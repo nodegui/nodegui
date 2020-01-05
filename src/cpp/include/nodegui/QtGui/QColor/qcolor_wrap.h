@@ -7,6 +7,7 @@
 #include "core/Component/component_macro.h"
 
 class QColorWrap : public Napi::ObjectWrap<QColorWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QColor> instance;
 
@@ -25,7 +26,6 @@ class QColorWrap : public Napi::ObjectWrap<QColorWrap> {
   Napi::Value blue(const Napi::CallbackInfo& info);
   Napi::Value setAlpha(const Napi::CallbackInfo& info);
   Napi::Value alpha(const Napi::CallbackInfo& info);
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
 namespace StaticQColorWrapMethods {

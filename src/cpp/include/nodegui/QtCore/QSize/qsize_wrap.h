@@ -7,6 +7,7 @@
 #include "core/Component/component_macro.h"
 
 class QSizeWrap : public Napi::ObjectWrap<QSizeWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QSize> instance;
 
@@ -21,8 +22,6 @@ class QSizeWrap : public Napi::ObjectWrap<QSizeWrap> {
   Napi::Value setWidth(const Napi::CallbackInfo& info);
   Napi::Value height(const Napi::CallbackInfo& info);
   Napi::Value width(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
 namespace StaticQSizeWrapMethods {

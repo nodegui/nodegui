@@ -10,6 +10,7 @@
 
 // ABSTRACT CLASS
 class QLayoutWrap : public Napi::ObjectWrap<QLayoutWrap> {
+  QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NLayout> instance;
 
@@ -21,5 +22,4 @@ class QLayoutWrap : public Napi::ObjectWrap<QLayoutWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  QLAYOUT_WRAPPED_METHODS_DECLARATION
 };

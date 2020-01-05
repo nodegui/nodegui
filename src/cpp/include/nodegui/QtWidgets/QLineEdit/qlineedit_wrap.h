@@ -8,6 +8,7 @@
 #include "nlineedit.hpp"
 
 class QLineEditWrap : public Napi::ObjectWrap<QLineEditWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NLineEdit> instance;
 
@@ -25,6 +26,4 @@ class QLineEditWrap : public Napi::ObjectWrap<QLineEditWrap> {
   Napi::Value setReadOnly(const Napi::CallbackInfo& info);
   Napi::Value clear(const Napi::CallbackInfo& info);
   Napi::Value setEchoMode(const Napi::CallbackInfo& info);
-
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

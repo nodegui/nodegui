@@ -1,5 +1,6 @@
 #include <napi.h>
 
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QModelIndex/qmodelindex_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
@@ -25,6 +26,7 @@
 #include "QtWidgets/QCheckBox/qcheckbox_wrap.h"
 #include "QtWidgets/QComboBox/qcombobox_wrap.h"
 #include "QtWidgets/QDial/qdial_wrap.h"
+#include "QtWidgets/QDialog/qdialog_wrap.h"
 #include "QtWidgets/QFileDialog/qfiledialog_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
@@ -36,6 +38,7 @@
 #include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
+#include "QtWidgets/QMessageBox/qmessagebox_wrap.h"
 #include "QtWidgets/QPainter/qpainter_wrap.h"
 #include "QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
 #include "QtWidgets/QProgressBar/qprogressbar_wrap.h"
@@ -62,6 +65,7 @@ void InitPrivateHelpers(Napi::Env env) {
 
 Napi::Object Main(Napi::Env env, Napi::Object exports) {
   InitPrivateHelpers(env);
+  NUtilsWrap::init(env, exports);
   QApplicationWrap::init(env, exports);
   QModelIndexWrap::init(env, exports);
   QObjectWrap::init(env, exports);
@@ -72,6 +76,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QColorWrap::init(env, exports);
   QUrlWrap::init(env, exports);
   QClipboardWrap::init(env, exports);
+  QDialogWrap::init(env, exports);
   QWidgetWrap::init(env, exports);
   QPixmapWrap::init(env, exports);
   QKeySequenceWrap::init(env, exports);
@@ -115,6 +120,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QShortcutWrap::init(env, exports);
   QMenuWrap::init(env, exports);
   QMenuBarWrap::init(env, exports);
+  QMessageBoxWrap::init(env, exports);
   return exports;
 }
 

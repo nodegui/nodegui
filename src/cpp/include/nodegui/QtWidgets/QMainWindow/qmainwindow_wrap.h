@@ -8,6 +8,8 @@
 #include "nmainwindow.hpp"
 
 class QMainWindowWrap : public Napi::ObjectWrap<QMainWindowWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
+
  private:
   QPointer<NMainWindow> instance;
 
@@ -25,6 +27,4 @@ class QMainWindowWrap : public Napi::ObjectWrap<QMainWindowWrap> {
   Napi::Value menuBar(const Napi::CallbackInfo& info);
   Napi::Value setMenuWidget(const Napi::CallbackInfo& info);
   Napi::Value center(const Napi::CallbackInfo& info);
-
-  QWIDGET_WRAPPED_METHODS_DECLARATION
 };

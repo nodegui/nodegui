@@ -8,6 +8,7 @@
 #include "core/Component/component_wrap.h"
 
 class QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QPainter* instance;
 
@@ -32,5 +33,4 @@ class QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   Napi::Value drawConvexPolygon(const Napi::CallbackInfo& info);
   Napi::Value save(const Napi::CallbackInfo& info);
   Napi::Value restore(const Napi::CallbackInfo& info);
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

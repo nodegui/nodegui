@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import { NativeElement, Component } from './Component';
+import { NativeElement, Component, NativeRawPointer } from './Component';
 
 /**
  
@@ -65,14 +65,14 @@ export abstract class EventWidget<Signals extends {}> extends Component {
      button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
      ```
      */
-    addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeElement) => void): void;
+    addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeRawPointer<'QEvent'>) => void): void;
     addEventListener(eventOrSignalType: string, callback: (...payloads: any[]) => void): void {
         this.native.subscribeToQtEvent(eventOrSignalType);
         this.emitter.addListener(eventOrSignalType, callback);
     }
 
     removeEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;
-    removeEventListener(eventType: WidgetEventTypes, callback: (event?: NativeElement) => void): void;
+    removeEventListener(eventType: WidgetEventTypes, callback: (event?: NativeRawPointer<'QEvent'>) => void): void;
     removeEventListener(eventOrSignalType: string, callback?: (...payloads: any[]) => void): void {
         if (callback) {
             this.emitter.removeListener(eventOrSignalType, callback);

@@ -21,7 +21,7 @@ Napi::Object QTreeWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("childCount", &QTreeWidgetItemWrap::childCount),
        InstanceMethod("setSelected", &QTreeWidgetItemWrap::setSelected),
        InstanceMethod("setExpanded", &QTreeWidgetItemWrap::setExpanded),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QTreeWidgetItemWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

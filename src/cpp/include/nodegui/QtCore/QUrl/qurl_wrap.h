@@ -7,6 +7,7 @@
 #include "core/Component/component_macro.h"
 
 class QUrlWrap : public Napi::ObjectWrap<QUrlWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QUrl> instance;
 
@@ -19,8 +20,6 @@ class QUrlWrap : public Napi::ObjectWrap<QUrlWrap> {
   // Wrapped methods
   Napi::Value setUrl(const Napi::CallbackInfo& info);
   Napi::Value toString(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
 namespace StaticQUrlWrapMethods {

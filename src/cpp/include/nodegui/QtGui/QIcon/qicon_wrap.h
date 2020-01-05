@@ -7,6 +7,8 @@
 #include "core/Component/component_macro.h"
 
 class QIconWrap : public Napi::ObjectWrap<QIconWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
+
  private:
   std::unique_ptr<QIcon> instance;
 
@@ -21,8 +23,6 @@ class QIconWrap : public Napi::ObjectWrap<QIconWrap> {
   Napi::Value isMask(const Napi::CallbackInfo& info);
   Napi::Value setIsMask(const Napi::CallbackInfo& info);
   Napi::Value cacheKey(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
 namespace StaticQIconWrapMethods {

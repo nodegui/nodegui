@@ -8,6 +8,7 @@
 #include "flexlayout.hpp"
 
 class FlexLayoutWrap : public Napi::ObjectWrap<FlexLayoutWrap> {
+  QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<FlexLayout> instance;
 
@@ -23,5 +24,4 @@ class FlexLayoutWrap : public Napi::ObjectWrap<FlexLayoutWrap> {
   Napi::Value insertChildBefore(const Napi::CallbackInfo& info);
   Napi::Value removeWidget(const Napi::CallbackInfo& info);
   Napi::Value setFlexNode(const Napi::CallbackInfo& info);
-  QLAYOUT_WRAPPED_METHODS_DECLARATION
 };

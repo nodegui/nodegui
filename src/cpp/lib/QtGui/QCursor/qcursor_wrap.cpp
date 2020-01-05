@@ -12,7 +12,7 @@ Napi::Object QCursorWrap::init(Napi::Env env, Napi::Object exports) {
       DefineClass(env, CLASSNAME,
                   {InstanceMethod("pos", &QCursorWrap::pos),
                    InstanceMethod("setPos", &QCursorWrap::setPos),
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QCursorWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

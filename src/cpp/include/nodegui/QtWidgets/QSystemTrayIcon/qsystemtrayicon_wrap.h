@@ -7,6 +7,7 @@
 #include "QtCore/QObject/qobject_macro.h"
 #include "nsystemtrayicon.hpp"
 class QSystemTrayIconWrap : public Napi::ObjectWrap<QSystemTrayIconWrap> {
+  QOBJECT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NSystemTrayIcon> instance;
 
@@ -25,6 +26,4 @@ class QSystemTrayIconWrap : public Napi::ObjectWrap<QSystemTrayIconWrap> {
   Napi::Value setToolTip(const Napi::CallbackInfo& info);
   Napi::Value setContextMenu(const Napi::CallbackInfo& info);
   Napi::Value showMessage(const Napi::CallbackInfo& info);
-
-  QOBJECT_WRAPPED_METHODS_DECLARATION
 };

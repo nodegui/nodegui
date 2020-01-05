@@ -7,6 +7,7 @@
 #include "core/Component/component_macro.h"
 
 class QRectWrap : public Napi::ObjectWrap<QRectWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QRect> instance;
 
@@ -25,8 +26,6 @@ class QRectWrap : public Napi::ObjectWrap<QRectWrap> {
   Napi::Value width(const Napi::CallbackInfo& info);
   Napi::Value left(const Napi::CallbackInfo& info);
   Napi::Value top(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };
 
 namespace StaticQRectWrapMethods {

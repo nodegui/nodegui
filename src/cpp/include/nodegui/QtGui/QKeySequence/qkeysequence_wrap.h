@@ -7,6 +7,8 @@
 #include "core/Component/component_macro.h"
 
 class QKeySequenceWrap : public Napi::ObjectWrap<QKeySequenceWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
+
  private:
   std::unique_ptr<QKeySequence> instance;
 
@@ -18,6 +20,4 @@ class QKeySequenceWrap : public Napi::ObjectWrap<QKeySequenceWrap> {
   QKeySequence *getInternalInstance();
   // Wrapped methods
   Napi::Value count(const Napi::CallbackInfo &info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

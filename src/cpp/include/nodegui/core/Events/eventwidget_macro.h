@@ -40,7 +40,7 @@
 
 #ifndef EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 #define EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
-  COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE                         \
+  COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)         \
   InstanceMethod("initNodeEventEmitter",                          \
                  &WidgetWrapName::initNodeEventEmitter),          \
       InstanceMethod("subscribeToQtEvent",                        \

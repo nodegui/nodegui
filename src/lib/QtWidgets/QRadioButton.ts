@@ -1,7 +1,8 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
+import { NativeElement, NativeRawPointer, Component } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
+import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
 
 export type QRadioButtonSignals = QAbstractButtonSignals;
 
@@ -27,15 +28,23 @@ export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
     native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(rawPointer: NativeRawPointer<any>, disableNativeDeletion?: boolean);
+    constructor(arg?: NodeWidget<any> | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
         let native;
-        if (parent) {
-            native = new addon.QRadioButton(parent.native);
+        let parent: Component | undefined;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (checkIfNapiExternal(arg)) {
+            native = new addon.QRadioButton(arg, disableNativeDeletion);
+        } else if (arg) {
+            const parentWidget = arg as NodeWidget<any>;
+            native = new addon.QRadioButton(parentWidget.native);
+            parent = parentWidget;
         } else {
             native = new addon.QRadioButton();
         }
         super(native);
         this.native = native;
-        this.setNodeParent(parent);
+        parent && this.setNodeParent(parent);
     }
 }

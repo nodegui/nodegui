@@ -17,7 +17,7 @@ Napi::Object QMouseEventWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("globalX", &QMouseEventWrap::globalX),
                    InstanceMethod("globalY", &QMouseEventWrap::globalY),
 
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QMouseEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

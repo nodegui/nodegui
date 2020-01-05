@@ -16,7 +16,7 @@ Napi::Object QFontDatabaseWrap::init(Napi::Env env, Napi::Object exports) {
                     &StaticQFontDatabaseWrapMethods::addApplicationFont),
        StaticMethod("removeApplicationFont",
                     &StaticQFontDatabaseWrapMethods::removeApplicationFont),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QFontDatabaseWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

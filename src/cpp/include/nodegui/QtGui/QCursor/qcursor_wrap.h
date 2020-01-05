@@ -7,6 +7,7 @@
 #include "core/Component/component_macro.h"
 
 class QCursorWrap : public Napi::ObjectWrap<QCursorWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QCursor> instance;
 
@@ -19,6 +20,4 @@ class QCursorWrap : public Napi::ObjectWrap<QCursorWrap> {
   // Wrapped methods
   Napi::Value pos(const Napi::CallbackInfo& info);
   Napi::Value setPos(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

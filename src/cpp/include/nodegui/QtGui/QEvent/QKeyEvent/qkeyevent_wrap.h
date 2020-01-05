@@ -7,6 +7,8 @@
 #include "core/Component/component_macro.h"
 
 class QKeyEventWrap : public Napi::ObjectWrap<QKeyEventWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
+
  private:
   QKeyEvent* instance;
 
@@ -23,6 +25,4 @@ class QKeyEventWrap : public Napi::ObjectWrap<QKeyEventWrap> {
   Napi::Value modifiers(const Napi::CallbackInfo& info);
   Napi::Value count(const Napi::CallbackInfo& info);
   Napi::Value isAutoRepeat(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

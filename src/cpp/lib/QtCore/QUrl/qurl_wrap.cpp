@@ -13,7 +13,7 @@ Napi::Object QUrlWrap::init(Napi::Env env, Napi::Object exports) {
       {InstanceMethod("setUrl", &QUrlWrap::setUrl),
        InstanceMethod("toString", &QUrlWrap::toString),
        StaticMethod("fromQVariant", &StaticQUrlWrapMethods::fromQVariant),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QUrlWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

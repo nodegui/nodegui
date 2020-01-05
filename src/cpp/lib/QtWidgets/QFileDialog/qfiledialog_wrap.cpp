@@ -12,14 +12,13 @@ Napi::Object QFileDialogWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QFileDialog";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("open", &QFileDialogWrap::open),
-       InstanceMethod("supportedSchemes", &QFileDialogWrap::supportedSchemes),
+      {InstanceMethod("supportedSchemes", &QFileDialogWrap::supportedSchemes),
        InstanceMethod("setSupportedSchemes",
                       &QFileDialogWrap::setSupportedSchemes),
        InstanceMethod("labelText", &QFileDialogWrap::labelText),
        InstanceMethod("setLabelText", &QFileDialogWrap::setLabelText),
        InstanceMethod("setOption", &QFileDialogWrap::setOption),
-       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QFileDialogWrap)});
+       QDIALOG_WRAPPED_METHODS_EXPORT_DEFINE(QFileDialogWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -54,13 +53,6 @@ QFileDialogWrap::QFileDialogWrap(const Napi::CallbackInfo& info)
   this->rawData = extrautils::configureQWidget(
       this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
       false);
-}
-Napi::Value QFileDialogWrap::open(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  this->instance->open();
-  return env.Null();
 }
 
 Napi::Value QFileDialogWrap::supportedSchemes(const Napi::CallbackInfo& info) {

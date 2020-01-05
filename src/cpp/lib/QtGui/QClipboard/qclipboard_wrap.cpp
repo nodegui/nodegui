@@ -12,7 +12,7 @@ Napi::Object QClipboardWrap::init(Napi::Env env, Napi::Object exports) {
                   {InstanceMethod("clear", &QClipboardWrap::clear),
                    InstanceMethod("setText", &QClipboardWrap::setText),
                    InstanceMethod("text", &QClipboardWrap::text),
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QClipboardWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

@@ -2,6 +2,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
+#include "core/Component/component_wrap.h"
 
 Napi::FunctionReference QModelIndexWrap::constructor;
 
@@ -21,7 +22,7 @@ Napi::Object QModelIndexWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("siblingAtRow", &QModelIndexWrap::siblingAtRow),
        StaticMethod("fromQVariant",
                     &StaticQModelIndexWrapMethods::fromQVariant),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QModelIndexWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

@@ -8,6 +8,7 @@
 #include "core/Component/component_wrap.h"
 
 class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QTreeWidgetItem *instance;
   bool disableDeletion;
@@ -32,5 +33,4 @@ class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
   Napi::Value text(const Napi::CallbackInfo &info);
   Napi::Value setSelected(const Napi::CallbackInfo &info);
   Napi::Value setExpanded(const Napi::CallbackInfo &info);
-  COMPONENT_WRAPPED_METHODS_DECLARATION
 };

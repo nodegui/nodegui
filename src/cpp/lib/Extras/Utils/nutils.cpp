@@ -95,3 +95,32 @@ void extrautils::initAppSettings() {
     QApplication::setFont(f);
   }
 }
+
+Napi::FunctionReference NUtilsWrap::constructor;
+
+Napi::Object NUtilsWrap::init(Napi::Env env, Napi::Object exports) {
+  Napi::HandleScope scope(env);
+  char CLASSNAME[] = "NUtils";
+  Napi::Function func =
+      DefineClass(env, CLASSNAME,
+                  {
+                      StaticMethod("isNapiExternal",
+                                   &StaticNUtilsWrapMethods::isNapiExternal),
+                  });
+  constructor = Napi::Persistent(func);
+  exports.Set(CLASSNAME, func);
+  return exports;
+}
+
+NUtilsWrap::NUtilsWrap(const Napi::CallbackInfo& info)
+    : Napi::ObjectWrap<NUtilsWrap>(info) {}
+
+Napi::Value StaticNUtilsWrapMethods::isNapiExternal(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  if (info.Length() > 0 && info[0].IsExternal()) {
+    return Napi::Boolean::New(env, true);
+  }
+  return Napi::Boolean::New(env, false);
+}

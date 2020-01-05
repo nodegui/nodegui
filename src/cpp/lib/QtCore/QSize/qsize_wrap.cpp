@@ -15,7 +15,7 @@ Napi::Object QSizeWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("height", &QSizeWrap::height),
        InstanceMethod("width", &QSizeWrap::width),
        StaticMethod("fromQVariant", &StaticQSizeWrapMethods::fromQVariant),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QSizeWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
