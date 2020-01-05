@@ -25,8 +25,7 @@ Napi::Object QFontWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("italic", &QFontWrap::italic),
        InstanceMethod("toString", &QFontWrap::toString),
        StaticMethod("fromQVariant", &StaticQFontWrapMethods::fromQVariant),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QFontWrap)
-      });
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QFontWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

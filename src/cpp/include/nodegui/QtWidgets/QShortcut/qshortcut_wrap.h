@@ -24,5 +24,4 @@ class QShortcutWrap : public Napi::ObjectWrap<QShortcutWrap> {
   Napi::Value setAutoRepeat(const Napi::CallbackInfo& info);
   Napi::Value setKey(const Napi::CallbackInfo& info);
   Napi::Value setContext(const Napi::CallbackInfo& info);
-
 };
