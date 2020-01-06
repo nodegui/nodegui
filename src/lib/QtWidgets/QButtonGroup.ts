@@ -6,10 +6,10 @@ import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface QButtonGroupSignals extends QObjectSignals {
-    buttonClicked: (buttonRawPointer?: NativeRawPointer<'QAbstractButton*'>) => void;
+    buttonClicked: (id?: number) => void;
 }
 
-export class QButtonGroup extends NodeObject<QButtonGroupSignals> {
+export class QButtonGroup extends NodeObject<any> {
     native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);

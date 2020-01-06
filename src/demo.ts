@@ -6,21 +6,15 @@ const layout = new FlexLayout();
 center.setLayout(layout);
 win.setCentralWidget(center);
 
-const group = new QButtonGroup(center);
-const radio1 = new QRadioButton();
-radio1.setText('Hello1');
-win.layout?.addWidget(radio1);
-group.addButton(radio1);
-const radio2 = new QRadioButton();
-radio2.setText('Hello2');
-win.layout?.addWidget(radio2);
-group.addButton(radio2);
-const radio3 = new QRadioButton();
-radio3.setText('Hello3');
-win.layout?.addWidget(radio3);
-group.addButton(radio3);
+const buttonGroup = new QButtonGroup(center);
+for (let i = 0; i < 4; i++) {
+    const radioButton = new QRadioButton();
+    radioButton.setText('Button #' + (i + 1));
+    center.layout?.addWidget(radioButton);
+    buttonGroup.addButton(radioButton, i);
+}
 win.show();
-group.addEventListener('buttonClicked', () => {
-    console.log(group.checkedId());
+buttonGroup.addEventListener('buttonClicked', (id: number) => {
+    console.log('Button #' + (id + 1) + ' clicked!');
 });
 (global as any).win = win;
