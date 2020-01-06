@@ -1,11 +1,14 @@
 #include <napi.h>
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QDate/qdate_wrap.h"
+#include "QtCore/QDateTime/qdatetime_wrap.h"
 #include "QtCore/QModelIndex/qmodelindex_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
+#include "QtCore/QTime/qtime_wrap.h"
 #include "QtCore/QUrl/qurl_wrap.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
 #include "QtGui/QApplication/qapplication_wrap.h"
@@ -23,9 +26,12 @@
 #include "QtGui/QStyle/qstyle_wrap.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QBoxLayout/qboxlayout_wrap.h"
+#include "QtWidgets/QCalendarWidget/qcalendarwidget_wrap.h"
 #include "QtWidgets/QButtonGroup/qbuttongroup_wrap.h"
 #include "QtWidgets/QCheckBox/qcheckbox_wrap.h"
 #include "QtWidgets/QComboBox/qcombobox_wrap.h"
+#include "QtWidgets/QDateEdit/qdateedit_wrap.h"
+#include "QtWidgets/QDateTimeEdit/qdatetimeedit_wrap.h"
 #include "QtWidgets/QDial/qdial_wrap.h"
 #include "QtWidgets/QDialog/qdialog_wrap.h"
 #include "QtWidgets/QFileDialog/qfiledialog_wrap.h"
@@ -53,6 +59,7 @@
 #include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
 #include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
+#include "QtWidgets/QTimeEdit/qtimeedit_wrap.h"
 #include "QtWidgets/QToolButton/qtoolbutton_wrap.h"
 #include "QtWidgets/QTreeWidget/qtreewidget_wrap.h"
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
@@ -68,14 +75,17 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   InitPrivateHelpers(env);
   NUtilsWrap::init(env, exports);
   QApplicationWrap::init(env, exports);
+  QDateWrap::init(env, exports);
+  QDateTimeWrap::init(env, exports);
   QModelIndexWrap::init(env, exports);
   QObjectWrap::init(env, exports);
-  QVariantWrap::init(env, exports);
-  QSizeWrap::init(env, exports);
-  QRectWrap::init(env, exports);
   QPointWrap::init(env, exports);
-  QColorWrap::init(env, exports);
+  QRectWrap::init(env, exports);
+  QSizeWrap::init(env, exports);
+  QTimeWrap::init(env, exports);
   QUrlWrap::init(env, exports);
+  QVariantWrap::init(env, exports);
+  QColorWrap::init(env, exports);
   QClipboardWrap::init(env, exports);
   QDialogWrap::init(env, exports);
   QWidgetWrap::init(env, exports);
@@ -87,8 +97,11 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QMovieWrap::init(env, exports);
   QStyleWrap::init(env, exports);
   QCursorWrap::init(env, exports);
+  QCalendarWidgetWrap::init(env, exports);
   QComboBoxWrap::init(env, exports);
   QBoxLayoutWrap::init(env, exports);
+  QDateEditWrap::init(env, exports);
+  QDateTimeEditWrap::init(env, exports);
   QFileDialogWrap::init(env, exports);
   QListWidgetWrap::init(env, exports);
   QListWidgetItemWrap::init(env, exports);
@@ -122,6 +135,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QMenuWrap::init(env, exports);
   QMenuBarWrap::init(env, exports);
   QMessageBoxWrap::init(env, exports);
+  QTimeEditWrap::init(env, exports);
   QButtonGroupWrap::init(env, exports);
   return exports;
 }
