@@ -4,7 +4,6 @@ import { NativeElement, NativeRawPointer } from '../core/Component';
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface QButtonGroupSignals extends QObjectSignals {
     buttonClicked: (id?: number) => void;
 }
