@@ -1,5 +1,12 @@
-import { QWidget, QMainWindow, FlexLayout, QFont, QFontCapitalization, QLabel, QPushButton, QCalendarWidget, QDate, QTime, QDateTimeEdit, QDateTime } from './index';
-
+import { FlexLayout, QMainWindow, QWidget } from './index';
+import { QLabel } from './lib/QtWidgets/QLabel';
+import { QFont, QFontCapitalization } from './lib/QtGui/QFont';
+import { QPushButton } from './lib/QtWidgets/QPushButton';
+import { QDateTimeEdit } from './lib/QtWidgets/QDateTimeEdit';
+import { QCalendarWidget } from './lib/QtWidgets/QCalendarWidget';
+import { QDate } from './lib/QtCore/QDate';
+import { QDateTime } from './lib/QtCore/QDateTime';
+import { QTime } from './lib/QtCore/QTime';
 
 const win = new QMainWindow();
 const center = new QWidget();
