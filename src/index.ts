@@ -25,8 +25,12 @@ export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider, QAbstractSliderSignals } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';
 export { QAbstractItemView, QAbstractItemViewSignals } from './lib/QtWidgets/QAbstractItemView';
+export { QAbstractSpinBox } from './lib/QtWidgets/QAbstractSpinBox';
 // Widgets:
+export { QCalendarWidget, QCalendarWidgetSignals } from './lib/QtWidgets/QCalendarWidget';
 export { QCheckBox, QCheckBoxSignals } from './lib/QtWidgets/QCheckBox';
+export { QDateEdit } from './lib/QtWidgets/QDateEdit';
+export { QDateTimeEdit, QDateTimeEditSignals } from './lib/QtWidgets/QDateTimeEdit';
 export { QLabel, QLabelSignals } from './lib/QtWidgets/QLabel';
 export { QDial, QDialSignals } from './lib/QtWidgets/QDial';
 export { QFileDialog, QFileDialogSignals } from './lib/QtWidgets/QFileDialog';
@@ -48,6 +52,7 @@ export { QMenu, QMenuSignals } from './lib/QtWidgets/QMenu';
 export { QMenuBar, QMenuBarSignals } from './lib/QtWidgets/QMenuBar';
 export { QPlainTextEdit, QPlainTextEditSignals, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
 export { QScrollArea, QScrollAreaSignals } from './lib/QtWidgets/QScrollArea';
+export { QTimeEdit } from './lib/QtWidgets/QTimeEdit';
 export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
 export { QPainter, RenderHint } from './lib/QtWidgets/QPainter';
@@ -63,6 +68,8 @@ export { QAction, QActionSignals } from './lib/QtWidgets/QAction';
 export { QShortcut, QShortcutSignals } from './lib/QtWidgets/QShortcut';
 export { QGroupBox, QGroupBoxSignals } from './lib/QtWidgets/QGroupBox';
 // Core
+export { QDate } from './lib/QtCore/QDate';
+export { QDateTime } from './lib/QtCore/QDateTime';
 export { QModelIndex } from './lib/QtCore/QModelIndex';
 export { QObject, QObjectSignals, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
@@ -70,6 +77,7 @@ export { QSize } from './lib/QtCore/QSize';
 export { QRect } from './lib/QtCore/QRect';
 export { QPoint } from './lib/QtCore/QPoint';
 export { QColor } from './lib/QtGui/QColor';
+export { QTime } from './lib/QtCore/QTime';
 export { QUrl, ParsingMode } from './lib/QtCore/QUrl';
 // Layouts:
 export { QBoxLayout, QBoxLayoutSignals } from './lib/QtWidgets/QBoxLayout';
