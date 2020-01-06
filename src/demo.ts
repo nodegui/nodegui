@@ -1,6 +1,5 @@
-import { FlexLayout, QMainWindow, QWidget } from './index';
+import { QWidget, QMainWindow, FlexLayout, QFont, QFontCapitalization } from './index';
 import { QLabel } from './lib/QtWidgets/QLabel';
-import { QFont, QFontCapitalization } from './lib/QtGui/QFont';
 import { QPushButton } from './lib/QtWidgets/QPushButton';
 import { QDateTimeEdit } from './lib/QtWidgets/QDateTimeEdit';
 import { QCalendarWidget } from './lib/QtWidgets/QCalendarWidget';
