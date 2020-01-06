@@ -23,6 +23,7 @@
 #include "QtGui/QStyle/qstyle_wrap.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QBoxLayout/qboxlayout_wrap.h"
+#include "QtWidgets/QButtonGroup/qbuttongroup_wrap.h"
 #include "QtWidgets/QCheckBox/qcheckbox_wrap.h"
 #include "QtWidgets/QComboBox/qcombobox_wrap.h"
 #include "QtWidgets/QDial/qdial_wrap.h"
@@ -121,6 +122,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QMenuWrap::init(env, exports);
   QMenuBarWrap::init(env, exports);
   QMessageBoxWrap::init(env, exports);
+  QButtonGroupWrap::init(env, exports);
   return exports;
 }
 
