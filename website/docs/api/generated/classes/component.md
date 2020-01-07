@@ -45,6 +45,16 @@ Its the root base class in NodeGui world.
 
   ↳ [QRect](qrect.md)
 
+  ↳ [QModelIndex](qmodelindex.md)
+
+  ↳ [QDate](qdate.md)
+
+  ↳ [QTime](qtime.md)
+
+  ↳ [QDateTime](qdatetime.md)
+
+  ↳ [QListWidgetItem](qlistwidgetitem.md)
+
   ↳ [QTableWidgetItem](qtablewidgetitem.md)
 
   ↳ [QTreeWidgetItem](qtreewidgetitem.md)

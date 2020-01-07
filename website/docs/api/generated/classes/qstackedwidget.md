@@ -33,6 +33,7 @@ sidebar_label: "QStackedWidget"
 * [adjustSize](qstackedwidget.md#adjustsize)
 * [close](qstackedwidget.md#close)
 * [currentIndex](qstackedwidget.md#currentindex)
+* [font](qstackedwidget.md#font)
 * [geometry](qstackedwidget.md#geometry)
 * [getFlexNode](qstackedwidget.md#getflexnode)
 * [hasMouseTracking](qstackedwidget.md#hasmousetracking)
@@ -58,6 +59,7 @@ sidebar_label: "QStackedWidget"
 * [setEnabled](qstackedwidget.md#setenabled)
 * [setFixedSize](qstackedwidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qstackedwidget.md#setflexnodesizecontrolled)
+* [setFont](qstackedwidget.md#setfont)
 * [setGeometry](qstackedwidget.md#setgeometry)
 * [setInlineStyle](qstackedwidget.md#setinlinestyle)
 * [setLayout](qstackedwidget.md#setlayout)
@@ -213,13 +215,13 @@ const button = new QPushButton();
 button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
 ```
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -264,6 +266,16 @@ ___
 ▸ **currentIndex**(): *number*
 
 **Returns:** *number*
+
+___
+
+###  font
+
+▸ **font**(): *[QFont](qfont.md)*
+
+*Inherited from [NodeWidget](nodewidget.md).[font](nodewidget.md#font)*
+
+**Returns:** *[QFont](qfont.md)*
 
 ___
 
@@ -445,13 +457,13 @@ Name | Type |
 
 ▪ **callback**: *function*
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -621,6 +633,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFont
+
+▸ **setFont**(`font`: [QFont](qfont.md)): *void*
+
+*Inherited from [NodeWidget](nodewidget.md).[setFont](nodewidget.md#setfont)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`font` | [QFont](qfont.md) |
 
 **Returns:** *void*
 

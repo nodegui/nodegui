@@ -47,6 +47,7 @@ QAbstractSlider will list all methods and properties that are common to all slid
 * [addEventListener](qabstractslider.md#addeventlistener)
 * [adjustSize](qabstractslider.md#adjustsize)
 * [close](qabstractslider.md#close)
+* [font](qabstractslider.md#font)
 * [geometry](qabstractslider.md#geometry)
 * [getFlexNode](qabstractslider.md#getflexnode)
 * [hasMouseTracking](qabstractslider.md#hasmousetracking)
@@ -71,6 +72,7 @@ QAbstractSlider will list all methods and properties that are common to all slid
 * [setEnabled](qabstractslider.md#setenabled)
 * [setFixedSize](qabstractslider.md#setfixedsize)
 * [setFlexNodeSizeControlled](qabstractslider.md#setflexnodesizecontrolled)
+* [setFont](qabstractslider.md#setfont)
 * [setGeometry](qabstractslider.md#setgeometry)
 * [setInlineStyle](qabstractslider.md#setinlinestyle)
 * [setLayout](qabstractslider.md#setlayout)
@@ -228,13 +230,13 @@ const button = new QPushButton();
 button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
 ```
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -257,6 +259,16 @@ ___
 *Inherited from [NodeWidget](nodewidget.md).[close](nodewidget.md#close)*
 
 **Returns:** *boolean*
+
+___
+
+###  font
+
+▸ **font**(): *[QFont](qfont.md)*
+
+*Inherited from [NodeWidget](nodewidget.md).[font](nodewidget.md#font)*
+
+**Returns:** *[QFont](qfont.md)*
 
 ___
 
@@ -454,13 +466,13 @@ Name | Type |
 
 ▪ **callback**: *function*
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -588,6 +600,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFont
+
+▸ **setFont**(`font`: [QFont](qfont.md)): *void*
+
+*Inherited from [NodeWidget](nodewidget.md).[setFont](nodewidget.md#setfont)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`font` | [QFont](qfont.md) |
 
 **Returns:** *void*
 

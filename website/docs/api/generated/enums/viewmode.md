@@ -9,7 +9,9 @@ sidebar_label: "ViewMode"
 ### Enumeration members
 
 * [Detail](viewmode.md#detail)
+* [IconMode](viewmode.md#iconmode)
 * [List](viewmode.md#list)
+* [ListMode](viewmode.md#listmode)
 
 ## Enumeration members
 
@@ -19,6 +21,18 @@ sidebar_label: "ViewMode"
 
 ___
 
+###  IconMode
+
+• **IconMode**:
+
+___
+
 ###  List
 
 • **List**: = 1
+
+___
+
+###  ListMode
+
+• **ListMode**:

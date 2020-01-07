@@ -14,7 +14,13 @@ sidebar_label: "QWidgetSignals"
 
   ↳ [QAbstractButtonSignals](qabstractbuttonsignals.md)
 
-  ↳ [QFileDialogSignals](qfiledialogsignals.md)
+  ↳ [QAbstractItemViewSignals](qabstractitemviewsignals.md)
+
+  ↳ [QAbstractSpinBoxSignals](qabstractspinboxsignals.md)
+
+  ↳ [QCalendarWidgetSignals](qcalendarwidgetsignals.md)
+
+  ↳ [QDialogSignals](qdialogsignals.md)
 
   ↳ [QLineEditSignals](qlineeditsignals.md)
 

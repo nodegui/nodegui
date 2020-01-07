@@ -18,6 +18,8 @@ sidebar_label: "Globals"
 * [Axis](enums/axis.md)
 * [BGMode](enums/bgmode.md)
 * [BrushStyle](enums/brushstyle.md)
+* [ButtonRole](enums/buttonrole.md)
+* [ButtonSymbols](enums/buttonsymbols.md)
 * [CacheMode](enums/cachemode.md)
 * [CaseSensitivity](enums/casesensitivity.md)
 * [CheckState](enums/checkstate.md)
@@ -27,6 +29,7 @@ sidebar_label: "Globals"
 * [ContextMenuPolicy](enums/contextmenupolicy.md)
 * [CoordinateSystem](enums/coordinatesystem.md)
 * [Corner](enums/corner.md)
+* [CorrectionMode](enums/correctionmode.md)
 * [CursorMoveStyle](enums/cursormovestyle.md)
 * [CursorShape](enums/cursorshape.md)
 * [DateFormat](enums/dateformat.md)
@@ -34,14 +37,17 @@ sidebar_label: "Globals"
 * [DialogLabel](enums/dialoglabel.md)
 * [Direction](enums/direction.md)
 * [DockWidgetArea](enums/dockwidgetarea.md)
+* [DragDropMode](enums/dragdropmode.md)
 * [DropAction](enums/dropaction.md)
 * [EchoMode](enums/echomode.md)
 * [Edge](enums/edge.md)
+* [EditTrigger](enums/edittrigger.md)
 * [EnterKeyType](enums/enterkeytype.md)
 * [EventPriority](enums/eventpriority.md)
 * [FileMode](enums/filemode.md)
 * [FillRule](enums/fillrule.md)
 * [FindChildOption](enums/findchildoption.md)
+* [Flow](enums/flow.md)
 * [FocusPolicy](enums/focuspolicy.md)
 * [FocusReason](enums/focusreason.md)
 * [GestureFlag](enums/gestureflag.md)
@@ -49,6 +55,8 @@ sidebar_label: "Globals"
 * [GestureType](enums/gesturetype.md)
 * [GlobalColor](enums/globalcolor.md)
 * [HitTestAccuracy](enums/hittestaccuracy.md)
+* [HorizontalHeaderFormat](enums/horizontalheaderformat.md)
+* [Icon](enums/icon.md)
 * [ImageConversionFlag](enums/imageconversionflag.md)
 * [ImageReaderError](enums/imagereadererror.md)
 * [InputMethodHint](enums/inputmethodhint.md)
@@ -61,6 +69,7 @@ sidebar_label: "Globals"
 * [Key](enums/key.md)
 * [KeyboardModifier](enums/keyboardmodifier.md)
 * [LayoutDirection](enums/layoutdirection.md)
+* [LayoutMode](enums/layoutmode.md)
 * [LineWrapMode](enums/linewrapmode.md)
 * [MaskMode](enums/maskmode.md)
 * [MatchFlag](enums/matchflag.md)
@@ -68,6 +77,7 @@ sidebar_label: "Globals"
 * [MouseButton](enums/mousebutton.md)
 * [MouseEventFlag](enums/mouseeventflag.md)
 * [MouseEventSource](enums/mouseeventsource.md)
+* [Movement](enums/movement.md)
 * [MovieState](enums/moviestate.md)
 * [NativeGestureType](enums/nativegesturetype.md)
 * [NavigationMode](enums/navigationmode.md)
@@ -85,15 +95,20 @@ sidebar_label: "Globals"
 * [QSystemTrayIconActivationReason](enums/qsystemtrayiconactivationreason.md)
 * [QTextOptionWrapMode](enums/qtextoptionwrapmode.md)
 * [RenderHint](enums/renderhint.md)
+* [ResizeMode](enums/resizemode.md)
 * [ScreenOrientation](enums/screenorientation.md)
 * [ScrollBarPolicy](enums/scrollbarpolicy.md)
 * [ScrollHint](enums/scrollhint.md)
+* [ScrollMode](enums/scrollmode.md)
 * [ScrollPhase](enums/scrollphase.md)
+* [SelectionBehavior](enums/selectionbehavior.md)
+* [SelectionMode](enums/selectionmode.md)
 * [ShortcutContext](enums/shortcutcontext.md)
 * [SizeAdjustPolicy](enums/sizeadjustpolicy.md)
 * [SizeHint](enums/sizehint.md)
 * [SizeMode](enums/sizemode.md)
 * [SortOrder](enums/sortorder.md)
+* [StandardButton](enums/standardbutton.md)
 * [SystemFont](enums/systemfont.md)
 * [TabFocusBehavior](enums/tabfocusbehavior.md)
 * [TabPosition](enums/tabposition.md)
@@ -110,6 +125,7 @@ sidebar_label: "Globals"
 * [TouchPointState](enums/touchpointstate.md)
 * [TransformationMode](enums/transformationmode.md)
 * [UIEffect](enums/uieffect.md)
+* [VerticalHeaderFormat](enums/verticalheaderformat.md)
 * [ViewMode](enums/viewmode.md)
 * [WhiteSpaceMode](enums/whitespacemode.md)
 * [WidgetAttribute](enums/widgetattribute.md)
@@ -125,21 +141,30 @@ sidebar_label: "Globals"
 * [Component](classes/component.md)
 * [EventWidget](classes/eventwidget.md)
 * [FlexLayout](classes/flexlayout.md)
+* [NodeDialog](classes/nodedialog.md)
 * [NodeLayout](classes/nodelayout.md)
 * [NodeObject](classes/nodeobject.md)
 * [NodeWidget](classes/nodewidget.md)
 * [QAbstractButton](classes/qabstractbutton.md)
+* [QAbstractItemView](classes/qabstractitemview.md)
 * [QAbstractScrollArea](classes/qabstractscrollarea.md)
 * [QAbstractSlider](classes/qabstractslider.md)
+* [QAbstractSpinBox](classes/qabstractspinbox.md)
 * [QAction](classes/qaction.md)
 * [QApplication](classes/qapplication.md)
 * [QBoxLayout](classes/qboxlayout.md)
+* [QCalendarWidget](classes/qcalendarwidget.md)
 * [QCheckBox](classes/qcheckbox.md)
 * [QClipboard](classes/qclipboard.md)
 * [QColor](classes/qcolor.md)
 * [QComboBox](classes/qcombobox.md)
 * [QCursor](classes/qcursor.md)
+* [QDate](classes/qdate.md)
+* [QDateEdit](classes/qdateedit.md)
+* [QDateTime](classes/qdatetime.md)
+* [QDateTimeEdit](classes/qdatetimeedit.md)
 * [QDial](classes/qdial.md)
+* [QDialog](classes/qdialog.md)
 * [QFileDialog](classes/qfiledialog.md)
 * [QFont](classes/qfont.md)
 * [QFontDatabase](classes/qfontdatabase.md)
@@ -150,9 +175,13 @@ sidebar_label: "Globals"
 * [QKeySequence](classes/qkeysequence.md)
 * [QLabel](classes/qlabel.md)
 * [QLineEdit](classes/qlineedit.md)
+* [QListWidget](classes/qlistwidget.md)
+* [QListWidgetItem](classes/qlistwidgetitem.md)
 * [QMainWindow](classes/qmainwindow.md)
 * [QMenu](classes/qmenu.md)
 * [QMenuBar](classes/qmenubar.md)
+* [QMessageBox](classes/qmessagebox.md)
+* [QModelIndex](classes/qmodelindex.md)
 * [QMouseEvent](classes/qmouseevent.md)
 * [QMovie](classes/qmovie.md)
 * [QObject](classes/qobject.md)
@@ -174,6 +203,8 @@ sidebar_label: "Globals"
 * [QTabWidget](classes/qtabwidget.md)
 * [QTableWidget](classes/qtablewidget.md)
 * [QTableWidgetItem](classes/qtablewidgetitem.md)
+* [QTime](classes/qtime.md)
+* [QTimeEdit](classes/qtimeedit.md)
 * [QToolButton](classes/qtoolbutton.md)
 * [QTreeWidget](classes/qtreewidget.md)
 * [QTreeWidgetItem](classes/qtreewidgetitem.md)
@@ -186,12 +217,19 @@ sidebar_label: "Globals"
 ### Interfaces
 
 * [QAbstractButtonSignals](interfaces/qabstractbuttonsignals.md)
+* [QAbstractItemViewSignals](interfaces/qabstractitemviewsignals.md)
 * [QAbstractSliderSignals](interfaces/qabstractslidersignals.md)
+* [QAbstractSpinBoxSignals](interfaces/qabstractspinboxsignals.md)
 * [QActionSignals](interfaces/qactionsignals.md)
+* [QCalendarWidgetSignals](interfaces/qcalendarwidgetsignals.md)
 * [QComboBoxSignals](interfaces/qcomboboxsignals.md)
+* [QDateTimeEditSignals](interfaces/qdatetimeeditsignals.md)
+* [QDialogSignals](interfaces/qdialogsignals.md)
 * [QFileDialogSignals](interfaces/qfiledialogsignals.md)
 * [QGroupBoxSignals](interfaces/qgroupboxsignals.md)
 * [QLineEditSignals](interfaces/qlineeditsignals.md)
+* [QListWidgetSignals](interfaces/qlistwidgetsignals.md)
+* [QMessageBoxSignals](interfaces/qmessageboxsignals.md)
 * [QMovieSignals](interfaces/qmoviesignals.md)
 * [QObjectSignals](interfaces/qobjectsignals.md)
 * [QPlainTextEditSignals](interfaces/qplaintexteditsignals.md)
@@ -212,6 +250,7 @@ sidebar_label: "Globals"
 * [FlexNode](globals.md#flexnode)
 * [ImageFormats](globals.md#imageformats)
 * [NativeElement](globals.md#nativeelement)
+* [NativeRawPointer](globals.md#nativerawpointer)
 * [QAbstractScrollAreaSignals](globals.md#qabstractscrollareasignals)
 * [QBoxLayoutSignals](globals.md#qboxlayoutsignals)
 * [QCheckBoxSignals](globals.md#qcheckboxsignals)
@@ -229,6 +268,7 @@ sidebar_label: "Globals"
 
 ### Functions
 
+* [checkIfNapiExternal](globals.md#checkifnapiexternal)
 * [checkIfNativeElement](globals.md#checkifnativeelement)
 * [prepareInlineStyleSheet](globals.md#prepareinlinestylesheet)
 
@@ -242,9 +282,7 @@ ___
 
 ###  FlexNode
 
-Ƭ **FlexNode**: *object*
-
-#### Type declaration:
+Ƭ **FlexNode**: *[NativeRawPointer](globals.md#nativerawpointer)‹"YGNodeRef"›*
 
 ___
 
@@ -261,6 +299,14 @@ ___
 #### Type declaration:
 
 * \[ **key**: *string*\]: any
+
+___
+
+###  NativeRawPointer
+
+Ƭ **NativeRawPointer**: *object*
+
+#### Type declaration:
 
 ___
 
@@ -347,6 +393,20 @@ ___
 Ƭ **QVariantType**: *[NativeElement](globals.md#nativeelement) | string | number | boolean*
 
 ## Functions
+
+###  checkIfNapiExternal
+
+▸ **checkIfNapiExternal**(`arg`: any): *boolean*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`arg` | any |
+
+**Returns:** *boolean*
+
+___
 
 ###  checkIfNativeElement
 

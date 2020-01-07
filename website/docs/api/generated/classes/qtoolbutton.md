@@ -33,6 +33,7 @@ sidebar_label: "QToolButton"
 * [arrowType](qtoolbutton.md#arrowtype)
 * [autoRaise](qtoolbutton.md#autoraise)
 * [close](qtoolbutton.md#close)
+* [font](qtoolbutton.md#font)
 * [geometry](qtoolbutton.md#geometry)
 * [getFlexNode](qtoolbutton.md#getflexnode)
 * [hasMouseTracking](qtoolbutton.md#hasmousetracking)
@@ -60,6 +61,7 @@ sidebar_label: "QToolButton"
 * [setEnabled](qtoolbutton.md#setenabled)
 * [setFixedSize](qtoolbutton.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtoolbutton.md#setflexnodesizecontrolled)
+* [setFont](qtoolbutton.md#setfont)
 * [setGeometry](qtoolbutton.md#setgeometry)
 * [setIcon](qtoolbutton.md#seticon)
 * [setIconSize](qtoolbutton.md#seticonsize)
@@ -116,6 +118,19 @@ sidebar_label: "QToolButton"
 Name | Type |
 ------ | ------ |
 `parent` | [NodeWidget](nodewidget.md)‹any› |
+
+**Returns:** *[QToolButton](qtoolbutton.md)*
+
+\+ **new QToolButton**(`rawPointer`: [NativeRawPointer](../globals.md#nativerawpointer)‹any›, `disableNativeDeletion?`: undefined | false | true): *[QToolButton](qtoolbutton.md)*
+
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`rawPointer` | [NativeRawPointer](../globals.md#nativerawpointer)‹any› |
+`disableNativeDeletion?` | undefined &#124; false &#124; true |
 
 **Returns:** *[QToolButton](qtoolbutton.md)*
 
@@ -223,13 +238,13 @@ const button = new QPushButton();
 button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
 ```
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -268,6 +283,16 @@ ___
 *Inherited from [NodeWidget](nodewidget.md).[close](nodewidget.md#close)*
 
 **Returns:** *boolean*
+
+___
+
+###  font
+
+▸ **font**(): *[QFont](qfont.md)*
+
+*Inherited from [NodeWidget](nodewidget.md).[font](nodewidget.md#font)*
+
+**Returns:** *[QFont](qfont.md)*
 
 ___
 
@@ -467,13 +492,13 @@ Name | Type |
 
 ▪ **callback**: *function*
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -643,6 +668,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFont
+
+▸ **setFont**(`font`: [QFont](qfont.md)): *void*
+
+*Inherited from [NodeWidget](nodewidget.md).[setFont](nodewidget.md#setfont)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`font` | [QFont](qfont.md) |
 
 **Returns:** *void*
 
