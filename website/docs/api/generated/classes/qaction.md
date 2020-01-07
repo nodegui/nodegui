@@ -45,6 +45,7 @@ menu.addAction(menuAction);
 ### Methods
 
 * [addEventListener](qaction.md#addeventlistener)
+* [font](qaction.md#font)
 * [inherits](qaction.md#inherits)
 * [isCheckable](qaction.md#ischeckable)
 * [isChecked](qaction.md#ischecked)
@@ -182,15 +183,23 @@ const button = new QPushButton();
 button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
 ```
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
+
+___
+
+###  font
+
+▸ **font**(): *[QFont](qfont.md)*
+
+**Returns:** *[QFont](qfont.md)*
 
 ___
 
@@ -289,13 +298,13 @@ Name | Type |
 
 ▪ **callback**: *function*
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 

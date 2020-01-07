@@ -45,6 +45,7 @@ const dial = new QDial();
 * [addEventListener](qdial.md#addeventlistener)
 * [adjustSize](qdial.md#adjustsize)
 * [close](qdial.md#close)
+* [font](qdial.md#font)
 * [geometry](qdial.md#geometry)
 * [getFlexNode](qdial.md#getflexnode)
 * [hasMouseTracking](qdial.md#hasmousetracking)
@@ -71,6 +72,7 @@ const dial = new QDial();
 * [setEnabled](qdial.md#setenabled)
 * [setFixedSize](qdial.md#setfixedsize)
 * [setFlexNodeSizeControlled](qdial.md#setflexnodesizecontrolled)
+* [setFont](qdial.md#setfont)
 * [setGeometry](qdial.md#setgeometry)
 * [setInlineStyle](qdial.md#setinlinestyle)
 * [setLayout](qdial.md#setlayout)
@@ -236,13 +238,13 @@ const button = new QPushButton();
 button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
 ```
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -265,6 +267,16 @@ ___
 *Inherited from [NodeWidget](nodewidget.md).[close](nodewidget.md#close)*
 
 **Returns:** *boolean*
+
+___
+
+###  font
+
+▸ **font**(): *[QFont](qfont.md)*
+
+*Inherited from [NodeWidget](nodewidget.md).[font](nodewidget.md#font)*
+
+**Returns:** *[QFont](qfont.md)*
 
 ___
 
@@ -482,13 +494,13 @@ Name | Type |
 
 ▪ **callback**: *function*
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -616,6 +628,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFont
+
+▸ **setFont**(`font`: [QFont](qfont.md)): *void*
+
+*Inherited from [NodeWidget](nodewidget.md).[setFont](nodewidget.md#setfont)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`font` | [QFont](qfont.md) |
 
 **Returns:** *void*
 

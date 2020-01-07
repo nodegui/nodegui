@@ -6,7 +6,7 @@ sidebar_label: "QFileDialog"
 
 ## Hierarchy
 
-  ↳ [NodeWidget](nodewidget.md)‹[QFileDialogSignals](../interfaces/qfiledialogsignals.md)›
+  ↳ [NodeDialog](nodedialog.md)‹[QFileDialogSignals](../interfaces/qfiledialogsignals.md)›
 
   ↳ **QFileDialog**
 
@@ -33,13 +33,16 @@ sidebar_label: "QFileDialog"
 * [adjustSize](qfiledialog.md#adjustsize)
 * [close](qfiledialog.md#close)
 * [defaultSuffix](qfiledialog.md#defaultsuffix)
+* [exec](qfiledialog.md#exec)
 * [fileMode](qfiledialog.md#filemode)
+* [font](qfiledialog.md#font)
 * [geometry](qfiledialog.md#geometry)
 * [getFlexNode](qfiledialog.md#getflexnode)
 * [hasMouseTracking](qfiledialog.md#hasmousetracking)
 * [hide](qfiledialog.md#hide)
 * [inherits](qfiledialog.md#inherits)
 * [isEnabled](qfiledialog.md#isenabled)
+* [isSizeGripEnabled](qfiledialog.md#issizegripenabled)
 * [isVisible](qfiledialog.md#isvisible)
 * [labelText](qfiledialog.md#labeltext)
 * [lower](qfiledialog.md#lower)
@@ -50,9 +53,11 @@ sidebar_label: "QFileDialog"
 * [pos](qfiledialog.md#pos)
 * [property](qfiledialog.md#property)
 * [raise](qfiledialog.md#raise)
+* [reject](qfiledialog.md#reject)
 * [removeEventListener](qfiledialog.md#removeeventlistener)
 * [repaint](qfiledialog.md#repaint)
 * [resize](qfiledialog.md#resize)
+* [result](qfiledialog.md#result)
 * [setAcceptMode](qfiledialog.md#setacceptmode)
 * [setAttribute](qfiledialog.md#setattribute)
 * [setContextMenuPolicy](qfiledialog.md#setcontextmenupolicy)
@@ -62,18 +67,22 @@ sidebar_label: "QFileDialog"
 * [setFileMode](qfiledialog.md#setfilemode)
 * [setFixedSize](qfiledialog.md#setfixedsize)
 * [setFlexNodeSizeControlled](qfiledialog.md#setflexnodesizecontrolled)
+* [setFont](qfiledialog.md#setfont)
 * [setGeometry](qfiledialog.md#setgeometry)
 * [setInlineStyle](qfiledialog.md#setinlinestyle)
 * [setLabelText](qfiledialog.md#setlabeltext)
 * [setLayout](qfiledialog.md#setlayout)
 * [setMaximumSize](qfiledialog.md#setmaximumsize)
 * [setMinimumSize](qfiledialog.md#setminimumsize)
+* [setModal](qfiledialog.md#setmodal)
 * [setMouseTracking](qfiledialog.md#setmousetracking)
 * [setNodeParent](qfiledialog.md#setnodeparent)
 * [setObjectName](qfiledialog.md#setobjectname)
 * [setOption](qfiledialog.md#setoption)
 * [setOptions](qfiledialog.md#setoptions)
 * [setProperty](qfiledialog.md#setproperty)
+* [setResult](qfiledialog.md#setresult)
+* [setSizeGripEnabled](qfiledialog.md#setsizegripenabled)
 * [setStyleSheet](qfiledialog.md#setstylesheet)
 * [setSupportedSchemes](qfiledialog.md#setsupportedschemes)
 * [setWindowFlag](qfiledialog.md#setwindowflag)
@@ -234,13 +243,13 @@ const button = new QPushButton();
 button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
 ```
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -274,11 +283,31 @@ ___
 
 ___
 
+###  exec
+
+▸ **exec**(): *number*
+
+*Inherited from [NodeDialog](nodedialog.md).[exec](nodedialog.md#exec)*
+
+**Returns:** *number*
+
+___
+
 ###  fileMode
 
 ▸ **fileMode**(): *[FileMode](../enums/filemode.md)*
 
 **Returns:** *[FileMode](../enums/filemode.md)*
+
+___
+
+###  font
+
+▸ **font**(): *[QFont](qfont.md)*
+
+*Inherited from [NodeWidget](nodewidget.md).[font](nodewidget.md#font)*
+
+**Returns:** *[QFont](qfont.md)*
 
 ___
 
@@ -343,6 +372,16 @@ ___
 ▸ **isEnabled**(): *boolean*
 
 *Inherited from [NodeWidget](nodewidget.md).[isEnabled](nodewidget.md#isenabled)*
+
+**Returns:** *boolean*
+
+___
+
+###  isSizeGripEnabled
+
+▸ **isSizeGripEnabled**(): *boolean*
+
+*Inherited from [NodeDialog](nodedialog.md).[isSizeGripEnabled](nodedialog.md#issizegripenabled)*
 
 **Returns:** *boolean*
 
@@ -413,6 +452,8 @@ ___
 
 ▸ **open**(): *void*
 
+*Inherited from [NodeDialog](nodedialog.md).[open](nodedialog.md#open)*
+
 **Returns:** *void*
 
 ___
@@ -461,6 +502,16 @@ ___
 
 ___
 
+###  reject
+
+▸ **reject**(): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[reject](nodedialog.md#reject)*
+
+**Returns:** *void*
+
+___
+
 ###  removeEventListener
 
 ▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
@@ -490,13 +541,13 @@ Name | Type |
 
 ▪ **callback**: *function*
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -526,6 +577,16 @@ Name | Type |
 `height` | number |
 
 **Returns:** *void*
+
+___
+
+###  result
+
+▸ **result**(): *number*
+
+*Inherited from [NodeDialog](nodedialog.md).[result](nodedialog.md#result)*
+
+**Returns:** *number*
 
 ___
 
@@ -671,6 +732,22 @@ Name | Type | Description |
 
 ___
 
+###  setFont
+
+▸ **setFont**(`font`: [QFont](qfont.md)): *void*
+
+*Inherited from [NodeWidget](nodewidget.md).[setFont](nodewidget.md#setfont)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`font` | [QFont](qfont.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setGeometry
 
 ▸ **setGeometry**(`x`: number, `y`: number, `w`: number, `h`: number): *void*
@@ -771,6 +848,22 @@ Name | Type |
 
 ___
 
+###  setModal
+
+▸ **setModal**(`modal`: boolean): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setModal](nodedialog.md#setmodal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`modal` | boolean |
+
+**Returns:** *void*
+
+___
+
 ###  setMouseTracking
 
 ▸ **setMouseTracking**(`isMouseTracked`: boolean): *void*
@@ -864,6 +957,38 @@ Name | Type |
 `value` | [QVariantType](../globals.md#qvarianttype) |
 
 **Returns:** *boolean*
+
+___
+
+###  setResult
+
+▸ **setResult**(`i`: number): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setResult](nodedialog.md#setresult)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`i` | number |
+
+**Returns:** *void*
+
+___
+
+###  setSizeGripEnabled
+
+▸ **setSizeGripEnabled**(`enabled`: boolean): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setSizeGripEnabled](nodedialog.md#setsizegripenabled)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enabled` | boolean |
+
+**Returns:** *void*
 
 ___
 

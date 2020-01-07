@@ -6,7 +6,7 @@ sidebar_label: "QFileDialogSignals"
 
 ## Hierarchy
 
-  ↳ [QWidgetSignals](qwidgetsignals.md)
+  ↳ [QDialogSignals](qdialogsignals.md)
 
   ↳ **QFileDialogSignals**
 
@@ -14,6 +14,7 @@ sidebar_label: "QFileDialogSignals"
 
 ### Properties
 
+* [accepted](qfiledialogsignals.md#accepted)
 * [currentChanged](qfiledialogsignals.md#currentchanged)
 * [currentUrlChanged](qfiledialogsignals.md#currenturlchanged)
 * [customContextMenuRequested](qfiledialogsignals.md#customcontextmenurequested)
@@ -22,13 +23,27 @@ sidebar_label: "QFileDialogSignals"
 * [fileSelected](qfiledialogsignals.md#fileselected)
 * [filesSelected](qfiledialogsignals.md#filesselected)
 * [filterSelected](qfiledialogsignals.md#filterselected)
+* [finished](qfiledialogsignals.md#finished)
 * [objectNameChanged](qfiledialogsignals.md#objectnamechanged)
+* [rejected](qfiledialogsignals.md#rejected)
 * [urlSelected](qfiledialogsignals.md#urlselected)
 * [urlsSelected](qfiledialogsignals.md#urlsselected)
 * [windowIconChanged](qfiledialogsignals.md#windowiconchanged)
 * [windowTitleChanged](qfiledialogsignals.md#windowtitlechanged)
 
 ## Properties
+
+###  accepted
+
+• **accepted**: *function*
+
+*Inherited from [QDialogSignals](qdialogsignals.md).[accepted](qdialogsignals.md#accepted)*
+
+#### Type declaration:
+
+▸ (): *void*
+
+___
 
 ###  currentChanged
 
@@ -160,6 +175,24 @@ Name | Type |
 
 ___
 
+###  finished
+
+• **finished**: *function*
+
+*Inherited from [QDialogSignals](qdialogsignals.md).[finished](qdialogsignals.md#finished)*
+
+#### Type declaration:
+
+▸ (`result`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`result` | number |
+
+___
+
 ###  objectNameChanged
 
 • **objectNameChanged**: *function*
@@ -175,6 +208,18 @@ ___
 Name | Type |
 ------ | ------ |
 `objectName` | string |
+
+___
+
+###  rejected
+
+• **rejected**: *function*
+
+*Inherited from [QDialogSignals](qdialogsignals.md).[rejected](qdialogsignals.md#rejected)*
+
+#### Type declaration:
+
+▸ (): *void*
 
 ___
 

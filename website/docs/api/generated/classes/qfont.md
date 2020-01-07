@@ -50,7 +50,7 @@ sidebar_label: "QFont"
 
 **Returns:** *[QFont](qfont.md)*
 
-\+ **new QFont**(`font?`: [QFont](qfont.md)): *[QFont](qfont.md)*
+\+ **new QFont**(`font`: [QFont](qfont.md)): *[QFont](qfont.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -58,11 +58,11 @@ sidebar_label: "QFont"
 
 Name | Type |
 ------ | ------ |
-`font?` | [QFont](qfont.md) |
+`font` | [QFont](qfont.md) |
 
 **Returns:** *[QFont](qfont.md)*
 
-\+ **new QFont**(`family?`: undefined | string, `pointSize?`: undefined | number, `weight?`: undefined | number, `italic?`: undefined | false | true): *[QFont](qfont.md)*
+\+ **new QFont**(`native`: [NativeElement](../globals.md#nativeelement)): *[QFont](qfont.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -70,9 +70,21 @@ Name | Type |
 
 Name | Type |
 ------ | ------ |
-`family?` | undefined &#124; string |
+`native` | [NativeElement](../globals.md#nativeelement) |
+
+**Returns:** *[QFont](qfont.md)*
+
+\+ **new QFont**(`family`: string, `pointSize?`: undefined | number, `weight?`: [QFontWeight](../enums/qfontweight.md), `italic?`: undefined | false | true): *[QFont](qfont.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`family` | string |
 `pointSize?` | undefined &#124; number |
-`weight?` | undefined &#124; number |
+`weight?` | [QFontWeight](../enums/qfontweight.md) |
 `italic?` | undefined &#124; false &#124; true |
 
 **Returns:** *[QFont](qfont.md)*

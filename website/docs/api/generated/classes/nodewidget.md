@@ -52,9 +52,13 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
   ↳ [QAbstractButton](qabstractbutton.md)
 
+  ↳ [QAbstractSpinBox](qabstractspinbox.md)
+
+  ↳ [QCalendarWidget](qcalendarwidget.md)
+
   ↳ [QLabel](qlabel.md)
 
-  ↳ [QFileDialog](qfiledialog.md)
+  ↳ [NodeDialog](nodedialog.md)
 
   ↳ [QLineEdit](qlineedit.md)
 
@@ -97,6 +101,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 * [addEventListener](nodewidget.md#addeventlistener)
 * [adjustSize](nodewidget.md#adjustsize)
 * [close](nodewidget.md#close)
+* [font](nodewidget.md#font)
 * [geometry](nodewidget.md#geometry)
 * [getFlexNode](nodewidget.md#getflexnode)
 * [hasMouseTracking](nodewidget.md#hasmousetracking)
@@ -119,6 +124,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 * [setEnabled](nodewidget.md#setenabled)
 * [setFixedSize](nodewidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](nodewidget.md#setflexnodesizecontrolled)
+* [setFont](nodewidget.md#setfont)
 * [setGeometry](nodewidget.md#setgeometry)
 * [setInlineStyle](nodewidget.md#setinlinestyle)
 * [setLayout](nodewidget.md#setlayout)
@@ -262,13 +268,13 @@ const button = new QPushButton();
 button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
 ```
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -287,6 +293,14 @@ ___
 ▸ **close**(): *boolean*
 
 **Returns:** *boolean*
+
+___
+
+###  font
+
+▸ **font**(): *[QFont](qfont.md)*
+
+**Returns:** *[QFont](qfont.md)*
 
 ___
 
@@ -450,13 +464,13 @@ Name | Type |
 
 ▪ **callback**: *function*
 
-▸ (`event?`: [NativeElement](../globals.md#nativeelement)): *void*
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event?` | [NativeElement](../globals.md#nativeelement) |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
 
@@ -570,6 +584,20 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFont
+
+▸ **setFont**(`font`: [QFont](qfont.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`font` | [QFont](qfont.md) |
 
 **Returns:** *void*
 
