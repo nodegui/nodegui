@@ -25,9 +25,11 @@ export class QButtonGroup extends NodeObject<any> {
     }
     addButton(button: QAbstractButton<QAbstractButtonSignals>, id = -1): void {
         this.native.addButton(button.native, id);
+        this.nodeChildren.add(button);
     }
     removeButton(button: QAbstractButton<QAbstractButtonSignals>): void {
         this.native.removeButton(button.native);
+        this.nodeChildren.delete(button);
     }
     setExclusive(exculsive: boolean): void {
         this.native.setProperty('exclusive', exculsive);
