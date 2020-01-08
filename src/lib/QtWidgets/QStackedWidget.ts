@@ -2,6 +2,20 @@ import addon from '../utils/addon';
 import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 
+/**
+ 
+> Create and control stacked widgets where only one is visible at a time.
+
+* **This class is a JS wrapper around Qt's [QStackedWidget class](https://doc.qt.io/qt-5/qstackedwidget.html)**
+
+### Example
+
+```javascript
+const { QStackedWidget } = require("@nodegui/nodegui");
+
+// someone should put a sample code here
+```
+ */
 export interface QStackedWidgetSignals extends QWidgetSignals {
     currentChanged: (index: number) => void;
 }

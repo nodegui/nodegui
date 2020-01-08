@@ -5,11 +5,6 @@ import { QIcon } from '../QtGui/QIcon';
 import { QMenu } from './QMenu';
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 
-export interface QSystemTrayIconSignals extends QObjectSignals {
-    activated: (reason: QSystemTrayIconActivationReason) => void;
-    messageClicked: () => void;
-}
-
 /**
  
 > Create and control system tray icon.
@@ -32,6 +27,11 @@ tray.show();
 global.tray = tray; // prevents garbage collection of tray
 ```
  */
+export interface QSystemTrayIconSignals extends QObjectSignals {
+    activated: (reason: QSystemTrayIconActivationReason) => void;
+    messageClicked: () => void;
+}
+
 export class QSystemTrayIcon extends NodeObject<QSystemTrayIconSignals> {
     native: NativeElement;
     contextMenu?: QMenu;

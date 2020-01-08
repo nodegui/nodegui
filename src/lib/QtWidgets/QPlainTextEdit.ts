@@ -15,11 +15,6 @@ export interface QPlainTextEditSignals extends QAbstractScrollAreaSignals {
     undoAvailable: (available: boolean) => void;
 }
 
-export enum LineWrapMode {
-    NoWrap,
-    WidgetWidth,
-}
-
 /**
  
 > Used to edit and display plain text.
@@ -36,6 +31,11 @@ const { QPlainTextEdit } = require("@nodegui/nodegui");
 const plainTextEdit = new QPlainTextEdit();
 ```
  */
+export enum LineWrapMode {
+    NoWrap,
+    WidgetWidth,
+}
+
 export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
     native: NativeElement;
     placeholderText?: string;

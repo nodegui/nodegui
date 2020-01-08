@@ -4,6 +4,22 @@ import { NativeElement } from '../core/Component';
 import { AcceptMode, DialogLabel, FileMode, Option, ViewMode } from '../QtEnums';
 import { NodeDialog, QDialogSignals } from './QDialog';
 
+/**
+ 
+> Create and control file dialogs.
+
+* **This class is a JS wrapper around Qt's [QFileDialog class](https://doc.qt.io/qt-5/qfiledialog.html)**
+
+A `QFileDialog` class provides a dialog that allow users to select files or directories.
+
+### Example
+
+```javascript
+const { QFileDialog } = require("@nodegui/nodegui");
+
+// someone should put a sample code here
+```
+ */
 export interface QFileDialogSignals extends QDialogSignals {
     currentChanged: (path: string) => void;
     currentUrlChanged: (url: string) => void;

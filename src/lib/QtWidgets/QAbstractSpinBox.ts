@@ -1,6 +1,16 @@
 import { NodeWidget, QWidgetSignals } from './QWidget';
 import { AlignmentFlag } from '../QtEnums';
 
+/**
+ 
+> This is the abstract base class of button widgets, providing their functionality.
+
+* **This class is a JS wrapper around Qt's [QAbstractSpinBox class](https://doc.qt.io/qt-5/qabstractspinbox.html)**
+
+The QAbstractSpinBox class is an abstract class and therefore, technically, no further instances actually have to be created.
+It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
+
+ */
 export enum ButtonSymbols {
     UpDownArrows,
     PlusMinus,

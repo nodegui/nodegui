@@ -3,6 +3,21 @@ import { Component, NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QTreeWidget } from './QTreeWidget';
 
+/**
+ 
+> Creates an item for QTreeWidget.
+
+* **This class is a JS wrapper around Qt's [QTreeWidgetItem class](https://doc.qt.io/qt-5/qtreewidgetitem.html)**
+
+### Example
+
+```javascript
+// This example creates two tabs, each holding a separate calendar.
+const { QTreeWidget, QTreeWidgetItem } = require("@nodegui/nodegui");
+
+// someone should put a sample code here
+```
+ */
 export class QTreeWidgetItem extends Component {
     native: NativeElement;
     constructor();

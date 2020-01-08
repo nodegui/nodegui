@@ -3,8 +3,6 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 
-export type QScrollAreaSignals = QAbstractScrollAreaSignals;
-
 /**
  
 > A `QScrollArea` provides a scrolling view onto another widget.
@@ -28,6 +26,8 @@ imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 ```
  */
+export type QScrollAreaSignals = QAbstractScrollAreaSignals;
+
 export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     native: NativeElement;
     contentWidget?: NodeWidget<any> | null;

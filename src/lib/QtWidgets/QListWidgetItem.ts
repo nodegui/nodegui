@@ -7,6 +7,31 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { CheckState } from '../QtEnums';
 import { ItemFlag } from '../QtEnums/ItemFlag';
 
+/**
+ 
+> Creates an item for QListWidget.
+
+* **This class is a JS wrapper around Qt's [QListWidgetItem class](https://doc.qt.io/qt-5/qlistwidgetitem.html)**
+
+### Example
+
+```javascript
+const { QListWidget, QListWidgetItem } = require("@nodegui/nodegui");
+
+const listWidget = new QListWidget();
+
+for (let i = 0; i < 30; i++) {
+  let listWidgetItem = new QListWidgetItem();
+  listWidgetItem.setText('listWidgetItem ' + i);
+  if (i===3) {
+    listWidgetItem.setCheckState(2);
+  } else {
+    listWidgetItem.setCheckState(0);
+  }
+  listWidget.addItem(listWidgetItem);
+}
+```
+ */
 type arg = string | NativeElement;
 export class QListWidgetItem extends Component {
     native: NativeElement;

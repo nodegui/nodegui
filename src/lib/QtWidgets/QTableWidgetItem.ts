@@ -2,6 +2,21 @@ import addon from '../utils/addon';
 import { NativeElement, Component } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums';
 
+/**
+ 
+> Creates an item for QTableWidget.
+
+* **This class is a JS wrapper around Qt's [QTableWidgetItem class](https://doc.qt.io/qt-5/qtablewidgetitem.html)**
+
+### Example
+
+```javascript
+// This example creates two tabs, each holding a separate calendar.
+const { QTableWidget, QTableWidgetItem } = require("@nodegui/nodegui");
+
+// someone should put a sample code here
+```
+ */
 export class QTableWidgetItem extends Component {
     native: NativeElement;
     constructor();

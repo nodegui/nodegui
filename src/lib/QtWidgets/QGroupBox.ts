@@ -3,6 +3,22 @@ import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 
+/**
+ 
+> Create and control a group of checkboxes including a title.
+
+* **This class is a JS wrapper around Qt's [QGroupBox class](https://doc.qt.io/qt-5/qgroupbox.html)**
+
+A `QGroupBox` widget provides a group box frame with a title.
+
+### Example
+
+```javascript
+const { QGroupBox } = require("@nodegui/nodegui");
+
+// someone should put a sample code here
+```
+ */
 export interface QGroupBoxSignals extends QWidgetSignals {
     clicked: (checked: boolean) => void;
     toggled: (on: boolean) => void;

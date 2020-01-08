@@ -5,11 +5,6 @@ import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 
-export interface QShortcutSignals extends QObjectSignals {
-    activated: () => void;
-    activatedAmbiguously: () => void;
-}
-
 /**
  
 > The QShortcut class is used to create keyboard shortcuts.
@@ -34,6 +29,11 @@ global.win = win;
 global.shortcut = shortcut;
 ```
  */
+export interface QShortcutSignals extends QObjectSignals {
+    activated: () => void;
+    activatedAmbiguously: () => void;
+}
+
 export class QShortcut extends NodeObject<QShortcutSignals> {
     native: NativeElement;
     constructor(parent: NodeWidget<any>) {

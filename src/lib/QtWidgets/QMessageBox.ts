@@ -5,6 +5,20 @@ import { NodeDialog, QDialogSignals } from './QDialog';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { QPushButton } from './QPushButton';
 
+/**
+ 
+> Create and control classic modal dialogs.
+
+* **This class is a JS wrapper around Qt's [QMessageBox class](https://doc.qt.io/qt-5/qmessagebox.html)**
+
+### Example
+
+```javascript
+const { QMessageBox } = require("@nodegui/nodegui");
+
+// someone should put a sample code here
+```
+ */
 export interface QMessageBoxSignals extends QDialogSignals {
     buttonClicked: (buttonRawPointer: NativeRawPointer<'QAbstractButton*'>) => void;
 }

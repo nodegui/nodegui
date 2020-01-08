@@ -5,6 +5,21 @@ import { ScrollHint, SortOrder } from '../QtEnums';
 import { QTableWidgetItem } from './QTableWidgetItem';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 
+/**
+ 
+> Creates and item-based table view.
+
+* **This class is a JS wrapper around Qt's [QTableWidget class](https://doc.qt.io/qt-5/qtablewidget.html)**
+
+### Example
+
+```javascript
+// This example creates two tabs, each holding a separate calendar.
+const { QTableWidget, QTableWidgetItem } = require("@nodegui/nodegui");
+
+// someone should put a sample code here
+```
+ */
 export interface QTableWidgetSignals extends QAbstractScrollAreaSignals {
     cellActivated: (row: number, col: number) => void;
     cellChanged: (row: number, col: number) => void;

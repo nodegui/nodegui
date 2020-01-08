@@ -4,6 +4,20 @@ import { PenStyle } from '../QtEnums';
 import { QColor } from '../QtGui/QColor';
 import { QPoint } from '../QtCore/QPoint';
 
+/**
+ 
+> Lets you paint on widgets.
+
+* **This class is a JS wrapper around Qt's [QPainter class](https://doc.qt.io/qt-5/qpainter.html)**
+
+### Example
+
+```javascript
+const { QPainter } = require("@nodegui/nodegui");
+
+// someone should put a sample code here
+```
+ */
 export enum RenderHint {
     Antialiasing = 0x01,
     TextAntialiasing = 0x02,

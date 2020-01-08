@@ -4,8 +4,6 @@ import { NodeWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 
-export type QMenuBarSignals = QWidgetSignals;
-
 /**
  
 > The QMenuBar class provides a menu widget for use in menu bars, context menus, and other popup menus.
@@ -24,6 +22,8 @@ win.show();
 global.win = win;
 ```
  */
+export type QMenuBarSignals = QWidgetSignals;
+
 export class QMenuBar extends NodeWidget<QMenuBarSignals> {
     native: NativeElement;
     constructor();

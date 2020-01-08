@@ -4,6 +4,23 @@ import { NativeElement } from '../core/Component';
 import { QDate } from '../QtCore/QDate';
 import { DayOfWeek } from '../QtEnums';
 
+/**
+ 
+> Create and control a selectable monthly calendar.
+
+* **This class is a JS wrapper around Qt's [QCalendarWidget class](https://doc.qt.io/qt-5/qcalendarwidget.html)**
+
+A `QCalendarWidget` provides a monthly based calendar widget allowing the user to select a date.
+
+### Example
+
+```javascript
+const { QCalendarWidget } = require("@nodegui/nodegui");
+
+const calendarWidget = new QCalendarWidget();
+// more will follow when .selectedDate() et cetera are implemented
+```
+ */
 export enum HorizontalHeaderFormat {
     NoHorizontalHeader,
     SingleLetterDayNames,

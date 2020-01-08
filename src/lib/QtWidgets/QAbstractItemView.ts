@@ -5,6 +5,16 @@ import { QSize } from '../QtCore/QSize';
 import { DropAction } from '../QtEnums/DropAction';
 import { TextElideMode } from '../QtEnums/TextElideMode';
 
+/**
+ 
+> This is the abstract base class of button widgets, providing their functionality.
+
+* **This class is a JS wrapper around Qt's [QAbstractItemView class](https://doc.qt.io/qt-5/qabstractitemview.html)**
+
+The QAbstractItemView class is an abstract class and therefore, technically, no further instances actually have to be created.
+It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTableView, and QTreeView)
+
+*/
 export enum DragDropMode {
     NoDragDrop,
     DragOnly,

@@ -4,6 +4,27 @@ import { NodeLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { Direction } from '../QtEnums';
 
+/**
+ 
+> Lines up child widgets horizontally or vertically.
+
+* **This class is a JS wrapper around Qt's [QBoxLayout class](https://doc.qt.io/qt-5/qboxlayout.html)**
+
+### Example
+
+```javascript
+// This example arranges two calendars horizontally.
+
+const { QBoxLayout, QCalendarWidget } = require("@nodegui/nodegui");
+
+const centralWidget = new QWidget();
+const boxLayout = new QBoxLayout(0);
+
+boxLayout.addWidget(new QCalendarWidget());
+boxLayout.addWidget(new QCalendarWidget());
+centralWidget.setLayout(boxLayout);
+```
+ */
 export type QBoxLayoutSignals = QLayoutSignals;
 export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     native: NativeElement;
