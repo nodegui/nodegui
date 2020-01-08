@@ -16,7 +16,7 @@ A 'QTabWidget' provides a tab bar and a "page area" that is used to display page
 
 ```javascript
 // This example creates two tabs, each holding a separate calendar.
-const { QTabWidget, QCalendarWidget } = require("@nodegui/nodegui");
+const { QTabWidget, QCalendarWidget, QIcon } = require("@nodegui/nodegui");
 
 const tabWidget = new QTabWidget();
 
