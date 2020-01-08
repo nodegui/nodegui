@@ -14,6 +14,7 @@ function(AddCommonConfig addonName)
     if (WIN32) 
         target_compile_definitions(${addonName} PRIVATE
             ENUM_BITFIELDS_NOT_SUPPORTED
+            NAPI_VERSION=${napi_build_version}
         )
     endif()
 endfunction(AddCommonConfig addonName)
