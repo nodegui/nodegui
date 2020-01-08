@@ -8,7 +8,7 @@ import { QTreeWidgetItem } from './QTreeWidgetItem';
  
 > Creates a tree view that uses a predefined tree model. 
 
-* **This class is a JS wrapper around Qt's [QTableWidget class](https://doc.qt.io/qt-5/qtreewidget.html)**
+* **This class is a JS wrapper around Qt's [QTreeWidget class](https://doc.qt.io/qt-5/qtreewidget.html)**
 
 ### Example
 
