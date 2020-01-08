@@ -14,7 +14,6 @@ import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScro
 ### Example
 
 ```javascript
-// This example creates two tabs, each holding a separate calendar.
 const { QTableWidget, QTableWidgetItem } = require("@nodegui/nodegui");
 
 // someone should put a sample code here
