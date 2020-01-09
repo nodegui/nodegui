@@ -14,7 +14,7 @@ A `QGroupBox` widget provides a group box frame with a title.
 ### Example
 
 ```javascript
-import { FlexLayout, QGroupBox, QRadioButton, QMainWindow } from './index';
+import { FlexLayout, QGroupBox, QRadioButton, QMainWindow } from '@nodegui/nodegui';
 
 const win = new QMainWindow();
 

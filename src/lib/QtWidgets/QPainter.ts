@@ -10,12 +10,28 @@ import { QPoint } from '../QtCore/QPoint';
 
 * **This class is a JS wrapper around Qt's [QPainter class](https://doc.qt.io/qt-5/qpainter.html)**
 
+Note: QPainter works only inside the paint event.
+
 ### Example
 
 ```javascript
-const { QPainter } = require("@nodegui/nodegui");
 
-// someone should put a sample code here
+import { FlexLayout, WidgetEventTypes, QMainWindow, QPainter, QWidget } from '@nodegui/nodegui';
+
+const win = new QMainWindow();
+const center = new QWidget();
+const layout = new FlexLayout();
+center.setLayout(layout);
+win.resize(200, 200);
+
+win.addEventListener(WidgetEventTypes.Paint, () => {
+    const painter = new QPainter(win);
+    painter.drawText(20, 20, 'Hello');
+    painter.end();
+});
+win.show();
+(global as any).win = win;
+
 ```
  */
 

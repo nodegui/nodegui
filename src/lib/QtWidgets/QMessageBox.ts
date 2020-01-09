@@ -27,9 +27,16 @@ export enum ButtonRole {
 ### Example
 
 ```javascript
-const { QMessageBox } = require("@nodegui/nodegui");
 
-// someone should put a sample code here
+import { QMessageBox, ButtonRole, QPushButton } from '@nodegui/nodegui';
+
+const messageBox = new QMessageBox();
+messageBox.setText('Alert! This is a message');
+const accept = new QPushButton();
+accept.setText('Accept');
+messageBox.addButton(accept, ButtonRole.AcceptRole);
+messageBox.exec();
+
 ```
  */
 export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
