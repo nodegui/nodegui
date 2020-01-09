@@ -20,18 +20,6 @@ const { QFileDialog } = require("@nodegui/nodegui");
 // someone should put a sample code here
 ```
  */
-export interface QFileDialogSignals extends QDialogSignals {
-    currentChanged: (path: string) => void;
-    currentUrlChanged: (url: string) => void;
-    directoryEntered: (directory: string) => void;
-    directoryUrlEntered: (url: string) => void;
-    fileSelected: (file: string) => void;
-    filesSelected: (selected: string[]) => void;
-    filterSelected: (filter: string) => void;
-    urlSelected: (url: string) => void;
-    urlsSelected: (urls: string[]) => void;
-}
-
 export class QFileDialog extends NodeDialog<QFileDialogSignals> {
     native: NativeElement;
     constructor();
@@ -89,4 +77,16 @@ export class QFileDialog extends NodeDialog<QFileDialogSignals> {
     setOptions(options: Option): void {
         this.setProperty('options', options);
     }
+}
+
+export interface QFileDialogSignals extends QDialogSignals {
+    currentChanged: (path: string) => void;
+    currentUrlChanged: (url: string) => void;
+    directoryEntered: (directory: string) => void;
+    directoryUrlEntered: (url: string) => void;
+    fileSelected: (file: string) => void;
+    filesSelected: (selected: string[]) => void;
+    filterSelected: (filter: string) => void;
+    urlSelected: (url: string) => void;
+    urlsSelected: (urls: string[]) => void;
 }

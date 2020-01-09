@@ -19,20 +19,6 @@ const { QTableWidget, QTableWidgetItem } = require("@nodegui/nodegui");
 // someone should put a sample code here
 ```
  */
-export interface QTableWidgetSignals extends QAbstractScrollAreaSignals {
-    cellActivated: (row: number, col: number) => void;
-    cellChanged: (row: number, col: number) => void;
-    cellClicked: (row: number, col: number) => void;
-    cellDoubleClicked: (row: number, col: number) => void;
-    cellEntered: (row: number, col: number) => void;
-    cellPressed: (row: number, col: number) => void;
-    currentCellChanged: (
-        currentRow: number,
-        currentColumn: number,
-        previousRow: number,
-        previousColumn: number,
-    ) => void;
-}
 
 export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     native: NativeElement;
@@ -166,4 +152,19 @@ interface Range {
     leftColumn: number;
     columnCount: number;
     rowCount: number;
+}
+
+export interface QTableWidgetSignals extends QAbstractScrollAreaSignals {
+    cellActivated: (row: number, col: number) => void;
+    cellChanged: (row: number, col: number) => void;
+    cellClicked: (row: number, col: number) => void;
+    cellDoubleClicked: (row: number, col: number) => void;
+    cellEntered: (row: number, col: number) => void;
+    cellPressed: (row: number, col: number) => void;
+    currentCellChanged: (
+        currentRow: number,
+        currentColumn: number,
+        previousRow: number,
+        previousColumn: number,
+    ) => void;
 }

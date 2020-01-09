@@ -21,7 +21,6 @@ const button = new QPushButton();
 button.setText("Hello");
 ```
  */
-export type QPushButtonSignals = QAbstractButtonSignals;
 
 export class QPushButton extends QAbstractButton<QPushButtonSignals> {
     native: NativeElement;
@@ -51,3 +50,5 @@ export class QPushButton extends QAbstractButton<QPushButtonSignals> {
         this.native.setFlat(isFlat);
     }
 }
+
+export type QPushButtonSignals = QAbstractButtonSignals;

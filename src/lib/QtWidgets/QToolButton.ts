@@ -24,15 +24,6 @@ const { QToolButton } = require("@nodegui/nodegui");
 // someone should put a sample code here
 ```
  */
-export enum ToolButtonPopupMode {
-    DelayedPopup,
-    MenuButtonPopup,
-    InstantPopup,
-}
-
-export interface QToolButtonSignals extends QAbstractButtonSignals {
-    triggered: (nativeAction: NativeElement) => void;
-}
 export class QToolButton extends QAbstractButton<QToolButtonSignals> {
     native: NativeElement;
     constructor();
@@ -88,4 +79,14 @@ export class QToolButton extends QAbstractButton<QToolButtonSignals> {
     showMenu(): void {
         this.native.showMenu();
     }
+}
+
+export enum ToolButtonPopupMode {
+    DelayedPopup,
+    MenuButtonPopup,
+    InstantPopup,
+}
+
+export interface QToolButtonSignals extends QAbstractButtonSignals {
+    triggered: (nativeAction: NativeElement) => void;
 }

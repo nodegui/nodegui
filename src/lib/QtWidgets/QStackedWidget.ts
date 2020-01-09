@@ -16,9 +16,6 @@ const { QStackedWidget } = require("@nodegui/nodegui");
 // someone should put a sample code here
 ```
  */
-export interface QStackedWidgetSignals extends QWidgetSignals {
-    currentChanged: (index: number) => void;
-}
 
 export class QStackedWidget extends NodeWidget<QStackedWidgetSignals> {
     native: NativeElement;
@@ -58,4 +55,8 @@ export class QStackedWidget extends NodeWidget<QStackedWidgetSignals> {
     setCurrentWidget(widget: NodeWidget<any>): void {
         this.native.setCurrentWidget(widget.native);
     }
+}
+
+export interface QStackedWidgetSignals extends QWidgetSignals {
+    currentChanged: (index: number) => void;
 }

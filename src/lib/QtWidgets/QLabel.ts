@@ -24,7 +24,6 @@ label.setText("Hello");
 ```
 
  */
-export type QLabelSignals = QWidgetSignals;
 
 export class QLabel extends NodeWidget<QLabelSignals> {
     native: NativeElement;
@@ -103,3 +102,5 @@ export class QLabel extends NodeWidget<QLabelSignals> {
         this.native.clear();
     }
 }
+
+export type QLabelSignals = QWidgetSignals;

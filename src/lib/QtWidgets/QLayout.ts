@@ -32,7 +32,6 @@ addChildToLayout(new FlexLayout(), new QPushButton());
 addChildToLayout(new GridLayout(), new QWidget());
 ```
  */
-export type QLayoutSignals = QObjectSignals;
 
 export abstract class NodeLayout<Signals extends QLayoutSignals> extends NodeObject<Signals> {
     type = 'layout';
@@ -52,3 +51,5 @@ export abstract class NodeLayout<Signals extends QLayoutSignals> extends NodeObj
 // export class QLayout extends NodeLayout { //Dont need QLayout for now
 //   native: any;
 // }
+
+export type QLayoutSignals = QObjectSignals;

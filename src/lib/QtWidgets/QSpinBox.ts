@@ -18,9 +18,6 @@ const { QSpinBox } = require("@nodegui/nodegui");
 const spinBox = new QSpinBox();
 ```
  */
-export interface QSpinBoxSignals extends QWidgetSignals {
-    valueChanged: (value: number) => void;
-}
 
 export class QSpinBox extends NodeWidget<QSpinBoxSignals> {
     native: NativeElement;
@@ -73,4 +70,8 @@ export class QSpinBox extends NodeWidget<QSpinBoxSignals> {
         // react:✓
         return this.native.value();
     }
+}
+
+export interface QSpinBoxSignals extends QWidgetSignals {
+    valueChanged: (value: number) => void;
 }

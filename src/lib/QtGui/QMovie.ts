@@ -5,15 +5,6 @@ import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { QSize } from '../QtCore/QSize';
 import { QPixmap } from './QPixmap';
 
-export interface QMovieSignals extends QObjectSignals {
-    error: (error: ImageReaderError) => void;
-    finished: () => void;
-    frameChanged: (frameNumber?: number) => void;
-    resized: (qSizeNative?: NativeElement) => void;
-    started: () => void;
-    stateChanged: (state: MovieState) => void;
-    updated: (qRectNative: NativeElement) => void;
-}
 export class QMovie extends NodeObject<QMovieSignals> {
     native: NativeElement;
     constructor();
@@ -105,3 +96,13 @@ export enum ImageReaderError {
 }
 
 type SupportedFormats = 'gif' | 'webp';
+
+export interface QMovieSignals extends QObjectSignals {
+    error: (error: ImageReaderError) => void;
+    finished: () => void;
+    frameChanged: (frameNumber?: number) => void;
+    resized: (qSizeNative?: NativeElement) => void;
+    started: () => void;
+    stateChanged: (state: MovieState) => void;
+    updated: (qRectNative: NativeElement) => void;
+}

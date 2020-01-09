@@ -32,7 +32,6 @@ for (let i = 0; i < 30; i++) {
 }
 ```
  */
-type arg = string | NativeElement;
 export class QListWidgetItem extends Component {
     native: NativeElement;
     constructor(arg?: arg) {
@@ -117,3 +116,5 @@ export class QListWidgetItem extends Component {
         return this.native.whatsThis();
     }
 }
+
+type arg = string | NativeElement;

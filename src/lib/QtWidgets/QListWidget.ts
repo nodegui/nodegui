@@ -32,37 +32,6 @@ for (let i = 0; i < 30; i++) {
 }
 ```
  */
-export enum Flow {
-    LeftToRight,
-    TopToBottom,
-}
-
-export enum LayoutMode {
-    SinglePass,
-    Batched,
-}
-
-export enum Movement {
-    Static,
-    Free,
-    Snap,
-}
-
-export enum ResizeMode {
-    Fixed,
-    Adjust,
-}
-
-export enum ViewMode {
-    ListMode,
-    IconMode,
-}
-
-export interface QListWidgetSignals extends QAbstractItemViewSignals {
-    currentRowChanged: (currentRow: number) => void;
-    currentTextChanged: (currentText: string) => void;
-    itemSelectionChanged: () => void;
-}
 
 export class QListWidget extends QAbstractItemView<QListWidgetSignals> {
     native: NativeElement;
@@ -255,4 +224,36 @@ export class QListWidget extends QAbstractItemView<QListWidgetSignals> {
     wordWrap(): boolean {
         return this.property('wordWrap').toBool();
     }
+}
+
+export enum Flow {
+    LeftToRight,
+    TopToBottom,
+}
+
+export enum LayoutMode {
+    SinglePass,
+    Batched,
+}
+
+export enum Movement {
+    Static,
+    Free,
+    Snap,
+}
+
+export enum ResizeMode {
+    Fixed,
+    Adjust,
+}
+
+export enum ViewMode {
+    ListMode,
+    IconMode,
+}
+
+export interface QListWidgetSignals extends QAbstractItemViewSignals {
+    currentRowChanged: (currentRow: number) => void;
+    currentTextChanged: (currentText: string) => void;
+    itemSelectionChanged: () => void;
 }

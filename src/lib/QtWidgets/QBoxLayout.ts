@@ -25,7 +25,6 @@ boxLayout.addWidget(new QCalendarWidget());
 centralWidget.setLayout(boxLayout);
 ```
  */
-export type QBoxLayoutSignals = QLayoutSignals;
 export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     native: NativeElement;
     childLayouts: Set<NodeLayout<any>>;
@@ -79,3 +78,5 @@ export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
         this.native.setDirection(dir);
     }
 }
+
+export type QBoxLayoutSignals = QLayoutSignals;

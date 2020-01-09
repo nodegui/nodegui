@@ -31,11 +31,6 @@ dateTimeEdit.setDate(date);
 dateTimeEdit.setTime(time);
 ```
  */
-export interface QDateTimeEditSignals extends QAbstractSpinBoxSignals {
-    dateChanged: (date: QDate) => void;
-    dateTimeChanged: (datetime: QDateTime) => void;
-    timeChanged: (time: QTime) => void;
-}
 
 export class QDateTimeEdit extends QAbstractSpinBox<QDateTimeEditSignals> {
     native: NativeElement;
@@ -103,4 +98,10 @@ export class QDateTimeEdit extends QAbstractSpinBox<QDateTimeEditSignals> {
     timeSpec(): TimeSpec {
         return this.property('timeSpec').toInt();
     }
+}
+
+export interface QDateTimeEditSignals extends QAbstractSpinBoxSignals {
+    dateChanged: (date: QDate) => void;
+    dateTimeChanged: (datetime: QDateTime) => void;
+    timeChanged: (time: QTime) => void;
 }

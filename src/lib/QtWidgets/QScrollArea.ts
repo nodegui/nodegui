@@ -26,7 +26,6 @@ imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 ```
  */
-export type QScrollAreaSignals = QAbstractScrollAreaSignals;
 
 export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     native: NativeElement;
@@ -71,3 +70,5 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
         return this.native.widgetResizable();
     }
 }
+
+export type QScrollAreaSignals = QAbstractScrollAreaSignals;

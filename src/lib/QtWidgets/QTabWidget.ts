@@ -24,12 +24,6 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 1');
 tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 ```
  */
-export interface QTabWidgetSignals extends QWidgetSignals {
-    currentChanged: (index: number) => void;
-    tabBarClicked: (index: number) => void;
-    tabBarDoubleClicked: (index: number) => void;
-    tabCloseRequested: (index: number) => void;
-}
 
 export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
     native: NativeElement;
@@ -77,4 +71,11 @@ export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
     setTabsClosable(closeable: boolean): void {
         this.native.setTabsClosable(closeable);
     }
+}
+
+export interface QTabWidgetSignals extends QWidgetSignals {
+    currentChanged: (index: number) => void;
+    tabBarClicked: (index: number) => void;
+    tabBarDoubleClicked: (index: number) => void;
+    tabCloseRequested: (index: number) => void;
 }

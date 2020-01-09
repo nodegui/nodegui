@@ -19,21 +19,6 @@ const lineEdit = new QLineEdit();
 ```
 
  */
-export enum EchoMode {
-    Normal,
-    NoEcho,
-    Password,
-    PasswordEchoOnEdit,
-}
-export interface QLineEditSignals extends QWidgetSignals {
-    cursorPositionChanged: (oldPos: number, newPos: number) => void;
-    editingFinished: () => void;
-    inputRejected: () => void;
-    returnPressed: () => void;
-    selectionChanged: () => void;
-    textChanged: (text: string) => void;
-    textEdited: (text: string) => void;
-}
 
 export class QLineEdit extends NodeWidget<QLineEditSignals> {
     native: NativeElement;
@@ -74,4 +59,20 @@ export class QLineEdit extends NodeWidget<QLineEditSignals> {
     setEchoMode(mode: EchoMode): void {
         this.native.setEchoMode(mode);
     }
+}
+
+export enum EchoMode {
+    Normal,
+    NoEcho,
+    Password,
+    PasswordEchoOnEdit,
+}
+export interface QLineEditSignals extends QWidgetSignals {
+    cursorPositionChanged: (oldPos: number, newPos: number) => void;
+    editingFinished: () => void;
+    inputRejected: () => void;
+    returnPressed: () => void;
+    selectionChanged: () => void;
+    textChanged: (text: string) => void;
+    textEdited: (text: string) => void;
 }

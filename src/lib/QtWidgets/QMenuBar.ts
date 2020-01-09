@@ -22,7 +22,6 @@ win.show();
 global.win = win;
 ```
  */
-export type QMenuBarSignals = QWidgetSignals;
 
 export class QMenuBar extends NodeWidget<QMenuBarSignals> {
     native: NativeElement;
@@ -52,3 +51,5 @@ export class QMenuBar extends NodeWidget<QMenuBarSignals> {
         this.native.setNativeMenuBar(nativeMenuBar);
     }
 }
+
+export type QMenuBarSignals = QWidgetSignals;

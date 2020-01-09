@@ -29,10 +29,6 @@ global.win = win;
 global.shortcut = shortcut;
 ```
  */
-export interface QShortcutSignals extends QObjectSignals {
-    activated: () => void;
-    activatedAmbiguously: () => void;
-}
 
 export class QShortcut extends NodeObject<QShortcutSignals> {
     native: NativeElement;
@@ -53,4 +49,9 @@ export class QShortcut extends NodeObject<QShortcutSignals> {
     setContext(shortcutContext: ShortcutContext): void {
         this.native.setContext(shortcutContext);
     }
+}
+
+export interface QShortcutSignals extends QObjectSignals {
+    activated: () => void;
+    activatedAmbiguously: () => void;
 }

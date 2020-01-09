@@ -29,12 +29,6 @@ menuAction.addEventListener("triggered", () => {
 menu.addAction(menuAction);
 ```
  */
-export interface QActionSignals extends QObjectSignals {
-    triggered: (checked: boolean) => void;
-    changed: () => void;
-    hovered: () => void;
-    toggled: (checked: boolean) => void;
-}
 
 export class QAction extends NodeObject<QActionSignals> {
     native: NativeElement;
@@ -99,4 +93,11 @@ export class QAction extends NodeObject<QActionSignals> {
     font(): QFont {
         return QFont.fromQVariant(this.property('font'));
     }
+}
+
+export interface QActionSignals extends QObjectSignals {
+    triggered: (checked: boolean) => void;
+    changed: () => void;
+    hovered: () => void;
+    toggled: (checked: boolean) => void;
 }

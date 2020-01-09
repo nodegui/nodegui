@@ -19,10 +19,7 @@ const { QGroupBox } = require("@nodegui/nodegui");
 // someone should put a sample code here
 ```
  */
-export interface QGroupBoxSignals extends QWidgetSignals {
-    clicked: (checked: boolean) => void;
-    toggled: (on: boolean) => void;
-}
+
 export class QGroupBox extends NodeWidget<QGroupBoxSignals> {
     native: NativeElement;
     constructor();
@@ -68,4 +65,9 @@ export class QGroupBox extends NodeWidget<QGroupBoxSignals> {
     setChecked(checked: boolean): void {
         this.native.setChecked(checked);
     }
+}
+
+export interface QGroupBoxSignals extends QWidgetSignals {
+    clicked: (checked: boolean) => void;
+    toggled: (on: boolean) => void;
 }

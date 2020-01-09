@@ -22,7 +22,6 @@ radioButton.setText("Hello");
 ```
 
  */
-export type QRadioButtonSignals = QAbstractButtonSignals;
 
 export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
     native: NativeElement;
@@ -48,3 +47,5 @@ export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
         parent && this.setNodeParent(parent);
     }
 }
+
+export type QRadioButtonSignals = QAbstractButtonSignals;

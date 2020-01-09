@@ -33,12 +33,7 @@ comboBox.addEventListener('currentIndexChanged', (index) => {
 });
 ```
  */
-export interface QComboBoxSignals extends QWidgetSignals {
-    //List all Signals below
-    currentIndexChanged: (index: number) => void;
-    currentTextChanged: (text: string) => void;
-    editTextChanged: (text: string) => void;
-}
+
 export class QComboBox extends NodeWidget<QComboBoxSignals> {
     native: NativeElement;
     constructor();
@@ -129,4 +124,11 @@ export enum InsertPolicy {
     InsertAfterCurrent,
     InsertBeforeCurrent,
     InsertAlphabetically,
+}
+
+export interface QComboBoxSignals extends QWidgetSignals {
+    //List all Signals below
+    currentIndexChanged: (index: number) => void;
+    currentTextChanged: (text: string) => void;
+    editTextChanged: (text: string) => void;
 }

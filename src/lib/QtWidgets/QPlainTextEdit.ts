@@ -31,10 +31,6 @@ const { QPlainTextEdit } = require("@nodegui/nodegui");
 const plainTextEdit = new QPlainTextEdit();
 ```
  */
-export enum LineWrapMode {
-    NoWrap,
-    WidgetWidth,
-}
 
 export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
     native: NativeElement;
@@ -88,4 +84,9 @@ export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
     insertPlainText(text: string | number): void {
         this.native.insertPlainText(`${text}`);
     }
+}
+
+export enum LineWrapMode {
+    NoWrap,
+    WidgetWidth,
 }

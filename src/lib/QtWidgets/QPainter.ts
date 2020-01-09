@@ -18,15 +18,6 @@ const { QPainter } = require("@nodegui/nodegui");
 // someone should put a sample code here
 ```
  */
-export enum RenderHint {
-    Antialiasing = 0x01,
-    TextAntialiasing = 0x02,
-    SmoothPixmapTransform = 0x04,
-    HighQualityAntialiasing = 0x08,
-    NonCosmeticDefaultPen = 0x10,
-    Qt4CompatiblePainting = 0x20,
-    LosslessImageRendering = 0x40,
-}
 
 export class QPainter extends Component {
     native: NativeElement;
@@ -99,4 +90,14 @@ export class QPainter extends Component {
     setBrush(color: QColor): void {
         this.native.setBrush(color.native);
     }
+}
+
+export enum RenderHint {
+    Antialiasing = 0x01,
+    TextAntialiasing = 0x02,
+    SmoothPixmapTransform = 0x04,
+    HighQualityAntialiasing = 0x08,
+    NonCosmeticDefaultPen = 0x10,
+    Qt4CompatiblePainting = 0x20,
+    LosslessImageRendering = 0x40,
 }

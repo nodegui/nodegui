@@ -18,9 +18,6 @@ const { QTreeWidget, QTreeWidgetItem } = require("@nodegui/nodegui");
 // someone should put a sample code here
 ```
  */
-export interface QTreeWidgetSignals extends QAbstractScrollAreaSignals {
-    itemSelectionChanged: () => void;
-}
 
 export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
     native: NativeElement;
@@ -55,4 +52,8 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
             return new QTreeWidgetItem(eachItem);
         });
     }
+}
+
+export interface QTreeWidgetSignals extends QAbstractScrollAreaSignals {
+    itemSelectionChanged: () => void;
 }

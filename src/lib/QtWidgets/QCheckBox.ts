@@ -21,7 +21,6 @@ const checkbox = new QCheckBox();
 checkbox.setText("Hello");
 ```
  */
-export type QCheckBoxSignals = QAbstractButtonSignals;
 
 export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
     native: NativeElement;
@@ -53,3 +52,5 @@ export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
         return this.native.isChecked();
     }
 }
+
+export type QCheckBoxSignals = QAbstractButtonSignals;

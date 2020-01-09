@@ -19,51 +19,6 @@ const { QMessageBox } = require("@nodegui/nodegui");
 // someone should put a sample code here
 ```
  */
-export interface QMessageBoxSignals extends QDialogSignals {
-    buttonClicked: (buttonRawPointer: NativeRawPointer<'QAbstractButton*'>) => void;
-}
-
-export enum StandardButton {
-    Ok = 0x00000400,
-    Open = 0x00002000,
-    Save = 0x00000800,
-    Cancel = 0x00400000,
-    Close = 0x00200000,
-    Discard = 0x00800000,
-    Apply = 0x02000000,
-    Reset = 0x04000000,
-    RestoreDefaults = 0x08000000,
-    Help = 0x01000000,
-    SaveAll = 0x00001000,
-    Yes = 0x00004000,
-    YesToAll = 0x00008000,
-    No = 0x00010000,
-    NoToAll = 0x00020000,
-    Abort = 0x00040000,
-    Retry = 0x00080000,
-    Ignore = 0x00100000,
-    NoButton = 0x00000000,
-}
-export enum Icon {
-    NoIcon = 0,
-    Question = 4,
-    Information = 1,
-    Warning = 2,
-    Critical = 3,
-}
-
-export enum ButtonRole {
-    InvalidRole,
-    AcceptRole,
-    RejectRole,
-    DestructiveRole,
-    ActionRole,
-    HelpRole,
-    YesRole,
-    NoRole,
-    ApplyRole,
-    ResetRole,
-}
 export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
     native: NativeElement;
     constructor();
@@ -122,4 +77,50 @@ export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
     static aboutQt(parent: NodeWidget<any>, title: string): void {
         addon.QMessageBox.aboutQt(parent.native, title);
     }
+}
+
+export interface QMessageBoxSignals extends QDialogSignals {
+    buttonClicked: (buttonRawPointer: NativeRawPointer<'QAbstractButton*'>) => void;
+}
+
+export enum StandardButton {
+    Ok = 0x00000400,
+    Open = 0x00002000,
+    Save = 0x00000800,
+    Cancel = 0x00400000,
+    Close = 0x00200000,
+    Discard = 0x00800000,
+    Apply = 0x02000000,
+    Reset = 0x04000000,
+    RestoreDefaults = 0x08000000,
+    Help = 0x01000000,
+    SaveAll = 0x00001000,
+    Yes = 0x00004000,
+    YesToAll = 0x00008000,
+    No = 0x00010000,
+    NoToAll = 0x00020000,
+    Abort = 0x00040000,
+    Retry = 0x00080000,
+    Ignore = 0x00100000,
+    NoButton = 0x00000000,
+}
+export enum Icon {
+    NoIcon = 0,
+    Question = 4,
+    Information = 1,
+    Warning = 2,
+    Critical = 3,
+}
+
+export enum ButtonRole {
+    InvalidRole,
+    AcceptRole,
+    RejectRole,
+    DestructiveRole,
+    ActionRole,
+    HelpRole,
+    YesRole,
+    NoRole,
+    ApplyRole,
+    ResetRole,
 }

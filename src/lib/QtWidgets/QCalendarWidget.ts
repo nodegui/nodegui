@@ -21,29 +21,6 @@ const calendarWidget = new QCalendarWidget();
 // more will follow when .selectedDate() et cetera are implemented
 ```
  */
-export enum HorizontalHeaderFormat {
-    NoHorizontalHeader,
-    SingleLetterDayNames,
-    ShortDayNames,
-    LongDayNames,
-}
-
-export enum VerticalHeaderFormat {
-    NoVerticalHeader,
-    ISOWeekNumbers,
-}
-
-export enum SelectionMode {
-    NoSelection,
-    SingleSelection,
-}
-
-export interface QCalendarWidgetSignals extends QWidgetSignals {
-    activated: (date: QDate) => void;
-    clicked: (date: QDate) => void;
-    currentPageChanged: (year: number, month: number) => void;
-    selectionChanged: () => void;
-}
 
 export class QCalendarWidget extends NodeWidget<QCalendarWidgetSignals> {
     native: NativeElement;
@@ -108,4 +85,28 @@ export class QCalendarWidget extends NodeWidget<QCalendarWidgetSignals> {
     verticalHeaderFormat(): VerticalHeaderFormat {
         return this.property('verticalHeaderFormat').toInt();
     }
+}
+
+export enum HorizontalHeaderFormat {
+    NoHorizontalHeader,
+    SingleLetterDayNames,
+    ShortDayNames,
+    LongDayNames,
+}
+
+export enum VerticalHeaderFormat {
+    NoVerticalHeader,
+    ISOWeekNumbers,
+}
+
+export enum SelectionMode {
+    NoSelection,
+    SingleSelection,
+}
+
+export interface QCalendarWidgetSignals extends QWidgetSignals {
+    activated: (date: QDate) => void;
+    clicked: (date: QDate) => void;
+    currentPageChanged: (year: number, month: number) => void;
+    selectionChanged: () => void;
 }
