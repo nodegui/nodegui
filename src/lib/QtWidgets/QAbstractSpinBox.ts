@@ -11,20 +11,6 @@ The QAbstractSpinBox class is an abstract class and therefore, technically, no f
 It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 
  */
-export enum ButtonSymbols {
-    UpDownArrows,
-    PlusMinus,
-    NoButtons,
-}
-
-export enum CorrectionMode {
-    CorrectToPreviousValue,
-    CorrectToNearestValue,
-}
-
-export interface QAbstractSpinBoxSignals extends QWidgetSignals {
-    editingFinished: () => void;
-}
 
 export abstract class QAbstractSpinBox<Signals extends QAbstractSpinBoxSignals> extends NodeWidget<Signals> {
     selectAll(): void {
@@ -102,4 +88,19 @@ export abstract class QAbstractSpinBox<Signals extends QAbstractSpinBoxSignals> 
     wrapping(): boolean {
         return this.property('wrapping').toBool();
     }
+}
+
+export enum ButtonSymbols {
+    UpDownArrows,
+    PlusMinus,
+    NoButtons,
+}
+
+export enum CorrectionMode {
+    CorrectToPreviousValue,
+    CorrectToNearestValue,
+}
+
+export interface QAbstractSpinBoxSignals extends QWidgetSignals {
+    editingFinished: () => void;
 }

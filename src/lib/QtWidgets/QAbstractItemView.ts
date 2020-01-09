@@ -15,46 +15,6 @@ The QAbstractItemView class is an abstract class and therefore, technically, no 
 It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTableView, and QTreeView)
 
 */
-export enum DragDropMode {
-    NoDragDrop,
-    DragOnly,
-    DropOnly,
-    DragDrop,
-    InternalMove,
-}
-
-export enum EditTrigger {
-    NoEditTriggers = 0,
-    CurrentChanged = 1,
-    DoubleClicked = 2,
-    SelectedClicked = 4,
-    EditKeyPressed = 8,
-    AnyKeyPressed = 16,
-    AllEditTriggers = 31,
-}
-
-export enum ScrollMode {
-    ScrollPerItem,
-    ScrollPerPixel,
-}
-
-export enum SelectionBehavior {
-    SelectItems,
-    SelectRows,
-    SelectColumns,
-}
-
-export enum SelectionMode {
-    NoSelection,
-    SingleSelection,
-    MultiSelection,
-    ExtendedSelection,
-    ContiguousSelection,
-}
-
-export interface QAbstractItemViewSignals extends QAbstractScrollAreaSignals {
-    viewportEntered: () => void;
-}
 
 export abstract class QAbstractItemView<Signals extends QAbstractItemViewSignals> extends QAbstractScrollArea<Signals> {
     setCurrentIndex(index: QModelIndex): void {
@@ -178,4 +138,45 @@ export abstract class QAbstractItemView<Signals extends QAbstractItemViewSignals
     resetVerticalScrollMode(): void {
         this.native.resetVerticalScrollMode();
     }
+}
+
+export enum DragDropMode {
+    NoDragDrop,
+    DragOnly,
+    DropOnly,
+    DragDrop,
+    InternalMove,
+}
+
+export enum EditTrigger {
+    NoEditTriggers = 0,
+    CurrentChanged = 1,
+    DoubleClicked = 2,
+    SelectedClicked = 4,
+    EditKeyPressed = 8,
+    AnyKeyPressed = 16,
+    AllEditTriggers = 31,
+}
+
+export enum ScrollMode {
+    ScrollPerItem,
+    ScrollPerPixel,
+}
+
+export enum SelectionBehavior {
+    SelectItems,
+    SelectRows,
+    SelectColumns,
+}
+
+export enum SelectionMode {
+    NoSelection,
+    SingleSelection,
+    MultiSelection,
+    ExtendedSelection,
+    ContiguousSelection,
+}
+
+export interface QAbstractItemViewSignals extends QAbstractScrollAreaSignals {
+    viewportEntered: () => void;
 }
