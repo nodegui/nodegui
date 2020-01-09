@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { QTreeWidgetItem } from './QTreeWidgetItem';
@@ -45,6 +45,7 @@ win.show();
 export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
     native: NativeElement;
     topLevelItems: Set<QTreeWidgetItem>;
+    itemWidgets: Map<QTreeWidgetItem, QWidget>;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
@@ -58,6 +59,7 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
         this.native = native;
         this.setNodeParent(parent);
         this.topLevelItems = new Set<QTreeWidgetItem>();
+        this.itemWidgets = new Map<QTreeWidgetItem, QWidget>();
     }
 
     addTopLevelItem(item: QTreeWidgetItem): void {
@@ -70,9 +72,44 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
 
     selectedItems(): QTreeWidgetItem[] {
         const nativeItems = this.native.selectedItems();
-        return nativeItems.map(function(eachItem: QTreeWidgetItem) {
+        return nativeItems.map(function (eachItem: QTreeWidgetItem) {
             return new QTreeWidgetItem(eachItem);
         });
+    }
+
+    /**
+     * Sets the column count of this QTreeWidget.
+     * @param columnCount The number of columns.
+     */
+    setColumnCount(columnCount: number): void {
+        this.native.setColumnCount(columnCount);
+    }
+
+    /**
+     * Sets the header label.
+     * @param label The header label.
+     */
+    setHeaderLabel(label: string): void {
+        this.native.setHeaderLabel(label);
+    }
+
+    /**
+     * Sets the header labels of the existing columns.
+     * @param labels The header labels for each column.
+     */
+    setHeaderLabels(labels: string[]): void {
+        this.native.setHeaderLabels(labels);
+    }
+
+    /**
+     * Sets the given widget to be displayed in the cell specified by the given item and column.
+     * @param item The targeted item.
+     * @param column The column in which to show the edit widget.
+     * @param widget The edit widget.
+     */
+    setItemWidget(item: QTreeWidgetItem, column: number, widget: QWidget): void {
+        this.itemWidgets.set(item, widget);
+        this.native.setItemWidget(item.native, column, widget.native);
     }
 }
 

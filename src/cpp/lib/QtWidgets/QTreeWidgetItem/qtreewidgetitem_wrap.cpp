@@ -21,6 +21,9 @@ Napi::Object QTreeWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("childCount", &QTreeWidgetItemWrap::childCount),
        InstanceMethod("setSelected", &QTreeWidgetItemWrap::setSelected),
        InstanceMethod("setExpanded", &QTreeWidgetItemWrap::setExpanded),
+       InstanceMethod("addChild", &QTreeWidgetItemWrap::addChild),
+       InstanceMethod("setFlags", &QTreeWidgetItemWrap::setFlags),
+       InstanceMethod("setCheckState", &QTreeWidgetItemWrap::setCheckState),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QTreeWidgetItemWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -183,5 +186,42 @@ Napi::Value QTreeWidgetItemWrap::setExpanded(const Napi::CallbackInfo &info) {
   Napi::HandleScope scope(env);
   Napi::Boolean expanded = info[0].As<Napi::Boolean>();
   this->instance->setExpanded(expanded.Value());
+  return env.Null();
+}
+
+Napi::Value QTreeWidgetItemWrap::addChild(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object itemObject = info[0].As<Napi::Object>();
+  QTreeWidgetItemWrap *itemWidgetWrap =
+      Napi::ObjectWrap<QTreeWidgetItemWrap>::Unwrap(itemObject);
+
+  QTreeWidgetItem *item = itemWidgetWrap->getInternalInstance();
+  this->instance->addChild(item);
+
+  return env.Null();
+}
+
+Napi::Value QTreeWidgetItemWrap::setFlags(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int flags = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setFlags(static_cast<Qt::ItemFlags>(flags));
+
+  return env.Null();
+}
+
+Napi::Value QTreeWidgetItemWrap::setCheckState(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int column = info[0].As<Napi::Number>().Int32Value();
+  int checkState = info[1].As<Napi::Number>().Int32Value();
+
+  this->instance->setCheckState(column,
+                                static_cast<Qt::CheckState>(checkState));
+
   return env.Null();
 }
