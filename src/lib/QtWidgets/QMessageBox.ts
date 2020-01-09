@@ -5,6 +5,19 @@ import { NodeDialog, QDialogSignals } from './QDialog';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { QPushButton } from './QPushButton';
 
+export enum ButtonRole {
+    InvalidRole,
+    AcceptRole,
+    RejectRole,
+    DestructiveRole,
+    ActionRole,
+    HelpRole,
+    YesRole,
+    NoRole,
+    ApplyRole,
+    ResetRole,
+}
+
 /**
  
 > Create and control classic modal dialogs.
@@ -110,17 +123,4 @@ export enum Icon {
     Information = 1,
     Warning = 2,
     Critical = 3,
-}
-
-export enum ButtonRole {
-    InvalidRole,
-    AcceptRole,
-    RejectRole,
-    DestructiveRole,
-    ActionRole,
-    HelpRole,
-    YesRole,
-    NoRole,
-    ApplyRole,
-    ResetRole,
 }
