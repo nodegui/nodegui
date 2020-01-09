@@ -13,7 +13,6 @@ import { QTreeWidgetItem } from './QTreeWidgetItem';
 ### Example
 
 ```javascript
-const { QTreeWidget, QTreeWidgetItem } = require("@nodegui/nodegui");
 
 const { QMainWindow, QTreeWidgetItem, QTreeWidget } = require("@nodegui/nodegui");
 
@@ -72,7 +71,7 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
 
     selectedItems(): QTreeWidgetItem[] {
         const nativeItems = this.native.selectedItems();
-        return nativeItems.map(function (eachItem: QTreeWidgetItem) {
+        return nativeItems.map(function(eachItem: QTreeWidgetItem) {
             return new QTreeWidgetItem(eachItem);
         });
     }
@@ -111,8 +110,17 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
         this.itemWidgets.set(item, widget);
         this.native.setItemWidget(item.native, column, widget.native);
     }
+
+    /**
+     * Returns the current item in the tree widget.
+     */
+    currentItem(): QTreeWidgetItem {
+        return this.native.currentItem();
+    }
 }
 
 export interface QTreeWidgetSignals extends QAbstractScrollAreaSignals {
     itemSelectionChanged: () => void;
+    itemClicked: (item: QTreeWidgetItem, column: number) => void;
+    itemChanged: (item: QTreeWidgetItem, column: number) => void;
 }

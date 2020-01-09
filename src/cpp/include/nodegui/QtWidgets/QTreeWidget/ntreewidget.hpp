@@ -3,6 +3,7 @@
 #include <QTreeWidget>
 
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
+#include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -20,5 +21,35 @@ class NTreeWidget : public QTreeWidget, public NodeWidget {
       Napi::HandleScope scope(env);
       this->emitOnNode.Call({Napi::String::New(env, "itemSelectionChanged")});
     });
+
+    QObject::connect(
+        this, &QTreeWidget::itemClicked,
+        [=](QTreeWidgetItem* item, int column) {
+          Napi::Env env = this->emitOnNode.Env();
+          Napi::HandleScope scope(env);
+
+          // Disable deletion of the native instance for these by passing true
+          Napi::Object itemWrap = QTreeWidgetItemWrap::constructor.New(
+              {Napi::External<QTreeWidgetItem>::New(env, item),
+               Napi::Boolean::New(env, true)});
+
+          this->emitOnNode.Call({Napi::String::New(env, "itemClicked"),
+                                 itemWrap, Napi::Value::From(env, column)});
+        });
+
+    QObject::connect(
+        this, &QTreeWidget::itemChanged,
+        [=](QTreeWidgetItem* item, int column) {
+          Napi::Env env = this->emitOnNode.Env();
+          Napi::HandleScope scope(env);
+
+          // Disable deletion of the native instance for these by passing true
+          Napi::Object itemWrap = QTreeWidgetItemWrap::constructor.New(
+              {Napi::External<QTreeWidgetItem>::New(env, item),
+               Napi::Boolean::New(env, true)});
+
+          this->emitOnNode.Call({Napi::String::New(env, "itemChanged"),
+                                 itemWrap, Napi::Value::From(env, column)});
+        });
   }
 };

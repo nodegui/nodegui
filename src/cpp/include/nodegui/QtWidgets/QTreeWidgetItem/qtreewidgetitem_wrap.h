@@ -36,4 +36,7 @@ class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
   Napi::Value addChild(const Napi::CallbackInfo &info);
   Napi::Value setFlags(const Napi::CallbackInfo &info);
   Napi::Value setCheckState(const Napi::CallbackInfo &info);
+  Napi::Value flags(const Napi::CallbackInfo &info);
+  Napi::Value setData(const Napi::CallbackInfo &info);
+  Napi::Value data(const Napi::CallbackInfo &info);
 };

@@ -3,7 +3,8 @@ import { Component, NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QTreeWidget } from './QTreeWidget';
 import { ItemFlag } from '../QtEnums/ItemFlag';
-import { CheckState } from '../QtEnums';
+import { CheckState, ItemDataRole } from '../QtEnums';
+import { QVariantType, QVariant } from '../QtCore/QVariant';
 
 /**
  
@@ -125,5 +126,33 @@ export class QTreeWidgetItem extends Component {
      */
     setCheckState(column: number, state: CheckState): void {
         this.native.setCheckState(column, state);
+    }
+
+    /**
+     * Returns the flags used to describe the item. These determine whether the item can be checked, edited, and selected.
+     */
+    flags(): ItemFlag {
+        return this.native.flags();
+    }
+
+    /**
+     * Sets the value for the item's column and role to the given value.
+     * The role describes the type of data specified by value, and is defined by the ItemDataRole enum.
+     * @param column The column.
+     * @param role The role.
+     * @param value The value.
+     */
+    setData(column: number, role: ItemDataRole, value: QVariantType): void {
+        const variant = new QVariant(value);
+        this.native.setData(column, role, variant.native);
+    }
+
+    /**
+     * Returns the value for the item's column and role.
+     * @param column The column.
+     * @param role The role.
+     */
+    data(column: number, role: ItemDataRole): QVariant {
+        return this.native.data(column, role);
     }
 }

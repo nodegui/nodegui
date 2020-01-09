@@ -19,6 +19,7 @@ Napi::Object QTreeWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setHeaderLabel", &QTreeWidgetWrap::setHeaderLabel),
        InstanceMethod("setHeaderLabels", &QTreeWidgetWrap::setHeaderLabels),
        InstanceMethod("setItemWidget", &QTreeWidgetWrap::setItemWidget),
+       InstanceMethod("currentItem", &QTreeWidgetWrap::currentItem),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QTreeWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -143,4 +144,18 @@ Napi::Value QTreeWidgetWrap::setItemWidget(const Napi::CallbackInfo& info) {
   this->instance->setItemWidget(item, column, widget);
 
   return env.Null();
+}
+
+Napi::Value QTreeWidgetWrap::currentItem(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QTreeWidgetItem* currentItem = this->instance->currentItem();
+
+  // Disable deletion of the native instance for these by passing true
+  Napi::Object value = QTreeWidgetItemWrap::constructor.New(
+      {Napi::External<QTreeWidgetItem>::New(env, currentItem),
+       Napi::Boolean::New(env, true)});
+
+  return value;
 }
