@@ -18,6 +18,9 @@ Napi::Object QFileDialogWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("labelText", &QFileDialogWrap::labelText),
        InstanceMethod("setLabelText", &QFileDialogWrap::setLabelText),
        InstanceMethod("setOption", &QFileDialogWrap::setOption),
+       InstanceMethod("setNameFilter", &QFileDialogWrap::setNameFilter),
+       InstanceMethod("selectedFiles", &QFileDialogWrap::selectedFiles),
+
        QDIALOG_WRAPPED_METHODS_EXPORT_DEFINE(QFileDialogWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -121,4 +124,26 @@ Napi::Value QFileDialogWrap::setOption(const Napi::CallbackInfo& info) {
 
   this->instance->setOption(option, on);
   return env.Null();
+}
+
+Napi::Value QFileDialogWrap::setNameFilter(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  std::string filter = info[0].As<Napi::String>().Utf8Value();
+
+  this->instance->setNameFilter(QString::fromStdString(filter));
+  return env.Null();
+}
+
+Napi::Value QFileDialogWrap::selectedFiles(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QStringList files = this->instance->selectedFiles();
+  Napi::Array fileList = Napi::Array::New(env, files.size());
+  for (int i = 0; i < files.size(); i++) {
+    fileList[i] = Napi::String::New(env, files[i].toStdString());
+  }
+  return fileList;
 }

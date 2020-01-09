@@ -17,7 +17,14 @@ A `QFileDialog` class provides a dialog that allow users to select files or dire
 ```javascript
 const { QFileDialog } = require("@nodegui/nodegui");
 
-// someone should put a sample code here
+const fileDialog = new QFileDialog();
+fileDialog.setFileMode(FileMode.AnyFile);
+fileDialog.setNameFilter('Images (*.png *.xpm *.jpg)');
+fileDialog.exec();
+
+const selectedFiles = fileDialog.selectedFiles();
+console.log(selectedFiles);
+
 ```
  */
 export class QFileDialog extends NodeDialog<QFileDialogSignals> {
@@ -40,6 +47,12 @@ export class QFileDialog extends NodeDialog<QFileDialogSignals> {
     }
     setSupportedSchemes(schemes: string[]): void {
         this.native.setSupportedSchemes(schemes);
+    }
+    setNameFilter(filter: string): void {
+        this.native.setNameFilter(filter);
+    }
+    selectedFiles(): string[] {
+        return this.native.selectedFiles();
     }
     labelText(label: DialogLabel): string {
         return this.native.labelText(label);
