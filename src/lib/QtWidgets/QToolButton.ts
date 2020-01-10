@@ -21,7 +21,8 @@ A QToolButton is a special button that provides quick-access to specific command
 ```javascript
 const { QToolButton } = require("@nodegui/nodegui");
 
-// someone should put a sample code here
+const tool = new QToolButton();
+tool.setText('Help');
 ```
  */
 export class QToolButton extends QAbstractButton<QToolButtonSignals> {
