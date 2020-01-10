@@ -15,6 +15,7 @@ class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
+  static Napi::Value fromQTreeWidgetItem(Napi::Env env, QTreeWidgetItem* item);
 
   QTreeWidgetItemWrap(const Napi::CallbackInfo &info);
 

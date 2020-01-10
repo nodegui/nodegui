@@ -123,4 +123,11 @@ export interface QTreeWidgetSignals extends QAbstractScrollAreaSignals {
     itemSelectionChanged: () => void;
     itemClicked: (item: QTreeWidgetItem, column: number) => void;
     itemChanged: (item: QTreeWidgetItem, column: number) => void;
+    currentItemChanged: (current: QTreeWidgetItem, previous: QTreeWidgetItem) => void;
+    itemActivated: (item: QTreeWidgetItem | null, column: number) => void;
+    itemCollapsed: (item: QTreeWidgetItem) => void;
+    itemDoubleClicked: (item: QTreeWidgetItem | null, column: number) => void;
+    itemEntered: (item: QTreeWidgetItem, column: number) => void;
+    itemExpanded: (item: QTreeWidgetItem) => void;
+    itemPressed: (item: QTreeWidgetItem | null, column: number) => void;
 }

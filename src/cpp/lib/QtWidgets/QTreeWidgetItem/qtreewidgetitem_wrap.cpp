@@ -37,6 +37,19 @@ QTreeWidgetItem *QTreeWidgetItemWrap::getInternalInstance() {
   return this->instance;
 }
 
+Napi::Value QTreeWidgetItemWrap::fromQTreeWidgetItem(Napi::Env env, QTreeWidgetItem *item) {
+
+  // The item might be a nullptr, therefore use env.Null() as return value.
+  if (item == nullptr) {
+    return env.Null();
+  }
+
+  Napi::Value itemWrap = QTreeWidgetItemWrap::constructor.New(
+      {Napi::External<QTreeWidgetItem>::New(env, new QTreeWidgetItem(*item))});
+
+  return itemWrap;
+}
+
 QTreeWidgetItemWrap::~QTreeWidgetItemWrap() {
   if (!this->disableDeletion) {
     delete this->instance;
