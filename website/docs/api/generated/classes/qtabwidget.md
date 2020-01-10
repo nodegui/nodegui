@@ -4,6 +4,24 @@ title: "QTabWidget"
 sidebar_label: "QTabWidget"
 ---
 
+> Create and control a stack of tabbed widgets.
+
+**This class is a JS wrapper around Qt's [QTabWidget class](https://doc.qt.io/qt-5/qtabwidget.html)**
+
+A 'QTabWidget' provides a tab bar and a "page area" that is used to display pages related to each tab.
+
+### Example
+
+```javascript
+// This example creates two tabs, each holding a separate calendar.
+const { QTabWidget, QCalendarWidget, QIcon } = require("@nodegui/nodegui");
+
+const tabWidget = new QTabWidget();
+
+tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 1');
+tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
+```
+
 ## Hierarchy
 
   ↳ [NodeWidget](nodewidget.md)‹[QTabWidgetSignals](../interfaces/qtabwidgetsignals.md)›

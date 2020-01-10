@@ -4,6 +4,27 @@ title: "QFileDialog"
 sidebar_label: "QFileDialog"
 ---
 
+> Create and control file dialogs.
+
+**This class is a JS wrapper around Qt's [QFileDialog class](https://doc.qt.io/qt-5/qfiledialog.html)**
+
+A `QFileDialog` class provides a dialog that allow users to select files or directories.
+
+### Example
+
+```javascript
+const { QFileDialog } = require("@nodegui/nodegui");
+
+const fileDialog = new QFileDialog();
+fileDialog.setFileMode(FileMode.AnyFile);
+fileDialog.setNameFilter('Images (*.png *.xpm *.jpg)');
+fileDialog.exec();
+
+const selectedFiles = fileDialog.selectedFiles();
+console.log(selectedFiles);
+
+```
+
 ## Hierarchy
 
   ↳ [NodeDialog](nodedialog.md)‹[QFileDialogSignals](../interfaces/qfiledialogsignals.md)›
@@ -58,6 +79,7 @@ sidebar_label: "QFileDialog"
 * [repaint](qfiledialog.md#repaint)
 * [resize](qfiledialog.md#resize)
 * [result](qfiledialog.md#result)
+* [selectedFiles](qfiledialog.md#selectedfiles)
 * [setAcceptMode](qfiledialog.md#setacceptmode)
 * [setAttribute](qfiledialog.md#setattribute)
 * [setContextMenuPolicy](qfiledialog.md#setcontextmenupolicy)
@@ -76,6 +98,7 @@ sidebar_label: "QFileDialog"
 * [setMinimumSize](qfiledialog.md#setminimumsize)
 * [setModal](qfiledialog.md#setmodal)
 * [setMouseTracking](qfiledialog.md#setmousetracking)
+* [setNameFilter](qfiledialog.md#setnamefilter)
 * [setNodeParent](qfiledialog.md#setnodeparent)
 * [setObjectName](qfiledialog.md#setobjectname)
 * [setOption](qfiledialog.md#setoption)
@@ -590,6 +613,14 @@ ___
 
 ___
 
+###  selectedFiles
+
+▸ **selectedFiles**(): *string[]*
+
+**Returns:** *string[]*
+
+___
+
 ###  setAcceptMode
 
 ▸ **setAcceptMode**(`acceptMode`: [AcceptMode](../enums/acceptmode.md)): *void*
@@ -875,6 +906,20 @@ ___
 Name | Type |
 ------ | ------ |
 `isMouseTracked` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setNameFilter
+
+▸ **setNameFilter**(`filter`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`filter` | string |
 
 **Returns:** *void*
 

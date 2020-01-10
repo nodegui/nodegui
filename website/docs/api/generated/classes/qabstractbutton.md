@@ -4,6 +4,13 @@ title: "QAbstractButton"
 sidebar_label: "QAbstractButton"
 ---
 
+> This is the abstract base class of button widgets, providing their functionality.
+
+**This class is a JS wrapper around Qt's [QAbstractButton class](https://doc.qt.io/qt-5/qabstractbutton.html)**
+
+The QAbstractButton class is an abstract class and therefore, technically, no further instances actually have to be created.
+It is inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
+
 ## Type parameters
 
 ▪ **Signals**: *[QAbstractButtonSignals](../interfaces/qabstractbuttonsignals.md)*

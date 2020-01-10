@@ -4,6 +4,25 @@ title: "QMessageBox"
 sidebar_label: "QMessageBox"
 ---
 
+> Create and control classic modal dialogs.
+
+**This class is a JS wrapper around Qt's [QMessageBox class](https://doc.qt.io/qt-5/qmessagebox.html)**
+
+### Example
+
+```javascript
+
+import { QMessageBox, ButtonRole, QPushButton } from '@nodegui/nodegui';
+
+const messageBox = new QMessageBox();
+messageBox.setText('Alert! This is a message');
+const accept = new QPushButton();
+accept.setText('Accept');
+messageBox.addButton(accept, ButtonRole.AcceptRole);
+messageBox.exec();
+
+```
+
 ## Hierarchy
 
   ↳ [NodeDialog](nodedialog.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)›

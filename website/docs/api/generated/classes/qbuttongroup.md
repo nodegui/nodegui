@@ -1,77 +1,59 @@
 ---
-id: "qboxlayout"
-title: "QBoxLayout"
-sidebar_label: "QBoxLayout"
+id: "qbuttongroup"
+title: "QButtonGroup"
+sidebar_label: "QButtonGroup"
 ---
-
-> Lines up child widgets horizontally or vertically.
-
-**This class is a JS wrapper around Qt's [QBoxLayout class](https://doc.qt.io/qt-5/qboxlayout.html)**
-
-### Example
-
-```javascript
-// This example arranges two calendars horizontally.
-
-const { QBoxLayout, QCalendarWidget } = require("@nodegui/nodegui");
-
-const centralWidget = new QWidget();
-const boxLayout = new QBoxLayout(0);
-
-boxLayout.addWidget(new QCalendarWidget());
-boxLayout.addWidget(new QCalendarWidget());
-centralWidget.setLayout(boxLayout);
-```
 
 ## Hierarchy
 
-  ↳ [NodeLayout](nodelayout.md)‹[QBoxLayoutSignals](../globals.md#qboxlayoutsignals)›
+  ↳ [NodeObject](nodeobject.md)‹any›
 
-  ↳ **QBoxLayout**
+  ↳ **QButtonGroup**
 
 ## Index
 
 ### Constructors
 
-* [constructor](qboxlayout.md#constructor)
+* [constructor](qbuttongroup.md#constructor)
 
 ### Properties
 
-* [childLayouts](qboxlayout.md#childlayouts)
-* [native](qboxlayout.md#native)
-* [nodeChildren](qboxlayout.md#nodechildren)
-* [nodeParent](qboxlayout.md#optional-nodeparent)
-* [type](qboxlayout.md#type)
+* [native](qbuttongroup.md#native)
+* [nodeChildren](qbuttongroup.md#nodechildren)
+* [nodeParent](qbuttongroup.md#optional-nodeparent)
 
 ### Methods
 
-* [activate](qboxlayout.md#activate)
-* [addEventListener](qboxlayout.md#addeventlistener)
-* [addLayout](qboxlayout.md#addlayout)
-* [addSpacing](qboxlayout.md#addspacing)
-* [addStretch](qboxlayout.md#addstretch)
-* [addStrut](qboxlayout.md#addstrut)
-* [addWidget](qboxlayout.md#addwidget)
-* [direction](qboxlayout.md#direction)
-* [inherits](qboxlayout.md#inherits)
-* [insertLayout](qboxlayout.md#insertlayout)
-* [insertWidget](qboxlayout.md#insertwidget)
-* [invalidate](qboxlayout.md#invalidate)
-* [objectName](qboxlayout.md#objectname)
-* [property](qboxlayout.md#property)
-* [removeEventListener](qboxlayout.md#removeeventlistener)
-* [removeWidget](qboxlayout.md#removewidget)
-* [setDirection](qboxlayout.md#setdirection)
-* [setNodeParent](qboxlayout.md#setnodeparent)
-* [setObjectName](qboxlayout.md#setobjectname)
-* [setProperty](qboxlayout.md#setproperty)
-* [update](qboxlayout.md#update)
+* [addButton](qbuttongroup.md#addbutton)
+* [addEventListener](qbuttongroup.md#addeventlistener)
+* [button](qbuttongroup.md#button)
+* [buttons](qbuttongroup.md#buttons)
+* [checkedButton](qbuttongroup.md#checkedbutton)
+* [checkedId](qbuttongroup.md#checkedid)
+* [exclusive](qbuttongroup.md#exclusive)
+* [id](qbuttongroup.md#id)
+* [inherits](qbuttongroup.md#inherits)
+* [objectName](qbuttongroup.md#objectname)
+* [property](qbuttongroup.md#property)
+* [removeButton](qbuttongroup.md#removebutton)
+* [removeEventListener](qbuttongroup.md#removeeventlistener)
+* [setExclusive](qbuttongroup.md#setexclusive)
+* [setId](qbuttongroup.md#setid)
+* [setNodeParent](qbuttongroup.md#setnodeparent)
+* [setObjectName](qbuttongroup.md#setobjectname)
+* [setProperty](qbuttongroup.md#setproperty)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QBoxLayout**(`dir`: [Direction](../enums/direction.md)): *[QBoxLayout](qboxlayout.md)*
+\+ **new QButtonGroup**(): *[QButtonGroup](qbuttongroup.md)*
+
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+
+**Returns:** *[QButtonGroup](qbuttongroup.md)*
+
+\+ **new QButtonGroup**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QButtonGroup](qbuttongroup.md)*
 
 *Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
@@ -79,30 +61,11 @@ centralWidget.setLayout(boxLayout);
 
 Name | Type |
 ------ | ------ |
-`dir` | [Direction](../enums/direction.md) |
-
-**Returns:** *[QBoxLayout](qboxlayout.md)*
-
-\+ **new QBoxLayout**(`dir`: [Direction](../enums/direction.md), `parent`: [NodeWidget](nodewidget.md)‹any›): *[QBoxLayout](qboxlayout.md)*
-
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`dir` | [Direction](../enums/direction.md) |
 `parent` | [NodeWidget](nodewidget.md)‹any› |
 
-**Returns:** *[QBoxLayout](qboxlayout.md)*
+**Returns:** *[QButtonGroup](qbuttongroup.md)*
 
 ## Properties
-
-###  childLayouts
-
-• **childLayouts**: *Set‹[NodeLayout](nodelayout.md)‹any››*
-
-___
 
 ###  native
 
@@ -126,23 +89,20 @@ ___
 
 *Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
 
-___
-
-###  type
-
-• **type**: *string* = "layout"
-
-*Inherited from [NodeLayout](nodelayout.md).[type](nodelayout.md#type)*
-
 ## Methods
 
-###  activate
+###  addButton
 
-▸ **activate**(): *boolean*
+▸ **addButton**(`button`: [QAbstractButton](qabstractbutton.md)‹[QAbstractButtonSignals](../interfaces/qabstractbuttonsignals.md)›, `id`: number): *void*
 
-*Inherited from [NodeLayout](nodelayout.md).[activate](nodelayout.md#activate)*
+**Parameters:**
 
-**Returns:** *boolean*
+Name | Type | Default |
+------ | ------ | ------ |
+`button` | [QAbstractButton](qabstractbutton.md)‹[QAbstractButtonSignals](../interfaces/qabstractbuttonsignals.md)› | - |
+`id` | number |  -1 |
+
+**Returns:** *void*
 
 ___
 
@@ -154,7 +114,7 @@ ___
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof QBoxLayoutSignals*
+▪ **SignalType**: *keyof any*
 
 **Parameters:**
 
@@ -202,85 +162,63 @@ Name | Type |
 
 ___
 
-###  addLayout
+###  button
 
-▸ **addLayout**(`layout`: [NodeLayout](nodelayout.md)‹any›, `stretch`: number): *void*
-
-**Parameters:**
-
-Name | Type | Default |
------- | ------ | ------ |
-`layout` | [NodeLayout](nodelayout.md)‹any› | - |
-`stretch` | number | 0 |
-
-**Returns:** *void*
-
-___
-
-###  addSpacing
-
-▸ **addSpacing**(`size`: number): *void*
+▸ **button**(`id`: number): *[NativeRawPointer](../globals.md#nativerawpointer)‹"QAbstractButton*"›*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`size` | number |
+`id` | number |
 
-**Returns:** *void*
-
-___
-
-###  addStretch
-
-▸ **addStretch**(`stretch`: number): *void*
-
-**Parameters:**
-
-Name | Type | Default |
------- | ------ | ------ |
-`stretch` | number | 0 |
-
-**Returns:** *void*
+**Returns:** *[NativeRawPointer](../globals.md#nativerawpointer)‹"QAbstractButton*"›*
 
 ___
 
-###  addStrut
+###  buttons
 
-▸ **addStrut**(`size`: number): *void*
+▸ **buttons**(): *[QAbstractButton](qabstractbutton.md)‹[QAbstractButtonSignals](../interfaces/qabstractbuttonsignals.md)›[]*
+
+**Returns:** *[QAbstractButton](qabstractbutton.md)‹[QAbstractButtonSignals](../interfaces/qabstractbuttonsignals.md)›[]*
+
+___
+
+###  checkedButton
+
+▸ **checkedButton**(): *[NativeRawPointer](../globals.md#nativerawpointer)‹"QAbstractButton*"›*
+
+**Returns:** *[NativeRawPointer](../globals.md#nativerawpointer)‹"QAbstractButton*"›*
+
+___
+
+###  checkedId
+
+▸ **checkedId**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  exclusive
+
+▸ **exclusive**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  id
+
+▸ **id**(`button`: [QAbstractButton](qabstractbutton.md)‹[QAbstractButtonSignals](../interfaces/qabstractbuttonsignals.md)›): *number*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`size` | number |
+`button` | [QAbstractButton](qabstractbutton.md)‹[QAbstractButtonSignals](../interfaces/qabstractbuttonsignals.md)› |
 
-**Returns:** *void*
-
-___
-
-###  addWidget
-
-▸ **addWidget**(`widget`: [NodeWidget](nodewidget.md)‹any›, `stretch`: number): *void*
-
-*Overrides [NodeLayout](nodelayout.md).[addWidget](nodelayout.md#abstract-addwidget)*
-
-**Parameters:**
-
-Name | Type | Default |
------- | ------ | ------ |
-`widget` | [NodeWidget](nodewidget.md)‹any› | - |
-`stretch` | number | 0 |
-
-**Returns:** *void*
-
-___
-
-###  direction
-
-▸ **direction**(): *[Direction](../enums/direction.md)*
-
-**Returns:** *[Direction](../enums/direction.md)*
+**Returns:** *number*
 
 ___
 
@@ -297,48 +235,6 @@ Name | Type |
 `className` | string |
 
 **Returns:** *boolean*
-
-___
-
-###  insertLayout
-
-▸ **insertLayout**(`index`: number, `layout`: [NodeLayout](nodelayout.md)‹any›, `stretch`: number): *void*
-
-**Parameters:**
-
-Name | Type | Default |
------- | ------ | ------ |
-`index` | number | - |
-`layout` | [NodeLayout](nodelayout.md)‹any› | - |
-`stretch` | number | 0 |
-
-**Returns:** *void*
-
-___
-
-###  insertWidget
-
-▸ **insertWidget**(`index`: number, `widget`: [NodeWidget](nodewidget.md)‹any›, `stretch`: number): *void*
-
-**Parameters:**
-
-Name | Type | Default |
------- | ------ | ------ |
-`index` | number | - |
-`widget` | [NodeWidget](nodewidget.md)‹any› | - |
-`stretch` | number | 0 |
-
-**Returns:** *void*
-
-___
-
-###  invalidate
-
-▸ **invalidate**(): *void*
-
-*Inherited from [NodeLayout](nodelayout.md).[invalidate](nodelayout.md#invalidate)*
-
-**Returns:** *void*
 
 ___
 
@@ -368,6 +264,20 @@ Name | Type |
 
 ___
 
+###  removeButton
+
+▸ **removeButton**(`button`: [QAbstractButton](qabstractbutton.md)‹[QAbstractButtonSignals](../interfaces/qabstractbuttonsignals.md)›): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`button` | [QAbstractButton](qabstractbutton.md)‹[QAbstractButtonSignals](../interfaces/qabstractbuttonsignals.md)› |
+
+**Returns:** *void*
+
+___
+
 ###  removeEventListener
 
 ▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
@@ -376,7 +286,7 @@ ___
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof QBoxLayoutSignals*
+▪ **SignalType**: *keyof any*
 
 **Parameters:**
 
@@ -409,31 +319,30 @@ Name | Type |
 
 ___
 
-###  removeWidget
+###  setExclusive
 
-▸ **removeWidget**(`widget`: [NodeWidget](nodewidget.md)‹any›): *void*
-
-*Overrides [NodeLayout](nodelayout.md).[removeWidget](nodelayout.md#abstract-removewidget)*
+▸ **setExclusive**(`exculsive`: boolean): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`widget` | [NodeWidget](nodewidget.md)‹any› |
+`exculsive` | boolean |
 
 **Returns:** *void*
 
 ___
 
-###  setDirection
+###  setId
 
-▸ **setDirection**(`dir`: [Direction](../enums/direction.md)): *void*
+▸ **setId**(`button`: [QAbstractButton](qabstractbutton.md)‹[QAbstractButtonSignals](../interfaces/qabstractbuttonsignals.md)›, `id`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`dir` | [Direction](../enums/direction.md) |
+`button` | [QAbstractButton](qabstractbutton.md)‹[QAbstractButtonSignals](../interfaces/qabstractbuttonsignals.md)› |
+`id` | number |
 
 **Returns:** *void*
 
@@ -485,13 +394,3 @@ Name | Type |
 `value` | [QVariantType](../globals.md#qvarianttype) |
 
 **Returns:** *boolean*
-
-___
-
-###  update
-
-▸ **update**(): *void*
-
-*Inherited from [NodeLayout](nodelayout.md).[update](nodelayout.md#update)*
-
-**Returns:** *void*

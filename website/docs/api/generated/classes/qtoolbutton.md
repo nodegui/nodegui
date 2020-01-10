@@ -4,6 +4,21 @@ title: "QToolButton"
 sidebar_label: "QToolButton"
 ---
 
+> Create and control buttons to use inside a QToolBar.
+
+**This class is a JS wrapper around Qt's [QToolButton class](https://doc.qt.io/qt-5/qtoolbutton.html)**
+
+A QToolButton is a special button that provides quick-access to specific commands or options.
+
+### Example
+
+```javascript
+const { QToolButton } = require("@nodegui/nodegui");
+
+const tool = new QToolButton();
+tool.setText('Help');
+```
+
 ## Hierarchy
 
   ↳ [QAbstractButton](qabstractbutton.md)‹[QToolButtonSignals](../interfaces/qtoolbuttonsignals.md)›
