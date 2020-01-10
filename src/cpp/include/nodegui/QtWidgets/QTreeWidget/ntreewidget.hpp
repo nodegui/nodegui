@@ -28,10 +28,9 @@ class NTreeWidget : public QTreeWidget, public NodeWidget {
           Napi::Env env = this->emitOnNode.Env();
           Napi::HandleScope scope(env);
 
-          // Disable deletion of the native instance for these by passing true
           Napi::Object itemWrap = QTreeWidgetItemWrap::constructor.New(
-              {Napi::External<QTreeWidgetItem>::New(env, item),
-               Napi::Boolean::New(env, true)});
+              {Napi::External<QTreeWidgetItem>::New(
+                  env, new QTreeWidgetItem(*item))});
 
           this->emitOnNode.Call({Napi::String::New(env, "itemClicked"),
                                  itemWrap, Napi::Value::From(env, column)});
@@ -43,10 +42,9 @@ class NTreeWidget : public QTreeWidget, public NodeWidget {
           Napi::Env env = this->emitOnNode.Env();
           Napi::HandleScope scope(env);
 
-          // Disable deletion of the native instance for these by passing true
           Napi::Object itemWrap = QTreeWidgetItemWrap::constructor.New(
-              {Napi::External<QTreeWidgetItem>::New(env, item),
-               Napi::Boolean::New(env, true)});
+              {Napi::External<QTreeWidgetItem>::New(
+                  env, new QTreeWidgetItem(*item))});
 
           this->emitOnNode.Call({Napi::String::New(env, "itemChanged"),
                                  itemWrap, Napi::Value::From(env, column)});

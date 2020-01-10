@@ -87,7 +87,7 @@ Napi::Value QTreeWidgetWrap::setColumnCount(const Napi::CallbackInfo& info) {
   int columns = info[0].As<Napi::Number>().Int32Value();
   this->instance->setColumnCount(columns);
 
-  return Napi::Value();
+  return env.Null();
 }
 
 Napi::Value QTreeWidgetWrap::setHeaderLabel(const Napi::CallbackInfo& info) {
@@ -107,7 +107,7 @@ Napi::Value QTreeWidgetWrap::setHeaderLabel(const Napi::CallbackInfo& info) {
     this->instance->setHeaderLabel(QString::fromUtf8(label.c_str()));
   }
 
-  return Napi::Value();
+  return env.Null();
 }
 
 Napi::Value QTreeWidgetWrap::setHeaderLabels(const Napi::CallbackInfo& info) {
@@ -123,7 +123,7 @@ Napi::Value QTreeWidgetWrap::setHeaderLabels(const Napi::CallbackInfo& info) {
 
   this->instance->setHeaderLabels(headerLabels);
 
-  return Napi::Value();
+  return env.Null();
 }
 
 Napi::Value QTreeWidgetWrap::setItemWidget(const Napi::CallbackInfo& info) {
@@ -152,10 +152,9 @@ Napi::Value QTreeWidgetWrap::currentItem(const Napi::CallbackInfo& info) {
 
   QTreeWidgetItem* currentItem = this->instance->currentItem();
 
-  // Disable deletion of the native instance for these by passing true
   Napi::Object value = QTreeWidgetItemWrap::constructor.New(
-      {Napi::External<QTreeWidgetItem>::New(env, currentItem),
-       Napi::Boolean::New(env, true)});
+      {Napi::External<QTreeWidgetItem>::New(
+          env, new QTreeWidgetItem(*currentItem))});
 
   return value;
 }
