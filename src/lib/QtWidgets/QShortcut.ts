@@ -29,7 +29,6 @@ global.win = win;
 global.shortcut = shortcut;
 ```
  */
-
 export class QShortcut extends NodeObject<QShortcutSignals> {
     native: NativeElement;
     constructor(parent: NodeWidget<any>) {

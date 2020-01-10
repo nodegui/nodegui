@@ -17,7 +17,6 @@ const { QMenu } = require("@nodegui/nodegui");
 const menu = new QMenu();
 ```
  */
-
 export class QMenu extends NodeWidget<QMenuSignals> {
     native: NativeElement;
     actions: Set<QAction>;

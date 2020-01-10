@@ -31,7 +31,6 @@ dateTimeEdit.setDate(date);
 dateTimeEdit.setTime(time);
 ```
  */
-
 export class QDateTimeEdit extends QAbstractSpinBox<QDateTimeEditSignals> {
     native: NativeElement;
     calendar?: QCalendarWidget;

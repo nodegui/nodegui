@@ -19,7 +19,6 @@ const lineEdit = new QLineEdit();
 ```
 
  */
-
 export class QLineEdit extends NodeWidget<QLineEditSignals> {
     native: NativeElement;
     constructor();

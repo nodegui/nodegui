@@ -21,7 +21,6 @@ const calendarWidget = new QCalendarWidget();
 // more will follow when .selectedDate() et cetera are implemented
 ```
  */
-
 export class QCalendarWidget extends NodeWidget<QCalendarWidgetSignals> {
     native: NativeElement;
     constructor();

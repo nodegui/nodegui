@@ -14,7 +14,6 @@ import { ScrollBarPolicy } from '../QtEnums/ScrollBarPolicy';
 QAbstractScrollArea will list all methods and properties that are common to all scrollable widgets in the NodeGui world.
 
  */
-
 export abstract class QAbstractScrollArea<Signals extends QAbstractScrollAreaSignals> extends NodeWidget<Signals> {
     viewportWidget?: NodeWidget<any>;
     setViewport(widget: NodeWidget<any>): void {

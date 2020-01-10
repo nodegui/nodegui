@@ -35,7 +35,8 @@ win.setCentralWidget(groupBox);
 win.resize(400, 400);
 
 win.show();
-(global as any).win = win;```
+(global as any).win = win;
+```
 
 ## Hierarchy
 

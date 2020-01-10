@@ -26,7 +26,6 @@ imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 ```
  */
-
 export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     native: NativeElement;
     contentWidget?: NodeWidget<any> | null;

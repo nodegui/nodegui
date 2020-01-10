@@ -32,7 +32,6 @@ for (let i = 0; i < 30; i++) {
 }
 ```
  */
-
 export class QListWidget extends QAbstractItemView<QListWidgetSignals> {
     native: NativeElement;
     items: Set<NativeElement | Component>;

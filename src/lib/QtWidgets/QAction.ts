@@ -29,7 +29,6 @@ menuAction.addEventListener("triggered", () => {
 menu.addAction(menuAction);
 ```
  */
-
 export class QAction extends NodeObject<QActionSignals> {
     native: NativeElement;
     icon?: QIcon;

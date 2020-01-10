@@ -36,7 +36,6 @@ win.show();
 
 ```
  */
-
 export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     native: NativeElement;
     items: Set<NativeElement | Component>;

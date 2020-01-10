@@ -21,7 +21,6 @@ const button = new QPushButton();
 button.setText("Hello");
 ```
  */
-
 export class QPushButton extends QAbstractButton<QPushButtonSignals> {
     native: NativeElement;
     constructor();
