@@ -180,11 +180,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://karelov.info"><img src="https://avatars3.githubusercontent.com/u/2384454?v=4" width="100px;" alt=""/><br /><sub><b>Maksim Karelov</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=Ty3uK" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/mspencer92"><img src="https://avatars2.githubusercontent.com/u/1910455?v=4" width="100px;" alt=""/><br /><sub><b>mspencer92</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=mspencer92" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/blncd2020"><img src="https://avatars1.githubusercontent.com/u/59541979?v=4" width="100px;" alt=""/><br /><sub><b>blncd2020</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=blncd2020" title="Documentation">📖</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
