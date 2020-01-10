@@ -4,6 +4,7 @@ import { Section, Container, Center, H2, H4 } from '../components/common';
 
 const Code = styled.code`
     color: white !important;
+    background: black;
     font-size: 14px;
     position: relative;
     &::before {
