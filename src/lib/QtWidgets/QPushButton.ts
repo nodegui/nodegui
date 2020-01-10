@@ -4,7 +4,6 @@ import { NativeElement, NativeRawPointer, Component } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
 
-export type QPushButtonSignals = QAbstractButtonSignals;
 /**
  
 > Create and control buttons.
@@ -22,6 +21,7 @@ const button = new QPushButton();
 button.setText("Hello");
 ```
  */
+
 export class QPushButton extends QAbstractButton<QPushButtonSignals> {
     native: NativeElement;
     constructor();
@@ -50,3 +50,5 @@ export class QPushButton extends QAbstractButton<QPushButtonSignals> {
         this.native.setFlat(isFlat);
     }
 }
+
+export type QPushButtonSignals = QAbstractButtonSignals;

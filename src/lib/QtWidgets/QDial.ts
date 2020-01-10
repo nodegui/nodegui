@@ -3,8 +3,6 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSlider, QAbstractSliderSignals } from './QAbstractSlider';
 
-export type QDialSignals = QAbstractSliderSignals;
-
 /**
  
 > Create and control dial slider widgets.
@@ -21,6 +19,7 @@ const { QDial } = require("@nodegui/nodegui");
 const dial = new QDial();
 ```
  */
+
 export class QDial extends QAbstractSlider<QDialSignals> {
     native: NativeElement;
     constructor();
@@ -55,3 +54,5 @@ export class QDial extends QAbstractSlider<QDialSignals> {
         return this.native.notchTarget();
     }
 }
+
+export type QDialSignals = QAbstractSliderSignals;

@@ -5,39 +5,6 @@ import { NodeDialog, QDialogSignals } from './QDialog';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { QPushButton } from './QPushButton';
 
-export interface QMessageBoxSignals extends QDialogSignals {
-    buttonClicked: (buttonRawPointer: NativeRawPointer<'QAbstractButton*'>) => void;
-}
-
-export enum StandardButton {
-    Ok = 0x00000400,
-    Open = 0x00002000,
-    Save = 0x00000800,
-    Cancel = 0x00400000,
-    Close = 0x00200000,
-    Discard = 0x00800000,
-    Apply = 0x02000000,
-    Reset = 0x04000000,
-    RestoreDefaults = 0x08000000,
-    Help = 0x01000000,
-    SaveAll = 0x00001000,
-    Yes = 0x00004000,
-    YesToAll = 0x00008000,
-    No = 0x00010000,
-    NoToAll = 0x00020000,
-    Abort = 0x00040000,
-    Retry = 0x00080000,
-    Ignore = 0x00100000,
-    NoButton = 0x00000000,
-}
-export enum Icon {
-    NoIcon = 0,
-    Question = 4,
-    Information = 1,
-    Warning = 2,
-    Critical = 3,
-}
-
 export enum ButtonRole {
     InvalidRole,
     AcceptRole,
@@ -50,6 +17,28 @@ export enum ButtonRole {
     ApplyRole,
     ResetRole,
 }
+
+/**
+ 
+> Create and control classic modal dialogs.
+
+* **This class is a JS wrapper around Qt's [QMessageBox class](https://doc.qt.io/qt-5/qmessagebox.html)**
+
+### Example
+
+```javascript
+
+import { QMessageBox, ButtonRole, QPushButton } from '@nodegui/nodegui';
+
+const messageBox = new QMessageBox();
+messageBox.setText('Alert! This is a message');
+const accept = new QPushButton();
+accept.setText('Accept');
+messageBox.addButton(accept, ButtonRole.AcceptRole);
+messageBox.exec();
+
+```
+ */
 export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
     native: NativeElement;
     constructor();
@@ -108,4 +97,37 @@ export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
     static aboutQt(parent: NodeWidget<any>, title: string): void {
         addon.QMessageBox.aboutQt(parent.native, title);
     }
+}
+
+export interface QMessageBoxSignals extends QDialogSignals {
+    buttonClicked: (buttonRawPointer: NativeRawPointer<'QAbstractButton*'>) => void;
+}
+
+export enum StandardButton {
+    Ok = 0x00000400,
+    Open = 0x00002000,
+    Save = 0x00000800,
+    Cancel = 0x00400000,
+    Close = 0x00200000,
+    Discard = 0x00800000,
+    Apply = 0x02000000,
+    Reset = 0x04000000,
+    RestoreDefaults = 0x08000000,
+    Help = 0x01000000,
+    SaveAll = 0x00001000,
+    Yes = 0x00004000,
+    YesToAll = 0x00008000,
+    No = 0x00010000,
+    NoToAll = 0x00020000,
+    Abort = 0x00040000,
+    Retry = 0x00080000,
+    Ignore = 0x00100000,
+    NoButton = 0x00000000,
+}
+export enum Icon {
+    NoIcon = 0,
+    Question = 4,
+    Information = 1,
+    Warning = 2,
+    Critical = 3,
 }

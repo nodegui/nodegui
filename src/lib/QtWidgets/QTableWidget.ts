@@ -5,20 +5,37 @@ import { ScrollHint, SortOrder } from '../QtEnums';
 import { QTableWidgetItem } from './QTableWidgetItem';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 
-export interface QTableWidgetSignals extends QAbstractScrollAreaSignals {
-    cellActivated: (row: number, col: number) => void;
-    cellChanged: (row: number, col: number) => void;
-    cellClicked: (row: number, col: number) => void;
-    cellDoubleClicked: (row: number, col: number) => void;
-    cellEntered: (row: number, col: number) => void;
-    cellPressed: (row: number, col: number) => void;
-    currentCellChanged: (
-        currentRow: number,
-        currentColumn: number,
-        previousRow: number,
-        previousColumn: number,
-    ) => void;
-}
+/**
+ 
+> Creates and item-based table view.
+
+* **This class is a JS wrapper around Qt's [QTableWidget class](https://doc.qt.io/qt-5/qtablewidget.html)**
+
+### Example
+
+```javascript
+const { QTableWidget, QMainWindow, QTableWidgetItem } = require("@nodegui/nodegui");
+
+const win = new QMainWindow();
+const table = new QTableWidget(2, 3);
+table.setHorizontalHeaderLabels(['first', 'second', 'third']);
+
+const cell00 = new QTableWidgetItem('C00');
+const cell01 = new QTableWidgetItem('C01');
+const cell10 = new QTableWidgetItem('C10');
+const cell11 = new QTableWidgetItem('C11');
+
+table.setItem(0, 0, cell00);
+table.setItem(0, 1, cell01);
+table.setItem(1, 0, cell10);
+table.setItem(1, 1, cell11);
+
+win.setCentralWidget(table);
+win.show();
+(global as any).win = win;
+
+```
+ */
 
 export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     native: NativeElement;
@@ -152,4 +169,19 @@ interface Range {
     leftColumn: number;
     columnCount: number;
     rowCount: number;
+}
+
+export interface QTableWidgetSignals extends QAbstractScrollAreaSignals {
+    cellActivated: (row: number, col: number) => void;
+    cellChanged: (row: number, col: number) => void;
+    cellClicked: (row: number, col: number) => void;
+    cellDoubleClicked: (row: number, col: number) => void;
+    cellEntered: (row: number, col: number) => void;
+    cellPressed: (row: number, col: number) => void;
+    currentCellChanged: (
+        currentRow: number,
+        currentColumn: number,
+        previousRow: number,
+        previousColumn: number,
+    ) => void;
 }

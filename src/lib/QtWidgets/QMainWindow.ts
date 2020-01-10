@@ -4,8 +4,6 @@ import { NativeElement } from '../core/Component';
 import { NodeLayout } from './QLayout';
 import { QMenuBar } from './QMenuBar';
 
-export type QMainWindowSignals = QWidgetSignals;
-
 /**
  
 > Create and control windows.
@@ -32,6 +30,7 @@ global.win = win; // prevent's gc of win
 QMainWindow needs to have a central widget set before other widgets can be added as a children/nested children.
 Once a central widget is set you can add children/layout to the central widget.
  */
+
 export class QMainWindow extends NodeWidget<QMainWindowSignals> {
     native: NativeElement;
     public centralWidget?: NodeWidget<any> | null;
@@ -92,3 +91,5 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
         this.native.center();
     }
 }
+
+export type QMainWindowSignals = QWidgetSignals;

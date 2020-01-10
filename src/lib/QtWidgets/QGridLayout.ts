@@ -3,8 +3,6 @@ import { NodeWidget } from './QWidget';
 import { NodeLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 
-export type QGridLayoutSignals = QLayoutSignals;
-
 /**
  
 > The QGridLayout class lays out widgets in a grid.
@@ -30,6 +28,7 @@ layout.addWidget(label2);
 ```
 
  */
+
 export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
     native: NativeElement;
     constructor();
@@ -54,3 +53,5 @@ export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
         this.nodeChildren.delete(widget);
     }
 }
+
+export type QGridLayoutSignals = QLayoutSignals;

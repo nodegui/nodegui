@@ -4,17 +4,6 @@ import { QPixmap } from './QPixmap';
 import { QVariant } from '../QtCore/QVariant';
 import { checkIfNativeElement } from '../utils/helpers';
 
-export enum QIconMode {
-    Normal,
-    Disabled,
-    Active,
-    Selected,
-}
-export enum QIconState {
-    Off,
-    On,
-}
-
 /**
  
 > The QIcon class provides scalable icons in different modes and states.
@@ -69,4 +58,15 @@ export class QIcon extends Component {
     static fromQVariant(variant: QVariant): QIcon {
         return new QIcon(addon.QIcon.fromQVariant(variant.native));
     }
+}
+
+export enum QIconMode {
+    Normal,
+    Disabled,
+    Active,
+    Selected,
+}
+export enum QIconState {
+    Off,
+    On,
 }

@@ -2,7 +2,6 @@ import { NodeWidget } from './QWidget';
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 
 // All Layouts should extend this abstract class.
-export type QLayoutSignals = QObjectSignals;
 
 /**
  
@@ -33,6 +32,7 @@ addChildToLayout(new FlexLayout(), new QPushButton());
 addChildToLayout(new GridLayout(), new QWidget());
 ```
  */
+
 export abstract class NodeLayout<Signals extends QLayoutSignals> extends NodeObject<Signals> {
     type = 'layout';
     abstract addWidget(childWidget: NodeWidget<any>, ...args: any[]): void;
@@ -51,3 +51,5 @@ export abstract class NodeLayout<Signals extends QLayoutSignals> extends NodeObj
 // export class QLayout extends NodeLayout { //Dont need QLayout for now
 //   native: any;
 // }
+
+export type QLayoutSignals = QObjectSignals;

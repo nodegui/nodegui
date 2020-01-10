@@ -2,21 +2,6 @@ import addon from '../utils/addon';
 import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 
-export enum EchoMode {
-    Normal,
-    NoEcho,
-    Password,
-    PasswordEchoOnEdit,
-}
-export interface QLineEditSignals extends QWidgetSignals {
-    cursorPositionChanged: (oldPos: number, newPos: number) => void;
-    editingFinished: () => void;
-    inputRejected: () => void;
-    returnPressed: () => void;
-    selectionChanged: () => void;
-    textChanged: (text: string) => void;
-    textEdited: (text: string) => void;
-}
 /**
  
 > Create and control editable text field.
@@ -34,6 +19,7 @@ const lineEdit = new QLineEdit();
 ```
 
  */
+
 export class QLineEdit extends NodeWidget<QLineEditSignals> {
     native: NativeElement;
     constructor();
@@ -73,4 +59,20 @@ export class QLineEdit extends NodeWidget<QLineEditSignals> {
     setEchoMode(mode: EchoMode): void {
         this.native.setEchoMode(mode);
     }
+}
+
+export enum EchoMode {
+    Normal,
+    NoEcho,
+    Password,
+    PasswordEchoOnEdit,
+}
+export interface QLineEditSignals extends QWidgetSignals {
+    cursorPositionChanged: (oldPos: number, newPos: number) => void;
+    editingFinished: () => void;
+    inputRejected: () => void;
+    returnPressed: () => void;
+    selectionChanged: () => void;
+    textChanged: (text: string) => void;
+    textEdited: (text: string) => void;
 }

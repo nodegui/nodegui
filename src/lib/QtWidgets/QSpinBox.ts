@@ -2,10 +2,6 @@ import addon from '../utils/addon';
 import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 
-export interface QSpinBoxSignals extends QWidgetSignals {
-    valueChanged: (value: number) => void;
-}
-
 /**
  
 > Create and control spin box widgets.
@@ -22,6 +18,7 @@ const { QSpinBox } = require("@nodegui/nodegui");
 const spinBox = new QSpinBox();
 ```
  */
+
 export class QSpinBox extends NodeWidget<QSpinBoxSignals> {
     native: NativeElement;
     constructor();
@@ -73,4 +70,8 @@ export class QSpinBox extends NodeWidget<QSpinBoxSignals> {
         // react:✓
         return this.native.value();
     }
+}
+
+export interface QSpinBoxSignals extends QWidgetSignals {
+    valueChanged: (value: number) => void;
 }

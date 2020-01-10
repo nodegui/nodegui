@@ -6,7 +6,6 @@ import { QMovie } from '../QtGui/QMovie';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 import { TextFormat } from '../QtEnums/TextFormat';
 
-export type QLabelSignals = QWidgetSignals;
 /**
  
 > Create and control text.
@@ -25,6 +24,7 @@ label.setText("Hello");
 ```
 
  */
+
 export class QLabel extends NodeWidget<QLabelSignals> {
     native: NativeElement;
     private _pixmap?: QPixmap;
@@ -102,3 +102,5 @@ export class QLabel extends NodeWidget<QLabelSignals> {
         this.native.clear();
     }
 }
+
+export type QLabelSignals = QWidgetSignals;

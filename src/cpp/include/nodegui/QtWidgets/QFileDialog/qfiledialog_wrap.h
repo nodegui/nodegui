@@ -26,4 +26,6 @@ class QFileDialogWrap : public Napi::ObjectWrap<QFileDialogWrap> {
   Napi::Value labelText(const Napi::CallbackInfo& info);
   Napi::Value setLabelText(const Napi::CallbackInfo& info);
   Napi::Value setOption(const Napi::CallbackInfo& info);
+  Napi::Value setNameFilter(const Napi::CallbackInfo& info);
+  Napi::Value selectedFiles(const Napi::CallbackInfo& info);
 };

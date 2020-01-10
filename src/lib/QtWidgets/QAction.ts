@@ -9,13 +9,6 @@ import { ShortcutContext } from '../QtEnums';
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { checkIfNativeElement } from '../utils/helpers';
 
-export interface QActionSignals extends QObjectSignals {
-    triggered: (checked: boolean) => void;
-    changed: () => void;
-    hovered: () => void;
-    toggled: (checked: boolean) => void;
-}
-
 /**
  
 > The QAction class provides an abstract user interface action that can be inserted into widgets.
@@ -36,6 +29,7 @@ menuAction.addEventListener("triggered", () => {
 menu.addAction(menuAction);
 ```
  */
+
 export class QAction extends NodeObject<QActionSignals> {
     native: NativeElement;
     icon?: QIcon;
@@ -99,4 +93,11 @@ export class QAction extends NodeObject<QActionSignals> {
     font(): QFont {
         return QFont.fromQVariant(this.property('font'));
     }
+}
+
+export interface QActionSignals extends QObjectSignals {
+    triggered: (checked: boolean) => void;
+    changed: () => void;
+    hovered: () => void;
+    toggled: (checked: boolean) => void;
 }

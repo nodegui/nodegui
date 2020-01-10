@@ -4,18 +4,29 @@ import { NativeElement } from '../core/Component';
 import { AcceptMode, DialogLabel, FileMode, Option, ViewMode } from '../QtEnums';
 import { NodeDialog, QDialogSignals } from './QDialog';
 
-export interface QFileDialogSignals extends QDialogSignals {
-    currentChanged: (path: string) => void;
-    currentUrlChanged: (url: string) => void;
-    directoryEntered: (directory: string) => void;
-    directoryUrlEntered: (url: string) => void;
-    fileSelected: (file: string) => void;
-    filesSelected: (selected: string[]) => void;
-    filterSelected: (filter: string) => void;
-    urlSelected: (url: string) => void;
-    urlsSelected: (urls: string[]) => void;
-}
+/**
+ 
+> Create and control file dialogs.
 
+* **This class is a JS wrapper around Qt's [QFileDialog class](https://doc.qt.io/qt-5/qfiledialog.html)**
+
+A `QFileDialog` class provides a dialog that allow users to select files or directories.
+
+### Example
+
+```javascript
+const { QFileDialog } = require("@nodegui/nodegui");
+
+const fileDialog = new QFileDialog();
+fileDialog.setFileMode(FileMode.AnyFile);
+fileDialog.setNameFilter('Images (*.png *.xpm *.jpg)');
+fileDialog.exec();
+
+const selectedFiles = fileDialog.selectedFiles();
+console.log(selectedFiles);
+
+```
+ */
 export class QFileDialog extends NodeDialog<QFileDialogSignals> {
     native: NativeElement;
     constructor();
@@ -36,6 +47,12 @@ export class QFileDialog extends NodeDialog<QFileDialogSignals> {
     }
     setSupportedSchemes(schemes: string[]): void {
         this.native.setSupportedSchemes(schemes);
+    }
+    setNameFilter(filter: string): void {
+        this.native.setNameFilter(filter);
+    }
+    selectedFiles(): string[] {
+        return this.native.selectedFiles();
     }
     labelText(label: DialogLabel): string {
         return this.native.labelText(label);
@@ -73,4 +90,16 @@ export class QFileDialog extends NodeDialog<QFileDialogSignals> {
     setOptions(options: Option): void {
         this.setProperty('options', options);
     }
+}
+
+export interface QFileDialogSignals extends QDialogSignals {
+    currentChanged: (path: string) => void;
+    currentUrlChanged: (url: string) => void;
+    directoryEntered: (directory: string) => void;
+    directoryUrlEntered: (url: string) => void;
+    fileSelected: (file: string) => void;
+    filesSelected: (selected: string[]) => void;
+    filterSelected: (filter: string) => void;
+    urlSelected: (url: string) => void;
+    urlsSelected: (urls: string[]) => void;
 }

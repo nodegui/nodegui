@@ -1,15 +1,6 @@
 import { NodeWidget, QWidgetSignals } from './QWidget';
 import { Orientation } from '../QtEnums';
 
-export interface QAbstractSliderSignals extends QWidgetSignals {
-    actionTriggered: (action: number) => void;
-    rangeChanged: (min: number, max: number) => void;
-    sliderMoved: (value: number) => void;
-    sliderPressed: () => void;
-    sliderReleased: () => void;
-    valueChanged: (value: number) => void;
-}
-
 /**
  
 > Abstract class to add functionalities common to all slider based widgets.
@@ -23,6 +14,7 @@ export interface QAbstractSliderSignals extends QWidgetSignals {
 QAbstractSlider will list all methods and properties that are common to all slider widgets in the NodeGui world.
 
  */
+
 export abstract class QAbstractSlider<Signals extends QAbstractSliderSignals> extends NodeWidget<Signals> {
     setSingleStep(step: number): void {
         this.native.setSingleStep(step);
@@ -48,4 +40,13 @@ export abstract class QAbstractSlider<Signals extends QAbstractSliderSignals> ex
     setOrientation(orientation: Orientation): void {
         this.native.setOrientation(orientation);
     }
+}
+
+export interface QAbstractSliderSignals extends QWidgetSignals {
+    actionTriggered: (action: number) => void;
+    rangeChanged: (min: number, max: number) => void;
+    sliderMoved: (value: number) => void;
+    sliderPressed: () => void;
+    sliderReleased: () => void;
+    valueChanged: (value: number) => void;
 }

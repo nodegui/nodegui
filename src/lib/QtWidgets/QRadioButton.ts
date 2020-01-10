@@ -4,8 +4,6 @@ import { NativeElement, NativeRawPointer, Component } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
 
-export type QRadioButtonSignals = QAbstractButtonSignals;
-
 /**
  
 > Create and control radio button.
@@ -24,6 +22,7 @@ radioButton.setText("Hello");
 ```
 
  */
+
 export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
     native: NativeElement;
     constructor();
@@ -48,3 +47,5 @@ export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
         parent && this.setNodeParent(parent);
     }
 }
+
+export type QRadioButtonSignals = QAbstractButtonSignals;

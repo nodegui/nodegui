@@ -8,15 +8,23 @@ import { QAction } from '../QtWidgets/QAction';
 import { QMenu } from './QMenu';
 import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
 
-export enum ToolButtonPopupMode {
-    DelayedPopup,
-    MenuButtonPopup,
-    InstantPopup,
-}
+/**
+ 
+> Create and control buttons to use inside a QToolBar.
 
-export interface QToolButtonSignals extends QAbstractButtonSignals {
-    triggered: (nativeAction: NativeElement) => void;
-}
+* **This class is a JS wrapper around Qt's [QToolButton class](https://doc.qt.io/qt-5/qtoolbutton.html)**
+
+A QToolButton is a special button that provides quick-access to specific commands or options.
+
+### Example
+
+```javascript
+const { QToolButton } = require("@nodegui/nodegui");
+
+const tool = new QToolButton();
+tool.setText('Help');
+```
+ */
 export class QToolButton extends QAbstractButton<QToolButtonSignals> {
     native: NativeElement;
     constructor();
@@ -72,4 +80,14 @@ export class QToolButton extends QAbstractButton<QToolButtonSignals> {
     showMenu(): void {
         this.native.showMenu();
     }
+}
+
+export enum ToolButtonPopupMode {
+    DelayedPopup,
+    MenuButtonPopup,
+    InstantPopup,
+}
+
+export interface QToolButtonSignals extends QAbstractButtonSignals {
+    triggered: (nativeAction: NativeElement) => void;
 }

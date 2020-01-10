@@ -5,46 +5,16 @@ import { QSize } from '../QtCore/QSize';
 import { DropAction } from '../QtEnums/DropAction';
 import { TextElideMode } from '../QtEnums/TextElideMode';
 
-export enum DragDropMode {
-    NoDragDrop,
-    DragOnly,
-    DropOnly,
-    DragDrop,
-    InternalMove,
-}
+/**
+ 
+> This is the abstract base class of button widgets, providing their functionality.
 
-export enum EditTrigger {
-    NoEditTriggers = 0,
-    CurrentChanged = 1,
-    DoubleClicked = 2,
-    SelectedClicked = 4,
-    EditKeyPressed = 8,
-    AnyKeyPressed = 16,
-    AllEditTriggers = 31,
-}
+* **This class is a JS wrapper around Qt's [QAbstractItemView class](https://doc.qt.io/qt-5/qabstractitemview.html)**
 
-export enum ScrollMode {
-    ScrollPerItem,
-    ScrollPerPixel,
-}
+The QAbstractItemView class is an abstract class and therefore, technically, no further instances actually have to be created.
+It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTableView, and QTreeView)
 
-export enum SelectionBehavior {
-    SelectItems,
-    SelectRows,
-    SelectColumns,
-}
-
-export enum SelectionMode {
-    NoSelection,
-    SingleSelection,
-    MultiSelection,
-    ExtendedSelection,
-    ContiguousSelection,
-}
-
-export interface QAbstractItemViewSignals extends QAbstractScrollAreaSignals {
-    viewportEntered: () => void;
-}
+*/
 
 export abstract class QAbstractItemView<Signals extends QAbstractItemViewSignals> extends QAbstractScrollArea<Signals> {
     setCurrentIndex(index: QModelIndex): void {
@@ -168,4 +138,45 @@ export abstract class QAbstractItemView<Signals extends QAbstractItemViewSignals
     resetVerticalScrollMode(): void {
         this.native.resetVerticalScrollMode();
     }
+}
+
+export enum DragDropMode {
+    NoDragDrop,
+    DragOnly,
+    DropOnly,
+    DragDrop,
+    InternalMove,
+}
+
+export enum EditTrigger {
+    NoEditTriggers = 0,
+    CurrentChanged = 1,
+    DoubleClicked = 2,
+    SelectedClicked = 4,
+    EditKeyPressed = 8,
+    AnyKeyPressed = 16,
+    AllEditTriggers = 31,
+}
+
+export enum ScrollMode {
+    ScrollPerItem,
+    ScrollPerPixel,
+}
+
+export enum SelectionBehavior {
+    SelectItems,
+    SelectRows,
+    SelectColumns,
+}
+
+export enum SelectionMode {
+    NoSelection,
+    SingleSelection,
+    MultiSelection,
+    ExtendedSelection,
+    ContiguousSelection,
+}
+
+export interface QAbstractItemViewSignals extends QAbstractScrollAreaSignals {
+    viewportEntered: () => void;
 }

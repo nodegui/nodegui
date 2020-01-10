@@ -3,9 +3,6 @@ import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { Orientation } from '../QtEnums';
 
-export interface QProgressBarSignals extends QWidgetSignals {
-    valueChanged: (value: number) => void;
-}
 /**
  
 > Create and control progress bar widgets.
@@ -22,6 +19,7 @@ const { QProgressBar } = require("@nodegui/nodegui");
 const progressBar = new QProgressBar();
 ```
  */
+
 export class QProgressBar extends NodeWidget<QProgressBarSignals> {
     native: NativeElement;
     constructor();
@@ -57,4 +55,8 @@ export class QProgressBar extends NodeWidget<QProgressBarSignals> {
         // react:✓ TODO://getter
         this.native.setOrientation(orientation);
     }
+}
+
+export interface QProgressBarSignals extends QWidgetSignals {
+    valueChanged: (value: number) => void;
 }

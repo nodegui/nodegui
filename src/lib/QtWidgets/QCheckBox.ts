@@ -4,8 +4,6 @@ import { NativeElement, NativeRawPointer, Component } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
 
-export type QCheckBoxSignals = QAbstractButtonSignals;
-
 /**
  
 > Create and control checkbox.
@@ -23,6 +21,7 @@ const checkbox = new QCheckBox();
 checkbox.setText("Hello");
 ```
  */
+
 export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
     native: NativeElement;
     constructor();
@@ -53,3 +52,5 @@ export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
         return this.native.isChecked();
     }
 }
+
+export type QCheckBoxSignals = QAbstractButtonSignals;

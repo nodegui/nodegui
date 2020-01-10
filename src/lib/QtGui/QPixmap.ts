@@ -4,8 +4,6 @@ import { AspectRatioMode, TransformationMode } from '../QtEnums';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from '../QtCore/QVariant';
 
-export type ImageFormats = 'BMP' | 'GIF' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'PGM' | 'PPM' | 'XBM' | 'XPM' | 'SVG';
-
 /**
  
 > The QPixmap class helps hold an image in the form of off-screen image representation.
@@ -74,3 +72,5 @@ export class QPixmap extends Component {
         return new QPixmap(addon.QPixmap.fromQVariant(variant.native));
     }
 }
+
+export type ImageFormats = 'BMP' | 'GIF' | 'JPG' | 'JPEG' | 'PNG' | 'PBM' | 'PGM' | 'PPM' | 'XBM' | 'XPM' | 'SVG';

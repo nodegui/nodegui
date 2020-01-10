@@ -1,20 +1,16 @@
 import { NodeWidget, QWidgetSignals } from './QWidget';
 import { AlignmentFlag } from '../QtEnums';
 
-export enum ButtonSymbols {
-    UpDownArrows,
-    PlusMinus,
-    NoButtons,
-}
+/**
+ 
+> This is the abstract base class of button widgets, providing their functionality.
 
-export enum CorrectionMode {
-    CorrectToPreviousValue,
-    CorrectToNearestValue,
-}
+* **This class is a JS wrapper around Qt's [QAbstractSpinBox class](https://doc.qt.io/qt-5/qabstractspinbox.html)**
 
-export interface QAbstractSpinBoxSignals extends QWidgetSignals {
-    editingFinished: () => void;
-}
+The QAbstractSpinBox class is an abstract class and therefore, technically, no further instances actually have to be created.
+It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
+
+ */
 
 export abstract class QAbstractSpinBox<Signals extends QAbstractSpinBoxSignals> extends NodeWidget<Signals> {
     selectAll(): void {
@@ -92,4 +88,19 @@ export abstract class QAbstractSpinBox<Signals extends QAbstractSpinBoxSignals> 
     wrapping(): boolean {
         return this.property('wrapping').toBool();
     }
+}
+
+export enum ButtonSymbols {
+    UpDownArrows,
+    PlusMinus,
+    NoButtons,
+}
+
+export enum CorrectionMode {
+    CorrectToPreviousValue,
+    CorrectToNearestValue,
+}
+
+export interface QAbstractSpinBoxSignals extends QWidgetSignals {
+    editingFinished: () => void;
 }

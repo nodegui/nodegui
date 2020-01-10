@@ -3,6 +3,7 @@ import { NativeElement } from '../core/Component';
 
 import { checkIfNativeElement } from '../utils/helpers';
 import { NodeWidget, QWidgetSignals } from './QWidget';
+
 // All Dialogs should extend from NodeDialog
 // Implement all native QDialog methods here so that all dialogs get access to those aswell
 export abstract class NodeDialog<Signals extends QDialogSignals> extends NodeWidget<Signals> {
@@ -32,11 +33,14 @@ export abstract class NodeDialog<Signals extends QDialogSignals> extends NodeWid
     }
 }
 
-export interface QDialogSignals extends QWidgetSignals {
-    accepted: () => void;
-    finished: (result: number) => void;
-    rejected: () => void;
-}
+/**
+ 
+> This is the base class of dialog windows.
+
+* **This class is a JS wrapper around Qt's [QDialog class](https://doc.qt.io/qt-5/qdialog.html)**
+
+It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage, QFontDialog, QInputDialog, QMessageBox, QProgressDialog, and QWizard)
+ */
 
 export class QDialog extends NodeDialog<QDialogSignals> {
     native: NativeElement;
@@ -55,4 +59,10 @@ export class QDialog extends NodeDialog<QDialogSignals> {
         this.setNodeParent(parent);
         this.native = native;
     }
+}
+
+export interface QDialogSignals extends QWidgetSignals {
+    accepted: () => void;
+    finished: (result: number) => void;
+    rejected: () => void;
 }

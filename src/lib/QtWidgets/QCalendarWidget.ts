@@ -4,29 +4,23 @@ import { NativeElement } from '../core/Component';
 import { QDate } from '../QtCore/QDate';
 import { DayOfWeek } from '../QtEnums';
 
-export enum HorizontalHeaderFormat {
-    NoHorizontalHeader,
-    SingleLetterDayNames,
-    ShortDayNames,
-    LongDayNames,
-}
+/**
+ 
+> Create and control a selectable monthly calendar.
 
-export enum VerticalHeaderFormat {
-    NoVerticalHeader,
-    ISOWeekNumbers,
-}
+* **This class is a JS wrapper around Qt's [QCalendarWidget class](https://doc.qt.io/qt-5/qcalendarwidget.html)**
 
-export enum SelectionMode {
-    NoSelection,
-    SingleSelection,
-}
+A `QCalendarWidget` provides a monthly based calendar widget allowing the user to select a date.
 
-export interface QCalendarWidgetSignals extends QWidgetSignals {
-    activated: (date: QDate) => void;
-    clicked: (date: QDate) => void;
-    currentPageChanged: (year: number, month: number) => void;
-    selectionChanged: () => void;
-}
+### Example
+
+```javascript
+const { QCalendarWidget } = require("@nodegui/nodegui");
+
+const calendarWidget = new QCalendarWidget();
+// more will follow when .selectedDate() et cetera are implemented
+```
+ */
 
 export class QCalendarWidget extends NodeWidget<QCalendarWidgetSignals> {
     native: NativeElement;
@@ -91,4 +85,28 @@ export class QCalendarWidget extends NodeWidget<QCalendarWidgetSignals> {
     verticalHeaderFormat(): VerticalHeaderFormat {
         return this.property('verticalHeaderFormat').toInt();
     }
+}
+
+export enum HorizontalHeaderFormat {
+    NoHorizontalHeader,
+    SingleLetterDayNames,
+    ShortDayNames,
+    LongDayNames,
+}
+
+export enum VerticalHeaderFormat {
+    NoVerticalHeader,
+    ISOWeekNumbers,
+}
+
+export enum SelectionMode {
+    NoSelection,
+    SingleSelection,
+}
+
+export interface QCalendarWidgetSignals extends QWidgetSignals {
+    activated: (date: QDate) => void;
+    clicked: (date: QDate) => void;
+    currentPageChanged: (year: number, month: number) => void;
+    selectionChanged: () => void;
 }

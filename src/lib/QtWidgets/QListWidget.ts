@@ -7,37 +7,31 @@ import { QSize } from '../QtCore/QSize';
 import { QRect } from '../QtCore/QRect';
 import { SortOrder, ScrollHint, AlignmentFlag } from '../QtEnums';
 
-export enum Flow {
-    LeftToRight,
-    TopToBottom,
-}
+/**
+ 
+> Create and control a item-based list.
 
-export enum LayoutMode {
-    SinglePass,
-    Batched,
-}
+* **This class is a JS wrapper around Qt's [QListWidget class](https://doc.qt.io/qt-5/qlistwidget.html)**
 
-export enum Movement {
-    Static,
-    Free,
-    Snap,
-}
+### Example
 
-export enum ResizeMode {
-    Fixed,
-    Adjust,
-}
+```javascript
+const { QListWidget, QListWidgetItem } = require("@nodegui/nodegui");
 
-export enum ViewMode {
-    ListMode,
-    IconMode,
-}
+const listWidget = new QListWidget();
 
-export interface QListWidgetSignals extends QAbstractItemViewSignals {
-    currentRowChanged: (currentRow: number) => void;
-    currentTextChanged: (currentText: string) => void;
-    itemSelectionChanged: () => void;
+for (let i = 0; i < 30; i++) {
+  let listWidgetItem = new QListWidgetItem();
+  listWidgetItem.setText('listWidgetItem ' + i);
+  if (i===3) {
+    listWidgetItem.setCheckState(2);
+  } else {
+    listWidgetItem.setCheckState(0);
+  }
+  listWidget.addItem(listWidgetItem);
 }
+```
+ */
 
 export class QListWidget extends QAbstractItemView<QListWidgetSignals> {
     native: NativeElement;
@@ -230,4 +224,36 @@ export class QListWidget extends QAbstractItemView<QListWidgetSignals> {
     wordWrap(): boolean {
         return this.property('wordWrap').toBool();
     }
+}
+
+export enum Flow {
+    LeftToRight,
+    TopToBottom,
+}
+
+export enum LayoutMode {
+    SinglePass,
+    Batched,
+}
+
+export enum Movement {
+    Static,
+    Free,
+    Snap,
+}
+
+export enum ResizeMode {
+    Fixed,
+    Adjust,
+}
+
+export enum ViewMode {
+    ListMode,
+    IconMode,
+}
+
+export interface QListWidgetSignals extends QAbstractItemViewSignals {
+    currentRowChanged: (currentRow: number) => void;
+    currentTextChanged: (currentText: string) => void;
+    itemSelectionChanged: () => void;
 }

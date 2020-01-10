@@ -2,6 +2,16 @@ import { NodeWidget, QWidgetSignals } from './QWidget';
 import { QIcon } from '../QtGui/QIcon';
 import { QSize } from '../QtCore/QSize';
 
+/**
+ 
+> This is the abstract base class of button widgets, providing their functionality.
+
+* **This class is a JS wrapper around Qt's [QAbstractButton class](https://doc.qt.io/qt-5/qabstractbutton.html)**
+
+The QAbstractButton class is an abstract class and therefore, technically, no further instances actually have to be created.
+It is inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
+
+ */
 export abstract class QAbstractButton<Signals extends QAbstractButtonSignals> extends NodeWidget<Signals> {
     setText(text: string): void {
         this.native.setText(text);

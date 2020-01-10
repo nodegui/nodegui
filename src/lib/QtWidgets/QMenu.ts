@@ -3,8 +3,6 @@ import { NodeWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { QAction } from './QAction';
 
-export type QMenuSignals = QWidgetSignals;
-
 /**
  
 > The QMenu class provides a menu widget for use in menu bars, context menus, and other popup menus.
@@ -19,6 +17,7 @@ const { QMenu } = require("@nodegui/nodegui");
 const menu = new QMenu();
 ```
  */
+
 export class QMenu extends NodeWidget<QMenuSignals> {
     native: NativeElement;
     actions: Set<QAction>;
@@ -45,3 +44,5 @@ export class QMenu extends NodeWidget<QMenuSignals> {
         return action;
     }
 }
+
+export type QMenuSignals = QWidgetSignals;

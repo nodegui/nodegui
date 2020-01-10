@@ -3,37 +3,6 @@ import addon from '../utils/addon';
 import { QVariant } from '../QtCore/QVariant';
 import { checkIfNativeElement } from '../utils/helpers';
 
-export enum QFontStretch {
-    AnyStretch = 0,
-    UltraCondensed = 50,
-    ExtraCondensed = 62,
-    Condensed = 75,
-    SemiCondensed = 87,
-    Unstretched = 100,
-    SemiExpanded = 112,
-    Expanded = 125,
-    ExtraExpanded = 150,
-    UltraExpanded = 200,
-}
-export enum QFontCapitalization {
-    MixedCase = 0,
-    AllUppercase = 1,
-    AllLowercase = 2,
-    SmallCaps = 3,
-    Capitalize = 4,
-}
-export enum QFontWeight {
-    Thin = 0,
-    ExtraLight = 12,
-    Light = 25,
-    Normal = 50,
-    Medium = 57,
-    DemiBold = 63,
-    Bold = 75,
-    ExtraBold = 81,
-    Black = 87,
-}
-
 export class QFont extends Component {
     native: NativeElement;
     constructor();
@@ -94,4 +63,35 @@ export class QFont extends Component {
     static fromQVariant(variant: QVariant): QFont {
         return new QFont(addon.QFont.fromQVariant(variant.native));
     }
+}
+
+export enum QFontStretch {
+    AnyStretch = 0,
+    UltraCondensed = 50,
+    ExtraCondensed = 62,
+    Condensed = 75,
+    SemiCondensed = 87,
+    Unstretched = 100,
+    SemiExpanded = 112,
+    Expanded = 125,
+    ExtraExpanded = 150,
+    UltraExpanded = 200,
+}
+export enum QFontCapitalization {
+    MixedCase = 0,
+    AllUppercase = 1,
+    AllLowercase = 2,
+    SmallCaps = 3,
+    Capitalize = 4,
+}
+export enum QFontWeight {
+    Thin = 0,
+    ExtraLight = 12,
+    Light = 25,
+    Normal = 50,
+    Medium = 57,
+    DemiBold = 63,
+    Bold = 75,
+    ExtraBold = 81,
+    Black = 87,
 }
