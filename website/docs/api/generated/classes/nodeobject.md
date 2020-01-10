@@ -24,6 +24,8 @@ sidebar_label: "NodeObject"
 
   ↳ [QAction](qaction.md)
 
+  ↳ [QButtonGroup](qbuttongroup.md)
+
   ↳ [QSystemTrayIcon](qsystemtrayicon.md)
 
   ↳ [QShortcut](qshortcut.md)

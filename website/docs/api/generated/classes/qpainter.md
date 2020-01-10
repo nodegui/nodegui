@@ -4,6 +4,38 @@ title: "QPainter"
 sidebar_label: "QPainter"
 ---
 
+> Lets you paint on widgets.
+
+**This class is a JS wrapper around Qt's [QPainter class](https://doc.qt.io/qt-5/qpainter.html)**
+
+Note: QPainter works only inside the paint event.
+
+### Example
+
+```javascript
+
+import { FlexLayout, WidgetEventTypes, QMainWindow, QPainter, QWidget } from '@nodegui/nodegui';
+
+const win = new QMainWindow();
+const center = new QWidget();
+const layout = new FlexLayout();
+center.setLayout(layout);
+win.resize(200, 200);
+
+win.addEventListener(WidgetEventTypes.Paint, () => {
+const painter = new QPainter(win);
+painter.drawText(20, 20, 'Hello');
+painter.end();
+});
+win.show();
+(global as any).win = win;
+
+```
+
+## Advanced example:
+
+https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpainter
+
 ## Hierarchy
 
 * [Component](component.md)

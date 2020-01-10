@@ -4,6 +4,29 @@ title: "QListWidget"
 sidebar_label: "QListWidget"
 ---
 
+> Create and control a item-based list.
+
+**This class is a JS wrapper around Qt's [QListWidget class](https://doc.qt.io/qt-5/qlistwidget.html)**
+
+### Example
+
+```javascript
+const { QListWidget, QListWidgetItem } = require("@nodegui/nodegui");
+
+const listWidget = new QListWidget();
+
+for (let i = 0; i < 30; i++) {
+let listWidgetItem = new QListWidgetItem();
+listWidgetItem.setText('listWidgetItem ' + i);
+if (i===3) {
+listWidgetItem.setCheckState(2);
+} else {
+listWidgetItem.setCheckState(0);
+}
+listWidget.addItem(listWidgetItem);
+}
+```
+
 ## Hierarchy
 
   ↳ [QAbstractItemView](qabstractitemview.md)‹[QListWidgetSignals](../interfaces/qlistwidgetsignals.md)›

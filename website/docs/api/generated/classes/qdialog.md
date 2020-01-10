@@ -4,6 +4,12 @@ title: "QDialog"
 sidebar_label: "QDialog"
 ---
 
+> This is the base class of dialog windows.
+
+**This class is a JS wrapper around Qt's [QDialog class](https://doc.qt.io/qt-5/qdialog.html)**
+
+It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage, QFontDialog, QInputDialog, QMessageBox, QProgressDialog, and QWizard)
+
 ## Hierarchy
 
   ↳ [NodeDialog](nodedialog.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)›

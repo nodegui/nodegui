@@ -4,6 +4,32 @@ title: "QComboBox"
 sidebar_label: "QComboBox"
 ---
 
+> Create and control a selectable drop down menu.
+
+**This class is a JS wrapper around Qt's [QComboBox class](https://doc.qt.io/qt-5/qcombobox.html)**
+
+A `QComboBox` provides a means of presenting a list of options to the user.
+
+### Example
+
+```javascript
+const { QComboBox } = require("@nodegui/nodegui");
+
+const comboBox = new QComboBox();
+comboBox.addItem(undefined, 'comboBox item 0');
+comboBox.addItem(undefined, 'comboBox item 1');
+comboBox.addItem(undefined, 'comboBox item 2');
+comboBox.addItem(undefined, 'comboBox item 3');
+
+comboBox.addEventListener('currentTextChanged', (text) => {
+console.log('currentTextChanged: ' + text);
+});
+
+comboBox.addEventListener('currentIndexChanged', (index) => {
+console.log('currentIndexChanged: ' + index);
+});
+```
+
 ## Hierarchy
 
   ↳ [NodeWidget](nodewidget.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)›

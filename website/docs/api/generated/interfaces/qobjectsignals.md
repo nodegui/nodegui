@@ -14,6 +14,8 @@ sidebar_label: "QObjectSignals"
 
   ↳ [QActionSignals](qactionsignals.md)
 
+  ↳ [QButtonGroupSignals](qbuttongroupsignals.md)
+
   ↳ [QSystemTrayIconSignals](qsystemtrayiconsignals.md)
 
   ↳ [QShortcutSignals](qshortcutsignals.md)
