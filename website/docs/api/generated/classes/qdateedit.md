@@ -15,7 +15,7 @@ A `QDateEdit` provides a widget for editing dates based on the QDateTimeEdit wid
 ```javascript
 const { QDateEdit } = require("@nodegui/nodegui");
 
-const comboBox = new QDateEdit();
+const dateEdit = new QDateEdit();
 // must be implemented
 ```
 

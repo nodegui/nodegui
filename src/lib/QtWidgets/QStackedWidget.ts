@@ -43,7 +43,6 @@ win.show();
 
 ```
  */
-
 export class QStackedWidget extends NodeWidget<QStackedWidgetSignals> {
     native: NativeElement;
     constructor();

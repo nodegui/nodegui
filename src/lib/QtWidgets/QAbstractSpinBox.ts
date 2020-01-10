@@ -11,7 +11,6 @@ The QAbstractSpinBox class is an abstract class and therefore, technically, no f
 It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 
  */
-
 export abstract class QAbstractSpinBox<Signals extends QAbstractSpinBoxSignals> extends NodeWidget<Signals> {
     selectAll(): void {
         this.native.selectAll();

@@ -14,7 +14,6 @@ import { Orientation } from '../QtEnums';
 QAbstractSlider will list all methods and properties that are common to all slider widgets in the NodeGui world.
 
  */
-
 export abstract class QAbstractSlider<Signals extends QAbstractSliderSignals> extends NodeWidget<Signals> {
     setSingleStep(step: number): void {
         this.native.setSingleStep(step);

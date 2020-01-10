@@ -42,7 +42,6 @@ win.show();
 (global as any).win = win;
 ```
  */
-
 export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
     native: NativeElement;
     topLevelItems: Set<QTreeWidgetItem>;

@@ -19,7 +19,6 @@ const { QProgressBar } = require("@nodegui/nodegui");
 const progressBar = new QProgressBar();
 ```
  */
-
 export class QProgressBar extends NodeWidget<QProgressBarSignals> {
     native: NativeElement;
     constructor();

@@ -27,7 +27,6 @@ tray.show();
 global.tray = tray; // prevents garbage collection of tray
 ```
  */
-
 export class QSystemTrayIcon extends NodeObject<QSystemTrayIconSignals> {
     native: NativeElement;
     contextMenu?: QMenu;

@@ -31,7 +31,6 @@ const { QPlainTextEdit } = require("@nodegui/nodegui");
 const plainTextEdit = new QPlainTextEdit();
 ```
  */
-
 export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
     native: NativeElement;
     placeholderText?: string;

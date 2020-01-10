@@ -41,7 +41,6 @@ export abstract class NodeDialog<Signals extends QDialogSignals> extends NodeWid
 
 It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage, QFontDialog, QInputDialog, QMessageBox, QProgressDialog, and QWizard)
  */
-
 export class QDialog extends NodeDialog<QDialogSignals> {
     native: NativeElement;
     constructor(arg?: NodeDialog<QDialogSignals> | NativeElement) {

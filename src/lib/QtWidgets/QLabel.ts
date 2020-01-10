@@ -24,7 +24,6 @@ label.setText("Hello");
 ```
 
  */
-
 export class QLabel extends NodeWidget<QLabelSignals> {
     native: NativeElement;
     private _pixmap?: QPixmap;

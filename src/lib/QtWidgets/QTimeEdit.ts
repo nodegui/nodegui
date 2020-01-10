@@ -16,7 +16,7 @@ A `QTimeEdit` a widget for editing times based on the QDateTimeEdit widget
 ```javascript
 const { QTimeEdit } = require("@nodegui/nodegui");
 
-const comboBox = new QTimeEdit();
+const timeEdit = new QTimeEdit();
 // must be implemented
 ```
  */

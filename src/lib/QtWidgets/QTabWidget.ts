@@ -24,7 +24,6 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 1');
 tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 ```
  */
-
 export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
     native: NativeElement;
     tabs: NodeWidget<any>[];

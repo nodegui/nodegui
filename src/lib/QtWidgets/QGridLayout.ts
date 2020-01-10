@@ -28,7 +28,6 @@ layout.addWidget(label2);
 ```
 
  */
-
 export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
     native: NativeElement;
     constructor();

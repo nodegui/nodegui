@@ -33,7 +33,6 @@ comboBox.addEventListener('currentIndexChanged', (index) => {
 });
 ```
  */
-
 export class QComboBox extends NodeWidget<QComboBoxSignals> {
     native: NativeElement;
     constructor();

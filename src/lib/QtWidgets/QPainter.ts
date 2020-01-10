@@ -38,7 +38,6 @@ win.show();
 
 https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpainter
 */
-
 export class QPainter extends Component {
     native: NativeElement;
     constructor();

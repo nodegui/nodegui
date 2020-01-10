@@ -18,7 +18,6 @@ const { QSpinBox } = require("@nodegui/nodegui");
 const spinBox = new QSpinBox();
 ```
  */
-
 export class QSpinBox extends NodeWidget<QSpinBoxSignals> {
     native: NativeElement;
     constructor();

@@ -22,7 +22,6 @@ radioButton.setText("Hello");
 ```
 
  */
-
 export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
     native: NativeElement;
     constructor();

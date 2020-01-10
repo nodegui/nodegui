@@ -19,7 +19,6 @@ const { QDial } = require("@nodegui/nodegui");
 const dial = new QDial();
 ```
  */
-
 export class QDial extends QAbstractSlider<QDialSignals> {
     native: NativeElement;
     constructor();
