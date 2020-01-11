@@ -1,4 +1,14 @@
-import { QWidget, QMainWindow, FlexLayout, QTreeWidget, QTreeWidgetItem, QMenuBar, QMenu, QAction, QApplication } from './index';
+import {
+    QWidget,
+    QMainWindow,
+    FlexLayout,
+    QTreeWidget,
+    QTreeWidgetItem,
+    QMenuBar,
+    QMenu,
+    QAction,
+    QApplication,
+} from './index';
 import { ItemFlag, CheckState } from './lib/QtEnums';
 import { QSpinBox } from './lib/QtWidgets/QSpinBox';
 import { QLineEdit } from './lib/QtWidgets/QLineEdit';
@@ -53,7 +63,6 @@ win.setMenuBar(menubar);
 
 /* This approach creates the menubar and menu on click, but menu will pop up in wrong location.
 Might need to add a layout to hold it, or its because we need the qmenu returned from addMenu call.
-menubar.show();
 const fm = new QMenu();
 const qaction = new QAction();
 qaction.setText("&Quit");
@@ -77,9 +86,8 @@ faction.addEventListener("triggered", () => {
 */
 
 // Some simpler syntax would be nice to have.
-const fileMenu = menubar.addMenuWithName('&file');
+// const fileMenu = menubar.addMenuWithName('&file');
 // const quitAction: QAction = fileMenu.addActionWithName("&Quit");
-
 
 win.show();
 

@@ -4,7 +4,6 @@ import { NodeWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QAction } from './QAction';
-import { NativeRawPointer } from '../core/Component';
 
 /**
  
