@@ -4,6 +4,7 @@ import { NodeWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QAction } from './QAction';
+import { NativeRawPointer } from '../core/Component';
 
 export type QMenuBarSignals = QWidgetSignals;
 
@@ -48,6 +49,9 @@ export class QMenuBar extends NodeWidget<QMenuBarSignals> {
 
     addMenu(menu: QMenu): void {
         this.native.addMenu(menu.native);
+    }
+    addMenuWithName(menuName: string): QMenu {
+        return new QMenu(this.native.addMenuWithName(menuName));
     }
     addAction(action: QAction): void {
         this.native.addAction(action.native);

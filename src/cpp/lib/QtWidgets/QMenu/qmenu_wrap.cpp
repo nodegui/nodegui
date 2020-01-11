@@ -5,21 +5,22 @@
 
 #include <QWidget>
 
-#include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
+#include "QtWidgets/QAction/qaction_wrap.h"
 
 Napi::FunctionReference QMenuWrap::constructor;
 
 Napi::Object QMenuWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QMenu";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {InstanceMethod("setTitle", &QMenuWrap::setTitle),
-                   InstanceMethod("addAction", &QMenuWrap::addAction),
-                   InstanceMethod("addSeparator", &QMenuWrap::addSeparator),
-                   InstanceMethod("popup", &QMenuWrap::popup),
-                   QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMenuWrap)});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("setTitle", &QMenuWrap::setTitle),
+       InstanceMethod("addAction", &QMenuWrap::addAction),
+       InstanceMethod("addActionWithName", &QMenuWrap::addActionWithName),
+       InstanceMethod("addSeparator", &QMenuWrap::addSeparator),
+       InstanceMethod("popup", &QMenuWrap::popup),
+       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMenuWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -71,12 +72,25 @@ Napi::Value QMenuWrap::addAction(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+Napi::Value QMenuWrap::addActionWithName(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  std::string actionName = info[0].As<Napi::String>().Utf8Value();
+  auto value = QActionWrap::constructor.New(
+    {Napi::External<QAction>::New(env, this->instance->addAction(actionName.c_str()))}
+  );
+  // TODO: see if we need to return from here an pointer to qaction or not.
+  return value;
+}
+
 Napi::Value QMenuWrap::addSeparator(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  this->instance->addSeparator();
-  // TODO: see if we need to return from here an pointer to qaction or not.
-  return env.Null();
+
+  auto value =
+      Napi::External<QAction>::New(env, this->instance->addSeparator());
+  return Napi::Value::From(env, value);
 }
 
 Napi::Value QMenuWrap::exec(const Napi::CallbackInfo& info) {
@@ -86,10 +100,11 @@ Napi::Value QMenuWrap::exec(const Napi::CallbackInfo& info) {
   if (info.Length() == 2) {
     Napi::Object pointObject = info[0].As<Napi::Object>();
     QPointWrap* pointWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(pointObject);
-    QPoint *qpoint = pointWrap->getInternalInstance();
-    
+    QPoint* qpoint = pointWrap->getInternalInstance();
+
     Napi::Object actionObject = info[1].As<Napi::Object>();
-    QActionWrap* actionWrap = Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
+    QActionWrap* actionWrap =
+        Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
     this->instance->exec(*qpoint, actionWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance->exec();
@@ -107,7 +122,7 @@ Napi::Value QMenuWrap::popup(const Napi::CallbackInfo& info) {
 
   Napi::Object pointObject = info[0].As<Napi::Object>();
   QPointWrap* pointWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(pointObject);
-  QPoint *qpoint = pointWrap->getInternalInstance();
+  QPoint* qpoint = pointWrap->getInternalInstance();
 
   Napi::Object actionObject = info[1].As<Napi::Object>();
   QActionWrap* actionWrap = Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
