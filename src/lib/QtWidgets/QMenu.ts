@@ -43,8 +43,13 @@ export class QMenu extends NodeWidget<QMenuSignals> {
         this.actions.add(action);
         return action;
     }
-    addSeparator(): void {
-        this.native.addSeparator();
+    addActionWithName(actionName: string): QAction {
+        const action = new QAction(this.native.addActionWithName(actionName));
+        this.actions.add(action);
+        return action;
+    }
+    addSeparator(): QAction {
+        return this.native.addSeparator();
     }
     exec(point?: QPoint, action?: QAction): any {
         if (point && action) {

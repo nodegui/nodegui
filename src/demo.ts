@@ -49,6 +49,10 @@ item2_1.setText(1, '200');
 root2.addChild(item2_1);
 
 const menubar = new QMenuBar();
+win.setMenuBar(menubar);
+
+/* This approach creates the menubar and menu on click, but menu will pop up in wrong location.
+Might need to add a layout to hold it, or its because we need the qmenu returned from addMenu call.
 menubar.show();
 const fm = new QMenu();
 const qaction = new QAction();
@@ -62,25 +66,22 @@ menubar.addMenu(fm);
 const faction = new QAction();
 faction.setText("&File");
 menubar.addAction(faction);
-win.setMenuBar(menubar);
-
-
-win.show();
-
 qaction.addEventListener("triggered", () => {
     const app = QApplication.instance();
     app.exit(0);
 });
-
-qaction.addEventListener("triggered", () => {
-    console.log("hello friend!");
-});
-
-
 faction.addEventListener("triggered", () => {
     fm.show();
     console.log(fm.pos(), menubar.pos());
 });
+*/ 
+
+// Some simpler syntax would be nice to have.
+const fileMenu = menubar.addMenuWithName("&file");
+// const quitAction: QAction = fileMenu.addActionWithName("&Quit");
+
+
+win.show();
 
 (global as any).win = win;
 

@@ -16,6 +16,7 @@ Napi::Object QMenuBarWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("addMenu", &QMenuBarWrap::addMenu),
+       InstanceMethod("addMenuWithName", &QMenuBarWrap::addMenuWithName),
        InstanceMethod("addAction", &QMenuBarWrap::addAction),
        InstanceMethod("setNativeMenuBar", &QMenuBarWrap::setNativeMenuBar),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMenuBarWrap)});
@@ -59,9 +60,21 @@ Napi::Value QMenuBarWrap::addMenu(const Napi::CallbackInfo& info) {
 
   Napi::Object menuObject = info[0].As<Napi::Object>();
   QMenuWrap* menuWrap = Napi::ObjectWrap<QMenuWrap>::Unwrap(menuObject);
+
   this->instance->addMenu(menuWrap->getInternalInstance());
 
   return env.Null();
+}
+
+Napi::Value QMenuBarWrap::addMenuWithName(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  std::string menuName = info[0].As<Napi::String>().Utf8Value();
+  QMenu* menu = this->instance->addMenu(menuName.c_str());
+  return QMenuWrap::constructor.New(
+    {Napi::External<QMenu>::New(env, menu)}
+  );
 }
 
 Napi::Value QMenuBarWrap::addAction(const Napi::CallbackInfo& info) {
