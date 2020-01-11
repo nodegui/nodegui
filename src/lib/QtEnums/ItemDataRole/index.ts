@@ -5,5 +5,6 @@ export enum ItemDataRole {
     ToolTipRole = 3,
     StatusTipRole = 4,
     WhatsThisRole = 5,
+    CheckStateRole = 10,
     SizeHintRole = 13,
 }

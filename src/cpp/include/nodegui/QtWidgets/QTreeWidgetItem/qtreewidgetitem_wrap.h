@@ -15,6 +15,7 @@ class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
+  static Napi::Value fromQTreeWidgetItem(Napi::Env env, QTreeWidgetItem *item);
 
   QTreeWidgetItemWrap(const Napi::CallbackInfo &info);
 
@@ -33,4 +34,10 @@ class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
   Napi::Value text(const Napi::CallbackInfo &info);
   Napi::Value setSelected(const Napi::CallbackInfo &info);
   Napi::Value setExpanded(const Napi::CallbackInfo &info);
+  Napi::Value addChild(const Napi::CallbackInfo &info);
+  Napi::Value setFlags(const Napi::CallbackInfo &info);
+  Napi::Value setCheckState(const Napi::CallbackInfo &info);
+  Napi::Value flags(const Napi::CallbackInfo &info);
+  Napi::Value setData(const Napi::CallbackInfo &info);
+  Napi::Value data(const Napi::CallbackInfo &info);
 };

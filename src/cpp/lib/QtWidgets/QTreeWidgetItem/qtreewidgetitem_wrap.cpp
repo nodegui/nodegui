@@ -21,6 +21,12 @@ Napi::Object QTreeWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("childCount", &QTreeWidgetItemWrap::childCount),
        InstanceMethod("setSelected", &QTreeWidgetItemWrap::setSelected),
        InstanceMethod("setExpanded", &QTreeWidgetItemWrap::setExpanded),
+       InstanceMethod("addChild", &QTreeWidgetItemWrap::addChild),
+       InstanceMethod("setFlags", &QTreeWidgetItemWrap::setFlags),
+       InstanceMethod("setCheckState", &QTreeWidgetItemWrap::setCheckState),
+       InstanceMethod("flags", &QTreeWidgetItemWrap::flags),
+       InstanceMethod("setData", &QTreeWidgetItemWrap::setData),
+       InstanceMethod("data", &QTreeWidgetItemWrap::data),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QTreeWidgetItemWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -29,6 +35,19 @@ Napi::Object QTreeWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
 
 QTreeWidgetItem *QTreeWidgetItemWrap::getInternalInstance() {
   return this->instance;
+}
+
+Napi::Value QTreeWidgetItemWrap::fromQTreeWidgetItem(Napi::Env env,
+                                                     QTreeWidgetItem *item) {
+  // The item might be a nullptr, therefore use env.Null() as return value.
+  if (item == nullptr) {
+    return env.Null();
+  }
+
+  Napi::Value itemWrap = QTreeWidgetItemWrap::constructor.New(
+      {Napi::External<QTreeWidgetItem>::New(env, new QTreeWidgetItem(*item))});
+
+  return itemWrap;
 }
 
 QTreeWidgetItemWrap::~QTreeWidgetItemWrap() {
@@ -184,4 +203,81 @@ Napi::Value QTreeWidgetItemWrap::setExpanded(const Napi::CallbackInfo &info) {
   Napi::Boolean expanded = info[0].As<Napi::Boolean>();
   this->instance->setExpanded(expanded.Value());
   return env.Null();
+}
+
+Napi::Value QTreeWidgetItemWrap::addChild(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object itemObject = info[0].As<Napi::Object>();
+  QTreeWidgetItemWrap *itemWidgetWrap =
+      Napi::ObjectWrap<QTreeWidgetItemWrap>::Unwrap(itemObject);
+
+  QTreeWidgetItem *item = itemWidgetWrap->getInternalInstance();
+  this->instance->addChild(item);
+
+  return env.Null();
+}
+
+Napi::Value QTreeWidgetItemWrap::setFlags(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int flags = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setFlags(static_cast<Qt::ItemFlags>(flags));
+
+  return env.Null();
+}
+
+Napi::Value QTreeWidgetItemWrap::setCheckState(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int column = info[0].As<Napi::Number>().Int32Value();
+  int checkState = info[1].As<Napi::Number>().Int32Value();
+
+  this->instance->setCheckState(column,
+                                static_cast<Qt::CheckState>(checkState));
+
+  return env.Null();
+}
+
+Napi::Value QTreeWidgetItemWrap::flags(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Qt::ItemFlags flags = this->instance->flags();
+
+  return Napi::Value::From(env, static_cast<int>(flags));
+}
+
+Napi::Value QTreeWidgetItemWrap::setData(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int column = info[0].As<Napi::Number>().Int32Value();
+  int role = info[1].As<Napi::Number>().Int32Value();
+
+  Napi::Object variantObject = info[2].As<Napi::Object>();
+  QVariantWrap *variantWrap =
+      Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
+  QVariant *variant = variantWrap->getInternalInstance();
+
+  this->instance->setData(column, role, *variant);
+
+  return env.Null();
+}
+
+Napi::Value QTreeWidgetItemWrap::data(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int column = info[0].As<Napi::Number>().Int32Value();
+  int role = info[1].As<Napi::Number>().Int32Value();
+
+  QVariant variant = this->instance->data(column, role);
+  auto instance = QVariantWrap::constructor.New(
+      {Napi::External<QVariant>::New(env, new QVariant(variant))});
+
+  return instance;
 }

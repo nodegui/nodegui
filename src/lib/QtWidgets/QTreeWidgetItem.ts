@@ -2,6 +2,9 @@ import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QTreeWidget } from './QTreeWidget';
+import { ItemFlag } from '../QtEnums/ItemFlag';
+import { CheckState, ItemDataRole } from '../QtEnums';
+import { QVariantType, QVariant } from '../QtCore/QVariant';
 
 /**
  
@@ -43,6 +46,7 @@ win.show();
  */
 export class QTreeWidgetItem extends Component {
     native: NativeElement;
+    items: Set<NativeElement | Component>;
     constructor();
     constructor(parent: QTreeWidgetItem, strings?: string[]);
     constructor(parent: QTreeWidget, strings?: string[]);
@@ -50,6 +54,7 @@ export class QTreeWidgetItem extends Component {
     constructor(strings: string[]);
     constructor(parent?: NativeElement | QTreeWidgetItem | QTreeWidget | string[], strings?: string[]) {
         super();
+        this.items = new Set();
         if (checkIfNativeElement(parent)) {
             this.native = parent as NativeElement;
         } else {
@@ -94,5 +99,60 @@ export class QTreeWidgetItem extends Component {
     }
     setExpanded(expanded: boolean): void {
         this.native.setExpanded(expanded);
+    }
+
+    /**
+     * Adds the specified child to this QTreeWidgetItem.
+     * @param childItem The child to add.
+     */
+    addChild(childItem: QTreeWidgetItem): void {
+        this.items.add(childItem);
+        this.native.addChild(childItem.native);
+    }
+
+    /**
+     * Sets the flags for the item to the given flags. These determine whether the item can be selected or modified.
+     * This is often used to disable an item.
+     * @param flags The flags.
+     */
+    setFlags(flags: ItemFlag): void {
+        this.native.setFlags(flags);
+    }
+
+    /**
+     * Sets the item in the given column check state to be state.
+     * @param column The column.
+     * @param state The check state.
+     */
+    setCheckState(column: number, state: CheckState): void {
+        this.native.setCheckState(column, state);
+    }
+
+    /**
+     * Returns the flags used to describe the item. These determine whether the item can be checked, edited, and selected.
+     */
+    flags(): ItemFlag {
+        return this.native.flags();
+    }
+
+    /**
+     * Sets the value for the item's column and role to the given value.
+     * The role describes the type of data specified by value, and is defined by the ItemDataRole enum.
+     * @param column The column.
+     * @param role The role.
+     * @param value The value.
+     */
+    setData(column: number, role: ItemDataRole, value: QVariantType): void {
+        const variant = new QVariant(value);
+        this.native.setData(column, role, variant.native);
+    }
+
+    /**
+     * Returns the value for the item's column and role.
+     * @param column The column.
+     * @param role The role.
+     */
+    data(column: number, role: ItemDataRole): QVariant {
+        return this.native.data(column, role);
     }
 }
