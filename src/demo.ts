@@ -74,10 +74,10 @@ faction.addEventListener("triggered", () => {
     fm.show();
     console.log(fm.pos(), menubar.pos());
 });
-*/ 
+*/
 
 // Some simpler syntax would be nice to have.
-const fileMenu = menubar.addMenuWithName("&file");
+const fileMenu = menubar.addMenuWithName('&file');
 // const quitAction: QAction = fileMenu.addActionWithName("&Quit");
 
 

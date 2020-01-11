@@ -72,9 +72,7 @@ Napi::Value QMenuBarWrap::addMenuWithName(const Napi::CallbackInfo& info) {
 
   std::string menuName = info[0].As<Napi::String>().Utf8Value();
   QMenu* menu = this->instance->addMenu(menuName.c_str());
-  return QMenuWrap::constructor.New(
-    {Napi::External<QMenu>::New(env, menu)}
-  );
+  return QMenuWrap::constructor.New({Napi::External<QMenu>::New(env, menu)});
 }
 
 Napi::Value QMenuBarWrap::addAction(const Napi::CallbackInfo& info) {
