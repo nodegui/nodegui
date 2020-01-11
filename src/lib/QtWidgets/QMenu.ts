@@ -2,6 +2,7 @@ import { NativeElement } from '../core/Component';
 import { NodeWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { QAction } from './QAction';
+import { QPoint } from '../QtCore/QPoint';
 
 export type QMenuSignals = QWidgetSignals;
 
@@ -43,5 +44,19 @@ export class QMenu extends NodeWidget<QMenuSignals> {
         this.native.addAction(action.native);
         this.actions.add(action);
         return action;
+    }
+    addSeparator(): void {
+        this.native.addSeparator();
+    }
+    exec(point?: QPoint, action?: QAction): any {
+        if (point && action) {
+            this.exec(point, action);
+            return action;
+        }
+        this.exec();
+        return;
+    }
+    popup(point: QPoint, action?: QAction): void {
+        this.native.popup(point, action);
     }
 }

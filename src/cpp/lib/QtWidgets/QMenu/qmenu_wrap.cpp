@@ -6,6 +6,7 @@
 #include <QWidget>
 
 #include "QtWidgets/QAction/qaction_wrap.h"
+#include "QtCore/QPoint/qpoint_wrap.h"
 
 Napi::FunctionReference QMenuWrap::constructor;
 
@@ -16,6 +17,8 @@ Napi::Object QMenuWrap::init(Napi::Env env, Napi::Object exports) {
       DefineClass(env, CLASSNAME,
                   {InstanceMethod("setTitle", &QMenuWrap::setTitle),
                    InstanceMethod("addAction", &QMenuWrap::addAction),
+                   InstanceMethod("addSeparator", &QMenuWrap::addSeparator),
+                   InstanceMethod("popup", &QMenuWrap::popup),
                    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMenuWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -65,5 +68,50 @@ Napi::Value QMenuWrap::addAction(const Napi::CallbackInfo& info) {
   QActionWrap* actionWrap = Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
   this->instance->addAction(actionWrap->getInternalInstance());
   // TODO: see if we need to return from here an pointer to qaction or not.
+  return env.Null();
+}
+
+Napi::Value QMenuWrap::addSeparator(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->addSeparator();
+  // TODO: see if we need to return from here an pointer to qaction or not.
+  return env.Null();
+}
+
+Napi::Value QMenuWrap::exec(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  if (info.Length() == 2) {
+    Napi::Object pointObject = info[0].As<Napi::Object>();
+    QPointWrap* pointWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(pointObject);
+    QPoint *qpoint = pointWrap->getInternalInstance();
+    
+    Napi::Object actionObject = info[1].As<Napi::Object>();
+    QActionWrap* actionWrap = Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
+    this->instance->exec(*qpoint, actionWrap->getInternalInstance());
+  } else if (info.Length() == 0) {
+    this->instance->exec();
+  } else {
+    Napi::TypeError::New(env, "Wrong number of arguments")
+        .ThrowAsJavaScriptException();
+  }
+
+  return env.Null();
+}
+
+Napi::Value QMenuWrap::popup(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object pointObject = info[0].As<Napi::Object>();
+  QPointWrap* pointWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(pointObject);
+  QPoint *qpoint = pointWrap->getInternalInstance();
+
+  Napi::Object actionObject = info[1].As<Napi::Object>();
+  QActionWrap* actionWrap = Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
+  this->instance->popup(*qpoint, actionWrap->getInternalInstance());
+
   return env.Null();
 }

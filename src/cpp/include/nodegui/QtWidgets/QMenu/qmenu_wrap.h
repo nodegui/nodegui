@@ -20,4 +20,7 @@ class QMenuWrap : public Napi::ObjectWrap<QMenuWrap> {
   // wrapped methods
   Napi::Value setTitle(const Napi::CallbackInfo& info);
   Napi::Value addAction(const Napi::CallbackInfo& info);
+  Napi::Value addSeparator(const Napi::CallbackInfo& info);
+  Napi::Value exec(const Napi::CallbackInfo& info);
+  Napi::Value popup(const Napi::CallbackInfo& info);
 };
