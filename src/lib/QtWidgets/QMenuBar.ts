@@ -3,6 +3,7 @@ import { NativeElement } from '../core/Component';
 import { NodeWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
+import { QAction } from './QAction';
 
 /**
  
@@ -45,6 +46,9 @@ export class QMenuBar extends NodeWidget<QMenuBarSignals> {
 
     addMenu(menu: QMenu): void {
         this.native.addMenu(menu.native);
+    }
+    addAction(action: QAction): void {
+        this.native.addAction(action.native);
     }
     setNativeMenuBar(nativeMenuBar: boolean): void {
         this.native.setNativeMenuBar(nativeMenuBar);

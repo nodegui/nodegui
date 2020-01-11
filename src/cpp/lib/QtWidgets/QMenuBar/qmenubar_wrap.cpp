@@ -5,6 +5,7 @@
 
 #include <QWidget>
 
+#include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
 
 Napi::FunctionReference QMenuBarWrap::constructor;
@@ -15,6 +16,7 @@ Napi::Object QMenuBarWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("addMenu", &QMenuBarWrap::addMenu),
+       InstanceMethod("addAction", &QMenuBarWrap::addAction),
        InstanceMethod("setNativeMenuBar", &QMenuBarWrap::setNativeMenuBar),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMenuBarWrap)});
   constructor = Napi::Persistent(func);
@@ -58,6 +60,17 @@ Napi::Value QMenuBarWrap::addMenu(const Napi::CallbackInfo& info) {
   Napi::Object menuObject = info[0].As<Napi::Object>();
   QMenuWrap* menuWrap = Napi::ObjectWrap<QMenuWrap>::Unwrap(menuObject);
   this->instance->addMenu(menuWrap->getInternalInstance());
+
+  return env.Null();
+}
+
+Napi::Value QMenuBarWrap::addAction(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object actionObject = info[0].As<Napi::Object>();
+  QActionWrap* actionWrap = Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
+  this->instance->addAction(actionWrap->getInternalInstance());
 
   return env.Null();
 }

@@ -1,4 +1,4 @@
-import { QWidget, QMainWindow, FlexLayout, QTreeWidget, QTreeWidgetItem } from './index';
+import { QWidget, QMainWindow, FlexLayout, QTreeWidget, QTreeWidgetItem, QMenuBar, QMenu, QAction, QApplication } from './index';
 import { ItemFlag, CheckState } from './lib/QtEnums';
 import { QSpinBox } from './lib/QtWidgets/QSpinBox';
 import { QLineEdit } from './lib/QtWidgets/QLineEdit';
@@ -48,20 +48,40 @@ item2_1.setText(0, 'height');
 item2_1.setText(1, '200');
 root2.addChild(item2_1);
 
-/* const buttonGroup = new QButtonGroup(center);
-const t: any[] = [];
-for (let i = 0; i < 4; i++) {
-    const radioButton = new QRadioButton();
-    radioButton.setText('Button #' + (i + 1));
-    center.layout?.addWidget(radioButton);
-    t.push(radioButton);
-    buttonGroup.addButton(radioButton, i);
-} */
+const menubar = new QMenuBar();
+menubar.show();
+const fm = new QMenu();
+const qaction = new QAction();
+qaction.setText("&Quit");
+fm.addAction(qaction);
+fm.addSeparator();
+const sayhi = new QAction();
+sayhi.setText("&SayHi");
+fm.addAction(sayhi);
+menubar.addMenu(fm);
+const faction = new QAction();
+faction.setText("&File");
+menubar.addAction(faction);
+win.setMenuBar(menubar);
+
+
 win.show();
-/* buttonGroup.addEventListener('buttonClicked', (id: number) => {
-    console.log('Button #' + (id + 1) + ' clicked!');
-    buttonGroup.removeButton(t[0]);
-}); */
+
+qaction.addEventListener("triggered", () => {
+    const app = QApplication.instance();
+    app.exit(0);
+});
+
+qaction.addEventListener("triggered", () => {
+    console.log("hello friend!");
+});
+
+
+faction.addEventListener("triggered", () => {
+    fm.show();
+    console.log(fm.pos(), menubar.pos());
+});
+
 (global as any).win = win;
 
 setInterval(() => null, 1000);
