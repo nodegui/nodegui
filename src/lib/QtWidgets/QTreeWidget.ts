@@ -115,7 +115,7 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
      * Returns the current item in the tree widget.
      */
     currentItem(): QTreeWidgetItem {
-        return this.native.currentItem();
+        return new QTreeWidgetItem(this.native.currentItem());
     }
 }
 
