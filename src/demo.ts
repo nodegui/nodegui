@@ -58,7 +58,6 @@ item2_1.setText(0, 'height');
 item2_1.setText(1, '200');
 root2.addChild(item2_1);
 
-
 const menubar = new QMenuBar();
 win.setMenuBar(menubar);
 
@@ -87,7 +86,7 @@ faction.addEventListener("triggered", () => {
 */
 
 // Some simpler syntax would be nice to have.
-const fileMenu = menubar.addMenuWithName("&file");
+const fileMenu = menubar.addMenuWithName('&file');
 // const quitAction: QAction = fileMenu.addActionWithName("&Quit");
 
 win.show();
