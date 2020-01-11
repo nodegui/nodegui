@@ -37,8 +37,8 @@ QTreeWidgetItem *QTreeWidgetItemWrap::getInternalInstance() {
   return this->instance;
 }
 
-Napi::Value QTreeWidgetItemWrap::fromQTreeWidgetItem(Napi::Env env, QTreeWidgetItem *item) {
-
+Napi::Value QTreeWidgetItemWrap::fromQTreeWidgetItem(Napi::Env env,
+                                                     QTreeWidgetItem *item) {
   // The item might be a nullptr, therefore use env.Null() as return value.
   if (item == nullptr) {
     return env.Null();
