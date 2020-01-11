@@ -77,8 +77,9 @@ Napi::Value QMenuWrap::addActionWithName(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   std::string actionName = info[0].As<Napi::String>().Utf8Value();
-  auto value = QActionWrap::constructor.New({Napi::External<QAction>::New(
-      env, this->instance->addAction(actionName.c_str()))});
+  auto value = QActionWrap::constructor.New(
+    {Napi::External<QAction>::New(env, this->instance->addAction(actionName.c_str()))}
+  );
   // TODO: see if we need to return from here an pointer to qaction or not.
   return value;
 }
