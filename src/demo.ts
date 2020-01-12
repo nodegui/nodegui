@@ -1,14 +1,4 @@
-import {
-    QWidget,
-    QMainWindow,
-    FlexLayout,
-    QTreeWidget,
-    QTreeWidgetItem,
-    QMenuBar,
-    QMenu,
-    QAction,
-    QApplication,
-} from './index';
+import { QWidget, QMainWindow, FlexLayout, QTreeWidget, QTreeWidgetItem, QMenuBar, QMenu } from './index';
 import { ItemFlag, CheckState } from './lib/QtEnums';
 import { QSpinBox } from './lib/QtWidgets/QSpinBox';
 import { QLineEdit } from './lib/QtWidgets/QLineEdit';
@@ -86,8 +76,9 @@ faction.addEventListener("triggered", () => {
 */
 
 // Some simpler syntax would be nice to have.
-const fileMenu = menubar.addMenuWithName('&file');
-// const quitAction: QAction = fileMenu.addActionWithName("&Quit");
+const menu = new QMenu();
+menu.setTitle('Hello');
+const fileMenu = menubar.addMenu(menu);
 
 win.show();
 

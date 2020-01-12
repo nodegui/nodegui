@@ -25,6 +25,7 @@ global.win = win;
  */
 export class QMenuBar extends NodeWidget<QMenuBarSignals> {
     native: NativeElement;
+    _menus: Set<QMenu>;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(native: NativeElement);
@@ -41,14 +42,12 @@ export class QMenuBar extends NodeWidget<QMenuBarSignals> {
         }
         super(native);
         this.native = native;
+        this._menus = new Set<QMenu>();
         this.setNodeParent(parent);
     }
-
     addMenu(menu: QMenu): void {
         this.native.addMenu(menu.native);
-    }
-    addMenuWithName(menuName: string): QMenu {
-        return new QMenu(this.native.addMenuWithName(menuName));
+        this._menus.add(menu);
     }
     setNativeMenuBar(nativeMenuBar: boolean): void {
         this.native.setNativeMenuBar(nativeMenuBar);
