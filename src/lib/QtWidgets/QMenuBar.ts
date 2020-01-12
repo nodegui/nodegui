@@ -50,9 +50,6 @@ export class QMenuBar extends NodeWidget<QMenuBarSignals> {
     addMenuWithName(menuName: string): QMenu {
         return new QMenu(this.native.addMenuWithName(menuName));
     }
-    addAction(action: QAction): void {
-        this.native.addAction(action.native);
-    }
     setNativeMenuBar(nativeMenuBar: boolean): void {
         this.native.setNativeMenuBar(nativeMenuBar);
     }

@@ -5,6 +5,7 @@
 #include "QtCore/QObject/qobject_macro.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
+#include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 #include "core/YogaWidget/yogawidget_macro.h"
 /*
@@ -311,6 +312,15 @@
     Napi::HandleScope scope(env);                                           \
     this->instance->showNormal();                                           \
     return env.Null();                                                      \
+  }                                                                         \
+  Napi::Value addAction(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    Napi::Object actionObject = info[0].As<Napi::Object>();                 \
+    QActionWrap* actionWrap =                                               \
+        Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);                \
+    this->instance->addAction(actionWrap->getInternalInstance());           \
+    return env.Null();                                                      \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -360,7 +370,8 @@
       InstanceMethod("showFullScreen", &WidgetWrapName::showFullScreen),     \
       InstanceMethod("showMaximized", &WidgetWrapName::showMaximized),       \
       InstanceMethod("showMinimized", &WidgetWrapName::showMinimized),       \
-      InstanceMethod("showNormal", &WidgetWrapName::showNormal),
+      InstanceMethod("showNormal", &WidgetWrapName::showNormal),             \
+      InstanceMethod("addAction", &WidgetWrapName::addAction),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

@@ -20,7 +20,6 @@ const menu = new QMenu();
  */
 export class QMenu extends NodeWidget<QMenuSignals> {
     native: NativeElement;
-    actions: Set<QAction>;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
@@ -33,21 +32,11 @@ export class QMenu extends NodeWidget<QMenuSignals> {
         super(native);
         this.native = native;
         this.setNodeParent(parent);
-        this.actions = new Set();
     }
     setTitle(title: string): void {
         this.native.setTitle(title);
     }
-    addAction(action: QAction): QAction {
-        this.native.addAction(action.native);
-        this.actions.add(action);
-        return action;
-    }
-    addActionWithName(actionName: string): QAction {
-        const action = new QAction(this.native.addActionWithName(actionName));
-        this.actions.add(action);
-        return action;
-    }
+
     addSeparator(): QAction {
         return this.native.addSeparator();
     }

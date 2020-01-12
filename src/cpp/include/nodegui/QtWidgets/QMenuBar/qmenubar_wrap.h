@@ -18,7 +18,6 @@ class QMenuBarWrap : public Napi::ObjectWrap<QMenuBarWrap> {
   NMenuBar* getInternalInstance();
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value addAction(const Napi::CallbackInfo& info);
   Napi::Value addMenu(const Napi::CallbackInfo& info);
   Napi::Value addMenuWithName(const Napi::CallbackInfo& info);
   Napi::Value setNativeMenuBar(const Napi::CallbackInfo& info);
