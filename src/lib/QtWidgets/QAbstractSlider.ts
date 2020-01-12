@@ -15,30 +15,89 @@ QAbstractSlider will list all methods and properties that are common to all slid
 
  */
 export abstract class QAbstractSlider<Signals extends QAbstractSliderSignals> extends NodeWidget<Signals> {
-    setSingleStep(step: number): void {
-        this.native.setSingleStep(step);
+    triggerAction(action: SliderAction): void {
+        this.native.triggerAction(action);
+    }
+    setRange(min: number, max: number): void {
+        this.native.setRange(min, max);
+    }
+    setInvertedAppearance(inverted: boolean): void {
+        this.setProperty('invertedAppearance', inverted);
+    }
+    invertedAppearance(): boolean {
+        return this.property('invertedAppearance').toBool();
+    }
+    setInvertedControls(inverted: boolean): void {
+        this.setProperty('invertedControls', inverted);
+    }
+    invertedControls(): boolean {
+        return this.property('invertedControls').toBool();
     }
     setMaximum(maximum: number): void {
-        this.native.setMaximum(maximum);
+        this.setProperty('maximum', maximum);
     }
     maximum(): number {
-        return this.native.maximum();
+        return this.property('maximum').toInt();
     }
     setMinimum(minimum: number): void {
-        this.native.setMinimum(minimum);
+        this.setProperty('minimum', minimum);
     }
     minimum(): number {
-        return this.native.minimum();
-    }
-    setValue(value: number): void {
-        this.native.setValue(value);
-    }
-    value(): number {
-        return this.native.value();
+        return this.property('minimum').toInt();
     }
     setOrientation(orientation: Orientation): void {
-        this.native.setOrientation(orientation);
+        this.setProperty('orientation', orientation);
     }
+    orientation(): Orientation {
+        return this.property('orientation').toInt();
+    }
+    setPageStep(step: number): void {
+        this.setProperty('pageStep', step);
+    }
+    pageStep(): number {
+        return this.property('pageStep').toInt();
+    }
+    setSingleStep(step: number): void {
+        this.setProperty('singleStep', step);
+    }
+    singleStep(): number {
+        return this.property('singleStep').toInt();
+    }
+    setSliderDown(down: boolean): void {
+        this.setProperty('sliderDown', down);
+    }
+    isSliderDown(): boolean {
+        return this.property('sliderDown').toBool();
+    }
+    setSliderPosition(position: number): void {
+        this.setProperty('sliderPosition', position);
+    }
+    sliderPosition(): number {
+        return this.property('sliderPosition').toInt();
+    }
+    setTracking(enable: boolean): void {
+        this.setProperty('tracking', enable);
+    }
+    hasTracking(): boolean {
+        return this.property('tracking').toBool();
+    }
+    setValue(value: number): void {
+        this.setProperty('value', value);
+    }
+    value(): number {
+        return this.property('value').toInt();
+    }
+}
+
+export enum SliderAction {
+    SliderNoAction,
+    SliderSingleStepAdd,
+    SliderSingleStepSub,
+    SliderPageStepAdd,
+    SliderPageStepSub,
+    SliderToMinimum,
+    SliderToMaximum,
+    SliderMove,
 }
 
 export interface QAbstractSliderSignals extends QWidgetSignals {

@@ -52,6 +52,7 @@ export { QMenu, QMenuSignals } from './lib/QtWidgets/QMenu';
 export { QMenuBar, QMenuBarSignals } from './lib/QtWidgets/QMenuBar';
 export { QPlainTextEdit, QPlainTextEditSignals, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
 export { QScrollArea, QScrollAreaSignals } from './lib/QtWidgets/QScrollArea';
+export { QSlider, QSliderSignals, TickPosition } from './lib/QtWidgets/QSlider';
 export { QTimeEdit } from './lib/QtWidgets/QTimeEdit';
 export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
