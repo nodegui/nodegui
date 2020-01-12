@@ -22,7 +22,7 @@ statusBar.showMessage('Hello World', 3000);
 
 setTimeout(_ => {
     statusBar.removeWidget(spinBox);
-    statusBar.showMessage("Removed spinBox");
+    statusBar.showMessage('Removed spinBox');
 }, 3000);
 
 (global as any).win = win;

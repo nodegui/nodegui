@@ -111,7 +111,7 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
     }
 
     /**
-     * Returns the status bar for the main window. 
+     * Returns the status bar for the main window.
      */
     statusBar(): QStatusBar {
         return this.native.statusBar();

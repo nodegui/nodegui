@@ -50,7 +50,7 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
      * @param widget The widget to permanently add to this status bar.
      * @param stretch Used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.
      */
-    addPermanentWidget(widget: QWidget, stretch: number = 0): void {
+    addPermanentWidget(widget: QWidget, stretch = 0): void {
         this.native.addPermanentWidget(widget.native, stretch);
 
         if (!this.permanentWidgets.has(widget.native)) {
@@ -64,7 +64,7 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
      * @param widget The widget to add to this status bar.
      * @param stretch Used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.
      */
-    addWidget(widget: QWidget, stretch: number = 0): void {
+    addWidget(widget: QWidget, stretch = 0): void {
         this.native.addWidget(widget.native, stretch);
 
         if (!this.widgets.has(widget.native)) {
@@ -94,8 +94,7 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
      * @param widget The widget to insert into this status bar permanently.
      * @param stretch Used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.
      */
-    insertPermanentWidget(index: number, widget: QWidget, stretch: number = 0): number {
-
+    insertPermanentWidget(index: number, widget: QWidget, stretch = 0): number {
         const insertionIndex = this.native.insertPermanentWidget(index, widget.native, stretch);
         if (!this.permanentWidgets.has(widget.native)) {
             this.permanentWidgets.add(widget.native);
@@ -112,8 +111,7 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
      * @param widget The widget to insert into this status bar.
      * @param stretch Used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.
      */
-    insertWidget(index: number, widget: QWidget, stretch: number = 0): number {
-
+    insertWidget(index: number, widget: QWidget, stretch = 0): number {
         const insertionIndex = this.native.insertWidget(index, widget.native, stretch);
         if (!this.widgets.has(widget.native)) {
             this.widgets.add(widget.native);
@@ -146,13 +144,13 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
      * @param message The message to display.
      * @param timeout The number of milliseconds to display the message.
      */
-    showMessage(message: string, timeout: number = 0): void {
+    showMessage(message: string, timeout = 0): void {
         this.native.showMessage(message, timeout);
     }
 
     /**
      * Enables or disables the QSizeGrip in the bottom-right corner of this status bar.
-     * @param enabled Determines if the QSizeGrip should be enabled or disabled. 
+     * @param enabled Determines if the QSizeGrip should be enabled or disabled.
      */
     setSizeGripEnabled(enabled: boolean): void {
         this.native.setSizeGripEnabled(enabled);

@@ -1,7 +1,9 @@
 #pragma once
 
 #include <napi.h>
+
 #include <QPointer>
+
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nstatusbar.hpp"
 

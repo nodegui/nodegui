@@ -116,9 +116,10 @@ Napi::Value QMainWindowWrap::setStatusBar(const Napi::CallbackInfo& info) {
 
   Napi::Object statusBarArg = info[0].As<Napi::Object>();
 
-  QStatusBar *statusBar = nullptr;
+  QStatusBar* statusBar = nullptr;
   if (!statusBarArg.IsUndefined() && !statusBarArg.IsNull()) {
-    QStatusBarWrap *statusBarWrap = Napi::ObjectWrap<QStatusBarWrap>::Unwrap(statusBarArg);
+    QStatusBarWrap* statusBarWrap =
+        Napi::ObjectWrap<QStatusBarWrap>::Unwrap(statusBarArg);
     statusBar = statusBarWrap->getInternalInstance();
   }
 
@@ -131,7 +132,7 @@ Napi::Value QMainWindowWrap::statusBar(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  QStatusBar *statusBar = this->instance->statusBar();
+  QStatusBar* statusBar = this->instance->statusBar();
 
   return QStatusBarWrap::fromQStatusBar(env, statusBar);
 }
