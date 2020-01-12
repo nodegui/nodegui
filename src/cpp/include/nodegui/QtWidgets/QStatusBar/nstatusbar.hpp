@@ -13,5 +13,19 @@ class NStatusBar : public QStatusBar, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QStatusBar)
   using QStatusBar::QStatusBar;  // inherit all constructors of QStatusBar
 
-  void connectSignalsToEventEmitter() { QWIDGET_SIGNALS }
+  void connectSignalsToEventEmitter() {
+    QObject::connect(
+        this, &QStatusBar::messageChanged, [=](const QString &message) {
+          Napi::Env env = this->emitOnNode.Env();
+          Napi::HandleScope scope(env);
+
+          auto newMessage = message.toStdString();
+          auto newMessageWrap = Napi::Value::From(env, newMessage);
+
+          this->emitOnNode.Call(
+              {Napi::String::New(env, "messageChanged"), newMessageWrap});
+        });
+
+    QWIDGET_SIGNALS
+  }
 };
