@@ -20,4 +20,11 @@ class QKeySequenceWrap : public Napi::ObjectWrap<QKeySequenceWrap> {
   QKeySequence *getInternalInstance();
   // Wrapped methods
   Napi::Value count(const Napi::CallbackInfo &info);
+  Napi::Value isEmpty(const Napi::CallbackInfo &info);
+  Napi::Value matches(const Napi::CallbackInfo &info);
+  Napi::Value toString(const Napi::CallbackInfo &info);
 };
+
+namespace StaticQKeySequenceWrapMethods {
+Napi::Value fromQVariant(const Napi::CallbackInfo &info);
+}  // namespace StaticQKeySequenceWrapMethods
