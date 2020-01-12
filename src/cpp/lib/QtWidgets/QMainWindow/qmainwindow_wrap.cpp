@@ -5,6 +5,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
+#include "QtWidgets/QStatusBar/qstatusbar_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QMainWindowWrap::constructor;
@@ -19,6 +20,8 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setMenuBar", &QMainWindowWrap::setMenuBar),
        InstanceMethod("setMenuWidget", &QMainWindowWrap::setMenuWidget),
        InstanceMethod("center", &QMainWindowWrap::center),
+       InstanceMethod("setStatusBar", &QMainWindowWrap::setStatusBar),
+       InstanceMethod("statusBar", &QMainWindowWrap::statusBar),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)
 
       });
@@ -105,4 +108,30 @@ Napi::Value QMainWindowWrap::center(const Napi::CallbackInfo& info) {
                           QApplication::desktop()->availableGeometry(window)));
 
   return env.Null();
+}
+
+Napi::Value QMainWindowWrap::setStatusBar(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object statusBarArg = info[0].As<Napi::Object>();
+
+  QStatusBar *statusBar = nullptr;
+  if (!statusBarArg.IsUndefined() && !statusBarArg.IsNull()) {
+    QStatusBarWrap *statusBarWrap = Napi::ObjectWrap<QStatusBarWrap>::Unwrap(statusBarArg);
+    statusBar = statusBarWrap->getInternalInstance();
+  }
+
+  this->instance->setStatusBar(statusBar);
+
+  return env.Null();
+}
+
+Napi::Value QMainWindowWrap::statusBar(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QStatusBar *statusBar = this->instance->statusBar();
+
+  return QStatusBarWrap::fromQStatusBar(env, statusBar);
 }

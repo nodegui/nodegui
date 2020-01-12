@@ -3,6 +3,7 @@ import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { NodeLayout } from './QLayout';
 import { QMenuBar } from './QMenuBar';
+import { QStatusBar } from './QStatusBar';
 
 /**
  
@@ -34,6 +35,7 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
     native: NativeElement;
     public centralWidget?: NodeWidget<any> | null;
     private _menuBar?: QMenuBar;
+    private _statusBar?: QStatusBar | null;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
@@ -88,6 +90,31 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
     }
     center(): void {
         this.native.center();
+    }
+
+    /**
+     * Sets the status bar for the main window to statusbar.
+     * Note: QMainWindow takes ownership of the statusbar pointer and deletes it at the appropriate time.
+     * @param statusBar The status bar.
+     */
+    setStatusBar(statusBar: QStatusBar): void {
+        this.native.setStatusBar(statusBar.native);
+        this._statusBar = statusBar;
+    }
+
+    /**
+     * Removes the status bar from the main window.
+     */
+    removeStatusBar(): void {
+        this.native.setStatusBar(null);
+        this._statusBar = null;
+    }
+
+    /**
+     * Returns the status bar for the main window. 
+     */
+    statusBar(): QStatusBar {
+        return this.native.statusBar();
     }
 }
 

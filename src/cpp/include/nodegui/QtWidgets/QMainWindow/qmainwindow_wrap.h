@@ -27,4 +27,6 @@ class QMainWindowWrap : public Napi::ObjectWrap<QMainWindowWrap> {
   Napi::Value menuBar(const Napi::CallbackInfo& info);
   Napi::Value setMenuWidget(const Napi::CallbackInfo& info);
   Napi::Value center(const Napi::CallbackInfo& info);
+  Napi::Value setStatusBar(const Napi::CallbackInfo& info);
+  Napi::Value statusBar(const Napi::CallbackInfo& info);
 };
