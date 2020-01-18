@@ -69,6 +69,7 @@ export {
 export { QAction, QActionSignals } from './lib/QtWidgets/QAction';
 export { QShortcut, QShortcutSignals } from './lib/QtWidgets/QShortcut';
 export { QGroupBox, QGroupBoxSignals } from './lib/QtWidgets/QGroupBox';
+export { QStatusBar, QStatusBarSignals } from './lib/QtWidgets/QStatusBar';
 // Core
 export { QDate } from './lib/QtCore/QDate';
 export { QDateTime } from './lib/QtCore/QDateTime';
