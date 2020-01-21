@@ -3,6 +3,10 @@ set(PLUGIN_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}")
 set(NODEGUI_ROOT "${PLUGIN_CMAKE_DIR}/..")
 set(NODEGUI_LIBRARY "${NODEGUI_ROOT}/build/Release/nodegui_core.node")
 
+if(WIN32)
+    set(NODEGUI_LIBRARY "${NODEGUI_ROOT}\\build\\Release\\nodegui_core.lib")
+endif()
+
 include("${PLUGIN_CMAKE_DIR}/common.cmake")
 include("${PLUGIN_CMAKE_DIR}/qt.cmake")
 include("${PLUGIN_CMAKE_DIR}/napi.cmake")

@@ -10,6 +10,8 @@ set(CORE_WIDGETS_ADDON "nodegui_core")
 
 project(${CORE_WIDGETS_ADDON})
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS 1)
+
 add_library(${CORE_WIDGETS_ADDON} SHARED
     "${CMAKE_JS_SRC}"
     "${PROJECT_SOURCE_DIR}/src/cpp/main.cpp"
