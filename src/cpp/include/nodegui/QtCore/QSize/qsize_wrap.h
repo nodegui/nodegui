@@ -3,10 +3,10 @@
 #include <napi.h>
 
 #include <QSize>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class WIN_EXPORT QSizeWrap : public Napi::ObjectWrap<QSizeWrap> {
+class DLL_EXPORT QSizeWrap : public Napi::ObjectWrap<QSizeWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QSize> instance;
@@ -25,5 +25,5 @@ class WIN_EXPORT QSizeWrap : public Napi::ObjectWrap<QSizeWrap> {
 };
 
 namespace StaticQSizeWrapMethods {
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQSizeWrapMethods

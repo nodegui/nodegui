@@ -3,12 +3,12 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nprogressbar.hpp"
 
-class WIN_EXPORT QProgressBarWrap : public Napi::ObjectWrap<QProgressBarWrap> {
+class DLL_EXPORT QProgressBarWrap : public Napi::ObjectWrap<QProgressBarWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NProgressBar> instance;

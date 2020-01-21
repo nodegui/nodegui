@@ -1,12 +1,15 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QFileDialog>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QDialog/qdialog_macro.h"
 #include "core/NodeWidget/nodewidget.h"
+
 #include "napi.h"
 
-class NFileDialog : public QFileDialog, public NodeWidget {
+class DLL_EXPORT NFileDialog : public QFileDialog, public NodeWidget {
  public:
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QFileDialog)

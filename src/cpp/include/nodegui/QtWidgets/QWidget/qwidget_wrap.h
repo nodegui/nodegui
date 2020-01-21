@@ -6,9 +6,9 @@
 
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nwidget.hpp"
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
-class WIN_EXPORT QWidgetWrap : public Napi::ObjectWrap<QWidgetWrap> {
+class DLL_EXPORT QWidgetWrap : public Napi::ObjectWrap<QWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NWidget> instance;

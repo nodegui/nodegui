@@ -6,9 +6,9 @@
 
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
-class WIN_EXPORT QTableWidgetItemWrap
+class DLL_EXPORT QTableWidgetItemWrap
     : public Napi::ObjectWrap<QTableWidgetItemWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:

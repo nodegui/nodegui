@@ -1,4 +1,5 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QPushButton>
 
@@ -7,7 +8,7 @@
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NPushButton : public QPushButton, public NodeWidget {
+class DLL_EXPORT NPushButton : public QPushButton, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QPushButton)
  public:

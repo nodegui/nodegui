@@ -1,4 +1,5 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QTimeEdit>
 
@@ -6,7 +7,7 @@
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NTimeEdit : public QTimeEdit, public NodeWidget {
+class DLL_EXPORT NTimeEdit : public QTimeEdit, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QTimeEdit)
  public:

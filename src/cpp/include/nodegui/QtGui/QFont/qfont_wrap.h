@@ -3,11 +3,11 @@
 #include <napi.h>
 
 #include <QFont>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "core/Component/component_macro.h"
 
-class WIN_EXPORT QFontWrap : public Napi::ObjectWrap<QFontWrap> {
+class DLL_EXPORT QFontWrap : public Napi::ObjectWrap<QFontWrap> {
  private:
   std::unique_ptr<QFont> instance;
 
@@ -35,5 +35,5 @@ class WIN_EXPORT QFontWrap : public Napi::ObjectWrap<QFontWrap> {
 };
 
 namespace StaticQFontWrapMethods {
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQFontWrapMethods

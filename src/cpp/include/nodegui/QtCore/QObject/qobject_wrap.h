@@ -3,11 +3,11 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/nobject.hpp"
 #include "QtCore/QObject/qobject_macro.h"
 
-class WIN_EXPORT QObjectWrap : public Napi::ObjectWrap<QObjectWrap> {
+class DLL_EXPORT QObjectWrap : public Napi::ObjectWrap<QObjectWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NObject> instance;

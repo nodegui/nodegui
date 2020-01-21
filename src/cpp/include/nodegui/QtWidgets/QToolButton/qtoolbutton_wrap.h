@@ -8,9 +8,9 @@
 #include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ntoolbutton.hpp"
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
-class WIN_EXPORT QToolButtonWrap : public Napi::ObjectWrap<QToolButtonWrap> {
+class DLL_EXPORT QToolButtonWrap : public Napi::ObjectWrap<QToolButtonWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NToolButton> instance;

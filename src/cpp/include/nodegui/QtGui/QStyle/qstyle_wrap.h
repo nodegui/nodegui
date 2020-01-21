@@ -3,11 +3,11 @@
 #include <napi.h>
 
 #include <QStyle>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "core/Component/component_macro.h"
 
-class WIN_EXPORT QStyleWrap : public Napi::ObjectWrap<QStyleWrap> {
+class DLL_EXPORT QStyleWrap : public Napi::ObjectWrap<QStyleWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

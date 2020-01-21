@@ -1,4 +1,5 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QSpinBox>
 
@@ -6,7 +7,7 @@
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NSpinBox : public QSpinBox, public NodeWidget {
+class DLL_EXPORT NSpinBox : public QSpinBox, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QSpinBox)
  public:

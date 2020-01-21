@@ -1,11 +1,12 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QProgressBar>
 
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
-class NProgressBar : public QProgressBar, public NodeWidget {
+class DLL_EXPORT NProgressBar : public QProgressBar, public NodeWidget {
   Q_OBJECT
  public:
   NODEWIDGET_IMPLEMENTATIONS(QProgressBar)

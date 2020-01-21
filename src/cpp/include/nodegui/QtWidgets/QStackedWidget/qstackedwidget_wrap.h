@@ -7,9 +7,9 @@
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QStackedWidget/nstackedwidget.hpp"
 #include "QtWidgets/QWidget/qwidget_macro.h"
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
-class WIN_EXPORT QStackedWidgetWrap : public Napi::ObjectWrap<QStackedWidgetWrap> {
+class DLL_EXPORT QStackedWidgetWrap : public Napi::ObjectWrap<QStackedWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NStackedWidget> instance;

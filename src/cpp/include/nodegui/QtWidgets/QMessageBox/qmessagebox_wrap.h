@@ -3,13 +3,13 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QMessageBox/nmessagebox.hpp"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
-class WIN_EXPORT QMessageBoxWrap : public Napi::ObjectWrap<QMessageBoxWrap> {
+class DLL_EXPORT QMessageBoxWrap : public Napi::ObjectWrap<QMessageBoxWrap> {
   QDIALOG_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NMessageBox> instance;
@@ -28,6 +28,6 @@ class WIN_EXPORT QMessageBoxWrap : public Napi::ObjectWrap<QMessageBoxWrap> {
   Napi::Value done(const Napi::CallbackInfo& info);
 };
 namespace StaticQMessageBoxWrapMethods {
-Napi::Value about(const Napi::CallbackInfo& info);
-Napi::Value aboutQt(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value about(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value aboutQt(const Napi::CallbackInfo& info);
 };  // namespace StaticQMessageBoxWrapMethods

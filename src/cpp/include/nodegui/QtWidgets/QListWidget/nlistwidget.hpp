@@ -1,14 +1,12 @@
 #pragma once
-
 #include <napi.h>
-
 #include <QListWidget>
-
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QListView/qlistview_macro.h"
 #include "QtWidgets/QListWidgetItem/qlistwidgetitem_wrap.h"
 #include "core/NodeWidget/nodewidget.h"
 
-class NListWidget : public QListWidget, public NodeWidget {
+class DLL_EXPORT NListWidget : public QListWidget, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QListWidget)
  public:

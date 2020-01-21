@@ -1,11 +1,10 @@
 #pragma once
-
 #include <QLineEdit>
-
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
-class NLineEdit : public QLineEdit, public NodeWidget {
+class DLL_EXPORT NLineEdit : public QLineEdit, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QLineEdit)
  public:

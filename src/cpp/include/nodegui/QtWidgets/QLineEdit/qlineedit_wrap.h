@@ -3,12 +3,12 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nlineedit.hpp"
 
-class WIN_EXPORT QLineEditWrap : public Napi::ObjectWrap<QLineEditWrap> {
+class DLL_EXPORT QLineEditWrap : public Napi::ObjectWrap<QLineEditWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NLineEdit> instance;

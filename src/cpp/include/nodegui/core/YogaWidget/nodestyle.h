@@ -2,7 +2,7 @@
 
 #include <QString>
 #include <unordered_map>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 #include "deps/yoga/YGStyle.h"
 
 /*
@@ -22,7 +22,7 @@ struct NodeValueUnit {
   }
 };
 
-class WIN_EXPORT NodeStyle {
+class DLL_EXPORT NodeStyle {
  public:
   static std::unordered_map<std::string, int> NodeAlign;
 

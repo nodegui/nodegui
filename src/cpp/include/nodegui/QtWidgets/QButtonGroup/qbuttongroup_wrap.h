@@ -3,12 +3,12 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "nbuttongroup.hpp"
-class WIN_EXPORT QButtonGroupWrap : public Napi::ObjectWrap<QButtonGroupWrap> {
+class DLL_EXPORT QButtonGroupWrap : public Napi::ObjectWrap<QButtonGroupWrap> {
  private:
   QPointer<NButtonGroup> instance;
 

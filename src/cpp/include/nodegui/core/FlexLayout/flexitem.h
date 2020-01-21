@@ -1,6 +1,6 @@
 #pragma once
 
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 #include "deps/yoga/YGNode.h"
 
 /*
@@ -9,7 +9,7 @@
    of this one since it inherits from FlexItem.
  */
 
-class WIN_EXPORT FlexItem {
+class DLL_EXPORT FlexItem {
   YGNodeRef node;
 
  public:

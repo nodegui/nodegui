@@ -3,11 +3,11 @@
 #include <nodegui/QtWidgets/QWidget/qwidget_macro.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "nmenu.hpp"
 
-class WIN_EXPORT QMenuWrap : public Napi::ObjectWrap<QMenuWrap> {
+class DLL_EXPORT QMenuWrap : public Napi::ObjectWrap<QMenuWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NMenu> instance;

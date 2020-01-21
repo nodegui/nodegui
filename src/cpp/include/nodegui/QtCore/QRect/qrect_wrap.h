@@ -3,10 +3,10 @@
 #include <napi.h>
 
 #include <QRect>
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
-#include "deps/yoga/YGMacros.h"
 
-class WIN_EXPORT QRectWrap : public Napi::ObjectWrap<QRectWrap> {
+class DLL_EXPORT QRectWrap : public Napi::ObjectWrap<QRectWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QRect> instance;
@@ -29,5 +29,5 @@ class WIN_EXPORT QRectWrap : public Napi::ObjectWrap<QRectWrap> {
 };
 
 namespace StaticQRectWrapMethods {
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQRectWrapMethods

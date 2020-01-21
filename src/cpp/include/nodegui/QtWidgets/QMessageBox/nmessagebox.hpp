@@ -1,4 +1,5 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QAbstractButton>
 #include <QMessageBox>
@@ -8,7 +9,7 @@
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NMessageBox : public QMessageBox, public NodeWidget {
+class DLL_EXPORT NMessageBox : public QMessageBox, public NodeWidget {
  public:
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QMessageBox)

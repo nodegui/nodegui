@@ -3,13 +3,13 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ndial.hpp"
 
-class WIN_EXPORT QDialWrap : public Napi::ObjectWrap<QDialWrap> {
+class DLL_EXPORT QDialWrap : public Napi::ObjectWrap<QDialWrap> {
   QABSTRACTSLIDER_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NDial> instance;

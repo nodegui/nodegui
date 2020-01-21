@@ -6,9 +6,9 @@
 
 #include "QtCore/QObject/qobject_macro.h"
 #include "nsystemtrayicon.hpp"
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
-class WIN_EXPORT QSystemTrayIconWrap : public Napi::ObjectWrap<QSystemTrayIconWrap> {
+class DLL_EXPORT QSystemTrayIconWrap : public Napi::ObjectWrap<QSystemTrayIconWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NSystemTrayIcon> instance;

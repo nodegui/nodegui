@@ -1,11 +1,13 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QDial>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
-class NDial : public QDial, public NodeWidget {
+class DLL_EXPORT NDial : public QDial, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QDial)
  public:

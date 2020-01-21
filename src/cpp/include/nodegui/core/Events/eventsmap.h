@@ -1,9 +1,9 @@
 #pragma once
 #include <QEvent>
 #include <unordered_map>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
-class WIN_EXPORT EventsMap {
+class DLL_EXPORT EventsMap {
  public:
   static std::unordered_map<std::string, int> eventTypes;
   // static std::unordered_map<std::string, int> keyEvents;

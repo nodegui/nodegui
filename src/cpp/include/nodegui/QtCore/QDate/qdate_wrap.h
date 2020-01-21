@@ -3,11 +3,11 @@
 #include <napi.h>
 #include <stdlib.h>
 #include <QDate>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "core/Component/component_macro.h"
 
-class WIN_EXPORT QDateWrap : public Napi::ObjectWrap<QDateWrap> {
+class DLL_EXPORT QDateWrap : public Napi::ObjectWrap<QDateWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QDate> instance;
@@ -38,9 +38,9 @@ class WIN_EXPORT QDateWrap : public Napi::ObjectWrap<QDateWrap> {
 };
 
 namespace StaticDateWrapMethods {
-Napi::Value currentDate(const Napi::CallbackInfo& info);
-Napi::Value fromJulianDay(const Napi::CallbackInfo& info);
-Napi::Value isLeapYear(const Napi::CallbackInfo& info);
-Napi::Value isValid(const Napi::CallbackInfo& info);
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value currentDate(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromJulianDay(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value isLeapYear(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value isValid(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticDateWrapMethods

@@ -3,12 +3,12 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "QtCore/QObject/qobject_macro.h"
 #include "nmovie.hpp"
 
-class WIN_EXPORT QMovieWrap : public Napi::ObjectWrap<QMovieWrap> {
+class DLL_EXPORT QMovieWrap : public Napi::ObjectWrap<QMovieWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
 
  private:

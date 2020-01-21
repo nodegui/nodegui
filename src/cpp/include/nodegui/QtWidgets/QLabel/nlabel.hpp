@@ -1,11 +1,13 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QLabel>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
-class NLabel : public QLabel, public NodeWidget {
+class DLL_EXPORT NLabel : public QLabel, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QLabel)
  public:

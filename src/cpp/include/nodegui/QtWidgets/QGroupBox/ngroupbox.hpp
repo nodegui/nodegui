@@ -1,12 +1,14 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QGroupBox>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NGroupBox : public QGroupBox, public NodeWidget {
+class DLL_EXPORT NGroupBox : public QGroupBox, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QGroupBox)
  public:

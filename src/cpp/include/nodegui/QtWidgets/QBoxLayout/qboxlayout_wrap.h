@@ -4,12 +4,12 @@
 
 #include <QBoxLayout>
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "QtWidgets/QBoxLayout/nboxlayout.hpp"
 #include "QtWidgets/QLayout/qlayout_macro.h"
 
-class WIN_EXPORT QBoxLayoutWrap : public Napi::ObjectWrap<QBoxLayoutWrap> {
+class DLL_EXPORT QBoxLayoutWrap : public Napi::ObjectWrap<QBoxLayoutWrap> {
   QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NBoxLayout> instance;

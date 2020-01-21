@@ -3,12 +3,12 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nmainwindow.hpp"
 
-class WIN_EXPORT QMainWindowWrap : public Napi::ObjectWrap<QMainWindowWrap> {
+class DLL_EXPORT QMainWindowWrap : public Napi::ObjectWrap<QMainWindowWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
 
  private:

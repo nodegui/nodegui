@@ -6,9 +6,9 @@
 
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
-class WIN_EXPORT QTreeWidgetItemWrap
+class DLL_EXPORT QTreeWidgetItemWrap
     : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:

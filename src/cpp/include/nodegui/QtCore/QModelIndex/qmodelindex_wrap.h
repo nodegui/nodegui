@@ -3,10 +3,10 @@
 #include <napi.h>
 
 #include <QModelIndex>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class WIN_EXPORT QModelIndexWrap : public Napi::ObjectWrap<QModelIndexWrap> {
+class DLL_EXPORT QModelIndexWrap : public Napi::ObjectWrap<QModelIndexWrap> {
  private:
   std::unique_ptr<QModelIndex> instance;
 
@@ -31,5 +31,5 @@ class WIN_EXPORT QModelIndexWrap : public Napi::ObjectWrap<QModelIndexWrap> {
 };
 
 namespace StaticQModelIndexWrapMethods {
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQModelIndexWrapMethods

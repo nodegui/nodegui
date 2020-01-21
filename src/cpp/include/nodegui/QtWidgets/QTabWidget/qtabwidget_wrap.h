@@ -7,9 +7,9 @@
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QTabWidget/ntabwidget.hpp"
 #include "QtWidgets/QWidget/qwidget_macro.h"
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
-class WIN_EXPORT QTabWidgetWrap : public Napi::ObjectWrap<QTabWidgetWrap> {
+class DLL_EXPORT QTabWidgetWrap : public Napi::ObjectWrap<QTabWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NTabWidget> instance;

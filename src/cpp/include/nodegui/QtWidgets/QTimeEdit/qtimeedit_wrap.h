@@ -7,10 +7,10 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QDateTimeEdit/qdatetimeedit_macro.h"
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 #include "ntimeedit.hpp"
 
-class WIN_EXPORT QTimeEditWrap : public Napi::ObjectWrap<QTimeEditWrap> {
+class DLL_EXPORT QTimeEditWrap : public Napi::ObjectWrap<QTimeEditWrap> {
   QDATETIMEEDIT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NTimeEdit> instance;

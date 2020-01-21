@@ -8,10 +8,10 @@
 #pragma once
 
 #include <napi.h>
+#include "Extras/Utils/nutils.h"
 #include "component_macro.h"
-#include "deps/yoga/YGMacros.h"
 
-class WIN_EXPORT ComponentWrap : public Napi::ObjectWrap<ComponentWrap> {
+class DLL_EXPORT ComponentWrap : public Napi::ObjectWrap<ComponentWrap> {
  public:
   ComponentWrap(const Napi::CallbackInfo& info)
       : Napi::ObjectWrap<ComponentWrap>(info) {}

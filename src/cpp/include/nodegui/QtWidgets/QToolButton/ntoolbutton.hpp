@@ -1,4 +1,5 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QAction>
 #include <QToolButton>
@@ -8,7 +9,7 @@
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NToolButton : public QToolButton, public NodeWidget {
+class DLL_EXPORT NToolButton : public QToolButton, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QToolButton)
  public:

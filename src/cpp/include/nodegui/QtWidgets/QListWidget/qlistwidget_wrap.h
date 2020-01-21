@@ -4,13 +4,13 @@
 #include <stdlib.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QListView/qlistview_macro.h"
 #include "QtWidgets/QListWidget/nlistwidget.hpp"
 
-class WIN_EXPORT QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
+class DLL_EXPORT QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
  private:
   QPointer<NListWidget> instance;
 

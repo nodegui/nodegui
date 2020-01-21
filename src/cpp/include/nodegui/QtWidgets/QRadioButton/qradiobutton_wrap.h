@@ -3,13 +3,13 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nradiobutton.hpp"
 
-class WIN_EXPORT QRadioButtonWrap : public Napi::ObjectWrap<QRadioButtonWrap> {
+class DLL_EXPORT QRadioButtonWrap : public Napi::ObjectWrap<QRadioButtonWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
 
  private:

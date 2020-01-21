@@ -5,10 +5,10 @@
 #include <QApplication>
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
-#include "deps/yoga/YGMacros.h"
 
-class WIN_EXPORT QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
+class DLL_EXPORT QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:
@@ -33,7 +33,7 @@ class WIN_EXPORT QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
 };
 
 namespace StaticQApplicationWrapMethods {
-Napi::Value instance(const Napi::CallbackInfo& info);
-Napi::Value clipboard(const Napi::CallbackInfo& info);
-Napi::Value style(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value instance(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value clipboard(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value style(const Napi::CallbackInfo& info);
 }  // namespace StaticQApplicationWrapMethods

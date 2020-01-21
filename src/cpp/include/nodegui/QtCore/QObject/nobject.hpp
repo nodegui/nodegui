@@ -1,11 +1,13 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 #include <QObject>
 
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "core/Events/eventwidget.h"
 #include "core/Events/eventwidget_macro.h"
 
-class NObject : public QObject, public EventWidget {
+class DLL_EXPORT NObject : public QObject, public EventWidget {
   Q_OBJECT
   EVENTWIDGET_IMPLEMENTATIONS(QObject)
  public:

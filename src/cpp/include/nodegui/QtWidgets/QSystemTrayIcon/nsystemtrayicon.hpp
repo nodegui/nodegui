@@ -1,4 +1,5 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QSystemTrayIcon>
 
@@ -6,7 +7,7 @@
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NSystemTrayIcon : public QSystemTrayIcon, public EventWidget {
+class DLL_EXPORT NSystemTrayIcon : public QSystemTrayIcon, public EventWidget {
   Q_OBJECT
   EVENTWIDGET_IMPLEMENTATIONS(QSystemTrayIcon)
  public:

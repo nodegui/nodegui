@@ -3,13 +3,13 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QComboBox/ncombobox.hpp"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
-class WIN_EXPORT QComboBoxWrap : public Napi::ObjectWrap<QComboBoxWrap> {
+class DLL_EXPORT QComboBoxWrap : public Napi::ObjectWrap<QComboBoxWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NComboBox> instance;

@@ -1,4 +1,5 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QTreeWidget>
 
@@ -7,7 +8,7 @@
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NTreeWidget : public QTreeWidget, public NodeWidget {
+class DLL_EXPORT NTreeWidget : public QTreeWidget, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QTreeWidget)
 

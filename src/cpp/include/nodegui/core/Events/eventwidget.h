@@ -3,10 +3,10 @@
 #include <napi.h>
 
 #include <QEvent>
+#include "Extras/Utils/nutils.h"
 #include "core/Events/eventsmap.h"
-#include "deps/yoga/YGMacros.h"
 
-class WIN_EXPORT EventWidget {
+class DLL_EXPORT EventWidget {
  public:
   Napi::FunctionReference emitOnNode;
   std::unordered_map<QEvent::Type, std::string> subscribedEvents;

@@ -1,5 +1,15 @@
 #pragma once
 
+#ifdef _WINDLL
+#ifdef ENABLE_DLL_EXPORT
+#define DLL_EXPORT __declspec(dllexport)
+#else
+#define DLL_EXPORT __declspec(dllimport)
+#endif
+#else
+#define DLL_EXPORT
+#endif
+
 #include <napi.h>
 
 #include <QPointer>
@@ -8,20 +18,14 @@
 #include "core/FlexLayout/flexlayout.hpp"
 #include "core/FlexLayout/flexutils.h"
 
-#ifdef WIN_EXPORT_DLL
-#define WIN_EXPORT __declspec(dllexport)
-#else
-#define WIN_EXPORT __declspec(dllimport)
-#endif
-
 namespace extrautils {
-WIN_EXPORT QVariant* convertToQVariant(Napi::Env& env, Napi::Value& value);
-WIN_EXPORT bool isNapiValueInt(Napi::Env& env, Napi::Value& num);
-WIN_EXPORT std::string getNapiObjectClassName(Napi::Object& object);
-WIN_EXPORT void* configureQWidget(QWidget* widget, YGNodeRef node,
+DLL_EXPORT QVariant* convertToQVariant(Napi::Env& env, Napi::Value& value);
+DLL_EXPORT bool isNapiValueInt(Napi::Env& env, Napi::Value& num);
+DLL_EXPORT std::string getNapiObjectClassName(Napi::Object& object);
+DLL_EXPORT void* configureQWidget(QWidget* widget, YGNodeRef node,
                                   bool isLeafNode = false);
-WIN_EXPORT void* configureQObject(QObject* object);
-WIN_EXPORT void* configureComponent(void* component);
+DLL_EXPORT void* configureQObject(QObject* object);
+DLL_EXPORT void* configureComponent(void* component);
 
 template <typename T>
 void safeDelete(QPointer<T>& component) {
@@ -32,7 +36,7 @@ void safeDelete(QPointer<T>& component) {
 void initAppSettings();
 }  // namespace extrautils
 
-class WIN_EXPORT NUtilsWrap : public Napi::ObjectWrap<NUtilsWrap> {
+class DLL_EXPORT NUtilsWrap : public Napi::ObjectWrap<NUtilsWrap> {
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   NUtilsWrap(const Napi::CallbackInfo& info);
@@ -40,5 +44,5 @@ class WIN_EXPORT NUtilsWrap : public Napi::ObjectWrap<NUtilsWrap> {
 };
 
 namespace StaticNUtilsWrapMethods {
-WIN_EXPORT Napi::Value isNapiExternal(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value isNapiExternal(const Napi::CallbackInfo& info);
 }  // namespace StaticNUtilsWrapMethods

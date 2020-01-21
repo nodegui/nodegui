@@ -3,11 +3,11 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "QtCore/QObject/qobject_macro.h"
 #include "naction.hpp"
-class WIN_EXPORT QActionWrap : public Napi::ObjectWrap<QActionWrap> {
+class DLL_EXPORT QActionWrap : public Napi::ObjectWrap<QActionWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
 
  private:

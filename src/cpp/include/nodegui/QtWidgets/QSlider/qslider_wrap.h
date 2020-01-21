@@ -6,10 +6,10 @@
 
 #include "QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 #include "nslider.hpp"
 
-class WIN_EXPORT QSliderWrap : public Napi::ObjectWrap<QSliderWrap> {
+class DLL_EXPORT QSliderWrap : public Napi::ObjectWrap<QSliderWrap> {
   QABSTRACTSLIDER_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NSlider> instance;

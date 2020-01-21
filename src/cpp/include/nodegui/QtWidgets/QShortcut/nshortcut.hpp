@@ -1,4 +1,5 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QShortcut>
 
@@ -6,7 +7,7 @@
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NShortcut : public QShortcut, public EventWidget {
+class DLL_EXPORT NShortcut : public QShortcut, public EventWidget {
   Q_OBJECT
   EVENTWIDGET_IMPLEMENTATIONS(QShortcut)
  public:

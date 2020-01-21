@@ -1,12 +1,14 @@
 #pragma once
+#include "Extras/Utils/nutils.h"
 
 #include <QAction>
 
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NAction : public QAction, public EventWidget {
+class DLL_EXPORT NAction : public QAction, public EventWidget {
   Q_OBJECT
   EVENTWIDGET_IMPLEMENTATIONS(QAction)
  public:

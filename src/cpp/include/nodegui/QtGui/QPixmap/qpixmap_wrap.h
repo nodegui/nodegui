@@ -3,11 +3,11 @@
 #include <napi.h>
 
 #include <QPixmap>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "core/Component/component_macro.h"
 
-class WIN_EXPORT QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {
+class DLL_EXPORT QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:
@@ -29,5 +29,5 @@ class WIN_EXPORT QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {
 };
 
 namespace StaticQPixmapWrapMethods {
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQPixmapWrapMethods

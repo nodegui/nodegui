@@ -4,12 +4,12 @@
 #include <stdlib.h>
 
 #include <QListWidgetItem>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"
 
-class WIN_EXPORT QListWidgetItemWrap : public Napi::ObjectWrap<QListWidgetItemWrap> {
+class DLL_EXPORT QListWidgetItemWrap : public Napi::ObjectWrap<QListWidgetItemWrap> {
  private:
   QListWidgetItem* instance;
 

@@ -6,9 +6,9 @@
 
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ntreewidget.hpp"
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
-class WIN_EXPORT QTreeWidgetWrap : public Napi::ObjectWrap<QTreeWidgetWrap> {
+class DLL_EXPORT QTreeWidgetWrap : public Napi::ObjectWrap<QTreeWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NTreeWidget> instance;

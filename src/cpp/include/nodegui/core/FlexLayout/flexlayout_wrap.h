@@ -4,10 +4,10 @@
 
 #include <QPointer>
 #include "QtWidgets/QLayout/qlayout_macro.h"
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 #include "flexlayout.hpp"
 
-class WIN_EXPORT FlexLayoutWrap : public Napi::ObjectWrap<FlexLayoutWrap> {
+class DLL_EXPORT FlexLayoutWrap : public Napi::ObjectWrap<FlexLayoutWrap> {
   QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<FlexLayout> instance;

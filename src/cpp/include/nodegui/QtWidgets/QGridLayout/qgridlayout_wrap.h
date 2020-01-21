@@ -4,12 +4,12 @@
 
 #include <QGridLayout>
 #include <QPointer>
-#include "deps/yoga/YGMacros.h"
+#include "Extras/Utils/nutils.h"
 
 #include "QtWidgets/QGridLayout/ngridlayout.hpp"
 #include "QtWidgets/QLayout/qlayout_macro.h"
 
-class WIN_EXPORT QGridLayoutWrap : public Napi::ObjectWrap<QGridLayoutWrap> {
+class DLL_EXPORT QGridLayoutWrap : public Napi::ObjectWrap<QGridLayoutWrap> {
   QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NGridLayout> instance;
