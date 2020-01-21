@@ -3,10 +3,11 @@
 #include <napi.h>
 
 #include <QKeyEvent>
+#include "deps/yoga/YGMacros.h"
 
 #include "core/Component/component_macro.h"
 
-class QKeyEventWrap : public Napi::ObjectWrap<QKeyEventWrap> {
+class WIN_EXPORT QKeyEventWrap : public Napi::ObjectWrap<QKeyEventWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

@@ -6,8 +6,9 @@
 
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nstatusbar.hpp"
+#include "deps/yoga/YGMacros.h"
 
-class QStatusBarWrap : public Napi::ObjectWrap<QStatusBarWrap> {
+class WIN_EXPORT QStatusBarWrap : public Napi::ObjectWrap<QStatusBarWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
 
  private:

@@ -3,12 +3,13 @@
 #include <napi.h>
 
 #include <QPointer>
+#include "deps/yoga/YGMacros.h"
 
 #include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ncheckbox.hpp"
 
-class QCheckBoxWrap : public Napi::ObjectWrap<QCheckBoxWrap> {
+class WIN_EXPORT QCheckBoxWrap : public Napi::ObjectWrap<QCheckBoxWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NCheckBox> instance;

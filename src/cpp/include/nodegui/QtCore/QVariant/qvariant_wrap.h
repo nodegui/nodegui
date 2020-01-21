@@ -3,10 +3,10 @@
 #include <napi.h>
 
 #include <QSharedPointer>
-
 #include "core/Component/component_macro.h"
+#include "deps/yoga/YGMacros.h"
 
-class QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
+class WIN_EXPORT QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QSharedPointer<QVariant> instance;

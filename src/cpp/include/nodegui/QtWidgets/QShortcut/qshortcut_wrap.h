@@ -5,9 +5,10 @@
 #include <QPointer>
 
 #include "QtCore/QObject/qobject_macro.h"
+#include "deps/yoga/YGMacros.h"
 #include "nshortcut.hpp"
 
-class QShortcutWrap : public Napi::ObjectWrap<QShortcutWrap> {
+class WIN_EXPORT QShortcutWrap : public Napi::ObjectWrap<QShortcutWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NShortcut> instance;

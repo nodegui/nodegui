@@ -3,10 +3,10 @@
 #include <napi.h>
 
 #include <QSize>
-
+#include "deps/yoga/YGMacros.h"
 #include "core/Component/component_macro.h"
 
-class QSizeWrap : public Napi::ObjectWrap<QSizeWrap> {
+class WIN_EXPORT QSizeWrap : public Napi::ObjectWrap<QSizeWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QSize> instance;

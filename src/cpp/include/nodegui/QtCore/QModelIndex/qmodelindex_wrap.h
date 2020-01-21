@@ -3,10 +3,10 @@
 #include <napi.h>
 
 #include <QModelIndex>
-
+#include "deps/yoga/YGMacros.h"
 #include "core/Component/component_macro.h"
 
-class QModelIndexWrap : public Napi::ObjectWrap<QModelIndexWrap> {
+class WIN_EXPORT QModelIndexWrap : public Napi::ObjectWrap<QModelIndexWrap> {
  private:
   std::unique_ptr<QModelIndex> instance;
 

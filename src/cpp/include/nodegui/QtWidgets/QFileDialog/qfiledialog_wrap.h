@@ -3,12 +3,13 @@
 #include <napi.h>
 
 #include <QPointer>
+#include "deps/yoga/YGMacros.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QDialog/qdialog_macro.h"
 #include "QtWidgets/QFileDialog/nfiledialog.hpp"
 
-class QFileDialogWrap : public Napi::ObjectWrap<QFileDialogWrap> {
+class WIN_EXPORT QFileDialogWrap : public Napi::ObjectWrap<QFileDialogWrap> {
   QDIALOG_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NFileDialog> instance;

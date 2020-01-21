@@ -3,12 +3,13 @@
 #include <napi.h>
 
 #include <QPointer>
+#include "deps/yoga/YGMacros.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QDateTimeEdit/qdatetimeedit_macro.h"
 #include "ndateedit.hpp"
 
-class QDateEditWrap : public Napi::ObjectWrap<QDateEditWrap> {
+class WIN_EXPORT QDateEditWrap : public Napi::ObjectWrap<QDateEditWrap> {
   QDATETIMEEDIT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NDateEdit> instance;

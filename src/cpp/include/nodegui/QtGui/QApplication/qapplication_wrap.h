@@ -6,8 +6,9 @@
 #include <QPointer>
 
 #include "core/Component/component_macro.h"
+#include "deps/yoga/YGMacros.h"
 
-class QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
+class WIN_EXPORT QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

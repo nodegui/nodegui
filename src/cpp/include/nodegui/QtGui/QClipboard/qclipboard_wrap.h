@@ -3,10 +3,11 @@
 #include <napi.h>
 
 #include <QClipboard>
+#include "deps/yoga/YGMacros.h"
 
 #include "core/Component/component_macro.h"
 
-class QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap> {
+class WIN_EXPORT QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

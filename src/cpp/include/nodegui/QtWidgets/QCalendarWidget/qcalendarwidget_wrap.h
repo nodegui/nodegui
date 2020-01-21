@@ -3,12 +3,14 @@
 #include <napi.h>
 
 #include <QPointer>
+#include "deps/yoga/YGMacros.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QCalendarWidget/ncalendarwidget.hpp"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
-class QCalendarWidgetWrap : public Napi::ObjectWrap<QCalendarWidgetWrap> {
+class WIN_EXPORT QCalendarWidgetWrap
+    : public Napi::ObjectWrap<QCalendarWidgetWrap> {
  private:
   QPointer<NCalendarWidget> instance;
 

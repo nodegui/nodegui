@@ -3,12 +3,13 @@
 #include <napi.h>
 
 #include <QPointer>
+#include "deps/yoga/YGMacros.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "npushbutton.hpp"
-class QPushButtonWrap : public Napi::ObjectWrap<QPushButtonWrap> {
+class WIN_EXPORT QPushButtonWrap : public Napi::ObjectWrap<QPushButtonWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NPushButton> instance;

@@ -3,10 +3,11 @@
 #include <napi.h>
 
 #include <QMouseEvent>
+#include "deps/yoga/YGMacros.h"
 
 #include "core/Component/component_macro.h"
 
-class QMouseEventWrap : public Napi::ObjectWrap<QMouseEventWrap> {
+class WIN_EXPORT QMouseEventWrap : public Napi::ObjectWrap<QMouseEventWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

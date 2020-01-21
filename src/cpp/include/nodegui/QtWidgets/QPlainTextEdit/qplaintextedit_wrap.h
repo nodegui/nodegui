@@ -3,12 +3,14 @@
 #include <napi.h>
 
 #include <QPointer>
+#include "deps/yoga/YGMacros.h"
 
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nplaintextedit.hpp"
 
-class QPlainTextEditWrap : public Napi::ObjectWrap<QPlainTextEditWrap> {
+class WIN_EXPORT QPlainTextEditWrap
+    : public Napi::ObjectWrap<QPlainTextEditWrap> {
   QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NPlainTextEdit> instance;

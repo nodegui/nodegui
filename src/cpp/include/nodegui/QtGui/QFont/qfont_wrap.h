@@ -3,10 +3,11 @@
 #include <napi.h>
 
 #include <QFont>
+#include "deps/yoga/YGMacros.h"
 
 #include "core/Component/component_macro.h"
 
-class QFontWrap : public Napi::ObjectWrap<QFontWrap> {
+class WIN_EXPORT QFontWrap : public Napi::ObjectWrap<QFontWrap> {
  private:
   std::unique_ptr<QFont> instance;
 

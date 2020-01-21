@@ -3,11 +3,12 @@
 #include <napi.h>
 
 #include <QPointer>
+#include "deps/yoga/YGMacros.h"
 
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nlabel.hpp"
 
-class QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {
+class WIN_EXPORT QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NLabel> instance;

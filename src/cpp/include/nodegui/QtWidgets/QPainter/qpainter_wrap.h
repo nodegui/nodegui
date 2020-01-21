@@ -3,11 +3,12 @@
 #include <napi.h>
 
 #include <QPainter>
+#include "deps/yoga/YGMacros.h"
 
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"
 
-class QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
+class WIN_EXPORT QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QPainter* instance;

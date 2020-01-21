@@ -3,10 +3,11 @@
 #include <napi.h>
 
 #include <QColor>
+#include "deps/yoga/YGMacros.h"
 
 #include "core/Component/component_macro.h"
 
-class QColorWrap : public Napi::ObjectWrap<QColorWrap> {
+class WIN_EXPORT QColorWrap : public Napi::ObjectWrap<QColorWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QColor> instance;

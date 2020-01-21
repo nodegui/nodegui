@@ -1,7 +1,7 @@
 #pragma once
 #include <QWidget>
-
 #include "core/FlexLayout/flexitem.h"
+#include "deps/yoga/YGMacros.h"
 #include "nodestyle.h"
 
 /*
@@ -84,7 +84,7 @@ necessary q_properties.
 
 #endif
 
-class YogaWidget : public FlexItem {
+class WIN_EXPORT YogaWidget : public FlexItem {
  public:
   QString _yDisplay;
   QString _yAlignItems;

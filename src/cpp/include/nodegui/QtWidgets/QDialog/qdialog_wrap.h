@@ -3,11 +3,12 @@
 #include <napi.h>
 
 #include <QPointer>
+#include "deps/yoga/YGMacros.h"
 
 #include "QtWidgets/QDialog/qdialog_macro.h"
 #include "ndialog.hpp"
 
-class QDialogWrap : public Napi::ObjectWrap<QDialogWrap> {
+class WIN_EXPORT QDialogWrap : public Napi::ObjectWrap<QDialogWrap> {
   QDIALOG_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NDialog> instance;

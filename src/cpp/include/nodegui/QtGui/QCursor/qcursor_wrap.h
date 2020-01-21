@@ -3,10 +3,11 @@
 #include <napi.h>
 
 #include <QCursor>
+#include "deps/yoga/YGMacros.h"
 
 #include "core/Component/component_macro.h"
 
-class QCursorWrap : public Napi::ObjectWrap<QCursorWrap> {
+class WIN_EXPORT QCursorWrap : public Napi::ObjectWrap<QCursorWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QCursor> instance;

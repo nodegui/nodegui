@@ -4,12 +4,12 @@
 
 #include <QLayout>
 #include <QPointer>
-
 #include "QtWidgets/QLayout/nlayout.hpp"
 #include "QtWidgets/QLayout/qlayout_macro.h"
+#include "deps/yoga/YGMacros.h"
 
 // ABSTRACT CLASS
-class QLayoutWrap : public Napi::ObjectWrap<QLayoutWrap> {
+class WIN_EXPORT QLayoutWrap : public Napi::ObjectWrap<QLayoutWrap> {
   QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NLayout> instance;

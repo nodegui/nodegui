@@ -6,8 +6,10 @@
 
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"
+#include "deps/yoga/YGMacros.h"
 
-class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
+class WIN_EXPORT QTreeWidgetItemWrap
+    : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QTreeWidgetItem *instance;

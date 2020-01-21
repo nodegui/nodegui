@@ -3,10 +3,11 @@
 #include <napi.h>
 
 #include <QIcon>
+#include "deps/yoga/YGMacros.h"
 
 #include "core/Component/component_macro.h"
 
-class QIconWrap : public Napi::ObjectWrap<QIconWrap> {
+class WIN_EXPORT QIconWrap : public Napi::ObjectWrap<QIconWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

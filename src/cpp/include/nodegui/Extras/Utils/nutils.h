@@ -7,6 +7,13 @@
 
 #include "core/FlexLayout/flexlayout.hpp"
 #include "core/FlexLayout/flexutils.h"
+
+#ifdef _WINDLL
+#define WIN_EXPORT __declspec(dllexport)
+#else
+#define WIN_EXPORT
+#endif
+
 namespace extrautils {
 
 QVariant* convertToQVariant(Napi::Env& env, Napi::Value& value);
@@ -26,7 +33,7 @@ void safeDelete(QPointer<T>& component) {
 void initAppSettings();
 }  // namespace extrautils
 
-class NUtilsWrap : public Napi::ObjectWrap<NUtilsWrap> {
+class WIN_EXPORT NUtilsWrap : public Napi::ObjectWrap<NUtilsWrap> {
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   NUtilsWrap(const Napi::CallbackInfo& info);

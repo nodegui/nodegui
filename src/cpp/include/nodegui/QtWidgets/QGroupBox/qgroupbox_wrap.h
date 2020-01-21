@@ -3,11 +3,12 @@
 #include <napi.h>
 
 #include <QPointer>
+#include "deps/yoga/YGMacros.h"
 
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ngroupbox.hpp"
 
-class QGroupBoxWrap : public Napi::ObjectWrap<QGroupBoxWrap> {
+class WIN_EXPORT QGroupBoxWrap : public Napi::ObjectWrap<QGroupBoxWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NGroupBox> instance;

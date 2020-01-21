@@ -2,10 +2,10 @@
 
 #include <QLayoutItem>
 #include <QWidget>
-
+#include "deps/yoga/YGMacros.h"
 #include "deps/yoga/YGNode.h"
 
-class FlexNodeContext {
+class WIN_EXPORT FlexNodeContext {
   void* _widget;
   QLayoutItem* _layoutItem;
 

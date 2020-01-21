@@ -2,12 +2,12 @@
 
 #include <napi.h>
 #include <stdlib.h>
-
 #include <QDate>
+#include "deps/yoga/YGMacros.h"
 
 #include "core/Component/component_macro.h"
 
-class QDateWrap : public Napi::ObjectWrap<QDateWrap> {
+class WIN_EXPORT QDateWrap : public Napi::ObjectWrap<QDateWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QDate> instance;

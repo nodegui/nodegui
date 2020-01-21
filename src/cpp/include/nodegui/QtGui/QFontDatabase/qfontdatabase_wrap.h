@@ -3,10 +3,12 @@
 #include <napi.h>
 
 #include <QFontDatabase>
+#include "deps/yoga/YGMacros.h"
 
 #include "core/Component/component_macro.h"
 
-class QFontDatabaseWrap : public Napi::ObjectWrap<QFontDatabaseWrap> {
+class WIN_EXPORT QFontDatabaseWrap
+    : public Napi::ObjectWrap<QFontDatabaseWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

@@ -3,10 +3,11 @@
 #include <napi.h>
 
 #include <QPixmap>
+#include "deps/yoga/YGMacros.h"
 
 #include "core/Component/component_macro.h"
 
-class QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {
+class WIN_EXPORT QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

@@ -4,10 +4,10 @@
 #include <stdlib.h>
 
 #include <QTime>
-
 #include "core/Component/component_macro.h"
+#include "deps/yoga/YGMacros.h"
 
-class QTimeWrap : public Napi::ObjectWrap<QTimeWrap> {
+class WIN_EXPORT QTimeWrap : public Napi::ObjectWrap<QTimeWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QTime> instance;

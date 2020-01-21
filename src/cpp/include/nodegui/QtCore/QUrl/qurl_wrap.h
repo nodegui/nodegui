@@ -3,10 +3,10 @@
 #include <napi.h>
 
 #include <QUrl>
-
 #include "core/Component/component_macro.h"
+#include "deps/yoga/YGMacros.h"
 
-class QUrlWrap : public Napi::ObjectWrap<QUrlWrap> {
+class WIN_EXPORT QUrlWrap : public Napi::ObjectWrap<QUrlWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QUrl> instance;

@@ -3,10 +3,10 @@
 #include <napi.h>
 
 #include <QRect>
-
 #include "core/Component/component_macro.h"
+#include "deps/yoga/YGMacros.h"
 
-class QRectWrap : public Napi::ObjectWrap<QRectWrap> {
+class WIN_EXPORT QRectWrap : public Napi::ObjectWrap<QRectWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QRect> instance;

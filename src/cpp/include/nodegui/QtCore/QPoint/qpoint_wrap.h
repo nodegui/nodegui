@@ -3,10 +3,10 @@
 #include <napi.h>
 
 #include <QPoint>
-
+#include "deps/yoga/YGMacros.h"
 #include "core/Component/component_macro.h"
 
-class QPointWrap : public Napi::ObjectWrap<QPointWrap> {
+class WIN_EXPORT QPointWrap : public Napi::ObjectWrap<QPointWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QPoint> instance;
