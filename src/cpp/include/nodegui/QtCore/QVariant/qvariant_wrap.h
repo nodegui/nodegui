@@ -25,5 +25,5 @@ class WIN_EXPORT QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
 };
 
 namespace StaticQVariantWrapMethods {
-Napi::Value converToQVariant(const Napi::CallbackInfo& info);
+WIN_EXPORT Napi::Value converToQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQVariantWrapMethods
