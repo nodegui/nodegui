@@ -4,10 +4,11 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nprogressbar.hpp"
 
-class QProgressBarWrap : public Napi::ObjectWrap<QProgressBarWrap> {
+class DLL_EXPORT QProgressBarWrap : public Napi::ObjectWrap<QProgressBarWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NProgressBar> instance;

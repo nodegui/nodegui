@@ -3,6 +3,7 @@
 #include <QString>
 #include <unordered_map>
 
+#include "Extras/Utils/nutils.h"
 #include "deps/yoga/YGStyle.h"
 
 /*
@@ -22,7 +23,7 @@ struct NodeValueUnit {
   }
 };
 
-class NodeStyle {
+class DLL_EXPORT NodeStyle {
  public:
   static std::unordered_map<std::string, int> NodeAlign;
 

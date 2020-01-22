@@ -1,11 +1,11 @@
 #pragma once
-
 #include <QSlider>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
-class NSlider : public QSlider, public NodeWidget {
+class DLL_EXPORT NSlider : public QSlider, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QSlider)
  public:

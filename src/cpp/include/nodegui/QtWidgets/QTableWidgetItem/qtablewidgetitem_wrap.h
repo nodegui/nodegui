@@ -7,7 +7,8 @@
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"
 
-class QTableWidgetItemWrap : public Napi::ObjectWrap<QTableWidgetItemWrap> {
+class DLL_EXPORT QTableWidgetItemWrap
+    : public Napi::ObjectWrap<QTableWidgetItemWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QTableWidgetItem* instance;

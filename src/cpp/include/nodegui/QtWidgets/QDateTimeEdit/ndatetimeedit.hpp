@@ -1,12 +1,13 @@
 #pragma once
+#include <napi.h>
 
 #include <QDateTimeEdit>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QDateTimeEdit/qdatetimeedit_macro.h"
 #include "core/NodeWidget/nodewidget.h"
-#include "napi.h"
 
-class NDateTimeEdit : public QDateTimeEdit, public NodeWidget {
+class DLL_EXPORT NDateTimeEdit : public QDateTimeEdit, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QDateTimeEdit)
  public:

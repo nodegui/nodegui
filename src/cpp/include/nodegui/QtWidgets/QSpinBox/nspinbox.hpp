@@ -1,12 +1,12 @@
 #pragma once
-
 #include <QSpinBox>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NSpinBox : public QSpinBox, public NodeWidget {
+class DLL_EXPORT NSpinBox : public QSpinBox, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QSpinBox)
  public:

@@ -1,14 +1,14 @@
 #pragma once
-
 #include <QAbstractButton>
 #include <QMessageBox>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QDialog/qdialog_macro.h"
 #include "QtWidgets/QPushButton/qpushbutton_wrap.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NMessageBox : public QMessageBox, public NodeWidget {
+class DLL_EXPORT NMessageBox : public QMessageBox, public NodeWidget {
  public:
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QMessageBox)

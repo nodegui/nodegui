@@ -8,7 +8,7 @@
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nspinbox.hpp"
 
-class QSpinBoxWrap : public Napi::ObjectWrap<QSpinBoxWrap> {
+class DLL_EXPORT QSpinBoxWrap : public Napi::ObjectWrap<QSpinBoxWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NSpinBox> instance;

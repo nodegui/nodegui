@@ -5,9 +5,10 @@
 
 #include <QDateTime>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class QDateTimeWrap : public Napi::ObjectWrap<QDateTimeWrap> {
+class DLL_EXPORT QDateTimeWrap : public Napi::ObjectWrap<QDateTimeWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QDateTime> instance;
@@ -50,9 +51,9 @@ class QDateTimeWrap : public Napi::ObjectWrap<QDateTimeWrap> {
 };
 
 namespace StaticDateTimeWrapMethods {
-Napi::Value currentDateTime(const Napi::CallbackInfo& info);
-Napi::Value currentDateTimeUtc(const Napi::CallbackInfo& info);
-Napi::Value currentMSecsSinceEpoch(const Napi::CallbackInfo& info);
-Napi::Value currentSecsSinceEpoch(const Napi::CallbackInfo& info);
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value currentDateTime(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value currentDateTimeUtc(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value currentMSecsSinceEpoch(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value currentSecsSinceEpoch(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticDateTimeWrapMethods

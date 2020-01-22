@@ -8,7 +8,7 @@
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "QtWidgets/QTableWidget/ntablewidget.hpp"
 
-class QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
+class DLL_EXPORT QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NTableWidget> instance;

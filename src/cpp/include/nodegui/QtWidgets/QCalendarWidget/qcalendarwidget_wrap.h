@@ -8,7 +8,8 @@
 #include "QtWidgets/QCalendarWidget/ncalendarwidget.hpp"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
-class QCalendarWidgetWrap : public Napi::ObjectWrap<QCalendarWidgetWrap> {
+class DLL_EXPORT QCalendarWidgetWrap
+    : public Napi::ObjectWrap<QCalendarWidgetWrap> {
  private:
   QPointer<NCalendarWidget> instance;
 

@@ -4,10 +4,11 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/nobject.hpp"
 #include "QtCore/QObject/qobject_macro.h"
 
-class QObjectWrap : public Napi::ObjectWrap<QObjectWrap> {
+class DLL_EXPORT QObjectWrap : public Napi::ObjectWrap<QObjectWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NObject> instance;

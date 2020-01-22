@@ -4,10 +4,11 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "nscrollarea.hpp"
 
-class QScrollAreaWrap : public Napi::ObjectWrap<QScrollAreaWrap> {
+class DLL_EXPORT QScrollAreaWrap : public Napi::ObjectWrap<QScrollAreaWrap> {
   QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NScrollArea> instance;

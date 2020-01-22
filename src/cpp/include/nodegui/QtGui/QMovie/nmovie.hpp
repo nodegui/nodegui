@@ -1,13 +1,14 @@
 #pragma once
 #include <QMovie>
 
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "core/Events/eventwidget.h"
 #include "core/Events/eventwidget_macro.h"
 
-class NMovie : public QMovie, public EventWidget {
+class DLL_EXPORT NMovie : public QMovie, public EventWidget {
   Q_OBJECT
   EVENTWIDGET_IMPLEMENTATIONS(QMovie)
  public:

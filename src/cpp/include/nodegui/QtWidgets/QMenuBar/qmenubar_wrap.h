@@ -4,9 +4,10 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "nmenubar.hpp"
 
-class QMenuBarWrap : public Napi::ObjectWrap<QMenuBarWrap> {
+class DLL_EXPORT QMenuBarWrap : public Napi::ObjectWrap<QMenuBarWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NMenuBar> instance;

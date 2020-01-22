@@ -4,9 +4,10 @@
 
 #include <QIcon>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class QIconWrap : public Napi::ObjectWrap<QIconWrap> {
+class DLL_EXPORT QIconWrap : public Napi::ObjectWrap<QIconWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:
@@ -26,5 +27,5 @@ class QIconWrap : public Napi::ObjectWrap<QIconWrap> {
 };
 
 namespace StaticQIconWrapMethods {
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQIconWrapMethods

@@ -1,14 +1,14 @@
 #pragma once
-
 #include <QAction>
 #include <QToolButton>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NToolButton : public QToolButton, public NodeWidget {
+class DLL_EXPORT NToolButton : public QToolButton, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QToolButton)
  public:

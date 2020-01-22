@@ -4,9 +4,10 @@
 
 #include <QClipboard>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap> {
+class DLL_EXPORT QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

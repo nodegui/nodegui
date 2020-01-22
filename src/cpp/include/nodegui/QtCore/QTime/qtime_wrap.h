@@ -5,9 +5,10 @@
 
 #include <QTime>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class QTimeWrap : public Napi::ObjectWrap<QTimeWrap> {
+class DLL_EXPORT QTimeWrap : public Napi::ObjectWrap<QTimeWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QTime> instance;
@@ -38,8 +39,8 @@ class QTimeWrap : public Napi::ObjectWrap<QTimeWrap> {
 };
 
 namespace StaticTimeWrapMethods {
-Napi::Value currentTime(const Napi::CallbackInfo& info);
-Napi::Value fromMSecsSinceStartOfDay(const Napi::CallbackInfo& info);
-Napi::Value isValid(const Napi::CallbackInfo& info);
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value currentTime(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromMSecsSinceStartOfDay(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value isValid(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticTimeWrapMethods

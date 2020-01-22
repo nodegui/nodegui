@@ -8,7 +8,7 @@
 #include "QtWidgets/QDateTimeEdit/qdatetimeedit_macro.h"
 #include "ndateedit.hpp"
 
-class QDateEditWrap : public Napi::ObjectWrap<QDateEditWrap> {
+class DLL_EXPORT QDateEditWrap : public Napi::ObjectWrap<QDateEditWrap> {
   QDATETIMEEDIT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NDateEdit> instance;

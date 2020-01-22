@@ -7,7 +7,8 @@
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"
 
-class QTreeWidgetItemWrap : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
+class DLL_EXPORT QTreeWidgetItemWrap
+    : public Napi::ObjectWrap<QTreeWidgetItemWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QTreeWidgetItem *instance;

@@ -7,7 +7,7 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "nbuttongroup.hpp"
-class QButtonGroupWrap : public Napi::ObjectWrap<QButtonGroupWrap> {
+class DLL_EXPORT QButtonGroupWrap : public Napi::ObjectWrap<QButtonGroupWrap> {
  private:
   QPointer<NButtonGroup> instance;
 

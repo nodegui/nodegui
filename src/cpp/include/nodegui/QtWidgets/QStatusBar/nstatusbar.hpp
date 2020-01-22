@@ -1,12 +1,12 @@
 #pragma once
-
 #include <QStatusBar>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NStatusBar : public QStatusBar, public NodeWidget {
+class DLL_EXPORT NStatusBar : public QStatusBar, public NodeWidget {
   Q_OBJECT
 
  public:

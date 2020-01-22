@@ -4,10 +4,11 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "nshortcut.hpp"
 
-class QShortcutWrap : public Napi::ObjectWrap<QShortcutWrap> {
+class DLL_EXPORT QShortcutWrap : public Napi::ObjectWrap<QShortcutWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NShortcut> instance;

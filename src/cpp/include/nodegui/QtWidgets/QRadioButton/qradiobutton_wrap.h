@@ -4,11 +4,12 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nradiobutton.hpp"
 
-class QRadioButtonWrap : public Napi::ObjectWrap<QRadioButtonWrap> {
+class DLL_EXPORT QRadioButtonWrap : public Napi::ObjectWrap<QRadioButtonWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
 
  private:

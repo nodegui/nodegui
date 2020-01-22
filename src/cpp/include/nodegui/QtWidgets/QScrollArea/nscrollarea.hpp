@@ -1,11 +1,11 @@
 #pragma once
-
 #include <QScrollArea>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
-class NScrollArea : public QScrollArea, public NodeWidget {
+class DLL_EXPORT NScrollArea : public QScrollArea, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QScrollArea)
  public:

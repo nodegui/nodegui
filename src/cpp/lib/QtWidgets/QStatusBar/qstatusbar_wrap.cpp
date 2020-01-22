@@ -40,7 +40,7 @@ Napi::Value QStatusBarWrap::fromQStatusBar(Napi::Env env,
     return env.Null();
   }
 
-  auto statusBarWrap = QStatusBarWrap::constructor.New(
+  return QStatusBarWrap::constructor.New(
       {Napi::External<QStatusBar>::New(env, statusBar),
        Napi::Boolean::New(env, true)});
 }

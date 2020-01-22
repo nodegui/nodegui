@@ -1,12 +1,12 @@
 #pragma once
-
 #include <QStackedWidget>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NStackedWidget : public QStackedWidget, public NodeWidget {
+class DLL_EXPORT NStackedWidget : public QStackedWidget, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QStackedWidget)
  public:

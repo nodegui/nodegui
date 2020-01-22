@@ -4,11 +4,13 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nplaintextedit.hpp"
 
-class QPlainTextEditWrap : public Napi::ObjectWrap<QPlainTextEditWrap> {
+class DLL_EXPORT QPlainTextEditWrap
+    : public Napi::ObjectWrap<QPlainTextEditWrap> {
   QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NPlainTextEdit> instance;

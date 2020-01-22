@@ -5,11 +5,12 @@
 #include <QLayout>
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QLayout/nlayout.hpp"
 #include "QtWidgets/QLayout/qlayout_macro.h"
 
 // ABSTRACT CLASS
-class QLayoutWrap : public Napi::ObjectWrap<QLayoutWrap> {
+class DLL_EXPORT QLayoutWrap : public Napi::ObjectWrap<QLayoutWrap> {
   QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NLayout> instance;

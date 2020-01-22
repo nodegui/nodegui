@@ -4,9 +4,10 @@
 
 #include <QColor>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class QColorWrap : public Napi::ObjectWrap<QColorWrap> {
+class DLL_EXPORT QColorWrap : public Napi::ObjectWrap<QColorWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QColor> instance;
@@ -29,5 +30,5 @@ class QColorWrap : public Napi::ObjectWrap<QColorWrap> {
 };
 
 namespace StaticQColorWrapMethods {
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQColorWrapMethods

@@ -1,12 +1,12 @@
 #pragma once
-
 #include <QShortcut>
 
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NShortcut : public QShortcut, public EventWidget {
+class DLL_EXPORT NShortcut : public QShortcut, public EventWidget {
   Q_OBJECT
   EVENTWIDGET_IMPLEMENTATIONS(QShortcut)
  public:

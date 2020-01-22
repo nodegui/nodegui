@@ -9,7 +9,7 @@
 #include "QtWidgets/QDateTimeEdit/qdatetimeedit_macro.h"
 #include "ntimeedit.hpp"
 
-class QTimeEditWrap : public Napi::ObjectWrap<QTimeEditWrap> {
+class DLL_EXPORT QTimeEditWrap : public Napi::ObjectWrap<QTimeEditWrap> {
   QDATETIMEEDIT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NTimeEdit> instance;

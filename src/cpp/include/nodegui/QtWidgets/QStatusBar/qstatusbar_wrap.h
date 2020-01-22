@@ -4,10 +4,11 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nstatusbar.hpp"
 
-class QStatusBarWrap : public Napi::ObjectWrap<QStatusBarWrap> {
+class DLL_EXPORT QStatusBarWrap : public Napi::ObjectWrap<QStatusBarWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
 
  private:

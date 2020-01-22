@@ -4,9 +4,10 @@
 
 #include <QStyle>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class QStyleWrap : public Napi::ObjectWrap<QStyleWrap> {
+class DLL_EXPORT QStyleWrap : public Napi::ObjectWrap<QStyleWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

@@ -4,10 +4,11 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nwidget.hpp"
 
-class QWidgetWrap : public Napi::ObjectWrap<QWidgetWrap> {
+class DLL_EXPORT QWidgetWrap : public Napi::ObjectWrap<QWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NWidget> instance;

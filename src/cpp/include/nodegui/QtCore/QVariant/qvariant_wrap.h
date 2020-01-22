@@ -4,9 +4,10 @@
 
 #include <QSharedPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
+class DLL_EXPORT QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QSharedPointer<QVariant> instance;
@@ -25,5 +26,5 @@ class QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
 };
 
 namespace StaticQVariantWrapMethods {
-Napi::Value converToQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value converToQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQVariantWrapMethods

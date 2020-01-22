@@ -1,12 +1,12 @@
 #pragma once
-
 #include <nodegui/core/NodeWidget/nodewidget.h>
 
 #include <QMenu>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
-class NMenu : public QMenu, public NodeWidget {
+class DLL_EXPORT NMenu : public QMenu, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QMenu)
  public:

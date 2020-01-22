@@ -3,9 +3,10 @@
 #include <QLayoutItem>
 #include <QWidget>
 
+#include "Extras/Utils/nutils.h"
 #include "deps/yoga/YGNode.h"
 
-class FlexNodeContext {
+class DLL_EXPORT FlexNodeContext {
   void* _widget;
   QLayoutItem* _layoutItem;
 
@@ -17,13 +18,14 @@ class FlexNodeContext {
   void setLayoutItem(QLayoutItem* item);
 };
 namespace flexutils {
-YGSize measureQtWidget(YGNodeRef node, float width, YGMeasureMode widthMode,
-                       float height, YGMeasureMode heightMode);
-QRect getFlexNodeGeometry(YGNodeRef node);
-void setFlexNodeGeometry(YGNodeRef node, const QRect& geometry);
-FlexNodeContext* getFlexNodeContext(YGNodeRef node);
-bool isFlexNodeSizeControlled(YGNodeRef node);
-void configureFlexNode(QWidget* widget, YGNodeRef node,
-                       bool isLeafNode = false);
+DLL_EXPORT YGSize measureQtWidget(YGNodeRef node, float width,
+                                  YGMeasureMode widthMode, float height,
+                                  YGMeasureMode heightMode);
+DLL_EXPORT QRect getFlexNodeGeometry(YGNodeRef node);
+DLL_EXPORT void setFlexNodeGeometry(YGNodeRef node, const QRect& geometry);
+DLL_EXPORT FlexNodeContext* getFlexNodeContext(YGNodeRef node);
+DLL_EXPORT bool isFlexNodeSizeControlled(YGNodeRef node);
+DLL_EXPORT void configureFlexNode(QWidget* widget, YGNodeRef node,
+                                  bool isLeafNode = false);
 
 }  // namespace flexutils

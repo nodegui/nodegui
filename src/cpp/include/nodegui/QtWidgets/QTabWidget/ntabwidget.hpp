@@ -1,12 +1,12 @@
 #pragma once
-
 #include <QTabWidget>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NTabWidget : public QTabWidget, public NodeWidget {
+class DLL_EXPORT NTabWidget : public QTabWidget, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QTabWidget)
  public:

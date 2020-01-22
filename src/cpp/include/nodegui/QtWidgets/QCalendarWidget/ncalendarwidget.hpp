@@ -1,13 +1,13 @@
 #pragma once
-
 #include <QCalendarWidget>
 
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QDate/qdate_wrap.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NCalendarWidget : public QCalendarWidget, public NodeWidget {
+class DLL_EXPORT NCalendarWidget : public QCalendarWidget, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QCalendarWidget)
  public:

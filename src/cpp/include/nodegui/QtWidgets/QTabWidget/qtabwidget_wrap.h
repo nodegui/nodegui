@@ -8,7 +8,7 @@
 #include "QtWidgets/QTabWidget/ntabwidget.hpp"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
-class QTabWidgetWrap : public Napi::ObjectWrap<QTabWidgetWrap> {
+class DLL_EXPORT QTabWidgetWrap : public Napi::ObjectWrap<QTabWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NTabWidget> instance;

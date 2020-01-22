@@ -1,8 +1,8 @@
 #pragma once
-
 #include <QLayout>
 #include <QTimer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QLayout/qlayout_macro.h"
 #include "core/Events/eventwidget_macro.h"
 #include "deps/yoga/YGNode.h"
@@ -20,7 +20,7 @@ YGNodeNew(); FlexLayout * flayout = new FlexLayout(container,root);
     flayout->addWidget(btn2, child2);
  */
 
-class FlexLayout : public QLayout, public EventWidget {
+class DLL_EXPORT FlexLayout : public QLayout, public EventWidget {
   Q_OBJECT
  private:
   YGNodeRef node;
@@ -56,5 +56,3 @@ class FlexLayout : public QLayout, public EventWidget {
   EVENTWIDGET_IMPLEMENTATIONS(QLayout)
   void connectSignalsToEventEmitter();
 };
-
-// class FlexLayoutWorker: public Q

@@ -4,10 +4,11 @@
 #include <QStyleOption>
 #include <QWidget>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
-class NWidget : public QWidget, public NodeWidget {
+class DLL_EXPORT NWidget : public QWidget, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QWidget)
  public:

@@ -1,5 +1,4 @@
 #pragma once
-
 #include <QWidget>
 
 #include "core/Component/component_macro.h"

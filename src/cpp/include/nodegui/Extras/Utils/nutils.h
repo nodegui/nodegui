@@ -1,21 +1,31 @@
 #pragma once
 
+#ifdef _WINDLL
+#ifdef ENABLE_DLL_EXPORT
+#define DLL_EXPORT __declspec(dllexport)
+#else
+#define DLL_EXPORT __declspec(dllimport)
+#endif
+#else
+#define DLL_EXPORT
+#endif
+
 #include <napi.h>
 
 #include <QPointer>
 #include <QVariant>
 
-#include "core/FlexLayout/flexlayout.hpp"
 #include "core/FlexLayout/flexutils.h"
-namespace extrautils {
+#include "deps/yoga/YGNode.h"
 
-QVariant* convertToQVariant(Napi::Env& env, Napi::Value& value);
-bool isNapiValueInt(Napi::Env& env, Napi::Value& num);
-std::string getNapiObjectClassName(Napi::Object& object);
-void* configureQWidget(QWidget* widget, YGNodeRef node,
-                       bool isLeafNode = false);
-void* configureQObject(QObject* object);
-void* configureComponent(void* component);
+namespace extrautils {
+DLL_EXPORT QVariant* convertToQVariant(Napi::Env& env, Napi::Value& value);
+DLL_EXPORT bool isNapiValueInt(Napi::Env& env, Napi::Value& num);
+DLL_EXPORT std::string getNapiObjectClassName(Napi::Object& object);
+DLL_EXPORT void* configureQWidget(QWidget* widget, YGNodeRef node,
+                                  bool isLeafNode = false);
+DLL_EXPORT void* configureQObject(QObject* object);
+DLL_EXPORT void* configureComponent(void* component);
 
 template <typename T>
 void safeDelete(QPointer<T>& component) {
@@ -26,7 +36,7 @@ void safeDelete(QPointer<T>& component) {
 void initAppSettings();
 }  // namespace extrautils
 
-class NUtilsWrap : public Napi::ObjectWrap<NUtilsWrap> {
+class DLL_EXPORT NUtilsWrap : public Napi::ObjectWrap<NUtilsWrap> {
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   NUtilsWrap(const Napi::CallbackInfo& info);
@@ -34,5 +44,5 @@ class NUtilsWrap : public Napi::ObjectWrap<NUtilsWrap> {
 };
 
 namespace StaticNUtilsWrapMethods {
-Napi::Value isNapiExternal(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value isNapiExternal(const Napi::CallbackInfo& info);
 }  // namespace StaticNUtilsWrapMethods

@@ -1,13 +1,13 @@
 #pragma once
-
 #include <QPushButton>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NPushButton : public QPushButton, public NodeWidget {
+class DLL_EXPORT NPushButton : public QPushButton, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QPushButton)
  public:

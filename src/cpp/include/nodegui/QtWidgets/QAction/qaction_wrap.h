@@ -4,9 +4,10 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "naction.hpp"
-class QActionWrap : public Napi::ObjectWrap<QActionWrap> {
+class DLL_EXPORT QActionWrap : public Napi::ObjectWrap<QActionWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
 
  private:

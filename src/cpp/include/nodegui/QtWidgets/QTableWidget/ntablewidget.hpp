@@ -1,12 +1,12 @@
 #pragma once
-
 #include <QTableWidget>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NTableWidget : public QTableWidget, public NodeWidget {
+class DLL_EXPORT NTableWidget : public QTableWidget, public NodeWidget {
  public:
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QTableWidget)

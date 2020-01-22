@@ -9,8 +9,12 @@
 
 #include <napi.h>
 
+#include "Extras/Utils/nutils.h"
 #include "component_macro.h"
 
-class ComponentWrap : public Napi::ObjectWrap<ComponentWrap> {
+class DLL_EXPORT ComponentWrap : public Napi::ObjectWrap<ComponentWrap> {
+ public:
+  ComponentWrap(const Napi::CallbackInfo& info)
+      : Napi::ObjectWrap<ComponentWrap>(info) {}
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };

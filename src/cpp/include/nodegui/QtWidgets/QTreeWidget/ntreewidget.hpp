@@ -1,13 +1,13 @@
 #pragma once
-
 #include <QTreeWidget>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NTreeWidget : public QTreeWidget, public NodeWidget {
+class DLL_EXPORT NTreeWidget : public QTreeWidget, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QTreeWidget)
 

@@ -1,12 +1,12 @@
 #pragma once
-
 #include <QComboBox>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
-class NComboBox : public QComboBox, public NodeWidget {
+class DLL_EXPORT NComboBox : public QComboBox, public NodeWidget {
  public:
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QComboBox)

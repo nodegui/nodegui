@@ -9,7 +9,7 @@
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ntoolbutton.hpp"
 
-class QToolButtonWrap : public Napi::ObjectWrap<QToolButtonWrap> {
+class DLL_EXPORT QToolButtonWrap : public Napi::ObjectWrap<QToolButtonWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NToolButton> instance;

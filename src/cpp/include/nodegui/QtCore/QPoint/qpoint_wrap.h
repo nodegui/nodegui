@@ -4,9 +4,10 @@
 
 #include <QPoint>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class QPointWrap : public Napi::ObjectWrap<QPointWrap> {
+class DLL_EXPORT QPointWrap : public Napi::ObjectWrap<QPointWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QPoint> instance;
@@ -25,5 +26,5 @@ class QPointWrap : public Napi::ObjectWrap<QPointWrap> {
 };
 
 namespace StaticQPointWrapMethods {
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQPointWrapMethods

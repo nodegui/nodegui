@@ -163,3 +163,12 @@ target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE
 target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
     "${CMAKE_JS_LIB}"
 )
+
+
+if (WIN32) 
+    target_compile_definitions(${CORE_WIDGETS_ADDON} PRIVATE
+        ENABLE_DLL_EXPORT
+    )
+    target_compile_options(${CORE_WIDGETS_ADDON} PRIVATE "/MP4")
+
+endif()

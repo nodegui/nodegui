@@ -4,9 +4,10 @@
 
 #include <QUrl>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class QUrlWrap : public Napi::ObjectWrap<QUrlWrap> {
+class DLL_EXPORT QUrlWrap : public Napi::ObjectWrap<QUrlWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   std::unique_ptr<QUrl> instance;
@@ -23,5 +24,5 @@ class QUrlWrap : public Napi::ObjectWrap<QUrlWrap> {
 };
 
 namespace StaticQUrlWrapMethods {
-Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQUrlWrapMethods

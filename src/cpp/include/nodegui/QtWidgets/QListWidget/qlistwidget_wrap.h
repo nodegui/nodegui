@@ -9,7 +9,7 @@
 #include "QtWidgets/QListView/qlistview_macro.h"
 #include "QtWidgets/QListWidget/nlistwidget.hpp"
 
-class QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
+class DLL_EXPORT QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
  private:
   QPointer<NListWidget> instance;
 

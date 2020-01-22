@@ -4,9 +4,11 @@
 
 #include <QFontDatabase>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class QFontDatabaseWrap : public Napi::ObjectWrap<QFontDatabaseWrap> {
+class DLL_EXPORT QFontDatabaseWrap
+    : public Napi::ObjectWrap<QFontDatabaseWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:
@@ -24,6 +26,6 @@ class QFontDatabaseWrap : public Napi::ObjectWrap<QFontDatabaseWrap> {
 };
 
 namespace StaticQFontDatabaseWrapMethods {
-Napi::Value addApplicationFont(const Napi::CallbackInfo& info);
-Napi::Value removeApplicationFont(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value addApplicationFont(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value removeApplicationFont(const Napi::CallbackInfo& info);
 }  // namespace StaticQFontDatabaseWrapMethods

@@ -4,9 +4,10 @@
 
 #include <QKeySequence>
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-class QKeySequenceWrap : public Napi::ObjectWrap<QKeySequenceWrap> {
+class DLL_EXPORT QKeySequenceWrap : public Napi::ObjectWrap<QKeySequenceWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:
@@ -26,5 +27,5 @@ class QKeySequenceWrap : public Napi::ObjectWrap<QKeySequenceWrap> {
 };
 
 namespace StaticQKeySequenceWrapMethods {
-Napi::Value fromQVariant(const Napi::CallbackInfo &info);
+DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo &info);
 }  // namespace StaticQKeySequenceWrapMethods

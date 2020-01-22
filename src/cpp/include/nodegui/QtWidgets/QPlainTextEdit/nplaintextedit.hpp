@@ -1,10 +1,10 @@
 #pragma once
-
 #include <QPlainTextEdit>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "core/NodeWidget/nodewidget.h"
-class NPlainTextEdit : public QPlainTextEdit, public NodeWidget {
+class DLL_EXPORT NPlainTextEdit : public QPlainTextEdit, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QPlainTextEdit)
  public:
