@@ -3,8 +3,8 @@
 #include <napi.h>
 
 #include <QPixmap>
-#include "Extras/Utils/nutils.h"
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
 class DLL_EXPORT QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {

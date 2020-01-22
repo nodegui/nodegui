@@ -1,7 +1,8 @@
 #pragma once
 #include <QWidget>
-#include "core/FlexLayout/flexitem.h"
+
 #include "Extras/Utils/nutils.h"
+#include "core/FlexLayout/flexitem.h"
 #include "nodestyle.h"
 
 /*

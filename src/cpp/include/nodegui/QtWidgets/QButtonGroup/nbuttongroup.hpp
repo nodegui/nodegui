@@ -1,14 +1,11 @@
 #pragma once
-#include "Extras/Utils/nutils.h"
-
 #include <QAbstractButton>
 #include <QButtonGroup>
 
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
-#include "Extras/Utils/nutils.h"
-
 
 class DLL_EXPORT NButtonGroup : public QButtonGroup, public EventWidget {
   Q_OBJECT

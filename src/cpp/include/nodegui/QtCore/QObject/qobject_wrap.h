@@ -3,6 +3,7 @@
 #include <napi.h>
 
 #include <QPointer>
+
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/nobject.hpp"
 #include "QtCore/QObject/qobject_macro.h"

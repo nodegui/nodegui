@@ -4,9 +4,10 @@
 
 #include <QLayout>
 #include <QPointer>
+
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QLayout/nlayout.hpp"
 #include "QtWidgets/QLayout/qlayout_macro.h"
-#include "Extras/Utils/nutils.h"
 
 // ABSTRACT CLASS
 class DLL_EXPORT QLayoutWrap : public Napi::ObjectWrap<QLayoutWrap> {

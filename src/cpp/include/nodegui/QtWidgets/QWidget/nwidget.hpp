@@ -1,10 +1,10 @@
 #pragma once
-#include "Extras/Utils/nutils.h"
 #include <QPainter>
 #include <QStyle>
 #include <QStyleOption>
 #include <QWidget>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 

@@ -1,8 +1,7 @@
 #pragma once
-#include "Extras/Utils/nutils.h"
-
 #include <QStackedWidget>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"

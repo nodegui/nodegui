@@ -3,8 +3,8 @@
 #include <nodegui/QtWidgets/QWidget/qwidget_macro.h>
 
 #include <QPointer>
-#include "Extras/Utils/nutils.h"
 
+#include "Extras/Utils/nutils.h"
 #include "nmenu.hpp"
 
 class DLL_EXPORT QMenuWrap : public Napi::ObjectWrap<QMenuWrap> {

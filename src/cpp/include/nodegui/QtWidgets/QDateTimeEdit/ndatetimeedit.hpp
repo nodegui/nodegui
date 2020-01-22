@@ -1,9 +1,8 @@
 #pragma once
-#include "Extras/Utils/nutils.h"
+#include <napi.h>
 
 #include <QDateTimeEdit>
 
-#include <napi.h>
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QDateTimeEdit/qdatetimeedit_macro.h"
 #include "core/NodeWidget/nodewidget.h"

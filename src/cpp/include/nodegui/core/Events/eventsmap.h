@@ -1,6 +1,7 @@
 #pragma once
 #include <QEvent>
 #include <unordered_map>
+
 #include "Extras/Utils/nutils.h"
 
 class DLL_EXPORT EventsMap {

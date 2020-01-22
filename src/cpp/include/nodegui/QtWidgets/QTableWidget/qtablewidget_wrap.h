@@ -7,7 +7,6 @@
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "QtWidgets/QTableWidget/ntablewidget.hpp"
-#include "Extras/Utils/nutils.h"
 
 class DLL_EXPORT QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION

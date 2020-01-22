@@ -4,9 +4,9 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
-#include "Extras/Utils/nutils.h"
 #include "nslider.hpp"
 
 class DLL_EXPORT QSliderWrap : public Napi::ObjectWrap<QSliderWrap> {

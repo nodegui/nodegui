@@ -4,9 +4,9 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ntreewidget.hpp"
-#include "Extras/Utils/nutils.h"
 
 class DLL_EXPORT QTreeWidgetWrap : public Napi::ObjectWrap<QTreeWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION

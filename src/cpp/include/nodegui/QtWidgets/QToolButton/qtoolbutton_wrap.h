@@ -8,7 +8,6 @@
 #include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "ntoolbutton.hpp"
-#include "Extras/Utils/nutils.h"
 
 class DLL_EXPORT QToolButtonWrap : public Napi::ObjectWrap<QToolButtonWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION

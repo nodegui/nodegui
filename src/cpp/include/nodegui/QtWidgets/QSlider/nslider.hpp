@@ -1,8 +1,7 @@
 #pragma once
-#include "Extras/Utils/nutils.h"
-
 #include <QSlider>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 

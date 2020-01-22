@@ -3,8 +3,8 @@
 #include <napi.h>
 
 #include <QCursor>
-#include "Extras/Utils/nutils.h"
 
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
 class DLL_EXPORT QCursorWrap : public Napi::ObjectWrap<QCursorWrap> {

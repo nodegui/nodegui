@@ -1,7 +1,9 @@
 #pragma once
 
 #include <napi.h>
+
 #include <QKeyEvent>
+
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 

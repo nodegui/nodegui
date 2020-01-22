@@ -1,8 +1,7 @@
 #pragma once
-#include "Extras/Utils/nutils.h"
-
 #include <QTreeWidget>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "core/NodeWidget/nodewidget.h"

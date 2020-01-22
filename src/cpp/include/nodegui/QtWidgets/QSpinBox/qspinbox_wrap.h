@@ -6,7 +6,6 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
-#include "Extras/Utils/nutils.h"
 #include "nspinbox.hpp"
 
 class DLL_EXPORT QSpinBoxWrap : public Napi::ObjectWrap<QSpinBoxWrap> {

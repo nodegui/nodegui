@@ -14,6 +14,7 @@
 
 #include <QPointer>
 #include <QVariant>
+
 #include "core/FlexLayout/flexutils.h"
 #include "deps/yoga/YGNode.h"
 

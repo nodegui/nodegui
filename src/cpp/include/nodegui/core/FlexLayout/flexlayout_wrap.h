@@ -3,8 +3,9 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "QtWidgets/QLayout/qlayout_macro.h"
+
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QLayout/qlayout_macro.h"
 #include "flexlayout.hpp"
 
 class DLL_EXPORT FlexLayoutWrap : public Napi::ObjectWrap<FlexLayoutWrap> {

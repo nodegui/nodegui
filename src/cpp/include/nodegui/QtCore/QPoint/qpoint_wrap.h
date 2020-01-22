@@ -3,6 +3,7 @@
 #include <napi.h>
 
 #include <QPoint>
+
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 

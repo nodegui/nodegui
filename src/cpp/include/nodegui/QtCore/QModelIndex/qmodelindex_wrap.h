@@ -3,6 +3,7 @@
 #include <napi.h>
 
 #include <QModelIndex>
+
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 

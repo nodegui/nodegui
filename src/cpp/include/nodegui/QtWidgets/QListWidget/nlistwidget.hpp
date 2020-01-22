@@ -1,6 +1,8 @@
 #pragma once
 #include <napi.h>
+
 #include <QListWidget>
+
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QListView/qlistview_macro.h"
 #include "QtWidgets/QListWidgetItem/qlistwidgetitem_wrap.h"

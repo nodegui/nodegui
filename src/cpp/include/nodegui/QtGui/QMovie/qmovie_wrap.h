@@ -3,8 +3,8 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "Extras/Utils/nutils.h"
 
+#include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "nmovie.hpp"
 

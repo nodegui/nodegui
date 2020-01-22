@@ -2,9 +2,10 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include <QDate>
-#include "Extras/Utils/nutils.h"
 
+#include <QDate>
+
+#include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
 class DLL_EXPORT QDateWrap : public Napi::ObjectWrap<QDateWrap> {

@@ -3,8 +3,8 @@
 #include <napi.h>
 
 #include <QPointer>
-#include "Extras/Utils/nutils.h"
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QDialog/qdialog_macro.h"
 #include "ndialog.hpp"
 

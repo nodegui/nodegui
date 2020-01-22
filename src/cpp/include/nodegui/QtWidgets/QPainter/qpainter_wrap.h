@@ -3,7 +3,6 @@
 #include <napi.h>
 
 #include <QPainter>
-#include "Extras/Utils/nutils.h"
 
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"

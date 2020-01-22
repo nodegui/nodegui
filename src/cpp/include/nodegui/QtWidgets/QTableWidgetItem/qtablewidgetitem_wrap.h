@@ -6,7 +6,6 @@
 
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"
-#include "Extras/Utils/nutils.h"
 
 class DLL_EXPORT QTableWidgetItemWrap
     : public Napi::ObjectWrap<QTableWidgetItemWrap> {

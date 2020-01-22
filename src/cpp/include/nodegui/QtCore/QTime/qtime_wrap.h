@@ -4,8 +4,9 @@
 #include <stdlib.h>
 
 #include <QTime>
-#include "core/Component/component_macro.h"
+
 #include "Extras/Utils/nutils.h"
+#include "core/Component/component_macro.h"
 
 class DLL_EXPORT QTimeWrap : public Napi::ObjectWrap<QTimeWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION

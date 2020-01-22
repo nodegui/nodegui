@@ -4,8 +4,8 @@
 
 #include <QBoxLayout>
 #include <QPointer>
-#include "Extras/Utils/nutils.h"
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QBoxLayout/nboxlayout.hpp"
 #include "QtWidgets/QLayout/qlayout_macro.h"
 

@@ -4,8 +4,8 @@
 
 #include <QPointer>
 
-#include "QtCore/QObject/qobject_macro.h"
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QObject/qobject_macro.h"
 #include "nshortcut.hpp"
 
 class DLL_EXPORT QShortcutWrap : public Napi::ObjectWrap<QShortcutWrap> {

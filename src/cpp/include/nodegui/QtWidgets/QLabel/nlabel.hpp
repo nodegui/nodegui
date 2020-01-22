@@ -1,6 +1,4 @@
 #pragma once
-#include "Extras/Utils/nutils.h"
-
 #include <QLabel>
 
 #include "Extras/Utils/nutils.h"

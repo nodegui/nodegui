@@ -7,7 +7,6 @@
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QTabWidget/ntabwidget.hpp"
 #include "QtWidgets/QWidget/qwidget_macro.h"
-#include "Extras/Utils/nutils.h"
 
 class DLL_EXPORT QTabWidgetWrap : public Napi::ObjectWrap<QTabWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION

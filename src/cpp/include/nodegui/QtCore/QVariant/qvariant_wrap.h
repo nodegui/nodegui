@@ -3,8 +3,9 @@
 #include <napi.h>
 
 #include <QSharedPointer>
-#include "core/Component/component_macro.h"
+
 #include "Extras/Utils/nutils.h"
+#include "core/Component/component_macro.h"
 
 class DLL_EXPORT QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION

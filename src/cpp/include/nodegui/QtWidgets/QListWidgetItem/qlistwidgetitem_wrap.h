@@ -1,7 +1,9 @@
 #pragma once
 
 #include <napi.h>
+
 #include <QListWidgetItem>
+
 #include "core/Component/component_wrap.h"
 
 class DLL_EXPORT QListWidgetItemWrap

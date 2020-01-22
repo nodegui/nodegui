@@ -1,10 +1,9 @@
 #pragma once
-#include "Extras/Utils/nutils.h"
-
 #include <nodegui/core/NodeWidget/nodewidget.h>
 
 #include <QMenuBar>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
 class DLL_EXPORT NMenuBar : public QMenuBar, public NodeWidget {

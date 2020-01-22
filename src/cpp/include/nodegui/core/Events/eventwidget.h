@@ -1,12 +1,11 @@
 #pragma once
 
 #include <napi.h>
-
 #include <QEvent>
 #include "Extras/Utils/nutils.h"
 #include "core/Events/eventsmap.h"
 
-class EventWidget {
+class DLL_EXPORT EventWidget {
  public:
   Napi::FunctionReference emitOnNode;
   std::unordered_map<QEvent::Type, std::string> subscribedEvents;

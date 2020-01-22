@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 #include <QPointer>
-#include "Extras/Utils/nutils.h"
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QListView/qlistview_macro.h"

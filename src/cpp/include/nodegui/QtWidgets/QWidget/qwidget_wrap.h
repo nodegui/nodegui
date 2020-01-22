@@ -4,9 +4,9 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nwidget.hpp"
-#include "Extras/Utils/nutils.h"
 
 class DLL_EXPORT QWidgetWrap : public Napi::ObjectWrap<QWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
