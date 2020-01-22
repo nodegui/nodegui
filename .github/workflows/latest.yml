@@ -1,7 +1,7 @@
 on:
     push:
         branches:
-            - prebuild-setup # Push events on master branch
+            - prebuilt-setup # Push events on master branch
 jobs:
     build:
         strategy:
