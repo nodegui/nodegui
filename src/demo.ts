@@ -1,7 +1,9 @@
-import { QWidget, QMainWindow, FlexLayout, QTreeWidget, QTreeWidgetItem, QMenuBar, QMenu } from './index';
+import { QWidget, QMainWindow, FlexLayout, QTreeWidget, QTreeWidgetItem, QMenuBar, QApplication, QMenu, QCursor, QPushButton } from './index';
 import { ItemFlag, CheckState } from './lib/QtEnums';
 import { QSpinBox } from './lib/QtWidgets/QSpinBox';
 import { QLineEdit } from './lib/QtWidgets/QLineEdit';
+import { QPoint } from './lib/QtCore/QPoint';
+import { QAction } from './lib/QtWidgets/QAction';
 
 const win = new QMainWindow();
 const center = new QWidget();
@@ -10,6 +12,7 @@ center.setLayout(layout);
 win.setCentralWidget(center);
 
 const tree = new QTreeWidget();
+tree.hide();
 tree.setColumnCount(2);
 tree.setHeaderLabels(['Properties', 'Value']);
 center.layout?.addWidget(tree);
@@ -51,34 +54,52 @@ root2.addChild(item2_1);
 const menubar = new QMenuBar();
 win.setMenuBar(menubar);
 
-/* This approach creates the menubar and menu on click, but menu will pop up in wrong location.
-Might need to add a layout to hold it, or its because we need the qmenu returned from addMenu call.
-const fm = new QMenu();
-const qaction = new QAction();
-qaction.setText("&Quit");
-fm.addAction(qaction);
+const fm = menubar.addMenu('&File');
+const qaction = fm.addAction('&Quit');
 fm.addSeparator();
-const sayhi = new QAction();
-sayhi.setText("&SayHi");
-fm.addAction(sayhi);
-menubar.addMenu(fm);
-const faction = new QAction();
-faction.setText("&File");
-menubar.addAction(faction);
+const showTree = fm.addAction("&ShowTree");
+const hideTree = fm.addAction("&HideTree");
+
+const menu = new QMenu();
+const sh = menu.addAction('SayHello');
+
+// Button row
+const buttonRow = new QWidget();
+const buttonRowLayout = new FlexLayout();
+buttonRow.setLayout(buttonRowLayout);
+buttonRow.setObjectName('buttonRow');
+
+// Buttons
+const button = new QPushButton();
+button.setText('click me');
+button.setObjectName('clickme');
+buttonRowLayout.addWidget(button);
+layout.addWidget(buttonRow);
+
 qaction.addEventListener("triggered", () => {
     const app = QApplication.instance();
     app.exit(0);
 });
-faction.addEventListener("triggered", () => {
-    fm.show();
-    console.log(fm.pos(), menubar.pos());
-});
-*/
 
-// Some simpler syntax would be nice to have.
-const menu = new QMenu();
-menu.setTitle('Hello');
-const fileMenu = menubar.addMenu(menu);
+showTree.addEventListener("triggered", () => {
+    tree.show()
+});
+
+hideTree.addEventListener("triggered", () => {
+    tree.hide()
+});
+
+button.addEventListener('clicked',()=> {
+    const {x, y} = new QCursor().pos();
+    menu.exec(new QPoint(x, y), new QAction());
+});
+
+sh.addEventListener('triggered', ()=> {
+    console.log('Hello!');
+});
+
+menubar.addSeparator();
+menubar.addMenu('Hello');
 
 win.show();
 

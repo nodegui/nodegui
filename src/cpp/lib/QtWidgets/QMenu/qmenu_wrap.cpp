@@ -16,6 +16,7 @@ Napi::Object QMenuWrap::init(Napi::Env env, Napi::Object exports) {
       DefineClass(env, CLASSNAME,
                   {InstanceMethod("setTitle", &QMenuWrap::setTitle),
                    InstanceMethod("addSeparator", &QMenuWrap::addSeparator),
+                   InstanceMethod("exec", &QMenuWrap::exec),
                    InstanceMethod("popup", &QMenuWrap::popup),
                    QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMenuWrap)});
   constructor = Napi::Persistent(func);
@@ -99,8 +100,14 @@ Napi::Value QMenuWrap::popup(const Napi::CallbackInfo& info) {
   QPoint* qpoint = pointWrap->getInternalInstance();
 
   Napi::Object actionObject = info[1].As<Napi::Object>();
-  QActionWrap* actionWrap = Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
-  this->instance->popup(*qpoint, actionWrap->getInternalInstance());
+  QAction* action = nullptr;
+  if (!actionObject.IsUndefined() && !actionObject.IsNull()) {
+    QActionWrap* actionWrap =
+        Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
+    action = actionWrap->getInternalInstance();
+  }
+
+  this->instance->popup(*qpoint, action);
 
   return env.Null();
 }

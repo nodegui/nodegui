@@ -214,7 +214,14 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     font(): QFont {
         return QFont.fromQVariant(this.property('font'));
     }
-    addAction(action: QAction): QAction {
+    addAction(action: QAction | string): QAction {
+        if (typeof action === 'string') {
+            const qaction = new QAction();
+            qaction.setText(action);
+            this.native.addAction(qaction.native);
+            this.actions.add(qaction);
+            return qaction;
+        }
         this.native.addAction(action.native);
         this.actions.add(action);
         return action;

@@ -40,16 +40,15 @@ export class QMenu extends NodeWidget<QMenuSignals> {
     addSeparator(): QAction {
         return this.native.addSeparator();
     }
-    exec(point?: QPoint, action?: QAction): any {
+    exec(point?: QPoint, action?: QAction): void {
         if (point && action) {
-            this.exec(point, action);
-            return action;
+            this.native.exec(point.native, action.native);
+            return;
         }
-        this.exec();
-        return;
+        this.native.exec();
     }
     popup(point: QPoint, action?: QAction): void {
-        this.native.popup(point, action);
+        this.native.popup(point.native, action?.native);
     }
 }
 

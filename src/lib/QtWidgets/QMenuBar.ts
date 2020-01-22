@@ -45,9 +45,20 @@ export class QMenuBar extends NodeWidget<QMenuBarSignals> {
         this._menus = new Set<QMenu>();
         this.setNodeParent(parent);
     }
-    addMenu(menu: QMenu): void {
+    addMenu(menu: QMenu | string): QMenu {
+        if (typeof menu === 'string') {
+            const qmenu = new QMenu();
+            qmenu.setTitle(menu);
+            this.native.addMenu(qmenu.native);
+            this._menus.add(qmenu);
+            return qmenu;
+        }
         this.native.addMenu(menu.native);
         this._menus.add(menu);
+        return menu;
+    }
+    addSeparator(): QAction {
+        return this.native.addSeparator();
     }
     setNativeMenuBar(nativeMenuBar: boolean): void {
         this.native.setNativeMenuBar(nativeMenuBar);
