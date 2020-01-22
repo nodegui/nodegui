@@ -2,6 +2,7 @@ import { NativeElement } from '../core/Component';
 import { NodeWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { QAction } from './QAction';
+import { QPoint } from '../QtCore/QPoint';
 
 /**
  
@@ -19,7 +20,6 @@ const menu = new QMenu();
  */
 export class QMenu extends NodeWidget<QMenuSignals> {
     native: NativeElement;
-    actions: Set<QAction>;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
@@ -32,15 +32,23 @@ export class QMenu extends NodeWidget<QMenuSignals> {
         super(native);
         this.native = native;
         this.setNodeParent(parent);
-        this.actions = new Set();
     }
     setTitle(title: string): void {
         this.native.setTitle(title);
     }
-    addAction(action: QAction): QAction {
-        this.native.addAction(action.native);
-        this.actions.add(action);
-        return action;
+
+    addSeparator(): QAction {
+        return this.native.addSeparator();
+    }
+    exec(point?: QPoint, action?: QAction): void {
+        if (point && action) {
+            this.native.exec(point.native, action.native);
+            return;
+        }
+        this.native.exec();
+    }
+    popup(point: QPoint, action?: QAction): void {
+        this.native.popup(point.native, action?.native);
     }
 }
 

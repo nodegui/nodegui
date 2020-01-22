@@ -13,6 +13,7 @@ import { QSize } from '../QtCore/QSize';
 import { QRect } from '../QtCore/QRect';
 import { QObjectSignals } from '../QtCore/QObject';
 import { QFont } from '../QtGui/QFont';
+import { QAction } from './QAction';
 
 /**
  
@@ -49,6 +50,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
  */
 export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWidget<Signals> {
     layout?: NodeLayout<Signals>;
+    actions = new Set<QAction>();
     _rawInlineStyle = '';
     type = 'widget';
     show(): void {
@@ -211,6 +213,18 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     font(): QFont {
         return QFont.fromQVariant(this.property('font'));
+    }
+    addAction(action: QAction | string): QAction {
+        if (typeof action === 'string') {
+            const qaction = new QAction();
+            qaction.setText(action);
+            this.native.addAction(qaction.native);
+            this.actions.add(qaction);
+            return qaction;
+        }
+        this.native.addAction(action.native);
+        this.actions.add(action);
+        return action;
     }
 }
 
