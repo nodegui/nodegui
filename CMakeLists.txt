@@ -161,7 +161,12 @@ target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE
     "${PROJECT_SOURCE_DIR}/src/cpp/include/deps"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui"
 )
+target_compile_options(${CORE_WIDGETS_ADDON} PRIVATE "/MP4")
 
 target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
     "${CMAKE_JS_LIB}"
+)
+
+target_compile_definitions(${CORE_WIDGETS_ADDON} PRIVATE
+    ENABLE_DLL_EXPORT
 )

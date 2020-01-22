@@ -1,10 +1,8 @@
 #pragma once
 
 #include <napi.h>
-
 #include <QKeySequence>
 #include "Extras/Utils/nutils.h"
-
 #include "core/Component/component_macro.h"
 
 class DLL_EXPORT QKeySequenceWrap : public Napi::ObjectWrap<QKeySequenceWrap> {

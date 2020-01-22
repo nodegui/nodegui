@@ -6,7 +6,7 @@
 #include "Extras/Utils/nutils.h"
 #include "core/Events/eventsmap.h"
 
-class DLL_EXPORT EventWidget {
+class EventWidget {
  public:
   Napi::FunctionReference emitOnNode;
   std::unordered_map<QEvent::Type, std::string> subscribedEvents;

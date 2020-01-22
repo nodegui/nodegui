@@ -1,9 +1,9 @@
 #pragma once
+#include "eventwidget.h"
 
 #include <QWidget>
 
 #include "core/Component/component_macro.h"
-#include "eventwidget.h"
 
 /*
 

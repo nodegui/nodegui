@@ -1,15 +1,11 @@
 #pragma once
 
 #include <napi.h>
-#include <stdlib.h>
-
 #include <QListWidgetItem>
-#include "Extras/Utils/nutils.h"
-
-#include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"
 
-class DLL_EXPORT QListWidgetItemWrap : public Napi::ObjectWrap<QListWidgetItemWrap> {
+class DLL_EXPORT QListWidgetItemWrap
+    : public Napi::ObjectWrap<QListWidgetItemWrap> {
  private:
   QListWidgetItem* instance;
 
