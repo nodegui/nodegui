@@ -52,6 +52,7 @@ export { QMenu, QMenuSignals } from './lib/QtWidgets/QMenu';
 export { QMenuBar, QMenuBarSignals } from './lib/QtWidgets/QMenuBar';
 export { QPlainTextEdit, QPlainTextEditSignals, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
 export { QScrollArea, QScrollAreaSignals } from './lib/QtWidgets/QScrollArea';
+export { QSlider, QSliderSignals, TickPosition } from './lib/QtWidgets/QSlider';
 export { QTimeEdit } from './lib/QtWidgets/QTimeEdit';
 export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
@@ -68,6 +69,7 @@ export {
 export { QAction, QActionSignals } from './lib/QtWidgets/QAction';
 export { QShortcut, QShortcutSignals } from './lib/QtWidgets/QShortcut';
 export { QGroupBox, QGroupBoxSignals } from './lib/QtWidgets/QGroupBox';
+export { QStatusBar, QStatusBarSignals } from './lib/QtWidgets/QStatusBar';
 // Core
 export { QDate } from './lib/QtCore/QDate';
 export { QDateTime } from './lib/QtCore/QDateTime';

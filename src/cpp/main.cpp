@@ -53,8 +53,10 @@
 #include "QtWidgets/QRadioButton/qradiobutton_wrap.h"
 #include "QtWidgets/QScrollArea/qscrollarea_wrap.h"
 #include "QtWidgets/QShortcut/qshortcut_wrap.h"
+#include "QtWidgets/QSlider/qslider_wrap.h"
 #include "QtWidgets/QSpinBox/qspinbox_wrap.h"
 #include "QtWidgets/QStackedWidget/qstackedwidget_wrap.h"
+#include "QtWidgets/QStatusBar/qstatusbar_wrap.h"
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
 #include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
@@ -135,8 +137,10 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QMenuWrap::init(env, exports);
   QMenuBarWrap::init(env, exports);
   QMessageBoxWrap::init(env, exports);
+  QSliderWrap::init(env, exports);
   QTimeEditWrap::init(env, exports);
   QButtonGroupWrap::init(env, exports);
+  QStatusBarWrap::init(env, exports);
   return exports;
 }
 

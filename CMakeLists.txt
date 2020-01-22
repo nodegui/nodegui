@@ -94,11 +94,13 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QMenuBar/qmenubar_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QMenu/qmenu_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QGroupBox/qgroupbox_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QSlider/qslider_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QTimeEdit/qtimeedit_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QTreeWidget/qtreewidget_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QMessageBox/qmessagebox_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QButtonGroup/qbuttongroup_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QStatusBar/qstatusbar_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexlayout_wrap.cpp"
     # Custom widgets (include them for automoc since they contain Q_OBJECT)
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtCore/QObject/nobject.hpp"
@@ -137,9 +139,11 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QBoxLayout/nboxlayout.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QComboBox/ncombobox.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QGroupBox/ngroupbox.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QSlider/nslider.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTimeEdit/ntimeedit.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTreeWidget/ntreewidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QButtonGroup/nbuttongroup.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QStatusBar/nstatusbar.hpp"
 
 )
 

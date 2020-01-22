@@ -1,3 +1,5 @@
+#include "QtWidgets/QMenuBar/qmenubar_wrap.h"
+
 #include <nodegui/Extras/Utils/nutils.h>
 #include <nodegui/QtWidgets/QWidget/qwidget_wrap.h>
 
@@ -5,7 +7,6 @@
 
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QMenu/qmenu_wrap.h"
-#include "QtWidgets/QMenuBar/qmenubar_wrap.h"
 
 Napi::FunctionReference QMenuBarWrap::constructor;
 
