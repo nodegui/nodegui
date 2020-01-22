@@ -183,6 +183,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/blncd2020"><img src="https://avatars1.githubusercontent.com/u/59541979?v=4" width="100px;" alt=""/><br /><sub><b>blncd2020</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=blncd2020" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/gluaxspeed"><img src="https://avatars2.githubusercontent.com/u/16431709?v=4" width="100px;" alt=""/><br /><sub><b>gluaxspeed</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=gluaxspeed" title="Code">💻</a></td>
   </tr>
 </table>
 
