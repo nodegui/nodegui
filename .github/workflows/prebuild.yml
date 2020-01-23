@@ -30,6 +30,6 @@ jobs:
               uses: softprops/action-gh-release@v1
               with:
                   files: prebuilds/@nodegui/*.tar.gz
-                  tag_name: ${{ github.event.release.tag_name || "v0.0.0-latest-master" }}
+                  tag_name: ${{ github.event.release.tag_name || github.event.client_payload.tag }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

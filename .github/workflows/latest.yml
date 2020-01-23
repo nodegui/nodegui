@@ -42,4 +42,4 @@ jobs:
                   token: ${{ secrets.REPO_ACCESS_TOKEN }}
                   repository: master-atul/nodegui
                   event-type: on-demand-build
-                  client-payload: '{"ref": "${{ github.ref }}"}'
+                  client-payload: '{"ref": "${{ github.ref }}","tag": "v0.0.0-latest-master"}'
