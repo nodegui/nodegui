@@ -1,6 +1,4 @@
-on:
-    release:
-        types: [published, edited, prereleased, created]
+on: [release]
 jobs:
     build:
         strategy:
