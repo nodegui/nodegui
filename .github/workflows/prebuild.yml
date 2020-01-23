@@ -1,7 +1,7 @@
 on:
-    repository_dispatch
+    repository_dispatch:
     release:
-        types: [published, created, prereleased]
+           types: [published, created, prereleased]
 jobs:
     build:
         strategy:
