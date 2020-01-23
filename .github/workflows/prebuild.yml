@@ -1,6 +1,7 @@
 on:
-  repository_dispatch
-  release:
+    repository_dispatch:
+        types: [on-demand-build]
+    release:
         types: [published, created, prereleased]
 jobs:
     build:
@@ -9,8 +10,12 @@ jobs:
             matrix:
                 os: [ubuntu-18.04, windows-latest, macos-latest]
         runs-on: ${{ matrix.os }}
+        env:
+            CURRENT_GITHUB_REF: ${{ github.event.client_payload.ref || github.ref }}
         steps:
-            - uses: actions/checkout@master
+            - uses: actions/checkout@v2
+              with:
+                  ref: ${{ env.CURRENT_GITHUB_REF }}
             - uses: actions/setup-node@master
               with:
                   node-version: '13.x'
@@ -19,7 +24,7 @@ jobs:
               env:
                   SKIP_BUILD: 1
             - name: Change version if master
-              if: contains(github.ref, '0.0.0-latest-master')
+              if: contains(env.CURRENT_GITHUB_REF, '0.0.0-latest-master')
               run: npm --no-git-tag-version version 0.0.0-latest-master
             - name: Prebuild binary
               run: npm run prebuild:build
@@ -27,5 +32,6 @@ jobs:
               uses: softprops/action-gh-release@v1
               with:
                   files: prebuilds/@nodegui/*.tar.gz
+                  tag_name: ${{ env.CURRENT_GITHUB_REF }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

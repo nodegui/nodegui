@@ -36,5 +36,10 @@ jobs:
                   assets: >
                       nodegui-nodegui-0.0.0-latest-master.tgz:nodegui-master.tgz:application/tar+gzip
                   recreate: true
-            - name: Trigger Build
-              run: node ./scripts/trigger-build.js
+            - name: Repository Dispatch
+              uses: peter-evans/repository-dispatch@v1
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  repository: master-atul/nodegui
+                  event-type: on-demand-build
+                  client-payload: '{"ref": "${{ github.ref }}"}'
