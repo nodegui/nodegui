@@ -39,7 +39,7 @@ jobs:
             - name: Repository Dispatch
               uses: peter-evans/repository-dispatch@v1
               with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.REPO_ACCESS_TOKEN }}
                   repository: master-atul/nodegui
                   event-type: on-demand-build
                   client-payload: '{"ref": "${{ github.ref }}"}'
