@@ -1,6 +1,5 @@
 on:
-    repository_dispatch:
-        types: [on-demand-build]
+    repository_dispatch
     release:
         types: [published, created, prereleased]
 jobs:
