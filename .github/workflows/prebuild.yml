@@ -1,4 +1,7 @@
-on: [release]
+on:
+  repository_dispatch
+  release:
+        types: [published, created, prereleased]
 jobs:
     build:
         strategy:
