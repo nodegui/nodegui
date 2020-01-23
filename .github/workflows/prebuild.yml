@@ -12,7 +12,9 @@ jobs:
               with:
                   node-version: '13.x'
             - name: Install deps
-              run: npm install --ignore-scripts && npm install @nodegui/qode
+              run: npm install
+              env:
+                  SKIP_BUILD: 1
             - name: Change version if master
               if: contains(github.ref, '0.0.0-latest-master')
               run: npm --no-git-tag-version version 0.0.0-latest-master

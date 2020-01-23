@@ -10,7 +10,7 @@
     "scripts": {
         "dev": "npm run build && qode dist/demo.js",
         "build": "tsc && npm run build:addon",
-        "postinstall": "npm run prebuild:install || npm run build:addon",
+        "postinstall": "cross-env npm run prebuild:install || node ./scripts/skip.js || npm run build:addon",
         "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js build",
         "prebuild:build": "prebuild --all --backend=cmake-js --runtime=napi",
         "prebuild:install": "prebuild-install --backend=cmake-js --runtime=napi --verbose",
