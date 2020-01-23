@@ -1,0 +1,28 @@
+on:
+    release:
+        types: [published, edited, prereleased, created]
+jobs:
+    build:
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-18.04, windows-latest, macos-latest]
+        runs-on: ${{ matrix.os }}
+        steps:
+            - uses: actions/checkout@master
+            - uses: actions/setup-node@master
+              with:
+                  node-version: '13.x'
+            - name: Install deps
+              run: npm install --ignore-scripts
+            - name: Change version if master
+              if: contains(github.ref, '0.0.0-latest-master')
+              run: npm --no-git-tag-version version 0.0.0-latest-master
+            - name: Prebuild binary
+              run: npm run prebuild:build
+            - name: Release
+              uses: softprops/action-gh-release@v1
+              with:
+                  files: prebuilds/@nodegui/*.tar.gz
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
