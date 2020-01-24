@@ -7,3 +7,4 @@ dist
 coverage
 .DS_Store
 /.idea/
+/prebuilds

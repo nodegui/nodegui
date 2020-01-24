@@ -167,7 +167,7 @@ target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
 
 if (WIN32) 
     target_compile_definitions(${CORE_WIDGETS_ADDON} PRIVATE
-        ENABLE_DLL_EXPORT
+        ENABLE_DLL_EXPORT=1
     )
     target_compile_options(${CORE_WIDGETS_ADDON} PRIVATE "/MP4")
 

@@ -19,21 +19,27 @@ jobs:
             - name: Build nodegui
               run: npx tsc
             - name: Archive using npm pack
-              run: npm --no-git-tag-version version 1.0.0-master && npm pack
+              run: npm --no-git-tag-version version 0.0.0-latest-master && npm pack
             - uses: actions/upload-artifact@v1
               with:
                   name: latest-release
-                  path: nodegui-nodegui-1.0.0-master.tgz
+                  path: nodegui-nodegui-0.0.0-latest-master.tgz
             - uses: nodegui/create-release@master
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  code: latest-master
+                  code: v0.0.0-latest-master
                   name: Latest Master Release
                   body: >
                       Latest auto release corresponding to commit ${{github.sha}} 🔥. 
                       To install do: 
-                      `npm install https://github.com/nodegui/nodegui/releases/download/latest-master/nodegui-master.tgz`
+                      `npm install https://github.com/nodegui/nodegui/releases/download/v0.0.0-latest-master/nodegui-master.tgz`
                   assets: >
-                      nodegui-nodegui-1.0.0-master.tgz:nodegui-master.tgz:application/tar+gzip
+                      nodegui-nodegui-0.0.0-latest-master.tgz:nodegui-master.tgz:application/tar+gzip
                   recreate: true
-                  prerelease: true
+            - name: Repository Dispatch
+              uses: peter-evans/repository-dispatch@v1
+              with:
+                  token: ${{ secrets.REPO_ACCESS_TOKEN }}
+                  repository: nodegui/nodegui
+                  event-type: on-demand-build
+                  client-payload: '{"ref": "${{ github.ref }}","tag": "v0.0.0-latest-master"}'
