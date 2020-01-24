@@ -1,137 +1,154 @@
 ---
-id: "qabstractscrollarea"
-title: "QAbstractScrollArea"
-sidebar_label: "QAbstractScrollArea"
+id: "qslider"
+title: "QSlider"
+sidebar_label: "QSlider"
 ---
 
-> Abstract class to add functionalities common to all scrollarea based widgets.
+> Create and control slider widgets.
 
-*This class implements all methods, properties of Qt's [QAbstractScrollArea class](https://doc.qt.io/qt-5/qabstractscrollarea.html) so that it can be inherited by all scroll based widgets**
+**This class is a JS wrapper around Qt's [QSlider class](https://doc.qt.io/qt-5/qslider.html)**
 
-`QAbstractScrollArea` is an abstract class and hence no instances of the same should be created. It exists so that we can add similar functionalities to all scrollable widget's easily. If you wish to create a scrollarea use [QScrollArea](api/QScrollArea.md) instead.
+A `QSlider` provides ability to add and manipulate native slider widgets.
 
-*QAbstractScrollArea is the base class for all widgets.**
+### Example
 
-QAbstractScrollArea will list all methods and properties that are common to all scrollable widgets in the NodeGui world.
+```javascript
+const { QSlider } = require("@nodegui/nodegui");
 
-## Type parameters
-
-▪ **Signals**: *[QAbstractScrollAreaSignals](../globals.md#qabstractscrollareasignals)*
+const slider = new QSlider();
+```
 
 ## Hierarchy
 
-  ↳ [NodeWidget](nodewidget.md)‹Signals›
+  ↳ [QAbstractSlider](qabstractslider.md)‹[QSliderSignals](../globals.md#qslidersignals)›
 
-  ↳ **QAbstractScrollArea**
-
-  ↳ [QAbstractItemView](qabstractitemview.md)
-
-  ↳ [QTableWidget](qtablewidget.md)
-
-  ↳ [QPlainTextEdit](qplaintextedit.md)
-
-  ↳ [QScrollArea](qscrollarea.md)
-
-  ↳ [QTreeWidget](qtreewidget.md)
+  ↳ **QSlider**
 
 ## Index
 
 ### Constructors
 
-* [constructor](qabstractscrollarea.md#constructor)
+* [constructor](qslider.md#constructor)
 
 ### Properties
 
-* [_rawInlineStyle](qabstractscrollarea.md#_rawinlinestyle)
-* [actions](qabstractscrollarea.md#actions)
-* [layout](qabstractscrollarea.md#optional-layout)
-* [native](qabstractscrollarea.md#abstract-native)
-* [nodeChildren](qabstractscrollarea.md#nodechildren)
-* [nodeParent](qabstractscrollarea.md#optional-nodeparent)
-* [type](qabstractscrollarea.md#type)
-* [viewportWidget](qabstractscrollarea.md#optional-viewportwidget)
+* [_rawInlineStyle](qslider.md#_rawinlinestyle)
+* [actions](qslider.md#actions)
+* [layout](qslider.md#optional-layout)
+* [native](qslider.md#native)
+* [nodeChildren](qslider.md#nodechildren)
+* [nodeParent](qslider.md#optional-nodeparent)
+* [type](qslider.md#type)
 
 ### Methods
 
-* [activateWindow](qabstractscrollarea.md#activatewindow)
-* [addAction](qabstractscrollarea.md#addaction)
-* [addEventListener](qabstractscrollarea.md#addeventlistener)
-* [adjustSize](qabstractscrollarea.md#adjustsize)
-* [close](qabstractscrollarea.md#close)
-* [font](qabstractscrollarea.md#font)
-* [geometry](qabstractscrollarea.md#geometry)
-* [getFlexNode](qabstractscrollarea.md#getflexnode)
-* [hasMouseTracking](qabstractscrollarea.md#hasmousetracking)
-* [hide](qabstractscrollarea.md#hide)
-* [inherits](qabstractscrollarea.md#inherits)
-* [isEnabled](qabstractscrollarea.md#isenabled)
-* [isVisible](qabstractscrollarea.md#isvisible)
-* [lower](qabstractscrollarea.md#lower)
-* [move](qabstractscrollarea.md#move)
-* [objectName](qabstractscrollarea.md#objectname)
-* [pos](qabstractscrollarea.md#pos)
-* [property](qabstractscrollarea.md#property)
-* [raise](qabstractscrollarea.md#raise)
-* [removeEventListener](qabstractscrollarea.md#removeeventlistener)
-* [repaint](qabstractscrollarea.md#repaint)
-* [resize](qabstractscrollarea.md#resize)
-* [setAttribute](qabstractscrollarea.md#setattribute)
-* [setContextMenuPolicy](qabstractscrollarea.md#setcontextmenupolicy)
-* [setCursor](qabstractscrollarea.md#setcursor)
-* [setEnabled](qabstractscrollarea.md#setenabled)
-* [setFixedSize](qabstractscrollarea.md#setfixedsize)
-* [setFlexNodeSizeControlled](qabstractscrollarea.md#setflexnodesizecontrolled)
-* [setFont](qabstractscrollarea.md#setfont)
-* [setGeometry](qabstractscrollarea.md#setgeometry)
-* [setHorizontalScrollBarPolicy](qabstractscrollarea.md#sethorizontalscrollbarpolicy)
-* [setInlineStyle](qabstractscrollarea.md#setinlinestyle)
-* [setLayout](qabstractscrollarea.md#setlayout)
-* [setMaximumSize](qabstractscrollarea.md#setmaximumsize)
-* [setMinimumSize](qabstractscrollarea.md#setminimumsize)
-* [setMouseTracking](qabstractscrollarea.md#setmousetracking)
-* [setNodeParent](qabstractscrollarea.md#setnodeparent)
-* [setObjectName](qabstractscrollarea.md#setobjectname)
-* [setProperty](qabstractscrollarea.md#setproperty)
-* [setStyleSheet](qabstractscrollarea.md#setstylesheet)
-* [setVerticalScrollBarPolicy](qabstractscrollarea.md#setverticalscrollbarpolicy)
-* [setViewport](qabstractscrollarea.md#setviewport)
-* [setWindowFlag](qabstractscrollarea.md#setwindowflag)
-* [setWindowIcon](qabstractscrollarea.md#setwindowicon)
-* [setWindowOpacity](qabstractscrollarea.md#setwindowopacity)
-* [setWindowState](qabstractscrollarea.md#setwindowstate)
-* [setWindowTitle](qabstractscrollarea.md#setwindowtitle)
-* [show](qabstractscrollarea.md#show)
-* [showFullScreen](qabstractscrollarea.md#showfullscreen)
-* [showMaximized](qabstractscrollarea.md#showmaximized)
-* [showMinimized](qabstractscrollarea.md#showminimized)
-* [showNormal](qabstractscrollarea.md#shownormal)
-* [size](qabstractscrollarea.md#size)
-* [styleSheet](qabstractscrollarea.md#stylesheet)
-* [testAttribute](qabstractscrollarea.md#testattribute)
-* [update](qabstractscrollarea.md#update)
-* [updateGeometry](qabstractscrollarea.md#updategeometry)
-* [viewport](qabstractscrollarea.md#viewport)
-* [windowOpacity](qabstractscrollarea.md#windowopacity)
-* [windowState](qabstractscrollarea.md#windowstate)
-* [windowTitle](qabstractscrollarea.md#windowtitle)
+* [activateWindow](qslider.md#activatewindow)
+* [addAction](qslider.md#addaction)
+* [addEventListener](qslider.md#addeventlistener)
+* [adjustSize](qslider.md#adjustsize)
+* [close](qslider.md#close)
+* [font](qslider.md#font)
+* [geometry](qslider.md#geometry)
+* [getFlexNode](qslider.md#getflexnode)
+* [hasMouseTracking](qslider.md#hasmousetracking)
+* [hasTracking](qslider.md#hastracking)
+* [hide](qslider.md#hide)
+* [inherits](qslider.md#inherits)
+* [invertedAppearance](qslider.md#invertedappearance)
+* [invertedControls](qslider.md#invertedcontrols)
+* [isEnabled](qslider.md#isenabled)
+* [isSliderDown](qslider.md#issliderdown)
+* [isVisible](qslider.md#isvisible)
+* [lower](qslider.md#lower)
+* [maximum](qslider.md#maximum)
+* [minimum](qslider.md#minimum)
+* [move](qslider.md#move)
+* [objectName](qslider.md#objectname)
+* [orientation](qslider.md#orientation)
+* [pageStep](qslider.md#pagestep)
+* [pos](qslider.md#pos)
+* [property](qslider.md#property)
+* [raise](qslider.md#raise)
+* [removeEventListener](qslider.md#removeeventlistener)
+* [repaint](qslider.md#repaint)
+* [resize](qslider.md#resize)
+* [setAttribute](qslider.md#setattribute)
+* [setContextMenuPolicy](qslider.md#setcontextmenupolicy)
+* [setCursor](qslider.md#setcursor)
+* [setEnabled](qslider.md#setenabled)
+* [setFixedSize](qslider.md#setfixedsize)
+* [setFlexNodeSizeControlled](qslider.md#setflexnodesizecontrolled)
+* [setFont](qslider.md#setfont)
+* [setGeometry](qslider.md#setgeometry)
+* [setInlineStyle](qslider.md#setinlinestyle)
+* [setInvertedAppearance](qslider.md#setinvertedappearance)
+* [setInvertedControls](qslider.md#setinvertedcontrols)
+* [setLayout](qslider.md#setlayout)
+* [setMaximum](qslider.md#setmaximum)
+* [setMaximumSize](qslider.md#setmaximumsize)
+* [setMinimum](qslider.md#setminimum)
+* [setMinimumSize](qslider.md#setminimumsize)
+* [setMouseTracking](qslider.md#setmousetracking)
+* [setNodeParent](qslider.md#setnodeparent)
+* [setObjectName](qslider.md#setobjectname)
+* [setOrientation](qslider.md#setorientation)
+* [setPageStep](qslider.md#setpagestep)
+* [setProperty](qslider.md#setproperty)
+* [setRange](qslider.md#setrange)
+* [setSingleStep](qslider.md#setsinglestep)
+* [setSliderDown](qslider.md#setsliderdown)
+* [setSliderPosition](qslider.md#setsliderposition)
+* [setStyleSheet](qslider.md#setstylesheet)
+* [setTickInterval](qslider.md#settickinterval)
+* [setTickPosition](qslider.md#settickposition)
+* [setTracking](qslider.md#settracking)
+* [setValue](qslider.md#setvalue)
+* [setWindowFlag](qslider.md#setwindowflag)
+* [setWindowIcon](qslider.md#setwindowicon)
+* [setWindowOpacity](qslider.md#setwindowopacity)
+* [setWindowState](qslider.md#setwindowstate)
+* [setWindowTitle](qslider.md#setwindowtitle)
+* [show](qslider.md#show)
+* [showFullScreen](qslider.md#showfullscreen)
+* [showMaximized](qslider.md#showmaximized)
+* [showMinimized](qslider.md#showminimized)
+* [showNormal](qslider.md#shownormal)
+* [singleStep](qslider.md#singlestep)
+* [size](qslider.md#size)
+* [sliderPosition](qslider.md#sliderposition)
+* [styleSheet](qslider.md#stylesheet)
+* [testAttribute](qslider.md#testattribute)
+* [tickInterval](qslider.md#tickinterval)
+* [tickPosition](qslider.md#tickposition)
+* [triggerAction](qslider.md#triggeraction)
+* [update](qslider.md#update)
+* [updateGeometry](qslider.md#updategeometry)
+* [value](qslider.md#value)
+* [windowOpacity](qslider.md#windowopacity)
+* [windowState](qslider.md#windowstate)
+* [windowTitle](qslider.md#windowtitle)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QAbstractScrollArea**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAbstractScrollArea](qabstractscrollarea.md)*
+\+ **new QSlider**(): *[QSlider](qslider.md)*
 
-*Inherited from [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
+**Returns:** *[QSlider](qslider.md)*
+
+\+ **new QSlider**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QSlider](qslider.md)*
+
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`native` | [NativeElement](../globals.md#nativeelement) |
+`parent` | [NodeWidget](nodewidget.md)‹any› |
 
-**Returns:** *[QAbstractScrollArea](qabstractscrollarea.md)*
+**Returns:** *[QSlider](qslider.md)*
 
 ## Properties
 
@@ -153,17 +170,17 @@ ___
 
 ### `Optional` layout
 
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+• **layout**? : *[NodeLayout](nodelayout.md)‹[QSliderSignals](../globals.md#qslidersignals)›*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
-### `Abstract` native
+###  native
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
-*Inherited from [Component](component.md).[native](component.md#abstract-native)*
+*Overrides [Component](component.md).[native](component.md#abstract-native)*
 
 ___
 
@@ -188,12 +205,6 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
-
-___
-
-### `Optional` viewportWidget
-
-• **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 ## Methods
 
@@ -225,20 +236,20 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QSliderSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QSliderSignals*
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
-`callback` | Signals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`callback` | QSliderSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
 
@@ -339,6 +350,16 @@ ___
 
 ___
 
+###  hasTracking
+
+▸ **hasTracking**(): *boolean*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[hasTracking](qabstractslider.md#hastracking)*
+
+**Returns:** *boolean*
+
+___
+
 ###  hide
 
 ▸ **hide**(): *void*
@@ -365,11 +386,41 @@ Name | Type |
 
 ___
 
+###  invertedAppearance
+
+▸ **invertedAppearance**(): *boolean*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[invertedAppearance](qabstractslider.md#invertedappearance)*
+
+**Returns:** *boolean*
+
+___
+
+###  invertedControls
+
+▸ **invertedControls**(): *boolean*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[invertedControls](qabstractslider.md#invertedcontrols)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
 
 *Inherited from [QMenu](qmenu.md).[isEnabled](qmenu.md#isenabled)*
+
+**Returns:** *boolean*
+
+___
+
+###  isSliderDown
+
+▸ **isSliderDown**(): *boolean*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[isSliderDown](qabstractslider.md#issliderdown)*
 
 **Returns:** *boolean*
 
@@ -392,6 +443,26 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  maximum
+
+▸ **maximum**(): *number*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[maximum](qabstractslider.md#maximum)*
+
+**Returns:** *number*
+
+___
+
+###  minimum
+
+▸ **minimum**(): *number*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[minimum](qabstractslider.md#minimum)*
+
+**Returns:** *number*
 
 ___
 
@@ -419,6 +490,26 @@ ___
 *Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
 
 **Returns:** *string*
+
+___
+
+###  orientation
+
+▸ **orientation**(): *[Orientation](../enums/orientation.md)*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[orientation](qabstractslider.md#orientation)*
+
+**Returns:** *[Orientation](../enums/orientation.md)*
+
+___
+
+###  pageStep
+
+▸ **pageStep**(): *number*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[pageStep](qabstractslider.md#pagestep)*
+
+**Returns:** *number*
 
 ___
 
@@ -464,20 +555,20 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QSliderSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QSliderSignals*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
-`callback` | Signals[SignalType] |
+`callback` | QSliderSignals[SignalType] |
 
 **Returns:** *void*
 
@@ -665,20 +756,6 @@ Name | Type |
 
 ___
 
-###  setHorizontalScrollBarPolicy
-
-▸ **setHorizontalScrollBarPolicy**(`policy`: [ScrollBarPolicy](../enums/scrollbarpolicy.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`policy` | [ScrollBarPolicy](../enums/scrollbarpolicy.md) |
-
-**Returns:** *void*
-
-___
-
 ###  setInlineStyle
 
 ▸ **setInlineStyle**(`style`: string): *void*
@@ -695,9 +772,41 @@ Name | Type |
 
 ___
 
+###  setInvertedAppearance
+
+▸ **setInvertedAppearance**(`inverted`: boolean): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setInvertedAppearance](qabstractslider.md#setinvertedappearance)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`inverted` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setInvertedControls
+
+▸ **setInvertedControls**(`inverted`: boolean): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setInvertedControls](qabstractslider.md#setinvertedcontrols)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`inverted` | boolean |
+
+**Returns:** *void*
+
+___
+
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹Signals›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QSliderSignals](../globals.md#qslidersignals)›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -705,7 +814,23 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹Signals› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹[QSliderSignals](../globals.md#qslidersignals)› |
+
+**Returns:** *void*
+
+___
+
+###  setMaximum
+
+▸ **setMaximum**(`maximum`: number): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setMaximum](qabstractslider.md#setmaximum)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`maximum` | number |
 
 **Returns:** *void*
 
@@ -723,6 +848,22 @@ Name | Type |
 ------ | ------ |
 `maxw` | number |
 `maxh` | number |
+
+**Returns:** *void*
+
+___
+
+###  setMinimum
+
+▸ **setMinimum**(`minimum`: number): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setMinimum](qabstractslider.md#setminimum)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`minimum` | number |
 
 **Returns:** *void*
 
@@ -795,6 +936,38 @@ Name | Type |
 
 ___
 
+###  setOrientation
+
+▸ **setOrientation**(`orientation`: [Orientation](../enums/orientation.md)): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setOrientation](qabstractslider.md#setorientation)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`orientation` | [Orientation](../enums/orientation.md) |
+
+**Returns:** *void*
+
+___
+
+###  setPageStep
+
+▸ **setPageStep**(`step`: number): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setPageStep](qabstractslider.md#setpagestep)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`step` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setProperty
 
 ▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
@@ -809,6 +982,71 @@ Name | Type |
 `value` | [QVariantType](../globals.md#qvarianttype) |
 
 **Returns:** *boolean*
+
+___
+
+###  setRange
+
+▸ **setRange**(`min`: number, `max`: number): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setRange](qabstractslider.md#setrange)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`min` | number |
+`max` | number |
+
+**Returns:** *void*
+
+___
+
+###  setSingleStep
+
+▸ **setSingleStep**(`step`: number): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setSingleStep](qabstractslider.md#setsinglestep)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`step` | number |
+
+**Returns:** *void*
+
+___
+
+###  setSliderDown
+
+▸ **setSliderDown**(`down`: boolean): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setSliderDown](qabstractslider.md#setsliderdown)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`down` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setSliderPosition
+
+▸ **setSliderPosition**(`position`: number): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setSliderPosition](qabstractslider.md#setsliderposition)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`position` | number |
+
+**Returns:** *void*
 
 ___
 
@@ -828,29 +1066,61 @@ Name | Type |
 
 ___
 
-###  setVerticalScrollBarPolicy
+###  setTickInterval
 
-▸ **setVerticalScrollBarPolicy**(`policy`: [ScrollBarPolicy](../enums/scrollbarpolicy.md)): *void*
+▸ **setTickInterval**(`ti`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`policy` | [ScrollBarPolicy](../enums/scrollbarpolicy.md) |
+`ti` | number |
 
 **Returns:** *void*
 
 ___
 
-###  setViewport
+###  setTickPosition
 
-▸ **setViewport**(`widget`: [NodeWidget](nodewidget.md)‹any›): *void*
+▸ **setTickPosition**(`position`: [TickPosition](../enums/tickposition.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`widget` | [NodeWidget](nodewidget.md)‹any› |
+`position` | [TickPosition](../enums/tickposition.md) |
+
+**Returns:** *void*
+
+___
+
+###  setTracking
+
+▸ **setTracking**(`enable`: boolean): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setTracking](qabstractslider.md#settracking)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enable` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setValue
+
+▸ **setValue**(`value`: number): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[setValue](qabstractslider.md#setvalue)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`value` | number |
 
 **Returns:** *void*
 
@@ -987,6 +1257,16 @@ ___
 
 ___
 
+###  singleStep
+
+▸ **singleStep**(): *number*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[singleStep](qabstractslider.md#singlestep)*
+
+**Returns:** *number*
+
+___
+
 ###  size
 
 ▸ **size**(): *[QSize](qsize.md)*
@@ -994,6 +1274,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[size](qmenu.md#size)*
 
 **Returns:** *[QSize](qsize.md)*
+
+___
+
+###  sliderPosition
+
+▸ **sliderPosition**(): *number*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[sliderPosition](qabstractslider.md#sliderposition)*
+
+**Returns:** *number*
 
 ___
 
@@ -1023,6 +1313,38 @@ Name | Type |
 
 ___
 
+###  tickInterval
+
+▸ **tickInterval**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  tickPosition
+
+▸ **tickPosition**(): *[TickPosition](../enums/tickposition.md)*
+
+**Returns:** *[TickPosition](../enums/tickposition.md)*
+
+___
+
+###  triggerAction
+
+▸ **triggerAction**(`action`: [SliderAction](../enums/slideraction.md)): *void*
+
+*Inherited from [QAbstractSlider](qabstractslider.md).[triggerAction](qabstractslider.md#triggeraction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [SliderAction](../enums/slideraction.md) |
+
+**Returns:** *void*
+
+___
+
 ###  update
 
 ▸ **update**(): *void*
@@ -1043,11 +1365,13 @@ ___
 
 ___
 
-###  viewport
+###  value
 
-▸ **viewport**(): *[QWidget](qwidget.md)*
+▸ **value**(): *number*
 
-**Returns:** *[QWidget](qwidget.md)*
+*Inherited from [QAbstractSlider](qabstractslider.md).[value](qabstractslider.md#value)*
+
+**Returns:** *number*
 
 ___
 

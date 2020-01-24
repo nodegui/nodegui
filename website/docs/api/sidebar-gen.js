@@ -60,8 +60,10 @@ module.exports = {
       "api/generated/classes/qscrollarea",
       "api/generated/classes/qshortcut",
       "api/generated/classes/qsize",
+      "api/generated/classes/qslider",
       "api/generated/classes/qspinbox",
       "api/generated/classes/qstackedwidget",
+      "api/generated/classes/qstatusbar",
       "api/generated/classes/qstyle",
       "api/generated/classes/qsystemtrayicon",
       "api/generated/classes/qtabwidget",
@@ -174,10 +176,13 @@ module.exports = {
       "api/generated/enums/scrollphase",
       "api/generated/enums/selectionbehavior",
       "api/generated/enums/selectionmode",
+      "api/generated/enums/sequenceformat",
+      "api/generated/enums/sequencematch",
       "api/generated/enums/shortcutcontext",
       "api/generated/enums/sizeadjustpolicy",
       "api/generated/enums/sizehint",
       "api/generated/enums/sizemode",
+      "api/generated/enums/slideraction",
       "api/generated/enums/sortorder",
       "api/generated/enums/standardbutton",
       "api/generated/enums/systemfont",
@@ -187,6 +192,7 @@ module.exports = {
       "api/generated/enums/textflag",
       "api/generated/enums/textformat",
       "api/generated/enums/textinteractionflag",
+      "api/generated/enums/tickposition",
       "api/generated/enums/tilerule",
       "api/generated/enums/timespec",
       "api/generated/enums/timertype",
@@ -230,12 +236,14 @@ module.exports = {
       "api/generated/interfaces/qshortcutsignals",
       "api/generated/interfaces/qspinboxsignals",
       "api/generated/interfaces/qstackedwidgetsignals",
+      "api/generated/interfaces/qstatusbarsignals",
       "api/generated/interfaces/qsystemtrayiconsignals",
       "api/generated/interfaces/qtabwidgetsignals",
       "api/generated/interfaces/qtablewidgetsignals",
       "api/generated/interfaces/qtoolbuttonsignals",
       "api/generated/interfaces/qtreewidgetsignals",
-      "api/generated/interfaces/qwidgetsignals"
+      "api/generated/interfaces/qwidgetsignals",
+      "api/generated/interfaces/range"
     ]
   }
 };

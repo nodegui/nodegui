@@ -30,7 +30,7 @@ console.log("mouse moved");
 
 ## Type parameters
 
-▪ **Signals**: *__type*
+▪ **Signals**: *object*
 
 ## Hierarchy
 

@@ -54,16 +54,23 @@ win.show();
 
 ### Properties
 
+* [items](qtreewidgetitem.md#items)
 * [native](qtreewidgetitem.md#native)
 * [nodeChildren](qtreewidgetitem.md#nodechildren)
 * [nodeParent](qtreewidgetitem.md#optional-nodeparent)
 
 ### Methods
 
+* [addChild](qtreewidgetitem.md#addchild)
 * [child](qtreewidgetitem.md#child)
 * [childCount](qtreewidgetitem.md#childcount)
+* [data](qtreewidgetitem.md#data)
+* [flags](qtreewidgetitem.md#flags)
 * [parent](qtreewidgetitem.md#parent)
+* [setCheckState](qtreewidgetitem.md#setcheckstate)
+* [setData](qtreewidgetitem.md#setdata)
 * [setExpanded](qtreewidgetitem.md#setexpanded)
+* [setFlags](qtreewidgetitem.md#setflags)
 * [setNodeParent](qtreewidgetitem.md#setnodeparent)
 * [setSelected](qtreewidgetitem.md#setselected)
 * [setText](qtreewidgetitem.md#settext)
@@ -131,6 +138,12 @@ Name | Type |
 
 ## Properties
 
+###  items
+
+• **items**: *Set‹[NativeElement](../globals.md#nativeelement) | [Component](component.md)›*
+
+___
+
 ###  native
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
@@ -155,6 +168,22 @@ ___
 
 ## Methods
 
+###  addChild
+
+▸ **addChild**(`childItem`: [QTreeWidgetItem](qtreewidgetitem.md)): *void*
+
+Adds the specified child to this QTreeWidgetItem.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`childItem` | [QTreeWidgetItem](qtreewidgetitem.md) | The child to add.  |
+
+**Returns:** *void*
+
+___
+
 ###  child
 
 ▸ **child**(`index`: number): *[QTreeWidgetItem](qtreewidgetitem.md) | undefined*
@@ -177,11 +206,74 @@ ___
 
 ___
 
+###  data
+
+▸ **data**(`column`: number, `role`: [ItemDataRole](../enums/itemdatarole.md)): *[QVariant](qvariant.md)*
+
+Returns the value for the item's column and role.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`column` | number | The column. |
+`role` | [ItemDataRole](../enums/itemdatarole.md) | The role.  |
+
+**Returns:** *[QVariant](qvariant.md)*
+
+___
+
+###  flags
+
+▸ **flags**(): *[ItemFlag](../enums/itemflag.md)*
+
+Returns the flags used to describe the item. These determine whether the item can be checked, edited, and selected.
+
+**Returns:** *[ItemFlag](../enums/itemflag.md)*
+
+___
+
 ###  parent
 
 ▸ **parent**(): *[QTreeWidgetItem](qtreewidgetitem.md) | undefined*
 
 **Returns:** *[QTreeWidgetItem](qtreewidgetitem.md) | undefined*
+
+___
+
+###  setCheckState
+
+▸ **setCheckState**(`column`: number, `state`: [CheckState](../enums/checkstate.md)): *void*
+
+Sets the item in the given column check state to be state.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`column` | number | The column. |
+`state` | [CheckState](../enums/checkstate.md) | The check state.  |
+
+**Returns:** *void*
+
+___
+
+###  setData
+
+▸ **setData**(`column`: number, `role`: [ItemDataRole](../enums/itemdatarole.md), `value`: [QVariantType](../globals.md#qvarianttype)): *void*
+
+Sets the value for the item's column and role to the given value.
+The role describes the type of data specified by value, and is defined by the ItemDataRole enum.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`column` | number | The column. |
+`role` | [ItemDataRole](../enums/itemdatarole.md) | The role. |
+`value` | [QVariantType](../globals.md#qvarianttype) | The value.  |
+
+**Returns:** *void*
 
 ___
 
@@ -194,6 +286,23 @@ ___
 Name | Type |
 ------ | ------ |
 `expanded` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setFlags
+
+▸ **setFlags**(`flags`: [ItemFlag](../enums/itemflag.md)): *void*
+
+Sets the flags for the item to the given flags. These determine whether the item can be selected or modified.
+This is often used to disable an item.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`flags` | [ItemFlag](../enums/itemflag.md) | The flags.  |
 
 **Returns:** *void*
 

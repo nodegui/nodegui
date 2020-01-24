@@ -1,137 +1,138 @@
 ---
-id: "qabstractscrollarea"
-title: "QAbstractScrollArea"
-sidebar_label: "QAbstractScrollArea"
+id: "qstatusbar"
+title: "QStatusBar"
+sidebar_label: "QStatusBar"
 ---
 
-> Abstract class to add functionalities common to all scrollarea based widgets.
+> Create and control progress bar widgets.
 
-*This class implements all methods, properties of Qt's [QAbstractScrollArea class](https://doc.qt.io/qt-5/qabstractscrollarea.html) so that it can be inherited by all scroll based widgets**
+**This class is a JS wrapper around Qt's [QStatusBar class](https://doc.qt.io/qt-5/qstatusbar.html)**
 
-`QAbstractScrollArea` is an abstract class and hence no instances of the same should be created. It exists so that we can add similar functionalities to all scrollable widget's easily. If you wish to create a scrollarea use [QScrollArea](api/QScrollArea.md) instead.
+A `QStatusBar` provides ability to add and manipulate the status bar of a window.
 
-*QAbstractScrollArea is the base class for all widgets.**
+### Example
 
-QAbstractScrollArea will list all methods and properties that are common to all scrollable widgets in the NodeGui world.
+```javascript
+const { QStatusBar } = require("@nodegui/nodegui");
 
-## Type parameters
-
-▪ **Signals**: *[QAbstractScrollAreaSignals](../globals.md#qabstractscrollareasignals)*
+const progressBar = new QStatusBar();
+```
 
 ## Hierarchy
 
-  ↳ [NodeWidget](nodewidget.md)‹Signals›
+  ↳ [NodeWidget](nodewidget.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)›
 
-  ↳ **QAbstractScrollArea**
-
-  ↳ [QAbstractItemView](qabstractitemview.md)
-
-  ↳ [QTableWidget](qtablewidget.md)
-
-  ↳ [QPlainTextEdit](qplaintextedit.md)
-
-  ↳ [QScrollArea](qscrollarea.md)
-
-  ↳ [QTreeWidget](qtreewidget.md)
+  ↳ **QStatusBar**
 
 ## Index
 
 ### Constructors
 
-* [constructor](qabstractscrollarea.md#constructor)
+* [constructor](qstatusbar.md#constructor)
 
 ### Properties
 
-* [_rawInlineStyle](qabstractscrollarea.md#_rawinlinestyle)
-* [actions](qabstractscrollarea.md#actions)
-* [layout](qabstractscrollarea.md#optional-layout)
-* [native](qabstractscrollarea.md#abstract-native)
-* [nodeChildren](qabstractscrollarea.md#nodechildren)
-* [nodeParent](qabstractscrollarea.md#optional-nodeparent)
-* [type](qabstractscrollarea.md#type)
-* [viewportWidget](qabstractscrollarea.md#optional-viewportwidget)
+* [_rawInlineStyle](qstatusbar.md#_rawinlinestyle)
+* [actions](qstatusbar.md#actions)
+* [layout](qstatusbar.md#optional-layout)
+* [native](qstatusbar.md#native)
+* [nodeChildren](qstatusbar.md#nodechildren)
+* [nodeParent](qstatusbar.md#optional-nodeparent)
+* [permanentWidgets](qstatusbar.md#permanentwidgets)
+* [type](qstatusbar.md#type)
+* [widgets](qstatusbar.md#widgets)
 
 ### Methods
 
-* [activateWindow](qabstractscrollarea.md#activatewindow)
-* [addAction](qabstractscrollarea.md#addaction)
-* [addEventListener](qabstractscrollarea.md#addeventlistener)
-* [adjustSize](qabstractscrollarea.md#adjustsize)
-* [close](qabstractscrollarea.md#close)
-* [font](qabstractscrollarea.md#font)
-* [geometry](qabstractscrollarea.md#geometry)
-* [getFlexNode](qabstractscrollarea.md#getflexnode)
-* [hasMouseTracking](qabstractscrollarea.md#hasmousetracking)
-* [hide](qabstractscrollarea.md#hide)
-* [inherits](qabstractscrollarea.md#inherits)
-* [isEnabled](qabstractscrollarea.md#isenabled)
-* [isVisible](qabstractscrollarea.md#isvisible)
-* [lower](qabstractscrollarea.md#lower)
-* [move](qabstractscrollarea.md#move)
-* [objectName](qabstractscrollarea.md#objectname)
-* [pos](qabstractscrollarea.md#pos)
-* [property](qabstractscrollarea.md#property)
-* [raise](qabstractscrollarea.md#raise)
-* [removeEventListener](qabstractscrollarea.md#removeeventlistener)
-* [repaint](qabstractscrollarea.md#repaint)
-* [resize](qabstractscrollarea.md#resize)
-* [setAttribute](qabstractscrollarea.md#setattribute)
-* [setContextMenuPolicy](qabstractscrollarea.md#setcontextmenupolicy)
-* [setCursor](qabstractscrollarea.md#setcursor)
-* [setEnabled](qabstractscrollarea.md#setenabled)
-* [setFixedSize](qabstractscrollarea.md#setfixedsize)
-* [setFlexNodeSizeControlled](qabstractscrollarea.md#setflexnodesizecontrolled)
-* [setFont](qabstractscrollarea.md#setfont)
-* [setGeometry](qabstractscrollarea.md#setgeometry)
-* [setHorizontalScrollBarPolicy](qabstractscrollarea.md#sethorizontalscrollbarpolicy)
-* [setInlineStyle](qabstractscrollarea.md#setinlinestyle)
-* [setLayout](qabstractscrollarea.md#setlayout)
-* [setMaximumSize](qabstractscrollarea.md#setmaximumsize)
-* [setMinimumSize](qabstractscrollarea.md#setminimumsize)
-* [setMouseTracking](qabstractscrollarea.md#setmousetracking)
-* [setNodeParent](qabstractscrollarea.md#setnodeparent)
-* [setObjectName](qabstractscrollarea.md#setobjectname)
-* [setProperty](qabstractscrollarea.md#setproperty)
-* [setStyleSheet](qabstractscrollarea.md#setstylesheet)
-* [setVerticalScrollBarPolicy](qabstractscrollarea.md#setverticalscrollbarpolicy)
-* [setViewport](qabstractscrollarea.md#setviewport)
-* [setWindowFlag](qabstractscrollarea.md#setwindowflag)
-* [setWindowIcon](qabstractscrollarea.md#setwindowicon)
-* [setWindowOpacity](qabstractscrollarea.md#setwindowopacity)
-* [setWindowState](qabstractscrollarea.md#setwindowstate)
-* [setWindowTitle](qabstractscrollarea.md#setwindowtitle)
-* [show](qabstractscrollarea.md#show)
-* [showFullScreen](qabstractscrollarea.md#showfullscreen)
-* [showMaximized](qabstractscrollarea.md#showmaximized)
-* [showMinimized](qabstractscrollarea.md#showminimized)
-* [showNormal](qabstractscrollarea.md#shownormal)
-* [size](qabstractscrollarea.md#size)
-* [styleSheet](qabstractscrollarea.md#stylesheet)
-* [testAttribute](qabstractscrollarea.md#testattribute)
-* [update](qabstractscrollarea.md#update)
-* [updateGeometry](qabstractscrollarea.md#updategeometry)
-* [viewport](qabstractscrollarea.md#viewport)
-* [windowOpacity](qabstractscrollarea.md#windowopacity)
-* [windowState](qabstractscrollarea.md#windowstate)
-* [windowTitle](qabstractscrollarea.md#windowtitle)
+* [activateWindow](qstatusbar.md#activatewindow)
+* [addAction](qstatusbar.md#addaction)
+* [addEventListener](qstatusbar.md#addeventlistener)
+* [addPermanentWidget](qstatusbar.md#addpermanentwidget)
+* [addWidget](qstatusbar.md#addwidget)
+* [adjustSize](qstatusbar.md#adjustsize)
+* [clearMessage](qstatusbar.md#clearmessage)
+* [close](qstatusbar.md#close)
+* [currentMessage](qstatusbar.md#currentmessage)
+* [font](qstatusbar.md#font)
+* [geometry](qstatusbar.md#geometry)
+* [getFlexNode](qstatusbar.md#getflexnode)
+* [hasMouseTracking](qstatusbar.md#hasmousetracking)
+* [hide](qstatusbar.md#hide)
+* [inherits](qstatusbar.md#inherits)
+* [insertPermanentWidget](qstatusbar.md#insertpermanentwidget)
+* [insertWidget](qstatusbar.md#insertwidget)
+* [isEnabled](qstatusbar.md#isenabled)
+* [isSizeGripEnabled](qstatusbar.md#issizegripenabled)
+* [isVisible](qstatusbar.md#isvisible)
+* [lower](qstatusbar.md#lower)
+* [move](qstatusbar.md#move)
+* [objectName](qstatusbar.md#objectname)
+* [pos](qstatusbar.md#pos)
+* [property](qstatusbar.md#property)
+* [raise](qstatusbar.md#raise)
+* [removeEventListener](qstatusbar.md#removeeventlistener)
+* [removeWidget](qstatusbar.md#removewidget)
+* [repaint](qstatusbar.md#repaint)
+* [resize](qstatusbar.md#resize)
+* [setAttribute](qstatusbar.md#setattribute)
+* [setContextMenuPolicy](qstatusbar.md#setcontextmenupolicy)
+* [setCursor](qstatusbar.md#setcursor)
+* [setEnabled](qstatusbar.md#setenabled)
+* [setFixedSize](qstatusbar.md#setfixedsize)
+* [setFlexNodeSizeControlled](qstatusbar.md#setflexnodesizecontrolled)
+* [setFont](qstatusbar.md#setfont)
+* [setGeometry](qstatusbar.md#setgeometry)
+* [setInlineStyle](qstatusbar.md#setinlinestyle)
+* [setLayout](qstatusbar.md#setlayout)
+* [setMaximumSize](qstatusbar.md#setmaximumsize)
+* [setMinimumSize](qstatusbar.md#setminimumsize)
+* [setMouseTracking](qstatusbar.md#setmousetracking)
+* [setNodeParent](qstatusbar.md#setnodeparent)
+* [setObjectName](qstatusbar.md#setobjectname)
+* [setProperty](qstatusbar.md#setproperty)
+* [setSizeGripEnabled](qstatusbar.md#setsizegripenabled)
+* [setStyleSheet](qstatusbar.md#setstylesheet)
+* [setWindowFlag](qstatusbar.md#setwindowflag)
+* [setWindowIcon](qstatusbar.md#setwindowicon)
+* [setWindowOpacity](qstatusbar.md#setwindowopacity)
+* [setWindowState](qstatusbar.md#setwindowstate)
+* [setWindowTitle](qstatusbar.md#setwindowtitle)
+* [show](qstatusbar.md#show)
+* [showFullScreen](qstatusbar.md#showfullscreen)
+* [showMaximized](qstatusbar.md#showmaximized)
+* [showMessage](qstatusbar.md#showmessage)
+* [showMinimized](qstatusbar.md#showminimized)
+* [showNormal](qstatusbar.md#shownormal)
+* [size](qstatusbar.md#size)
+* [styleSheet](qstatusbar.md#stylesheet)
+* [testAttribute](qstatusbar.md#testattribute)
+* [update](qstatusbar.md#update)
+* [updateGeometry](qstatusbar.md#updategeometry)
+* [windowOpacity](qstatusbar.md#windowopacity)
+* [windowState](qstatusbar.md#windowstate)
+* [windowTitle](qstatusbar.md#windowtitle)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QAbstractScrollArea**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAbstractScrollArea](qabstractscrollarea.md)*
+\+ **new QStatusBar**(): *[QStatusBar](qstatusbar.md)*
 
-*Inherited from [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
+**Returns:** *[QStatusBar](qstatusbar.md)*
+
+\+ **new QStatusBar**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QStatusBar](qstatusbar.md)*
+
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`native` | [NativeElement](../globals.md#nativeelement) |
+`parent` | [NodeWidget](nodewidget.md)‹any› |
 
-**Returns:** *[QAbstractScrollArea](qabstractscrollarea.md)*
+**Returns:** *[QStatusBar](qstatusbar.md)*
 
 ## Properties
 
@@ -153,17 +154,17 @@ ___
 
 ### `Optional` layout
 
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+• **layout**? : *[NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)›*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
-### `Abstract` native
+###  native
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
-*Inherited from [Component](component.md).[native](component.md#abstract-native)*
+*Overrides [Component](component.md).[native](component.md#abstract-native)*
 
 ___
 
@@ -183,6 +184,12 @@ ___
 
 ___
 
+###  permanentWidgets
+
+• **permanentWidgets**: *Set‹[NativeElement](../globals.md#nativeelement)›*
+
+___
+
 ###  type
 
 • **type**: *string* = "widget"
@@ -191,9 +198,9 @@ ___
 
 ___
 
-### `Optional` viewportWidget
+###  widgets
 
-• **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
+• **widgets**: *Set‹[NativeElement](../globals.md#nativeelement)›*
 
 ## Methods
 
@@ -225,20 +232,20 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QStatusBarSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QStatusBarSignals*
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
-`callback` | Signals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`callback` | QStatusBarSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
 
@@ -279,11 +286,57 @@ Name | Type |
 
 ___
 
+###  addPermanentWidget
+
+▸ **addPermanentWidget**(`widget`: [QWidget](qwidget.md), `stretch`: number): *void*
+
+Adds the given widget permanently to this status bar, reparenting the widget if it isn't already a child of this QStatusBar object. The stretch parameter is used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.
+Permanently means that the widget may not be obscured by temporary messages. It is is located at the far right of the status bar.
+
+**Parameters:**
+
+Name | Type | Default | Description |
+------ | ------ | ------ | ------ |
+`widget` | [QWidget](qwidget.md) | - | The widget to permanently add to this status bar. |
+`stretch` | number | 0 | Used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.  |
+
+**Returns:** *void*
+
+___
+
+###  addWidget
+
+▸ **addWidget**(`widget`: [QWidget](qwidget.md), `stretch`: number): *void*
+
+Adds the given widget to this status bar, reparenting the widget if it isn't already a child of this QStatusBar object. The stretch parameter is used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.
+The widget is located to the far left of the first permanent widget (see addPermanentWidget()) and may be obscured by temporary messages.
+
+**Parameters:**
+
+Name | Type | Default | Description |
+------ | ------ | ------ | ------ |
+`widget` | [QWidget](qwidget.md) | - | The widget to add to this status bar. |
+`stretch` | number | 0 | Used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.  |
+
+**Returns:** *void*
+
+___
+
 ###  adjustSize
 
 ▸ **adjustSize**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[adjustSize](qmenu.md#adjustsize)*
+
+**Returns:** *void*
+
+___
+
+###  clearMessage
+
+▸ **clearMessage**(): *void*
+
+Removes any temporary message being shown.
 
 **Returns:** *void*
 
@@ -296,6 +349,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[close](qmenu.md#close)*
 
 **Returns:** *boolean*
+
+___
+
+###  currentMessage
+
+▸ **currentMessage**(): *string*
+
+Returns the temporary message currently shown, or an empty string if there is no such message.
+
+**Returns:** *string*
 
 ___
 
@@ -365,11 +428,61 @@ Name | Type |
 
 ___
 
+###  insertPermanentWidget
+
+▸ **insertPermanentWidget**(`index`: number, `widget`: [QWidget](qwidget.md), `stretch`: number): *number*
+
+Inserts the given widget at the given index permanently to this status bar, reparenting the widget if it isn't already a child of this QStatusBar object. If index is out of range, the widget is appended (in which case it is the actual index of the widget that is returned).
+The stretch parameter is used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.
+Permanently means that the widget may not be obscured by temporary messages. It is is located at the far right of the status bar.
+
+**Parameters:**
+
+Name | Type | Default | Description |
+------ | ------ | ------ | ------ |
+`index` | number | - | The index at which to insert the given widget permanently. |
+`widget` | [QWidget](qwidget.md) | - | The widget to insert into this status bar permanently. |
+`stretch` | number | 0 | Used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.  |
+
+**Returns:** *number*
+
+___
+
+###  insertWidget
+
+▸ **insertWidget**(`index`: number, `widget`: [QWidget](qwidget.md), `stretch`: number): *number*
+
+Inserts the given widget at the given index to this status bar, reparenting the widget if it isn't already a child of this QStatusBar object. If index is out of range, the widget is appended (in which case it is the actual index of the widget that is returned).
+The stretch parameter is used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.
+The widget is located to the far left of the first permanent widget (see addPermanentWidget()) and may be obscured by temporary messages.
+
+**Parameters:**
+
+Name | Type | Default | Description |
+------ | ------ | ------ | ------ |
+`index` | number | - | The index at which to insert the given widget. |
+`widget` | [QWidget](qwidget.md) | - | The widget to insert into this status bar. |
+`stretch` | number | 0 | Used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.  |
+
+**Returns:** *number*
+
+___
+
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
 
 *Inherited from [QMenu](qmenu.md).[isEnabled](qmenu.md#isenabled)*
+
+**Returns:** *boolean*
+
+___
+
+###  isSizeGripEnabled
+
+▸ **isSizeGripEnabled**(): *boolean*
+
+Determines whether the QSizeGrip in the bottom-right corner of the status bar is enabled
 
 **Returns:** *boolean*
 
@@ -464,20 +577,20 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QStatusBarSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QStatusBarSignals*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
-`callback` | Signals[SignalType] |
+`callback` | QStatusBarSignals[SignalType] |
 
 **Returns:** *void*
 
@@ -498,6 +611,23 @@ Name | Type |
 Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
+
+**Returns:** *void*
+
+___
+
+###  removeWidget
+
+▸ **removeWidget**(`widget`: [QWidget](qwidget.md)): *void*
+
+Removes the specified widget from the status bar.
+Note: This function does not delete the widget but hides it. To add the widget again, you must call both the addWidget() and show() functions.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`widget` | [QWidget](qwidget.md) | The widget to remove from this status bar.  |
 
 **Returns:** *void*
 
@@ -665,20 +795,6 @@ Name | Type |
 
 ___
 
-###  setHorizontalScrollBarPolicy
-
-▸ **setHorizontalScrollBarPolicy**(`policy`: [ScrollBarPolicy](../enums/scrollbarpolicy.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`policy` | [ScrollBarPolicy](../enums/scrollbarpolicy.md) |
-
-**Returns:** *void*
-
-___
-
 ###  setInlineStyle
 
 ▸ **setInlineStyle**(`style`: string): *void*
@@ -697,7 +813,7 @@ ___
 
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹Signals›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -705,7 +821,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹Signals› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)› |
 
 **Returns:** *void*
 
@@ -812,6 +928,22 @@ Name | Type |
 
 ___
 
+###  setSizeGripEnabled
+
+▸ **setSizeGripEnabled**(`enabled`: boolean): *void*
+
+Enables or disables the QSizeGrip in the bottom-right corner of this status bar.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`enabled` | boolean | Determines if the QSizeGrip should be enabled or disabled.  |
+
+**Returns:** *void*
+
+___
+
 ###  setStyleSheet
 
 ▸ **setStyleSheet**(`styleSheet`: string): *void*
@@ -823,34 +955,6 @@ ___
 Name | Type |
 ------ | ------ |
 `styleSheet` | string |
-
-**Returns:** *void*
-
-___
-
-###  setVerticalScrollBarPolicy
-
-▸ **setVerticalScrollBarPolicy**(`policy`: [ScrollBarPolicy](../enums/scrollbarpolicy.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`policy` | [ScrollBarPolicy](../enums/scrollbarpolicy.md) |
-
-**Returns:** *void*
-
-___
-
-###  setViewport
-
-▸ **setViewport**(`widget`: [NodeWidget](nodewidget.md)‹any›): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`widget` | [NodeWidget](nodewidget.md)‹any› |
 
 **Returns:** *void*
 
@@ -967,6 +1071,24 @@ ___
 
 ___
 
+###  showMessage
+
+▸ **showMessage**(`message`: string, `timeout`: number): *void*
+
+Hides the normal status indications and displays the given message for the specified number of milli-seconds (timeout). If timeout is 0 (default), the message remains displayed until the clearMessage() slot is called or until the showMessage() slot is called again to change the message.
+Note that showMessage() is called to show temporary explanations of tool tip texts, so passing a timeout of 0 is not sufficient to display a permanent message.
+
+**Parameters:**
+
+Name | Type | Default | Description |
+------ | ------ | ------ | ------ |
+`message` | string | - | The message to display. |
+`timeout` | number | 0 | The number of milliseconds to display the message.  |
+
+**Returns:** *void*
+
+___
+
 ###  showMinimized
 
 ▸ **showMinimized**(): *void*
@@ -1040,14 +1162,6 @@ ___
 *Inherited from [QMenu](qmenu.md).[updateGeometry](qmenu.md#updategeometry)*
 
 **Returns:** *void*
-
-___
-
-###  viewport
-
-▸ **viewport**(): *[QWidget](qwidget.md)*
-
-**Returns:** *[QWidget](qwidget.md)*
 
 ___
 

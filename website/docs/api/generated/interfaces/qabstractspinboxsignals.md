@@ -36,9 +36,12 @@ sidebar_label: "QAbstractSpinBoxSignals"
 
 **Parameters:**
 
+▪ **pos**: *object*
+
 Name | Type |
 ------ | ------ |
-`pos` | object |
+`x` | number |
+`y` | number |
 
 ___
 

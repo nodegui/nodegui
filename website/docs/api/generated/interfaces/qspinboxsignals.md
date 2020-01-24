@@ -34,9 +34,12 @@ sidebar_label: "QSpinBoxSignals"
 
 **Parameters:**
 
+▪ **pos**: *object*
+
 Name | Type |
 ------ | ------ |
-`pos` | object |
+`x` | number |
+`y` | number |
 
 ___
 

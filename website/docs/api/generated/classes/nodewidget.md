@@ -44,6 +44,8 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
   ↳ **NodeWidget**
 
+  ↳ [QMenu](qmenu.md)
+
   ↳ [QWidget](qwidget.md)
 
   ↳ [QAbstractScrollArea](qabstractscrollarea.md)
@@ -62,9 +64,9 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
   ↳ [QLineEdit](qlineedit.md)
 
-  ↳ [QMenu](qmenu.md)
-
   ↳ [QMenuBar](qmenubar.md)
+
+  ↳ [QStatusBar](qstatusbar.md)
 
   ↳ [QMainWindow](qmainwindow.md)
 
@@ -89,6 +91,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 ### Properties
 
 * [_rawInlineStyle](nodewidget.md#_rawinlinestyle)
+* [actions](nodewidget.md#actions)
 * [layout](nodewidget.md#optional-layout)
 * [native](nodewidget.md#abstract-native)
 * [nodeChildren](nodewidget.md#nodechildren)
@@ -98,6 +101,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 ### Methods
 
 * [activateWindow](nodewidget.md#activatewindow)
+* [addAction](nodewidget.md#addaction)
 * [addEventListener](nodewidget.md#addeventlistener)
 * [adjustSize](nodewidget.md#adjustsize)
 * [close](nodewidget.md#close)
@@ -180,6 +184,12 @@ Name | Type |
 
 ___
 
+###  actions
+
+• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+
+___
+
 ### `Optional` layout
 
 • **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
@@ -221,6 +231,20 @@ ___
 ▸ **activateWindow**(): *void*
 
 **Returns:** *void*
+
+___
+
+###  addAction
+
+▸ **addAction**(`action`: [QAction](qaction.md) | string): *[QAction](qaction.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) &#124; string |
+
+**Returns:** *[QAction](qaction.md)*
 
 ___
 
@@ -408,6 +432,10 @@ ___
 ▸ **pos**(): *object*
 
 **Returns:** *object*
+
+* **x**: *number*
+
+* **y**: *number*
 
 ___
 

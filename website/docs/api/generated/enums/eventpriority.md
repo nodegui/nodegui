@@ -22,7 +22,7 @@ ___
 
 ###  LowEventPriority
 
-• **LowEventPriority**: =  -1
+• **LowEventPriority**: = -1
 
 ___
 

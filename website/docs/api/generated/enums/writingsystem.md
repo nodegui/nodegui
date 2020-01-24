@@ -180,7 +180,7 @@ ___
 
 ###  Other
 
-• **Other**: =  Symbol
+• **Other**: = Symbol
 
 ___
 
