@@ -11,9 +11,13 @@ function(AddCommonConfig addonName)
         cxx_variadic_templates
         cxx_variable_templates
     )
-    target_compile_definitions(${addonName} PRIVATE
-        NAPI_VERSION=${napi_build_version}
-    )
+    
+    if(napi_build_version)
+        target_compile_definitions(${addonName} PRIVATE
+            NAPI_VERSION=${napi_build_version}
+        )
+    endif()
+    
     if (WIN32) 
         target_compile_definitions(${addonName} PRIVATE
             ENUM_BITFIELDS_NOT_SUPPORTED
