@@ -25,9 +25,9 @@ Its the root base class in NodeGui world.
 
   ↳ [QApplication](qapplication.md)
 
-  ↳ [QKeySequence](qkeysequence.md)
-
   ↳ [QVariant](qvariant.md)
+
+  ↳ [QKeySequence](qkeysequence.md)
 
   ↳ [QPixmap](qpixmap.md)
 
@@ -45,6 +45,8 @@ Its the root base class in NodeGui world.
 
   ↳ [QRect](qrect.md)
 
+  ↳ [QPoint](qpoint.md)
+
   ↳ [QModelIndex](qmodelindex.md)
 
   ↳ [QDate](qdate.md)
@@ -60,8 +62,6 @@ Its the root base class in NodeGui world.
   ↳ [QTreeWidgetItem](qtreewidgetitem.md)
 
   ↳ [QColor](qcolor.md)
-
-  ↳ [QPoint](qpoint.md)
 
   ↳ [QPainter](qpainter.md)
 

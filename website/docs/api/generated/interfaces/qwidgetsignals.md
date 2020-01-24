@@ -24,6 +24,8 @@ sidebar_label: "QWidgetSignals"
 
   ↳ [QLineEditSignals](qlineeditsignals.md)
 
+  ↳ [QStatusBarSignals](qstatusbarsignals.md)
+
   ↳ [QProgressBarSignals](qprogressbarsignals.md)
 
   ↳ [QComboBoxSignals](qcomboboxsignals.md)
@@ -63,9 +65,12 @@ sidebar_label: "QWidgetSignals"
 
 **Parameters:**
 
+▪ **pos**: *object*
+
 Name | Type |
 ------ | ------ |
-`pos` | object |
+`x` | number |
+`y` | number |
 
 ___
 

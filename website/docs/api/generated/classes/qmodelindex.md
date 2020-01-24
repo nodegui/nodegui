@@ -100,7 +100,7 @@ ___
 
 Name | Type | Default |
 ------ | ------ | ------ |
-`role` | [ItemDataRole](../enums/itemdatarole.md) |  ItemDataRole.DisplayRole |
+`role` | [ItemDataRole](../enums/itemdatarole.md) | ItemDataRole.DisplayRole |
 
 **Returns:** *[QVariant](qvariant.md)*
 

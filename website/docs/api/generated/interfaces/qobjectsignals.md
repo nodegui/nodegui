@@ -10,9 +10,9 @@ sidebar_label: "QObjectSignals"
 
   ↳ [QMovieSignals](qmoviesignals.md)
 
-  ↳ [QWidgetSignals](qwidgetsignals.md)
-
   ↳ [QActionSignals](qactionsignals.md)
+
+  ↳ [QWidgetSignals](qwidgetsignals.md)
 
   ↳ [QButtonGroupSignals](qbuttongroupsignals.md)
 

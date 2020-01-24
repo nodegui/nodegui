@@ -8,6 +8,7 @@ sidebar_label: "ItemDataRole"
 
 ### Enumeration members
 
+* [CheckStateRole](itemdatarole.md#checkstaterole)
 * [DecorationRole](itemdatarole.md#decorationrole)
 * [DisplayRole](itemdatarole.md#displayrole)
 * [EditRole](itemdatarole.md#editrole)
@@ -17,6 +18,12 @@ sidebar_label: "ItemDataRole"
 * [WhatsThisRole](itemdatarole.md#whatsthisrole)
 
 ## Enumeration members
+
+###  CheckStateRole
+
+• **CheckStateRole**: = 10
+
+___
 
 ###  DecorationRole
 

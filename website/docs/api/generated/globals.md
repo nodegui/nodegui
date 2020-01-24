@@ -103,10 +103,13 @@ sidebar_label: "Globals"
 * [ScrollPhase](enums/scrollphase.md)
 * [SelectionBehavior](enums/selectionbehavior.md)
 * [SelectionMode](enums/selectionmode.md)
+* [SequenceFormat](enums/sequenceformat.md)
+* [SequenceMatch](enums/sequencematch.md)
 * [ShortcutContext](enums/shortcutcontext.md)
 * [SizeAdjustPolicy](enums/sizeadjustpolicy.md)
 * [SizeHint](enums/sizehint.md)
 * [SizeMode](enums/sizemode.md)
+* [SliderAction](enums/slideraction.md)
 * [SortOrder](enums/sortorder.md)
 * [StandardButton](enums/standardbutton.md)
 * [SystemFont](enums/systemfont.md)
@@ -116,6 +119,7 @@ sidebar_label: "Globals"
 * [TextFlag](enums/textflag.md)
 * [TextFormat](enums/textformat.md)
 * [TextInteractionFlag](enums/textinteractionflag.md)
+* [TickPosition](enums/tickposition.md)
 * [TileRule](enums/tilerule.md)
 * [TimeSpec](enums/timespec.md)
 * [TimerType](enums/timertype.md)
@@ -197,8 +201,10 @@ sidebar_label: "Globals"
 * [QScrollArea](classes/qscrollarea.md)
 * [QShortcut](classes/qshortcut.md)
 * [QSize](classes/qsize.md)
+* [QSlider](classes/qslider.md)
 * [QSpinBox](classes/qspinbox.md)
 * [QStackedWidget](classes/qstackedwidget.md)
+* [QStatusBar](classes/qstatusbar.md)
 * [QStyle](classes/qstyle.md)
 * [QSystemTrayIcon](classes/qsystemtrayicon.md)
 * [QTabWidget](classes/qtabwidget.md)
@@ -239,12 +245,14 @@ sidebar_label: "Globals"
 * [QShortcutSignals](interfaces/qshortcutsignals.md)
 * [QSpinBoxSignals](interfaces/qspinboxsignals.md)
 * [QStackedWidgetSignals](interfaces/qstackedwidgetsignals.md)
+* [QStatusBarSignals](interfaces/qstatusbarsignals.md)
 * [QSystemTrayIconSignals](interfaces/qsystemtrayiconsignals.md)
 * [QTabWidgetSignals](interfaces/qtabwidgetsignals.md)
 * [QTableWidgetSignals](interfaces/qtablewidgetsignals.md)
 * [QToolButtonSignals](interfaces/qtoolbuttonsignals.md)
 * [QTreeWidgetSignals](interfaces/qtreewidgetsignals.md)
 * [QWidgetSignals](interfaces/qwidgetsignals.md)
+* [Range](interfaces/range.md)
 
 ### Type aliases
 
@@ -266,13 +274,25 @@ sidebar_label: "Globals"
 * [QPushButtonSignals](globals.md#qpushbuttonsignals)
 * [QRadioButtonSignals](globals.md#qradiobuttonsignals)
 * [QScrollAreaSignals](globals.md#qscrollareasignals)
+* [QSliderSignals](globals.md#qslidersignals)
 * [QVariantType](globals.md#qvarianttype)
+* [SupportedFormats](globals.md#supportedformats)
+* [arg](globals.md#arg)
+
+### Variables
+
+* [addon](globals.md#const-addon)
+* [testImagePath](globals.md#const-testimagepath)
+* [win](globals.md#const-win)
 
 ### Functions
 
 * [checkIfNapiExternal](globals.md#checkifnapiexternal)
 * [checkIfNativeElement](globals.md#checkifnativeelement)
+* [main](globals.md#main)
+* [noop](globals.md#noop)
 * [prepareInlineStyleSheet](globals.md#prepareinlinestylesheet)
+* [wrapWithActivateUvLoop](globals.md#const-wrapwithactivateuvloop)
 
 ## Type aliases
 
@@ -301,6 +321,8 @@ ___
 #### Type declaration:
 
 * \[ **key**: *string*\]: any
+
+* **type**: *"native"*
 
 ___
 
@@ -390,9 +412,45 @@ ___
 
 ___
 
+###  QSliderSignals
+
+Ƭ **QSliderSignals**: *[QAbstractSliderSignals](interfaces/qabstractslidersignals.md)*
+
+___
+
 ###  QVariantType
 
 Ƭ **QVariantType**: *[NativeElement](globals.md#nativeelement) | string | number | boolean*
+
+___
+
+###  SupportedFormats
+
+Ƭ **SupportedFormats**: *"gif" | "webp"*
+
+___
+
+###  arg
+
+Ƭ **arg**: *string | [NativeElement](globals.md#nativeelement)*
+
+## Variables
+
+### `Const` addon
+
+• **addon**: *any* = require('../../../build/Release/nodegui_core.node')
+
+___
+
+### `Const` testImagePath
+
+• **testImagePath**: *string* = path.resolve(__dirname, 'assets', 'nodegui.png')
+
+___
+
+### `Const` win
+
+• **win**: *[QMainWindow](classes/qmainwindow.md)‹›* = new QMainWindow()
 
 ## Functions
 
@@ -424,6 +482,22 @@ Name | Type |
 
 ___
 
+###  main
+
+▸ **main**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  noop
+
+▸ **noop**(): *void*
+
+**Returns:** *void*
+
+___
+
 ###  prepareInlineStyleSheet
 
 ▸ **prepareInlineStyleSheet**<**Signals**>(`widget`: [NodeWidget](classes/nodewidget.md)‹Signals›, `rawStyle`: string): *string*
@@ -440,3 +514,17 @@ Name | Type |
 `rawStyle` | string |
 
 **Returns:** *string*
+
+___
+
+### `Const` wrapWithActivateUvLoop
+
+▸ **wrapWithActivateUvLoop**(`func`: Function): *(Anonymous function)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`func` | Function |
+
+**Returns:** *(Anonymous function)*

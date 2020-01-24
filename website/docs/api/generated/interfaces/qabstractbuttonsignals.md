@@ -55,9 +55,12 @@ ___
 
 **Parameters:**
 
+▪ **pos**: *object*
+
 Name | Type |
 ------ | ------ |
-`pos` | object |
+`x` | number |
+`y` | number |
 
 ___
 

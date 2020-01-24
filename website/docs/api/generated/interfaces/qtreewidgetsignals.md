@@ -14,13 +14,39 @@ sidebar_label: "QTreeWidgetSignals"
 
 ### Properties
 
+* [currentItemChanged](qtreewidgetsignals.md#currentitemchanged)
 * [customContextMenuRequested](qtreewidgetsignals.md#customcontextmenurequested)
+* [itemActivated](qtreewidgetsignals.md#itemactivated)
+* [itemChanged](qtreewidgetsignals.md#itemchanged)
+* [itemClicked](qtreewidgetsignals.md#itemclicked)
+* [itemCollapsed](qtreewidgetsignals.md#itemcollapsed)
+* [itemDoubleClicked](qtreewidgetsignals.md#itemdoubleclicked)
+* [itemEntered](qtreewidgetsignals.md#itementered)
+* [itemExpanded](qtreewidgetsignals.md#itemexpanded)
+* [itemPressed](qtreewidgetsignals.md#itempressed)
 * [itemSelectionChanged](qtreewidgetsignals.md#itemselectionchanged)
 * [objectNameChanged](qtreewidgetsignals.md#objectnamechanged)
 * [windowIconChanged](qtreewidgetsignals.md#windowiconchanged)
 * [windowTitleChanged](qtreewidgetsignals.md#windowtitlechanged)
 
 ## Properties
+
+###  currentItemChanged
+
+• **currentItemChanged**: *function*
+
+#### Type declaration:
+
+▸ (`current`: [QTreeWidgetItem](../classes/qtreewidgetitem.md), `previous`: [QTreeWidgetItem](../classes/qtreewidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`current` | [QTreeWidgetItem](../classes/qtreewidgetitem.md) |
+`previous` | [QTreeWidgetItem](../classes/qtreewidgetitem.md) |
+
+___
 
 ###  customContextMenuRequested
 
@@ -34,9 +60,146 @@ sidebar_label: "QTreeWidgetSignals"
 
 **Parameters:**
 
+▪ **pos**: *object*
+
 Name | Type |
 ------ | ------ |
-`pos` | object |
+`x` | number |
+`y` | number |
+
+___
+
+###  itemActivated
+
+• **itemActivated**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QTreeWidgetItem](../classes/qtreewidgetitem.md) | null, `column`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTreeWidgetItem](../classes/qtreewidgetitem.md) &#124; null |
+`column` | number |
+
+___
+
+###  itemChanged
+
+• **itemChanged**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QTreeWidgetItem](../classes/qtreewidgetitem.md), `column`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTreeWidgetItem](../classes/qtreewidgetitem.md) |
+`column` | number |
+
+___
+
+###  itemClicked
+
+• **itemClicked**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QTreeWidgetItem](../classes/qtreewidgetitem.md), `column`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTreeWidgetItem](../classes/qtreewidgetitem.md) |
+`column` | number |
+
+___
+
+###  itemCollapsed
+
+• **itemCollapsed**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QTreeWidgetItem](../classes/qtreewidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTreeWidgetItem](../classes/qtreewidgetitem.md) |
+
+___
+
+###  itemDoubleClicked
+
+• **itemDoubleClicked**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QTreeWidgetItem](../classes/qtreewidgetitem.md) | null, `column`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTreeWidgetItem](../classes/qtreewidgetitem.md) &#124; null |
+`column` | number |
+
+___
+
+###  itemEntered
+
+• **itemEntered**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QTreeWidgetItem](../classes/qtreewidgetitem.md), `column`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTreeWidgetItem](../classes/qtreewidgetitem.md) |
+`column` | number |
+
+___
+
+###  itemExpanded
+
+• **itemExpanded**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QTreeWidgetItem](../classes/qtreewidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTreeWidgetItem](../classes/qtreewidgetitem.md) |
+
+___
+
+###  itemPressed
+
+• **itemPressed**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QTreeWidgetItem](../classes/qtreewidgetitem.md) | null, `column`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTreeWidgetItem](../classes/qtreewidgetitem.md) &#124; null |
+`column` | number |
 
 ___
 

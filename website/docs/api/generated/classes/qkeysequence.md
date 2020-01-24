@@ -37,7 +37,11 @@ const keySequence = new QKeySequence(`Ctrl+L`);
 ### Methods
 
 * [count](qkeysequence.md#count)
+* [isEmpty](qkeysequence.md#isempty)
+* [matches](qkeysequence.md#matches)
 * [setNodeParent](qkeysequence.md#setnodeparent)
+* [toString](qkeysequence.md#tostring)
+* [fromQVariant](qkeysequence.md#static-fromqvariant)
 
 ## Constructors
 
@@ -46,6 +50,18 @@ const keySequence = new QKeySequence(`Ctrl+L`);
 \+ **new QKeySequence**(): *[QKeySequence](qkeysequence.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
+
+**Returns:** *[QKeySequence](qkeysequence.md)*
+
+\+ **new QKeySequence**(`native`: [NativeElement](../globals.md#nativeelement)): *[QKeySequence](qkeysequence.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`native` | [NativeElement](../globals.md#nativeelement) |
 
 **Returns:** *[QKeySequence](qkeysequence.md)*
 
@@ -95,6 +111,28 @@ ___
 
 ___
 
+###  isEmpty
+
+▸ **isEmpty**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  matches
+
+▸ **matches**(`seq`: [QKeySequence](qkeysequence.md)): *[SequenceMatch](../enums/sequencematch.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`seq` | [QKeySequence](qkeysequence.md) |
+
+**Returns:** *[SequenceMatch](../enums/sequencematch.md)*
+
+___
+
 ###  setNodeParent
 
 ▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
@@ -108,3 +146,31 @@ Name | Type |
 `parent?` | [Component](component.md) |
 
 **Returns:** *void*
+
+___
+
+###  toString
+
+▸ **toString**(`format`: [SequenceFormat](../enums/sequenceformat.md)): *string*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`format` | [SequenceFormat](../enums/sequenceformat.md) |
+
+**Returns:** *string*
+
+___
+
+### `Static` fromQVariant
+
+▸ **fromQVariant**(`variant`: [QVariant](qvariant.md)): *[QKeySequence](qkeysequence.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`variant` | [QVariant](qvariant.md) |
+
+**Returns:** *[QKeySequence](qkeysequence.md)*

@@ -1,42 +1,26 @@
 ---
-id: "qstackedwidgetsignals"
-title: "QStackedWidgetSignals"
-sidebar_label: "QStackedWidgetSignals"
+id: "qstatusbarsignals"
+title: "QStatusBarSignals"
+sidebar_label: "QStatusBarSignals"
 ---
 
 ## Hierarchy
 
   ↳ [QWidgetSignals](qwidgetsignals.md)
 
-  ↳ **QStackedWidgetSignals**
+  ↳ **QStatusBarSignals**
 
 ## Index
 
 ### Properties
 
-* [currentChanged](qstackedwidgetsignals.md#currentchanged)
-* [customContextMenuRequested](qstackedwidgetsignals.md#customcontextmenurequested)
-* [objectNameChanged](qstackedwidgetsignals.md#objectnamechanged)
-* [windowIconChanged](qstackedwidgetsignals.md#windowiconchanged)
-* [windowTitleChanged](qstackedwidgetsignals.md#windowtitlechanged)
+* [customContextMenuRequested](qstatusbarsignals.md#customcontextmenurequested)
+* [messageChanged](qstatusbarsignals.md#messagechanged)
+* [objectNameChanged](qstatusbarsignals.md#objectnamechanged)
+* [windowIconChanged](qstatusbarsignals.md#windowiconchanged)
+* [windowTitleChanged](qstatusbarsignals.md#windowtitlechanged)
 
 ## Properties
-
-###  currentChanged
-
-• **currentChanged**: *function*
-
-#### Type declaration:
-
-▸ (`index`: number): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`index` | number |
-
-___
 
 ###  customContextMenuRequested
 
@@ -56,6 +40,22 @@ Name | Type |
 ------ | ------ |
 `x` | number |
 `y` | number |
+
+___
+
+###  messageChanged
+
+• **messageChanged**: *function*
+
+#### Type declaration:
+
+▸ (`message`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`message` | string |
 
 ___
 

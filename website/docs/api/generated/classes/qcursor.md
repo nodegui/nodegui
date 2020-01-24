@@ -106,6 +106,10 @@ ___
 
 **Returns:** *object*
 
+* **x**: *number*
+
+* **y**: *number*
+
 ___
 
 ###  setNodeParent
