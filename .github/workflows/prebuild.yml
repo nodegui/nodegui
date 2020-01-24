@@ -22,7 +22,7 @@ jobs:
               env:
                   SKIP_BUILD: 1
             - name: Change version if master
-              if: contains(github.event.action, 'on-demand-build')
+              if: contains(github.event.client_payload.tag, '0.0.0-latest-master')
               run: npm --no-git-tag-version version 0.0.0-latest-master
             - name: Prebuild binary
               run: npm run prebuild:build
