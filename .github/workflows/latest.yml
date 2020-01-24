@@ -40,6 +40,6 @@ jobs:
               uses: peter-evans/repository-dispatch@v1
               with:
                   token: ${{ secrets.REPO_ACCESS_TOKEN }}
-                  repository: master-atul/nodegui
+                  repository: nodegui/nodegui
                   event-type: on-demand-build
                   client-payload: '{"ref": "${{ github.ref }}","tag": "v0.0.0-latest-master"}'
