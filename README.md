@@ -57,16 +57,22 @@ https://github.com/nodegui/examples
 
 ## Installation
 
-To install latest stable release:
+#### To install latest stable release:
 
 ```
 npm install @nodegui/nodegui
 ```
 
-To install the latest version available on master branch:
+#### To install the latest version available on master branch:
 
 ```
 npm install https://github.com/nodegui/nodegui/releases/download/v0.0.0-latest-master/nodegui-master.tgz
+```
+
+or a shorter version:
+
+```
+npm i http://master-release.nodegui.org
 ```
 
 **Community guides**
@@ -187,6 +193,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
