@@ -27,7 +27,7 @@ jobs:
             - name: Prebuild binary
               run: npm run prebuild:build
             - name: Release
-              uses: softprops/action-gh-release@v1
+              uses: softprops/action-gh-release@master
               with:
                   files: prebuilds/@nodegui/*.tar.gz
                   tag_name: ${{ github.event.release.tag_name || github.event.client_payload.tag }}
