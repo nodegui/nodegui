@@ -16,8 +16,6 @@ Visit: https://nodegui.github.io/nodegui for docs.
 
 <img alt="logo" src="https://github.com/nodegui/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
 
-> This project is in active development. It should be okay for smaller projects but anything complex - electron is the way to go for now. 🚧
-
 ## How does it look?
 
 <div style="display:inline; margin: 0 auto;">
@@ -68,7 +66,7 @@ npm install @nodegui/nodegui
 To install the latest version available on master branch:
 
 ```
-npm install https://github.com/nodegui/nodegui/releases/download/latest-master/nodegui-master.tgz
+npm install https://github.com/nodegui/nodegui/releases/download/v0.0.0-latest-master/nodegui-master.tgz
 ```
 
 **Community guides**
