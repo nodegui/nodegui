@@ -25,7 +25,7 @@ jobs:
               if: contains(github.event.client_payload.tag, '0.0.0-latest-master')
               run: npm --no-git-tag-version version 0.0.0-latest-master
             - name: Prebuild binary
-              run: npm run prebuild:build
+              run: npx prebuild --all --backend=cmake-js --strip --runtime=napi --include-regex="\.[n,e,l][a-z]*$"
             - name: Release
               uses: softprops/action-gh-release@master
               with:

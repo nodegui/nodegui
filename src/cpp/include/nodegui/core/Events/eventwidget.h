@@ -1,7 +1,9 @@
 #pragma once
 
 #include <napi.h>
+
 #include <QEvent>
+
 #include "Extras/Utils/nutils.h"
 #include "core/Events/eventsmap.h"
 
