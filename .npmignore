@@ -7,3 +7,4 @@ extras/*
 !extras/legal
 src/*
 !src/cpp
+prebuilds/*
