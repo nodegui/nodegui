@@ -39,7 +39,7 @@
         "eslint-plugin-prettier": "^3.1.1",
         "husky": "^4.0.10",
         "jest": "^24.9.0",
-        "prebuild": "^9.1.1",
+        "prebuild": "^10.0.0",
         "prettier": "^1.18.2",
         "ts-jest": "^24.1.0",
         "typedoc": "^0.16.7",
