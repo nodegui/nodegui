@@ -2,7 +2,9 @@
 
 #include <napi.h>
 
+#include <QBuffer>
 #include <QPointer>
+#include <QSharedPointer>
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_macro.h"
@@ -13,6 +15,7 @@ class DLL_EXPORT QMovieWrap : public Napi::ObjectWrap<QMovieWrap> {
 
  private:
   QPointer<NMovie> instance;
+  QSharedPointer<QBuffer> bufferDevice;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
@@ -36,4 +39,5 @@ class DLL_EXPORT QMovieWrap : public Napi::ObjectWrap<QMovieWrap> {
   Napi::Value currentFrameNumber(const Napi::CallbackInfo& info);
   Napi::Value currentPixmap(const Napi::CallbackInfo& info);
   Napi::Value loadFromData(const Napi::CallbackInfo& info);
+  Napi::Value frameCount(const Napi::CallbackInfo& info);
 };

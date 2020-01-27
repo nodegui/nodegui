@@ -28,6 +28,7 @@ Napi::Object QMovieWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("currentFrameNumber", &QMovieWrap::currentFrameNumber),
        InstanceMethod("currentPixmap", &QMovieWrap::currentPixmap),
        InstanceMethod("loadFromData", &QMovieWrap::loadFromData),
+       InstanceMethod("frameCount", &QMovieWrap::frameCount),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QMovieWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -57,6 +58,7 @@ QMovieWrap::QMovieWrap(const Napi::CallbackInfo& info)
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+  this->bufferDevice = QSharedPointer<QBuffer>(new QBuffer);
   this->rawData = extrautils::configureQObject(this->getInternalInstance());
 }
 
@@ -167,8 +169,13 @@ Napi::Value QMovieWrap::loadFromData(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
   Napi::Buffer<const char> buffer = info[0].As<Napi::Buffer<const char>>();
   QByteArray byteArray = QByteArray(buffer.Data(), buffer.Length());
-  QBuffer* bufferDevice = new QBuffer();
-  bufferDevice->setData(byteArray);
-  this->instance->setDevice(bufferDevice);
+  this->bufferDevice->setData(byteArray);
+  this->instance->setDevice(bufferDevice.data());
   return env.Null();
+}
+Napi::Value QMovieWrap::frameCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int frameCount = this->instance->frameCount();
+  return Napi::Value::From(env, frameCount);
 }
