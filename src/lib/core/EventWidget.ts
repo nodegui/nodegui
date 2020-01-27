@@ -1,6 +1,11 @@
 import { EventEmitter } from 'events';
 import { NativeElement, Component, NativeRawPointer } from './Component';
 
+function addDefaultErrorHandler(native: NativeElement, emitter: EventEmitter): void {
+    native.subscribeToQtEvent('error');
+    emitter.addListener('error', () => null);
+}
+
 /**
  
 > Abstract class that adds event handling support to all widgets.
@@ -37,6 +42,7 @@ export abstract class EventWidget<Signals extends {}> extends Component {
         } else {
             throw new Error('initNodeEventEmitter not implemented on native side');
         }
+        addDefaultErrorHandler(native, this.emitter);
     }
 
     /**

@@ -74,6 +74,9 @@ export class QMovie extends NodeObject<QMovieSignals> {
     currentPixmap(): QPixmap {
         return new QPixmap(this.native.currentPixmap());
     }
+    frameCount(): number {
+        return this.native.frameCount();
+    }
 }
 
 export enum CacheMode {
