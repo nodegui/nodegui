@@ -9,17 +9,7 @@
     This is required inorder to make the timers work nicely due to merger of event loops
 */
 
-function noop(): void {
-    return;
-}
-
-const wrapWithActivateUvLoop = (func: Function) => {
-    return (...args: any[]): any => {
-        const activateUvLoop = (process as any).activateUvLoop || noop;
-        activateUvLoop();
-        return func(...args);
-    };
-};
+import { wrapWithActivateUvLoop } from '../utils/helpers';
 
 function main(): void {
     process.nextTick = wrapWithActivateUvLoop(process.nextTick);
