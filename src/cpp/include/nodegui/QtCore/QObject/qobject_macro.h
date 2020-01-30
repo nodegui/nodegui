@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QDebug>
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
 #include "core/Events/eventwidget_macro.h"
@@ -29,8 +30,9 @@
     Napi::Value value = info[1];                                             \
     auto variant =                                                           \
         QSharedPointer<QVariant>(extrautils::convertToQVariant(env, value)); \
-    this->instance->setProperty(name.Utf8Value().c_str(), *variant);         \
-    return env.Null();                                                       \
+    auto result =                                                            \
+        this->instance->setProperty(name.Utf8Value().c_str(), *variant);     \
+    return Napi::Value::From(env, result);                                   \
   }                                                                          \
   Napi::Value property(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                              \

@@ -1,6 +1,7 @@
 #include "Extras/Utils/nutils.h"
 
 #include <QApplication>
+#include <QDebug>
 #include <QFont>
 #include <QMetaType>
 #include <QWidget>

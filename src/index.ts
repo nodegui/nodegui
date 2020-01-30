@@ -58,7 +58,9 @@ export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
 export { QPainter, RenderHint } from './lib/QtWidgets/QPainter';
 export { QDialog, QDialogSignals } from './lib/QtWidgets/QDialog';
-export { QMessageBox, StandardButton, Icon, ButtonRole } from './lib/QtWidgets/QMessageBox';
+export { QMessageBox, QMessageBoxSignals, QMessageBoxIcon, ButtonRole } from './lib/QtWidgets/QMessageBox';
+export { QInputDialog, QInputDialogSignals, InputDialogOptions, InputMode } from './lib/QtWidgets/QInputDialog';
+
 export { QButtonGroup, QButtonGroupSignals } from './lib/QtWidgets/QButtonGroup';
 
 export {
