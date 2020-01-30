@@ -1,9 +1,9 @@
 #include "QtWidgets/QInputDialog/qinputdialog_wrap.h"
 
 #include <QDebug>
+#include <QLineEdit>
 #include <QWidget>
 
-#include <QLineEdit>
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QDebug>
+
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
 #include "core/Events/eventwidget_macro.h"
