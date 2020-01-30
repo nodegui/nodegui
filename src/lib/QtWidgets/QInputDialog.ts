@@ -38,106 +38,106 @@ export class QInputDialog extends NodeDialog<QInputDialogSignals> {
         this.setNodeParent(parent);
     }
     setCancelButtonText(text: string): void {
-        this.setProperty('cancelButtonText', text);
+        this.native.setCancelButtonText(text);
     }
     cancelButtonText(): string {
-        return this.property('cancelButtonText').toString();
+        return this.native.cancelButtonText();
     }
     setComboBoxEditable(editable: boolean): void {
-        this.setProperty('comboxBoxEditable', editable);
+        this.native.setComboxBoxEditable(editable);
     }
-    comboBoxEditable(): boolean {
-        return this.property('comboxBoxEditable').toBool();
+    isComboBoxEditable(): boolean {
+        return this.native.isComboxBoxEditable();
     }
     setDoubleDecimals(decimals: number): void {
-        this.setProperty('doubleDecimals', decimals);
+        this.native.setDoubleDecimals(decimals);
     }
     doubleDecimals(): number {
-        return this.property('doubleDecimals').toDouble();
+        return this.native.doubleDecimals();
     }
     setDoubleMaximum(value: number): void {
-        this.setProperty('doubleMaximum', value);
+        this.native.setDoubleMaximum(value);
     }
     doubleMaximum(): number {
-        return this.property('doubleMaximum').toDouble();
+        return this.native.doubleMaximum();
     }
     setDoubleMinimum(value: number): void {
-        this.setProperty('doubleMinimum', value);
+        this.native.setDoubleMinimum(value);
     }
     doubleMinimum(): number {
-        return this.property('doubleMinimum').toDouble();
+        return this.native.doubleMinimum();
     }
     doubleStep(): number {
-        return this.property('doubleStep').toDouble();
+        return this.native.doubleStep();
     }
     setDoubleStep(value: number): void {
-        this.setProperty('doubleStep', value);
+        this.native.setDoubleStep(value);
     }
     doubleValue(): number {
-        return this.property('doubleValue').toDouble();
+        return this.native.doubleValue();
     }
     setDoubleValue(value: number): void {
-        this.setProperty('doubleValue', value);
+        this.native.setDoubleValue(value);
     }
     inputMode(): InputMode {
-        return this.property('inputMode').toInt();
+        return this.native.inputMode();
     }
     setInputMode(value: InputMode): void {
-        this.setProperty('inputMode', value);
+        this.native.setInputMode(value);
     }
     intMaximum(): number {
-        return this.property('intMaximum').toInt();
+        return this.native.intMaximum();
     }
     setIntMaximum(value: number): void {
-        this.setProperty('intMaximum', value);
+        this.native.setIntMaximum(value);
     }
     intMinimum(): number {
-        return this.property('intMinimum').toInt();
+        return this.native.intMinimum();
     }
     setIntMinimum(value: number): void {
-        this.setProperty('intMinimum', value);
+        this.native.setIntMinimum(value);
     }
     intStep(): number {
-        return this.property('intStep').toInt();
+        return this.native.intStep();
     }
     setIntStep(value: number): void {
-        this.setProperty('intStep', value);
+        this.native.setIntStep(value);
     }
     intValue(): number {
-        return this.property('intValue').toInt();
+        return this.native.intValue();
     }
     setIntValue(value: number): void {
-        this.setProperty('intValue', value);
+        this.native.setIntValue(value);
     }
     labelText(): string {
-        return this.property('labelText').toString();
+        return this.native.labelText();
     }
     setLabelText(value: string): void {
-        this.setProperty('labelText', value);
+        this.native.setLabelText(value);
     }
     okButtonText(): string {
-        return this.property('okButtonText').toString();
+        return this.native.okButtonText();
     }
     setOkButtonText(value: string): void {
-        this.setProperty('okButtonText', value);
+        this.native.setOkButtonText(value);
     }
     options(): InputDialogOptions {
-        return this.property('options').toInt();
+        return this.native.options();
     }
     setOptions(value: InputDialogOptions): void {
-        this.setProperty('options', value);
+        this.native.setOptions(value);
     }
     textEchoMode(): EchoMode {
-        return this.property('textEchoMode').toInt();
+        return this.native.textEchoMode();
     }
     setTextEchoMode(value: EchoMode): void {
-        this.setProperty('textEchoMode', value);
+        this.native.setTextEchoMode(value);
     }
     textValue(): string {
-        return this.property('textValue').toString();
+        return this.native.textValue();
     }
     setTextValue(value: string): void {
-        this.setProperty('textValue', value);
+        this.native.setTextValue(value);
     }
 }
 
