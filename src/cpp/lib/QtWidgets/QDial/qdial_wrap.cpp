@@ -11,9 +11,9 @@ Napi::FunctionReference QDialWrap::constructor;
 Napi::Object QDialWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QDial";
-  Napi::Function func = DefineClass(
-      env, CLASSNAME,
-      {QABSTRACTSLIDER_WRAPPED_METHODS_EXPORT_DEFINE(QDialWrap)});
+  Napi::Function func =
+      DefineClass(env, CLASSNAME,
+                  {QABSTRACTSLIDER_WRAPPED_METHODS_EXPORT_DEFINE(QDialWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

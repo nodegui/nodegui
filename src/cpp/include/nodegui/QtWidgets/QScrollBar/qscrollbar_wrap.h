@@ -4,11 +4,12 @@
 
 #include <QPointer>
 
+#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nscrollbar.hpp"
 
-class QScrollBarWrap : public Napi::ObjectWrap<QScrollBarWrap> {
+class DLL_EXPORT QScrollBarWrap : public Napi::ObjectWrap<QScrollBarWrap> {
   QABSTRACTSLIDER_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NScrollBar> instance;

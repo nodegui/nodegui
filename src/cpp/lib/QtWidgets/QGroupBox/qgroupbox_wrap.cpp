@@ -10,9 +10,8 @@ Napi::FunctionReference QGroupBoxWrap::constructor;
 Napi::Object QGroupBoxWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QGroupBox";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QGroupBoxWrap)});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME, {QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QGroupBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

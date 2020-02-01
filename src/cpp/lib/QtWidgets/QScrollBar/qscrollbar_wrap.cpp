@@ -1,4 +1,3 @@
-
 #include "QtWidgets/QScrollBar/qscrollbar_wrap.h"
 
 #include <QWidget>
