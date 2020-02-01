@@ -1,8 +1,9 @@
 #pragma once
+
 #include <QSpinBox>
 
 #include "Extras/Utils/nutils.h"
-#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "QtWidgets/QAbstractSpinBox/qabstractspinbox_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -13,13 +14,14 @@ class DLL_EXPORT NSpinBox : public QSpinBox, public NodeWidget {
   using QSpinBox::QSpinBox;  // inherit all constructors of QSpinBox
 
   void connectSignalsToEventEmitter() {
-    QWIDGET_SIGNALS
+    QABSTRACTSPINBOX_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(
         this, QOverload<int>::of(&QSpinBox::valueChanged), [=](int val) {
           Napi::Env env = this->emitOnNode.Env();
           Napi::HandleScope scope(env);
-          this->emitOnNode.Call({Napi::String::New(env, "valueChanged")});
+          this->emitOnNode.Call({Napi::String::New(env, "valueChanged"),
+                                 Napi::Value::From(env, val)});
         });
   }
 };

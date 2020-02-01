@@ -54,35 +54,35 @@ export class QGroupBox extends NodeWidget<QGroupBoxSignals> {
         this.native = native;
         this.setNodeParent(parent);
     }
+    setAlignment(alignment: AlignmentFlag): void {
+        this.setProperty('alignment', alignment);
+    }
     alignment(): AlignmentFlag {
-        return this.native.alignment();
-    }
-    isCheckable(): boolean {
-        return this.native.isCheckable();
-    }
-    isChecked(): boolean {
-        return this.native.isChecked();
-    }
-    isFlat(): boolean {
-        return this.native.isFlat();
-    }
-    setAlignment(alignment: number): void {
-        this.native.setAlignment(alignment);
+        return this.property('alignment').toInt();
     }
     setCheckable(checkable: boolean): void {
-        this.native.setCheckable(checkable);
+        this.setProperty('checkable', checkable);
     }
-    setFlat(flat: boolean): void {
-        this.native.setFlat(flat);
-    }
-    setTitle(title: string): void {
-        this.native.setTitle(title);
-    }
-    title(): string {
-        return this.native.title();
+    isCheckable(): boolean {
+        return this.property('checkable').toBool();
     }
     setChecked(checked: boolean): void {
-        this.native.setChecked(checked);
+        this.setProperty('checked', checked);
+    }
+    isChecked(): boolean {
+        return this.property('checked').toBool();
+    }
+    setFlat(flat: boolean): void {
+        this.setProperty('flat', flat);
+    }
+    isFlat(): boolean {
+        return this.property('flat').toBool();
+    }
+    setTitle(title: string): void {
+        this.setProperty('title', title);
+    }
+    title(): string {
+        return this.property('title').toString();
     }
 }
 

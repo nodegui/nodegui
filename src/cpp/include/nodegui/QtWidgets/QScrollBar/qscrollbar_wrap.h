@@ -4,21 +4,20 @@
 
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
 #include "QtWidgets/QAbstractSlider/qabstractslider_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
-#include "ndial.hpp"
+#include "nscrollbar.hpp"
 
-class DLL_EXPORT QDialWrap : public Napi::ObjectWrap<QDialWrap> {
+class QScrollBarWrap : public Napi::ObjectWrap<QScrollBarWrap> {
   QABSTRACTSLIDER_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NDial> instance;
+  QPointer<NScrollBar> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
-  QDialWrap(const Napi::CallbackInfo& info);
-  ~QDialWrap();
-  NDial* getInternalInstance();
+  QScrollBarWrap(const Napi::CallbackInfo& info);
+  ~QScrollBarWrap();
+  NScrollBar* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

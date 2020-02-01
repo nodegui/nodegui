@@ -1,27 +1,28 @@
-#include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
+
+#include "QtWidgets/QScrollBar/qscrollbar_wrap.h"
 
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
-Napi::FunctionReference QGroupBoxWrap::constructor;
+Napi::FunctionReference QScrollBarWrap::constructor;
 
-Napi::Object QGroupBoxWrap::init(Napi::Env env, Napi::Object exports) {
+Napi::Object QScrollBarWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
-  char CLASSNAME[] = "QGroupBox";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QGroupBoxWrap)});
+  char CLASSNAME[] = "QScrollBar";
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {QABSTRACTSLIDER_WRAPPED_METHODS_EXPORT_DEFINE(QScrollBarWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
 }
 
-NGroupBox* QGroupBoxWrap::getInternalInstance() { return this->instance; }
+NScrollBar* QScrollBarWrap::getInternalInstance() { return this->instance; }
 
-QGroupBoxWrap::QGroupBoxWrap(const Napi::CallbackInfo& info)
-    : Napi::ObjectWrap<QGroupBoxWrap>(info) {
+QScrollBarWrap::QScrollBarWrap(const Napi::CallbackInfo& info)
+    : Napi::ObjectWrap<QScrollBarWrap>(info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -29,16 +30,17 @@ QGroupBoxWrap::QGroupBoxWrap(const Napi::CallbackInfo& info)
     Napi::Object parentObject = info[0].As<Napi::Object>();
     QWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NGroupBox(parentWidgetWrap->getInternalInstance());
+    this->instance = new NScrollBar(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
-    this->instance = new NGroupBox();
+    this->instance = new NScrollBar();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
+
   this->rawData = extrautils::configureQWidget(
       this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      false);
+      true);
 }
 
-QGroupBoxWrap::~QGroupBoxWrap() { extrautils::safeDelete(this->instance); }
+QScrollBarWrap::~QScrollBarWrap() { extrautils::safeDelete(this->instance); }

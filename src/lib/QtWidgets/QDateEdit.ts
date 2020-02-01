@@ -25,13 +25,13 @@ export class QDateEdit extends QDateTimeEdit {
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
+        super();
         let native;
         if (parent) {
             native = new addon.QDateEdit(parent.native);
         } else {
             native = new addon.QDateEdit();
         }
-        super(native);
         this.native = native;
         this.setNodeParent(parent);
     }

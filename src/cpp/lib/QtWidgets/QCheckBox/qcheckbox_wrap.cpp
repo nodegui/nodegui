@@ -12,8 +12,8 @@ Napi::Object QCheckBoxWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QCheckBox";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("setChecked", &QCheckBoxWrap::setChecked),
-       InstanceMethod("isChecked", &QCheckBoxWrap::isChecked),
+      {InstanceMethod("checkState", &QCheckBoxWrap::checkState),
+       InstanceMethod("setCheckState", &QCheckBoxWrap::setCheckState),
        QABSTRACTBUTTON_WRAPPED_METHODS_EXPORT_DEFINE(QCheckBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -57,17 +57,19 @@ QCheckBoxWrap::~QCheckBoxWrap() {
   }
 }
 
-Napi::Value QCheckBoxWrap::isChecked(const Napi::CallbackInfo& info) {
+Napi::Value QCheckBoxWrap::checkState(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  bool isChecked = this->instance->isChecked();
-  return Napi::Value::From(env, isChecked);
+
+  Qt::CheckState state = this->instance->checkState();
+  return Napi::Value::From(env, static_cast<int>(state));
 }
 
-Napi::Value QCheckBoxWrap::setChecked(const Napi::CallbackInfo& info) {
+Napi::Value QCheckBoxWrap::setCheckState(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  Napi::Boolean check = info[0].As<Napi::Boolean>();
-  this->instance->setChecked(check.Value());
+
+  int state = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setCheckState(static_cast<Qt::CheckState>(state));
   return env.Null();
 }

@@ -3,6 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NativeElement, NativeRawPointer, Component } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
+import { CheckState } from '../QtEnums';
 
 /**
  
@@ -44,12 +45,20 @@ export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
         this.native = native;
         parent && this.setNodeParent(parent);
     }
-    setChecked(check: boolean): void {
-        this.native.setChecked(check);
+    setTristate(y = true): void {
+        this.setProperty('tristate', y);
     }
-    isChecked(): boolean {
-        return this.native.isChecked();
+    isTristate(): boolean {
+        return this.property('tristate').toBool();
+    }
+    checkState(): CheckState {
+        return this.native.checkState();
+    }
+    setCheckState(state: CheckState): void {
+        this.native.setCheckState(state);
     }
 }
 
-export type QCheckBoxSignals = QAbstractButtonSignals;
+export interface QCheckBoxSignals extends QAbstractButtonSignals {
+    stateChanged: (state: number) => void;
+}
