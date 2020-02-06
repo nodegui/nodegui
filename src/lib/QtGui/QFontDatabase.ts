@@ -7,6 +7,9 @@ export class QFontDatabase extends Component {
         super();
         this.native = new addon.QFontDatabase();
     }
+    families(ws: WritingSystem = WritingSystem.Any): string[] {
+        return this.native.families(ws);
+    }
     bold(family: string, style: string): boolean {
         return this.native.bold(family, style);
     }
