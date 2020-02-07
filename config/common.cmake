@@ -3,6 +3,8 @@ if(CCACHE_PROGRAM)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
+set(CMAKE_OSX_DEPLOYMENT_TARGET "10.9" CACHE STRING "Minimum OS X deployment version")
+
 function(AddCommonConfig addonName)
     target_compile_features(${addonName} PRIVATE
         cxx_inheriting_constructors
