@@ -12,6 +12,7 @@ Napi::Object QFontDatabaseWrap::init(Napi::Env env, Napi::Object exports) {
       {InstanceMethod("bold", &QFontDatabaseWrap::bold),
        InstanceMethod("italic", &QFontDatabaseWrap::italic),
        InstanceMethod("weight", &QFontDatabaseWrap::weight),
+       InstanceMethod("families", &QFontDatabaseWrap::families),
        StaticMethod("addApplicationFont",
                     &StaticQFontDatabaseWrapMethods::addApplicationFont),
        StaticMethod("removeApplicationFont",
@@ -32,6 +33,21 @@ QFontDatabaseWrap::QFontDatabaseWrap(const Napi::CallbackInfo& info)
 
 QFontDatabase* QFontDatabaseWrap::getInternalInstance() {
   return this->instance.get();
+}
+
+Napi::Value QFontDatabaseWrap::families(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int writingSystem = 0;
+  if (info.Length() == 1) {
+    writingSystem = info[0].As<Napi::Number>().Int32Value();
+  }
+  QStringList families = this->instance->families(static_cast<QFontDatabase::WritingSystem>(writingSystem));
+  Napi::Array familiesNapi = Napi::Array::New(env, families.size());
+  for (int i = 0; i < families.size(); i++) {
+    familiesNapi[i] = Napi::String::New(env, families[i].toStdString());
+  }
+
+  return familiesNapi;
 }
 
 Napi::Value QFontDatabaseWrap::bold(const Napi::CallbackInfo& info) {
