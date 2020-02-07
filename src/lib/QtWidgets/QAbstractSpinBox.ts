@@ -100,6 +100,11 @@ export enum CorrectionMode {
     CorrectToNearestValue,
 }
 
+export enum StepType {
+    DefaultStepType,
+    AdaptiveDecimalStepType,
+}
+
 export interface QAbstractSpinBoxSignals extends QWidgetSignals {
     editingFinished: () => void;
 }

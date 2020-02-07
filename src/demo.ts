@@ -1,7 +1,7 @@
-import { QInputDialog } from './index';
+import { QDateEdit } from './lib/QtWidgets/QDateEdit';
 
-const dialog = new QInputDialog();
-dialog.setLabelText('Click that Omg button');
-dialog.exec();
+const dateEdit = new QDateEdit();
 
-// (global as any).win = win;
+dateEdit.show();
+
+(global as any).dateEdit = dateEdit;

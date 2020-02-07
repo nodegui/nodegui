@@ -23,6 +23,6 @@ class DLL_EXPORT QCheckBoxWrap : public Napi::ObjectWrap<QCheckBoxWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value isChecked(const Napi::CallbackInfo& info);
-  Napi::Value setChecked(const Napi::CallbackInfo& info);
+  Napi::Value checkState(const Napi::CallbackInfo& info);
+  Napi::Value setCheckState(const Napi::CallbackInfo& info);
 };

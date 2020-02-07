@@ -1,6 +1,7 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
+import { QAbstractSpinBox, QAbstractSpinBoxSignals, StepType } from './QAbstractSpinBox';
 
 /**
  
@@ -18,7 +19,7 @@ const { QSpinBox } = require("@nodegui/nodegui");
 const spinBox = new QSpinBox();
 ```
  */
-export class QSpinBox extends NodeWidget<QSpinBoxSignals> {
+export class QSpinBox extends QAbstractSpinBox<QSpinBoxSignals> {
     native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
@@ -33,44 +34,62 @@ export class QSpinBox extends NodeWidget<QSpinBoxSignals> {
         this.setNodeParent(parent);
         this.native = native;
     }
-    setPrefix(prefix: string): void {
-        // react:✓
-        this.native.setPrefix(prefix);
-    }
-    setSuffix(suffix: string): void {
-        // react:✓
-        this.native.setSuffix(suffix);
-    }
     cleanText(): string {
-        // react:✓
-        return this.native.cleanText();
+        return this.property('cleanText').toString();
     }
-    setSingleStep(val: number): void {
-        // react:✓
-        this.native.setSingleStep(val);
+    setDisplayIntegerBase(base: number): void {
+        this.setProperty('displayIntegerBase', base);
     }
-    setRange(minimum: number, maximum: number): void {
-        // react:✓
-        this.native.setRange(minimum, maximum);
+    displayIntegerBase(): number {
+        return this.property('displayIntegerBase').toInt();
+    }
+    setMaximum(max: number): void {
+        this.setProperty('maximum', max);
     }
     maximum(): number {
-        // react:✓
-        return this.native.maximum();
+        return this.property('maximum').toInt();
+    }
+    setMinimum(min: number): void {
+        this.setProperty('minimum', min);
     }
     minimum(): number {
-        // react:✓
-        return this.native.minimum();
+        return this.property('minimum').toInt();
+    }
+    setPrefix(prefix: string): void {
+        this.setProperty('prefix', prefix);
+    }
+    prefix(): string {
+        return this.property('prefix').toString();
+    }
+    setSingleStep(val: number): void {
+        this.setProperty('singleStep', val);
+    }
+    singleStep(): number {
+        return this.property('singleStep').toInt();
+    }
+    setStepType(stepType: StepType): void {
+        this.setProperty('stepType', stepType);
+    }
+    stepType(): StepType {
+        return this.property('stepType').toInt();
+    }
+    setSuffix(suffix: string): void {
+        this.setProperty('suffix', suffix);
+    }
+    suffix(): string {
+        return this.property('suffix').toString();
     }
     setValue(val: number): void {
-        // react:✓
-        this.native.setValue(val);
+        this.setProperty('value', val);
     }
     value(): number {
-        // react:✓
-        return this.native.value();
+        return this.property('value').toInt();
+    }
+    setRange(minimum: number, maximum: number): void {
+        this.native.setRange(minimum, maximum);
     }
 }
 
-export interface QSpinBoxSignals extends QWidgetSignals {
+export interface QSpinBoxSignals extends QAbstractSpinBoxSignals {
     valueChanged: (value: number) => void;
 }

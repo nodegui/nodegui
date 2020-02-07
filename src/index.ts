@@ -25,12 +25,18 @@ export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider, QAbstractSliderSignals } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';
 export { QAbstractItemView, QAbstractItemViewSignals } from './lib/QtWidgets/QAbstractItemView';
-export { QAbstractSpinBox } from './lib/QtWidgets/QAbstractSpinBox';
+export {
+    QAbstractSpinBox,
+    QAbstractSpinBoxSignals,
+    ButtonSymbols,
+    CorrectionMode,
+    StepType,
+} from './lib/QtWidgets/QAbstractSpinBox';
 // Widgets:
 export { QCalendarWidget, QCalendarWidgetSignals } from './lib/QtWidgets/QCalendarWidget';
 export { QCheckBox, QCheckBoxSignals } from './lib/QtWidgets/QCheckBox';
 export { QDateEdit } from './lib/QtWidgets/QDateEdit';
-export { QDateTimeEdit, QDateTimeEditSignals } from './lib/QtWidgets/QDateTimeEdit';
+export { QDateTimeEdit, NodeDateTimeEdit, QDateTimeEditSignals } from './lib/QtWidgets/QDateTimeEdit';
 export { QLabel, QLabelSignals } from './lib/QtWidgets/QLabel';
 export { QDial, QDialSignals } from './lib/QtWidgets/QDial';
 export { QFileDialog, QFileDialogSignals } from './lib/QtWidgets/QFileDialog';
@@ -52,6 +58,7 @@ export { QMenu, QMenuSignals } from './lib/QtWidgets/QMenu';
 export { QMenuBar, QMenuBarSignals } from './lib/QtWidgets/QMenuBar';
 export { QPlainTextEdit, QPlainTextEditSignals, LineWrapMode } from './lib/QtWidgets/QPlainTextEdit';
 export { QScrollArea, QScrollAreaSignals } from './lib/QtWidgets/QScrollArea';
+export { QScrollBar, QScrollBarSignals } from './lib/QtWidgets/QScrollBar';
 export { QSlider, QSliderSignals, TickPosition } from './lib/QtWidgets/QSlider';
 export { QTimeEdit } from './lib/QtWidgets/QTimeEdit';
 export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';

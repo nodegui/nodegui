@@ -8,45 +8,8 @@ import { QDateTime } from '../QtCore/QDateTime';
 import { QTime } from '../QtCore/QTime';
 import { TimeSpec } from '../QtEnums';
 
-/**
- 
-> Creates and controls a widget for editing dates and times with spin box layout.
-
-* **This class is a JS wrapper around Qt's [QDateTimeEdit class](https://doc.qt.io/qt-5/qdatetimeedit.html)**
-
-### Example
-
-```javascript
-const { QDateTimeEdit, QDate, QTime } = require("@nodegui/nodegui");
-
-const dateTimeEdit = new QDateTimeEdit();
-
-let date = new QDate();
-date.setDate(2020, 1, 1);
-
-let time = new QTime();
-time.setHMS(16, 30, 0);
-
-dateTimeEdit.setDate(date);
-dateTimeEdit.setTime(time);
-```
- */
-export class QDateTimeEdit extends QAbstractSpinBox<QDateTimeEditSignals> {
-    native: NativeElement;
+export abstract class NodeDateTimeEdit extends QAbstractSpinBox<QDateTimeEditSignals> {
     calendar?: QCalendarWidget;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
-            native = new addon.QDateTimeEdit(parent.native);
-        } else {
-            native = new addon.QDateTimeEdit();
-        }
-        super(native);
-        this.native = native;
-        this.setNodeParent(parent);
-    }
     setCalendarWidget(calendarWidget: QCalendarWidget): void {
         this.calendar = calendarWidget;
         this.native.setCalendarWidget(calendarWidget.native);
@@ -96,6 +59,46 @@ export class QDateTimeEdit extends QAbstractSpinBox<QDateTimeEditSignals> {
     }
     timeSpec(): TimeSpec {
         return this.property('timeSpec').toInt();
+    }
+}
+
+/**
+ 
+> Creates and controls a widget for editing dates and times with spin box layout.
+
+* **This class is a JS wrapper around Qt's [QDateTimeEdit class](https://doc.qt.io/qt-5/qdatetimeedit.html)**
+
+### Example
+
+```javascript
+const { QDateTimeEdit, QDate, QTime } = require("@nodegui/nodegui");
+
+const dateTimeEdit = new QDateTimeEdit();
+
+let date = new QDate();
+date.setDate(2020, 1, 1);
+
+let time = new QTime();
+time.setHMS(16, 30, 0);
+
+dateTimeEdit.setDate(date);
+dateTimeEdit.setTime(time);
+```
+ */
+export class QDateTimeEdit extends NodeDateTimeEdit {
+    native: NativeElement;
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
+        let native;
+        if (parent) {
+            native = new addon.QDateTimeEdit(parent.native);
+        } else {
+            native = new addon.QDateTimeEdit();
+        }
+        super(native);
+        this.native = native;
+        this.setNodeParent(parent);
     }
 }
 

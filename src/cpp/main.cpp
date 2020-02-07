@@ -53,6 +53,7 @@
 #include "QtWidgets/QPushButton/qpushbutton_wrap.h"
 #include "QtWidgets/QRadioButton/qradiobutton_wrap.h"
 #include "QtWidgets/QScrollArea/qscrollarea_wrap.h"
+#include "QtWidgets/QScrollBar/qscrollbar_wrap.h"
 #include "QtWidgets/QShortcut/qshortcut_wrap.h"
 #include "QtWidgets/QSlider/qslider_wrap.h"
 #include "QtWidgets/QSpinBox/qspinbox_wrap.h"
@@ -132,6 +133,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QDialWrap::init(env, exports);
   QLabelWrap::init(env, exports);
   QScrollAreaWrap::init(env, exports);
+  QScrollBarWrap::init(env, exports);
   QSystemTrayIconWrap::init(env, exports);
   QActionWrap::init(env, exports);
   QShortcutWrap::init(env, exports);

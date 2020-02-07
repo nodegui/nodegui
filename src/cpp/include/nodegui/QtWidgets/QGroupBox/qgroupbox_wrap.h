@@ -21,14 +21,4 @@ class DLL_EXPORT QGroupBoxWrap : public Napi::ObjectWrap<QGroupBoxWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value alignment(const Napi::CallbackInfo& info);
-  Napi::Value isCheckable(const Napi::CallbackInfo& info);
-  Napi::Value isChecked(const Napi::CallbackInfo& info);
-  Napi::Value isFlat(const Napi::CallbackInfo& info);
-  Napi::Value setAlignment(const Napi::CallbackInfo& info);
-  Napi::Value setCheckable(const Napi::CallbackInfo& info);
-  Napi::Value setFlat(const Napi::CallbackInfo& info);
-  Napi::Value setTitle(const Napi::CallbackInfo& info);
-  Napi::Value title(const Napi::CallbackInfo& info);
-  Napi::Value setChecked(const Napi::CallbackInfo& info);
 };

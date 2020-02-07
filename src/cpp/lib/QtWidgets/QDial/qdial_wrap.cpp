@@ -11,15 +11,9 @@ Napi::FunctionReference QDialWrap::constructor;
 Napi::Object QDialWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QDial";
-  Napi::Function func = DefineClass(
-      env, CLASSNAME,
-      {InstanceMethod("setNotchesVisible", &QDialWrap::setNotchesVisible),
-       InstanceMethod("setWrapping", &QDialWrap::setWrapping),
-       InstanceMethod("setNotchTarget", &QDialWrap::setNotchTarget),
-       InstanceMethod("notchTarget", &QDialWrap::notchTarget),
-       InstanceMethod("notchesVisible", &QDialWrap::notchesVisible),
-       InstanceMethod("wrapping", &QDialWrap::wrapping),
-       QABSTRACTSLIDER_WRAPPED_METHODS_EXPORT_DEFINE(QDialWrap)});
+  Napi::Function func =
+      DefineClass(env, CLASSNAME,
+                  {QABSTRACTSLIDER_WRAPPED_METHODS_EXPORT_DEFINE(QDialWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -50,48 +44,3 @@ QDialWrap::QDialWrap(const Napi::CallbackInfo& info)
 }
 
 QDialWrap::~QDialWrap() { extrautils::safeDelete(this->instance); }
-
-Napi::Value QDialWrap::setNotchesVisible(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  Napi::Boolean visible = info[0].As<Napi::Boolean>();
-  this->instance->setNotchesVisible(visible.Value());
-  return env.Null();
-}
-
-Napi::Value QDialWrap::setWrapping(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  Napi::Boolean on = info[0].As<Napi::Boolean>();
-  this->instance->setWrapping(on.Value());
-  return env.Null();
-}
-
-Napi::Value QDialWrap::setNotchTarget(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  Napi::Number target = info[0].As<Napi::Number>();
-  this->instance->setNotchTarget(target.FloatValue());
-  return env.Null();
-}
-
-Napi::Value QDialWrap::notchTarget(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  float target = this->instance->notchTarget();
-  return Napi::Value::From(env, target);
-}
-
-Napi::Value QDialWrap::notchesVisible(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  bool notchesVisible = this->instance->notchesVisible();
-  return Napi::Value::From(env, notchesVisible);
-}
-
-Napi::Value QDialWrap::wrapping(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  bool wrapping = this->instance->wrapping();
-  return Napi::Value::From(env, wrapping);
-}

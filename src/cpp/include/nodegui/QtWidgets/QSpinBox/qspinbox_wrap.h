@@ -5,11 +5,11 @@
 #include <QPointer>
 
 #include "Extras/Utils/nutils.h"
-#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "QtWidgets/QAbstractSpinBox/qabstractspinbox_macro.h"
 #include "nspinbox.hpp"
 
 class DLL_EXPORT QSpinBoxWrap : public Napi::ObjectWrap<QSpinBoxWrap> {
-  QWIDGET_WRAPPED_METHODS_DECLARATION
+  QABSTRACTSPINBOX_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NSpinBox> instance;
 
@@ -21,13 +21,5 @@ class DLL_EXPORT QSpinBoxWrap : public Napi::ObjectWrap<QSpinBoxWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value setPrefix(const Napi::CallbackInfo &info);
-  Napi::Value setSingleStep(const Napi::CallbackInfo &info);
-  Napi::Value setSuffix(const Napi::CallbackInfo &info);
   Napi::Value setRange(const Napi::CallbackInfo &info);
-  Napi::Value setValue(const Napi::CallbackInfo &info);
-  Napi::Value cleanText(const Napi::CallbackInfo &info);
-  Napi::Value maximum(const Napi::CallbackInfo &info);
-  Napi::Value minimum(const Napi::CallbackInfo &info);
-  Napi::Value value(const Napi::CallbackInfo &info);
 };
