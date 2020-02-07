@@ -36,7 +36,7 @@ export {
 export { QCalendarWidget, QCalendarWidgetSignals } from './lib/QtWidgets/QCalendarWidget';
 export { QCheckBox, QCheckBoxSignals } from './lib/QtWidgets/QCheckBox';
 export { QDateEdit } from './lib/QtWidgets/QDateEdit';
-export { QDateTimeEdit, QDateTimeEditSignals } from './lib/QtWidgets/QDateTimeEdit';
+export { QDateTimeEdit, NodeDateTimeEdit, QDateTimeEditSignals } from './lib/QtWidgets/QDateTimeEdit';
 export { QLabel, QLabelSignals } from './lib/QtWidgets/QLabel';
 export { QDial, QDialSignals } from './lib/QtWidgets/QDial';
 export { QFileDialog, QFileDialogSignals } from './lib/QtWidgets/QFileDialog';
