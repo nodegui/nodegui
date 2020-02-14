@@ -8,7 +8,8 @@ namespace qodeIntegration {
 static QApplication* app;
 
 bool QtRunLoopWrapper() {
-  app->exec();
+  int exitCode = app->exec();
+  exit(exitCode);
   return false;
 }
 
