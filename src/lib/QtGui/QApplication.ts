@@ -3,6 +3,7 @@ import { Component, NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QClipboard } from './QClipboard';
 import { QStyle } from './QStyle';
+import { QObjectSignals, NodeObject } from '../QtCore/QObject';
 
 /**
  
@@ -21,17 +22,19 @@ const qApp = QApplication.instance();
 qApp.quit();
 ```
  */
-export class QApplication extends Component {
+export class QApplication extends NodeObject<QApplicationSignals> {
     native: NativeElement;
     constructor();
     constructor(native: NativeElement);
     constructor(arg?: NativeElement) {
-        super();
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else {
-            this.native = new addon.QApplication();
+            native = new addon.QApplication();
         }
+        super(native);
+        this.native = native;
     }
     static clipboard(): QClipboard {
         return new QClipboard(addon.QApplication.clipboard());
@@ -62,3 +65,5 @@ export class QApplication extends Component {
         return new QStyle(addon.QApplication.style());
     }
 }
+
+export type QApplicationSignals = QObjectSignals;

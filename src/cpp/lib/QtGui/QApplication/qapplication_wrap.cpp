@@ -1,12 +1,11 @@
 #include "QtGui/QApplication/qapplication_wrap.h"
 
+#include "core/Integration/integration.h"
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QStyle/qstyle_wrap.h"
 
 Napi::FunctionReference QApplicationWrap::constructor;
-int QApplicationWrap::argc = 0;
-char** QApplicationWrap::argv = NULL;
 
 Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
@@ -35,9 +34,9 @@ QApplicationWrap::QApplicationWrap(const Napi::CallbackInfo& info)
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   if (info.Length() == 1) {
-    this->instance = info[0].As<Napi::External<QApplication>>().Data();
+    this->instance = info[0].As<Napi::External<NApplication>>().Data();
   } else if (info.Length() == 0) {
-    this->instance = new QApplication(this->argc, this->argv);
+    this->instance = new NApplication(qode::qode_argc, qode::qode_argv);
     this->_wasManuallyCreated = true;
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
@@ -51,7 +50,7 @@ QApplicationWrap::~QApplicationWrap() {
   }
 }
 
-QApplication* QApplicationWrap::getInternalInstance() { return this->instance; }
+NApplication* QApplicationWrap::getInternalInstance() { return this->instance; }
 
 Napi::Value QApplicationWrap::processEvents(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -86,9 +85,9 @@ Napi::Value StaticQApplicationWrapMethods::instance(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  QApplication* app = static_cast<QApplication*>(QCoreApplication::instance());
+  NApplication* app = static_cast<NApplication*>(QCoreApplication::instance());
   Napi::Object instance = QApplicationWrap::constructor.New(
-      {Napi::External<QApplication>::New(env, app)});
+      {Napi::External<NApplication>::New(env, app)});
   return instance;
 }
 

@@ -1,11 +1,10 @@
 
 #include "core/Integration/integration.h"
-
-#include <QApplication>
+#include "QtGui/QApplication/napplication.hpp"
 #include <QFont>
 
 namespace qodeIntegration {
-static QApplication* app;
+static NApplication* app;
 
 bool QtRunLoopWrapper() {
   int exitCode = app->exec();
@@ -15,7 +14,7 @@ bool QtRunLoopWrapper() {
 
 void integrate() {
   // Bootstrap Qt
-  app = new QApplication(qode::qode_argc, qode::qode_argv);
+  app = new NApplication(qode::qode_argc, qode::qode_argv);
   qode::InjectQodeRunLoop(&QtRunLoopWrapper);
   // Other init settings
   QFont f = QApplication::font();

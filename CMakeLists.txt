@@ -113,6 +113,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtCore/QObject/nobject.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/core/FlexLayout/flexlayout.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtGui/QMovie/nmovie.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtGui/QApplication/napplication.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QWidget/nwidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QDialog/ndialog.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QLabel/nlabel.hpp"
