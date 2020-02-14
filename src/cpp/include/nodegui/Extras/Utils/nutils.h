@@ -5,9 +5,9 @@
 #include <QPointer>
 #include <QVariant>
 
+#include "Extras/Export/export.h"
 #include "core/FlexLayout/flexutils.h"
 #include "deps/yoga/YGNode.h"
-#include "Extras/Export/export.h"
 
 namespace extrautils {
 DLL_EXPORT QVariant* convertToQVariant(Napi::Env& env, Napi::Value& value);

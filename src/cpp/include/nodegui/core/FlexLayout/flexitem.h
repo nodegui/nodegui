@@ -1,7 +1,7 @@
 #pragma once
 
-#include "deps/yoga/YGNode.h"
 #include "Extras/Export/export.h"
+#include "deps/yoga/YGNode.h"
 
 /*
     FlexItem class is used to extend regular QWidget Classes to include

@@ -4,9 +4,9 @@
 
 #include <QPointer>
 
+#include "Extras/Export/export.h"
 #include "QtWidgets/QLayout/qlayout_macro.h"
 #include "flexlayout.hpp"
-#include "Extras/Export/export.h"
 
 class DLL_EXPORT FlexLayoutWrap : public Napi::ObjectWrap<FlexLayoutWrap> {
   QLAYOUT_WRAPPED_METHODS_DECLARATION
