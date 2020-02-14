@@ -14,8 +14,8 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${CMAKE_JS_SRC}"
     "${PROJECT_SOURCE_DIR}/src/cpp/main.cpp"
     # core internals
-    "${PROJECT_SOURCE_DIR}/src/cpp/lib/Extras/Utils/integration.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/Extras/Utils/nutils.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/Integration/integration.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexutils.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexlayout.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexitem.cpp"

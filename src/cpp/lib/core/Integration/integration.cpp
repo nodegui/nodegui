@@ -1,5 +1,5 @@
 
-#include "Extras/Utils/integration.h"
+#include "core/Integration/integration.h"
 
 #include <QApplication>
 #include <QFont>

@@ -1,6 +1,5 @@
 #include <napi.h>
 
-#include "Extras/Utils/integration.h"
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QDate/qdate_wrap.h"
 #include "QtCore/QDateTime/qdatetime_wrap.h"
@@ -74,6 +73,7 @@
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
+#include "core/Integration/integration.h"
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env) {
   qodeIntegration::integrate();
