@@ -4,8 +4,9 @@
 
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QFrame/qframe_macro.h"
+#include "QtWidgets/QWidget/qwidget_macro.h"
 #include "nlabel.hpp"
 
 class DLL_EXPORT QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {

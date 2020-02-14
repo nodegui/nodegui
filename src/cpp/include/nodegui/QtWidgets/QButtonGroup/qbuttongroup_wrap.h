@@ -4,7 +4,7 @@
 
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "nbuttongroup.hpp"
 class DLL_EXPORT QButtonGroupWrap : public Napi::ObjectWrap<QButtonGroupWrap> {

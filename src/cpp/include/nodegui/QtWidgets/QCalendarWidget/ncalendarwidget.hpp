@@ -1,7 +1,7 @@
 #pragma once
 #include <QCalendarWidget>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtCore/QDate/qdate_wrap.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"

@@ -1,7 +1,7 @@
 #pragma once
 #include <QPlainTextEdit>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 class DLL_EXPORT NPlainTextEdit : public QPlainTextEdit, public NodeWidget {

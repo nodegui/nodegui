@@ -4,7 +4,7 @@
 
 #include <QKeyEvent>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "core/Component/component_macro.h"
 
 class DLL_EXPORT QKeyEventWrap : public Napi::ObjectWrap<QKeyEventWrap> {

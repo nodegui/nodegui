@@ -1,7 +1,7 @@
 #pragma once
 #include <QMovie>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"

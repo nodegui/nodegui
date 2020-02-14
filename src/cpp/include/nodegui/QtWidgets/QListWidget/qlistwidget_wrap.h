@@ -5,7 +5,7 @@
 
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QListView/qlistview_macro.h"
 #include "QtWidgets/QListWidget/nlistwidget.hpp"
 

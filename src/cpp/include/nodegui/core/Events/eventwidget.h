@@ -4,8 +4,8 @@
 
 #include <QEvent>
 
-#include "Extras/Utils/nutils.h"
 #include "core/Events/eventsmap.h"
+#include "Extras/Export/export.h"
 
 class DLL_EXPORT EventWidget {
  public:

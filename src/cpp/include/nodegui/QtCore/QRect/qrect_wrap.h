@@ -4,7 +4,7 @@
 
 #include <QRect>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "core/Component/component_macro.h"
 
 class DLL_EXPORT QRectWrap : public Napi::ObjectWrap<QRectWrap> {

@@ -3,7 +3,7 @@
 
 #include <QMenu>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 
 class DLL_EXPORT NMenu : public QMenu, public NodeWidget {

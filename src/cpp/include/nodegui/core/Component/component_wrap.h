@@ -9,8 +9,8 @@
 
 #include <napi.h>
 
-#include "Extras/Utils/nutils.h"
 #include "component_macro.h"
+#include "Extras/Export/export.h"
 
 class DLL_EXPORT ComponentWrap : public Napi::ObjectWrap<ComponentWrap> {
  public:

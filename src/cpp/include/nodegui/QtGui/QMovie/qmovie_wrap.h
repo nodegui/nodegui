@@ -6,7 +6,7 @@
 #include <QPointer>
 #include <QSharedPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "nmovie.hpp"
 

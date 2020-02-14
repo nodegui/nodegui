@@ -4,7 +4,7 @@
 
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QDialog/qdialog_macro.h"
 #include "QtWidgets/QFileDialog/nfiledialog.hpp"
 

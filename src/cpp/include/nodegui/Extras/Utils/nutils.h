@@ -1,15 +1,5 @@
 #pragma once
 
-#ifdef _WINDLL
-#ifdef ENABLE_DLL_EXPORT
-#define DLL_EXPORT __declspec(dllexport)
-#else
-#define DLL_EXPORT __declspec(dllimport)
-#endif
-#else
-#define DLL_EXPORT
-#endif
-
 #include <napi.h>
 
 #include <QPointer>
@@ -17,6 +7,7 @@
 
 #include "core/FlexLayout/flexutils.h"
 #include "deps/yoga/YGNode.h"
+#include "Extras/Export/export.h"
 
 namespace extrautils {
 DLL_EXPORT QVariant* convertToQVariant(Napi::Env& env, Napi::Value& value);

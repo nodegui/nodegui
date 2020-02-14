@@ -2,8 +2,9 @@
 
 #include <QLabel>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QFrame/qframe_macro.h"
+#include "QtWidgets/QWidget/qwidget_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
 class DLL_EXPORT NLabel : public QLabel, public NodeWidget {

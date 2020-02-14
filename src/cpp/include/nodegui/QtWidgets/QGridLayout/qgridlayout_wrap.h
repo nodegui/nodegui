@@ -5,7 +5,7 @@
 #include <QGridLayout>
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QGridLayout/ngridlayout.hpp"
 #include "QtWidgets/QLayout/qlayout_macro.h"
 
