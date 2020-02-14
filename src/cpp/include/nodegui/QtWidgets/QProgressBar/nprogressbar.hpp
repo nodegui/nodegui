@@ -1,4 +1,5 @@
 #pragma once
+
 #include <QProgressBar>
 
 #include "Extras/Utils/nutils.h"
@@ -7,9 +8,10 @@
 
 class DLL_EXPORT NProgressBar : public QProgressBar, public NodeWidget {
   Q_OBJECT
- public:
   NODEWIDGET_IMPLEMENTATIONS(QProgressBar)
+ public:
   using QProgressBar::QProgressBar;  // inherit all constructors of QProgressBar
+
   void connectSignalsToEventEmitter() {
     QWIDGET_SIGNALS
     // Qt Connects: Implement all signal connects here
@@ -17,7 +19,7 @@ class DLL_EXPORT NProgressBar : public QProgressBar, public NodeWidget {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
       this->emitOnNode.Call({Napi::String::New(env, "valueChanged"),
-                             Napi::Value::From(env, value)});
+                             Napi::Number::New(env, value)});
     });
   }
 };

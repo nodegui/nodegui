@@ -3,6 +3,7 @@ import { NodeWidget } from './QWidget';
 import { NativeElement, NativeRawPointer, Component } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
+import { QMenu } from './QMenu';
 
 /**
  
@@ -23,6 +24,7 @@ button.setText("Hello");
  */
 export class QPushButton extends QAbstractButton<QPushButtonSignals> {
     native: NativeElement;
+    private _menu?: QMenu | null;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(native: NativeElement);
@@ -45,8 +47,36 @@ export class QPushButton extends QAbstractButton<QPushButtonSignals> {
         this.native = native;
         parent && this.setNodeParent(parent);
     }
+    setAutoDefault(auto: boolean): void {
+        this.setProperty('autoDefault', auto);
+    }
+    autoDefault(): boolean {
+        return this.property('autoDefault').toBool();
+    }
+    setDefault(isDefault: boolean): void {
+        this.setProperty('default', isDefault);
+    }
+    isDefault(): boolean {
+        return this.property('default').toBool();
+    }
     setFlat(isFlat: boolean): void {
-        this.native.setFlat(isFlat);
+        this.setProperty('flat', isFlat);
+    }
+    isFlat(): boolean {
+        return this.property('flat').toBool();
+    }
+    setMenu(menu: QMenu): void {
+        this._menu = menu;
+        this.native.setMenu(menu.native);
+    }
+    menu(): QMenu | null {
+        if (this._menu) {
+            return this._menu;
+        }
+        return null;
+    }
+    showMenu(): void {
+        this.native.showMenu();
     }
 }
 

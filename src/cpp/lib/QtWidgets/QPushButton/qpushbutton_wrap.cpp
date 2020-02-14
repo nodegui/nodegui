@@ -1,6 +1,7 @@
 #include "QtWidgets/QPushButton/qpushbutton_wrap.h"
 
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QMenu/qmenu_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QPushButtonWrap::constructor;
@@ -10,7 +11,8 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QPushButton";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("setFlat", &QPushButtonWrap::setFlat),
+      {InstanceMethod("setMenu", &QPushButtonWrap::setMenu),
+       InstanceMethod("showMenu", &QPushButtonWrap::showMenu),
        QABSTRACTBUTTON_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -18,6 +20,12 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 NPushButton* QPushButtonWrap::getInternalInstance() { return this->instance; }
+
+QPushButtonWrap::~QPushButtonWrap() {
+  if (!this->disableDeletion) {
+    extrautils::safeDelete(this->instance);
+  }
+}
 
 QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QPushButtonWrap>(info) {
@@ -48,17 +56,20 @@ QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info)
       true);
 }
 
-QPushButtonWrap::~QPushButtonWrap() {
-  if (!this->disableDeletion) {
-    extrautils::safeDelete(this->instance);
-  }
-}
-
-Napi::Value QPushButtonWrap::setFlat(const Napi::CallbackInfo& info) {
+Napi::Value QPushButtonWrap::setMenu(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  Napi::Boolean isFlat = info[0].As<Napi::Boolean>();
-  this->instance->setFlat(isFlat.Value());
+  Napi::Object menuObject = info[0].As<Napi::Object>();
+  QMenuWrap* menuWrap = Napi::ObjectWrap<QMenuWrap>::Unwrap(menuObject);
+  this->instance->setMenu(menuWrap->getInternalInstance());
+  return env.Null();
+}
+
+Napi::Value QPushButtonWrap::showMenu(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  this->instance->showMenu();
   return env.Null();
 }

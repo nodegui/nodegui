@@ -1,4 +1,5 @@
 #pragma once
+
 #include <QScrollArea>
 
 #include "Extras/Utils/nutils.h"
@@ -10,5 +11,6 @@ class DLL_EXPORT NScrollArea : public QScrollArea, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QScrollArea)
  public:
   using QScrollArea::QScrollArea;  // inherit all constructors of QScrollArea
+
   void connectSignalsToEventEmitter() { QABSTRACTSCROLLAREA_SIGNALS }
 };

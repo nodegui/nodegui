@@ -1,4 +1,3 @@
-
 #include "QtWidgets/QProgressBar/qprogressbar_wrap.h"
 
 #include <QWidget>
@@ -13,11 +12,9 @@ Napi::Object QProgressBarWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QProgressBar";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("setValue", &QProgressBarWrap::setValue),
-       InstanceMethod("setMaximum", &QProgressBarWrap::setMaximum),
-       InstanceMethod("setMinimum", &QProgressBarWrap::setMinimum),
-       InstanceMethod("setOrientation", &QProgressBarWrap::setOrientation),
-       InstanceMethod("value", &QProgressBarWrap::value),
+      {InstanceMethod("resetFormat", &QProgressBarWrap::resetFormat),
+       InstanceMethod("reset", &QProgressBarWrap::reset),
+       InstanceMethod("setRange", &QProgressBarWrap::setRange),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QProgressBarWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -25,6 +22,10 @@ Napi::Object QProgressBarWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 NProgressBar* QProgressBarWrap::getInternalInstance() { return this->instance; }
+
+QProgressBarWrap::~QProgressBarWrap() {
+  extrautils::safeDelete(this->instance);
+}
 
 QProgressBarWrap::QProgressBarWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QProgressBarWrap>(info) {
@@ -47,46 +48,28 @@ QProgressBarWrap::QProgressBarWrap(const Napi::CallbackInfo& info)
       true);
 }
 
-QProgressBarWrap::~QProgressBarWrap() {
-  extrautils::safeDelete(this->instance);
-}
-
-Napi::Value QProgressBarWrap::setValue(const Napi::CallbackInfo& info) {
+Napi::Value QProgressBarWrap::resetFormat(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  Napi::Number value = info[0].As<Napi::Number>();
-  this->instance->setValue(value.Int32Value());
+
+  this->instance->resetFormat();
   return env.Null();
 }
 
-Napi::Value QProgressBarWrap::setMaximum(const Napi::CallbackInfo& info) {
+Napi::Value QProgressBarWrap::reset(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  Napi::Number value = info[0].As<Napi::Number>();
-  this->instance->setMaximum(value.Int32Value());
+
+  this->instance->reset();
   return env.Null();
 }
 
-Napi::Value QProgressBarWrap::setMinimum(const Napi::CallbackInfo& info) {
+Napi::Value QProgressBarWrap::setRange(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  Napi::Number value = info[0].As<Napi::Number>();
-  this->instance->setMinimum(value.Int32Value());
-  return env.Null();
-}
 
-Napi::Value QProgressBarWrap::setOrientation(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  Napi::Number value = info[0].As<Napi::Number>();
-  this->instance->setOrientation(
-      static_cast<Qt::Orientation>(value.Int32Value()));
+  int minimum = info[0].As<Napi::Number>().Int32Value();
+  int maximum = info[1].As<Napi::Number>().Int32Value();
+  this->instance->setRange(minimum, maximum);
   return env.Null();
-}
-
-Napi::Value QProgressBarWrap::value(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  int value = this->instance->value();
-  return Napi::Number::New(env, value);
 }

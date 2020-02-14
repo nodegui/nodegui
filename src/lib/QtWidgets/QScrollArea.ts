@@ -2,6 +2,7 @@ import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
+import { AlignmentFlag } from '../QtEnums';
 
 /**
  
@@ -43,11 +44,37 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
         this.setNodeParent(parent);
         this.setWidgetResizable(true);
     }
+    setAlignment(alignment: AlignmentFlag): void {
+        this.setProperty('alignment', alignment);
+    }
+    alignment(): AlignmentFlag {
+        return this.property('alignment').toInt();
+    }
+    setWidgetResizable(resizable: boolean): void {
+        this.setProperty('widgetResizable', resizable);
+        if (this.contentWidget) {
+            this.contentWidget.setFlexNodeSizeControlled(resizable);
+        }
+    }
+    widgetResizable(): boolean {
+        return this.property('widgetResizable').toBool();
+    }
+    ensureVisible(x: number, y: number, xmargin = 50, ymargin = 50): void {
+        this.native.ensureVisible(x, y, xmargin, ymargin);
+    }
+    ensureWidgetVisible(childWidget: NodeWidget<any>, xmargin = 50, ymargin = 50): void {
+        this.native.ensureWidgetVisible(childWidget.native, xmargin, ymargin);
+    }
     setWidget(widget: NodeWidget<any>): void {
-        // react:✓, //TODO:getter
         this.contentWidget = widget;
         this.native.setWidget(widget.native);
         this.contentWidget.setFlexNodeSizeControlled(this.widgetResizable());
+    }
+    widget(): NodeWidget<any> | null {
+        if (this.contentWidget) {
+            return this.contentWidget;
+        }
+        return null;
     }
     takeWidget(): NodeWidget<any> | null {
         // react:✓
@@ -58,15 +85,6 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
             return contentWidget;
         }
         return null;
-    }
-    setWidgetResizable(resizable: boolean): void {
-        this.native.setWidgetResizable(resizable);
-        if (this.contentWidget) {
-            this.contentWidget.setFlexNodeSizeControlled(resizable);
-        }
-    }
-    widgetResizable(): boolean {
-        return this.native.widgetResizable();
     }
 }
 

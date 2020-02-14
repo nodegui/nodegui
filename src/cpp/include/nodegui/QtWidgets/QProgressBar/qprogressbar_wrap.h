@@ -21,9 +21,7 @@ class DLL_EXPORT QProgressBarWrap : public Napi::ObjectWrap<QProgressBarWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value setValue(const Napi::CallbackInfo& info);
-  Napi::Value setMaximum(const Napi::CallbackInfo& info);
-  Napi::Value setMinimum(const Napi::CallbackInfo& info);
-  Napi::Value setOrientation(const Napi::CallbackInfo& info);
-  Napi::Value value(const Napi::CallbackInfo& info);
+  Napi::Value resetFormat(const Napi::CallbackInfo& info);
+  Napi::Value reset(const Napi::CallbackInfo& info);
+  Napi::Value setRange(const Napi::CallbackInfo& info);
 };

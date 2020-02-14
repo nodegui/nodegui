@@ -1,4 +1,5 @@
 #pragma once
+
 #include <QPushButton>
 
 #include "Extras/Utils/nutils.h"
