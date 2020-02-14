@@ -11,9 +11,9 @@
         "dev": "npm run build && qode dist/demo.js",
         "build": "tsc && npm run build:addon",
         "postinstall": "cross-env node ./scripts/skip.js || npm run prebuild:install || npm run build:addon",
-        "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js build",
+        "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
         "prebuild:install": "prebuild-install --backend=cmake-js --runtime=napi --verbose",
-        "test": "qode ./node_modules/jest/bin/jest",
+        "test": "qode ./node_modules/jest/bin/jest -i",
         "lint:cpp": "clang-format -i --glob=src/cpp/**/*.[h,c]*",
         "lint:ts": "tsc --noEmit && cross-env eslint './src/**/*.{ts,tsx,js,jsx}' --fix",
         "docs": "typedoc && node ./website/docs/scripts/fixdocs.js"
