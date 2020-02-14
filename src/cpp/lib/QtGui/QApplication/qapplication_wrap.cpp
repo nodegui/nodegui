@@ -23,7 +23,7 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
        StaticMethod("instance", &StaticQApplicationWrapMethods::instance),
        StaticMethod("clipboard", &StaticQApplicationWrapMethods::clipboard),
        StaticMethod("style", &StaticQApplicationWrapMethods::style),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QApplicationWrap)});
+       QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QApplicationWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

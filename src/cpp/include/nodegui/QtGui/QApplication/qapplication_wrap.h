@@ -6,10 +6,10 @@
 #include <QPointer>
 
 #include "Extras/Export/export.h"
-#include "core/Component/component_macro.h"
+#include "QtCore/QObject/qobject_macro.h"
 
 class DLL_EXPORT QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
-  COMPONENT_WRAPPED_METHODS_DECLARATION
+  QOBJECT_WRAPPED_METHODS_DECLARATION
 
  private:
   QPointer<NApplication> instance;
