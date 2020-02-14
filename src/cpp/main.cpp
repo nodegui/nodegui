@@ -1,5 +1,6 @@
 #include <napi.h>
 
+#include "Extras/Utils/integration.h"
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QDate/qdate_wrap.h"
 #include "QtCore/QDateTime/qdatetime_wrap.h"
@@ -75,7 +76,7 @@
 #include "core/FlexLayout/flexlayout_wrap.h"
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env) {
-  extrautils::initAppSettings();
+  qodeIntegration::integrate();
   QLayoutWrap::init(env);  // Abstact class wrapper for pointing to any layout
 }
 

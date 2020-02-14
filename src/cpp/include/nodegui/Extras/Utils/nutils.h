@@ -33,7 +33,6 @@ void safeDelete(QPointer<T>& component) {
     delete component;
   }
 }
-void initAppSettings();
 }  // namespace extrautils
 
 class DLL_EXPORT NUtilsWrap : public Napi::ObjectWrap<NUtilsWrap> {
