@@ -87,7 +87,6 @@ void* extrautils::configureQWidget(QWidget* widget, YGNodeRef node,
   return configureQObject(widget);
 }
 
-
 Napi::FunctionReference NUtilsWrap::constructor;
 
 Napi::Object NUtilsWrap::init(Napi::Env env, Napi::Object exports) {
