@@ -10,6 +10,7 @@
     "scripts": {
         "dev": "npm run build && qode dist/demo.js",
         "build": "tsc && npm run build:addon",
+        "preinstall": "node ./scripts/preinstall.js",
         "postinstall": "cross-env node ./scripts/skip.js || npm run prebuild:install || npm run build:addon",
         "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
         "prebuild:install": "prebuild-install --backend=cmake-js --runtime=napi --verbose",
@@ -28,6 +29,7 @@
         "prebuild-install": "^5.3.3"
     },
     "devDependencies": {
+        "@nodegui/qt-installer": "^1.0.0",
         "@types/bindings": "^1.3.0",
         "@types/jest": "^25.1.1",
         "@types/node": "^13.1.2",
