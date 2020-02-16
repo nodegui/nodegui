@@ -23,10 +23,10 @@ void integrate() {
   app = new NApplication(qode::qode_argc, qode::qode_argv);
   qode::InjectQodeRunLoop(&QtRunLoopWrapper);
   // Other init settings
-  // QFont f = QApplication::font();
-  // if (f.defaultFamily().isEmpty()) {
-  //   f.setFamily("Sans-Serif");
-  //   QApplication::setFont(f);
-  // }
+  QFont f = QApplication::font();
+  if (f.defaultFamily().isEmpty()) {
+    f.setFamily("Sans-Serif");
+    QApplication::setFont(f);
+  }
 }
 }  // namespace qodeIntegration
