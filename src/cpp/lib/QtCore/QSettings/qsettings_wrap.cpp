@@ -22,10 +22,11 @@ Napi::Object QSettingsWrap::init(Napi::Env env, Napi::Object exports) {
 QSettingsWrap::QSettingsWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QSettingsWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
-  // FIXME: use actual org name and app name
-  this->instance = std::make_unique<QSettings>("test1", "test2");
+  QString organization = QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
+  QString application = QString::fromUtf8(info[1].As<Napi::String>().Utf8Value().c_str());
+
+  this->instance = std::make_unique<QSettings>(organization, application);
   this->rawData = extrautils::configureQObject(this->getInternalInstance());
 }
 

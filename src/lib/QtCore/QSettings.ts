@@ -19,12 +19,9 @@ enum Scope {
 
 export class QSettings extends Component {
     native: NativeElement;
-    constructor(parent?: NodeObject<any>) {
+    constructor(organization: string, application: string) {
         super();
-        if (parent) {
-            this.native = new addon.QSettings(parent);
-        }
-        this.native = new addon.QSettings();
+        this.native = new addon.QSettings(organization, application);
     }
     sync(): void {
         this.native.sync();

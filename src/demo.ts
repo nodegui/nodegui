@@ -3,7 +3,7 @@ import { QSettings } from './lib/QtCore/QSettings';
 
 const dateEdit = new QDateEdit();
 
-const settings = new QSettings();
+const settings = new QSettings("test1", "test2");
 console.log(settings.native);
 console.log(settings.value('heh'));
 settings.setValue('heh', 32);
