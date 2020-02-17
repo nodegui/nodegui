@@ -8,6 +8,7 @@
 #include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 #include "npushbutton.hpp"
+
 class DLL_EXPORT QPushButtonWrap : public Napi::ObjectWrap<QPushButtonWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
@@ -16,11 +17,12 @@ class DLL_EXPORT QPushButtonWrap : public Napi::ObjectWrap<QPushButtonWrap> {
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
-  QPushButtonWrap(const Napi::CallbackInfo &info);
+  QPushButtonWrap(const Napi::CallbackInfo& info);
   ~QPushButtonWrap();
-  NPushButton *getInternalInstance();
+  NPushButton* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value setFlat(const Napi::CallbackInfo &info);
+  Napi::Value setMenu(const Napi::CallbackInfo& info);
+  Napi::Value showMenu(const Napi::CallbackInfo& info);
 };

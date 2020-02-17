@@ -5,6 +5,8 @@ import { QPixmap } from '../QtGui/QPixmap';
 import { QMovie } from '../QtGui/QMovie';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 import { TextFormat } from '../QtEnums/TextFormat';
+import { TextInteractionFlag } from '../QtEnums';
+import { QPicture } from '../QtGui/QPicture';
 
 /**
  
@@ -26,8 +28,10 @@ label.setText("Hello");
  */
 export class QLabel extends NodeWidget<QLabelSignals> {
     native: NativeElement;
+    private _picture?: QPicture;
     private _pixmap?: QPixmap;
     private _movie?: QMovie;
+    private _buddy?: NodeWidget<any> | null;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
@@ -42,47 +46,80 @@ export class QLabel extends NodeWidget<QLabelSignals> {
         this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {
-        this.native.setAlignment(alignment);
+        this.setProperty('alignment', alignment);
     }
     alignment(): AlignmentFlag {
-        return this.native.alignment();
+        return this.property('alignment').toInt();
+    }
+    hasSelectedText(): boolean {
+        return this.property('hasSelectedText').toBool();
     }
     setIndent(indent: number): void {
-        this.native.setIndent(indent);
+        this.setProperty('indent', indent);
     }
     indent(): number {
-        return this.native.indent();
+        return this.property('indent').toInt();
     }
     setMargin(margin: number): void {
-        this.native.setMargin(margin);
+        this.setProperty('margin', margin);
     }
     margin(): number {
-        return this.native.margin();
+        return this.property('margin').toInt();
     }
-    setTextFormat(format: TextFormat): void {
-        this.native.setTextFormat(format);
+    setOpenExternalLinks(open: boolean): void {
+        this.setProperty('openExternalLinks', open);
     }
-    textFormat(): TextFormat {
-        return this.native.textFormat();
+    openExternalLinks(): boolean {
+        return this.property('openExternalLinks').toBool();
     }
-    setWordWrap(on: boolean): void {
-        this.native.setWordWrap(on);
+    setScaledContents(scaled: boolean): void {
+        this.setProperty('scaledContents', scaled);
     }
-    wordWrap(): boolean {
-        return this.native.wordWrap();
+    hasScaledContents(): boolean {
+        return this.property('scaledContents').toBool();
+    }
+    selectedText(): string {
+        return this.property('selectedText').toString();
     }
     setText(text: string | number): void {
-        this.native.setText(`${text}`);
+        this.setProperty('text', `${text}`);
     }
     text(): string {
-        return this.native.text();
+        return this.property('text').toString();
     }
-    setPixmap(pixMap: QPixmap): void {
-        this.native.setPixmap(pixMap.native);
-        this._pixmap = pixMap;
+    setTextFormat(format: TextFormat): void {
+        this.setProperty('textFormat', format);
     }
-    pixmap(): QPixmap | undefined {
-        return this._pixmap;
+    textFormat(): TextFormat {
+        return this.property('textFormat').toInt();
+    }
+    setTextInteractionFlags(flags: TextInteractionFlag): void {
+        this.setProperty('textInteractionFlags', flags);
+    }
+    textInteractionFlags(): TextInteractionFlag {
+        return this.property('textInteractionFlags').toInt();
+    }
+    setWordWrap(on: boolean): void {
+        this.setProperty('wordWrap', on);
+    }
+    wordWrap(): boolean {
+        return this.property('wordWrap').toBool();
+    }
+    setSelection(start: number, length: number): void {
+        this.native.setSelection(start, length);
+    }
+    selectionStart(): number {
+        return this.native.selectionStart();
+    }
+    setBuddy(buddy: NodeWidget<any>): void {
+        this.native.setBuddy(buddy.native);
+        this._buddy = buddy;
+    }
+    buddy(): NodeWidget<any> | null {
+        if (this._buddy) {
+            return this._buddy;
+        }
+        return null;
     }
     setMovie(movie: QMovie): void {
         this.native.setMovie(movie.native);
@@ -91,15 +128,32 @@ export class QLabel extends NodeWidget<QLabelSignals> {
     movie(): QMovie | undefined {
         return this._movie;
     }
-    setOpenExternalLinks(open: boolean): void {
-        this.native.setOpenExternalLinks(open);
+    setPicture(picture: QPicture): void {
+        this.native.setPicture(picture.native);
+        this._picture = picture;
     }
-    openExternalLinks(): boolean {
-        return this.native.openExternalLinks();
+    picture(): QPicture | undefined {
+        return this._picture;
+    }
+    setPixmap(pixMap: QPixmap): void {
+        this.native.setPixmap(pixMap.native);
+        this._pixmap = pixMap;
+    }
+    pixmap(): QPixmap | undefined {
+        return this._pixmap;
+    }
+    setNumDouble(num: number): void {
+        this.native.setNumDouble(num);
+    }
+    setNumInt(num: number): void {
+        this.native.setNumInt(num);
     }
     clear(): void {
         this.native.clear();
     }
 }
 
-export type QLabelSignals = QWidgetSignals;
+export interface QLabelSignals extends QWidgetSignals {
+    linkActivated: (link: string) => void;
+    linkHovered: (link: string) => void;
+}

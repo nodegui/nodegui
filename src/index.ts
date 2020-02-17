@@ -5,6 +5,7 @@ export * from './lib/QtEnums';
 // Gui:
 export { QApplication } from './lib/QtGui/QApplication';
 export { QKeySequence } from './lib/QtGui/QKeySequence';
+export { QPicture } from './lib/QtGui/QPicture';
 export { QPixmap, ImageFormats } from './lib/QtGui/QPixmap';
 export { QIcon, QIconMode, QIconState } from './lib/QtGui/QIcon';
 export { QFont, QFontCapitalization, QFontStretch, QFontWeight } from './lib/QtGui/QFont';
@@ -42,7 +43,7 @@ export { QDial, QDialSignals } from './lib/QtWidgets/QDial';
 export { QFileDialog, QFileDialogSignals } from './lib/QtWidgets/QFileDialog';
 export { QLineEdit, QLineEditSignals, EchoMode } from './lib/QtWidgets/QLineEdit';
 export { QMainWindow, QMainWindowSignals } from './lib/QtWidgets/QMainWindow';
-export { QProgressBar, QProgressBarSignals } from './lib/QtWidgets/QProgressBar';
+export { QProgressBar, QProgressBarSignals, QProgressBarDirection } from './lib/QtWidgets/QProgressBar';
 export { QComboBox, QComboBoxSignals, InsertPolicy } from './lib/QtWidgets/QComboBox';
 export { QPushButton, QPushButtonSignals } from './lib/QtWidgets/QPushButton';
 export { QToolButton, QToolButtonSignals, ToolButtonPopupMode } from './lib/QtWidgets/QToolButton';

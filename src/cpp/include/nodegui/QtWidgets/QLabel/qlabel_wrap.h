@@ -21,21 +21,13 @@ class DLL_EXPORT QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value setAlignment(const Napi::CallbackInfo& info);
-  Napi::Value alignment(const Napi::CallbackInfo& info);
-  Napi::Value setIndent(const Napi::CallbackInfo& info);
-  Napi::Value indent(const Napi::CallbackInfo& info);
-  Napi::Value setMargin(const Napi::CallbackInfo& info);
-  Napi::Value margin(const Napi::CallbackInfo& info);
-  Napi::Value setTextFormat(const Napi::CallbackInfo& info);
-  Napi::Value textFormat(const Napi::CallbackInfo& info);
-  Napi::Value setWordWrap(const Napi::CallbackInfo& info);
-  Napi::Value wordWrap(const Napi::CallbackInfo& info);
-  Napi::Value setText(const Napi::CallbackInfo& info);
-  Napi::Value text(const Napi::CallbackInfo& info);
-  Napi::Value setPixmap(const Napi::CallbackInfo& info);
-  Napi::Value setMovie(const Napi::CallbackInfo& info);
-  Napi::Value setOpenExternalLinks(const Napi::CallbackInfo& info);
-  Napi::Value openExternalLinks(const Napi::CallbackInfo& info);
+  Napi::Value setSelection(const Napi::CallbackInfo& info);
+  Napi::Value selectionStart(const Napi::CallbackInfo& info);
+  Napi::Value setBuddy(const Napi::CallbackInfo& info);
   Napi::Value clear(const Napi::CallbackInfo& info);
+  Napi::Value setMovie(const Napi::CallbackInfo& info);
+  Napi::Value setNumDouble(const Napi::CallbackInfo& info);
+  Napi::Value setNumInt(const Napi::CallbackInfo& info);
+  Napi::Value setPicture(const Napi::CallbackInfo& info);
+  Napi::Value setPixmap(const Napi::CallbackInfo& info);
 };

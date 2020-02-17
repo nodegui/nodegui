@@ -1,7 +1,7 @@
 import addon from '../utils/addon';
 import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { Orientation } from '../QtEnums';
+import { Orientation, AlignmentFlag } from '../QtEnums';
 
 /**
  
@@ -34,26 +34,77 @@ export class QProgressBar extends NodeWidget<QProgressBarSignals> {
         this.native = native;
         this.setNodeParent(parent);
     }
-    setValue(value: number): void {
-        // react:✓
-        this.native.setValue(value);
+    setAlignment(alignment: AlignmentFlag): void {
+        this.setProperty('alignment', alignment);
     }
-    value(): number {
-        // react:✓
-        return this.native.value();
+    alignment(): AlignmentFlag {
+        return this.property('alignment').toInt();
     }
-    setMinimum(min: number): void {
-        // react:✓ TODO://getter
-        this.native.setMinimum(min);
+    setFormat(format: string): void {
+        this.setProperty('format', format);
     }
-    setMaximum(max: number): void {
-        // react:✓ TODO://getter
-        this.native.setMaximum(max);
+    format(): string {
+        return this.property('format').toString();
+    }
+    setInvertedAppearance(invert: boolean): void {
+        this.setProperty('invertedAppearance', invert);
+    }
+    invertedAppearance(): boolean {
+        return this.property('invertedAppearance').toBool();
+    }
+    setMaximum(maximum: number): void {
+        this.setProperty('maximum', maximum);
+    }
+    maximum(): number {
+        return this.property('maximum').toInt();
+    }
+    setMinimum(minimum: number): void {
+        this.setProperty('minimum', minimum);
+    }
+    minimum(): number {
+        return this.property('minimum').toInt();
     }
     setOrientation(orientation: Orientation): void {
-        // react:✓ TODO://getter
-        this.native.setOrientation(orientation);
+        this.setProperty('orientation', orientation);
     }
+    orientation(): Orientation {
+        return this.property('orientation').toInt();
+    }
+    text(): string {
+        return this.property('text').toString();
+    }
+    setTextDirection(textDirection: QProgressBarDirection): void {
+        this.setProperty('textDirection', textDirection);
+    }
+    textDirection(): QProgressBarDirection {
+        return this.property('textDirection').toInt();
+    }
+    setTextVisible(visible: boolean): void {
+        this.setProperty('textVisible', visible);
+    }
+    isTextVisible(): boolean {
+        return this.property('textVisible').toBool();
+    }
+    setValue(value: number): void {
+        this.setProperty('value', value);
+    }
+    value(): number {
+        return this.property('value').toInt();
+    }
+    resetFormat(): void {
+        this.native.resetFormat();
+    }
+    reset(): void {
+        this.native.reset();
+    }
+    setRange(minimum: number, maximum: number): void {
+        this.native.setRange(minimum, maximum);
+    }
+}
+
+export enum QProgressBarDirection {
+    TopToBottom,
+    BottomToTop,
 }
 
 export interface QProgressBarSignals extends QWidgetSignals {

@@ -27,6 +27,8 @@ tool.setText('Help');
  */
 export class QToolButton extends QAbstractButton<QToolButtonSignals> {
     native: NativeElement;
+    private _defaultAction?: QAction | null;
+    private _menu?: QMenu | null;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(rawPointer: NativeRawPointer<any>, disableNativeDeletion?: boolean);
@@ -40,6 +42,7 @@ export class QToolButton extends QAbstractButton<QToolButtonSignals> {
         } else if (arg) {
             const parentWidget = arg as NodeWidget<any>;
             native = new addon.QToolButton(parentWidget.native);
+            parent = parentWidget;
         } else {
             native = new addon.QToolButton();
         }
@@ -48,34 +51,48 @@ export class QToolButton extends QAbstractButton<QToolButtonSignals> {
         parent && this.setNodeParent(parent);
     }
     setArrowType(type: ArrowType): void {
-        this.native.setArrowType(type);
+        this.setProperty('arrowType', type);
     }
     arrowType(): ArrowType {
         return this.property('arrowType').toInt();
     }
     setAutoRaise(enable: boolean): void {
-        this.native.setAutoRaise(enable);
+        this.setProperty('autoRaise', enable);
     }
     autoRaise(): boolean {
         return this.property('autoRaise').toBool();
     }
     setPopupMode(mode: ToolButtonPopupMode): void {
-        this.native.setPopupMode(mode);
+        this.setProperty('popupMode', mode);
     }
     popupMode(): ToolButtonPopupMode {
         return this.property('popupMode').toInt();
     }
     setToolButtonStyle(style: ToolButtonStyle): void {
-        this.native.setToolButtonStyle(style);
+        this.setProperty('toolButtonStyle', style);
     }
     toolButtonStyle(): ToolButtonStyle {
-        return this.native.toolButtonStyle();
+        return this.property('toolButtonStyle').toInt();
     }
     setMenu(menu: QMenu): void {
+        this._menu = menu;
         this.native.setMenu(menu.native);
     }
+    menu(): QMenu | null {
+        if (this._menu) {
+            return this._menu;
+        }
+        return null;
+    }
     setDefaultAction(action: QAction): void {
+        this._defaultAction = action;
         this.native.setDefaultAction(action.native);
+    }
+    defaultAction(): QAction | null {
+        if (this._defaultAction) {
+            return this._defaultAction;
+        }
+        return null;
     }
     showMenu(): void {
         this.native.showMenu();

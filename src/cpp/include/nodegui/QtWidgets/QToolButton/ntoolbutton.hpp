@@ -1,4 +1,5 @@
 #pragma once
+
 #include <QAction>
 #include <QToolButton>
 
@@ -17,7 +18,7 @@ class DLL_EXPORT NToolButton : public QToolButton, public NodeWidget {
   void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QABSTRACT_BUTTON_SIGNALS
-    QObject::connect(this, &QToolButton::triggered, [=](QAction *action) {
+    QObject::connect(this, &QToolButton::triggered, [=](QAction* action) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
 

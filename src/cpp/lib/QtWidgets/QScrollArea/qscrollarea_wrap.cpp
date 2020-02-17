@@ -10,12 +10,11 @@ Napi::Object QScrollAreaWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QScrollArea";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("setWidget", &QScrollAreaWrap::setWidget),
+      {InstanceMethod("ensureVisible", &QScrollAreaWrap::ensureVisible),
+       InstanceMethod("ensureWidgetVisible",
+                      &QScrollAreaWrap::ensureWidgetVisible),
+       InstanceMethod("setWidget", &QScrollAreaWrap::setWidget),
        InstanceMethod("takeWidget", &QScrollAreaWrap::takeWidget),
-       InstanceMethod("setWidgetResizable",
-                      &QScrollAreaWrap::setWidgetResizable),
-       InstanceMethod("widgetResizable", &QScrollAreaWrap::widgetResizable),
-
        QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QScrollAreaWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -23,6 +22,8 @@ Napi::Object QScrollAreaWrap::init(Napi::Env env, Napi::Object exports) {
 }
 
 NScrollArea* QScrollAreaWrap::getInternalInstance() { return this->instance; }
+
+QScrollAreaWrap::~QScrollAreaWrap() { extrautils::safeDelete(this->instance); }
 
 QScrollAreaWrap::QScrollAreaWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QScrollAreaWrap>(info) {
@@ -50,15 +51,40 @@ QScrollAreaWrap::QScrollAreaWrap(const Napi::CallbackInfo& info)
       true);
 }
 
-QScrollAreaWrap::~QScrollAreaWrap() { extrautils::safeDelete(this->instance); }
+Napi::Value QScrollAreaWrap::ensureVisible(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  int xmargin = info[2].As<Napi::Number>().Int32Value();
+  int ymargin = info[3].As<Napi::Number>().Int32Value();
+  this->instance->ensureVisible(x, y, xmargin, ymargin);
+  return env.Null();
+}
+
+Napi::Value QScrollAreaWrap::ensureWidgetVisible(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object childWidgetObject = info[0].As<Napi::Object>();
+  QWidgetWrap* childWidgetWrap =
+      Napi::ObjectWrap<QWidgetWrap>::Unwrap(childWidgetObject);
+  int xmargin = info[1].As<Napi::Number>().Int32Value();
+  int ymargin = info[2].As<Napi::Number>().Int32Value();
+  this->instance->ensureWidgetVisible(childWidgetWrap->getInternalInstance(),
+                                      xmargin, ymargin);
+  return env.Null();
+}
 
 Napi::Value QScrollAreaWrap::setWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  Napi::Object contentWidget = info[0].As<Napi::Object>();
-  QWidgetWrap* contentWidgetWrap =
-      Napi::ObjectWrap<QWidgetWrap>::Unwrap(contentWidget);
 
+  Napi::Object contentWidgetObject = info[0].As<Napi::Object>();
+  QWidgetWrap* contentWidgetWrap =
+      Napi::ObjectWrap<QWidgetWrap>::Unwrap(contentWidgetObject);
   this->instance->setWidget(contentWidgetWrap->getInternalInstance());
   return env.Null();
 }
@@ -66,24 +92,8 @@ Napi::Value QScrollAreaWrap::setWidget(const Napi::CallbackInfo& info) {
 Napi::Value QScrollAreaWrap::takeWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
+
   this->instance->takeWidget();
   // We will not return the value here since we are doing it in js side anyway
   return env.Null();
-}
-
-Napi::Value QScrollAreaWrap::setWidgetResizable(
-    const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  Napi::Boolean resizable = info[0].As<Napi::Boolean>();
-  this->instance->setWidgetResizable(resizable.Value());
-  return env.Null();
-}
-
-Napi::Value QScrollAreaWrap::widgetResizable(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  Napi::Boolean resizable = info[0].As<Napi::Boolean>();
-  bool value = this->instance->widgetResizable();
-  return Napi::Value::From(env, value);
 }
