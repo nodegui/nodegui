@@ -32,4 +32,7 @@ export class QSettings extends Component {
     setValue(key: string, value: number) {
         this.native.setValue(key, value);
     }
+    value(key: string): number {
+        return this.native.value(key);
+    }
 }

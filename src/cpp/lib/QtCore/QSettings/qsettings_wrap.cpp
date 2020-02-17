@@ -12,6 +12,7 @@ Napi::Object QSettingsWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("sync", &QSettingsWrap::sync),
        InstanceMethod("setValue", &QSettingsWrap::setValue),
+       InstanceMethod("value", &QSettingsWrap::value),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QSettingsWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -36,6 +37,15 @@ Napi::Value QSettingsWrap::setValue(const Napi::CallbackInfo& info) {
 
   this->instance.get()->setValue(key, value);
   return env.Null();
+}
+
+Napi::Value QSettingsWrap::value(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+
+  QString key = QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
+
+  int result = this->instance.get()->value(key).toInt();
+  return Napi::Number::From(env, result);
 }
 
 Napi::Value QSettingsWrap::sync(const Napi::CallbackInfo& info) {

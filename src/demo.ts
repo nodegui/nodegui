@@ -5,6 +5,7 @@ const dateEdit = new QDateEdit();
 
 const settings = new QSettings();
 console.log(settings.native);
+console.log(settings.value('heh'));
 settings.setValue('heh', 32);
 settings.sync();
 dateEdit.show();
