@@ -29,4 +29,7 @@ export class QSettings extends Component {
     sync(): void {
         this.native.sync();
     }
+    setValue(key: string, value: number) {
+        this.native.setValue(key, value);
+    }
 }

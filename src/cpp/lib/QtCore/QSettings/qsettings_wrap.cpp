@@ -11,6 +11,7 @@ Napi::Object QSettingsWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("sync", &QSettingsWrap::sync),
+       InstanceMethod("setValue", &QSettingsWrap::setValue),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QSettingsWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -25,6 +26,16 @@ QSettingsWrap::QSettingsWrap(const Napi::CallbackInfo& info)
   // FIXME: use actual org name and app name
   this->instance = std::make_unique<QSettings>("test1", "test2");
   this->rawData = extrautils::configureQObject(this->getInternalInstance());
+}
+
+Napi::Value QSettingsWrap::setValue(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+
+  QString key = QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
+  int value = info[1].As<Napi::Number>().Int32Value();
+
+  this->instance.get()->setValue(key, value);
+  return env.Null();
 }
 
 Napi::Value QSettingsWrap::sync(const Napi::CallbackInfo& info) {
