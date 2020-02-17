@@ -24,7 +24,7 @@ export class QSettings extends Component {
     sync(): void {
         this.native.sync();
     }
-    setValue(key: string, value: number | string | boolean) {
+    setValue(key: string, value: number | string | boolean): void {
         this.native.setValue(key, value);
     }
     value(key: string): QVariant {
