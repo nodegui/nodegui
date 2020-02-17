@@ -46,9 +46,11 @@ Napi::Value QSettingsWrap::value(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
 
   QString key = QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
+  QVariant value = this->instance.get()->value(key);
 
-  int result = this->instance.get()->value(key).toInt();
-  return Napi::Number::From(env, result);
+  auto instance = QVariantWrap::constructor.New(
+      {Napi::External<QVariant>::New(env, new QVariant(value))});
+  return instance;
 }
 
 Napi::Value QSettingsWrap::sync(const Napi::CallbackInfo& info) {

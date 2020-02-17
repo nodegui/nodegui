@@ -1,8 +1,6 @@
 import { NativeElement, Component } from '../core/Component';
 import addon from '../utils/addon';
-import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from './QVariant';
-import { NodeObject } from './QObject';
 
 enum Format {
     NativeFormat = 0,
@@ -29,7 +27,7 @@ export class QSettings extends Component {
     setValue(key: string, value: number | string | boolean) {
         this.native.setValue(key, value);
     }
-    value(key: string): number {
+    value(key: string): QVariant {
         return this.native.value(key);
     }
 }
