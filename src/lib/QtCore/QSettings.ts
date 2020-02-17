@@ -26,4 +26,7 @@ export class QSettings extends Component {
         }
         this.native = new addon.QSettings();
     }
+    sync(): void {
+        this.native.sync();
+    }
 }

@@ -17,6 +17,7 @@ class DLL_EXPORT QSettingsWrap : public Napi::ObjectWrap<QSettingsWrap> {
   ~QSettingsWrap();
   QSettings* getInternalInstance();
   QSettingsWrap(const Napi::CallbackInfo& info);
+  Napi::Value sync(const Napi::CallbackInfo& info);
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   static Napi::FunctionReference constructor;
 };
