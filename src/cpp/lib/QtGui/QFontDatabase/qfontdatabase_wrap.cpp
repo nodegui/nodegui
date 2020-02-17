@@ -41,7 +41,8 @@ Napi::Value QFontDatabaseWrap::families(const Napi::CallbackInfo& info) {
   if (info.Length() == 1) {
     writingSystem = info[0].As<Napi::Number>().Int32Value();
   }
-  QStringList families = this->instance->families(static_cast<QFontDatabase::WritingSystem>(writingSystem));
+  QStringList families = this->instance->families(
+      static_cast<QFontDatabase::WritingSystem>(writingSystem));
   Napi::Array familiesNapi = Napi::Array::New(env, families.size());
   for (int i = 0; i < families.size(); i++) {
     familiesNapi[i] = Napi::String::New(env, families[i].toStdString());

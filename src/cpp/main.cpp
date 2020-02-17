@@ -7,6 +7,7 @@
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
+#include "QtCore/QSettings/qsettings_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtCore/QTime/qtime_wrap.h"
 #include "QtCore/QUrl/qurl_wrap.h"
@@ -145,6 +146,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QTimeEditWrap::init(env, exports);
   QButtonGroupWrap::init(env, exports);
   QStatusBarWrap::init(env, exports);
+  QSettingsWrap::init(env, exports);
   return exports;
 }
 
