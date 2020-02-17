@@ -34,9 +34,11 @@ Napi::Value QSettingsWrap::setValue(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
 
   QString key = QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
-  int value = info[1].As<Napi::Number>().Int32Value();
+  Napi::Value value = info[1];
+  QVariant* valueVariant = extrautils::convertToQVariant(env, value);
 
-  this->instance.get()->setValue(key, value);
+  this->instance.get()->setValue(key, *valueVariant);
+  delete valueVariant;
   return env.Null();
 }
 
