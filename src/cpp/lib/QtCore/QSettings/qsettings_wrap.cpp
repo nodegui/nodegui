@@ -8,12 +8,12 @@ Napi::FunctionReference QSettingsWrap::constructor;
 Napi::Object QSettingsWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QSettings";
-  Napi::Function func = DefineClass(
-      env, CLASSNAME,
-      {InstanceMethod("sync", &QSettingsWrap::sync),
-       InstanceMethod("setValue", &QSettingsWrap::setValue),
-       InstanceMethod("value", &QSettingsWrap::value),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QSettingsWrap)});
+  Napi::Function func =
+      DefineClass(env, CLASSNAME,
+                  {InstanceMethod("sync", &QSettingsWrap::sync),
+                   InstanceMethod("setValue", &QSettingsWrap::setValue),
+                   InstanceMethod("value", &QSettingsWrap::value),
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QSettingsWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -23,8 +23,10 @@ QSettingsWrap::QSettingsWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QSettingsWrap>(info) {
   Napi::Env env = info.Env();
 
-  QString organization = QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
-  QString application = QString::fromUtf8(info[1].As<Napi::String>().Utf8Value().c_str());
+  QString organization =
+      QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
+  QString application =
+      QString::fromUtf8(info[1].As<Napi::String>().Utf8Value().c_str());
 
   this->instance = std::make_unique<QSettings>(organization, application);
   this->rawData = extrautils::configureQObject(this->getInternalInstance());
@@ -33,7 +35,8 @@ QSettingsWrap::QSettingsWrap(const Napi::CallbackInfo& info)
 Napi::Value QSettingsWrap::setValue(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
 
-  QString key = QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
+  QString key =
+      QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
   Napi::Value value = info[1];
   QVariant* valueVariant = extrautils::convertToQVariant(env, value);
 
@@ -45,7 +48,8 @@ Napi::Value QSettingsWrap::setValue(const Napi::CallbackInfo& info) {
 Napi::Value QSettingsWrap::value(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
 
-  QString key = QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
+  QString key =
+      QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
   QVariant value = this->instance.get()->value(key);
 
   auto instance = QVariantWrap::constructor.New(
