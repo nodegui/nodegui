@@ -56,7 +56,7 @@ class YOGA_EXPORT YGStyle {
       style.*Prop = values;
       return *this;
     }
-    operator const Values<Idx>&() const { return style.*Prop; }
+    operator const Values<Idx> &() const { return style.*Prop; }
     Ref operator[](Idx idx) { return {style, idx}; }
     CompactValue operator[](Idx idx) const { return (style.*Prop)[idx]; }
   };

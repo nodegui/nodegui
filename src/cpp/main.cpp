@@ -11,6 +11,7 @@
 #include "QtCore/QTime/qtime_wrap.h"
 #include "QtCore/QUrl/qurl_wrap.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
+#include "QtCore/QSettings/qsettings_wrap.h"
 #include "QtGui/QApplication/qapplication_wrap.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
@@ -145,6 +146,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QTimeEditWrap::init(env, exports);
   QButtonGroupWrap::init(env, exports);
   QStatusBarWrap::init(env, exports);
+  QSettingsWrap::init(env, exports);
   return exports;
 }
 

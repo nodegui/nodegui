@@ -21,9 +21,8 @@ QSettingsWrap::QSettingsWrap(const Napi::CallbackInfo& info)
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  Napi::Object parentObject = info[0].As<Napi::Object>();
-  QSettingsWrap* parentObjectWrap = Napi::ObjectWrap<QSettingsWrap>::Unwrap(parentObject);
-  this->instance = std::make_unique<QSettings>(parentObjectWrap->getInternalInstance());
+  // FIXME: use actual org name and app name
+  this->instance = std::make_unique<QSettings>("test1", "test2");
   this->rawData = extrautils::configureQObject(this->getInternalInstance());
 }
 

@@ -19,7 +19,7 @@ enum Scope {
 
 export class QSettings extends Component {
     native: NativeElement;
-    constructor(parent: NodeObject<any> | undefined) {
+    constructor(parent?: NodeObject<any>) {
         super();
         if (parent) {
             this.native = new addon.QSettings(parent);
