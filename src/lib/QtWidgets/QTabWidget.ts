@@ -42,10 +42,12 @@ export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
         this.native = native;
     }
 
-    addTab(page: NodeWidget<any>, icon: QIcon, label: string): void {
+    addTab(page: NodeWidget<any>, icon: QIcon, label: string): number {
         this.native.addTab(page.native, icon.native, label);
         this.tabs.push(page);
         page.setFlexNodeSizeControlled(true);
+        // returns the index of the last inserted tab
+        return this.tabs.length - 1;
     }
 
     setTabPosition(tabPosition: TabPosition): void {
