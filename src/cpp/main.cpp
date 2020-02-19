@@ -63,6 +63,7 @@
 #include "QtWidgets/QStatusBar/qstatusbar_wrap.h"
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
+#include "QtWidgets/QTableView/qtableview_wrap.h"
 #include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
 #include "QtWidgets/QTimeEdit/qtimeedit_wrap.h"
@@ -112,6 +113,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QFileDialogWrap::init(env, exports);
   QListWidgetWrap::init(env, exports);
   QListWidgetItemWrap::init(env, exports);
+  QTableViewWrap::init(env, exports);
   QTableWidgetWrap::init(env, exports);
   QTableWidgetItemWrap::init(env, exports);
   QPainterWrap::init(env, exports);
