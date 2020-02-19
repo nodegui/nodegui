@@ -35,7 +35,7 @@ QTableView {
 `);
 
 widget.setLayout(layout);
-//layout.addWidget(view); // app crash when add view to the layout
+layout.addWidget(view); // app crash when add view to the layout
 layout.addWidget(table); // app run ok when add table to the layout
 
 widget.setInlineStyle('flex:1;');

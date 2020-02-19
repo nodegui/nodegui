@@ -9,6 +9,7 @@
 #include "QtWidgets/QTableView/qtableview_macro.h"
 
 class DLL_EXPORT QTableViewWrap : public Napi::ObjectWrap<QTableViewWrap> {
+  QTABLEVIEW_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NTableView> instance;
   bool disableDeletion;
@@ -21,5 +22,4 @@ class DLL_EXPORT QTableViewWrap : public Napi::ObjectWrap<QTableViewWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  QTABLEVIEW_WRAPPED_METHODS_DECLARATION
 };
