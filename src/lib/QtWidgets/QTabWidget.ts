@@ -43,11 +43,10 @@ export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
     }
 
     addTab(page: NodeWidget<any>, icon: QIcon, label: string): number {
-        this.native.addTab(page.native, icon.native, label);
+        const index = this.native.addTab(page.native, icon.native, label);
         this.tabs.push(page);
         page.setFlexNodeSizeControlled(true);
-        // returns the index of the last inserted tab
-        return this.tabs.length - 1;
+        return index;
     }
 
     setTabPosition(tabPosition: TabPosition): void {

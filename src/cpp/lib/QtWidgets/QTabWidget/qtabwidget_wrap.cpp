@@ -65,9 +65,9 @@ Napi::Value QTabWidgetWrap::addTab(const Napi::CallbackInfo& info) {
       Napi::ObjectWrap<QWidgetWrap>::Unwrap(pageObject);
   QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
 
-  this->instance->addTab(pageObjectWrap->getInternalInstance(),
+  int index = this->instance->addTab(pageObjectWrap->getInternalInstance(),
                          *iconWrap->getInternalInstance(), label.c_str());
-  return env.Null();
+  return Napi::Number::New(env, index);
 }
 
 Napi::Value QTabWidgetWrap::setTabPosition(const Napi::CallbackInfo& info) {
