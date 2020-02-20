@@ -189,6 +189,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/blncd2020"><img src="https://avatars1.githubusercontent.com/u/59541979?v=4" width="100px;" alt=""/><br /><sub><b>blncd2020</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=blncd2020" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/gluaxspeed"><img src="https://avatars2.githubusercontent.com/u/16431709?v=4" width="100px;" alt=""/><br /><sub><b>gluaxspeed</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=gluaxspeed" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Solant"><img src="https://avatars2.githubusercontent.com/u/5971578?v=4" width="100px;" alt=""/><br /><sub><b>Solant</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=Solant" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/shubhamzanwar"><img src="https://avatars0.githubusercontent.com/u/15626155?v=4" width="100px;" alt=""/><br /><sub><b>Shubham Zanwar</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=shubhamzanwar" title="Code">💻</a></td>
   </tr>
 </table>
 
