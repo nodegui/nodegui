@@ -53,6 +53,7 @@ export { QStackedWidget, QStackedWidgetSignals } from './lib/QtWidgets/QStackedW
 export { QListWidget, QListWidgetSignals } from './lib/QtWidgets/QListWidget';
 export { QListWidgetItem } from './lib/QtWidgets/QListWidgetItem';
 export { QTabWidget, QTabWidgetSignals } from './lib/QtWidgets/QTabWidget';
+export { QTableView, QTableViewSignals } from './lib/QtWidgets/QTableView';
 export { QTableWidget, QTableWidgetSignals } from './lib/QtWidgets/QTableWidget';
 export { QTableWidgetItem } from './lib/QtWidgets/QTableWidgetItem';
 export { QMenu, QMenuSignals } from './lib/QtWidgets/QMenu';
