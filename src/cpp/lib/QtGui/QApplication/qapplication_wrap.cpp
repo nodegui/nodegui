@@ -1,9 +1,8 @@
 #include "QtGui/QApplication/qapplication_wrap.h"
-
-#include "core/Integration/integration.h"
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QStyle/qstyle_wrap.h"
+#include "core/Integration/qode-api.h"
 
 Napi::FunctionReference QApplicationWrap::constructor;
 

@@ -19,7 +19,7 @@
         "docs": "cross-env typedoc && node ./website/docs/scripts/fixdocs.js"
     },
     "dependencies": {
-        "@nodegui/qode": "^2.0.0",
+        "@nodegui/qode": "^2.0.1",
         "cmake-js": "^6.0.0",
         "cross-env": "^7.0.0",
         "cuid": "^2.1.6",
