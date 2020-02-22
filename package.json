@@ -9,9 +9,9 @@
     "private": false,
     "scripts": {
         "dev": "cross-env npm run build && qode dist/demo.js",
-        "preinstall": "node ./scripts/preinstall.js",
         "build": "cross-env tsc && npm run build:addon",
-        "postinstall": "cross-env node ./scripts/skip.js || npm run prebuild:install || npm run build:addon",
+        "postinstall": "cross-env npm run setupqt && (node ./scripts/skip.js || npm run prebuild:install || npm run build:addon)",
+        "setupqt": "node ./scripts/setupMiniQt.js",
         "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js build",
         "prebuild:install": "prebuild-install --backend=cmake-js --runtime=napi --verbose",
         "test": "qode ./node_modules/jest/bin/jest -i",
