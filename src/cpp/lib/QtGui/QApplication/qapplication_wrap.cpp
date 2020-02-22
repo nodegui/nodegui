@@ -1,4 +1,5 @@
 #include "QtGui/QApplication/qapplication_wrap.h"
+
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QStyle/qstyle_wrap.h"

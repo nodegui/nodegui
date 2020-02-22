@@ -1,4 +1,4 @@
 #pragma once
 namespace qodeIntegration {
-    void integrate();
+void integrate();
 }

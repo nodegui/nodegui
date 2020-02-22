@@ -2,11 +2,11 @@
 
 #include <napi.h>
 
-#include "napplication.hpp"
 #include <QPointer>
 
 #include "Extras/Export/export.h"
 #include "QtCore/QObject/qobject_macro.h"
+#include "napplication.hpp"
 
 class DLL_EXPORT QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
