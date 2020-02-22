@@ -1,13 +1,14 @@
-const { setupQt } = require('@nodegui/qt-installer');
-const path = require('path');
+#!/usr/bin/env node
 
-const qtDir = path.resolve(__dirname, '..', 'miniqt');
+const { setupArtifact } = require('@nodegui/artifact-installer');
+const { miniQt } = require('./config');
 
-setupQt({
-    qtDir,
-    downloadLink:
-        'https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5150/qt.qt5.5150.clang_64/5.15.0-0-202002122005qtbase-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z',
-    osType: 'darwin',
+setupArtifact({
+    outDir: miniQt.setupDir,
+    id: 'nodegui-mini-qt',
+    displayName: `Minimal Qt ${miniQt.version} installation`,
+    downloadLink: miniQt.downloadLink,
 }).catch(err => {
-    throw err;
+    console.error(err);
+    process.exit(1);
 });
