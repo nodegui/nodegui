@@ -11,6 +11,6 @@ module.exports = {
     transform: {
         '^.+\\.tsx?$': 'ts-jest',
     },
-    globalSetup: './config/tests/setup.js',
-    globalTeardown: './config/tests/teardown.js',
+    globalSetup: './scripts/tests/setup.js',
+    globalTeardown: './scripts/tests/teardown.js',
 };

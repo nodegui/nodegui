@@ -28,10 +28,11 @@ switch (os.platform()) {
     }
 }
 
-const qtHome = process.env.CUSTOM_QT_DIR ? process.env.CUSTOM_QT_DIR : miniQt.qtHome;
+const qtHome = process.env.QT_INSTALL_DIR ? process.env.QT_INSTALL_DIR : miniQt.qtHome;
 
 module.exports = {
     qtHome,
     qtCmakeDir: path.resolve(qtHome, 'lib', 'cmake', 'Qt5'),
     miniQt,
+    useCustomQt: Boolean(process.env.QT_INSTALL_DIR),
 };

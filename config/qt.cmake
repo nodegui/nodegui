@@ -6,17 +6,13 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+set(QTCONFIG_FILE ${CMAKE_CURRENT_LIST_DIR}/../scripts/qtConfig.js)
+
 macro(AddQtSupport addonName)    
-    execute_process(COMMAND node -p "require('./scripts/config.js').qtCmakeDir"
+    execute_process(COMMAND node -p "require('${QTCONFIG_FILE}').qtCmakeDir"
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         OUTPUT_VARIABLE QT_CMAKE_HOME_DIR
     )
-
-    # if(DEFINED ENV{QT_INSTALL_DIR})
-    #     # Allows to use custom Qt installation via QT_INSTALL_DIR env variable
-    #     message(STATUS "Using Custom QT installation for ${addonName} QT_INSTALL_DIR:$ENV{QT_INSTALL_DIR}")
-    #     set(QT_HOME_DIR "$ENV{QT_INSTALL_DIR}")
-    # endif()
 
     string(REPLACE "\n" "" QT_CMAKE_HOME_DIR "${QT_CMAKE_HOME_DIR}")
     string(REPLACE "\"" "" QT_CMAKE_HOME_DIR "${QT_CMAKE_HOME_DIR}")
