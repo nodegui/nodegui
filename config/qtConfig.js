@@ -18,12 +18,12 @@ switch (os.platform()) {
     }
     case 'win32': {
         miniQt.qtHome = path.resolve(setupDir, miniQt.version, 'msvc2017_64');
-        miniQt.downloadLink = `https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5150/qt.qt5.5150.clang_64/5.15.0-0-202002122005qtbase-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`;
+        miniQt.downloadLink = `https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_5150/qt.qt5.5150.win64_msvc2017_64/5.15.0-0-202002122017qtbase-Windows-Windows_10-MSVC2017-Windows-Windows_10-X86_64.7z`;
         break;
     }
     case 'linux': {
         miniQt.qtHome = path.resolve(setupDir, miniQt.version, 'gcc_64');
-        miniQt.downloadLink = `https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5150/qt.qt5.5150.clang_64/5.15.0-0-202002122005qtbase-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`;
+        miniQt.downloadLink = `https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt5_5150/qt.qt5.5150.gcc_64/5.15.0-0-202002122009qtbase-Linux-RHEL_7_6-GCC-Linux-RHEL_7_6-X86_64.7z`;
         break;
     }
 }

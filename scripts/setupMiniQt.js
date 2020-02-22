@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { setupArtifact } = require('@nodegui/artifact-installer');
-const { miniQt, useCustomQt, qtHome } = require('./qtConfig');
+const { miniQt, useCustomQt, qtHome } = require('../config/qtConfig');
 
 if (!useCustomQt) {
     console.log(`Minimal Qt ${miniQt.version} setup:`);

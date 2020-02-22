@@ -6,7 +6,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(QTCONFIG_FILE ${CMAKE_CURRENT_LIST_DIR}/../scripts/qtConfig.js)
+set(QTCONFIG_FILE ${CMAKE_CURRENT_LIST_DIR}/qtConfig.js)
 
 macro(AddQtSupport addonName)    
     execute_process(COMMAND node -p "require('${QTCONFIG_FILE}').qtCmakeDir"
