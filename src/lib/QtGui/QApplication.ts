@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { Component, NativeElement } from '../core/Component';
+import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QClipboard } from './QClipboard';
 import { QStyle } from './QStyle';

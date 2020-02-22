@@ -2,7 +2,7 @@ import { NativeElement, Component } from '../core/Component';
 import addon from '../utils/addon';
 import { QVariant } from './QVariant';
 
-export enum Format {
+export enum QSettingsFormat {
     NativeFormat = 0,
     Registry32Format = 2,
     Registry64Format = 3,
@@ -10,7 +10,7 @@ export enum Format {
     InvalidFormat = 16,
 }
 
-export enum Scope {
+export enum QSettingsScope {
     UserScope = 0,
     SystemScope = 1,
 }
