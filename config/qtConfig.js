@@ -9,7 +9,6 @@ function getMiniQtConfig() {
         case 'darwin': {
             return {
                 qtHome: path.resolve(SETUP_DIR, QT_VERSION, 'clang_64'),
-                version: QT_VERSION,
                 artifacts: [
                     {
                         name: 'Qt Base',
@@ -21,7 +20,6 @@ function getMiniQtConfig() {
         case 'win32': {
             return {
                 qtHome: path.resolve(SETUP_DIR, QT_VERSION, 'msvc2017_64'),
-                version: QT_VERSION,
                 artifacts: [
                     {
                         name: 'Qt Base',
@@ -33,7 +31,6 @@ function getMiniQtConfig() {
         case 'linux': {
             return {
                 qtHome: path.resolve(SETUP_DIR, QT_VERSION, 'gcc_64'),
-                version: QT_VERSION,
                 artifacts: [
                     {
                         name: 'Qt Base',
@@ -49,7 +46,12 @@ function getMiniQtConfig() {
     }
 }
 
-const miniQt = getMiniQtConfig();
+const miniQt = {
+    ...getMiniQtConfig(),
+    version: QT_VERSION,
+    setupDir: SETUP_DIR,
+};
+
 const useCustomQt = Boolean(process.env.QT_INSTALL_DIR);
 const qtHome = useCustomQt ? process.env.QT_INSTALL_DIR : miniQt.qtHome;
 const qtCmakeDir = path.resolve(qtHome, 'lib', 'cmake', 'Qt5');
