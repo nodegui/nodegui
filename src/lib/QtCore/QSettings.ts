@@ -2,19 +2,18 @@ import { NativeElement, Component } from '../core/Component';
 import addon from '../utils/addon';
 import { QVariant } from './QVariant';
 
-// The below code in unused and hence commented
-// enum Format {
-//     NativeFormat = 0,
-//     Registry32Format = 2,
-//     Registry64Format = 3,
-//     IniFormat = 1,
-//     InvalidFormat = 16,
-// }
+export enum Format {
+    NativeFormat = 0,
+    Registry32Format = 2,
+    Registry64Format = 3,
+    IniFormat = 1,
+    InvalidFormat = 16,
+}
 
-// enum Scope {
-//     UserScope = 0,
-//     SystemScope = 1,
-// }
+export enum Scope {
+    UserScope = 0,
+    SystemScope = 1,
+}
 
 export class QSettings extends Component {
     native: NativeElement;
