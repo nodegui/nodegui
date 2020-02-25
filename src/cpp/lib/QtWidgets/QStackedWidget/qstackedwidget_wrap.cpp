@@ -18,7 +18,7 @@ Napi::Object QStackedWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("currentIndex", &QStackedWidgetWrap::currentIndex),
        InstanceMethod("setCurrentWidget",
                       &QStackedWidgetWrap::setCurrentWidget),
-       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QStackedWidgetWrap)});
+       QFRAME_WRAPPED_METHODS_EXPORT_DEFINE(QStackedWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

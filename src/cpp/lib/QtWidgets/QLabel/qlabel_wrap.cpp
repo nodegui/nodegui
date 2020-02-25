@@ -24,7 +24,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setNumInt", &QLabelWrap::setNumInt),
        InstanceMethod("setPicture", &QLabelWrap::setPicture),
        InstanceMethod("setPixmap", &QLabelWrap::setPixmap),
-       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)});
+       QFRAME_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
