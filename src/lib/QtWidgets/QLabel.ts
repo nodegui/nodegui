@@ -1,5 +1,6 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { NodeWidget } from './QWidget';
+import { NodeFrame, QFrameSignals } from './QFrame';
 import { NativeElement } from '../core/Component';
 import { QPixmap } from '../QtGui/QPixmap';
 import { QMovie } from '../QtGui/QMovie';
@@ -26,7 +27,7 @@ label.setText("Hello");
 ```
 
  */
-export class QLabel extends NodeWidget<QLabelSignals> {
+export class QLabel extends NodeFrame<QLabelSignals> {
     native: NativeElement;
     private _picture?: QPicture;
     private _pixmap?: QPixmap;
@@ -153,7 +154,7 @@ export class QLabel extends NodeWidget<QLabelSignals> {
     }
 }
 
-export interface QLabelSignals extends QWidgetSignals {
+export interface QLabelSignals extends QFrameSignals {
     linkActivated: (link: string) => void;
     linkHovered: (link: string) => void;
 }

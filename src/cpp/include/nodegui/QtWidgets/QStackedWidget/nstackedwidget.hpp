@@ -1,8 +1,9 @@
 #pragma once
+
 #include <QStackedWidget>
 
 #include "Extras/Utils/nutils.h"
-#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "QtWidgets/QFrame/qframe_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"
 
@@ -14,7 +15,7 @@ class DLL_EXPORT NStackedWidget : public QStackedWidget, public NodeWidget {
                                          // QStackedWidget
 
   void connectSignalsToEventEmitter() {
-    QWIDGET_SIGNALS
+    QFRAME_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QStackedWidget::currentChanged, [=](int index) {
       Napi::Env env = this->emitOnNode.Env();

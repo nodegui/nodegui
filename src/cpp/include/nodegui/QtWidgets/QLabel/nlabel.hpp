@@ -3,7 +3,7 @@
 #include <QLabel>
 
 #include "Extras/Utils/nutils.h"
-#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "QtWidgets/QFrame/qframe_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 
 class DLL_EXPORT NLabel : public QLabel, public NodeWidget {
@@ -13,7 +13,7 @@ class DLL_EXPORT NLabel : public QLabel, public NodeWidget {
   using QLabel::QLabel;  // inherit all constructors of QLabel
 
   void connectSignalsToEventEmitter() {
-    QWIDGET_SIGNALS
+    QFRAME_SIGNALS
     QObject::connect(this, &QLabel::linkActivated, [=](const QString& link) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);

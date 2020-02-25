@@ -5,12 +5,12 @@
 #include <QPointer>
 
 #include "Extras/Utils/nutils.h"
+#include "QtWidgets/QFrame/qframe_macro.h"
 #include "QtWidgets/QStackedWidget/nstackedwidget.hpp"
-#include "QtWidgets/QWidget/qwidget_macro.h"
 
 class DLL_EXPORT QStackedWidgetWrap
     : public Napi::ObjectWrap<QStackedWidgetWrap> {
-  QWIDGET_WRAPPED_METHODS_DECLARATION
+  QFRAME_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NStackedWidget> instance;
 

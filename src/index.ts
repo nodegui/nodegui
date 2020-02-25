@@ -41,6 +41,7 @@ export { QDateTimeEdit, NodeDateTimeEdit, QDateTimeEditSignals } from './lib/QtW
 export { QLabel, QLabelSignals } from './lib/QtWidgets/QLabel';
 export { QDial, QDialSignals } from './lib/QtWidgets/QDial';
 export { QFileDialog, QFileDialogSignals } from './lib/QtWidgets/QFileDialog';
+export { QFrame, QFrameSignals, Shadow, Shape } from './lib/QtWidgets/QFrame';
 export { QLineEdit, QLineEditSignals, EchoMode } from './lib/QtWidgets/QLineEdit';
 export { QMainWindow, QMainWindowSignals } from './lib/QtWidgets/QMainWindow';
 export { QProgressBar, QProgressBarSignals, QProgressBarDirection } from './lib/QtWidgets/QProgressBar';

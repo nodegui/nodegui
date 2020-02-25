@@ -5,11 +5,11 @@
 #include <QPointer>
 
 #include "Extras/Utils/nutils.h"
-#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "QtWidgets/QFrame/qframe_macro.h"
 #include "nlabel.hpp"
 
 class DLL_EXPORT QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {
-  QWIDGET_WRAPPED_METHODS_DECLARATION
+  QFRAME_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NLabel> instance;
 

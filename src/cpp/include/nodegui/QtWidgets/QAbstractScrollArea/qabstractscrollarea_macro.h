@@ -1,6 +1,6 @@
-
 #pragma once
-#include "QtWidgets/QWidget/qwidget_macro.h"
+
+#include "QtWidgets/QFrame/qframe_macro.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 /*
@@ -12,7 +12,9 @@
 
 #ifndef QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
 #define QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION            \
-  QWIDGET_WRAPPED_METHODS_DECLARATION                              \
+                                                                   \
+  QFRAME_WRAPPED_METHODS_DECLARATION                               \
+                                                                   \
   Napi::Value setViewport(const Napi::CallbackInfo& info) {        \
     Napi::Env env = info.Env();                                    \
     Napi::HandleScope scope(env);                                  \
@@ -38,13 +40,15 @@
 
 #ifndef QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE
 #define QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
-  QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)                   \
+                                                                          \
+  QFRAME_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)                    \
+                                                                          \
   InstanceMethod("setViewport", &WidgetWrapName::setViewport),            \
       InstanceMethod("viewport", &WidgetWrapName::viewport),
 
 #endif  // QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE
 
 #ifndef QABSTRACTSCROLLAREA_SIGNALS
-#define QABSTRACTSCROLLAREA_SIGNALS QWIDGET_SIGNALS
+#define QABSTRACTSCROLLAREA_SIGNALS QFRAME_SIGNALS
 
 #endif
