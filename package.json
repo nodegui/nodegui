@@ -7,6 +7,9 @@
     "author": "Atul R <atulanand94@gmail.com>",
     "license": "MIT",
     "private": false,
+    "bin": {
+        "qode": "./scripts/qode.js"
+    },
     "scripts": {
         "dev": "cross-env npm run build && qode dist/demo.js",
         "build": "cross-env tsc && npm run build:addon",
@@ -25,6 +28,7 @@
         "cmake-js": "^6.0.0",
         "cross-env": "^7.0.0",
         "cuid": "^2.1.6",
+        "manage-path": "^2.0.0",
         "node-addon-api": "^2.0.0",
         "postcss-nodegui-autoprefixer": "0.0.7",
         "prebuild-install": "^5.3.3"
