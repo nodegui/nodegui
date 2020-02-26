@@ -15,5 +15,7 @@ tab.addTab(label2, new QIcon(), 'TAB2');
 win.setCentralWidget(tab);
 console.log(tab.indexOf(label));
 console.log(tab.indexOf(label2));
+tab.setTabIcon(tab.indexOf(label2), new QIcon());
+
 win.show();
 (global as any).win = win;

@@ -61,6 +61,10 @@ export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
         this.native.setTabText(tabIndex, tabText);
     }
 
+    setTabIcon(tabIndex: number, icon: QIcon): void {
+        this.native.setTabIcon(tabIndex, icon.native);
+    }
+
     setCurrentIndex(index: number): void {
         this.native.setCurrentIndex(index);
     }
