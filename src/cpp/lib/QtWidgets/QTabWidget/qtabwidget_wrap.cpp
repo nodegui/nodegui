@@ -15,6 +15,7 @@ Napi::Object QTabWidgetWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("addTab", &QTabWidgetWrap::addTab),
        InstanceMethod("setTabPosition", &QTabWidgetWrap::setTabPosition),
+       InstanceMethod("indexOf", &QTabWidgetWrap::indexOf),
        InstanceMethod("setTabText", &QTabWidgetWrap::setTabText),
        InstanceMethod("setCurrentIndex", &QTabWidgetWrap::setCurrentIndex),
        InstanceMethod("currentIndex", &QTabWidgetWrap::currentIndex),
@@ -69,6 +70,19 @@ Napi::Value QTabWidgetWrap::addTab(const Napi::CallbackInfo& info) {
   int index =
       this->instance->addTab(pageObjectWrap->getInternalInstance(),
                              *iconWrap->getInternalInstance(), label.c_str());
+  return Napi::Number::New(env, index);
+}
+
+Napi::Value QTabWidgetWrap::indexOf(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object widgetObject = info[0].As<Napi::Object>();
+
+  QWidgetWrap* widgetObjectWrap =
+      Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);
+
+  int index = this->instance->indexOf(widgetObjectWrap->getInternalInstance());
   return Napi::Number::New(env, index);
 }
 
