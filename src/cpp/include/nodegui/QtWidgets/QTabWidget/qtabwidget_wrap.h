@@ -22,10 +22,12 @@ class DLL_EXPORT QTabWidgetWrap : public Napi::ObjectWrap<QTabWidgetWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value addTab(const Napi::CallbackInfo &info);
+  Napi::Value indexOf(const Napi::CallbackInfo &info);
   Napi::Value setTabPosition(const Napi::CallbackInfo &info);
   Napi::Value setCurrentIndex(const Napi::CallbackInfo &info);
   Napi::Value currentIndex(const Napi::CallbackInfo &info);
   Napi::Value removeTab(const Napi::CallbackInfo &info);
   Napi::Value setTabsClosable(const Napi::CallbackInfo &info);
   Napi::Value setTabText(const Napi::CallbackInfo &info);
+  Napi::Value setTabIcon(const Napi::CallbackInfo &info);
 };

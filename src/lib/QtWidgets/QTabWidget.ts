@@ -49,12 +49,20 @@ export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
         return index;
     }
 
+    indexOf(widget: NodeWidget<any>): number {
+        return this.native.indexOf(widget.native);
+    }
+
     setTabPosition(tabPosition: TabPosition): void {
         this.native.setTabPosition(tabPosition);
     }
 
     setTabText(tabIndex: number, tabText: string): void {
         this.native.setTabText(tabIndex, tabText);
+    }
+
+    setTabIcon(tabIndex: number, icon: QIcon): void {
+        this.native.setTabIcon(tabIndex, icon.native);
     }
 
     setCurrentIndex(index: number): void {

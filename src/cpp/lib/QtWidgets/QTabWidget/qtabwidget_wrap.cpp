@@ -15,7 +15,9 @@ Napi::Object QTabWidgetWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("addTab", &QTabWidgetWrap::addTab),
        InstanceMethod("setTabPosition", &QTabWidgetWrap::setTabPosition),
+       InstanceMethod("indexOf", &QTabWidgetWrap::indexOf),
        InstanceMethod("setTabText", &QTabWidgetWrap::setTabText),
+       InstanceMethod("setTabIcon", &QTabWidgetWrap::setTabIcon),
        InstanceMethod("setCurrentIndex", &QTabWidgetWrap::setCurrentIndex),
        InstanceMethod("currentIndex", &QTabWidgetWrap::currentIndex),
        InstanceMethod("removeTab", &QTabWidgetWrap::removeTab),
@@ -72,6 +74,19 @@ Napi::Value QTabWidgetWrap::addTab(const Napi::CallbackInfo& info) {
   return Napi::Number::New(env, index);
 }
 
+Napi::Value QTabWidgetWrap::indexOf(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object widgetObject = info[0].As<Napi::Object>();
+
+  QWidgetWrap* widgetObjectWrap =
+      Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);
+
+  int index = this->instance->indexOf(widgetObjectWrap->getInternalInstance());
+  return Napi::Number::New(env, index);
+}
+
 Napi::Value QTabWidgetWrap::setTabPosition(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -88,6 +103,17 @@ Napi::Value QTabWidgetWrap::setTabText(const Napi::CallbackInfo& info) {
   Napi::String napiLabel = info[1].As<Napi::String>();
   std::string label = napiLabel.Utf8Value();
   this->instance->setTabText(tabIndex, label.c_str());
+  return env.Null();
+}
+
+Napi::Value QTabWidgetWrap::setTabIcon(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int tabIndex = info[0].As<Napi::Number>().Int32Value();
+  Napi::Object iconObject = info[1].As<Napi::Object>();
+  QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
+  this->instance->setTabIcon(tabIndex, *iconWrap->getInternalInstance());
   return env.Null();
 }
 

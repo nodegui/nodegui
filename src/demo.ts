@@ -1,46 +1,21 @@
-import { QTableView } from './lib/QtWidgets/QTableView';
-import { QWidget } from './lib/QtWidgets/QWidget';
-import { FlexLayout } from './lib/core/FlexLayout';
-import { QTableWidget } from './lib/QtWidgets/QTableWidget';
-import { QFrame, Shape } from './lib/QtWidgets/QFrame';
+import { QMainWindow } from './lib/QtWidgets/QMainWindow';
+import { QTabWidget } from './lib/QtWidgets/QTabWidget';
+import { QLabel } from './lib/QtWidgets/QLabel';
+import { QIcon } from './lib/QtGui/QIcon';
 
-const widget = new QWidget();
-const layout = new FlexLayout();
-const view = new QTableView();
-const table = new QTableWidget(5, 5);
-const frame = new QFrame();
+const win = new QMainWindow();
+const tab = new QTabWidget();
+const label = new QLabel();
+label.setText('Hello');
+const label2 = new QLabel();
+label2.setText('LABEL');
 
-frame.setFrameShape(Shape.HLine);
+tab.addTab(label, new QIcon(), 'I am label tab');
+tab.addTab(label2, new QIcon(), 'TAB2');
+win.setCentralWidget(tab);
+console.log(tab.indexOf(label));
+console.log(tab.indexOf(label2));
+tab.setTabIcon(tab.indexOf(label2), new QIcon());
 
-view.setStyleSheet(`
-QTableView {
-    min-width:300px;
-    min-height:200px;
-}
-`);
-
-table.setStyleSheet(`
-QTableView {
-    min-width:300px;
-    min-height:200px;
-}
-`);
-
-frame.setStyleSheet(`
-    QFrame{
-        background: blue;
-        border: none;
-        height:15px;
-    }
-    `);
-
-widget.setLayout(layout);
-layout.addWidget(view);
-layout.addWidget(frame);
-layout.addWidget(table);
-
-widget.setInlineStyle('flex:1;');
-widget.resize(600, 400);
-widget.show();
-
-(global as any).main = widget;
+win.show();
+(global as any).win = win;
