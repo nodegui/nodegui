@@ -11,13 +11,13 @@
         "qode": "./scripts/qode.js"
     },
     "scripts": {
-        "dev": "cross-env npm run build && npm run qode dist/demo.js",
+        "dev": "cross-env npm run build && node ./scripts/qode.js dist/demo.js",
         "build": "cross-env tsc && npm run build:addon",
         "postinstall": "cross-env npm run setupqt && (node ./scripts/skip.js || npm run prebuild:install || npm run build:addon)",
         "setupqt": "cross-env node ./scripts/setupMiniQt.js",
         "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
         "prebuild:install": "prebuild-install --backend=cmake-js --runtime=napi --verbose",
-        "test": "cross-env npm run qode ./node_modules/jest/bin/jest -i",
+        "test": "node ./scripts/qode.js ./node_modules/jest/bin/jest -i",
         "lint:cpp": "cross-env clang-format -i --glob=src/cpp/**/*.[h,c]*",
         "lint:ts": "cross-env tsc --noEmit && cross-env eslint './src/**/*.{ts,tsx,js,jsx}' --fix",
         "docs": "cross-env typedoc && node ./website/docs/scripts/fixdocs.js",
