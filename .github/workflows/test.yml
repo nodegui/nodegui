@@ -13,6 +13,9 @@ jobs:
             - uses: actions/setup-node@master
               with:
                   node-version: '13.x'
+            - name: Install ubuntu deps
+              if: contains(matrix.os, 'ubuntu')
+              run: sudo apt install mesa-common-dev libglu1-mesa-dev
             - name: Install deps
               run: npm install
             - name: Build nodegui
