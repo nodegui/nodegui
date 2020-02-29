@@ -14,6 +14,10 @@ function getMiniQtConfig() {
                         name: 'Qt Base',
                         link: `https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5150/qt.qt5.5150.clang_64/5.15.0-0-202002122005qtbase-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
                     },
+                    {
+                        name: 'Qt Tools',
+                        link: `https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5150/qt.qt5.5150.clang_64/5.15.0-0-202002260533qttools-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
+                    },
                 ],
             };
         }
@@ -24,6 +28,10 @@ function getMiniQtConfig() {
                     {
                         name: 'Qt Base',
                         link: `https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_5150/qt.qt5.5150.win64_msvc2017_64/5.15.0-0-202002122017qtbase-Windows-Windows_10-MSVC2017-Windows-Windows_10-X86_64.7z`,
+                    },
+                    {
+                        name: 'Qt Tools',
+                        link: `https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_5150/qt.qt5.5150.win64_msvc2017_64/5.15.0-0-202002260536qttools-Windows-Windows_10-MSVC2017-Windows-Windows_10-X86_64.7z`,
                     },
                 ],
             };

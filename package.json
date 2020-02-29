@@ -10,6 +10,9 @@
     "bin": {
         "qode": "./scripts/qode.js"
     },
+    "funding": {
+        "url": "https://github.com/sponsors/master-atul"
+    },
     "scripts": {
         "dev": "cross-env npm run build && node ./scripts/qode.js dist/demo.js",
         "build": "cross-env tsc && npm run build:addon",
