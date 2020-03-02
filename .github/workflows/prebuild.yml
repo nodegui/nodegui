@@ -1,38 +1,38 @@
 on:
-    repository_dispatch:
-        types: [on-demand-build]
-    release:
-        types: [created]
+  repository_dispatch:
+    types: [on-demand-build]
+  release:
+    types: [created]
 jobs:
-    build:
-        strategy:
-            fail-fast: false
-            matrix:
-                os: [ubuntu-18.04, windows-latest, macos-latest]
-        runs-on: ${{ matrix.os }}
-        steps:
-            - uses: actions/checkout@v2
-              with:
-                  ref: ${{ github.ref }}
-            - uses: actions/setup-node@master
-              with:
-                  node-version: '13.x'
-            - name: Install ubuntu deps
-              if: contains(matrix.os, 'ubuntu')
-              run: sudo apt install mesa-common-dev libglu1-mesa-dev
-            - name: Install deps
-              run: npm install
-              env:
-                  SKIP_BUILD: 1
-            - name: Change version if master
-              if: contains(github.event.client_payload.tag, '0.0.0-latest-master')
-              run: npm --no-git-tag-version version 0.0.0-latest-master
-            - name: Prebuild binary
-              run: npx prebuild --all --backend=cmake-js --strip --runtime=napi --include-regex="\.[n,e,l][a-z]*$"
-            - name: Release
-              uses: softprops/action-gh-release@master
-              with:
-                  files: prebuilds/@nodegui/*.tar.gz
-                  tag_name: ${{ github.event.release.tag_name || github.event.client_payload.tag }}
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-18.04, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: feature/complete-qt-control
+      - uses: actions/setup-node@master
+        with:
+          node-version: "13.x"
+      - name: Install ubuntu deps
+        if: contains(matrix.os, 'ubuntu')
+        run: sudo apt install mesa-common-dev libglu1-mesa-dev
+      - name: Install deps
+        run: npm install
+        env:
+          SKIP_BUILD: 1
+      - name: Change version if master
+        if: contains(github.event.client_payload.tag, '0.0.0-latest-master')
+        run: npm --no-git-tag-version version 0.0.0-latest-master
+      - name: Prebuild binary
+        run: npx prebuild --all --backend=cmake-js --strip --runtime=napi --include-regex="\.[n,e,l][a-z]*$"
+      - name: Release
+        uses: softprops/action-gh-release@master
+        with:
+          files: prebuilds/@nodegui/*.tar.gz
+          tag_name: ${{ github.event.release.tag_name || github.event.client_payload.tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
