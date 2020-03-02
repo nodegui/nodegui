@@ -2,7 +2,7 @@ const os = require('os');
 const path = require('path');
 
 const SETUP_DIR = path.resolve(__dirname, '..', 'miniqt');
-const QT_VERSION = '5.15.0';
+const QT_VERSION = '5.14.1';
 
 function getMiniQtConfig() {
     switch (os.platform()) {
@@ -12,11 +12,11 @@ function getMiniQtConfig() {
                 artifacts: [
                     {
                         name: 'Qt Base',
-                        link: `https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5150/qt.qt5.5150.clang_64/5.15.0-0-202002122005qtbase-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
+                        link: `https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5141/qt.qt5.5141.clang_64/5.14.1-0-202001241000qtbase-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
                     },
                     {
                         name: 'Qt Tools',
-                        link: `https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5150/qt.qt5.5150.clang_64/5.15.0-0-202002260533qttools-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
+                        link: `https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5141/qt.qt5.5141.clang_64/5.14.1-0-202001241000qttools-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
                     },
                 ],
             };
@@ -27,11 +27,11 @@ function getMiniQtConfig() {
                 artifacts: [
                     {
                         name: 'Qt Base',
-                        link: `https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_5150/qt.qt5.5150.win64_msvc2017_64/5.15.0-0-202002122017qtbase-Windows-Windows_10-MSVC2017-Windows-Windows_10-X86_64.7z`,
+                        link: `https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_5141/qt.qt5.5141.win64_msvc2017_64/5.14.1-0-202001240957qtbase-Windows-Windows_10-MSVC2017-Windows-Windows_10-X86_64.7z`,
                     },
                     {
                         name: 'Qt Tools',
-                        link: `https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_5150/qt.qt5.5150.win64_msvc2017_64/5.15.0-0-202002260536qttools-Windows-Windows_10-MSVC2017-Windows-Windows_10-X86_64.7z`,
+                        link: `https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_5141/qt.qt5.5141.win64_msvc2017_64/5.14.1-0-202001240957qttools-Windows-Windows_10-MSVC2017-Windows-Windows_10-X86_64.7z`,
                     },
                 ],
             };
@@ -42,11 +42,11 @@ function getMiniQtConfig() {
                 artifacts: [
                     {
                         name: 'Qt Base',
-                        link: `https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt5_5150/qt.qt5.5150.gcc_64/5.15.0-0-202002122009qtbase-Linux-RHEL_7_6-GCC-Linux-RHEL_7_6-X86_64.7z`,
+                        link: `https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt5_5141/qt.qt5.5141.gcc_64/5.14.1-0-202001240953qtbase-Linux-RHEL_7_6-GCC-Linux-RHEL_7_6-X86_64.7z`,
                     },
                     {
                         name: 'Qt ICU',
-                        link: `https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt5_5150/qt.qt5.5150.gcc_64/5.15.0-0-202002122009icu-linux-Rhel7.2-x64.7z`,
+                        link: `https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt5_5141/qt.qt5.5141.gcc_64/5.14.1-0-202001240953icu-linux-Rhel7.2-x64.7z`,
                     },
                 ],
             };
