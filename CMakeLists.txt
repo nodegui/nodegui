@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.1)
 include(./config/common.cmake)
 include(./config/qt.cmake)
 include(./config/napi.cmake)
+include(./config/qode.cmake)
 
 # ---------------------------------------
 
@@ -162,6 +163,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
 AddCommonConfig(${CORE_WIDGETS_ADDON})
 AddQtSupport(${CORE_WIDGETS_ADDON})
 AddNapiSupport(${CORE_WIDGETS_ADDON})
+AddQodeSupport(${CORE_WIDGETS_ADDON})
 
 target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE
     "${CMAKE_JS_INC}"
@@ -176,9 +178,6 @@ target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE
 if (WIN32) 
     target_compile_definitions(${CORE_WIDGETS_ADDON} PRIVATE
         ENABLE_DLL_EXPORT=1
-    )
-    target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE 
-        "${PROJECT_SOURCE_DIR}/node_modules/@nodegui/qode/binaries/qode.lib"      
     )
     target_compile_options(${CORE_WIDGETS_ADDON} PRIVATE "/MP4")
 
