@@ -1,7 +1,7 @@
 #pragma once
 #include <QSystemTrayIcon>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"

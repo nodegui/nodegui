@@ -1,28 +1,38 @@
 {
     "name": "@nodegui/nodegui",
-    "version": "0.13.4",
+    "version": "0.15.0-alpha-4",
     "description": "A cross platform library to build native desktop apps.",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
     "author": "Atul R <atulanand94@gmail.com>",
     "license": "MIT",
     "private": false,
+    "bin": {
+        "qode": "./scripts/qode.js"
+    },
+    "funding": {
+        "url": "https://github.com/sponsors/master-atul"
+    },
     "scripts": {
-        "dev": "npm run build && qode dist/demo.js",
-        "build": "tsc && npm run build:addon",
-        "postinstall": "cross-env node ./scripts/skip.js || npm run prebuild:install || npm run build:addon",
+        "dev": "cross-env npm run build && node ./scripts/qode.js dist/demo.js",
+        "build": "cross-env tsc && npm run build:addon",
+        "postinstall": "cross-env npm run setupqt && (node ./scripts/skip.js || npm run prebuild:install || npm run build:addon)",
+        "setupqt": "cross-env node ./scripts/setupMiniQt.js",
         "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
         "prebuild:install": "prebuild-install --backend=cmake-js --runtime=napi --verbose",
-        "test": "qode ./node_modules/jest/bin/jest -i",
-        "lint:cpp": "clang-format -i --glob=src/cpp/**/*.[h,c]*",
-        "lint:ts": "tsc --noEmit && cross-env eslint './src/**/*.{ts,tsx,js,jsx}' --fix",
-        "docs": "typedoc && node ./website/docs/scripts/fixdocs.js"
+        "test": "node ./scripts/qode.js ./node_modules/jest/bin/jest -i",
+        "lint:cpp": "cross-env clang-format -i --glob=src/cpp/**/*.[h,c]*",
+        "lint:ts": "cross-env tsc --noEmit && cross-env eslint './src/**/*.{ts,tsx,js,jsx}' --fix",
+        "docs": "cross-env typedoc && node ./website/docs/scripts/fixdocs.js",
+        "qode": "cross-env node ./scripts/qode.js"
     },
     "dependencies": {
-        "@nodegui/qode": "^1.0.6",
+        "@nodegui/artifact-installer": "^1.0.0",
+        "@nodegui/qode": "^2.0.4",
         "cmake-js": "^6.0.0",
         "cross-env": "^7.0.0",
         "cuid": "^2.1.6",
+        "manage-path": "^2.0.0",
         "node-addon-api": "^2.0.0",
         "postcss-nodegui-autoprefixer": "0.0.7",
         "prebuild-install": "^5.3.3"

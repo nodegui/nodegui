@@ -5,7 +5,7 @@
 #include <QLayout>
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QLayout/nlayout.hpp"
 #include "QtWidgets/QLayout/qlayout_macro.h"
 

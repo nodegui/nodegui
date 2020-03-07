@@ -4,7 +4,7 @@
 
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QComboBox/ncombobox.hpp"
 #include "QtWidgets/QWidget/qwidget_macro.h"
 

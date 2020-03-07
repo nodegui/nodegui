@@ -2,7 +2,7 @@
 #include <QLayout>
 #include <QTimer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QLayout/qlayout_macro.h"
 #include "core/Events/eventwidget_macro.h"
 #include "deps/yoga/YGNode.h"

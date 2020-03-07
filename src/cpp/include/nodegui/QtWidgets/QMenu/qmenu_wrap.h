@@ -4,7 +4,7 @@
 
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "nmenu.hpp"
 
 class DLL_EXPORT QMenuWrap : public Napi::ObjectWrap<QMenuWrap> {

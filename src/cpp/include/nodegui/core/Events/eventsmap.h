@@ -2,7 +2,7 @@
 #include <QEvent>
 #include <unordered_map>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 
 class DLL_EXPORT EventsMap {
  public:

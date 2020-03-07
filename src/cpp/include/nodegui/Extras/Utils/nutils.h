@@ -1,20 +1,11 @@
 #pragma once
 
-#ifdef _WINDLL
-#ifdef ENABLE_DLL_EXPORT
-#define DLL_EXPORT __declspec(dllexport)
-#else
-#define DLL_EXPORT __declspec(dllimport)
-#endif
-#else
-#define DLL_EXPORT
-#endif
-
 #include <napi.h>
 
 #include <QPointer>
 #include <QVariant>
 
+#include "Extras/Export/export.h"
 #include "core/FlexLayout/flexutils.h"
 #include "deps/yoga/YGNode.h"
 
@@ -33,7 +24,6 @@ void safeDelete(QPointer<T>& component) {
     delete component;
   }
 }
-void initAppSettings();
 }  // namespace extrautils
 
 class DLL_EXPORT NUtilsWrap : public Napi::ObjectWrap<NUtilsWrap> {

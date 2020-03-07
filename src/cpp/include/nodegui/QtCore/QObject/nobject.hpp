@@ -1,7 +1,7 @@
 #pragma once
 #include <QObject>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "core/Events/eventwidget.h"
 #include "core/Events/eventwidget_macro.h"

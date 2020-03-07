@@ -4,7 +4,7 @@
 
 #include <QPainter>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "core/Component/component_wrap.h"
 
 class DLL_EXPORT QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {

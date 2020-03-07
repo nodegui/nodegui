@@ -94,7 +94,7 @@ export { QPoint } from './lib/QtCore/QPoint';
 export { QColor } from './lib/QtGui/QColor';
 export { QTime } from './lib/QtCore/QTime';
 export { QUrl, ParsingMode } from './lib/QtCore/QUrl';
-export { Format, Scope, QSettings } from './lib/QtCore/QSettings';
+export { QSettings, QSettingsFormat, QSettingsScope } from './lib/QtCore/QSettings';
 // Layouts:
 export { QBoxLayout, QBoxLayoutSignals } from './lib/QtWidgets/QBoxLayout';
 export { QGridLayout, QGridLayoutSignals } from './lib/QtWidgets/QGridLayout';

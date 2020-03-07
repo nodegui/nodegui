@@ -5,7 +5,7 @@
 
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QDateTimeEdit/qdatetimeedit_macro.h"
 #include "ntimeedit.hpp"
 

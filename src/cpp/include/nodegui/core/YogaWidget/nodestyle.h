@@ -3,7 +3,7 @@
 #include <QString>
 #include <unordered_map>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "deps/yoga/YGStyle.h"
 
 /*

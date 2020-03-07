@@ -8,3 +8,4 @@ extras/*
 src/*
 !src/cpp
 prebuilds/*
+miniqt/

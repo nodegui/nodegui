@@ -73,9 +73,10 @@
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
+#include "core/Integration/integration.h"
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env) {
-  extrautils::initAppSettings();
+  qodeIntegration::integrate();
   QLayoutWrap::init(env);  // Abstact class wrapper for pointing to any layout
 }
 

@@ -4,7 +4,7 @@
 
 #include <QStyle>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "core/Component/component_macro.h"
 
 class DLL_EXPORT QStyleWrap : public Napi::ObjectWrap<QStyleWrap> {

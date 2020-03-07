@@ -3,7 +3,7 @@
 
 #include <QListWidget>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QListView/qlistview_macro.h"
 #include "QtWidgets/QListWidgetItem/qlistwidgetitem_wrap.h"
 #include "core/NodeWidget/nodewidget.h"

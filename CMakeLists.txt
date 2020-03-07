@@ -15,6 +15,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/main.cpp"
     # core internals
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/Extras/Utils/nutils.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/Integration/integration.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexutils.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexlayout.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexitem.cpp"
@@ -112,6 +113,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtCore/QObject/nobject.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/core/FlexLayout/flexlayout.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtGui/QMovie/nmovie.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtGui/QApplication/napplication.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QWidget/nwidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QDialog/ndialog.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QLabel/nlabel.hpp"
@@ -170,15 +172,22 @@ target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui"
 )
 
-target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
-    "${CMAKE_JS_LIB}"
-)
-
 
 if (WIN32) 
     target_compile_definitions(${CORE_WIDGETS_ADDON} PRIVATE
         ENABLE_DLL_EXPORT=1
     )
+    target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE 
+        "${PROJECT_SOURCE_DIR}/node_modules/@nodegui/qode/binaries/qode.lib"      
+    )
     target_compile_options(${CORE_WIDGETS_ADDON} PRIVATE "/MP4")
 
 endif()
+
+target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
+    "${CMAKE_JS_LIB}"
+    Qt5::Widgets
+    Qt5::Core
+    Qt5::Gui
+)
+

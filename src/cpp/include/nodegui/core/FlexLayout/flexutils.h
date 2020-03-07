@@ -3,7 +3,7 @@
 #include <QLayoutItem>
 #include <QWidget>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "deps/yoga/YGNode.h"
 
 class DLL_EXPORT FlexNodeContext {

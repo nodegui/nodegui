@@ -4,7 +4,7 @@
 
 #include <QTableWidgetItem>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "core/Component/component_wrap.h"
 
 class DLL_EXPORT QTableWidgetItemWrap

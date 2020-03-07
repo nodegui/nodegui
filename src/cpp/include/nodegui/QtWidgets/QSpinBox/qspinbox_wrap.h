@@ -4,7 +4,7 @@
 
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QAbstractSpinBox/qabstractspinbox_macro.h"
 #include "nspinbox.hpp"
 

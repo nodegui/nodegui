@@ -4,7 +4,7 @@
 
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "naction.hpp"
 class DLL_EXPORT QActionWrap : public Napi::ObjectWrap<QActionWrap> {

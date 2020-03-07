@@ -1,7 +1,7 @@
 #pragma once
 #include <QTableWidget>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "core/NodeWidget/nodewidget.h"
 #include "napi.h"

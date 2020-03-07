@@ -1,7 +1,7 @@
 #pragma once
 #include <QGridLayout>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QLayout/qlayout_macro.h"
 #include "core/Events/eventwidget_macro.h"
 

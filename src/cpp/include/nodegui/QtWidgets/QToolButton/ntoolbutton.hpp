@@ -3,7 +3,7 @@
 #include <QAction>
 #include <QToolButton>
 
-#include "Extras/Utils/nutils.h"
+#include "Extras/Export/export.h"
 #include "QtWidgets/QAbstractButton/qabstractbutton_macro.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "core/NodeWidget/nodewidget.h"

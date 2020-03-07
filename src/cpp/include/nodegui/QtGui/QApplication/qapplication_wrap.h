@@ -2,19 +2,17 @@
 
 #include <napi.h>
 
-#include <QApplication>
 #include <QPointer>
 
-#include "Extras/Utils/nutils.h"
-#include "core/Component/component_macro.h"
+#include "Extras/Export/export.h"
+#include "QtCore/QObject/qobject_macro.h"
+#include "napplication.hpp"
 
 class DLL_EXPORT QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
-  COMPONENT_WRAPPED_METHODS_DECLARATION
+  QOBJECT_WRAPPED_METHODS_DECLARATION
 
  private:
-  QPointer<QApplication> instance;
-  static int argc;
-  static char** argv;
+  QPointer<NApplication> instance;
   bool _wasManuallyCreated = false;
 
  public:
@@ -22,7 +20,7 @@ class DLL_EXPORT QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QApplicationWrap(const Napi::CallbackInfo& info);
   ~QApplicationWrap();
-  QApplication* getInternalInstance();
+  NApplication* getInternalInstance();
   // Wrapped methods
   Napi::Value processEvents(const Napi::CallbackInfo& info);
   Napi::Value exec(const Napi::CallbackInfo& info);
