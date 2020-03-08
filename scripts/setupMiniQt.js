@@ -11,6 +11,7 @@ async function setupQt() {
                 id: 'nodegui-mini-qt',
                 displayName: `${artifact.name} for Minimal Qt: ${miniQt.version} installation`,
                 downloadLink: artifact.link,
+                skipSetup: artifact.skipSetup,
             }),
         ),
     );
