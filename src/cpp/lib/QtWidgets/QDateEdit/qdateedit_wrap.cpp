@@ -24,8 +24,8 @@ QDateEditWrap::QDateEditWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance = new NDateEdit(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new NDateEdit();

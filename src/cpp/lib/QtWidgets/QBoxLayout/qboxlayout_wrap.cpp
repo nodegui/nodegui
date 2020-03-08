@@ -38,8 +38,8 @@ QBoxLayoutWrap::QBoxLayoutWrap(const Napi::CallbackInfo& info)
     QBoxLayout::Direction dir = static_cast<QBoxLayout::Direction>(
         info[0].As<Napi::Number>().Int32Value());
     Napi::Object parentObject = info[1].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance =
         new NBoxLayout(dir, parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 1) {
@@ -92,7 +92,8 @@ Napi::Value QBoxLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
-  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  NodeWidgetWrap* widget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   int stretch = info[1].As<Napi::Number>().Int32Value();
 
   this->instance->addWidget(widget->getInternalInstance(), stretch);
@@ -105,7 +106,8 @@ Napi::Value QBoxLayoutWrap::insertWidget(const Napi::CallbackInfo& info) {
 
   int index = info[0].As<Napi::Number>().Int32Value();
   Napi::Object qwidgetObject = info[1].As<Napi::Object>();
-  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  NodeWidgetWrap* widget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   int stretch = info[2].As<Napi::Number>().Int32Value();
 
   this->instance->insertWidget(index, widget->getInternalInstance(), stretch);
@@ -134,7 +136,8 @@ Napi::Value QBoxLayoutWrap::removeWidget(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
-  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  NodeWidgetWrap* widget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   this->instance->removeWidget(widget->getInternalInstance());
   return env.Null();
 }

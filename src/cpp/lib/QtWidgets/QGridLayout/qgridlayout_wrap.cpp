@@ -28,8 +28,8 @@ QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance = new NGridLayout(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new NGridLayout();
@@ -49,7 +49,8 @@ Napi::Value QGridLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   Napi::Number qcol = info[2].As<Napi::Number>();
   Napi::Number qrowSpan = info[3].As<Napi::Number>();
   Napi::Number qcolSpan = info[4].As<Napi::Number>();
-  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  NodeWidgetWrap* widget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   this->instance->addWidget(widget->getInternalInstance(), qrow, qcol, qrowSpan,
                             qcolSpan);
 
@@ -61,7 +62,8 @@ Napi::Value QGridLayoutWrap::removeWidget(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
-  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  NodeWidgetWrap* widget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   this->instance->removeWidget(widget->getInternalInstance());
   return env.Null();
 }

@@ -41,8 +41,8 @@ QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance = new NMainWindow(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new NMainWindow();
@@ -59,8 +59,8 @@ Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object widgetObject = info[0].As<Napi::Object>();
-  QWidgetWrap* centralWidget =
-      Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);
+  NodeWidgetWrap* centralWidget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
   this->instance->setCentralWidget(centralWidget->getInternalInstance());
   return env.Null();
 }
@@ -90,7 +90,8 @@ Napi::Value QMainWindowWrap::setMenuWidget(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object menuObject = info[0].As<Napi::Object>();
-  QWidgetWrap* menuWidget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(menuObject);
+  NodeWidgetWrap* menuWidget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(menuObject);
 
   this->instance->setMenuWidget(menuWidget->getInternalInstance());
 

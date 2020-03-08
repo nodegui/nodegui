@@ -41,8 +41,8 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance = new NLabel(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new NLabel();
@@ -78,7 +78,8 @@ Napi::Value QLabelWrap::setBuddy(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object buddyObject = info[0].As<Napi::Object>();
-  QWidgetWrap* buddyWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(buddyObject);
+  NodeWidgetWrap* buddyWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(buddyObject);
   this->instance->setBuddy(buddyWrap->getInternalInstance());
   return env.Null();
 }

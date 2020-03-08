@@ -29,8 +29,8 @@ QWidgetWrap::QWidgetWrap(const Napi::CallbackInfo &info)
           new NWidget(info[0].As<Napi::External<NWidget>>().Data());
     } else {
       Napi::Object parentObject = info[0].As<Napi::Object>();
-      QWidgetWrap *parentWidgetWrap =
-          Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+      NodeWidgetWrap *parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
       this->instance = new NWidget(parentWidgetWrap->getInternalInstance());
     }
   } else if (info.Length() == 0) {

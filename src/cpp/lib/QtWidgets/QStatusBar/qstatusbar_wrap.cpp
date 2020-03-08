@@ -54,8 +54,8 @@ QStatusBarWrap::QStatusBarWrap(const Napi::CallbackInfo &info)
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap *parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap *parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
 
     this->instance = new NStatusBar(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
@@ -77,7 +77,8 @@ Napi::Value QStatusBarWrap::addPermanentWidget(const Napi::CallbackInfo &info) {
   Napi::Object widgetArg = info[0].As<Napi::Object>();
   Napi::Number stretchArg = info[1].As<Napi::Number>();
 
-  QWidgetWrap *widgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetArg);
+  NodeWidgetWrap *widgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetArg);
   QWidget *widget = widgetWrap->getInternalInstance();
   int stretch = stretchArg.Int32Value();
 
@@ -93,7 +94,8 @@ Napi::Value QStatusBarWrap::addWidget(const Napi::CallbackInfo &info) {
   Napi::Object widgetArg = info[0].As<Napi::Object>();
   Napi::Number stretchArg = info[1].As<Napi::Number>();
 
-  QWidgetWrap *widgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetArg);
+  NodeWidgetWrap *widgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetArg);
   QWidget *widget = widgetWrap->getInternalInstance();
   int stretch = stretchArg.Int32Value();
 
@@ -130,7 +132,8 @@ Napi::Value QStatusBarWrap::insertPermanentWidget(
   Napi::Number stretchArg = info[2].As<Napi::Number>();
 
   int index = indexArg.Int32Value();
-  QWidgetWrap *widgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetArg);
+  NodeWidgetWrap *widgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetArg);
   QWidget *widget = widgetWrap->getInternalInstance();
   int stretch = stretchArg.Int32Value();
 
@@ -149,7 +152,8 @@ Napi::Value QStatusBarWrap::insertWidget(const Napi::CallbackInfo &info) {
   Napi::Number stretchArg = info[2].As<Napi::Number>();
 
   int index = indexArg.Int32Value();
-  QWidgetWrap *widgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetArg);
+  NodeWidgetWrap *widgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetArg);
   QWidget *widget = widgetWrap->getInternalInstance();
   int stretch = stretchArg.Int32Value();
 
@@ -173,7 +177,8 @@ Napi::Value QStatusBarWrap::removeWidget(const Napi::CallbackInfo &info) {
 
   Napi::Object widgetArg = info[0].As<Napi::Object>();
 
-  QWidgetWrap *widgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetArg);
+  NodeWidgetWrap *widgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetArg);
   QWidget *widget = widgetWrap->getInternalInstance();
 
   this->instance->removeWidget(widget);
