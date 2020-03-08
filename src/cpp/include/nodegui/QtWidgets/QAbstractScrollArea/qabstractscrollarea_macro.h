@@ -19,8 +19,8 @@
     Napi::Env env = info.Env();                                    \
     Napi::HandleScope scope(env);                                  \
     Napi::Object viewPortObject = info[0].As<Napi::Object>();      \
-    QWidgetWrap* viewPortWidgetWrap =                              \
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(viewPortObject);     \
+    NodeWidgetWrap* viewPortWidgetWrap =                           \
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(viewPortObject);  \
     QWidget* viewPort = viewPortWidgetWrap->getInternalInstance(); \
     this->instance->setViewport(viewPort);                         \
     return env.Null();                                             \

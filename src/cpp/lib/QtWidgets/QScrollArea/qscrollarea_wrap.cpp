@@ -32,8 +32,8 @@ QScrollAreaWrap::QScrollAreaWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance = new NScrollArea(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new NScrollArea();
@@ -69,8 +69,8 @@ Napi::Value QScrollAreaWrap::ensureWidgetVisible(
   Napi::HandleScope scope(env);
 
   Napi::Object childWidgetObject = info[0].As<Napi::Object>();
-  QWidgetWrap* childWidgetWrap =
-      Napi::ObjectWrap<QWidgetWrap>::Unwrap(childWidgetObject);
+  NodeWidgetWrap* childWidgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(childWidgetObject);
   int xmargin = info[1].As<Napi::Number>().Int32Value();
   int ymargin = info[2].As<Napi::Number>().Int32Value();
   this->instance->ensureWidgetVisible(childWidgetWrap->getInternalInstance(),
@@ -83,8 +83,8 @@ Napi::Value QScrollAreaWrap::setWidget(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object contentWidgetObject = info[0].As<Napi::Object>();
-  QWidgetWrap* contentWidgetWrap =
-      Napi::ObjectWrap<QWidgetWrap>::Unwrap(contentWidgetObject);
+  NodeWidgetWrap* contentWidgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(contentWidgetObject);
   this->instance->setWidget(contentWidgetWrap->getInternalInstance());
   return env.Null();
 }

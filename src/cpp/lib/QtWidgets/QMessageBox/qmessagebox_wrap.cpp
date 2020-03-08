@@ -35,8 +35,8 @@ QMessageBoxWrap::QMessageBoxWrap(const Napi::CallbackInfo& info)
   Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance = new NMessageBox(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new NMessageBox();
@@ -91,8 +91,8 @@ Napi::Value StaticQMessageBoxWrapMethods::about(
   Napi::HandleScope scope(env);
 
   Napi::Object parentObject = info[0].As<Napi::Object>();
-  QWidgetWrap* parentWidgetWrap =
-      Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+  NodeWidgetWrap* parentWidgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
   Napi::String napiTitle = info[1].As<Napi::String>();
   std::string title = napiTitle.Utf8Value();
   Napi::String napiText = info[2].As<Napi::String>();
@@ -110,8 +110,8 @@ Napi::Value StaticQMessageBoxWrapMethods::aboutQt(
   Napi::HandleScope scope(env);
 
   Napi::Object parentObject = info[0].As<Napi::Object>();
-  QWidgetWrap* parentWidgetWrap =
-      Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+  NodeWidgetWrap* parentWidgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
   Napi::String napiTitle = info[1].As<Napi::String>();
   std::string title = napiTitle.Utf8Value();
   QMessageBox::aboutQt(parentWidgetWrap->getInternalInstance(),

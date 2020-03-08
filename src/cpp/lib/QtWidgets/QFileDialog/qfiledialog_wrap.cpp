@@ -37,8 +37,8 @@ QFileDialogWrap::QFileDialogWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 4) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     QWidget* parent = parentWidgetWrap->getInternalInstance();
     QString caption =
         QString::fromUtf8(info[1].As<Napi::String>().Utf8Value().c_str());

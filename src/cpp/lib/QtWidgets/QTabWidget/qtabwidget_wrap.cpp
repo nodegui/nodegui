@@ -39,8 +39,8 @@ QTabWidgetWrap::QTabWidgetWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance = new NTabWidget(
         parentWidgetWrap
             ->getInternalInstance());  // this sets the parent to current widget
@@ -64,8 +64,8 @@ Napi::Value QTabWidgetWrap::addTab(const Napi::CallbackInfo& info) {
   Napi::String napiLabel = info[2].As<Napi::String>();
   std::string label = napiLabel.Utf8Value();
 
-  QWidgetWrap* pageObjectWrap =
-      Napi::ObjectWrap<QWidgetWrap>::Unwrap(pageObject);
+  NodeWidgetWrap* pageObjectWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(pageObject);
   QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
 
   int index =
@@ -80,8 +80,8 @@ Napi::Value QTabWidgetWrap::indexOf(const Napi::CallbackInfo& info) {
 
   Napi::Object widgetObject = info[0].As<Napi::Object>();
 
-  QWidgetWrap* widgetObjectWrap =
-      Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);
+  NodeWidgetWrap* widgetObjectWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
 
   int index = this->instance->indexOf(widgetObjectWrap->getInternalInstance());
   return Napi::Number::New(env, index);

@@ -39,8 +39,8 @@ QStackedWidgetWrap::QStackedWidgetWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance = new NStackedWidget(
         parentWidgetWrap
             ->getInternalInstance());  // this sets the parent to current widget
@@ -60,7 +60,8 @@ Napi::Value QStackedWidgetWrap::addWidget(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
-  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  NodeWidgetWrap* widget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   this->instance->addWidget(widget->getInternalInstance());
 
   return env.Null();
@@ -71,7 +72,8 @@ Napi::Value QStackedWidgetWrap::removeWidget(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
-  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  NodeWidgetWrap* widget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   this->instance->removeWidget(widget->getInternalInstance());
   return env.Null();
 }
@@ -98,7 +100,8 @@ Napi::Value QStackedWidgetWrap::setCurrentWidget(
   Napi::HandleScope scope(env);
 
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
-  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  NodeWidgetWrap* widget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
 
   this->instance->setCurrentWidget(widget->getInternalInstance());
   return env.Null();

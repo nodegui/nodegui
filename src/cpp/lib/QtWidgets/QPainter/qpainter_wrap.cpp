@@ -42,8 +42,8 @@ QPainterWrap::QPainterWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     Napi::Object deviceObject = info[0].As<Napi::Object>();
-    QWidgetWrap* deviceWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(deviceObject);
+    NodeWidgetWrap* deviceWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(deviceObject);
     this->instance = new QPainter(deviceWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new QPainter();
@@ -68,7 +68,8 @@ Napi::Value QPainterWrap::begin(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   Napi::Object deviceObject = info[0].As<Napi::Object>();
-  QWidgetWrap* deviceWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(deviceObject);
+  NodeWidgetWrap* deviceWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(deviceObject);
   QWidget* device = deviceWrap->getInternalInstance();
   bool ret = this->instance->begin(device);
   return Napi::Value::From(env, ret);

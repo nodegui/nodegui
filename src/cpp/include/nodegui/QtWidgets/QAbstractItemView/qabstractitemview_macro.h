@@ -38,8 +38,8 @@
     Napi::Object widgetObject = info[1].As<Napi::Object>();                 \
     QModelIndexWrap* indexWrap =                                            \
         Napi::ObjectWrap<QModelIndexWrap>::Unwrap(indexObject);             \
-    QWidgetWrap* widgetWrap =                                               \
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);                \
+    NodeWidgetWrap* widgetWrap =                                            \
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);             \
     this->instance->setIndexWidget(*indexWrap->getInternalInstance(),       \
                                    widgetWrap->getInternalInstance());      \
     return env.Null();                                                      \

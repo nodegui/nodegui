@@ -22,3 +22,19 @@ class DLL_EXPORT QWidgetWrap : public Napi::ObjectWrap<QWidgetWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
 };
+
+// NodeWidgetWrap is exactly like QWidgetWrap but it is used only to unwrap any
+// N<SomeWidget> to QWidget*
+class DLL_EXPORT NodeWidgetWrap : public Napi::ObjectWrap<NodeWidgetWrap> {
+  QWIDGET_WRAPPED_METHODS_DECLARATION
+ private:
+  QPointer<NWidget> instance;
+
+ public:
+  NodeWidgetWrap(const Napi::CallbackInfo& info)
+      : Napi::ObjectWrap<NodeWidgetWrap>(info){};
+  QWidget* getInternalInstance() { return this->instance; };
+  // class constructor
+  static Napi::FunctionReference constructor;
+  // wrapped methods
+};

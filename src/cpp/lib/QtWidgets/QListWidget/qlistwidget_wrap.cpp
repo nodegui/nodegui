@@ -53,8 +53,8 @@ QListWidgetWrap::QListWidgetWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance = new NListWidget(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new NListWidget();
@@ -260,7 +260,8 @@ Napi::Value QListWidgetWrap::setItemWidget(const Napi::CallbackInfo& info) {
   Napi::Object widgetObject = info[1].As<Napi::Object>();
   QListWidgetItemWrap* itemWrap =
       Napi::ObjectWrap<QListWidgetItemWrap>::Unwrap(itemObject);
-  QWidgetWrap* widgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);
+  NodeWidgetWrap* widgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
   this->instance->setItemWidget(itemWrap->getInternalInstance(),
                                 widgetWrap->getInternalInstance());
   return env.Null();

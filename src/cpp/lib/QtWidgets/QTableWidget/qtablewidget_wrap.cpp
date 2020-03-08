@@ -78,8 +78,8 @@ QTableWidgetWrap::QTableWidgetWrap(const Napi::CallbackInfo& info)
 
     if (info.Length() == 3) {
       Napi::Object parentObject = info[2].As<Napi::Object>();
-      QWidgetWrap* parentWidgetWrap =
-          Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
       this->instance = new NTableWidget(
           rows, columns, parentWidgetWrap->getInternalInstance());
     } else {
@@ -88,8 +88,8 @@ QTableWidgetWrap::QTableWidgetWrap(const Napi::CallbackInfo& info)
 
   } else if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance = new NTableWidget(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new NTableWidget();
@@ -159,7 +159,8 @@ Napi::Value QTableWidgetWrap::setCellWidget(const Napi::CallbackInfo& info) {
   int row = info[0].As<Napi::Number>().Int32Value();
   int column = info[1].As<Napi::Number>().Int32Value();
   Napi::Object widgetObject = info[2].As<Napi::Object>();
-  QWidgetWrap* widgetWrap = Napi::ObjectWrap<QWidgetWrap>::Unwrap(widgetObject);
+  NodeWidgetWrap* widgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
 
   this->instance->setCellWidget(row, column, widgetWrap->getInternalInstance());
   return env.Null();

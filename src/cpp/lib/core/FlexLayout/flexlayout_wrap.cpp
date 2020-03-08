@@ -32,8 +32,8 @@ FlexLayoutWrap::FlexLayoutWrap(const Napi::CallbackInfo& info)
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    QWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<QWidgetWrap>::Unwrap(parentObject);
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance = new FlexLayout(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new FlexLayout();
@@ -51,7 +51,8 @@ Napi::Value FlexLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   Napi::External<YGNode> childFlexNodeObject =
       info[1].As<Napi::External<YGNode>>();
-  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  NodeWidgetWrap* widget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   YGNodeRef childNodeRef = childFlexNodeObject.Data();
   this->instance->addWidget(widget->getInternalInstance(), childNodeRef);
 
@@ -67,7 +68,8 @@ Napi::Value FlexLayoutWrap::insertChildBefore(const Napi::CallbackInfo& info) {
       info[1].As<Napi::External<YGNode>>();
   Napi::External<YGNode> childFlexNodeObject =
       info[2].As<Napi::External<YGNode>>();
-  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  NodeWidgetWrap* widget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   YGNodeRef childNodeRef = childFlexNodeObject.Data();
   YGNodeRef beforeChildNodeRef = beforeChildFlexNodeObject.Data();
 
@@ -84,7 +86,8 @@ Napi::Value FlexLayoutWrap::removeWidget(const Napi::CallbackInfo& info) {
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   Napi::External<YGNode> childFlexNodeObject =
       info[1].As<Napi::External<YGNode>>();
-  QWidgetWrap* widget = Napi::ObjectWrap<QWidgetWrap>::Unwrap(qwidgetObject);
+  NodeWidgetWrap* widget =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   YGNodeRef childNodeRef = childFlexNodeObject.Data();
   this->instance->removeWidget(widget->getInternalInstance(), childNodeRef);
 
