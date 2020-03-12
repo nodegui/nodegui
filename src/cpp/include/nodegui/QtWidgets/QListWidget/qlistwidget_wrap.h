@@ -10,6 +10,7 @@
 #include "QtWidgets/QListWidget/nlistwidget.hpp"
 
 class DLL_EXPORT QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
+  QListView_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NListWidget> instance;
 
@@ -42,6 +43,4 @@ class DLL_EXPORT QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
   Napi::Value visualItemRect(const Napi::CallbackInfo& info);
   Napi::Value clear(const Napi::CallbackInfo& info);
   Napi::Value scrollToItem(const Napi::CallbackInfo& info);
-
-  QListView_WRAPPED_METHODS_DECLARATION
 };

@@ -33,11 +33,17 @@ QModelIndexWrap::QModelIndexWrap(const Napi::CallbackInfo& info)
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  if (info.Length() == 0) {
-    this->instance = std::make_unique<QModelIndex>();
+  if (info.Length() > 0 && info[0].IsExternal()) {
+    // --- if external ---
+    this->instance = std::unique_ptr<QModelIndex>(
+        info[0].As<Napi::External<QModelIndex>>().Data());
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
-        .ThrowAsJavaScriptException();
+    if (info.Length() == 0) {
+      this->instance = std::make_unique<QModelIndex>();
+    } else {
+      Napi::TypeError::New(env, "Wrong number of arguments")
+          .ThrowAsJavaScriptException();
+    }
   }
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }
