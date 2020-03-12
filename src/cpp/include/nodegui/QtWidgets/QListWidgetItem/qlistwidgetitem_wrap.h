@@ -10,6 +10,7 @@ class DLL_EXPORT QListWidgetItemWrap
     : public Napi::ObjectWrap<QListWidgetItemWrap> {
  private:
   QListWidgetItem* instance;
+  bool disableDeletion;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

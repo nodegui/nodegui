@@ -46,22 +46,36 @@ Napi::Object QListWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
 QListWidgetItem* QListWidgetItemWrap::getInternalInstance() {
   return this->instance;
 }
-QListWidgetItemWrap::~QListWidgetItemWrap() { delete this->instance; }
+
+QListWidgetItemWrap::~QListWidgetItemWrap() {
+  if (!this->disableDeletion) {
+    delete this->instance;
+  }
+}
 
 QListWidgetItemWrap::QListWidgetItemWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QListWidgetItemWrap>(info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  if (info.Length() == 1) {
-    QString text =
-        QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
-    this->instance = new QListWidgetItem(text);
-  } else if (info.Length() == 0) {
-    this->instance = new QListWidgetItem();
+  if (info.Length() > 0 && info[0].IsExternal()) {
+    // --- if external ---
+    this->instance = info[0].As<Napi::External<QListWidgetItem>>().Data();
+    if (info.Length() == 2) {
+      this->disableDeletion = info[1].As<Napi::Boolean>().Value();
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
-        .ThrowAsJavaScriptException();
+    // --- regular cases ---
+    if (info.Length() == 1) {
+      QString text =
+          QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
+      this->instance = new QListWidgetItem(text);
+    } else if (info.Length() == 0) {
+      this->instance = new QListWidgetItem();
+    } else {
+      Napi::TypeError::New(env, "Wrong number of arguments")
+          .ThrowAsJavaScriptException();
+    }
   }
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }
