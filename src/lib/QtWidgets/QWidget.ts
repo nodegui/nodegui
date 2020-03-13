@@ -189,9 +189,7 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     setObjectName(objectName: string): void {
         super.setObjectName(objectName);
-        if (this._rawInlineStyle) {
-            this.setInlineStyle(this._rawInlineStyle);
-        }
+        this.repolish();
     }
     setContextMenuPolicy(contextMenuPolicy: ContextMenuPolicy): void {
         this.setProperty('contextMenuPolicy', contextMenuPolicy);
@@ -225,6 +223,9 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         this.native.addAction(action.native);
         this.actions.add(action);
         return action;
+    }
+    repolish(): void {
+        this.native.repolish();
     }
 }
 

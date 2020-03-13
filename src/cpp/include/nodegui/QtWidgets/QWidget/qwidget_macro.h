@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QSize>
+#include <QStyle>
 
 #include "QtCore/QObject/qobject_macro.h"
 #include "QtCore/QSize/qsize_wrap.h"
@@ -325,6 +326,13 @@
         Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);                \
     this->instance->addAction(actionWrap->getInternalInstance());           \
     return env.Null();                                                      \
+  }                                                                         \
+  Napi::Value repolish(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                             \
+    Napi::HandleScope scope(env);                                           \
+    this->instance->style()->unpolish(this->instance);                      \
+    this->instance->style()->polish(this->instance);                        \
+    return env.Null();                                                      \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -375,7 +383,8 @@
       InstanceMethod("showMaximized", &WidgetWrapName::showMaximized),       \
       InstanceMethod("showMinimized", &WidgetWrapName::showMinimized),       \
       InstanceMethod("showNormal", &WidgetWrapName::showNormal),             \
-      InstanceMethod("addAction", &WidgetWrapName::addAction),
+      InstanceMethod("addAction", &WidgetWrapName::addAction),               \
+      InstanceMethod("repolish", &WidgetWrapName::repolish),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

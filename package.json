@@ -29,7 +29,7 @@
     "dependencies": {
         "@nodegui/artifact-installer": "^1.1.0",
         "@nodegui/qode": "^2.0.4",
-        "cmake-js": "^6.0.0",
+        "cmake-js": "^6.1.0",
         "cross-env": "^7.0.0",
         "cuid": "^2.1.6",
         "manage-path": "^2.0.0",
@@ -54,7 +54,7 @@
         "ts-jest": "^25.0.0",
         "typedoc": "^0.16.7",
         "typedoc-plugin-markdown": "^2.2.14",
-        "typescript": "^3.7.3"
+        "typescript": "^3.8.3"
     },
     "binary": {
         "napi_versions": [
