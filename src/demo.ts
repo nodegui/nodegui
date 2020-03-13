@@ -9,6 +9,8 @@ const label = new QLabel();
 label.setText('Hello');
 const label2 = new QLabel();
 label2.setText('LABEL');
+label2.setInlineStyle('color: blue;');
+label2.setInlineStyle('color: teal;');
 
 tab.addTab(label, new QIcon(), 'I am label tab');
 tab.addTab(label2, new QIcon(), 'TAB2');

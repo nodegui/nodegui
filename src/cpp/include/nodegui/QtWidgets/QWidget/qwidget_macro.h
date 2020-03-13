@@ -63,7 +63,11 @@
     Napi::HandleScope scope(env);                                           \
     Napi::String text = info[0].As<Napi::String>();                         \
     std::string style = text.Utf8Value();                                   \
-    this->instance->setStyleSheet(style.c_str());                           \
+    QString newStyle = QString::fromStdString(style);                       \
+    QString currentStyleSheet = this->instance->styleSheet();               \
+    if (newStyle != currentStyleSheet) {                                    \
+      this->instance->setStyleSheet(newStyle);                              \
+    }                                                                       \
     return env.Null();                                                      \
   }                                                                         \
   Napi::Value setCursor(const Napi::CallbackInfo& info) {                   \
