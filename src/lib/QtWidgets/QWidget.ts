@@ -189,6 +189,9 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     setObjectName(objectName: string): void {
         super.setObjectName(objectName);
+        if (this._rawInlineStyle) {
+            this.setInlineStyle(this._rawInlineStyle);
+        }
         this.repolish();
     }
     setContextMenuPolicy(contextMenuPolicy: ContextMenuPolicy): void {
