@@ -77,7 +77,8 @@ npm i http://master-release.nodegui.org
 ```
 
 **Community guides**
-- [Tutorial: Build a native Meme Search Desktop app with Javascript (NodeGui) and Giphy API](https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/)
+
+-   [Tutorial: Build a native Meme Search Desktop app with Javascript (NodeGui) and Giphy API](https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/)
 -   https://blog.logrocket.com/electron-alternatives-exploring-nodegui-and-react-nodegui/ - Electron alternatives: Exploring NodeGUI and React NodeGUI by [Siegfried Grimbeek](https://blog.logrocket.com/author/siegfriedgrimbeek/).
 -   https://hibbard.eu/node-gui/ - Excellent guide from [James Hibbard](https://github.com/jameshibbard).
 
@@ -147,7 +148,6 @@ People maintaining this project.
 <table>
   <tr>
     <td align="center"><a href="https://blog.atulr.com"><img src="https://avatars2.githubusercontent.com/u/4029423?v=4" width="100px;" alt="Atul R"/><br /><sub><b>Atul R</b></sub></a></td>
-    <td align="center"><a href="https://github.com/dimitarnestorov"><img src="https://avatars3.githubusercontent.com/u/8790386?s=460&v=4" width="100px;" alt="Dimitar"/><br /><sub><b>Dimitar Nestorov</b></sub></a></td>
   </tr>
 </table>
 
@@ -196,6 +196,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
