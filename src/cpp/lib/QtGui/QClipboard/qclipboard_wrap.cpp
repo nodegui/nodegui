@@ -1,5 +1,5 @@
 #include "QtGui/QClipboard/qclipboard_wrap.h"
-
+#include <QtGui/QPixmap/qpixmap_wrap.h>
 #include "Extras/Utils/nutils.h"
 
 Napi::FunctionReference QClipboardWrap::constructor;
@@ -10,6 +10,8 @@ Napi::Object QClipboardWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func =
       DefineClass(env, CLASSNAME,
                   {InstanceMethod("clear", &QClipboardWrap::clear),
+                   InstanceMethod("setPixmap", &QClipboardWrap::setPixmap),
+                   InstanceMethod("pixmap", &QClipboardWrap::pixmap),
                    InstanceMethod("setText", &QClipboardWrap::setText),
                    InstanceMethod("text", &QClipboardWrap::text),
                    COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QClipboardWrap)});
@@ -39,6 +41,29 @@ Napi::Value QClipboardWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Number mode = info[0].As<Napi::Number>();
   this->instance->clear(static_cast<QClipboard::Mode>(mode.Int32Value()));
   return env.Null();
+}
+
+Napi::Value QClipboardWrap::setPixmap(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object pixmapObject = info[0].As<Napi::Object>();
+  QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(pixmapObject);
+  Napi::Number mode = info[1].As<Napi::Number>();
+  this->instance->setPixmap(*pixmapWrap->getInternalInstance(),
+                            static_cast<QClipboard::Mode>(mode.Int32Value()));
+  return env.Null();
+}
+
+Napi::Value QClipboardWrap::pixmap(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Number mode = info[0].As<Napi::Number>();
+  QPixmap pixmap =
+      this->instance->pixmap(static_cast<QClipboard::Mode>(mode.Int32Value()));
+  auto instance = QPixmapWrap::constructor.New(
+      {Napi::External<QPixmap>::New(env, new QPixmap(pixmap))});
+  return instance;
 }
 
 Napi::Value QClipboardWrap::setText(const Napi::CallbackInfo& info) {

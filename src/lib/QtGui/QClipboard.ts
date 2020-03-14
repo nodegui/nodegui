@@ -1,5 +1,6 @@
 import { Component, NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
+import { QPixmap } from './QPixmap';
 
 /**
  
@@ -38,6 +39,12 @@ export class QClipboard extends Component {
     }
     text(mode: QClipboardMode): string {
         return this.native.text(mode);
+    }
+    setPixmap(pixmap: QPixmap, mode: QClipboardMode): void {
+        this.native.setPixmap(pixmap.native, mode);
+    }
+    pixmap(mode: QClipboardMode): QPixmap {
+        return new QPixmap(this.native.pixmap(mode));
     }
 }
 

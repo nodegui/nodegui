@@ -22,4 +22,6 @@ class DLL_EXPORT QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap> {
   Napi::Value clear(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
   Napi::Value text(const Napi::CallbackInfo& info);
+  Napi::Value setPixmap(const Napi::CallbackInfo& info);
+  Napi::Value pixmap(const Napi::CallbackInfo& info);
 };
