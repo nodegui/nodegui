@@ -18,6 +18,7 @@ const trayIcon = new QIcon(
 resolve(__dirname, "some/image/file.png");
 );
 const tray = new QSystemTrayIcon();
+tray.setIcon(trayIcon);
 tray.show();
 
 global.tray = tray; // prevents garbage collection of tray
