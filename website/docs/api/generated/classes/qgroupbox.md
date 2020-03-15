@@ -87,6 +87,7 @@ win.show();
 * [raise](qgroupbox.md#raise)
 * [removeEventListener](qgroupbox.md#removeeventlistener)
 * [repaint](qgroupbox.md#repaint)
+* [repolish](qgroupbox.md#repolish)
 * [resize](qgroupbox.md#resize)
 * [setAlignment](qgroupbox.md#setalignment)
 * [setAttribute](qgroupbox.md#setattribute)
@@ -136,13 +137,13 @@ win.show();
 
 \+ **new QGroupBox**(): *[QGroupBox](qgroupbox.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QGroupBox](qgroupbox.md)*
 
 \+ **new QGroupBox**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QGroupBox](qgroupbox.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -164,7 +165,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -558,6 +559,16 @@ ___
 
 ___
 
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
+
+**Returns:** *void*
+
+___
+
 ###  resize
 
 ▸ **resize**(`width`: number, `height`: number): *void*
@@ -577,13 +588,13 @@ ___
 
 ###  setAlignment
 
-▸ **setAlignment**(`alignment`: number): *void*
+▸ **setAlignment**(`alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`alignment` | number |
+`alignment` | [AlignmentFlag](../enums/alignmentflag.md) |
 
 **Returns:** *void*
 

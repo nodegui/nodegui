@@ -26,6 +26,8 @@ QAbstractSlider will list all methods and properties that are common to all slid
 
   ↳ [QDial](qdial.md)
 
+  ↳ [QScrollBar](qscrollbar.md)
+
   ↳ [QSlider](qslider.md)
 
 ## Index
@@ -75,6 +77,7 @@ QAbstractSlider will list all methods and properties that are common to all slid
 * [raise](qabstractslider.md#raise)
 * [removeEventListener](qabstractslider.md#removeeventlistener)
 * [repaint](qabstractslider.md#repaint)
+* [repolish](qabstractslider.md#repolish)
 * [resize](qabstractslider.md#resize)
 * [setAttribute](qabstractslider.md#setattribute)
 * [setContextMenuPolicy](qabstractslider.md#setcontextmenupolicy)
@@ -134,9 +137,9 @@ QAbstractSlider will list all methods and properties that are common to all slid
 
 \+ **new QAbstractSlider**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAbstractSlider](qabstractslider.md)*
 
-*Inherited from [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Inherited from [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Parameters:**
 
@@ -158,7 +161,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -579,6 +582,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

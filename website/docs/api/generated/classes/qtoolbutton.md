@@ -56,6 +56,7 @@ tool.setText('Help');
 * [autoRepeatInterval](qtoolbutton.md#autorepeatinterval)
 * [click](qtoolbutton.md#click)
 * [close](qtoolbutton.md#close)
+* [defaultAction](qtoolbutton.md#defaultaction)
 * [font](qtoolbutton.md#font)
 * [geometry](qtoolbutton.md#geometry)
 * [getFlexNode](qtoolbutton.md#getflexnode)
@@ -70,6 +71,7 @@ tool.setText('Help');
 * [isEnabled](qtoolbutton.md#isenabled)
 * [isVisible](qtoolbutton.md#isvisible)
 * [lower](qtoolbutton.md#lower)
+* [menu](qtoolbutton.md#menu)
 * [move](qtoolbutton.md#move)
 * [objectName](qtoolbutton.md#objectname)
 * [popupMode](qtoolbutton.md#popupmode)
@@ -78,6 +80,7 @@ tool.setText('Help');
 * [raise](qtoolbutton.md#raise)
 * [removeEventListener](qtoolbutton.md#removeeventlistener)
 * [repaint](qtoolbutton.md#repaint)
+* [repolish](qtoolbutton.md#repolish)
 * [resize](qtoolbutton.md#resize)
 * [setArrowType](qtoolbutton.md#setarrowtype)
 * [setAttribute](qtoolbutton.md#setattribute)
@@ -143,13 +146,13 @@ tool.setText('Help');
 
 \+ **new QToolButton**(): *[QToolButton](qtoolbutton.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QToolButton](qtoolbutton.md)*
 
 \+ **new QToolButton**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QToolButton](qtoolbutton.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -161,7 +164,7 @@ Name | Type |
 
 \+ **new QToolButton**(`rawPointer`: [NativeRawPointer](../globals.md#nativerawpointer)‹any›, `disableNativeDeletion?`: undefined | false | true): *[QToolButton](qtoolbutton.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -184,7 +187,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -414,6 +417,14 @@ ___
 
 ___
 
+###  defaultAction
+
+▸ **defaultAction**(): *[QAction](qaction.md) | null*
+
+**Returns:** *[QAction](qaction.md) | null*
+
+___
+
 ###  font
 
 ▸ **font**(): *[QFont](qfont.md)*
@@ -560,6 +571,14 @@ ___
 
 ___
 
+###  menu
+
+▸ **menu**(): *[QMenu](qmenu.md) | null*
+
+**Returns:** *[QMenu](qmenu.md) | null*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -681,6 +700,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

@@ -21,7 +21,7 @@ checkbox.setText("Hello");
 
 ## Hierarchy
 
-  ↳ [QAbstractButton](qabstractbutton.md)‹[QCheckBoxSignals](../globals.md#qcheckboxsignals)›
+  ↳ [QAbstractButton](qabstractbutton.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)›
 
   ↳ **QCheckBox**
 
@@ -52,6 +52,7 @@ checkbox.setText("Hello");
 * [autoRepeat](qcheckbox.md#autorepeat)
 * [autoRepeatDelay](qcheckbox.md#autorepeatdelay)
 * [autoRepeatInterval](qcheckbox.md#autorepeatinterval)
+* [checkState](qcheckbox.md#checkstate)
 * [click](qcheckbox.md#click)
 * [close](qcheckbox.md#close)
 * [font](qcheckbox.md#font)
@@ -66,6 +67,7 @@ checkbox.setText("Hello");
 * [isChecked](qcheckbox.md#ischecked)
 * [isDown](qcheckbox.md#isdown)
 * [isEnabled](qcheckbox.md#isenabled)
+* [isTristate](qcheckbox.md#istristate)
 * [isVisible](qcheckbox.md#isvisible)
 * [lower](qcheckbox.md#lower)
 * [move](qcheckbox.md#move)
@@ -75,12 +77,14 @@ checkbox.setText("Hello");
 * [raise](qcheckbox.md#raise)
 * [removeEventListener](qcheckbox.md#removeeventlistener)
 * [repaint](qcheckbox.md#repaint)
+* [repolish](qcheckbox.md#repolish)
 * [resize](qcheckbox.md#resize)
 * [setAttribute](qcheckbox.md#setattribute)
 * [setAutoExclusive](qcheckbox.md#setautoexclusive)
 * [setAutoRepeat](qcheckbox.md#setautorepeat)
 * [setAutoRepeatDelay](qcheckbox.md#setautorepeatdelay)
 * [setAutoRepeatInterval](qcheckbox.md#setautorepeatinterval)
+* [setCheckState](qcheckbox.md#setcheckstate)
 * [setCheckable](qcheckbox.md#setcheckable)
 * [setChecked](qcheckbox.md#setchecked)
 * [setContextMenuPolicy](qcheckbox.md#setcontextmenupolicy)
@@ -104,6 +108,7 @@ checkbox.setText("Hello");
 * [setShortcut](qcheckbox.md#setshortcut)
 * [setStyleSheet](qcheckbox.md#setstylesheet)
 * [setText](qcheckbox.md#settext)
+* [setTristate](qcheckbox.md#settristate)
 * [setWindowFlag](qcheckbox.md#setwindowflag)
 * [setWindowIcon](qcheckbox.md#setwindowicon)
 * [setWindowOpacity](qcheckbox.md#setwindowopacity)
@@ -132,13 +137,13 @@ checkbox.setText("Hello");
 
 \+ **new QCheckBox**(): *[QCheckBox](qcheckbox.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QCheckBox](qcheckbox.md)*
 
 \+ **new QCheckBox**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QCheckBox](qcheckbox.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -150,7 +155,7 @@ Name | Type |
 
 \+ **new QCheckBox**(`rawPointer`: [NativeRawPointer](../globals.md#nativerawpointer)‹any›, `disableNativeDeletion?`: undefined | false | true): *[QCheckBox](qcheckbox.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -173,7 +178,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -181,7 +186,7 @@ ___
 
 ### `Optional` layout
 
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../globals.md#qcheckboxsignals)›*
+• **layout**? : *[NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)›*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
@@ -367,6 +372,14 @@ ___
 
 ___
 
+###  checkState
+
+▸ **checkState**(): *[CheckState](../enums/checkstate.md)*
+
+**Returns:** *[CheckState](../enums/checkstate.md)*
+
+___
+
 ###  click
 
 ▸ **click**(): *void*
@@ -487,7 +500,7 @@ ___
 
 ▸ **isChecked**(): *boolean*
 
-*Overrides [QAbstractButton](qabstractbutton.md).[isChecked](qabstractbutton.md#ischecked)*
+*Inherited from [QAbstractButton](qabstractbutton.md).[isChecked](qabstractbutton.md#ischecked)*
 
 **Returns:** *boolean*
 
@@ -508,6 +521,14 @@ ___
 ▸ **isEnabled**(): *boolean*
 
 *Inherited from [QMenu](qmenu.md).[isEnabled](qmenu.md#isenabled)*
+
+**Returns:** *boolean*
+
+___
+
+###  isTristate
+
+▸ **isTristate**(): *boolean*
 
 **Returns:** *boolean*
 
@@ -651,6 +672,16 @@ ___
 
 ___
 
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
+
+**Returns:** *void*
+
+___
+
 ###  resize
 
 ▸ **resize**(`width`: number, `height`: number): *void*
@@ -749,6 +780,20 @@ Name | Type |
 
 ___
 
+###  setCheckState
+
+▸ **setCheckState**(`state`: [CheckState](../enums/checkstate.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`state` | [CheckState](../enums/checkstate.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setCheckable
 
 ▸ **setCheckable**(`checkable`: boolean): *void*
@@ -767,15 +812,15 @@ ___
 
 ###  setChecked
 
-▸ **setChecked**(`check`: boolean): *void*
+▸ **setChecked**(`checked`: boolean): *void*
 
-*Overrides [QAbstractButton](qabstractbutton.md).[setChecked](qabstractbutton.md#setchecked)*
+*Inherited from [QAbstractButton](qabstractbutton.md).[setChecked](qabstractbutton.md#setchecked)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`check` | boolean |
+`checked` | boolean |
 
 **Returns:** *void*
 
@@ -965,7 +1010,7 @@ ___
 
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../globals.md#qcheckboxsignals)›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -973,7 +1018,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../globals.md#qcheckboxsignals)› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)› |
 
 **Returns:** *void*
 
@@ -1123,6 +1168,20 @@ ___
 Name | Type |
 ------ | ------ |
 `text` | string |
+
+**Returns:** *void*
+
+___
+
+###  setTristate
+
+▸ **setTristate**(`y`: boolean): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`y` | boolean | true |
 
 **Returns:** *void*
 

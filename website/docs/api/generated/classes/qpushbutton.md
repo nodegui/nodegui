@@ -48,6 +48,7 @@ button.setText("Hello");
 * [addEventListener](qpushbutton.md#addeventlistener)
 * [adjustSize](qpushbutton.md#adjustsize)
 * [animateClick](qpushbutton.md#animateclick)
+* [autoDefault](qpushbutton.md#autodefault)
 * [autoExclusive](qpushbutton.md#autoexclusive)
 * [autoRepeat](qpushbutton.md#autorepeat)
 * [autoRepeatDelay](qpushbutton.md#autorepeatdelay)
@@ -64,10 +65,13 @@ button.setText("Hello");
 * [inherits](qpushbutton.md#inherits)
 * [isCheckable](qpushbutton.md#ischeckable)
 * [isChecked](qpushbutton.md#ischecked)
+* [isDefault](qpushbutton.md#isdefault)
 * [isDown](qpushbutton.md#isdown)
 * [isEnabled](qpushbutton.md#isenabled)
+* [isFlat](qpushbutton.md#isflat)
 * [isVisible](qpushbutton.md#isvisible)
 * [lower](qpushbutton.md#lower)
+* [menu](qpushbutton.md#menu)
 * [move](qpushbutton.md#move)
 * [objectName](qpushbutton.md#objectname)
 * [pos](qpushbutton.md#pos)
@@ -75,8 +79,10 @@ button.setText("Hello");
 * [raise](qpushbutton.md#raise)
 * [removeEventListener](qpushbutton.md#removeeventlistener)
 * [repaint](qpushbutton.md#repaint)
+* [repolish](qpushbutton.md#repolish)
 * [resize](qpushbutton.md#resize)
 * [setAttribute](qpushbutton.md#setattribute)
+* [setAutoDefault](qpushbutton.md#setautodefault)
 * [setAutoExclusive](qpushbutton.md#setautoexclusive)
 * [setAutoRepeat](qpushbutton.md#setautorepeat)
 * [setAutoRepeatDelay](qpushbutton.md#setautorepeatdelay)
@@ -85,6 +91,7 @@ button.setText("Hello");
 * [setChecked](qpushbutton.md#setchecked)
 * [setContextMenuPolicy](qpushbutton.md#setcontextmenupolicy)
 * [setCursor](qpushbutton.md#setcursor)
+* [setDefault](qpushbutton.md#setdefault)
 * [setDown](qpushbutton.md#setdown)
 * [setEnabled](qpushbutton.md#setenabled)
 * [setFixedSize](qpushbutton.md#setfixedsize)
@@ -97,6 +104,7 @@ button.setText("Hello");
 * [setInlineStyle](qpushbutton.md#setinlinestyle)
 * [setLayout](qpushbutton.md#setlayout)
 * [setMaximumSize](qpushbutton.md#setmaximumsize)
+* [setMenu](qpushbutton.md#setmenu)
 * [setMinimumSize](qpushbutton.md#setminimumsize)
 * [setMouseTracking](qpushbutton.md#setmousetracking)
 * [setNodeParent](qpushbutton.md#setnodeparent)
@@ -114,6 +122,7 @@ button.setText("Hello");
 * [show](qpushbutton.md#show)
 * [showFullScreen](qpushbutton.md#showfullscreen)
 * [showMaximized](qpushbutton.md#showmaximized)
+* [showMenu](qpushbutton.md#showmenu)
 * [showMinimized](qpushbutton.md#showminimized)
 * [showNormal](qpushbutton.md#shownormal)
 * [size](qpushbutton.md#size)
@@ -133,13 +142,13 @@ button.setText("Hello");
 
 \+ **new QPushButton**(): *[QPushButton](qpushbutton.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QPushButton](qpushbutton.md)*
 
 \+ **new QPushButton**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QPushButton](qpushbutton.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -151,7 +160,7 @@ Name | Type |
 
 \+ **new QPushButton**(`native`: [NativeElement](../globals.md#nativeelement)): *[QPushButton](qpushbutton.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -163,7 +172,7 @@ Name | Type |
 
 \+ **new QPushButton**(`rawPointer`: [NativeRawPointer](../globals.md#nativerawpointer)‹any›, `disableNativeDeletion?`: undefined | false | true): *[QPushButton](qpushbutton.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -186,7 +195,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -337,6 +346,14 @@ Name | Type |
 `msec` | number |
 
 **Returns:** *void*
+
+___
+
+###  autoDefault
+
+▸ **autoDefault**(): *boolean*
+
+**Returns:** *boolean*
 
 ___
 
@@ -506,6 +523,14 @@ ___
 
 ___
 
+###  isDefault
+
+▸ **isDefault**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
 ###  isDown
 
 ▸ **isDown**(): *boolean*
@@ -521,6 +546,14 @@ ___
 ▸ **isEnabled**(): *boolean*
 
 *Inherited from [QMenu](qmenu.md).[isEnabled](qmenu.md#isenabled)*
+
+**Returns:** *boolean*
+
+___
+
+###  isFlat
+
+▸ **isFlat**(): *boolean*
 
 **Returns:** *boolean*
 
@@ -543,6 +576,14 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  menu
+
+▸ **menu**(): *[QMenu](qmenu.md) | null*
+
+**Returns:** *[QMenu](qmenu.md) | null*
 
 ___
 
@@ -664,6 +705,16 @@ ___
 
 ___
 
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
+
+**Returns:** *void*
+
+___
+
 ###  resize
 
 ▸ **resize**(`width`: number, `height`: number): *void*
@@ -693,6 +744,20 @@ Name | Type |
 ------ | ------ |
 `attribute` | [WidgetAttribute](../enums/widgetattribute.md) |
 `switchOn` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setAutoDefault
+
+▸ **setAutoDefault**(`auto`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`auto` | boolean |
 
 **Returns:** *void*
 
@@ -821,6 +886,20 @@ ___
 Name | Type |
 ------ | ------ |
 `cursor` | [CursorShape](../enums/cursorshape.md) &#124; [QCursor](qcursor.md) |
+
+**Returns:** *void*
+
+___
+
+###  setDefault
+
+▸ **setDefault**(`isDefault`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`isDefault` | boolean |
 
 **Returns:** *void*
 
@@ -1018,6 +1097,20 @@ Name | Type |
 ------ | ------ |
 `maxw` | number |
 `maxh` | number |
+
+**Returns:** *void*
+
+___
+
+###  setMenu
+
+▸ **setMenu**(`menu`: [QMenu](qmenu.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`menu` | [QMenu](qmenu.md) |
 
 **Returns:** *void*
 
@@ -1271,6 +1364,14 @@ ___
 ▸ **showMaximized**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[showMaximized](qmenu.md#showmaximized)*
+
+**Returns:** *void*
+
+___
+
+###  showMenu
+
+▸ **showMenu**(): *void*
 
 **Returns:** *void*
 

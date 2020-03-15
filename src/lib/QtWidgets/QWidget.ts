@@ -50,9 +50,13 @@ Implement all native QWidget methods here so that all widgets get access to thos
  */
 export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWidget<Signals> {
     layout?: NodeLayout<Signals>;
-    actions = new Set<QAction>();
+    actions: Set<QAction>;
     _rawInlineStyle = '';
     type = 'widget';
+    constructor(native: NativeElement) {
+        super(native);
+        this.actions = new Set<QAction>();
+    }
     show(): void {
         this.native.show();
     }

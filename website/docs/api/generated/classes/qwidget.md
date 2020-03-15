@@ -65,6 +65,7 @@ view.setLayout(new FlexLayout());
 * [raise](qwidget.md#raise)
 * [removeEventListener](qwidget.md#removeeventlistener)
 * [repaint](qwidget.md#repaint)
+* [repolish](qwidget.md#repolish)
 * [resize](qwidget.md#resize)
 * [setAttribute](qwidget.md#setattribute)
 * [setContextMenuPolicy](qwidget.md#setcontextmenupolicy)
@@ -108,7 +109,7 @@ view.setLayout(new FlexLayout());
 
 \+ **new QWidget**(`arg?`: [NodeWidget](nodewidget.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› | [NativeElement](../globals.md#nativeelement)): *[QWidget](qwidget.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -130,7 +131,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -487,6 +488,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

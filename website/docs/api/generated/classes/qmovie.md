@@ -29,6 +29,7 @@ sidebar_label: "QMovie"
 * [currentPixmap](qmovie.md#currentpixmap)
 * [fileName](qmovie.md#filename)
 * [format](qmovie.md#format)
+* [frameCount](qmovie.md#framecount)
 * [inherits](qmovie.md#inherits)
 * [jumpToFrame](qmovie.md#jumptoframe)
 * [jumpToNextFrame](qmovie.md#jumptonextframe)
@@ -194,6 +195,14 @@ ___
 ▸ **format**(): *string*
 
 **Returns:** *string*
+
+___
+
+###  frameCount
+
+▸ **frameCount**(): *number*
+
+**Returns:** *number*
 
 ___
 

@@ -71,6 +71,7 @@ const slider = new QSlider();
 * [raise](qslider.md#raise)
 * [removeEventListener](qslider.md#removeeventlistener)
 * [repaint](qslider.md#repaint)
+* [repolish](qslider.md#repolish)
 * [resize](qslider.md#resize)
 * [setAttribute](qslider.md#setattribute)
 * [setContextMenuPolicy](qslider.md#setcontextmenupolicy)
@@ -134,13 +135,13 @@ const slider = new QSlider();
 
 \+ **new QSlider**(): *[QSlider](qslider.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QSlider](qslider.md)*
 
 \+ **new QSlider**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QSlider](qslider.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -162,7 +163,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -599,6 +600,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

@@ -14,6 +14,8 @@ sidebar_label: "QDialogSignals"
 
   ↳ [QMessageBoxSignals](qmessageboxsignals.md)
 
+  ↳ [QInputDialogSignals](qinputdialogsignals.md)
+
 ## Index
 
 ### Properties

@@ -48,7 +48,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
   ↳ [QWidget](qwidget.md)
 
-  ↳ [QAbstractScrollArea](qabstractscrollarea.md)
+  ↳ [NodeFrame](nodeframe.md)
 
   ↳ [QAbstractSlider](qabstractslider.md)
 
@@ -57,8 +57,6 @@ Implement all native QWidget methods here so that all widgets get access to thos
   ↳ [QAbstractSpinBox](qabstractspinbox.md)
 
   ↳ [QCalendarWidget](qcalendarwidget.md)
-
-  ↳ [QLabel](qlabel.md)
 
   ↳ [NodeDialog](nodedialog.md)
 
@@ -73,10 +71,6 @@ Implement all native QWidget methods here so that all widgets get access to thos
   ↳ [QProgressBar](qprogressbar.md)
 
   ↳ [QComboBox](qcombobox.md)
-
-  ↳ [QSpinBox](qspinbox.md)
-
-  ↳ [QStackedWidget](qstackedwidget.md)
 
   ↳ [QTabWidget](qtabwidget.md)
 
@@ -121,6 +115,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 * [raise](nodewidget.md#raise)
 * [removeEventListener](nodewidget.md#removeeventlistener)
 * [repaint](nodewidget.md#repaint)
+* [repolish](nodewidget.md#repolish)
 * [resize](nodewidget.md#resize)
 * [setAttribute](nodewidget.md#setattribute)
 * [setContextMenuPolicy](nodewidget.md#setcontextmenupolicy)
@@ -164,9 +159,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
 \+ **new NodeWidget**(`native`: [NativeElement](../globals.md#nativeelement)): *[NodeWidget](nodewidget.md)*
 
-*Inherited from [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Parameters:**
 
@@ -186,7 +179,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 ___
 
@@ -507,6 +500,14 @@ ___
 ###  repaint
 
 ▸ **repaint**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
 
 **Returns:** *void*
 

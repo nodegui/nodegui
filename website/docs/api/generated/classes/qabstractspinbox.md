@@ -21,7 +21,9 @@ It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 
   ↳ **QAbstractSpinBox**
 
-  ↳ [QDateTimeEdit](qdatetimeedit.md)
+  ↳ [NodeDateTimeEdit](nodedatetimeedit.md)
+
+  ↳ [QSpinBox](qspinbox.md)
 
 ## Index
 
@@ -71,6 +73,7 @@ It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 * [raise](qabstractspinbox.md#raise)
 * [removeEventListener](qabstractspinbox.md#removeeventlistener)
 * [repaint](qabstractspinbox.md#repaint)
+* [repolish](qabstractspinbox.md#repolish)
 * [resize](qabstractspinbox.md#resize)
 * [selectAll](qabstractspinbox.md#selectall)
 * [setAccelerated](qabstractspinbox.md#setaccelerated)
@@ -130,9 +133,9 @@ It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 
 \+ **new QAbstractSpinBox**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAbstractSpinBox](qabstractspinbox.md)*
 
-*Inherited from [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Inherited from [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Parameters:**
 
@@ -154,7 +157,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -583,6 +586,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

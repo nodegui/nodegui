@@ -76,6 +76,7 @@ messageBox.exec();
 * [reject](qmessagebox.md#reject)
 * [removeEventListener](qmessagebox.md#removeeventlistener)
 * [repaint](qmessagebox.md#repaint)
+* [repolish](qmessagebox.md#repolish)
 * [resize](qmessagebox.md#resize)
 * [result](qmessagebox.md#result)
 * [setAttribute](qmessagebox.md#setattribute)
@@ -130,13 +131,13 @@ messageBox.exec();
 
 \+ **new QMessageBox**(): *[QMessageBox](qmessagebox.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QMessageBox](qmessagebox.md)*
 
 \+ **new QMessageBox**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QMessageBox](qmessagebox.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -158,7 +159,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -600,6 +601,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

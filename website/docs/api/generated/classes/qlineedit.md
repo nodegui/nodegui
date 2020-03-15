@@ -66,6 +66,7 @@ const lineEdit = new QLineEdit();
 * [raise](qlineedit.md#raise)
 * [removeEventListener](qlineedit.md#removeeventlistener)
 * [repaint](qlineedit.md#repaint)
+* [repolish](qlineedit.md#repolish)
 * [resize](qlineedit.md#resize)
 * [setAttribute](qlineedit.md#setattribute)
 * [setContextMenuPolicy](qlineedit.md#setcontextmenupolicy)
@@ -114,13 +115,13 @@ const lineEdit = new QLineEdit();
 
 \+ **new QLineEdit**(): *[QLineEdit](qlineedit.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QLineEdit](qlineedit.md)*
 
 \+ **new QLineEdit**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QLineEdit](qlineedit.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -142,7 +143,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -523,6 +524,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

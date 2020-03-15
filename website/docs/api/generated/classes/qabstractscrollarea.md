@@ -20,7 +20,7 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 
 ## Hierarchy
 
-  ↳ [NodeWidget](nodewidget.md)‹Signals›
+  ↳ [NodeFrame](nodeframe.md)‹Signals›
 
   ↳ **QAbstractScrollArea**
 
@@ -59,6 +59,11 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [adjustSize](qabstractscrollarea.md#adjustsize)
 * [close](qabstractscrollarea.md#close)
 * [font](qabstractscrollarea.md#font)
+* [frameRect](qabstractscrollarea.md#framerect)
+* [frameShadow](qabstractscrollarea.md#frameshadow)
+* [frameShape](qabstractscrollarea.md#frameshape)
+* [frameStyle](qabstractscrollarea.md#framestyle)
+* [frameWidth](qabstractscrollarea.md#framewidth)
 * [geometry](qabstractscrollarea.md#geometry)
 * [getFlexNode](qabstractscrollarea.md#getflexnode)
 * [hasMouseTracking](qabstractscrollarea.md#hasmousetracking)
@@ -66,7 +71,9 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [inherits](qabstractscrollarea.md#inherits)
 * [isEnabled](qabstractscrollarea.md#isenabled)
 * [isVisible](qabstractscrollarea.md#isvisible)
+* [lineWidth](qabstractscrollarea.md#linewidth)
 * [lower](qabstractscrollarea.md#lower)
+* [midLineWidth](qabstractscrollarea.md#midlinewidth)
 * [move](qabstractscrollarea.md#move)
 * [objectName](qabstractscrollarea.md#objectname)
 * [pos](qabstractscrollarea.md#pos)
@@ -74,6 +81,7 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [raise](qabstractscrollarea.md#raise)
 * [removeEventListener](qabstractscrollarea.md#removeeventlistener)
 * [repaint](qabstractscrollarea.md#repaint)
+* [repolish](qabstractscrollarea.md#repolish)
 * [resize](qabstractscrollarea.md#resize)
 * [setAttribute](qabstractscrollarea.md#setattribute)
 * [setContextMenuPolicy](qabstractscrollarea.md#setcontextmenupolicy)
@@ -82,11 +90,17 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [setFixedSize](qabstractscrollarea.md#setfixedsize)
 * [setFlexNodeSizeControlled](qabstractscrollarea.md#setflexnodesizecontrolled)
 * [setFont](qabstractscrollarea.md#setfont)
+* [setFrameRect](qabstractscrollarea.md#setframerect)
+* [setFrameShadow](qabstractscrollarea.md#setframeshadow)
+* [setFrameShape](qabstractscrollarea.md#setframeshape)
+* [setFrameStyle](qabstractscrollarea.md#setframestyle)
 * [setGeometry](qabstractscrollarea.md#setgeometry)
 * [setHorizontalScrollBarPolicy](qabstractscrollarea.md#sethorizontalscrollbarpolicy)
 * [setInlineStyle](qabstractscrollarea.md#setinlinestyle)
 * [setLayout](qabstractscrollarea.md#setlayout)
+* [setLineWidth](qabstractscrollarea.md#setlinewidth)
 * [setMaximumSize](qabstractscrollarea.md#setmaximumsize)
+* [setMidLineWidth](qabstractscrollarea.md#setmidlinewidth)
 * [setMinimumSize](qabstractscrollarea.md#setminimumsize)
 * [setMouseTracking](qabstractscrollarea.md#setmousetracking)
 * [setNodeParent](qabstractscrollarea.md#setnodeparent)
@@ -121,9 +135,9 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 
 \+ **new QAbstractScrollArea**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAbstractScrollArea](qabstractscrollarea.md)*
 
-*Inherited from [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Inherited from [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Parameters:**
 
@@ -145,7 +159,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -309,6 +323,56 @@ ___
 
 ___
 
+###  frameRect
+
+▸ **frameRect**(): *[QRect](qrect.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameRect](nodeframe.md#framerect)*
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
+###  frameShadow
+
+▸ **frameShadow**(): *[Shadow](../enums/shadow.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameShadow](nodeframe.md#frameshadow)*
+
+**Returns:** *[Shadow](../enums/shadow.md)*
+
+___
+
+###  frameShape
+
+▸ **frameShape**(): *[Shape](../enums/shape.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameShape](nodeframe.md#frameshape)*
+
+**Returns:** *[Shape](../enums/shape.md)*
+
+___
+
+###  frameStyle
+
+▸ **frameStyle**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameStyle](nodeframe.md#framestyle)*
+
+**Returns:** *number*
+
+___
+
+###  frameWidth
+
+▸ **frameWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameWidth](nodeframe.md#framewidth)*
+
+**Returns:** *number*
+
+___
+
 ###  geometry
 
 ▸ **geometry**(): *[QRect](qrect.md)*
@@ -385,6 +449,16 @@ ___
 
 ___
 
+###  lineWidth
+
+▸ **lineWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[lineWidth](nodeframe.md#linewidth)*
+
+**Returns:** *number*
+
+___
+
 ###  lower
 
 ▸ **lower**(): *void*
@@ -392,6 +466,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  midLineWidth
+
+▸ **midLineWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
+
+**Returns:** *number*
 
 ___
 
@@ -508,6 +592,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 
@@ -646,6 +740,70 @@ Name | Type |
 
 ___
 
+###  setFrameRect
+
+▸ **setFrameRect**(`r`: [QRect](qrect.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameRect](nodeframe.md#setframerect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`r` | [QRect](qrect.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameShadow
+
+▸ **setFrameShadow**(`type`: [Shadow](../enums/shadow.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameShadow](nodeframe.md#setframeshadow)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`type` | [Shadow](../enums/shadow.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameShape
+
+▸ **setFrameShape**(`type`: [Shape](../enums/shape.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameShape](nodeframe.md#setframeshape)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`type` | [Shape](../enums/shape.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameStyle
+
+▸ **setFrameStyle**(`style`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameStyle](nodeframe.md#setframestyle)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`style` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setGeometry
 
 ▸ **setGeometry**(`x`: number, `y`: number, `w`: number, `h`: number): *void*
@@ -711,6 +869,22 @@ Name | Type |
 
 ___
 
+###  setLineWidth
+
+▸ **setLineWidth**(`width`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setLineWidth](nodeframe.md#setlinewidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`width` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setMaximumSize
 
 ▸ **setMaximumSize**(`maxw`: number, `maxh`: number): *void*
@@ -723,6 +897,22 @@ Name | Type |
 ------ | ------ |
 `maxw` | number |
 `maxh` | number |
+
+**Returns:** *void*
+
+___
+
+###  setMidLineWidth
+
+▸ **setMidLineWidth**(`width`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setMidLineWidth](nodeframe.md#setmidlinewidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`width` | number |
 
 **Returns:** *void*
 

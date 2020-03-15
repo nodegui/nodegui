@@ -46,24 +46,35 @@ const progressBar = new QProgressBar();
 * [addAction](qprogressbar.md#addaction)
 * [addEventListener](qprogressbar.md#addeventlistener)
 * [adjustSize](qprogressbar.md#adjustsize)
+* [alignment](qprogressbar.md#alignment)
 * [close](qprogressbar.md#close)
 * [font](qprogressbar.md#font)
+* [format](qprogressbar.md#format)
 * [geometry](qprogressbar.md#geometry)
 * [getFlexNode](qprogressbar.md#getflexnode)
 * [hasMouseTracking](qprogressbar.md#hasmousetracking)
 * [hide](qprogressbar.md#hide)
 * [inherits](qprogressbar.md#inherits)
+* [invertedAppearance](qprogressbar.md#invertedappearance)
 * [isEnabled](qprogressbar.md#isenabled)
+* [isTextVisible](qprogressbar.md#istextvisible)
 * [isVisible](qprogressbar.md#isvisible)
 * [lower](qprogressbar.md#lower)
+* [maximum](qprogressbar.md#maximum)
+* [minimum](qprogressbar.md#minimum)
 * [move](qprogressbar.md#move)
 * [objectName](qprogressbar.md#objectname)
+* [orientation](qprogressbar.md#orientation)
 * [pos](qprogressbar.md#pos)
 * [property](qprogressbar.md#property)
 * [raise](qprogressbar.md#raise)
 * [removeEventListener](qprogressbar.md#removeeventlistener)
 * [repaint](qprogressbar.md#repaint)
+* [repolish](qprogressbar.md#repolish)
+* [reset](qprogressbar.md#reset)
+* [resetFormat](qprogressbar.md#resetformat)
 * [resize](qprogressbar.md#resize)
+* [setAlignment](qprogressbar.md#setalignment)
 * [setAttribute](qprogressbar.md#setattribute)
 * [setContextMenuPolicy](qprogressbar.md#setcontextmenupolicy)
 * [setCursor](qprogressbar.md#setcursor)
@@ -71,8 +82,10 @@ const progressBar = new QProgressBar();
 * [setFixedSize](qprogressbar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qprogressbar.md#setflexnodesizecontrolled)
 * [setFont](qprogressbar.md#setfont)
+* [setFormat](qprogressbar.md#setformat)
 * [setGeometry](qprogressbar.md#setgeometry)
 * [setInlineStyle](qprogressbar.md#setinlinestyle)
+* [setInvertedAppearance](qprogressbar.md#setinvertedappearance)
 * [setLayout](qprogressbar.md#setlayout)
 * [setMaximum](qprogressbar.md#setmaximum)
 * [setMaximumSize](qprogressbar.md#setmaximumsize)
@@ -83,7 +96,10 @@ const progressBar = new QProgressBar();
 * [setObjectName](qprogressbar.md#setobjectname)
 * [setOrientation](qprogressbar.md#setorientation)
 * [setProperty](qprogressbar.md#setproperty)
+* [setRange](qprogressbar.md#setrange)
 * [setStyleSheet](qprogressbar.md#setstylesheet)
+* [setTextDirection](qprogressbar.md#settextdirection)
+* [setTextVisible](qprogressbar.md#settextvisible)
 * [setValue](qprogressbar.md#setvalue)
 * [setWindowFlag](qprogressbar.md#setwindowflag)
 * [setWindowIcon](qprogressbar.md#setwindowicon)
@@ -98,6 +114,8 @@ const progressBar = new QProgressBar();
 * [size](qprogressbar.md#size)
 * [styleSheet](qprogressbar.md#stylesheet)
 * [testAttribute](qprogressbar.md#testattribute)
+* [text](qprogressbar.md#text)
+* [textDirection](qprogressbar.md#textdirection)
 * [update](qprogressbar.md#update)
 * [updateGeometry](qprogressbar.md#updategeometry)
 * [value](qprogressbar.md#value)
@@ -111,13 +129,13 @@ const progressBar = new QProgressBar();
 
 \+ **new QProgressBar**(): *[QProgressBar](qprogressbar.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QProgressBar](qprogressbar.md)*
 
 \+ **new QProgressBar**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QProgressBar](qprogressbar.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -139,7 +157,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -277,6 +295,14 @@ ___
 
 ___
 
+###  alignment
+
+▸ **alignment**(): *[AlignmentFlag](../enums/alignmentflag.md)*
+
+**Returns:** *[AlignmentFlag](../enums/alignmentflag.md)*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -294,6 +320,14 @@ ___
 *Inherited from [QMenu](qmenu.md).[font](qmenu.md#font)*
 
 **Returns:** *[QFont](qfont.md)*
+
+___
+
+###  format
+
+▸ **format**(): *string*
+
+**Returns:** *string*
 
 ___
 
@@ -353,11 +387,27 @@ Name | Type |
 
 ___
 
+###  invertedAppearance
+
+▸ **invertedAppearance**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
 
 *Inherited from [QMenu](qmenu.md).[isEnabled](qmenu.md#isenabled)*
+
+**Returns:** *boolean*
+
+___
+
+###  isTextVisible
+
+▸ **isTextVisible**(): *boolean*
 
 **Returns:** *boolean*
 
@@ -380,6 +430,22 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  maximum
+
+▸ **maximum**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  minimum
+
+▸ **minimum**(): *number*
+
+**Returns:** *number*
 
 ___
 
@@ -407,6 +473,14 @@ ___
 *Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
 
 **Returns:** *string*
+
+___
+
+###  orientation
+
+▸ **orientation**(): *[Orientation](../enums/orientation.md)*
+
+**Returns:** *[Orientation](../enums/orientation.md)*
 
 ___
 
@@ -501,6 +575,32 @@ ___
 
 ___
 
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
+
+**Returns:** *void*
+
+___
+
+###  reset
+
+▸ **reset**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  resetFormat
+
+▸ **resetFormat**(): *void*
+
+**Returns:** *void*
+
+___
+
 ###  resize
 
 ▸ **resize**(`width`: number, `height`: number): *void*
@@ -513,6 +613,20 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAlignment
+
+▸ **setAlignment**(`alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`alignment` | [AlignmentFlag](../enums/alignmentflag.md) |
 
 **Returns:** *void*
 
@@ -634,6 +748,20 @@ Name | Type |
 
 ___
 
+###  setFormat
+
+▸ **setFormat**(`format`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`format` | string |
+
+**Returns:** *void*
+
+___
+
 ###  setGeometry
 
 ▸ **setGeometry**(`x`: number, `y`: number, `w`: number, `h`: number): *void*
@@ -669,6 +797,20 @@ Name | Type |
 
 ___
 
+###  setInvertedAppearance
+
+▸ **setInvertedAppearance**(`invert`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`invert` | boolean |
+
+**Returns:** *void*
+
+___
+
 ###  setLayout
 
 ▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)›): *void*
@@ -687,13 +829,13 @@ ___
 
 ###  setMaximum
 
-▸ **setMaximum**(`max`: number): *void*
+▸ **setMaximum**(`maximum`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`max` | number |
+`maximum` | number |
 
 **Returns:** *void*
 
@@ -718,13 +860,13 @@ ___
 
 ###  setMinimum
 
-▸ **setMinimum**(`min`: number): *void*
+▸ **setMinimum**(`minimum`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`min` | number |
+`minimum` | number |
 
 **Returns:** *void*
 
@@ -828,6 +970,21 @@ Name | Type |
 
 ___
 
+###  setRange
+
+▸ **setRange**(`minimum`: number, `maximum`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`minimum` | number |
+`maximum` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setStyleSheet
 
 ▸ **setStyleSheet**(`styleSheet`: string): *void*
@@ -839,6 +996,34 @@ ___
 Name | Type |
 ------ | ------ |
 `styleSheet` | string |
+
+**Returns:** *void*
+
+___
+
+###  setTextDirection
+
+▸ **setTextDirection**(`textDirection`: [QProgressBarDirection](../enums/qprogressbardirection.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`textDirection` | [QProgressBarDirection](../enums/qprogressbardirection.md) |
+
+**Returns:** *void*
+
+___
+
+###  setTextVisible
+
+▸ **setTextVisible**(`visible`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`visible` | boolean |
 
 **Returns:** *void*
 
@@ -1022,6 +1207,22 @@ Name | Type |
 `attribute` | [WidgetAttribute](../enums/widgetattribute.md) |
 
 **Returns:** *boolean*
+
+___
+
+###  text
+
+▸ **text**(): *string*
+
+**Returns:** *string*
+
+___
+
+###  textDirection
+
+▸ **textDirection**(): *[QProgressBarDirection](../enums/qprogressbardirection.md)*
+
+**Returns:** *[QProgressBarDirection](../enums/qprogressbardirection.md)*
 
 ___
 

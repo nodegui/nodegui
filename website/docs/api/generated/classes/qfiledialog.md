@@ -79,6 +79,7 @@ console.log(selectedFiles);
 * [reject](qfiledialog.md#reject)
 * [removeEventListener](qfiledialog.md#removeeventlistener)
 * [repaint](qfiledialog.md#repaint)
+* [repolish](qfiledialog.md#repolish)
 * [resize](qfiledialog.md#resize)
 * [result](qfiledialog.md#result)
 * [selectedFiles](qfiledialog.md#selectedfiles)
@@ -137,13 +138,13 @@ console.log(selectedFiles);
 
 \+ **new QFileDialog**(): *[QFileDialog](qfiledialog.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QFileDialog](qfiledialog.md)*
 
 \+ **new QFileDialog**(`parent`: [NodeWidget](nodewidget.md)‹any›, `caption?`: undefined | string, `directory?`: undefined | string, `filter?`: undefined | string): *[QFileDialog](qfiledialog.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -168,7 +169,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -611,6 +612,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

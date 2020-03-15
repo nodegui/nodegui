@@ -6,7 +6,7 @@ sidebar_label: "QSpinBoxSignals"
 
 ## Hierarchy
 
-  ↳ [QWidgetSignals](qwidgetsignals.md)
+  ↳ [QAbstractSpinBoxSignals](qabstractspinboxsignals.md)
 
   ↳ **QSpinBoxSignals**
 
@@ -15,6 +15,7 @@ sidebar_label: "QSpinBoxSignals"
 ### Properties
 
 * [customContextMenuRequested](qspinboxsignals.md#customcontextmenurequested)
+* [editingFinished](qspinboxsignals.md#editingfinished)
 * [objectNameChanged](qspinboxsignals.md#objectnamechanged)
 * [valueChanged](qspinboxsignals.md#valuechanged)
 * [windowIconChanged](qspinboxsignals.md#windowiconchanged)
@@ -40,6 +41,18 @@ Name | Type |
 ------ | ------ |
 `x` | number |
 `y` | number |
+
+___
+
+###  editingFinished
+
+• **editingFinished**: *function*
+
+*Inherited from [QAbstractSpinBoxSignals](qabstractspinboxsignals.md).[editingFinished](qabstractspinboxsignals.md#editingfinished)*
+
+#### Type declaration:
+
+▸ (): *void*
 
 ___
 

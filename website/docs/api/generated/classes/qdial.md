@@ -63,6 +63,7 @@ const dial = new QDial();
 * [maximum](qdial.md#maximum)
 * [minimum](qdial.md#minimum)
 * [move](qdial.md#move)
+* [notchSize](qdial.md#notchsize)
 * [notchTarget](qdial.md#notchtarget)
 * [notchesVisible](qdial.md#notchesvisible)
 * [objectName](qdial.md#objectname)
@@ -73,6 +74,7 @@ const dial = new QDial();
 * [raise](qdial.md#raise)
 * [removeEventListener](qdial.md#removeeventlistener)
 * [repaint](qdial.md#repaint)
+* [repolish](qdial.md#repolish)
 * [resize](qdial.md#resize)
 * [setAttribute](qdial.md#setattribute)
 * [setContextMenuPolicy](qdial.md#setcontextmenupolicy)
@@ -136,13 +138,13 @@ const dial = new QDial();
 
 \+ **new QDial**(): *[QDial](qdial.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QDial](qdial.md)*
 
 \+ **new QDial**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QDial](qdial.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -164,7 +166,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -485,6 +487,14 @@ Name | Type |
 
 ___
 
+###  notchSize
+
+▸ **notchSize**(): *number*
+
+**Returns:** *number*
+
+___
+
 ###  notchTarget
 
 ▸ **notchTarget**(): *number*
@@ -617,6 +627,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

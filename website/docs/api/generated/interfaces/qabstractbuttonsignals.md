@@ -10,6 +10,8 @@ sidebar_label: "QAbstractButtonSignals"
 
   ↳ **QAbstractButtonSignals**
 
+  ↳ [QCheckBoxSignals](qcheckboxsignals.md)
+
   ↳ [QToolButtonSignals](qtoolbuttonsignals.md)
 
 ## Index

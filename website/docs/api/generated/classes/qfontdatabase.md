@@ -25,6 +25,7 @@ sidebar_label: "QFontDatabase"
 ### Methods
 
 * [bold](qfontdatabase.md#bold)
+* [families](qfontdatabase.md#families)
 * [italic](qfontdatabase.md#italic)
 * [setNodeParent](qfontdatabase.md#setnodeparent)
 * [weight](qfontdatabase.md#weight)
@@ -79,6 +80,20 @@ Name | Type |
 `style` | string |
 
 **Returns:** *boolean*
+
+___
+
+###  families
+
+▸ **families**(`ws`: [WritingSystem](../enums/writingsystem.md)): *string[]*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`ws` | [WritingSystem](../enums/writingsystem.md) | WritingSystem.Any |
+
+**Returns:** *string[]*
 
 ___
 

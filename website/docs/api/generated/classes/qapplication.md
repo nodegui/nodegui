@@ -21,7 +21,7 @@ qApp.quit();
 
 ## Hierarchy
 
-* [Component](component.md)
+  ↳ [NodeObject](nodeobject.md)‹[QApplicationSignals](../globals.md#qapplicationsignals)›
 
   ↳ **QApplication**
 
@@ -39,12 +39,19 @@ qApp.quit();
 
 ### Methods
 
+* [addEventListener](qapplication.md#addeventlistener)
 * [exec](qapplication.md#exec)
 * [exit](qapplication.md#exit)
+* [inherits](qapplication.md#inherits)
+* [objectName](qapplication.md#objectname)
 * [processEvents](qapplication.md#processevents)
+* [property](qapplication.md#property)
 * [quit](qapplication.md#quit)
 * [quitOnLastWindowClosed](qapplication.md#quitonlastwindowclosed)
+* [removeEventListener](qapplication.md#removeeventlistener)
 * [setNodeParent](qapplication.md#setnodeparent)
+* [setObjectName](qapplication.md#setobjectname)
+* [setProperty](qapplication.md#setproperty)
 * [setQuitOnLastWindowClosed](qapplication.md#setquitonlastwindowclosed)
 * [clipboard](qapplication.md#static-clipboard)
 * [instance](qapplication.md#static-instance)
@@ -56,13 +63,13 @@ qApp.quit();
 
 \+ **new QApplication**(): *[QApplication](qapplication.md)*
 
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Returns:** *[QApplication](qapplication.md)*
 
 \+ **new QApplication**(`native`: [NativeElement](../globals.md#nativeelement)): *[QApplication](qapplication.md)*
 
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Parameters:**
 
@@ -98,6 +105,62 @@ ___
 
 ## Methods
 
+###  addEventListener
+
+▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QApplicationSignals[SignalType]): *void*
+
+*Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
+
+**Type parameters:**
+
+▪ **SignalType**: *keyof QApplicationSignals*
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
+`callback` | QApplicationSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+
+**Returns:** *void*
+
+void
+
+For example in the case of QPushButton:
+```js
+const button = new QPushButton();
+button.addEventListener('clicked',(checked)=>console.log("clicked"));
+// here clicked is a value from QPushButtonSignals interface
+```
+
+▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+
+*Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
+
+**Parameters:**
+
+▪ **eventType**: *[WidgetEventTypes](../enums/widgeteventtypes.md)*
+
+▪ **callback**: *function*
+
+For example in the case of QPushButton:
+```js
+const button = new QPushButton();
+button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
+```
+
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
+
+**Returns:** *void*
+
+___
+
 ###  exec
 
 ▸ **exec**(): *number*
@@ -120,11 +183,53 @@ Name | Type |
 
 ___
 
+###  inherits
+
+▸ **inherits**(`className`: string): *boolean*
+
+*Inherited from [NodeObject](nodeobject.md).[inherits](nodeobject.md#inherits)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  objectName
+
+▸ **objectName**(): *string*
+
+*Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
+
+**Returns:** *string*
+
+___
+
 ###  processEvents
 
 ▸ **processEvents**(): *void*
 
 **Returns:** *void*
+
+___
+
+###  property
+
+▸ **property**(`name`: string): *[QVariant](qvariant.md)*
+
+*Inherited from [NodeObject](nodeobject.md).[property](nodeobject.md#property)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`name` | string |
+
+**Returns:** *[QVariant](qvariant.md)*
 
 ___
 
@@ -144,6 +249,47 @@ ___
 
 ___
 
+###  removeEventListener
+
+▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QApplicationSignals[SignalType]): *void*
+
+*Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
+
+**Type parameters:**
+
+▪ **SignalType**: *keyof QApplicationSignals*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`signalType` | SignalType |
+`callback` | QApplicationSignals[SignalType] |
+
+**Returns:** *void*
+
+▸ **removeEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+
+*Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
+
+**Parameters:**
+
+▪ **eventType**: *[WidgetEventTypes](../enums/widgeteventtypes.md)*
+
+▪ **callback**: *function*
+
+▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
+
+**Returns:** *void*
+
+___
+
 ###  setNodeParent
 
 ▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
@@ -157,6 +303,39 @@ Name | Type |
 `parent?` | [Component](component.md) |
 
 **Returns:** *void*
+
+___
+
+###  setObjectName
+
+▸ **setObjectName**(`objectName`: string): *void*
+
+*Inherited from [NodeObject](nodeobject.md).[setObjectName](nodeobject.md#setobjectname)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`objectName` | string |
+
+**Returns:** *void*
+
+___
+
+###  setProperty
+
+▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
+
+*Inherited from [NodeObject](nodeobject.md).[setProperty](nodeobject.md#setproperty)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`name` | string |
+`value` | [QVariantType](../globals.md#qvarianttype) |
+
+**Returns:** *boolean*
 
 ___
 

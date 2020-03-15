@@ -20,6 +20,8 @@ sidebar_label: "NodeDialog"
 
   ↳ [QMessageBox](qmessagebox.md)
 
+  ↳ [QInputDialog](qinputdialog.md)
+
 ## Index
 
 ### Constructors
@@ -63,6 +65,7 @@ sidebar_label: "NodeDialog"
 * [reject](nodedialog.md#reject)
 * [removeEventListener](nodedialog.md#removeeventlistener)
 * [repaint](nodedialog.md#repaint)
+* [repolish](nodedialog.md#repolish)
 * [resize](nodedialog.md#resize)
 * [result](nodedialog.md#result)
 * [setAttribute](nodedialog.md#setattribute)
@@ -110,9 +113,9 @@ sidebar_label: "NodeDialog"
 
 \+ **new NodeDialog**(`native`: [NativeElement](../globals.md#nativeelement)): *[NodeDialog](nodedialog.md)*
 
-*Inherited from [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Inherited from [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Parameters:**
 
@@ -134,7 +137,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -523,6 +526,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

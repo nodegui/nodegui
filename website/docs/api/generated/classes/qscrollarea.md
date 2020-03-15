@@ -55,8 +55,16 @@ scrollArea.setWidget(imageLabel);
 * [addAction](qscrollarea.md#addaction)
 * [addEventListener](qscrollarea.md#addeventlistener)
 * [adjustSize](qscrollarea.md#adjustsize)
+* [alignment](qscrollarea.md#alignment)
 * [close](qscrollarea.md#close)
+* [ensureVisible](qscrollarea.md#ensurevisible)
+* [ensureWidgetVisible](qscrollarea.md#ensurewidgetvisible)
 * [font](qscrollarea.md#font)
+* [frameRect](qscrollarea.md#framerect)
+* [frameShadow](qscrollarea.md#frameshadow)
+* [frameShape](qscrollarea.md#frameshape)
+* [frameStyle](qscrollarea.md#framestyle)
+* [frameWidth](qscrollarea.md#framewidth)
 * [geometry](qscrollarea.md#geometry)
 * [getFlexNode](qscrollarea.md#getflexnode)
 * [hasMouseTracking](qscrollarea.md#hasmousetracking)
@@ -64,7 +72,9 @@ scrollArea.setWidget(imageLabel);
 * [inherits](qscrollarea.md#inherits)
 * [isEnabled](qscrollarea.md#isenabled)
 * [isVisible](qscrollarea.md#isvisible)
+* [lineWidth](qscrollarea.md#linewidth)
 * [lower](qscrollarea.md#lower)
+* [midLineWidth](qscrollarea.md#midlinewidth)
 * [move](qscrollarea.md#move)
 * [objectName](qscrollarea.md#objectname)
 * [pos](qscrollarea.md#pos)
@@ -72,7 +82,9 @@ scrollArea.setWidget(imageLabel);
 * [raise](qscrollarea.md#raise)
 * [removeEventListener](qscrollarea.md#removeeventlistener)
 * [repaint](qscrollarea.md#repaint)
+* [repolish](qscrollarea.md#repolish)
 * [resize](qscrollarea.md#resize)
+* [setAlignment](qscrollarea.md#setalignment)
 * [setAttribute](qscrollarea.md#setattribute)
 * [setContextMenuPolicy](qscrollarea.md#setcontextmenupolicy)
 * [setCursor](qscrollarea.md#setcursor)
@@ -80,11 +92,17 @@ scrollArea.setWidget(imageLabel);
 * [setFixedSize](qscrollarea.md#setfixedsize)
 * [setFlexNodeSizeControlled](qscrollarea.md#setflexnodesizecontrolled)
 * [setFont](qscrollarea.md#setfont)
+* [setFrameRect](qscrollarea.md#setframerect)
+* [setFrameShadow](qscrollarea.md#setframeshadow)
+* [setFrameShape](qscrollarea.md#setframeshape)
+* [setFrameStyle](qscrollarea.md#setframestyle)
 * [setGeometry](qscrollarea.md#setgeometry)
 * [setHorizontalScrollBarPolicy](qscrollarea.md#sethorizontalscrollbarpolicy)
 * [setInlineStyle](qscrollarea.md#setinlinestyle)
 * [setLayout](qscrollarea.md#setlayout)
+* [setLineWidth](qscrollarea.md#setlinewidth)
 * [setMaximumSize](qscrollarea.md#setmaximumsize)
+* [setMidLineWidth](qscrollarea.md#setmidlinewidth)
 * [setMinimumSize](qscrollarea.md#setminimumsize)
 * [setMouseTracking](qscrollarea.md#setmousetracking)
 * [setNodeParent](qscrollarea.md#setnodeparent)
@@ -112,6 +130,7 @@ scrollArea.setWidget(imageLabel);
 * [update](qscrollarea.md#update)
 * [updateGeometry](qscrollarea.md#updategeometry)
 * [viewport](qscrollarea.md#viewport)
+* [widget](qscrollarea.md#widget)
 * [widgetResizable](qscrollarea.md#widgetresizable)
 * [windowOpacity](qscrollarea.md#windowopacity)
 * [windowState](qscrollarea.md#windowstate)
@@ -123,13 +142,13 @@ scrollArea.setWidget(imageLabel);
 
 \+ **new QScrollArea**(): *[QScrollArea](qscrollarea.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QScrollArea](qscrollarea.md)*
 
 \+ **new QScrollArea**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QScrollArea](qscrollarea.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -151,7 +170,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -303,6 +322,14 @@ ___
 
 ___
 
+###  alignment
+
+▸ **alignment**(): *[AlignmentFlag](../enums/alignmentflag.md)*
+
+**Returns:** *[AlignmentFlag](../enums/alignmentflag.md)*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -313,6 +340,39 @@ ___
 
 ___
 
+###  ensureVisible
+
+▸ **ensureVisible**(`x`: number, `y`: number, `xmargin`: number, `ymargin`: number): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`x` | number | - |
+`y` | number | - |
+`xmargin` | number | 50 |
+`ymargin` | number | 50 |
+
+**Returns:** *void*
+
+___
+
+###  ensureWidgetVisible
+
+▸ **ensureWidgetVisible**(`childWidget`: [NodeWidget](nodewidget.md)‹any›, `xmargin`: number, `ymargin`: number): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`childWidget` | [NodeWidget](nodewidget.md)‹any› | - |
+`xmargin` | number | 50 |
+`ymargin` | number | 50 |
+
+**Returns:** *void*
+
+___
+
 ###  font
 
 ▸ **font**(): *[QFont](qfont.md)*
@@ -320,6 +380,56 @@ ___
 *Inherited from [QMenu](qmenu.md).[font](qmenu.md#font)*
 
 **Returns:** *[QFont](qfont.md)*
+
+___
+
+###  frameRect
+
+▸ **frameRect**(): *[QRect](qrect.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameRect](nodeframe.md#framerect)*
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
+###  frameShadow
+
+▸ **frameShadow**(): *[Shadow](../enums/shadow.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameShadow](nodeframe.md#frameshadow)*
+
+**Returns:** *[Shadow](../enums/shadow.md)*
+
+___
+
+###  frameShape
+
+▸ **frameShape**(): *[Shape](../enums/shape.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameShape](nodeframe.md#frameshape)*
+
+**Returns:** *[Shape](../enums/shape.md)*
+
+___
+
+###  frameStyle
+
+▸ **frameStyle**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameStyle](nodeframe.md#framestyle)*
+
+**Returns:** *number*
+
+___
+
+###  frameWidth
+
+▸ **frameWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameWidth](nodeframe.md#framewidth)*
+
+**Returns:** *number*
 
 ___
 
@@ -399,6 +509,16 @@ ___
 
 ___
 
+###  lineWidth
+
+▸ **lineWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[lineWidth](nodeframe.md#linewidth)*
+
+**Returns:** *number*
+
+___
+
 ###  lower
 
 ▸ **lower**(): *void*
@@ -406,6 +526,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  midLineWidth
+
+▸ **midLineWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
+
+**Returns:** *number*
 
 ___
 
@@ -527,6 +657,16 @@ ___
 
 ___
 
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
+
+**Returns:** *void*
+
+___
+
 ###  resize
 
 ▸ **resize**(`width`: number, `height`: number): *void*
@@ -539,6 +679,20 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAlignment
+
+▸ **setAlignment**(`alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`alignment` | [AlignmentFlag](../enums/alignmentflag.md) |
 
 **Returns:** *void*
 
@@ -660,6 +814,70 @@ Name | Type |
 
 ___
 
+###  setFrameRect
+
+▸ **setFrameRect**(`r`: [QRect](qrect.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameRect](nodeframe.md#setframerect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`r` | [QRect](qrect.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameShadow
+
+▸ **setFrameShadow**(`type`: [Shadow](../enums/shadow.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameShadow](nodeframe.md#setframeshadow)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`type` | [Shadow](../enums/shadow.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameShape
+
+▸ **setFrameShape**(`type`: [Shape](../enums/shape.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameShape](nodeframe.md#setframeshape)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`type` | [Shape](../enums/shape.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameStyle
+
+▸ **setFrameStyle**(`style`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameStyle](nodeframe.md#setframestyle)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`style` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setGeometry
 
 ▸ **setGeometry**(`x`: number, `y`: number, `w`: number, `h`: number): *void*
@@ -727,6 +945,22 @@ Name | Type |
 
 ___
 
+###  setLineWidth
+
+▸ **setLineWidth**(`width`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setLineWidth](nodeframe.md#setlinewidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`width` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setMaximumSize
 
 ▸ **setMaximumSize**(`maxw`: number, `maxh`: number): *void*
@@ -739,6 +973,22 @@ Name | Type |
 ------ | ------ |
 `maxw` | number |
 `maxh` | number |
+
+**Returns:** *void*
+
+___
+
+###  setMidLineWidth
+
+▸ **setMidLineWidth**(`width`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setMidLineWidth](nodeframe.md#setmidlinewidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`width` | number |
 
 **Returns:** *void*
 
@@ -1106,6 +1356,14 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewport](qabstractscrollarea.md#viewport)*
 
 **Returns:** *[QWidget](qwidget.md)*
+
+___
+
+###  widget
+
+▸ **widget**(): *[NodeWidget](nodewidget.md)‹any› | null*
+
+**Returns:** *[NodeWidget](nodewidget.md)‹any› | null*
 
 ___
 

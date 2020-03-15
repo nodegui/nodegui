@@ -59,6 +59,7 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 * [getFlexNode](qtabwidget.md#getflexnode)
 * [hasMouseTracking](qtabwidget.md#hasmousetracking)
 * [hide](qtabwidget.md#hide)
+* [indexOf](qtabwidget.md#indexof)
 * [inherits](qtabwidget.md#inherits)
 * [isEnabled](qtabwidget.md#isenabled)
 * [isVisible](qtabwidget.md#isvisible)
@@ -71,6 +72,7 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 * [removeEventListener](qtabwidget.md#removeeventlistener)
 * [removeTab](qtabwidget.md#removetab)
 * [repaint](qtabwidget.md#repaint)
+* [repolish](qtabwidget.md#repolish)
 * [resize](qtabwidget.md#resize)
 * [setAttribute](qtabwidget.md#setattribute)
 * [setContextMenuPolicy](qtabwidget.md#setcontextmenupolicy)
@@ -90,7 +92,9 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 * [setObjectName](qtabwidget.md#setobjectname)
 * [setProperty](qtabwidget.md#setproperty)
 * [setStyleSheet](qtabwidget.md#setstylesheet)
+* [setTabIcon](qtabwidget.md#settabicon)
 * [setTabPosition](qtabwidget.md#settabposition)
+* [setTabText](qtabwidget.md#settabtext)
 * [setTabsClosable](qtabwidget.md#settabsclosable)
 * [setWindowFlag](qtabwidget.md#setwindowflag)
 * [setWindowIcon](qtabwidget.md#setwindowicon)
@@ -117,13 +121,13 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 
 \+ **new QTabWidget**(): *[QTabWidget](qtabwidget.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QTabWidget](qtabwidget.md)*
 
 \+ **new QTabWidget**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QTabWidget](qtabwidget.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -145,7 +149,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -281,7 +285,7 @@ ___
 
 ###  addTab
 
-▸ **addTab**(`page`: [NodeWidget](nodewidget.md)‹any›, `icon`: [QIcon](qicon.md), `label`: string): *void*
+▸ **addTab**(`page`: [NodeWidget](nodewidget.md)‹any›, `icon`: [QIcon](qicon.md), `label`: string): *number*
 
 **Parameters:**
 
@@ -291,7 +295,7 @@ Name | Type |
 `icon` | [QIcon](qicon.md) |
 `label` | string |
 
-**Returns:** *void*
+**Returns:** *number*
 
 ___
 
@@ -370,6 +374,20 @@ ___
 *Inherited from [QMenu](qmenu.md).[hide](qmenu.md#hide)*
 
 **Returns:** *void*
+
+___
+
+###  indexOf
+
+▸ **indexOf**(`widget`: [NodeWidget](nodewidget.md)‹any›): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`widget` | [NodeWidget](nodewidget.md)‹any› |
+
+**Returns:** *number*
 
 ___
 
@@ -546,6 +564,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 
@@ -866,6 +894,21 @@ Name | Type |
 
 ___
 
+###  setTabIcon
+
+▸ **setTabIcon**(`tabIndex`: number, `icon`: [QIcon](qicon.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`tabIndex` | number |
+`icon` | [QIcon](qicon.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setTabPosition
 
 ▸ **setTabPosition**(`tabPosition`: [TabPosition](../enums/tabposition.md)): *void*
@@ -875,6 +918,21 @@ ___
 Name | Type |
 ------ | ------ |
 `tabPosition` | [TabPosition](../enums/tabposition.md) |
+
+**Returns:** *void*
+
+___
+
+###  setTabText
+
+▸ **setTabText**(`tabIndex`: number, `tabText`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`tabIndex` | number |
+`tabText` | string |
 
 **Returns:** *void*
 

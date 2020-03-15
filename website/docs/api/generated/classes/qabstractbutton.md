@@ -79,6 +79,7 @@ It is inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
 * [raise](qabstractbutton.md#raise)
 * [removeEventListener](qabstractbutton.md#removeeventlistener)
 * [repaint](qabstractbutton.md#repaint)
+* [repolish](qabstractbutton.md#repolish)
 * [resize](qabstractbutton.md#resize)
 * [setAttribute](qabstractbutton.md#setattribute)
 * [setAutoExclusive](qabstractbutton.md#setautoexclusive)
@@ -136,9 +137,9 @@ It is inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
 
 \+ **new QAbstractButton**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAbstractButton](qabstractbutton.md)*
 
-*Inherited from [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Inherited from [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Parameters:**
 
@@ -160,7 +161,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -611,6 +612,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

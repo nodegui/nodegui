@@ -68,6 +68,7 @@ global.win = win;
 * [raise](qmenubar.md#raise)
 * [removeEventListener](qmenubar.md#removeeventlistener)
 * [repaint](qmenubar.md#repaint)
+* [repolish](qmenubar.md#repolish)
 * [resize](qmenubar.md#resize)
 * [setAttribute](qmenubar.md#setattribute)
 * [setContextMenuPolicy](qmenubar.md#setcontextmenupolicy)
@@ -112,13 +113,13 @@ global.win = win;
 
 \+ **new QMenuBar**(): *[QMenuBar](qmenubar.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QMenuBar](qmenubar.md)*
 
 \+ **new QMenuBar**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QMenuBar](qmenubar.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -130,7 +131,7 @@ Name | Type |
 
 \+ **new QMenuBar**(`native`: [NativeElement](../globals.md#nativeelement)): *[QMenuBar](qmenubar.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -158,7 +159,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -537,6 +538,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

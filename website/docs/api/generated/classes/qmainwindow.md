@@ -80,6 +80,7 @@ Once a central widget is set you can add children/layout to the central widget.
 * [removeEventListener](qmainwindow.md#removeeventlistener)
 * [removeStatusBar](qmainwindow.md#removestatusbar)
 * [repaint](qmainwindow.md#repaint)
+* [repolish](qmainwindow.md#repolish)
 * [resize](qmainwindow.md#resize)
 * [setAttribute](qmainwindow.md#setattribute)
 * [setCentralWidget](qmainwindow.md#setcentralwidget)
@@ -129,13 +130,13 @@ Once a central widget is set you can add children/layout to the central widget.
 
 \+ **new QMainWindow**(): *[QMainWindow](qmainwindow.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QMainWindow](qmainwindow.md)*
 
 \+ **new QMainWindow**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QMainWindow](qmainwindow.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -157,7 +158,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -548,6 +549,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

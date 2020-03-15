@@ -73,6 +73,7 @@ const progressBar = new QStatusBar();
 * [removeEventListener](qstatusbar.md#removeeventlistener)
 * [removeWidget](qstatusbar.md#removewidget)
 * [repaint](qstatusbar.md#repaint)
+* [repolish](qstatusbar.md#repolish)
 * [resize](qstatusbar.md#resize)
 * [setAttribute](qstatusbar.md#setattribute)
 * [setContextMenuPolicy](qstatusbar.md#setcontextmenupolicy)
@@ -118,13 +119,13 @@ const progressBar = new QStatusBar();
 
 \+ **new QStatusBar**(): *[QStatusBar](qstatusbar.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QStatusBar](qstatusbar.md)*
 
 \+ **new QStatusBar**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QStatusBar](qstatusbar.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -146,7 +147,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -638,6 +639,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

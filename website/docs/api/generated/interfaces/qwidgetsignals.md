@@ -20,6 +20,8 @@ sidebar_label: "QWidgetSignals"
 
   ↳ [QCalendarWidgetSignals](qcalendarwidgetsignals.md)
 
+  ↳ [QLabelSignals](qlabelsignals.md)
+
   ↳ [QDialogSignals](qdialogsignals.md)
 
   ↳ [QLineEditSignals](qlineeditsignals.md)
@@ -29,8 +31,6 @@ sidebar_label: "QWidgetSignals"
   ↳ [QProgressBarSignals](qprogressbarsignals.md)
 
   ↳ [QComboBoxSignals](qcomboboxsignals.md)
-
-  ↳ [QSpinBoxSignals](qspinboxsignals.md)
 
   ↳ [QStackedWidgetSignals](qstackedwidgetsignals.md)
 

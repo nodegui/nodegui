@@ -56,11 +56,12 @@ sidebar_label: "Globals"
 * [GlobalColor](enums/globalcolor.md)
 * [HitTestAccuracy](enums/hittestaccuracy.md)
 * [HorizontalHeaderFormat](enums/horizontalheaderformat.md)
-* [Icon](enums/icon.md)
 * [ImageConversionFlag](enums/imageconversionflag.md)
 * [ImageReaderError](enums/imagereadererror.md)
+* [InputDialogOptions](enums/inputdialogoptions.md)
 * [InputMethodHint](enums/inputmethodhint.md)
 * [InputMethodQuery](enums/inputmethodquery.md)
+* [InputMode](enums/inputmode.md)
 * [InsertPolicy](enums/insertpolicy.md)
 * [ItemDataRole](enums/itemdatarole.md)
 * [ItemFlag](enums/itemflag.md)
@@ -91,6 +92,10 @@ sidebar_label: "Globals"
 * [QFontWeight](enums/qfontweight.md)
 * [QIconMode](enums/qiconmode.md)
 * [QIconState](enums/qiconstate.md)
+* [QMessageBoxIcon](enums/qmessageboxicon.md)
+* [QProgressBarDirection](enums/qprogressbardirection.md)
+* [QSettingsFormat](enums/qsettingsformat.md)
+* [QSettingsScope](enums/qsettingsscope.md)
 * [QStylePixelMetric](enums/qstylepixelmetric.md)
 * [QSystemTrayIconActivationReason](enums/qsystemtrayiconactivationreason.md)
 * [QTextOptionWrapMode](enums/qtextoptionwrapmode.md)
@@ -105,13 +110,15 @@ sidebar_label: "Globals"
 * [SelectionMode](enums/selectionmode.md)
 * [SequenceFormat](enums/sequenceformat.md)
 * [SequenceMatch](enums/sequencematch.md)
+* [Shadow](enums/shadow.md)
+* [Shape](enums/shape.md)
 * [ShortcutContext](enums/shortcutcontext.md)
 * [SizeAdjustPolicy](enums/sizeadjustpolicy.md)
 * [SizeHint](enums/sizehint.md)
 * [SizeMode](enums/sizemode.md)
 * [SliderAction](enums/slideraction.md)
 * [SortOrder](enums/sortorder.md)
-* [StandardButton](enums/standardbutton.md)
+* [StepType](enums/steptype.md)
 * [SystemFont](enums/systemfont.md)
 * [TabFocusBehavior](enums/tabfocusbehavior.md)
 * [TabPosition](enums/tabposition.md)
@@ -145,9 +152,12 @@ sidebar_label: "Globals"
 * [Component](classes/component.md)
 * [EventWidget](classes/eventwidget.md)
 * [FlexLayout](classes/flexlayout.md)
+* [NodeDateTimeEdit](classes/nodedatetimeedit.md)
 * [NodeDialog](classes/nodedialog.md)
+* [NodeFrame](classes/nodeframe.md)
 * [NodeLayout](classes/nodelayout.md)
 * [NodeObject](classes/nodeobject.md)
+* [NodeTableView](classes/nodetableview.md)
 * [NodeWidget](classes/nodewidget.md)
 * [QAbstractButton](classes/qabstractbutton.md)
 * [QAbstractItemView](classes/qabstractitemview.md)
@@ -173,9 +183,11 @@ sidebar_label: "Globals"
 * [QFileDialog](classes/qfiledialog.md)
 * [QFont](classes/qfont.md)
 * [QFontDatabase](classes/qfontdatabase.md)
+* [QFrame](classes/qframe.md)
 * [QGridLayout](classes/qgridlayout.md)
 * [QGroupBox](classes/qgroupbox.md)
 * [QIcon](classes/qicon.md)
+* [QInputDialog](classes/qinputdialog.md)
 * [QKeyEvent](classes/qkeyevent.md)
 * [QKeySequence](classes/qkeysequence.md)
 * [QLabel](classes/qlabel.md)
@@ -191,6 +203,7 @@ sidebar_label: "Globals"
 * [QMovie](classes/qmovie.md)
 * [QObject](classes/qobject.md)
 * [QPainter](classes/qpainter.md)
+* [QPicture](classes/qpicture.md)
 * [QPixmap](classes/qpixmap.md)
 * [QPlainTextEdit](classes/qplaintextedit.md)
 * [QPoint](classes/qpoint.md)
@@ -199,6 +212,8 @@ sidebar_label: "Globals"
 * [QRadioButton](classes/qradiobutton.md)
 * [QRect](classes/qrect.md)
 * [QScrollArea](classes/qscrollarea.md)
+* [QScrollBar](classes/qscrollbar.md)
+* [QSettings](classes/qsettings.md)
 * [QShortcut](classes/qshortcut.md)
 * [QSize](classes/qsize.md)
 * [QSlider](classes/qslider.md)
@@ -208,6 +223,7 @@ sidebar_label: "Globals"
 * [QStyle](classes/qstyle.md)
 * [QSystemTrayIcon](classes/qsystemtrayicon.md)
 * [QTabWidget](classes/qtabwidget.md)
+* [QTableView](classes/qtableview.md)
 * [QTableWidget](classes/qtablewidget.md)
 * [QTableWidgetItem](classes/qtablewidgetitem.md)
 * [QTime](classes/qtime.md)
@@ -230,11 +246,14 @@ sidebar_label: "Globals"
 * [QActionSignals](interfaces/qactionsignals.md)
 * [QButtonGroupSignals](interfaces/qbuttongroupsignals.md)
 * [QCalendarWidgetSignals](interfaces/qcalendarwidgetsignals.md)
+* [QCheckBoxSignals](interfaces/qcheckboxsignals.md)
 * [QComboBoxSignals](interfaces/qcomboboxsignals.md)
 * [QDateTimeEditSignals](interfaces/qdatetimeeditsignals.md)
 * [QDialogSignals](interfaces/qdialogsignals.md)
 * [QFileDialogSignals](interfaces/qfiledialogsignals.md)
 * [QGroupBoxSignals](interfaces/qgroupboxsignals.md)
+* [QInputDialogSignals](interfaces/qinputdialogsignals.md)
+* [QLabelSignals](interfaces/qlabelsignals.md)
 * [QLineEditSignals](interfaces/qlineeditsignals.md)
 * [QListWidgetSignals](interfaces/qlistwidgetsignals.md)
 * [QMessageBoxSignals](interfaces/qmessageboxsignals.md)
@@ -262,11 +281,11 @@ sidebar_label: "Globals"
 * [NativeElement](globals.md#nativeelement)
 * [NativeRawPointer](globals.md#nativerawpointer)
 * [QAbstractScrollAreaSignals](globals.md#qabstractscrollareasignals)
+* [QApplicationSignals](globals.md#qapplicationsignals)
 * [QBoxLayoutSignals](globals.md#qboxlayoutsignals)
-* [QCheckBoxSignals](globals.md#qcheckboxsignals)
 * [QDialSignals](globals.md#qdialsignals)
+* [QFrameSignals](globals.md#qframesignals)
 * [QGridLayoutSignals](globals.md#qgridlayoutsignals)
-* [QLabelSignals](globals.md#qlabelsignals)
 * [QLayoutSignals](globals.md#qlayoutsignals)
 * [QMainWindowSignals](globals.md#qmainwindowsignals)
 * [QMenuBarSignals](globals.md#qmenubarsignals)
@@ -274,7 +293,9 @@ sidebar_label: "Globals"
 * [QPushButtonSignals](globals.md#qpushbuttonsignals)
 * [QRadioButtonSignals](globals.md#qradiobuttonsignals)
 * [QScrollAreaSignals](globals.md#qscrollareasignals)
+* [QScrollBarSignals](globals.md#qscrollbarsignals)
 * [QSliderSignals](globals.md#qslidersignals)
+* [QTableViewSignals](globals.md#qtableviewsignals)
 * [QVariantType](globals.md#qvarianttype)
 * [SupportedFormats](globals.md#supportedformats)
 * [arg](globals.md#arg)
@@ -282,11 +303,17 @@ sidebar_label: "Globals"
 ### Variables
 
 * [addon](globals.md#const-addon)
+* [center](globals.md#const-center)
+* [getBtn](globals.md#const-getbtn)
+* [label](globals.md#const-label)
+* [setBtn](globals.md#const-setbtn)
 * [testImagePath](globals.md#const-testimagepath)
+* [textInput](globals.md#const-textinput)
 * [win](globals.md#const-win)
 
 ### Functions
 
+* [addDefaultErrorHandler](globals.md#adddefaulterrorhandler)
 * [checkIfNapiExternal](globals.md#checkifnapiexternal)
 * [checkIfNativeElement](globals.md#checkifnativeelement)
 * [main](globals.md#main)
@@ -336,7 +363,13 @@ ___
 
 ###  QAbstractScrollAreaSignals
 
-Ƭ **QAbstractScrollAreaSignals**: *[QWidgetSignals](interfaces/qwidgetsignals.md)*
+Ƭ **QAbstractScrollAreaSignals**: *[QFrameSignals](globals.md#qframesignals)*
+
+___
+
+###  QApplicationSignals
+
+Ƭ **QApplicationSignals**: *[QObjectSignals](interfaces/qobjectsignals.md)*
 
 ___
 
@@ -346,27 +379,21 @@ ___
 
 ___
 
-###  QCheckBoxSignals
-
-Ƭ **QCheckBoxSignals**: *[QAbstractButtonSignals](interfaces/qabstractbuttonsignals.md)*
-
-___
-
 ###  QDialSignals
 
 Ƭ **QDialSignals**: *[QAbstractSliderSignals](interfaces/qabstractslidersignals.md)*
 
 ___
 
-###  QGridLayoutSignals
+###  QFrameSignals
 
-Ƭ **QGridLayoutSignals**: *[QLayoutSignals](globals.md#qlayoutsignals)*
+Ƭ **QFrameSignals**: *[QWidgetSignals](interfaces/qwidgetsignals.md)*
 
 ___
 
-###  QLabelSignals
+###  QGridLayoutSignals
 
-Ƭ **QLabelSignals**: *[QWidgetSignals](interfaces/qwidgetsignals.md)*
+Ƭ **QGridLayoutSignals**: *[QLayoutSignals](globals.md#qlayoutsignals)*
 
 ___
 
@@ -412,9 +439,21 @@ ___
 
 ___
 
+###  QScrollBarSignals
+
+Ƭ **QScrollBarSignals**: *[QAbstractSliderSignals](interfaces/qabstractslidersignals.md)*
+
+___
+
 ###  QSliderSignals
 
 Ƭ **QSliderSignals**: *[QAbstractSliderSignals](interfaces/qabstractslidersignals.md)*
+
+___
+
+###  QTableViewSignals
+
+Ƭ **QTableViewSignals**: *[QAbstractItemViewSignals](interfaces/qabstractitemviewsignals.md)*
 
 ___
 
@@ -442,9 +481,39 @@ ___
 
 ___
 
+### `Const` center
+
+• **center**: *[QWidget](classes/qwidget.md)‹›* = new QWidget()
+
+___
+
+### `Const` getBtn
+
+• **getBtn**: *[QPushButton](classes/qpushbutton.md)‹›* = new QPushButton()
+
+___
+
+### `Const` label
+
+• **label**: *[QLabel](classes/qlabel.md)‹›* = new QLabel()
+
+___
+
+### `Const` setBtn
+
+• **setBtn**: *[QPushButton](classes/qpushbutton.md)‹›* = new QPushButton()
+
+___
+
 ### `Const` testImagePath
 
 • **testImagePath**: *string* = path.resolve(__dirname, 'assets', 'nodegui.png')
+
+___
+
+### `Const` textInput
+
+• **textInput**: *[QLineEdit](classes/qlineedit.md)‹›* = new QLineEdit()
 
 ___
 
@@ -453,6 +522,21 @@ ___
 • **win**: *[QMainWindow](classes/qmainwindow.md)‹›* = new QMainWindow()
 
 ## Functions
+
+###  addDefaultErrorHandler
+
+▸ **addDefaultErrorHandler**(`native`: [NativeElement](globals.md#nativeelement), `emitter`: EventEmitter): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`native` | [NativeElement](globals.md#nativeelement) |
+`emitter` | EventEmitter |
+
+**Returns:** *void*
+
+___
 
 ###  checkIfNapiExternal
 

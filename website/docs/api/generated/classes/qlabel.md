@@ -21,7 +21,7 @@ label.setText("Hello");
 
 ## Hierarchy
 
-  ↳ [NodeWidget](nodewidget.md)‹[QLabelSignals](../globals.md#qlabelsignals)›
+  ↳ [NodeFrame](nodeframe.md)‹[QLabelSignals](../interfaces/qlabelsignals.md)›
 
   ↳ **QLabel**
 
@@ -48,55 +48,82 @@ label.setText("Hello");
 * [addEventListener](qlabel.md#addeventlistener)
 * [adjustSize](qlabel.md#adjustsize)
 * [alignment](qlabel.md#alignment)
+* [buddy](qlabel.md#buddy)
 * [clear](qlabel.md#clear)
 * [close](qlabel.md#close)
 * [font](qlabel.md#font)
+* [frameRect](qlabel.md#framerect)
+* [frameShadow](qlabel.md#frameshadow)
+* [frameShape](qlabel.md#frameshape)
+* [frameStyle](qlabel.md#framestyle)
+* [frameWidth](qlabel.md#framewidth)
 * [geometry](qlabel.md#geometry)
 * [getFlexNode](qlabel.md#getflexnode)
 * [hasMouseTracking](qlabel.md#hasmousetracking)
+* [hasScaledContents](qlabel.md#hasscaledcontents)
+* [hasSelectedText](qlabel.md#hasselectedtext)
 * [hide](qlabel.md#hide)
 * [indent](qlabel.md#indent)
 * [inherits](qlabel.md#inherits)
 * [isEnabled](qlabel.md#isenabled)
 * [isVisible](qlabel.md#isvisible)
+* [lineWidth](qlabel.md#linewidth)
 * [lower](qlabel.md#lower)
 * [margin](qlabel.md#margin)
+* [midLineWidth](qlabel.md#midlinewidth)
 * [move](qlabel.md#move)
 * [movie](qlabel.md#movie)
 * [objectName](qlabel.md#objectname)
 * [openExternalLinks](qlabel.md#openexternallinks)
+* [picture](qlabel.md#picture)
 * [pixmap](qlabel.md#pixmap)
 * [pos](qlabel.md#pos)
 * [property](qlabel.md#property)
 * [raise](qlabel.md#raise)
 * [removeEventListener](qlabel.md#removeeventlistener)
 * [repaint](qlabel.md#repaint)
+* [repolish](qlabel.md#repolish)
 * [resize](qlabel.md#resize)
+* [selectedText](qlabel.md#selectedtext)
+* [selectionStart](qlabel.md#selectionstart)
 * [setAlignment](qlabel.md#setalignment)
 * [setAttribute](qlabel.md#setattribute)
+* [setBuddy](qlabel.md#setbuddy)
 * [setContextMenuPolicy](qlabel.md#setcontextmenupolicy)
 * [setCursor](qlabel.md#setcursor)
 * [setEnabled](qlabel.md#setenabled)
 * [setFixedSize](qlabel.md#setfixedsize)
 * [setFlexNodeSizeControlled](qlabel.md#setflexnodesizecontrolled)
 * [setFont](qlabel.md#setfont)
+* [setFrameRect](qlabel.md#setframerect)
+* [setFrameShadow](qlabel.md#setframeshadow)
+* [setFrameShape](qlabel.md#setframeshape)
+* [setFrameStyle](qlabel.md#setframestyle)
 * [setGeometry](qlabel.md#setgeometry)
 * [setIndent](qlabel.md#setindent)
 * [setInlineStyle](qlabel.md#setinlinestyle)
 * [setLayout](qlabel.md#setlayout)
+* [setLineWidth](qlabel.md#setlinewidth)
 * [setMargin](qlabel.md#setmargin)
 * [setMaximumSize](qlabel.md#setmaximumsize)
+* [setMidLineWidth](qlabel.md#setmidlinewidth)
 * [setMinimumSize](qlabel.md#setminimumsize)
 * [setMouseTracking](qlabel.md#setmousetracking)
 * [setMovie](qlabel.md#setmovie)
 * [setNodeParent](qlabel.md#setnodeparent)
+* [setNumDouble](qlabel.md#setnumdouble)
+* [setNumInt](qlabel.md#setnumint)
 * [setObjectName](qlabel.md#setobjectname)
 * [setOpenExternalLinks](qlabel.md#setopenexternallinks)
+* [setPicture](qlabel.md#setpicture)
 * [setPixmap](qlabel.md#setpixmap)
 * [setProperty](qlabel.md#setproperty)
+* [setScaledContents](qlabel.md#setscaledcontents)
+* [setSelection](qlabel.md#setselection)
 * [setStyleSheet](qlabel.md#setstylesheet)
 * [setText](qlabel.md#settext)
 * [setTextFormat](qlabel.md#settextformat)
+* [setTextInteractionFlags](qlabel.md#settextinteractionflags)
 * [setWindowFlag](qlabel.md#setwindowflag)
 * [setWindowIcon](qlabel.md#setwindowicon)
 * [setWindowOpacity](qlabel.md#setwindowopacity)
@@ -113,6 +140,7 @@ label.setText("Hello");
 * [testAttribute](qlabel.md#testattribute)
 * [text](qlabel.md#text)
 * [textFormat](qlabel.md#textformat)
+* [textInteractionFlags](qlabel.md#textinteractionflags)
 * [update](qlabel.md#update)
 * [updateGeometry](qlabel.md#updategeometry)
 * [windowOpacity](qlabel.md#windowopacity)
@@ -126,13 +154,13 @@ label.setText("Hello");
 
 \+ **new QLabel**(): *[QLabel](qlabel.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QLabel](qlabel.md)*
 
 \+ **new QLabel**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QLabel](qlabel.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -154,7 +182,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -162,7 +190,7 @@ ___
 
 ### `Optional` layout
 
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QLabelSignals](../globals.md#qlabelsignals)›*
+• **layout**? : *[NodeLayout](nodelayout.md)‹[QLabelSignals](../interfaces/qlabelsignals.md)›*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
@@ -300,6 +328,14 @@ ___
 
 ___
 
+###  buddy
+
+▸ **buddy**(): *[NodeWidget](nodewidget.md)‹any› | null*
+
+**Returns:** *[NodeWidget](nodewidget.md)‹any› | null*
+
+___
+
 ###  clear
 
 ▸ **clear**(): *void*
@@ -328,6 +364,56 @@ ___
 
 ___
 
+###  frameRect
+
+▸ **frameRect**(): *[QRect](qrect.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameRect](nodeframe.md#framerect)*
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
+###  frameShadow
+
+▸ **frameShadow**(): *[Shadow](../enums/shadow.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameShadow](nodeframe.md#frameshadow)*
+
+**Returns:** *[Shadow](../enums/shadow.md)*
+
+___
+
+###  frameShape
+
+▸ **frameShape**(): *[Shape](../enums/shape.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameShape](nodeframe.md#frameshape)*
+
+**Returns:** *[Shape](../enums/shape.md)*
+
+___
+
+###  frameStyle
+
+▸ **frameStyle**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameStyle](nodeframe.md#framestyle)*
+
+**Returns:** *number*
+
+___
+
+###  frameWidth
+
+▸ **frameWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameWidth](nodeframe.md#framewidth)*
+
+**Returns:** *number*
+
+___
+
 ###  geometry
 
 ▸ **geometry**(): *[QRect](qrect.md)*
@@ -353,6 +439,22 @@ ___
 ▸ **hasMouseTracking**(): *boolean*
 
 *Inherited from [QMenu](qmenu.md).[hasMouseTracking](qmenu.md#hasmousetracking)*
+
+**Returns:** *boolean*
+
+___
+
+###  hasScaledContents
+
+▸ **hasScaledContents**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  hasSelectedText
+
+▸ **hasSelectedText**(): *boolean*
 
 **Returns:** *boolean*
 
@@ -412,6 +514,16 @@ ___
 
 ___
 
+###  lineWidth
+
+▸ **lineWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[lineWidth](nodeframe.md#linewidth)*
+
+**Returns:** *number*
+
+___
+
 ###  lower
 
 ▸ **lower**(): *void*
@@ -425,6 +537,16 @@ ___
 ###  margin
 
 ▸ **margin**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  midLineWidth
+
+▸ **midLineWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
 
 **Returns:** *number*
 
@@ -470,6 +592,14 @@ ___
 ▸ **openExternalLinks**(): *boolean*
 
 **Returns:** *boolean*
+
+___
+
+###  picture
+
+▸ **picture**(): *[QPicture](qpicture.md) | undefined*
+
+**Returns:** *[QPicture](qpicture.md) | undefined*
 
 ___
 
@@ -572,6 +702,16 @@ ___
 
 ___
 
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
+
+**Returns:** *void*
+
+___
+
 ###  resize
 
 ▸ **resize**(`width`: number, `height`: number): *void*
@@ -586,6 +726,22 @@ Name | Type |
 `height` | number |
 
 **Returns:** *void*
+
+___
+
+###  selectedText
+
+▸ **selectedText**(): *string*
+
+**Returns:** *string*
+
+___
+
+###  selectionStart
+
+▸ **selectionStart**(): *number*
+
+**Returns:** *number*
 
 ___
 
@@ -615,6 +771,20 @@ Name | Type |
 ------ | ------ |
 `attribute` | [WidgetAttribute](../enums/widgetattribute.md) |
 `switchOn` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setBuddy
+
+▸ **setBuddy**(`buddy`: [NodeWidget](nodewidget.md)‹any›): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`buddy` | [NodeWidget](nodewidget.md)‹any› |
 
 **Returns:** *void*
 
@@ -719,6 +889,70 @@ Name | Type |
 
 ___
 
+###  setFrameRect
+
+▸ **setFrameRect**(`r`: [QRect](qrect.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameRect](nodeframe.md#setframerect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`r` | [QRect](qrect.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameShadow
+
+▸ **setFrameShadow**(`type`: [Shadow](../enums/shadow.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameShadow](nodeframe.md#setframeshadow)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`type` | [Shadow](../enums/shadow.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameShape
+
+▸ **setFrameShape**(`type`: [Shape](../enums/shape.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameShape](nodeframe.md#setframeshape)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`type` | [Shape](../enums/shape.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameStyle
+
+▸ **setFrameStyle**(`style`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameStyle](nodeframe.md#setframestyle)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`style` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setGeometry
 
 ▸ **setGeometry**(`x`: number, `y`: number, `w`: number, `h`: number): *void*
@@ -770,7 +1004,7 @@ ___
 
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QLabelSignals](../globals.md#qlabelsignals)›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QLabelSignals](../interfaces/qlabelsignals.md)›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -778,7 +1012,23 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹[QLabelSignals](../globals.md#qlabelsignals)› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹[QLabelSignals](../interfaces/qlabelsignals.md)› |
+
+**Returns:** *void*
+
+___
+
+###  setLineWidth
+
+▸ **setLineWidth**(`width`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setLineWidth](nodeframe.md#setlinewidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`width` | number |
 
 **Returns:** *void*
 
@@ -810,6 +1060,22 @@ Name | Type |
 ------ | ------ |
 `maxw` | number |
 `maxh` | number |
+
+**Returns:** *void*
+
+___
+
+###  setMidLineWidth
+
+▸ **setMidLineWidth**(`width`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setMidLineWidth](nodeframe.md#setmidlinewidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`width` | number |
 
 **Returns:** *void*
 
@@ -878,6 +1144,34 @@ Name | Type |
 
 ___
 
+###  setNumDouble
+
+▸ **setNumDouble**(`num`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`num` | number |
+
+**Returns:** *void*
+
+___
+
+###  setNumInt
+
+▸ **setNumInt**(`num`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`num` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setObjectName
 
 ▸ **setObjectName**(`objectName`: string): *void*
@@ -905,6 +1199,20 @@ ___
 Name | Type |
 ------ | ------ |
 `open` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setPicture
+
+▸ **setPicture**(`picture`: [QPicture](qpicture.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`picture` | [QPicture](qpicture.md) |
 
 **Returns:** *void*
 
@@ -938,6 +1246,35 @@ Name | Type |
 `value` | [QVariantType](../globals.md#qvarianttype) |
 
 **Returns:** *boolean*
+
+___
+
+###  setScaledContents
+
+▸ **setScaledContents**(`scaled`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scaled` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setSelection
+
+▸ **setSelection**(`start`: number, `length`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`start` | number |
+`length` | number |
+
+**Returns:** *void*
 
 ___
 
@@ -980,6 +1317,20 @@ ___
 Name | Type |
 ------ | ------ |
 `format` | [TextFormat](../enums/textformat.md) |
+
+**Returns:** *void*
+
+___
+
+###  setTextInteractionFlags
+
+▸ **setTextInteractionFlags**(`flags`: [TextInteractionFlag](../enums/textinteractionflag.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`flags` | [TextInteractionFlag](../enums/textinteractionflag.md) |
 
 **Returns:** *void*
 
@@ -1179,6 +1530,14 @@ ___
 ▸ **textFormat**(): *[TextFormat](../enums/textformat.md)*
 
 **Returns:** *[TextFormat](../enums/textformat.md)*
+
+___
+
+###  textInteractionFlags
+
+▸ **textInteractionFlags**(): *[TextInteractionFlag](../enums/textinteractionflag.md)*
+
+**Returns:** *[TextInteractionFlag](../enums/textinteractionflag.md)*
 
 ___
 

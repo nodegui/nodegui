@@ -64,6 +64,7 @@ const menu = new QMenu();
 * [raise](qmenu.md#raise)
 * [removeEventListener](qmenu.md#removeeventlistener)
 * [repaint](qmenu.md#repaint)
+* [repolish](qmenu.md#repolish)
 * [resize](qmenu.md#resize)
 * [setAttribute](qmenu.md#setattribute)
 * [setContextMenuPolicy](qmenu.md#setcontextmenupolicy)
@@ -108,13 +109,13 @@ const menu = new QMenu();
 
 \+ **new QMenu**(): *[QMenu](qmenu.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QMenu](qmenu.md)*
 
 \+ **new QMenu**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QMenu](qmenu.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -136,7 +137,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -531,6 +532,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

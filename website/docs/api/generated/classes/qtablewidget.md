@@ -69,6 +69,11 @@ win.show();
 * [closePersistentEditor](qtablewidget.md#closepersistenteditor)
 * [editItem](qtablewidget.md#edititem)
 * [font](qtablewidget.md#font)
+* [frameRect](qtablewidget.md#framerect)
+* [frameShadow](qtablewidget.md#frameshadow)
+* [frameShape](qtablewidget.md#frameshape)
+* [frameStyle](qtablewidget.md#framestyle)
+* [frameWidth](qtablewidget.md#framewidth)
 * [geometry](qtablewidget.md#geometry)
 * [getFlexNode](qtablewidget.md#getflexnode)
 * [hasMouseTracking](qtablewidget.md#hasmousetracking)
@@ -81,7 +86,9 @@ win.show();
 * [isEnabled](qtablewidget.md#isenabled)
 * [isSortingEnabled](qtablewidget.md#issortingenabled)
 * [isVisible](qtablewidget.md#isvisible)
+* [lineWidth](qtablewidget.md#linewidth)
 * [lower](qtablewidget.md#lower)
+* [midLineWidth](qtablewidget.md#midlinewidth)
 * [move](qtablewidget.md#move)
 * [objectName](qtablewidget.md#objectname)
 * [pos](qtablewidget.md#pos)
@@ -91,6 +98,7 @@ win.show();
 * [removeEventListener](qtablewidget.md#removeeventlistener)
 * [removeRow](qtablewidget.md#removerow)
 * [repaint](qtablewidget.md#repaint)
+* [repolish](qtablewidget.md#repolish)
 * [resize](qtablewidget.md#resize)
 * [resizeColumnToContents](qtablewidget.md#resizecolumntocontents)
 * [resizeColumnsToContents](qtablewidget.md#resizecolumnstocontents)
@@ -109,6 +117,10 @@ win.show();
 * [setFixedSize](qtablewidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtablewidget.md#setflexnodesizecontrolled)
 * [setFont](qtablewidget.md#setfont)
+* [setFrameRect](qtablewidget.md#setframerect)
+* [setFrameShadow](qtablewidget.md#setframeshadow)
+* [setFrameShape](qtablewidget.md#setframeshape)
+* [setFrameStyle](qtablewidget.md#setframestyle)
 * [setGeometry](qtablewidget.md#setgeometry)
 * [setHorizontalHeaderItem](qtablewidget.md#sethorizontalheaderitem)
 * [setHorizontalHeaderLabels](qtablewidget.md#sethorizontalheaderlabels)
@@ -116,7 +128,9 @@ win.show();
 * [setInlineStyle](qtablewidget.md#setinlinestyle)
 * [setItem](qtablewidget.md#setitem)
 * [setLayout](qtablewidget.md#setlayout)
+* [setLineWidth](qtablewidget.md#setlinewidth)
 * [setMaximumSize](qtablewidget.md#setmaximumsize)
+* [setMidLineWidth](qtablewidget.md#setmidlinewidth)
 * [setMinimumSize](qtablewidget.md#setminimumsize)
 * [setMouseTracking](qtablewidget.md#setmousetracking)
 * [setNodeParent](qtablewidget.md#setnodeparent)
@@ -160,7 +174,7 @@ win.show();
 
 \+ **new QTableWidget**(`rows`: number, `columns`: number): *[QTableWidget](qtablewidget.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -173,7 +187,7 @@ Name | Type |
 
 \+ **new QTableWidget**(`rows`: number, `columns`: number, `parent`: [NodeWidget](nodewidget.md)‹any›): *[QTableWidget](qtablewidget.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -197,7 +211,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -413,6 +427,56 @@ ___
 
 ___
 
+###  frameRect
+
+▸ **frameRect**(): *[QRect](qrect.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameRect](nodeframe.md#framerect)*
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
+###  frameShadow
+
+▸ **frameShadow**(): *[Shadow](../enums/shadow.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameShadow](nodeframe.md#frameshadow)*
+
+**Returns:** *[Shadow](../enums/shadow.md)*
+
+___
+
+###  frameShape
+
+▸ **frameShape**(): *[Shape](../enums/shape.md)*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameShape](nodeframe.md#frameshape)*
+
+**Returns:** *[Shape](../enums/shape.md)*
+
+___
+
+###  frameStyle
+
+▸ **frameStyle**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameStyle](nodeframe.md#framestyle)*
+
+**Returns:** *number*
+
+___
+
+###  frameWidth
+
+▸ **frameWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[frameWidth](nodeframe.md#framewidth)*
+
+**Returns:** *number*
+
+___
+
 ###  geometry
 
 ▸ **geometry**(): *[QRect](qrect.md)*
@@ -553,6 +617,16 @@ ___
 
 ___
 
+###  lineWidth
+
+▸ **lineWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[lineWidth](nodeframe.md#linewidth)*
+
+**Returns:** *number*
+
+___
+
 ###  lower
 
 ▸ **lower**(): *void*
@@ -560,6 +634,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  midLineWidth
+
+▸ **midLineWidth**(): *number*
+
+*Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
+
+**Returns:** *number*
 
 ___
 
@@ -704,6 +788,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 
@@ -968,6 +1062,70 @@ Name | Type |
 
 ___
 
+###  setFrameRect
+
+▸ **setFrameRect**(`r`: [QRect](qrect.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameRect](nodeframe.md#setframerect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`r` | [QRect](qrect.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameShadow
+
+▸ **setFrameShadow**(`type`: [Shadow](../enums/shadow.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameShadow](nodeframe.md#setframeshadow)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`type` | [Shadow](../enums/shadow.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameShape
+
+▸ **setFrameShape**(`type`: [Shape](../enums/shape.md)): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameShape](nodeframe.md#setframeshape)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`type` | [Shape](../enums/shape.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFrameStyle
+
+▸ **setFrameStyle**(`style`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setFrameStyle](nodeframe.md#setframestyle)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`style` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setGeometry
 
 ▸ **setGeometry**(`x`: number, `y`: number, `w`: number, `h`: number): *void*
@@ -1080,6 +1238,22 @@ Name | Type |
 
 ___
 
+###  setLineWidth
+
+▸ **setLineWidth**(`width`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setLineWidth](nodeframe.md#setlinewidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`width` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setMaximumSize
 
 ▸ **setMaximumSize**(`maxw`: number, `maxh`: number): *void*
@@ -1092,6 +1266,22 @@ Name | Type |
 ------ | ------ |
 `maxw` | number |
 `maxh` | number |
+
+**Returns:** *void*
+
+___
+
+###  setMidLineWidth
+
+▸ **setMidLineWidth**(`width`: number): *void*
+
+*Inherited from [NodeFrame](nodeframe.md).[setMidLineWidth](nodeframe.md#setmidlinewidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`width` | number |
 
 **Returns:** *void*
 

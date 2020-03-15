@@ -59,6 +59,7 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 * [reject](qdialog.md#reject)
 * [removeEventListener](qdialog.md#removeeventlistener)
 * [repaint](qdialog.md#repaint)
+* [repolish](qdialog.md#repolish)
 * [resize](qdialog.md#resize)
 * [result](qdialog.md#result)
 * [setAttribute](qdialog.md#setattribute)
@@ -106,7 +107,7 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 
 \+ **new QDialog**(`arg?`: [NodeDialog](nodedialog.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)› | [NativeElement](../globals.md#nativeelement)): *[QDialog](qdialog.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -128,7 +129,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -525,6 +526,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

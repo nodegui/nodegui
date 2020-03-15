@@ -88,6 +88,7 @@ console.log('currentIndexChanged: ' + index);
 * [removeEventListener](qcombobox.md#removeeventlistener)
 * [removeItem](qcombobox.md#removeitem)
 * [repaint](qcombobox.md#repaint)
+* [repolish](qcombobox.md#repolish)
 * [resize](qcombobox.md#resize)
 * [setAttribute](qcombobox.md#setattribute)
 * [setContextMenuPolicy](qcombobox.md#setcontextmenupolicy)
@@ -137,13 +138,13 @@ console.log('currentIndexChanged: ' + index);
 
 \+ **new QComboBox**(): *[QComboBox](qcombobox.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QComboBox](qcombobox.md)*
 
 \+ **new QComboBox**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QComboBox](qcombobox.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -165,7 +166,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -680,6 +681,16 @@ ___
 ▸ **repaint**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[repaint](qmenu.md#repaint)*
+
+**Returns:** *void*
+
+___
+
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
 
 **Returns:** *void*
 

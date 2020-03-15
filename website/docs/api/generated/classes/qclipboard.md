@@ -42,7 +42,9 @@ const text = clipboard.text(QClipboardMode.Clipboard);
 ### Methods
 
 * [clear](qclipboard.md#clear)
+* [pixmap](qclipboard.md#pixmap)
 * [setNodeParent](qclipboard.md#setnodeparent)
+* [setPixmap](qclipboard.md#setpixmap)
 * [setText](qclipboard.md#settext)
 * [text](qclipboard.md#text)
 
@@ -102,6 +104,20 @@ Name | Type |
 
 ___
 
+###  pixmap
+
+▸ **pixmap**(`mode`: [QClipboardMode](../enums/qclipboardmode.md)): *[QPixmap](qpixmap.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`mode` | [QClipboardMode](../enums/qclipboardmode.md) |
+
+**Returns:** *[QPixmap](qpixmap.md)*
+
+___
+
 ###  setNodeParent
 
 ▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
@@ -113,6 +129,21 @@ ___
 Name | Type |
 ------ | ------ |
 `parent?` | [Component](component.md) |
+
+**Returns:** *void*
+
+___
+
+###  setPixmap
+
+▸ **setPixmap**(`pixmap`: [QPixmap](qpixmap.md), `mode`: [QClipboardMode](../enums/qclipboardmode.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pixmap` | [QPixmap](qpixmap.md) |
+`mode` | [QClipboardMode](../enums/qclipboardmode.md) |
 
 **Returns:** *void*
 

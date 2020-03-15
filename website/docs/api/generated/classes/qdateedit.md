@@ -21,7 +21,7 @@ const dateEdit = new QDateEdit();
 
 ## Hierarchy
 
-  ↳ [QDateTimeEdit](qdatetimeedit.md)
+  ↳ [NodeDateTimeEdit](nodedatetimeedit.md)
 
   ↳ **QDateEdit**
 
@@ -79,6 +79,7 @@ const dateEdit = new QDateEdit();
 * [raise](qdateedit.md#raise)
 * [removeEventListener](qdateedit.md#removeeventlistener)
 * [repaint](qdateedit.md#repaint)
+* [repolish](qdateedit.md#repolish)
 * [resize](qdateedit.md#resize)
 * [selectAll](qdateedit.md#selectall)
 * [setAccelerated](qdateedit.md#setaccelerated)
@@ -147,13 +148,13 @@ const dateEdit = new QDateEdit();
 
 \+ **new QDateEdit**(): *[QDateEdit](qdateedit.md)*
 
-*Overrides [QDateTimeEdit](qdatetimeedit.md).[constructor](qdatetimeedit.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Returns:** *[QDateEdit](qdateedit.md)*
 
 \+ **new QDateEdit**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QDateEdit](qdateedit.md)*
 
-*Overrides [QDateTimeEdit](qdatetimeedit.md).[constructor](qdatetimeedit.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
@@ -175,7 +176,7 @@ ___
 
 ###  actions
 
-• **actions**: *Set‹[QAction](qaction.md)‹››* = new Set<QAction>()
+• **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
 
@@ -185,7 +186,7 @@ ___
 
 • **calendar**? : *[QCalendarWidget](qcalendarwidget.md)*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[calendar](qdatetimeedit.md#optional-calendar)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[calendar](nodedatetimeedit.md#optional-calendar)*
 
 ___
 
@@ -201,7 +202,7 @@ ___
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
-*Overrides [QDateTimeEdit](qdatetimeedit.md).[native](qdatetimeedit.md#native)*
+*Overrides [Component](component.md).[native](component.md#abstract-native)*
 
 ___
 
@@ -345,7 +346,7 @@ ___
 
 ▸ **calendarPopup**(): *boolean*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[calendarPopup](qdatetimeedit.md#calendarpopup)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[calendarPopup](nodedatetimeedit.md#calendarpopup)*
 
 **Returns:** *boolean*
 
@@ -355,7 +356,7 @@ ___
 
 ▸ **calendarWidget**(): *[QCalendarWidget](qcalendarwidget.md) | null*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[calendarWidget](qdatetimeedit.md#calendarwidget)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[calendarWidget](nodedatetimeedit.md#calendarwidget)*
 
 **Returns:** *[QCalendarWidget](qcalendarwidget.md) | null*
 
@@ -385,7 +386,7 @@ ___
 
 ▸ **date**(): *[QDate](qdate.md)*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[date](qdatetimeedit.md#date)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[date](nodedatetimeedit.md#date)*
 
 **Returns:** *[QDate](qdate.md)*
 
@@ -395,7 +396,7 @@ ___
 
 ▸ **dateTime**(): *[QDateTime](qdatetime.md)*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[dateTime](qdatetimeedit.md#datetime)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[dateTime](nodedatetimeedit.md#datetime)*
 
 **Returns:** *[QDateTime](qdatetime.md)*
 
@@ -405,7 +406,7 @@ ___
 
 ▸ **displayFormat**(): *string*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[displayFormat](qdatetimeedit.md#displayformat)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[displayFormat](nodedatetimeedit.md#displayformat)*
 
 **Returns:** *string*
 
@@ -685,6 +686,16 @@ ___
 
 ___
 
+###  repolish
+
+▸ **repolish**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[repolish](qmenu.md#repolish)*
+
+**Returns:** *void*
+
+___
+
 ###  resize
 
 ▸ **resize**(`width`: number, `height`: number): *void*
@@ -781,7 +792,7 @@ ___
 
 ▸ **setCalendarPopup**(`enable`: boolean): *void*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[setCalendarPopup](qdatetimeedit.md#setcalendarpopup)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[setCalendarPopup](nodedatetimeedit.md#setcalendarpopup)*
 
 **Parameters:**
 
@@ -797,7 +808,7 @@ ___
 
 ▸ **setCalendarWidget**(`calendarWidget`: [QCalendarWidget](qcalendarwidget.md)): *void*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[setCalendarWidget](qdatetimeedit.md#setcalendarwidget)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[setCalendarWidget](nodedatetimeedit.md#setcalendarwidget)*
 
 **Parameters:**
 
@@ -861,7 +872,7 @@ ___
 
 ▸ **setDate**(`date`: [QDate](qdate.md)): *void*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[setDate](qdatetimeedit.md#setdate)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[setDate](nodedatetimeedit.md#setdate)*
 
 **Parameters:**
 
@@ -877,7 +888,7 @@ ___
 
 ▸ **setDateTime**(`datetime`: [QDateTime](qdatetime.md)): *void*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[setDateTime](qdatetimeedit.md#setdatetime)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[setDateTime](nodedatetimeedit.md#setdatetime)*
 
 **Parameters:**
 
@@ -893,7 +904,7 @@ ___
 
 ▸ **setDisplayFormat**(`format`: string): *void*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[setDisplayFormat](qdatetimeedit.md#setdisplayformat)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[setDisplayFormat](nodedatetimeedit.md#setdisplayformat)*
 
 **Parameters:**
 
@@ -1224,7 +1235,7 @@ ___
 
 ▸ **setTime**(`time`: [QTime](qtime.md)): *void*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[setTime](qdatetimeedit.md#settime)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[setTime](nodedatetimeedit.md#settime)*
 
 **Parameters:**
 
@@ -1240,7 +1251,7 @@ ___
 
 ▸ **setTimeSpec**(`spec`: [TimeSpec](../enums/timespec.md)): *void*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[setTimeSpec](qdatetimeedit.md#settimespec)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[setTimeSpec](nodedatetimeedit.md#settimespec)*
 
 **Parameters:**
 
@@ -1479,7 +1490,7 @@ ___
 
 ▸ **time**(): *[QTime](qtime.md)*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[time](qdatetimeedit.md#time)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[time](nodedatetimeedit.md#time)*
 
 **Returns:** *[QTime](qtime.md)*
 
@@ -1489,7 +1500,7 @@ ___
 
 ▸ **timeSpec**(): *[TimeSpec](../enums/timespec.md)*
 
-*Inherited from [QDateTimeEdit](qdatetimeedit.md).[timeSpec](qdatetimeedit.md#timespec)*
+*Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[timeSpec](nodedatetimeedit.md#timespec)*
 
 **Returns:** *[TimeSpec](../enums/timespec.md)*
 
