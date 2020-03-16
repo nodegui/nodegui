@@ -14,6 +14,7 @@ import { QRect } from '../QtCore/QRect';
 import { QObjectSignals } from '../QtCore/QObject';
 import { QFont } from '../QtGui/QFont';
 import { QAction } from './QAction';
+import memoizeOne from 'memoize-one';
 
 /**
  
@@ -56,6 +57,9 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     constructor(native: NativeElement) {
         super(native);
         this.actions = new Set<QAction>();
+        this.setStyleSheet = memoizeOne(this.setStyleSheet);
+        this.setInlineStyle = memoizeOne(this.setInlineStyle);
+        this.setObjectName = memoizeOne(this.setObjectName);
     }
     show(): void {
         this.native.show();

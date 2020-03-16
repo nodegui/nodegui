@@ -1,6 +1,6 @@
 {
     "name": "@nodegui/nodegui",
-    "version": "0.16.0",
+    "version": "0.16.1",
     "description": "A cross platform library to build native desktop apps.",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -33,6 +33,7 @@
         "cross-env": "^7.0.0",
         "cuid": "^2.1.6",
         "manage-path": "^2.0.0",
+        "memoize-one": "^5.1.1",
         "node-addon-api": "^2.0.0",
         "postcss-nodegui-autoprefixer": "0.0.7",
         "prebuild-install": "^5.3.3"
