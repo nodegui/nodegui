@@ -53,6 +53,7 @@ export { QRadioButton, QRadioButtonSignals } from './lib/QtWidgets/QRadioButton'
 export { QStackedWidget, QStackedWidgetSignals } from './lib/QtWidgets/QStackedWidget';
 export { QListWidget, QListWidgetSignals } from './lib/QtWidgets/QListWidget';
 export { QListWidgetItem } from './lib/QtWidgets/QListWidgetItem';
+export { QTabBar, QTabBarSignals, ButtonPosition, SelectionBehavior, TabBarShape } from './lib/QtWidgets/QTabBar';
 export { QTabWidget, QTabWidgetSignals } from './lib/QtWidgets/QTabWidget';
 export { QTableView, QTableViewSignals } from './lib/QtWidgets/QTableView';
 export { QTableWidget, QTableWidgetSignals } from './lib/QtWidgets/QTableWidget';

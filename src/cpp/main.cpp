@@ -63,6 +63,7 @@
 #include "QtWidgets/QStackedWidget/qstackedwidget_wrap.h"
 #include "QtWidgets/QStatusBar/qstatusbar_wrap.h"
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
+#include "QtWidgets/QTabBar/qtabbar_wrap.h"
 #include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
 #include "QtWidgets/QTableView/qtableview_wrap.h"
 #include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
@@ -133,6 +134,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QProgressBarWrap::init(env, exports);
   QRadioButtonWrap::init(env, exports);
   QStackedWidgetWrap::init(env, exports);
+  QTabBarWrap::init(env, exports);
   QTabWidgetWrap::init(env, exports);
   QLineEditWrap::init(env, exports);
   QKeyEventWrap::init(env, exports);
