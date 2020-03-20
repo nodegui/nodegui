@@ -14,6 +14,11 @@ Napi::Object QTreeWidgetWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("addTopLevelItem", &QTreeWidgetWrap::addTopLevelItem),
+       InstanceMethod("addTopLevelItems", &QTreeWidgetWrap::addTopLevelItems),
+       InstanceMethod("insertTopLevelItem",
+                      &QTreeWidgetWrap::insertTopLevelItem),
+       InstanceMethod("insertTopLevelItems",
+                      &QTreeWidgetWrap::insertTopLevelItems),
        InstanceMethod("selectedItems", &QTreeWidgetWrap::selectedItems),
        InstanceMethod("setColumnCount", &QTreeWidgetWrap::setColumnCount),
        InstanceMethod("setHeaderLabel", &QTreeWidgetWrap::setHeaderLabel),
@@ -62,6 +67,61 @@ Napi::Value QTreeWidgetWrap::addTopLevelItem(const Napi::CallbackInfo& info) {
   this->instance->addTopLevelItem(item);
   return env.Null();
 }
+
+Napi::Value QTreeWidgetWrap::addTopLevelItems(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Array itemsNapi = info[0].As<Napi::Array>();
+  QList<QTreeWidgetItem*> items;
+  for (int i = 0; i < itemsNapi.Length(); i++) {
+    Napi::Value itemNapi = itemsNapi[i];
+    Napi::Object itemObject = itemNapi.As<Napi::Object>();
+    QTreeWidgetItemWrap* itemWrap =
+        Napi::ObjectWrap<QTreeWidgetItemWrap>::Unwrap(itemObject);
+    QTreeWidgetItem* item = itemWrap->getInternalInstance();
+    items.append(item);
+  }
+  this->instance->addTopLevelItems(items);
+
+  return env.Null();
+}
+
+Napi::Value QTreeWidgetWrap::insertTopLevelItem(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int index = info[0].As<Napi::Number>().Int32Value();
+  Napi::Object itemObject = info[1].As<Napi::Object>();
+  QTreeWidgetItemWrap* itemWrap =
+      Napi::ObjectWrap<QTreeWidgetItemWrap>::Unwrap(itemObject);
+  QTreeWidgetItem* item = itemWrap->getInternalInstance();
+  this->instance->insertTopLevelItem(index, item);
+
+  return env.Null();
+}
+
+Napi::Value QTreeWidgetWrap::insertTopLevelItems(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int index = info[0].As<Napi::Number>().Int32Value();
+  Napi::Array itemsNapi = info[1].As<Napi::Array>();
+  QList<QTreeWidgetItem*> items;
+  for (int i = 0; i < itemsNapi.Length(); i++) {
+    Napi::Value itemNapi = itemsNapi[i];
+    Napi::Object itemObject = itemNapi.As<Napi::Object>();
+    QTreeWidgetItemWrap* itemWrap =
+        Napi::ObjectWrap<QTreeWidgetItemWrap>::Unwrap(itemObject);
+    QTreeWidgetItem* item = itemWrap->getInternalInstance();
+    items.append(item);
+  }
+  this->instance->insertTopLevelItems(index, items);
+
+  return env.Null();
+}
+
 Napi::Value QTreeWidgetWrap::selectedItems(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
