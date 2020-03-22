@@ -9,6 +9,8 @@ import {
     QLabel,
     QPixmap,
 } from './index';
+import { QColorDialog } from './lib/QtWidgets/QColorDialog';
+import { QColor } from './lib/QtGui/QColor';
 
 const win = new QMainWindow();
 const center = new QWidget();
@@ -16,6 +18,7 @@ const label = new QLabel();
 const textInput = new QLineEdit();
 const getBtn = new QPushButton();
 const setBtn = new QPushButton();
+const colorBtn = new QPushButton();
 
 //----------
 label.setText('Copy any image onto the clipboard and click `Get clipbard image button`');
@@ -37,10 +40,21 @@ setBtn.addEventListener('clicked', () => {
     label.setText(`Loaded image at ${textInput.text()} to global clipboard`);
 });
 
+//--------------
+colorBtn.setText('Open color dialog');
+colorBtn.addEventListener('clicked', () => {
+    const dialog = new QColorDialog();
+    dialog.setCurrentColor(new QColor('white'));
+    dialog.exec();
+    const color = dialog.currentColor();
+    console.log(color.red(), color.green(), color.blue());
+});
+
 center.setLayout(new FlexLayout());
 center.layout?.addWidget(textInput);
 center.layout?.addWidget(setBtn);
 center.layout?.addWidget(getBtn);
+center.layout?.addWidget(colorBtn);
 center.layout?.addWidget(label);
 center.setInlineStyle(`width: 400; height: 400;`);
 win.setCentralWidget(center);
