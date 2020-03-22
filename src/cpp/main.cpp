@@ -31,6 +31,7 @@
 #include "QtWidgets/QButtonGroup/qbuttongroup_wrap.h"
 #include "QtWidgets/QCalendarWidget/qcalendarwidget_wrap.h"
 #include "QtWidgets/QCheckBox/qcheckbox_wrap.h"
+#include "QtWidgets/QColorDialog/qcolordialog_wrap.h"
 #include "QtWidgets/QComboBox/qcombobox_wrap.h"
 #include "QtWidgets/QDateEdit/qdateedit_wrap.h"
 #include "QtWidgets/QDateTimeEdit/qdatetimeedit_wrap.h"
@@ -109,6 +110,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QStyleWrap::init(env, exports);
   QCursorWrap::init(env, exports);
   QCalendarWidgetWrap::init(env, exports);
+  QColorDialogWrap::init(env, exports);
   QComboBoxWrap::init(env, exports);
   QBoxLayoutWrap::init(env, exports);
   QDateEditWrap::init(env, exports);
