@@ -42,6 +42,10 @@ module.exports = {
                             href: 'https://spectrum.chat/nodegui',
                         },
                         {
+                            label: 'Slack',
+                            href: 'https://nodegui.slack.com',
+                        },
+                        {
                             label: 'Twitter',
                             to: 'https://twitter.com/node_gui',
                         },

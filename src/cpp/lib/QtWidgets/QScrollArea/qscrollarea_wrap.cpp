@@ -23,7 +23,10 @@ Napi::Object QScrollAreaWrap::init(Napi::Env env, Napi::Object exports) {
 
 NScrollArea* QScrollAreaWrap::getInternalInstance() { return this->instance; }
 
-QScrollAreaWrap::~QScrollAreaWrap() { extrautils::safeDelete(this->instance); }
+QScrollAreaWrap::~QScrollAreaWrap() {
+  extrautils::safeDelete(this->instance);
+  YGNodeFree(this->scrollNode);
+}
 
 QScrollAreaWrap::QScrollAreaWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QScrollAreaWrap>(info) {
