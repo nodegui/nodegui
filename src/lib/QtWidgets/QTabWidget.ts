@@ -50,7 +50,7 @@ export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
     }
 
     insertTab(index: number, page: NodeWidget<any>, icon: QIcon, label: string): number {
-        const newIndex = this.native.insertTab(index, page, icon, label);
+        const newIndex = this.native.insertTab(index, page.native, icon.native, label);
         this.tabs.splice(index, 0, page);
         return newIndex;
     }
