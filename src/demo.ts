@@ -1,63 +1,28 @@
-import {
-    QMainWindow,
-    QWidget,
-    QPushButton,
-    QLineEdit,
-    FlexLayout,
-    QApplication,
-    QClipboardMode,
-    QLabel,
-    QPixmap,
-} from './index';
-import { QColorDialog } from './lib/QtWidgets/QColorDialog';
-import { QColor } from './lib/QtGui/QColor';
+import { QTabWidget } from './lib/QtWidgets/QTabWidget';
+import { QLabel } from './lib/QtWidgets/QLabel';
+import { QIcon } from './lib/QtGui/QIcon';
 
-const win = new QMainWindow();
-const center = new QWidget();
-const label = new QLabel();
-const textInput = new QLineEdit();
-const getBtn = new QPushButton();
-const setBtn = new QPushButton();
-const colorBtn = new QPushButton();
+const icon = new QIcon('/Users/atulr/Project/nodegui/nodegui/src/lib/QtGui/__tests__/assets/nodegui.png');
+const title1 = 'title 1';
+const title2 = 'title 2';
+const tabContent1 = new QLabel();
+const tabContent2 = new QLabel();
+const newTabContent = new QLabel();
 
-//----------
-label.setText('Copy any image onto the clipboard and click `Get clipbard image button`');
-getBtn.setText('Get clipboard image');
-getBtn.addEventListener('clicked', () => {
-    const clip = QApplication.clipboard();
-    const pixmap = clip.pixmap(QClipboardMode.Clipboard);
-    label.setPixmap(pixmap);
-});
+tabContent1.setText('test text1');
+tabContent2.setText('test text2');
+newTabContent.setText('new inserted tab');
 
-//--------------
-textInput.setPlaceholderText('Enter absolute image path to load into clipboard');
-setBtn.setText('Set clipboard image');
-setBtn.addEventListener('clicked', () => {
-    const clip = QApplication.clipboard();
-    const pixmap = new QPixmap();
-    pixmap.load(textInput.text());
-    clip.setPixmap(pixmap, QClipboardMode.Clipboard);
-    label.setText(`Loaded image at ${textInput.text()} to global clipboard`);
-});
+const tabs = new QTabWidget();
 
-//--------------
-colorBtn.setText('Open color dialog');
-colorBtn.addEventListener('clicked', () => {
-    const dialog = new QColorDialog();
-    dialog.setCurrentColor(new QColor('white'));
-    dialog.exec();
-    const color = dialog.currentColor();
-    console.log(color.red(), color.green(), color.blue());
-});
+tabs.addTab(tabContent1, icon, title1);
+tabs.addTab(tabContent2, icon, title2);
 
-center.setLayout(new FlexLayout());
-center.layout?.addWidget(textInput);
-center.layout?.addWidget(setBtn);
-center.layout?.addWidget(getBtn);
-center.layout?.addWidget(colorBtn);
-center.layout?.addWidget(label);
-center.setInlineStyle(`width: 400; height: 400;`);
-win.setCentralWidget(center);
-win.show();
-win.setFixedSize(400, 400);
-(global as any).win = win;
+// demo for the tab text change
+tabs.setTabText(0, 'new title 1');
+
+tabs.insertTab(0, newTabContent, icon, 'new inserted tab');
+
+tabs.show();
+
+(global as any).tabs = tabs;
