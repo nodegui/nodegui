@@ -10,9 +10,8 @@
 #include "QtWidgets/QListWidget/nlistwidget.hpp"
 
 class DLL_EXPORT QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
-  QListView_WRAPPED_METHODS_DECLARATION
- private:
-  QPointer<NListWidget> instance;
+  QListView_WRAPPED_METHODS_DECLARATION private : QPointer<NListWidget>
+                                                      instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

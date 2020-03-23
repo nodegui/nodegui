@@ -32,7 +32,7 @@ class DLL_EXPORT QTabBarWrap : public Napi::ObjectWrap<QTabBarWrap> {
   Napi::Value removeTab(const Napi::CallbackInfo& info);
   Napi::Value setTabButton(const Napi::CallbackInfo& info);
   Napi::Value setTabData(const Napi::CallbackInfo& info);
-  Napi::Value tabData(const Napi::CallbackInfo& info);  
+  Napi::Value tabData(const Napi::CallbackInfo& info);
   Napi::Value setTabIcon(const Napi::CallbackInfo& info);
   Napi::Value tabIcon(const Napi::CallbackInfo& info);
   Napi::Value setTabText(const Napi::CallbackInfo& info);

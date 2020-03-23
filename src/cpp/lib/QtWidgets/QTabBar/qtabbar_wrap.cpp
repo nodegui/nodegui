@@ -27,7 +27,7 @@ Napi::Object QTabBarWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("removeTab", &QTabBarWrap::removeTab),
        InstanceMethod("setTabButton", &QTabBarWrap::setTabButton),
        InstanceMethod("setTabData", &QTabBarWrap::setTabData),
-       InstanceMethod("tabData", &QTabBarWrap::tabData),       
+       InstanceMethod("tabData", &QTabBarWrap::tabData),
        InstanceMethod("setTabIcon", &QTabBarWrap::setTabIcon),
        InstanceMethod("tabIcon", &QTabBarWrap::tabIcon),
        InstanceMethod("setTabText", &QTabBarWrap::setTabText),
@@ -134,8 +134,8 @@ Napi::Value QTabBarWrap::insertTab(const Napi::CallbackInfo& info) {
     QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
     std::string napiText = info[2].As<Napi::String>().Utf8Value();
     QString text = QString::fromUtf8(napiText.c_str());
-    result = this->instance->insertTab(
-        index, *iconWrap->getInternalInstance(), text);
+    result = this->instance->insertTab(index, *iconWrap->getInternalInstance(),
+                                       text);
   } else {
     int index = info[0].As<Napi::Number>().Int32Value();
     std::string napiText = info[1].As<Napi::String>().Utf8Value();
@@ -190,7 +190,8 @@ Napi::Value QTabBarWrap::setTabButton(const Napi::CallbackInfo& info) {
   int index = info[0].As<Napi::Number>().Int32Value();
   int position = info[1].As<Napi::Number>().Int32Value();
   Napi::Object widgetObject = info[2].As<Napi::Object>();
-  NodeWidgetWrap* widgetWrap = Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
+  NodeWidgetWrap* widgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
   this->instance->setTabButton(index,
                                static_cast<QTabBar::ButtonPosition>(position),
                                widgetWrap->getInternalInstance());
