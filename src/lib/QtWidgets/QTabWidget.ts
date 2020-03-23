@@ -49,6 +49,12 @@ export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
         return index;
     }
 
+    insertTab(index: number, page: NodeWidget<any>, icon: QIcon, label: string): number {
+        const newIndex = this.native.insertTab(index, page.native, icon.native, label);
+        this.tabs.splice(index, 0, page);
+        return newIndex;
+    }
+
     indexOf(widget: NodeWidget<any>): number {
         return this.native.indexOf(widget.native);
     }

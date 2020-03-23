@@ -1,5 +1,7 @@
 #include "QtGui/QClipboard/qclipboard_wrap.h"
+
 #include <QtGui/QPixmap/qpixmap_wrap.h>
+
 #include "Extras/Utils/nutils.h"
 
 Napi::FunctionReference QClipboardWrap::constructor;
