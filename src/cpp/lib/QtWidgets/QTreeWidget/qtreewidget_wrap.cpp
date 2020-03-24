@@ -221,7 +221,7 @@ Napi::Value QTreeWidgetWrap::currentItem(const Napi::CallbackInfo& info) {
   return value;
 }
 
-Napi::Value QTreeWidgetWrap::findItems(const Napi::CallbackInfo &info) {
+Napi::Value QTreeWidgetWrap::findItems(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -229,7 +229,8 @@ Napi::Value QTreeWidgetWrap::findItems(const Napi::CallbackInfo &info) {
   std::string text = napiText.Utf8Value();
   int flag = info[1].As<Napi::Number>().Int32Value();
   int column = info[2].As<Napi::Number>().Int32Value();
-  QList<QTreeWidgetItem*> items = this->instance->findItems(QString::fromUtf8(text.c_str()), Qt::MatchFlags(flag), column);
+  QList<QTreeWidgetItem*> items = this->instance->findItems(
+      QString::fromUtf8(text.c_str()), Qt::MatchFlags(flag), column);
   Napi::Array napiItems = Napi::Array::New(env, items.size());
   for (int i = 0; i < items.size(); i++) {
     QTreeWidgetItem* item = items[i];

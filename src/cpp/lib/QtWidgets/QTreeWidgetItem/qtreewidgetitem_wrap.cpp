@@ -292,11 +292,10 @@ Napi::Value QTreeWidgetItemWrap::setHidden(const Napi::CallbackInfo &info) {
   return env.Null();
 }
 
-Napi::Value QTreeWidgetItemWrap::isHidden(const Napi::CallbackInfo& info) {
+Napi::Value QTreeWidgetItemWrap::isHidden(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
   bool hide = this->instance->isHidden();
   return Napi::Boolean::New(env, hide);
 }
-
