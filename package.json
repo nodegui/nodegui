@@ -51,7 +51,7 @@
         "husky": "^4.0.10",
         "jest": "^25.1.0",
         "prebuild": "^10.0.0",
-        "prettier": "^1.18.2",
+        "prettier": "^2.0.1",
         "ts-jest": "^25.0.0",
         "typedoc": "^0.17.0",
         "typedoc-plugin-markdown": "^2.2.14",
