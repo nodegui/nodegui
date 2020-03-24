@@ -64,7 +64,7 @@ npm start
 ## What else other than a basic window?
 
 NodeGui has support for basic widgets like QWidget (similar to div), QCheckBox, QPushButton and many more.
-You can take a look at the list of native widgets that NodeGui currently supports here : [Native widgets in NodeGui](/docs/api/QWidget).
+You can take a look at the list of native widgets that NodeGui currently supports here : [Native widgets in NodeGui](/docs/api/generated/classes/qwidget).
 With time more widgets and APIs will be added to NodeGui. Apart from modules in NodeGui, you also have access to the entire node modules ecosystem. Thus, any node module that you can use with Node.js, can be used with NodeGui. This makes it extremely powerful.
 
 Fine, I want something more custom and beautiful than just native looking widgets. What do I do?
