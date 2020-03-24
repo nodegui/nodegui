@@ -27,6 +27,8 @@ Napi::Object QTreeWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("flags", &QTreeWidgetItemWrap::flags),
        InstanceMethod("setData", &QTreeWidgetItemWrap::setData),
        InstanceMethod("data", &QTreeWidgetItemWrap::data),
+       InstanceMethod("setHidden", &QTreeWidgetItemWrap::setHidden),
+       InstanceMethod("isHidden", &QTreeWidgetItemWrap::isHidden),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QTreeWidgetItemWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -281,3 +283,20 @@ Napi::Value QTreeWidgetItemWrap::data(const Napi::CallbackInfo &info) {
 
   return instance;
 }
+
+Napi::Value QTreeWidgetItemWrap::setHidden(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Boolean hide = info[0].As<Napi::Boolean>();
+  this->instance->setHidden(hide.Value());
+  return env.Null();
+}
+
+Napi::Value QTreeWidgetItemWrap::isHidden(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  bool hide = this->instance->isHidden();
+  return Napi::Boolean::New(env, hide);
+}
+

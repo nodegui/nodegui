@@ -3,6 +3,7 @@ import { NodeWidget, QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { QTreeWidgetItem } from './QTreeWidgetItem';
+import { MatchFlag } from '../..';
 
 /**
  
@@ -146,6 +147,21 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
      */
     currentItem(): QTreeWidgetItem {
         return new QTreeWidgetItem(this.native.currentItem());
+    }
+
+    /**
+     * Sets if columns can be sorted by clicking on its header
+     * @param enable Sorting enabled or disabled
+     */
+    setSortingEnabled(enable: boolean): void {
+        this.native.setProperty('sortingEnabled', enable);
+    }
+
+    findItems(text: string, flags: MatchFlag, column: number): QTreeWidgetItem[] {
+        const nativeItems = this.native.findItems(text, flags, column);
+        return nativeItems.map(function(eachItem: QTreeWidgetItem) {
+            return new QTreeWidgetItem(eachItem);
+        });
     }
 }
 
