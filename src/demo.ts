@@ -1,28 +1,57 @@
-import { QTabWidget } from './lib/QtWidgets/QTabWidget';
-import { QLabel } from './lib/QtWidgets/QLabel';
-import { QIcon } from './lib/QtGui/QIcon';
+import { QMainWindow, QWidget, FlexLayout, QTreeWidgetItem, QTreeWidget, QLineEdit, MatchFlag } from './index';
 
-const icon = new QIcon('/Users/atulr/Project/nodegui/nodegui/src/lib/QtGui/__tests__/assets/nodegui.png');
-const title1 = 'title 1';
-const title2 = 'title 2';
-const tabContent1 = new QLabel();
-const tabContent2 = new QLabel();
-const newTabContent = new QLabel();
+const win = new QMainWindow();
+const center = new QWidget();
+center.setLayout(new FlexLayout());
 
-tabContent1.setText('test text1');
-tabContent2.setText('test text2');
-newTabContent.setText('new inserted tab');
+win.setCentralWidget(center);
 
-const tabs = new QTabWidget();
+const fruitTree = new QTreeWidget();
+fruitTree.setSortingEnabled(true);
 
-tabs.addTab(tabContent1, icon, title1);
-tabs.addTab(tabContent2, icon, title2);
+fruitTree.setHeaderLabels(['Fruit', 'Price']);
 
-// demo for the tab text change
-tabs.setTabText(0, 'new title 1');
+const fruitObj = [
+    {
+        fruit: 'Banana',
+        price: '2.5',
+    },
+    {
+        fruit: 'Apple',
+        price: '1.0',
+    },
+    {
+        fruit: 'Strawberry',
+        price: '2.5',
+    },
+    {
+        fruit: 'Orange',
+        price: '1.5',
+    },
+];
 
-tabs.insertTab(0, newTabContent, icon, 'new inserted tab');
+const items = [];
 
-tabs.show();
+for (const element of fruitObj) {
+    const fruitItem = new QTreeWidgetItem(fruitTree, [element.fruit, element.price]);
+    items.push(fruitItem);
+}
 
-(global as any).tabs = tabs;
+fruitTree.addTopLevelItems(items);
+
+const filterLineEdit = new QLineEdit();
+filterLineEdit.setPlaceholderText('Filter...');
+filterLineEdit.addEventListener('returnPressed', () => {
+    const filterText = filterLineEdit.text();
+    const foundItems = fruitTree
+        .findItems(filterText, MatchFlag.MatchContains, 0)
+        .concat(fruitTree.findItems(filterText, MatchFlag.MatchContains, 1));
+    fruitTree.topLevelItems.forEach(item => item.setHidden(true));
+    foundItems.forEach(item => item.setHidden(false));
+});
+
+center.layout?.addWidget(filterLineEdit);
+center.layout?.addWidget(fruitTree);
+
+win.show();
+(global as any).win = win;

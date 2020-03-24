@@ -41,4 +41,6 @@ class DLL_EXPORT QTreeWidgetItemWrap
   Napi::Value flags(const Napi::CallbackInfo &info);
   Napi::Value setData(const Napi::CallbackInfo &info);
   Napi::Value data(const Napi::CallbackInfo &info);
+  Napi::Value isHidden(const Napi::CallbackInfo &info);
+  Napi::Value setHidden(const Napi::CallbackInfo &info);
 };

@@ -155,4 +155,12 @@ export class QTreeWidgetItem extends Component {
     data(column: number, role: ItemDataRole): QVariant {
         return this.native.data(column, role);
     }
+
+    setHidden(hide: boolean): void {
+        this.native.setHidden(hide);
+    }
+
+    isHidden(): boolean {
+        return this.native.isHidden();
+    }
 }
