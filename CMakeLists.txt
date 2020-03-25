@@ -113,6 +113,8 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QButtonGroup/qbuttongroup_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QStatusBar/qstatusbar_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexlayout_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QStandardItemModel/qstandarditemmodel_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QStandardItem/qstandarditem_wrap.cpp"
     # Custom widgets (include them for automoc since they contain Q_OBJECT)
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtCore/QObject/nobject.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/core/FlexLayout/flexlayout.hpp"
@@ -163,7 +165,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTreeWidget/ntreewidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QButtonGroup/nbuttongroup.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QStatusBar/nstatusbar.hpp"
-
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QStandardItemModel/nstandarditemmodel.hpp"
 )
 
 AddCommonConfig(${CORE_WIDGETS_ADDON})
