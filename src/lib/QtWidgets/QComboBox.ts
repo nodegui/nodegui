@@ -4,6 +4,7 @@ import { NativeElement } from '../core/Component';
 import { SizeAdjustPolicy } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
 import { QVariant } from '../QtCore/QVariant';
+import { QStandardItemModel } from './QStandardItemModel';
 
 /**
  
@@ -112,6 +113,12 @@ export class QComboBox extends NodeWidget<QComboBoxSignals> {
     }
     setCurrentIndex(index: number): void {
         this.setProperty('currentIndex', index);
+    }
+    setModel(model: QStandardItemModel): void {
+        this.native.setModel(model.native);
+    }
+    setEditText(text: string): void {
+        this.native.setEditText(text);
     }
 }
 

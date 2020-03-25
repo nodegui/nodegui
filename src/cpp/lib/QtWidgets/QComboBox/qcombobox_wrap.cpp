@@ -6,6 +6,8 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
+#include "QtWidgets/QLineEdit/qlineedit_wrap.h"
+#include "QtWidgets/QStandardItemModel/qstandarditemmodel_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QComboBoxWrap::constructor;
@@ -33,6 +35,8 @@ Napi::Object QComboBoxWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("isEditable", &QComboBoxWrap::isEditable),
        InstanceMethod("setEditable", &QComboBoxWrap::setEditable),
        InstanceMethod("clear", &QComboBoxWrap::clear),
+       InstanceMethod("setModel", &QComboBoxWrap::setModel),
+       InstanceMethod("setEditText", &QComboBoxWrap::setEditText),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QComboBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -241,5 +245,27 @@ Napi::Value QComboBoxWrap::clear(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   this->instance->clear();
+  return env.Null();
+}
+
+Napi::Value QComboBoxWrap::setModel(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object itemObject = info[0].As<Napi::Object>();
+  QStandardItemModelWrap* modelWrap =
+      Napi::ObjectWrap<QStandardItemModelWrap>::Unwrap(itemObject);
+  QStandardItemModel* model = modelWrap->getInternalInstance();
+
+  this->instance->setModel(model);
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::setEditText(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::String text = info[0].As<Napi::String>();
+  this->instance->setEditText(text.Utf8Value().c_str());
+
   return env.Null();
 }

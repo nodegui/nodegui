@@ -1,4 +1,6 @@
-import { QMainWindow, QWidget, FlexLayout, QTreeWidgetItem, QTreeWidget, QLineEdit, MatchFlag } from './index';
+import { QMainWindow, QWidget, FlexLayout, QStandardItemModel, QComboBox } from './index';
+import { CheckState, ItemFlag, ItemDataRole } from './lib/QtEnums';
+import { QStandardItem } from './lib/QtWidgets/QStandardItem';
 
 const win = new QMainWindow();
 const center = new QWidget();
@@ -6,52 +8,22 @@ center.setLayout(new FlexLayout());
 
 win.setCentralWidget(center);
 
-const fruitTree = new QTreeWidget();
-fruitTree.setSortingEnabled(true);
+const model = new QStandardItemModel();
 
-fruitTree.setHeaderLabels(['Fruit', 'Price']);
-
-const fruitObj = [
-    {
-        fruit: 'Banana',
-        price: '2.5',
-    },
-    {
-        fruit: 'Apple',
-        price: '1.0',
-    },
-    {
-        fruit: 'Strawberry',
-        price: '2.5',
-    },
-    {
-        fruit: 'Orange',
-        price: '1.5',
-    },
-];
-
-const items = [];
-
-for (const element of fruitObj) {
-    const fruitItem = new QTreeWidgetItem(fruitTree, [element.fruit, element.price]);
-    items.push(fruitItem);
-}
-
-fruitTree.addTopLevelItems(items);
-
-const filterLineEdit = new QLineEdit();
-filterLineEdit.setPlaceholderText('Filter...');
-filterLineEdit.addEventListener('returnPressed', () => {
-    const filterText = filterLineEdit.text();
-    const foundItems = fruitTree
-        .findItems(filterText, MatchFlag.MatchContains, 0)
-        .concat(fruitTree.findItems(filterText, MatchFlag.MatchContains, 1));
-    fruitTree.topLevelItems.forEach(item => item.setHidden(true));
-    foundItems.forEach(item => item.setHidden(false));
+const regionSelection = new QComboBox();
+regionSelection.setModel(model);
+const regions = ['US', 'JP', 'EU', 'ASIA', 'INT'];
+regions.forEach((region, index) => {
+    regionSelection.addItem(undefined, region);
+    const item = model.item(index);
+    if (item instanceof QStandardItem) {
+        item.setFlags(ItemFlag.ItemIsUserCheckable | ItemFlag.ItemIsEnabled);
+        item.setData(CheckState.Checked, ItemDataRole.CheckStateRole);
+    }
 });
-
-center.layout?.addWidget(filterLineEdit);
-center.layout?.addWidget(fruitTree);
-
+model.addEventListener('itemChanged', (item: QStandardItem) => console.log(item.checkState()));
+win.layout?.addWidget(regionSelection);
+regionSelection.setEditable(true);
+regionSelection.setEditText('US, JP, EU, ASIA, INT');
 win.show();
 (global as any).win = win;
