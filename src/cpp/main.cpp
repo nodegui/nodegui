@@ -13,6 +13,7 @@
 #include "QtCore/QUrl/qurl_wrap.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
 #include "QtGui/QApplication/qapplication_wrap.h"
+#include "QtGui/QBrush/qbrush_wrap.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
@@ -99,6 +100,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QTimeWrap::init(env, exports);
   QUrlWrap::init(env, exports);
   QVariantWrap::init(env, exports);
+  QBrushWrap::init(env, exports);
   QColorWrap::init(env, exports);
   QClipboardWrap::init(env, exports);
   QDialogWrap::init(env, exports);

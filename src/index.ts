@@ -4,6 +4,7 @@ import './lib/core/bootstrap';
 export * from './lib/QtEnums';
 // Gui:
 export { QApplication } from './lib/QtGui/QApplication';
+export { QBrush } from './lib/QtGui/QBrush';
 export { QKeySequence } from './lib/QtGui/QKeySequence';
 export { QPicture } from './lib/QtGui/QPicture';
 export { QPixmap, ImageFormats } from './lib/QtGui/QPixmap';
