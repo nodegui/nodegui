@@ -1,38 +1,28 @@
 ---
-id: "qdialogsignals"
-title: "QDialogSignals"
-sidebar_label: "QDialogSignals"
+id: "qcolordialogsignals"
+title: "QColorDialogSignals"
+sidebar_label: "QColorDialogSignals"
 ---
 
 ## Hierarchy
 
-  ↳ [QWidgetSignals](qwidgetsignals.md)
+  ↳ [QDialogSignals](qdialogsignals.md)
 
-  ↳ **QDialogSignals**
-
-  ↳ [QColorDialogSignals](qcolordialogsignals.md)
-
-  ↳ [QFileDialogSignals](qfiledialogsignals.md)
-
-  ↳ [QFontDialogSignals](qfontdialogsignals.md)
-
-  ↳ [QProgressDialogSignals](qprogressdialogsignals.md)
-
-  ↳ [QMessageBoxSignals](qmessageboxsignals.md)
-
-  ↳ [QInputDialogSignals](qinputdialogsignals.md)
+  ↳ **QColorDialogSignals**
 
 ## Index
 
 ### Properties
 
-* [accepted](qdialogsignals.md#accepted)
-* [customContextMenuRequested](qdialogsignals.md#customcontextmenurequested)
-* [finished](qdialogsignals.md#finished)
-* [objectNameChanged](qdialogsignals.md#objectnamechanged)
-* [rejected](qdialogsignals.md#rejected)
-* [windowIconChanged](qdialogsignals.md#windowiconchanged)
-* [windowTitleChanged](qdialogsignals.md#windowtitlechanged)
+* [accepted](qcolordialogsignals.md#accepted)
+* [colorSelected](qcolordialogsignals.md#colorselected)
+* [currentColorChanged](qcolordialogsignals.md#currentcolorchanged)
+* [customContextMenuRequested](qcolordialogsignals.md#customcontextmenurequested)
+* [finished](qcolordialogsignals.md#finished)
+* [objectNameChanged](qcolordialogsignals.md#objectnamechanged)
+* [rejected](qcolordialogsignals.md#rejected)
+* [windowIconChanged](qcolordialogsignals.md#windowiconchanged)
+* [windowTitleChanged](qcolordialogsignals.md#windowtitlechanged)
 
 ## Properties
 
@@ -40,9 +30,43 @@ sidebar_label: "QDialogSignals"
 
 • **accepted**: *function*
 
+*Inherited from [QDialogSignals](qdialogsignals.md).[accepted](qdialogsignals.md#accepted)*
+
 #### Type declaration:
 
 ▸ (): *void*
+
+___
+
+###  colorSelected
+
+• **colorSelected**: *function*
+
+#### Type declaration:
+
+▸ (`color`: [QColor](../classes/qcolor.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`color` | [QColor](../classes/qcolor.md) |
+
+___
+
+###  currentColorChanged
+
+• **currentColorChanged**: *function*
+
+#### Type declaration:
+
+▸ (`color`: [QColor](../classes/qcolor.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`color` | [QColor](../classes/qcolor.md) |
 
 ___
 
@@ -70,6 +94,8 @@ ___
 ###  finished
 
 • **finished**: *function*
+
+*Inherited from [QDialogSignals](qdialogsignals.md).[finished](qdialogsignals.md#finished)*
 
 #### Type declaration:
 
@@ -104,6 +130,8 @@ ___
 ###  rejected
 
 • **rejected**: *function*
+
+*Inherited from [QDialogSignals](qdialogsignals.md).[rejected](qdialogsignals.md#rejected)*
 
 #### Type declaration:
 

@@ -1,44 +1,45 @@
 ---
-id: "qdialogsignals"
-title: "QDialogSignals"
-sidebar_label: "QDialogSignals"
+id: "qprogressdialogsignals"
+title: "QProgressDialogSignals"
+sidebar_label: "QProgressDialogSignals"
 ---
 
 ## Hierarchy
 
-  ↳ [QWidgetSignals](qwidgetsignals.md)
+  ↳ [QDialogSignals](qdialogsignals.md)
 
-  ↳ **QDialogSignals**
-
-  ↳ [QColorDialogSignals](qcolordialogsignals.md)
-
-  ↳ [QFileDialogSignals](qfiledialogsignals.md)
-
-  ↳ [QFontDialogSignals](qfontdialogsignals.md)
-
-  ↳ [QProgressDialogSignals](qprogressdialogsignals.md)
-
-  ↳ [QMessageBoxSignals](qmessageboxsignals.md)
-
-  ↳ [QInputDialogSignals](qinputdialogsignals.md)
+  ↳ **QProgressDialogSignals**
 
 ## Index
 
 ### Properties
 
-* [accepted](qdialogsignals.md#accepted)
-* [customContextMenuRequested](qdialogsignals.md#customcontextmenurequested)
-* [finished](qdialogsignals.md#finished)
-* [objectNameChanged](qdialogsignals.md#objectnamechanged)
-* [rejected](qdialogsignals.md#rejected)
-* [windowIconChanged](qdialogsignals.md#windowiconchanged)
-* [windowTitleChanged](qdialogsignals.md#windowtitlechanged)
+* [accepted](qprogressdialogsignals.md#accepted)
+* [canceled](qprogressdialogsignals.md#canceled)
+* [customContextMenuRequested](qprogressdialogsignals.md#customcontextmenurequested)
+* [finished](qprogressdialogsignals.md#finished)
+* [objectNameChanged](qprogressdialogsignals.md#objectnamechanged)
+* [rejected](qprogressdialogsignals.md#rejected)
+* [windowIconChanged](qprogressdialogsignals.md#windowiconchanged)
+* [windowTitleChanged](qprogressdialogsignals.md#windowtitlechanged)
 
 ## Properties
 
 ###  accepted
 
 • **accepted**: *function*
+
+*Inherited from [QDialogSignals](qdialogsignals.md).[accepted](qdialogsignals.md#accepted)*
+
+#### Type declaration:
+
+▸ (): *void*
+
+___
+
+###  canceled
+
+• **canceled**: *function*
 
 #### Type declaration:
 
@@ -70,6 +71,8 @@ ___
 ###  finished
 
 • **finished**: *function*
+
+*Inherited from [QDialogSignals](qdialogsignals.md).[finished](qdialogsignals.md#finished)*
 
 #### Type declaration:
 
@@ -104,6 +107,8 @@ ___
 ###  rejected
 
 • **rejected**: *function*
+
+*Inherited from [QDialogSignals](qdialogsignals.md).[rejected](qdialogsignals.md#rejected)*
 
 #### Type declaration:
 

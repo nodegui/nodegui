@@ -61,6 +61,7 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 * [hide](qtabwidget.md#hide)
 * [indexOf](qtabwidget.md#indexof)
 * [inherits](qtabwidget.md#inherits)
+* [insertTab](qtabwidget.md#inserttab)
 * [isEnabled](qtabwidget.md#isenabled)
 * [isVisible](qtabwidget.md#isvisible)
 * [lower](qtabwidget.md#lower)
@@ -404,6 +405,23 @@ Name | Type |
 `className` | string |
 
 **Returns:** *boolean*
+
+___
+
+###  insertTab
+
+▸ **insertTab**(`index`: number, `page`: [NodeWidget](nodewidget.md)‹any›, `icon`: [QIcon](qicon.md), `label`: string): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`page` | [NodeWidget](nodewidget.md)‹any› |
+`icon` | [QIcon](qicon.md) |
+`label` | string |
+
+**Returns:** *number*
 
 ___
 

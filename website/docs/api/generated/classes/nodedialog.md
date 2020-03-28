@@ -16,7 +16,15 @@ sidebar_label: "NodeDialog"
 
   ↳ [QDialog](qdialog.md)
 
+  ↳ [QColorDialog](qcolordialog.md)
+
+  ↳ [QErrorMessage](qerrormessage.md)
+
   ↳ [QFileDialog](qfiledialog.md)
+
+  ↳ [QFontDialog](qfontdialog.md)
+
+  ↳ [QProgressDialog](qprogressdialog.md)
 
   ↳ [QMessageBox](qmessagebox.md)
 

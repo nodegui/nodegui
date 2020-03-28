@@ -12,6 +12,8 @@ sidebar_label: "QAbstractSpinBoxSignals"
 
   ↳ [QDateTimeEditSignals](qdatetimeeditsignals.md)
 
+  ↳ [QDoubleSpinBoxSignals](qdoublespinboxsignals.md)
+
   ↳ [QSpinBoxSignals](qspinboxsignals.md)
 
 ## Index

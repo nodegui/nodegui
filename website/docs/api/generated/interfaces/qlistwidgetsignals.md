@@ -14,9 +14,16 @@ sidebar_label: "QListWidgetSignals"
 
 ### Properties
 
+* [currentItemChanged](qlistwidgetsignals.md#currentitemchanged)
 * [currentRowChanged](qlistwidgetsignals.md#currentrowchanged)
 * [currentTextChanged](qlistwidgetsignals.md#currenttextchanged)
 * [customContextMenuRequested](qlistwidgetsignals.md#customcontextmenurequested)
+* [itemActivated](qlistwidgetsignals.md#itemactivated)
+* [itemChanged](qlistwidgetsignals.md#itemchanged)
+* [itemClicked](qlistwidgetsignals.md#itemclicked)
+* [itemDoubleClicked](qlistwidgetsignals.md#itemdoubleclicked)
+* [itemEntered](qlistwidgetsignals.md#itementered)
+* [itemPressed](qlistwidgetsignals.md#itempressed)
 * [itemSelectionChanged](qlistwidgetsignals.md#itemselectionchanged)
 * [objectNameChanged](qlistwidgetsignals.md#objectnamechanged)
 * [viewportEntered](qlistwidgetsignals.md#viewportentered)
@@ -24,6 +31,23 @@ sidebar_label: "QListWidgetSignals"
 * [windowTitleChanged](qlistwidgetsignals.md#windowtitlechanged)
 
 ## Properties
+
+###  currentItemChanged
+
+• **currentItemChanged**: *function*
+
+#### Type declaration:
+
+▸ (`current`: [QListWidgetItem](../classes/qlistwidgetitem.md), `previous`: [QListWidgetItem](../classes/qlistwidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`current` | [QListWidgetItem](../classes/qlistwidgetitem.md) |
+`previous` | [QListWidgetItem](../classes/qlistwidgetitem.md) |
+
+___
 
 ###  currentRowChanged
 
@@ -75,6 +99,102 @@ Name | Type |
 ------ | ------ |
 `x` | number |
 `y` | number |
+
+___
+
+###  itemActivated
+
+• **itemActivated**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QListWidgetItem](../classes/qlistwidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QListWidgetItem](../classes/qlistwidgetitem.md) |
+
+___
+
+###  itemChanged
+
+• **itemChanged**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QListWidgetItem](../classes/qlistwidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QListWidgetItem](../classes/qlistwidgetitem.md) |
+
+___
+
+###  itemClicked
+
+• **itemClicked**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QListWidgetItem](../classes/qlistwidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QListWidgetItem](../classes/qlistwidgetitem.md) |
+
+___
+
+###  itemDoubleClicked
+
+• **itemDoubleClicked**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QListWidgetItem](../classes/qlistwidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QListWidgetItem](../classes/qlistwidgetitem.md) |
+
+___
+
+###  itemEntered
+
+• **itemEntered**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QListWidgetItem](../classes/qlistwidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QListWidgetItem](../classes/qlistwidgetitem.md) |
+
+___
+
+###  itemPressed
+
+• **itemPressed**: *function*
+
+#### Type declaration:
+
+▸ (`item`: [QListWidgetItem](../classes/qlistwidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QListWidgetItem](../classes/qlistwidgetitem.md) |
 
 ___
 

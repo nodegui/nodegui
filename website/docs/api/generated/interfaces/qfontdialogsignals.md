@@ -1,38 +1,28 @@
 ---
-id: "qdialogsignals"
-title: "QDialogSignals"
-sidebar_label: "QDialogSignals"
+id: "qfontdialogsignals"
+title: "QFontDialogSignals"
+sidebar_label: "QFontDialogSignals"
 ---
 
 ## Hierarchy
 
-  ↳ [QWidgetSignals](qwidgetsignals.md)
+  ↳ [QDialogSignals](qdialogsignals.md)
 
-  ↳ **QDialogSignals**
-
-  ↳ [QColorDialogSignals](qcolordialogsignals.md)
-
-  ↳ [QFileDialogSignals](qfiledialogsignals.md)
-
-  ↳ [QFontDialogSignals](qfontdialogsignals.md)
-
-  ↳ [QProgressDialogSignals](qprogressdialogsignals.md)
-
-  ↳ [QMessageBoxSignals](qmessageboxsignals.md)
-
-  ↳ [QInputDialogSignals](qinputdialogsignals.md)
+  ↳ **QFontDialogSignals**
 
 ## Index
 
 ### Properties
 
-* [accepted](qdialogsignals.md#accepted)
-* [customContextMenuRequested](qdialogsignals.md#customcontextmenurequested)
-* [finished](qdialogsignals.md#finished)
-* [objectNameChanged](qdialogsignals.md#objectnamechanged)
-* [rejected](qdialogsignals.md#rejected)
-* [windowIconChanged](qdialogsignals.md#windowiconchanged)
-* [windowTitleChanged](qdialogsignals.md#windowtitlechanged)
+* [accepted](qfontdialogsignals.md#accepted)
+* [currentFontChanged](qfontdialogsignals.md#currentfontchanged)
+* [customContextMenuRequested](qfontdialogsignals.md#customcontextmenurequested)
+* [finished](qfontdialogsignals.md#finished)
+* [fontSelected](qfontdialogsignals.md#fontselected)
+* [objectNameChanged](qfontdialogsignals.md#objectnamechanged)
+* [rejected](qfontdialogsignals.md#rejected)
+* [windowIconChanged](qfontdialogsignals.md#windowiconchanged)
+* [windowTitleChanged](qfontdialogsignals.md#windowtitlechanged)
 
 ## Properties
 
@@ -40,9 +30,27 @@ sidebar_label: "QDialogSignals"
 
 • **accepted**: *function*
 
+*Inherited from [QDialogSignals](qdialogsignals.md).[accepted](qdialogsignals.md#accepted)*
+
 #### Type declaration:
 
 ▸ (): *void*
+
+___
+
+###  currentFontChanged
+
+• **currentFontChanged**: *function*
+
+#### Type declaration:
+
+▸ (`font`: [QFont](../classes/qfont.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`font` | [QFont](../classes/qfont.md) |
 
 ___
 
@@ -71,6 +79,8 @@ ___
 
 • **finished**: *function*
 
+*Inherited from [QDialogSignals](qdialogsignals.md).[finished](qdialogsignals.md#finished)*
+
 #### Type declaration:
 
 ▸ (`result`: number): *void*
@@ -80,6 +90,22 @@ ___
 Name | Type |
 ------ | ------ |
 `result` | number |
+
+___
+
+###  fontSelected
+
+• **fontSelected**: *function*
+
+#### Type declaration:
+
+▸ (`font`: [QFont](../classes/qfont.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`font` | [QFont](../classes/qfont.md) |
 
 ___
 
@@ -104,6 +130,8 @@ ___
 ###  rejected
 
 • **rejected**: *function*
+
+*Inherited from [QDialogSignals](qdialogsignals.md).[rejected](qdialogsignals.md#rejected)*
 
 #### Type declaration:
 

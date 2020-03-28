@@ -66,11 +66,13 @@ win.show();
 * [childCount](qtreewidgetitem.md#childcount)
 * [data](qtreewidgetitem.md#data)
 * [flags](qtreewidgetitem.md#flags)
+* [isHidden](qtreewidgetitem.md#ishidden)
 * [parent](qtreewidgetitem.md#parent)
 * [setCheckState](qtreewidgetitem.md#setcheckstate)
 * [setData](qtreewidgetitem.md#setdata)
 * [setExpanded](qtreewidgetitem.md#setexpanded)
 * [setFlags](qtreewidgetitem.md#setflags)
+* [setHidden](qtreewidgetitem.md#sethidden)
 * [setNodeParent](qtreewidgetitem.md#setnodeparent)
 * [setSelected](qtreewidgetitem.md#setselected)
 * [setText](qtreewidgetitem.md#settext)
@@ -233,6 +235,14 @@ Returns the flags used to describe the item. These determine whether the item ca
 
 ___
 
+###  isHidden
+
+▸ **isHidden**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
 ###  parent
 
 ▸ **parent**(): *[QTreeWidgetItem](qtreewidgetitem.md) | undefined*
@@ -303,6 +313,20 @@ This is often used to disable an item.
 Name | Type | Description |
 ------ | ------ | ------ |
 `flags` | [ItemFlag](../enums/itemflag.md) | The flags.  |
+
+**Returns:** *void*
+
+___
+
+###  setHidden
+
+▸ **setHidden**(`hide`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`hide` | boolean |
 
 **Returns:** *void*
 

@@ -1,87 +1,68 @@
 ---
-id: "nodeobject"
-title: "NodeObject"
-sidebar_label: "NodeObject"
+id: "qstandarditemmodel"
+title: "QStandardItemModel"
+sidebar_label: "QStandardItemModel"
 ---
-
-## Type parameters
-
-▪ **Signals**: *[QObjectSignals](../interfaces/qobjectsignals.md)*
 
 ## Hierarchy
 
-  ↳ [EventWidget](eventwidget.md)‹Signals›
+  ↳ [NodeObject](nodeobject.md)‹any›
 
-  ↳ **NodeObject**
-
-  ↳ [QObject](qobject.md)
-
-  ↳ [QApplication](qapplication.md)
-
-  ↳ [QMovie](qmovie.md)
-
-  ↳ [NodeLayout](nodelayout.md)
-
-  ↳ [YogaWidget](yogawidget.md)
-
-  ↳ [QAction](qaction.md)
-
-  ↳ [QStandardItemModel](qstandarditemmodel.md)
-
-  ↳ [QButtonGroup](qbuttongroup.md)
-
-  ↳ [QSystemTrayIcon](qsystemtrayicon.md)
-
-  ↳ [QShortcut](qshortcut.md)
+  ↳ **QStandardItemModel**
 
 ## Index
 
 ### Constructors
 
-* [constructor](nodeobject.md#constructor)
+* [constructor](qstandarditemmodel.md#constructor)
 
 ### Properties
 
-* [native](nodeobject.md#abstract-native)
-* [nodeChildren](nodeobject.md#nodechildren)
-* [nodeParent](nodeobject.md#optional-nodeparent)
+* [native](qstandarditemmodel.md#native)
+* [nodeChildren](qstandarditemmodel.md#nodechildren)
+* [nodeParent](qstandarditemmodel.md#optional-nodeparent)
 
 ### Methods
 
-* [addEventListener](nodeobject.md#addeventlistener)
-* [inherits](nodeobject.md#inherits)
-* [objectName](nodeobject.md#objectname)
-* [property](nodeobject.md#property)
-* [removeEventListener](nodeobject.md#removeeventlistener)
-* [setNodeParent](nodeobject.md#setnodeparent)
-* [setObjectName](nodeobject.md#setobjectname)
-* [setProperty](nodeobject.md#setproperty)
+* [addEventListener](qstandarditemmodel.md#addeventlistener)
+* [inherits](qstandarditemmodel.md#inherits)
+* [item](qstandarditemmodel.md#item)
+* [objectName](qstandarditemmodel.md#objectname)
+* [property](qstandarditemmodel.md#property)
+* [removeEventListener](qstandarditemmodel.md#removeeventlistener)
+* [setNodeParent](qstandarditemmodel.md#setnodeparent)
+* [setObjectName](qstandarditemmodel.md#setobjectname)
+* [setProperty](qstandarditemmodel.md#setproperty)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new NodeObject**(`native`: [NativeElement](../globals.md#nativeelement)): *[NodeObject](nodeobject.md)*
+\+ **new QStandardItemModel**(): *[QStandardItemModel](qstandarditemmodel.md)*
 
-*Inherited from [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
+**Returns:** *[QStandardItemModel](qstandarditemmodel.md)*
+
+\+ **new QStandardItemModel**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QStandardItemModel](qstandarditemmodel.md)*
+
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`native` | [NativeElement](../globals.md#nativeelement) |
+`parent` | [NodeWidget](nodewidget.md)‹any› |
 
-**Returns:** *[NodeObject](nodeobject.md)*
+**Returns:** *[QStandardItemModel](qstandarditemmodel.md)*
 
 ## Properties
 
-### `Abstract` native
+###  native
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
-*Inherited from [Component](component.md).[native](component.md#abstract-native)*
+*Overrides [Component](component.md).[native](component.md#abstract-native)*
 
 ___
 
@@ -103,20 +84,20 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: any[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof any*
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
-`callback` | Signals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`callback` | any[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
 
@@ -161,6 +142,8 @@ ___
 
 ▸ **inherits**(`className`: string): *boolean*
 
+*Inherited from [NodeObject](nodeobject.md).[inherits](nodeobject.md#inherits)*
+
 **Parameters:**
 
 Name | Type |
@@ -171,9 +154,26 @@ Name | Type |
 
 ___
 
+###  item
+
+▸ **item**(`row`: number, `column`: number): *[QStandardItem](qstandarditem.md) | void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`row` | number | - |
+`column` | number | 0 |
+
+**Returns:** *[QStandardItem](qstandarditem.md) | void*
+
+___
+
 ###  objectName
 
 ▸ **objectName**(): *string*
+
+*Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
 
 **Returns:** *string*
 
@@ -182,6 +182,8 @@ ___
 ###  property
 
 ▸ **property**(`name`: string): *[QVariant](qvariant.md)*
+
+*Inherited from [NodeObject](nodeobject.md).[property](nodeobject.md#property)*
 
 **Parameters:**
 
@@ -195,20 +197,20 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: any[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof any*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
-`callback` | Signals[SignalType] |
+`callback` | any[SignalType] |
 
 **Returns:** *void*
 
@@ -254,6 +256,8 @@ ___
 
 ▸ **setObjectName**(`objectName`: string): *void*
 
+*Inherited from [NodeObject](nodeobject.md).[setObjectName](nodeobject.md#setobjectname)*
+
 **Parameters:**
 
 Name | Type |
@@ -267,6 +271,8 @@ ___
 ###  setProperty
 
 ▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
+
+*Inherited from [NodeObject](nodeobject.md).[setProperty](nodeobject.md#setproperty)*
 
 **Parameters:**
 

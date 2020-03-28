@@ -1,50 +1,27 @@
 ---
-id: "qdialogsignals"
-title: "QDialogSignals"
-sidebar_label: "QDialogSignals"
+id: "qdoublespinboxsignals"
+title: "QDoubleSpinBoxSignals"
+sidebar_label: "QDoubleSpinBoxSignals"
 ---
 
 ## Hierarchy
 
-  ↳ [QWidgetSignals](qwidgetsignals.md)
+  ↳ [QAbstractSpinBoxSignals](qabstractspinboxsignals.md)
 
-  ↳ **QDialogSignals**
-
-  ↳ [QColorDialogSignals](qcolordialogsignals.md)
-
-  ↳ [QFileDialogSignals](qfiledialogsignals.md)
-
-  ↳ [QFontDialogSignals](qfontdialogsignals.md)
-
-  ↳ [QProgressDialogSignals](qprogressdialogsignals.md)
-
-  ↳ [QMessageBoxSignals](qmessageboxsignals.md)
-
-  ↳ [QInputDialogSignals](qinputdialogsignals.md)
+  ↳ **QDoubleSpinBoxSignals**
 
 ## Index
 
 ### Properties
 
-* [accepted](qdialogsignals.md#accepted)
-* [customContextMenuRequested](qdialogsignals.md#customcontextmenurequested)
-* [finished](qdialogsignals.md#finished)
-* [objectNameChanged](qdialogsignals.md#objectnamechanged)
-* [rejected](qdialogsignals.md#rejected)
-* [windowIconChanged](qdialogsignals.md#windowiconchanged)
-* [windowTitleChanged](qdialogsignals.md#windowtitlechanged)
+* [customContextMenuRequested](qdoublespinboxsignals.md#customcontextmenurequested)
+* [editingFinished](qdoublespinboxsignals.md#editingfinished)
+* [objectNameChanged](qdoublespinboxsignals.md#objectnamechanged)
+* [valueChanged](qdoublespinboxsignals.md#valuechanged)
+* [windowIconChanged](qdoublespinboxsignals.md#windowiconchanged)
+* [windowTitleChanged](qdoublespinboxsignals.md#windowtitlechanged)
 
 ## Properties
-
-###  accepted
-
-• **accepted**: *function*
-
-#### Type declaration:
-
-▸ (): *void*
-
-___
 
 ###  customContextMenuRequested
 
@@ -67,19 +44,15 @@ Name | Type |
 
 ___
 
-###  finished
+###  editingFinished
 
-• **finished**: *function*
+• **editingFinished**: *function*
+
+*Inherited from [QAbstractSpinBoxSignals](qabstractspinboxsignals.md).[editingFinished](qabstractspinboxsignals.md#editingfinished)*
 
 #### Type declaration:
 
-▸ (`result`: number): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`result` | number |
+▸ (): *void*
 
 ___
 
@@ -101,13 +74,19 @@ Name | Type |
 
 ___
 
-###  rejected
+###  valueChanged
 
-• **rejected**: *function*
+• **valueChanged**: *function*
 
 #### Type declaration:
 
-▸ (): *void*
+▸ (`value`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`value` | number |
 
 ___
 

@@ -1,182 +1,202 @@
 ---
-id: "qabstractitemview"
-title: "QAbstractItemView"
-sidebar_label: "QAbstractItemView"
+id: "qlistview"
+title: "QListView"
+sidebar_label: "QListView"
 ---
-
-> This is the abstract base class of button widgets, providing their functionality.
-
-**This class is a JS wrapper around Qt's [QAbstractItemView class](https://doc.qt.io/qt-5/qabstractitemview.html)**
-
-The QAbstractItemView class is an abstract class and therefore, technically, no further instances actually have to be created.
-It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTableView, and QTreeView)
-
-## Type parameters
-
-▪ **Signals**: *[QAbstractItemViewSignals](../interfaces/qabstractitemviewsignals.md)*
 
 ## Hierarchy
 
-  ↳ [QAbstractScrollArea](qabstractscrollarea.md)‹Signals›
+  ↳ [NodeListView](nodelistview.md)‹[QListViewSignals](../globals.md#qlistviewsignals)›
 
-  ↳ **QAbstractItemView**
-
-  ↳ [NodeListView](nodelistview.md)
-
-  ↳ [NodeTableView](nodetableview.md)
+  ↳ **QListView**
 
 ## Index
 
 ### Constructors
 
-* [constructor](qabstractitemview.md#constructor)
+* [constructor](qlistview.md#constructor)
 
 ### Properties
 
-* [_rawInlineStyle](qabstractitemview.md#_rawinlinestyle)
-* [actions](qabstractitemview.md#actions)
-* [layout](qabstractitemview.md#optional-layout)
-* [native](qabstractitemview.md#abstract-native)
-* [nodeChildren](qabstractitemview.md#nodechildren)
-* [nodeParent](qabstractitemview.md#optional-nodeparent)
-* [type](qabstractitemview.md#type)
-* [viewportWidget](qabstractitemview.md#optional-viewportwidget)
+* [_rawInlineStyle](qlistview.md#_rawinlinestyle)
+* [actions](qlistview.md#actions)
+* [layout](qlistview.md#optional-layout)
+* [native](qlistview.md#native)
+* [nodeChildren](qlistview.md#nodechildren)
+* [nodeParent](qlistview.md#optional-nodeparent)
+* [type](qlistview.md#type)
+* [viewportWidget](qlistview.md#optional-viewportwidget)
 
 ### Methods
 
-* [activateWindow](qabstractitemview.md#activatewindow)
-* [addAction](qabstractitemview.md#addaction)
-* [addEventListener](qabstractitemview.md#addeventlistener)
-* [adjustSize](qabstractitemview.md#adjustsize)
-* [alternatingRowColors](qabstractitemview.md#alternatingrowcolors)
-* [autoScrollMargin](qabstractitemview.md#autoscrollmargin)
-* [close](qabstractitemview.md#close)
-* [currentIndex](qabstractitemview.md#currentindex)
-* [defaultDropAction](qabstractitemview.md#defaultdropaction)
-* [dragDropMode](qabstractitemview.md#dragdropmode)
-* [dragDropOverwriteMode](qabstractitemview.md#dragdropoverwritemode)
-* [dragEnabled](qabstractitemview.md#dragenabled)
-* [editTriggers](qabstractitemview.md#edittriggers)
-* [font](qabstractitemview.md#font)
-* [frameRect](qabstractitemview.md#framerect)
-* [frameShadow](qabstractitemview.md#frameshadow)
-* [frameShape](qabstractitemview.md#frameshape)
-* [frameStyle](qabstractitemview.md#framestyle)
-* [frameWidth](qabstractitemview.md#framewidth)
-* [geometry](qabstractitemview.md#geometry)
-* [getFlexNode](qabstractitemview.md#getflexnode)
-* [hasAutoScroll](qabstractitemview.md#hasautoscroll)
-* [hasMouseTracking](qabstractitemview.md#hasmousetracking)
-* [hide](qabstractitemview.md#hide)
-* [horizontalScrollMode](qabstractitemview.md#horizontalscrollmode)
-* [iconSize](qabstractitemview.md#iconsize)
-* [indexWidget](qabstractitemview.md#indexwidget)
-* [inherits](qabstractitemview.md#inherits)
-* [isEnabled](qabstractitemview.md#isenabled)
-* [isVisible](qabstractitemview.md#isvisible)
-* [lineWidth](qabstractitemview.md#linewidth)
-* [lower](qabstractitemview.md#lower)
-* [midLineWidth](qabstractitemview.md#midlinewidth)
-* [move](qabstractitemview.md#move)
-* [objectName](qabstractitemview.md#objectname)
-* [pos](qabstractitemview.md#pos)
-* [property](qabstractitemview.md#property)
-* [raise](qabstractitemview.md#raise)
-* [removeEventListener](qabstractitemview.md#removeeventlistener)
-* [repaint](qabstractitemview.md#repaint)
-* [repolish](qabstractitemview.md#repolish)
-* [resetHorizontalScrollMode](qabstractitemview.md#resethorizontalscrollmode)
-* [resetVerticalScrollMode](qabstractitemview.md#resetverticalscrollmode)
-* [resize](qabstractitemview.md#resize)
-* [scrollToBottom](qabstractitemview.md#scrolltobottom)
-* [scrollToTop](qabstractitemview.md#scrolltotop)
-* [selectionBehavior](qabstractitemview.md#selectionbehavior)
-* [selectionMode](qabstractitemview.md#selectionmode)
-* [setAlternatingRowColors](qabstractitemview.md#setalternatingrowcolors)
-* [setAttribute](qabstractitemview.md#setattribute)
-* [setAutoScroll](qabstractitemview.md#setautoscroll)
-* [setAutoScrollMargin](qabstractitemview.md#setautoscrollmargin)
-* [setContextMenuPolicy](qabstractitemview.md#setcontextmenupolicy)
-* [setCurrentIndex](qabstractitemview.md#setcurrentindex)
-* [setCursor](qabstractitemview.md#setcursor)
-* [setDefaultDropAction](qabstractitemview.md#setdefaultdropaction)
-* [setDragDropMode](qabstractitemview.md#setdragdropmode)
-* [setDragDropOverwriteMode](qabstractitemview.md#setdragdropoverwritemode)
-* [setDragEnabled](qabstractitemview.md#setdragenabled)
-* [setDropIndicatorShown](qabstractitemview.md#setdropindicatorshown)
-* [setEditTriggers](qabstractitemview.md#setedittriggers)
-* [setEnabled](qabstractitemview.md#setenabled)
-* [setFixedSize](qabstractitemview.md#setfixedsize)
-* [setFlexNodeSizeControlled](qabstractitemview.md#setflexnodesizecontrolled)
-* [setFont](qabstractitemview.md#setfont)
-* [setFrameRect](qabstractitemview.md#setframerect)
-* [setFrameShadow](qabstractitemview.md#setframeshadow)
-* [setFrameShape](qabstractitemview.md#setframeshape)
-* [setFrameStyle](qabstractitemview.md#setframestyle)
-* [setGeometry](qabstractitemview.md#setgeometry)
-* [setHorizontalScrollBarPolicy](qabstractitemview.md#sethorizontalscrollbarpolicy)
-* [setHorizontalScrollMode](qabstractitemview.md#sethorizontalscrollmode)
-* [setIconSize](qabstractitemview.md#seticonsize)
-* [setIndexWidget](qabstractitemview.md#setindexwidget)
-* [setInlineStyle](qabstractitemview.md#setinlinestyle)
-* [setLayout](qabstractitemview.md#setlayout)
-* [setLineWidth](qabstractitemview.md#setlinewidth)
-* [setMaximumSize](qabstractitemview.md#setmaximumsize)
-* [setMidLineWidth](qabstractitemview.md#setmidlinewidth)
-* [setMinimumSize](qabstractitemview.md#setminimumsize)
-* [setMouseTracking](qabstractitemview.md#setmousetracking)
-* [setNodeParent](qabstractitemview.md#setnodeparent)
-* [setObjectName](qabstractitemview.md#setobjectname)
-* [setProperty](qabstractitemview.md#setproperty)
-* [setSelectionBehavior](qabstractitemview.md#setselectionbehavior)
-* [setSelectionMode](qabstractitemview.md#setselectionmode)
-* [setStyleSheet](qabstractitemview.md#setstylesheet)
-* [setTabKeyNavigation](qabstractitemview.md#settabkeynavigation)
-* [setTextElideMode](qabstractitemview.md#settextelidemode)
-* [setVerticalScrollBarPolicy](qabstractitemview.md#setverticalscrollbarpolicy)
-* [setVerticalScrollMode](qabstractitemview.md#setverticalscrollmode)
-* [setViewport](qabstractitemview.md#setviewport)
-* [setWindowFlag](qabstractitemview.md#setwindowflag)
-* [setWindowIcon](qabstractitemview.md#setwindowicon)
-* [setWindowOpacity](qabstractitemview.md#setwindowopacity)
-* [setWindowState](qabstractitemview.md#setwindowstate)
-* [setWindowTitle](qabstractitemview.md#setwindowtitle)
-* [show](qabstractitemview.md#show)
-* [showDropIndicator](qabstractitemview.md#showdropindicator)
-* [showFullScreen](qabstractitemview.md#showfullscreen)
-* [showMaximized](qabstractitemview.md#showmaximized)
-* [showMinimized](qabstractitemview.md#showminimized)
-* [showNormal](qabstractitemview.md#shownormal)
-* [size](qabstractitemview.md#size)
-* [styleSheet](qabstractitemview.md#stylesheet)
-* [tabKeyNavigation](qabstractitemview.md#tabkeynavigation)
-* [testAttribute](qabstractitemview.md#testattribute)
-* [textElideMode](qabstractitemview.md#textelidemode)
-* [update](qabstractitemview.md#update)
-* [updateGeometry](qabstractitemview.md#updategeometry)
-* [verticalScrollMode](qabstractitemview.md#verticalscrollmode)
-* [viewport](qabstractitemview.md#viewport)
-* [windowOpacity](qabstractitemview.md#windowopacity)
-* [windowState](qabstractitemview.md#windowstate)
-* [windowTitle](qabstractitemview.md#windowtitle)
+* [activateWindow](qlistview.md#activatewindow)
+* [addAction](qlistview.md#addaction)
+* [addEventListener](qlistview.md#addeventlistener)
+* [adjustSize](qlistview.md#adjustsize)
+* [alternatingRowColors](qlistview.md#alternatingrowcolors)
+* [autoScrollMargin](qlistview.md#autoscrollmargin)
+* [batchSize](qlistview.md#batchsize)
+* [clearPropertyFlags](qlistview.md#clearpropertyflags)
+* [close](qlistview.md#close)
+* [currentIndex](qlistview.md#currentindex)
+* [defaultDropAction](qlistview.md#defaultdropaction)
+* [dragDropMode](qlistview.md#dragdropmode)
+* [dragDropOverwriteMode](qlistview.md#dragdropoverwritemode)
+* [dragEnabled](qlistview.md#dragenabled)
+* [editTriggers](qlistview.md#edittriggers)
+* [flow](qlistview.md#flow)
+* [font](qlistview.md#font)
+* [frameRect](qlistview.md#framerect)
+* [frameShadow](qlistview.md#frameshadow)
+* [frameShape](qlistview.md#frameshape)
+* [frameStyle](qlistview.md#framestyle)
+* [frameWidth](qlistview.md#framewidth)
+* [geometry](qlistview.md#geometry)
+* [getFlexNode](qlistview.md#getflexnode)
+* [gridSize](qlistview.md#gridsize)
+* [hasAutoScroll](qlistview.md#hasautoscroll)
+* [hasMouseTracking](qlistview.md#hasmousetracking)
+* [hide](qlistview.md#hide)
+* [horizontalScrollMode](qlistview.md#horizontalscrollmode)
+* [iconSize](qlistview.md#iconsize)
+* [indexWidget](qlistview.md#indexwidget)
+* [inherits](qlistview.md#inherits)
+* [isEnabled](qlistview.md#isenabled)
+* [isRowHidden](qlistview.md#isrowhidden)
+* [isSelectionRectVisible](qlistview.md#isselectionrectvisible)
+* [isVisible](qlistview.md#isvisible)
+* [isWrapping](qlistview.md#iswrapping)
+* [itemAlignment](qlistview.md#itemalignment)
+* [layoutMode](qlistview.md#layoutmode)
+* [lineWidth](qlistview.md#linewidth)
+* [lower](qlistview.md#lower)
+* [midLineWidth](qlistview.md#midlinewidth)
+* [modelColumn](qlistview.md#modelcolumn)
+* [move](qlistview.md#move)
+* [movement](qlistview.md#movement)
+* [objectName](qlistview.md#objectname)
+* [pos](qlistview.md#pos)
+* [property](qlistview.md#property)
+* [raise](qlistview.md#raise)
+* [removeEventListener](qlistview.md#removeeventlistener)
+* [repaint](qlistview.md#repaint)
+* [repolish](qlistview.md#repolish)
+* [resetHorizontalScrollMode](qlistview.md#resethorizontalscrollmode)
+* [resetVerticalScrollMode](qlistview.md#resetverticalscrollmode)
+* [resize](qlistview.md#resize)
+* [resizeMode](qlistview.md#resizemode)
+* [scrollToBottom](qlistview.md#scrolltobottom)
+* [scrollToTop](qlistview.md#scrolltotop)
+* [selectionBehavior](qlistview.md#selectionbehavior)
+* [selectionMode](qlistview.md#selectionmode)
+* [setAlternatingRowColors](qlistview.md#setalternatingrowcolors)
+* [setAttribute](qlistview.md#setattribute)
+* [setAutoScroll](qlistview.md#setautoscroll)
+* [setAutoScrollMargin](qlistview.md#setautoscrollmargin)
+* [setBatchSize](qlistview.md#setbatchsize)
+* [setContextMenuPolicy](qlistview.md#setcontextmenupolicy)
+* [setCurrentIndex](qlistview.md#setcurrentindex)
+* [setCursor](qlistview.md#setcursor)
+* [setDefaultDropAction](qlistview.md#setdefaultdropaction)
+* [setDragDropMode](qlistview.md#setdragdropmode)
+* [setDragDropOverwriteMode](qlistview.md#setdragdropoverwritemode)
+* [setDragEnabled](qlistview.md#setdragenabled)
+* [setDropIndicatorShown](qlistview.md#setdropindicatorshown)
+* [setEditTriggers](qlistview.md#setedittriggers)
+* [setEnabled](qlistview.md#setenabled)
+* [setFixedSize](qlistview.md#setfixedsize)
+* [setFlexNodeSizeControlled](qlistview.md#setflexnodesizecontrolled)
+* [setFlow](qlistview.md#setflow)
+* [setFont](qlistview.md#setfont)
+* [setFrameRect](qlistview.md#setframerect)
+* [setFrameShadow](qlistview.md#setframeshadow)
+* [setFrameShape](qlistview.md#setframeshape)
+* [setFrameStyle](qlistview.md#setframestyle)
+* [setGeometry](qlistview.md#setgeometry)
+* [setGridSize](qlistview.md#setgridsize)
+* [setHorizontalScrollBarPolicy](qlistview.md#sethorizontalscrollbarpolicy)
+* [setHorizontalScrollMode](qlistview.md#sethorizontalscrollmode)
+* [setIconSize](qlistview.md#seticonsize)
+* [setIndexWidget](qlistview.md#setindexwidget)
+* [setInlineStyle](qlistview.md#setinlinestyle)
+* [setItemAlignment](qlistview.md#setitemalignment)
+* [setLayout](qlistview.md#setlayout)
+* [setLayoutMode](qlistview.md#setlayoutmode)
+* [setLineWidth](qlistview.md#setlinewidth)
+* [setMaximumSize](qlistview.md#setmaximumsize)
+* [setMidLineWidth](qlistview.md#setmidlinewidth)
+* [setMinimumSize](qlistview.md#setminimumsize)
+* [setModelColumn](qlistview.md#setmodelcolumn)
+* [setMouseTracking](qlistview.md#setmousetracking)
+* [setMovement](qlistview.md#setmovement)
+* [setNodeParent](qlistview.md#setnodeparent)
+* [setObjectName](qlistview.md#setobjectname)
+* [setProperty](qlistview.md#setproperty)
+* [setResizeMode](qlistview.md#setresizemode)
+* [setRowHidden](qlistview.md#setrowhidden)
+* [setSelectionBehavior](qlistview.md#setselectionbehavior)
+* [setSelectionMode](qlistview.md#setselectionmode)
+* [setSelectionRectVisible](qlistview.md#setselectionrectvisible)
+* [setSpacing](qlistview.md#setspacing)
+* [setStyleSheet](qlistview.md#setstylesheet)
+* [setTabKeyNavigation](qlistview.md#settabkeynavigation)
+* [setTextElideMode](qlistview.md#settextelidemode)
+* [setUniformItemSizes](qlistview.md#setuniformitemsizes)
+* [setVerticalScrollBarPolicy](qlistview.md#setverticalscrollbarpolicy)
+* [setVerticalScrollMode](qlistview.md#setverticalscrollmode)
+* [setViewMode](qlistview.md#setviewmode)
+* [setViewport](qlistview.md#setviewport)
+* [setWindowFlag](qlistview.md#setwindowflag)
+* [setWindowIcon](qlistview.md#setwindowicon)
+* [setWindowOpacity](qlistview.md#setwindowopacity)
+* [setWindowState](qlistview.md#setwindowstate)
+* [setWindowTitle](qlistview.md#setwindowtitle)
+* [setWordWrap](qlistview.md#setwordwrap)
+* [setWrapping](qlistview.md#setwrapping)
+* [show](qlistview.md#show)
+* [showDropIndicator](qlistview.md#showdropindicator)
+* [showFullScreen](qlistview.md#showfullscreen)
+* [showMaximized](qlistview.md#showmaximized)
+* [showMinimized](qlistview.md#showminimized)
+* [showNormal](qlistview.md#shownormal)
+* [size](qlistview.md#size)
+* [spacing](qlistview.md#spacing)
+* [styleSheet](qlistview.md#stylesheet)
+* [tabKeyNavigation](qlistview.md#tabkeynavigation)
+* [testAttribute](qlistview.md#testattribute)
+* [textElideMode](qlistview.md#textelidemode)
+* [uniformItemSizes](qlistview.md#uniformitemsizes)
+* [update](qlistview.md#update)
+* [updateGeometry](qlistview.md#updategeometry)
+* [verticalScrollMode](qlistview.md#verticalscrollmode)
+* [viewMode](qlistview.md#viewmode)
+* [viewport](qlistview.md#viewport)
+* [windowOpacity](qlistview.md#windowopacity)
+* [windowState](qlistview.md#windowstate)
+* [windowTitle](qlistview.md#windowtitle)
+* [wordWrap](qlistview.md#wordwrap)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QAbstractItemView**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAbstractItemView](qabstractitemview.md)*
+\+ **new QListView**(): *[QListView](qlistview.md)*
 
-*Inherited from [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+**Returns:** *[QListView](qlistview.md)*
+
+\+ **new QListView**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QListView](qlistview.md)*
+
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`native` | [NativeElement](../globals.md#nativeelement) |
+`parent` | [NodeWidget](nodewidget.md)‹any› |
 
-**Returns:** *[QAbstractItemView](qabstractitemview.md)*
+**Returns:** *[QListView](qlistview.md)*
 
 ## Properties
 
@@ -198,17 +218,17 @@ ___
 
 ### `Optional` layout
 
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+• **layout**? : *[NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)›*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
-### `Abstract` native
+###  native
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
-*Inherited from [Component](component.md).[native](component.md#abstract-native)*
+*Overrides [Component](component.md).[native](component.md#abstract-native)*
 
 ___
 
@@ -272,20 +292,20 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QListViewSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QListViewSignals*
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
-`callback` | Signals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`callback` | QListViewSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
 
@@ -340,6 +360,8 @@ ___
 
 ▸ **alternatingRowColors**(): *boolean*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[alternatingRowColors](qabstractitemview.md#alternatingrowcolors)*
+
 **Returns:** *boolean*
 
 ___
@@ -348,7 +370,29 @@ ___
 
 ▸ **autoScrollMargin**(): *number*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[autoScrollMargin](qabstractitemview.md#autoscrollmargin)*
+
 **Returns:** *number*
+
+___
+
+###  batchSize
+
+▸ **batchSize**(): *number*
+
+*Inherited from [NodeListView](nodelistview.md).[batchSize](nodelistview.md#batchsize)*
+
+**Returns:** *number*
+
+___
+
+###  clearPropertyFlags
+
+▸ **clearPropertyFlags**(): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[clearPropertyFlags](nodelistview.md#clearpropertyflags)*
+
+**Returns:** *void*
 
 ___
 
@@ -366,6 +410,8 @@ ___
 
 ▸ **currentIndex**(): *[QModelIndex](qmodelindex.md)*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[currentIndex](qabstractitemview.md#currentindex)*
+
 **Returns:** *[QModelIndex](qmodelindex.md)*
 
 ___
@@ -373,6 +419,8 @@ ___
 ###  defaultDropAction
 
 ▸ **defaultDropAction**(): *[DropAction](../enums/dropaction.md)*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[defaultDropAction](qabstractitemview.md#defaultdropaction)*
 
 **Returns:** *[DropAction](../enums/dropaction.md)*
 
@@ -382,6 +430,8 @@ ___
 
 ▸ **dragDropMode**(): *[DragDropMode](../enums/dragdropmode.md)*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[dragDropMode](qabstractitemview.md#dragdropmode)*
+
 **Returns:** *[DragDropMode](../enums/dragdropmode.md)*
 
 ___
@@ -389,6 +439,8 @@ ___
 ###  dragDropOverwriteMode
 
 ▸ **dragDropOverwriteMode**(): *boolean*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[dragDropOverwriteMode](qabstractitemview.md#dragdropoverwritemode)*
 
 **Returns:** *boolean*
 
@@ -398,6 +450,8 @@ ___
 
 ▸ **dragEnabled**(): *boolean*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[dragEnabled](qabstractitemview.md#dragenabled)*
+
 **Returns:** *boolean*
 
 ___
@@ -406,7 +460,19 @@ ___
 
 ▸ **editTriggers**(): *number*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[editTriggers](qabstractitemview.md#edittriggers)*
+
 **Returns:** *number*
+
+___
+
+###  flow
+
+▸ **flow**(): *[Flow](../enums/flow.md)*
+
+*Inherited from [NodeListView](nodelistview.md).[flow](nodelistview.md#flow)*
+
+**Returns:** *[Flow](../enums/flow.md)*
 
 ___
 
@@ -490,9 +556,21 @@ ___
 
 ___
 
+###  gridSize
+
+▸ **gridSize**(): *[QSize](qsize.md)*
+
+*Inherited from [NodeListView](nodelistview.md).[gridSize](nodelistview.md#gridsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  hasAutoScroll
 
 ▸ **hasAutoScroll**(): *boolean*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[hasAutoScroll](qabstractitemview.md#hasautoscroll)*
 
 **Returns:** *boolean*
 
@@ -522,6 +600,8 @@ ___
 
 ▸ **horizontalScrollMode**(): *[ScrollMode](../enums/scrollmode.md)*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[horizontalScrollMode](qabstractitemview.md#horizontalscrollmode)*
+
 **Returns:** *[ScrollMode](../enums/scrollmode.md)*
 
 ___
@@ -530,6 +610,8 @@ ___
 
 ▸ **iconSize**(): *[QSize](qsize.md)*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[iconSize](qabstractitemview.md#iconsize)*
+
 **Returns:** *[QSize](qsize.md)*
 
 ___
@@ -537,6 +619,8 @@ ___
 ###  indexWidget
 
 ▸ **indexWidget**(`index`: [QModelIndex](qmodelindex.md)): *[QWidget](qwidget.md)*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[indexWidget](qabstractitemview.md#indexwidget)*
 
 **Parameters:**
 
@@ -574,6 +658,32 @@ ___
 
 ___
 
+###  isRowHidden
+
+▸ **isRowHidden**(`row`: number): *boolean*
+
+*Inherited from [NodeListView](nodelistview.md).[isRowHidden](nodelistview.md#isrowhidden)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`row` | number |
+
+**Returns:** *boolean*
+
+___
+
+###  isSelectionRectVisible
+
+▸ **isSelectionRectVisible**(): *boolean*
+
+*Inherited from [NodeListView](nodelistview.md).[isSelectionRectVisible](nodelistview.md#isselectionrectvisible)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isVisible
 
 ▸ **isVisible**(): *boolean*
@@ -581,6 +691,36 @@ ___
 *Inherited from [QMenu](qmenu.md).[isVisible](qmenu.md#isvisible)*
 
 **Returns:** *boolean*
+
+___
+
+###  isWrapping
+
+▸ **isWrapping**(): *boolean*
+
+*Inherited from [NodeListView](nodelistview.md).[isWrapping](nodelistview.md#iswrapping)*
+
+**Returns:** *boolean*
+
+___
+
+###  itemAlignment
+
+▸ **itemAlignment**(): *[AlignmentFlag](../enums/alignmentflag.md)*
+
+*Inherited from [NodeListView](nodelistview.md).[itemAlignment](nodelistview.md#itemalignment)*
+
+**Returns:** *[AlignmentFlag](../enums/alignmentflag.md)*
+
+___
+
+###  layoutMode
+
+▸ **layoutMode**(): *[LayoutMode](../enums/layoutmode.md)*
+
+*Inherited from [NodeListView](nodelistview.md).[layoutMode](nodelistview.md#layoutmode)*
+
+**Returns:** *[LayoutMode](../enums/layoutmode.md)*
 
 ___
 
@@ -614,6 +754,16 @@ ___
 
 ___
 
+###  modelColumn
+
+▸ **modelColumn**(): *number*
+
+*Inherited from [NodeListView](nodelistview.md).[modelColumn](nodelistview.md#modelcolumn)*
+
+**Returns:** *number*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -628,6 +778,16 @@ Name | Type |
 `y` | number |
 
 **Returns:** *void*
+
+___
+
+###  movement
+
+▸ **movement**(): *[Movement](../enums/movement.md)*
+
+*Inherited from [NodeListView](nodelistview.md).[movement](nodelistview.md#movement)*
+
+**Returns:** *[Movement](../enums/movement.md)*
 
 ___
 
@@ -683,20 +843,20 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QListViewSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QListViewSignals*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
-`callback` | Signals[SignalType] |
+`callback` | QListViewSignals[SignalType] |
 
 **Returns:** *void*
 
@@ -746,6 +906,8 @@ ___
 
 ▸ **resetHorizontalScrollMode**(): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[resetHorizontalScrollMode](qabstractitemview.md#resethorizontalscrollmode)*
+
 **Returns:** *void*
 
 ___
@@ -753,6 +915,8 @@ ___
 ###  resetVerticalScrollMode
 
 ▸ **resetVerticalScrollMode**(): *void*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[resetVerticalScrollMode](qabstractitemview.md#resetverticalscrollmode)*
 
 **Returns:** *void*
 
@@ -775,9 +939,21 @@ Name | Type |
 
 ___
 
+###  resizeMode
+
+▸ **resizeMode**(): *[ResizeMode](../enums/resizemode.md)*
+
+*Inherited from [NodeListView](nodelistview.md).[resizeMode](nodelistview.md#resizemode)*
+
+**Returns:** *[ResizeMode](../enums/resizemode.md)*
+
+___
+
 ###  scrollToBottom
 
 ▸ **scrollToBottom**(): *void*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[scrollToBottom](qabstractitemview.md#scrolltobottom)*
 
 **Returns:** *void*
 
@@ -787,6 +963,8 @@ ___
 
 ▸ **scrollToTop**(): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[scrollToTop](qabstractitemview.md#scrolltotop)*
+
 **Returns:** *void*
 
 ___
@@ -794,6 +972,8 @@ ___
 ###  selectionBehavior
 
 ▸ **selectionBehavior**(): *[SelectionBehavior](../enums/selectionbehavior.md)*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[selectionBehavior](qabstractitemview.md#selectionbehavior)*
 
 **Returns:** *[SelectionBehavior](../enums/selectionbehavior.md)*
 
@@ -803,6 +983,8 @@ ___
 
 ▸ **selectionMode**(): *[SelectionMode](../enums/selectionmode.md)*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[selectionMode](qabstractitemview.md#selectionmode)*
+
 **Returns:** *[SelectionMode](../enums/selectionmode.md)*
 
 ___
@@ -810,6 +992,8 @@ ___
 ###  setAlternatingRowColors
 
 ▸ **setAlternatingRowColors**(`enable`: boolean): *void*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setAlternatingRowColors](qabstractitemview.md#setalternatingrowcolors)*
 
 **Parameters:**
 
@@ -842,6 +1026,8 @@ ___
 
 ▸ **setAutoScroll**(`enable`: boolean): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setAutoScroll](qabstractitemview.md#setautoscroll)*
+
 **Parameters:**
 
 Name | Type |
@@ -856,11 +1042,29 @@ ___
 
 ▸ **setAutoScrollMargin**(`margin`: number): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setAutoScrollMargin](qabstractitemview.md#setautoscrollmargin)*
+
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `margin` | number |
+
+**Returns:** *void*
+
+___
+
+###  setBatchSize
+
+▸ **setBatchSize**(`batchSize`: number): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setBatchSize](nodelistview.md#setbatchsize)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`batchSize` | number |
 
 **Returns:** *void*
 
@@ -885,6 +1089,8 @@ ___
 ###  setCurrentIndex
 
 ▸ **setCurrentIndex**(`index`: [QModelIndex](qmodelindex.md)): *void*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setCurrentIndex](qabstractitemview.md#setcurrentindex)*
 
 **Parameters:**
 
@@ -916,6 +1122,8 @@ ___
 
 ▸ **setDefaultDropAction**(`dropAction`: [DropAction](../enums/dropaction.md)): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setDefaultDropAction](qabstractitemview.md#setdefaultdropaction)*
+
 **Parameters:**
 
 Name | Type |
@@ -929,6 +1137,8 @@ ___
 ###  setDragDropMode
 
 ▸ **setDragDropMode**(`behavior`: [DragDropMode](../enums/dragdropmode.md)): *void*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setDragDropMode](qabstractitemview.md#setdragdropmode)*
 
 **Parameters:**
 
@@ -944,6 +1154,8 @@ ___
 
 ▸ **setDragDropOverwriteMode**(`overwrite`: boolean): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setDragDropOverwriteMode](qabstractitemview.md#setdragdropoverwritemode)*
+
 **Parameters:**
 
 Name | Type |
@@ -957,6 +1169,8 @@ ___
 ###  setDragEnabled
 
 ▸ **setDragEnabled**(`enable`: boolean): *void*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setDragEnabled](qabstractitemview.md#setdragenabled)*
 
 **Parameters:**
 
@@ -972,6 +1186,8 @@ ___
 
 ▸ **setDropIndicatorShown**(`enable`: boolean): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setDropIndicatorShown](qabstractitemview.md#setdropindicatorshown)*
+
 **Parameters:**
 
 Name | Type |
@@ -985,6 +1201,8 @@ ___
 ###  setEditTriggers
 
 ▸ **setEditTriggers**(`triggers`: number): *void*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setEditTriggers](qabstractitemview.md#setedittriggers)*
 
 **Parameters:**
 
@@ -1042,6 +1260,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFlow
+
+▸ **setFlow**(`flow`: [Flow](../enums/flow.md)): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setFlow](nodelistview.md#setflow)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`flow` | [Flow](../enums/flow.md) |
 
 **Returns:** *void*
 
@@ -1146,6 +1380,22 @@ Name | Type |
 
 ___
 
+###  setGridSize
+
+▸ **setGridSize**(`size`: [QSize](qsize.md)): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setGridSize](nodelistview.md#setgridsize)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`size` | [QSize](qsize.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setHorizontalScrollBarPolicy
 
 ▸ **setHorizontalScrollBarPolicy**(`policy`: [ScrollBarPolicy](../enums/scrollbarpolicy.md)): *void*
@@ -1166,6 +1416,8 @@ ___
 
 ▸ **setHorizontalScrollMode**(`mode`: boolean): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setHorizontalScrollMode](qabstractitemview.md#sethorizontalscrollmode)*
+
 **Parameters:**
 
 Name | Type |
@@ -1180,6 +1432,8 @@ ___
 
 ▸ **setIconSize**(`iconSize`: [QSize](qsize.md)): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setIconSize](qabstractitemview.md#seticonsize)*
+
 **Parameters:**
 
 Name | Type |
@@ -1193,6 +1447,8 @@ ___
 ###  setIndexWidget
 
 ▸ **setIndexWidget**(`index`: [QModelIndex](qmodelindex.md), `widget`: [QWidget](qwidget.md)): *void*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setIndexWidget](qabstractitemview.md#setindexwidget)*
 
 **Parameters:**
 
@@ -1221,9 +1477,25 @@ Name | Type |
 
 ___
 
+###  setItemAlignment
+
+▸ **setItemAlignment**(`alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setItemAlignment](nodelistview.md#setitemalignment)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`alignment` | [AlignmentFlag](../enums/alignmentflag.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹Signals›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -1231,7 +1503,23 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹Signals› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)› |
+
+**Returns:** *void*
+
+___
+
+###  setLayoutMode
+
+▸ **setLayoutMode**(`mode`: [LayoutMode](../enums/layoutmode.md)): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setLayoutMode](nodelistview.md#setlayoutmode)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`mode` | [LayoutMode](../enums/layoutmode.md) |
 
 **Returns:** *void*
 
@@ -1303,6 +1591,22 @@ Name | Type |
 
 ___
 
+###  setModelColumn
+
+▸ **setModelColumn**(`column`: number): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setModelColumn](nodelistview.md#setmodelcolumn)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`column` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setMouseTracking
 
 ▸ **setMouseTracking**(`isMouseTracked`: boolean): *void*
@@ -1314,6 +1618,22 @@ ___
 Name | Type |
 ------ | ------ |
 `isMouseTracked` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setMovement
+
+▸ **setMovement**(`movement`: [Movement](../enums/movement.md)): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setMovement](nodelistview.md#setmovement)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`movement` | [Movement](../enums/movement.md) |
 
 **Returns:** *void*
 
@@ -1370,9 +1690,44 @@ Name | Type |
 
 ___
 
+###  setResizeMode
+
+▸ **setResizeMode**(`mode`: [ResizeMode](../enums/resizemode.md)): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setResizeMode](nodelistview.md#setresizemode)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`mode` | [ResizeMode](../enums/resizemode.md) |
+
+**Returns:** *void*
+
+___
+
+###  setRowHidden
+
+▸ **setRowHidden**(`row`: number, `hide`: boolean): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setRowHidden](nodelistview.md#setrowhidden)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`row` | number |
+`hide` | boolean |
+
+**Returns:** *void*
+
+___
+
 ###  setSelectionBehavior
 
 ▸ **setSelectionBehavior**(`behavior`: [SelectionBehavior](../enums/selectionbehavior.md)): *void*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setSelectionBehavior](qabstractitemview.md#setselectionbehavior)*
 
 **Parameters:**
 
@@ -1388,11 +1743,45 @@ ___
 
 ▸ **setSelectionMode**(`mode`: [SelectionMode](../enums/selectionmode.md)): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setSelectionMode](qabstractitemview.md#setselectionmode)*
+
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `mode` | [SelectionMode](../enums/selectionmode.md) |
+
+**Returns:** *void*
+
+___
+
+###  setSelectionRectVisible
+
+▸ **setSelectionRectVisible**(`show`: boolean): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setSelectionRectVisible](nodelistview.md#setselectionrectvisible)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`show` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setSpacing
+
+▸ **setSpacing**(`space`: number): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setSpacing](nodelistview.md#setspacing)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`space` | number |
 
 **Returns:** *void*
 
@@ -1418,6 +1807,8 @@ ___
 
 ▸ **setTabKeyNavigation**(`enable`: boolean): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setTabKeyNavigation](qabstractitemview.md#settabkeynavigation)*
+
 **Parameters:**
 
 Name | Type |
@@ -1432,11 +1823,29 @@ ___
 
 ▸ **setTextElideMode**(`mode`: [TextElideMode](../enums/textelidemode.md)): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setTextElideMode](qabstractitemview.md#settextelidemode)*
+
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `mode` | [TextElideMode](../enums/textelidemode.md) |
+
+**Returns:** *void*
+
+___
+
+###  setUniformItemSizes
+
+▸ **setUniformItemSizes**(`enable`: boolean): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setUniformItemSizes](nodelistview.md#setuniformitemsizes)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enable` | boolean |
 
 **Returns:** *void*
 
@@ -1462,11 +1871,29 @@ ___
 
 ▸ **setVerticalScrollMode**(`mode`: [ScrollMode](../enums/scrollmode.md)): *void*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[setVerticalScrollMode](qabstractitemview.md#setverticalscrollmode)*
+
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `mode` | [ScrollMode](../enums/scrollmode.md) |
+
+**Returns:** *void*
+
+___
+
+###  setViewMode
+
+▸ **setViewMode**(`mode`: ViewMode): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setViewMode](nodelistview.md#setviewmode)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`mode` | ViewMode |
 
 **Returns:** *void*
 
@@ -1569,6 +1996,38 @@ Name | Type |
 
 ___
 
+###  setWordWrap
+
+▸ **setWordWrap**(`on`: boolean): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setWordWrap](nodelistview.md#setwordwrap)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setWrapping
+
+▸ **setWrapping**(`enable`: boolean): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setWrapping](nodelistview.md#setwrapping)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enable` | boolean |
+
+**Returns:** *void*
+
+___
+
 ###  show
 
 ▸ **show**(): *void*
@@ -1582,6 +2041,8 @@ ___
 ###  showDropIndicator
 
 ▸ **showDropIndicator**(): *boolean*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[showDropIndicator](qabstractitemview.md#showdropindicator)*
 
 **Returns:** *boolean*
 
@@ -1637,6 +2098,16 @@ ___
 
 ___
 
+###  spacing
+
+▸ **spacing**(): *number*
+
+*Inherited from [NodeListView](nodelistview.md).[spacing](nodelistview.md#spacing)*
+
+**Returns:** *number*
+
+___
+
 ###  styleSheet
 
 ▸ **styleSheet**(): *string*
@@ -1650,6 +2121,8 @@ ___
 ###  tabKeyNavigation
 
 ▸ **tabKeyNavigation**(): *boolean*
+
+*Inherited from [QAbstractItemView](qabstractitemview.md).[tabKeyNavigation](qabstractitemview.md#tabkeynavigation)*
 
 **Returns:** *boolean*
 
@@ -1675,7 +2148,19 @@ ___
 
 ▸ **textElideMode**(): *[TextElideMode](../enums/textelidemode.md)*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[textElideMode](qabstractitemview.md#textelidemode)*
+
 **Returns:** *[TextElideMode](../enums/textelidemode.md)*
+
+___
+
+###  uniformItemSizes
+
+▸ **uniformItemSizes**(): *boolean*
+
+*Inherited from [NodeListView](nodelistview.md).[uniformItemSizes](nodelistview.md#uniformitemsizes)*
+
+**Returns:** *boolean*
 
 ___
 
@@ -1703,7 +2188,19 @@ ___
 
 ▸ **verticalScrollMode**(): *[ScrollMode](../enums/scrollmode.md)*
 
+*Inherited from [QAbstractItemView](qabstractitemview.md).[verticalScrollMode](qabstractitemview.md#verticalscrollmode)*
+
 **Returns:** *[ScrollMode](../enums/scrollmode.md)*
+
+___
+
+###  viewMode
+
+▸ **viewMode**(): *ViewMode*
+
+*Inherited from [NodeListView](nodelistview.md).[viewMode](nodelistview.md#viewmode)*
+
+**Returns:** *ViewMode*
 
 ___
 
@@ -1744,3 +2241,13 @@ ___
 *Inherited from [QMenu](qmenu.md).[windowTitle](qmenu.md#windowtitle)*
 
 **Returns:** *string*
+
+___
+
+###  wordWrap
+
+▸ **wordWrap**(): *boolean*
+
+*Inherited from [NodeListView](nodelistview.md).[wordWrap](nodelistview.md#wordwrap)*
+
+**Returns:** *boolean*

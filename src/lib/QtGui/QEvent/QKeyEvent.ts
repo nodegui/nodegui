@@ -1,9 +1,9 @@
 import addon from '../../utils/addon';
-import { NativeElement } from '../../core/Component';
+import { NativeElement, NativeRawPointer } from '../../core/Component';
 
 export class QKeyEvent {
     native: NativeElement;
-    constructor(event: NativeElement) {
+    constructor(event: NativeRawPointer<'QEvent'>) {
         this.native = new addon.QKeyEvent(event);
     }
     text(): string {

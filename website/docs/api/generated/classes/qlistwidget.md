@@ -29,7 +29,7 @@ listWidget.addItem(listWidgetItem);
 
 ## Hierarchy
 
-  ↳ [QAbstractItemView](qabstractitemview.md)‹[QListWidgetSignals](../interfaces/qlistwidgetsignals.md)›
+  ↳ [NodeListView](nodelistview.md)‹[QListWidgetSignals](../interfaces/qlistwidgetsignals.md)›
 
   ↳ **QListWidget**
 
@@ -76,6 +76,7 @@ listWidget.addItem(listWidgetItem);
 * [dragEnabled](qlistwidget.md#dragenabled)
 * [editItem](qlistwidget.md#edititem)
 * [editTriggers](qlistwidget.md#edittriggers)
+* [findItems](qlistwidget.md#finditems)
 * [flow](qlistwidget.md#flow)
 * [font](qlistwidget.md#font)
 * [frameRect](qlistwidget.md#framerect)
@@ -130,6 +131,7 @@ listWidget.addItem(listWidgetItem);
 * [scrollToBottom](qlistwidget.md#scrolltobottom)
 * [scrollToItem](qlistwidget.md#scrolltoitem)
 * [scrollToTop](qlistwidget.md#scrolltotop)
+* [selectedItems](qlistwidget.md#selecteditems)
 * [selectionBehavior](qlistwidget.md#selectionbehavior)
 * [selectionMode](qlistwidget.md#selectionmode)
 * [setAlternatingRowColors](qlistwidget.md#setalternatingrowcolors)
@@ -464,6 +466,8 @@ ___
 
 ▸ **batchSize**(): *number*
 
+*Inherited from [NodeListView](nodelistview.md).[batchSize](nodelistview.md#batchsize)*
+
 **Returns:** *number*
 
 ___
@@ -479,6 +483,8 @@ ___
 ###  clearPropertyFlags
 
 ▸ **clearPropertyFlags**(): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[clearPropertyFlags](nodelistview.md#clearpropertyflags)*
 
 **Returns:** *void*
 
@@ -606,9 +612,26 @@ ___
 
 ___
 
+###  findItems
+
+▸ **findItems**(`text`: string, `flags`: [MatchFlag](../enums/matchflag.md)): *[QListWidgetItem](qlistwidgetitem.md)[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+`flags` | [MatchFlag](../enums/matchflag.md) |
+
+**Returns:** *[QListWidgetItem](qlistwidgetitem.md)[]*
+
+___
+
 ###  flow
 
 ▸ **flow**(): *[Flow](../enums/flow.md)*
+
+*Inherited from [NodeListView](nodelistview.md).[flow](nodelistview.md#flow)*
 
 **Returns:** *[Flow](../enums/flow.md)*
 
@@ -697,6 +720,8 @@ ___
 ###  gridSize
 
 ▸ **gridSize**(): *[QSize](qsize.md)*
+
+*Inherited from [NodeListView](nodelistview.md).[gridSize](nodelistview.md#gridsize)*
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -842,6 +867,8 @@ ___
 
 ▸ **isRowHidden**(`row`: number): *boolean*
 
+*Inherited from [NodeListView](nodelistview.md).[isRowHidden](nodelistview.md#isrowhidden)*
+
 **Parameters:**
 
 Name | Type |
@@ -855,6 +882,8 @@ ___
 ###  isSelectionRectVisible
 
 ▸ **isSelectionRectVisible**(): *boolean*
+
+*Inherited from [NodeListView](nodelistview.md).[isSelectionRectVisible](nodelistview.md#isselectionrectvisible)*
 
 **Returns:** *boolean*
 
@@ -882,6 +911,8 @@ ___
 
 ▸ **isWrapping**(): *boolean*
 
+*Inherited from [NodeListView](nodelistview.md).[isWrapping](nodelistview.md#iswrapping)*
+
 **Returns:** *boolean*
 
 ___
@@ -903,6 +934,8 @@ ___
 ###  itemAlignment
 
 ▸ **itemAlignment**(): *[AlignmentFlag](../enums/alignmentflag.md)*
+
+*Inherited from [NodeListView](nodelistview.md).[itemAlignment](nodelistview.md#itemalignment)*
 
 **Returns:** *[AlignmentFlag](../enums/alignmentflag.md)*
 
@@ -940,6 +973,8 @@ ___
 ###  layoutMode
 
 ▸ **layoutMode**(): *[LayoutMode](../enums/layoutmode.md)*
+
+*Inherited from [NodeListView](nodelistview.md).[layoutMode](nodelistview.md#layoutmode)*
 
 **Returns:** *[LayoutMode](../enums/layoutmode.md)*
 
@@ -979,6 +1014,8 @@ ___
 
 ▸ **modelColumn**(): *number*
 
+*Inherited from [NodeListView](nodelistview.md).[modelColumn](nodelistview.md#modelcolumn)*
+
 **Returns:** *number*
 
 ___
@@ -1003,6 +1040,8 @@ ___
 ###  movement
 
 ▸ **movement**(): *[Movement](../enums/movement.md)*
+
+*Inherited from [NodeListView](nodelistview.md).[movement](nodelistview.md#movement)*
 
 **Returns:** *[Movement](../enums/movement.md)*
 
@@ -1188,6 +1227,8 @@ ___
 
 ▸ **resizeMode**(): *[ResizeMode](../enums/resizemode.md)*
 
+*Inherited from [NodeListView](nodelistview.md).[resizeMode](nodelistview.md#resizemode)*
+
 **Returns:** *[ResizeMode](../enums/resizemode.md)*
 
 ___
@@ -1222,10 +1263,10 @@ ___
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`item` | [QListWidgetItem](qlistwidgetitem.md) |
-`hint` | [ScrollHint](../enums/scrollhint.md) |
+Name | Type | Default |
+------ | ------ | ------ |
+`item` | [QListWidgetItem](qlistwidgetitem.md) | - |
+`hint` | [ScrollHint](../enums/scrollhint.md) | ScrollHint.EnsureVisible |
 
 **Returns:** *void*
 
@@ -1238,6 +1279,14 @@ ___
 *Inherited from [QAbstractItemView](qabstractitemview.md).[scrollToTop](qabstractitemview.md#scrolltotop)*
 
 **Returns:** *void*
+
+___
+
+###  selectedItems
+
+▸ **selectedItems**(): *[QListWidgetItem](qlistwidgetitem.md)[]*
+
+**Returns:** *[QListWidgetItem](qlistwidgetitem.md)[]*
 
 ___
 
@@ -1329,6 +1378,8 @@ ___
 ###  setBatchSize
 
 ▸ **setBatchSize**(`batchSize`: number): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setBatchSize](nodelistview.md#setbatchsize)*
 
 **Parameters:**
 
@@ -1567,6 +1618,8 @@ ___
 
 ▸ **setFlow**(`flow`: [Flow](../enums/flow.md)): *void*
 
+*Inherited from [NodeListView](nodelistview.md).[setFlow](nodelistview.md#setflow)*
+
 **Parameters:**
 
 Name | Type |
@@ -1680,6 +1733,8 @@ ___
 
 ▸ **setGridSize**(`size`: [QSize](qsize.md)): *void*
 
+*Inherited from [NodeListView](nodelistview.md).[setGridSize](nodelistview.md#setgridsize)*
+
 **Parameters:**
 
 Name | Type |
@@ -1775,6 +1830,8 @@ ___
 
 ▸ **setItemAlignment**(`alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
 
+*Inherited from [NodeListView](nodelistview.md).[setItemAlignment](nodelistview.md#setitemalignment)*
+
 **Parameters:**
 
 Name | Type |
@@ -1787,14 +1844,14 @@ ___
 
 ###  setItemWidget
 
-▸ **setItemWidget**(`item`: [QListWidgetItem](qlistwidgetitem.md), `widget`: [QWidget](qwidget.md)): *void*
+▸ **setItemWidget**(`item`: [QListWidgetItem](qlistwidgetitem.md), `widget`: [NodeWidget](nodewidget.md)‹any›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `item` | [QListWidgetItem](qlistwidgetitem.md) |
-`widget` | [QWidget](qwidget.md) |
+`widget` | [NodeWidget](nodewidget.md)‹any› |
 
 **Returns:** *void*
 
@@ -1819,6 +1876,8 @@ ___
 ###  setLayoutMode
 
 ▸ **setLayoutMode**(`mode`: [LayoutMode](../enums/layoutmode.md)): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setLayoutMode](nodelistview.md#setlayoutmode)*
 
 **Parameters:**
 
@@ -1900,6 +1959,8 @@ ___
 
 ▸ **setModelColumn**(`column`: number): *void*
 
+*Inherited from [NodeListView](nodelistview.md).[setModelColumn](nodelistview.md#setmodelcolumn)*
+
 **Parameters:**
 
 Name | Type |
@@ -1929,6 +1990,8 @@ ___
 ###  setMovement
 
 ▸ **setMovement**(`movement`: [Movement](../enums/movement.md)): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setMovement](nodelistview.md#setmovement)*
 
 **Parameters:**
 
@@ -1995,6 +2058,8 @@ ___
 
 ▸ **setResizeMode**(`mode`: [ResizeMode](../enums/resizemode.md)): *void*
 
+*Inherited from [NodeListView](nodelistview.md).[setResizeMode](nodelistview.md#setresizemode)*
+
 **Parameters:**
 
 Name | Type |
@@ -2008,6 +2073,8 @@ ___
 ###  setRowHidden
 
 ▸ **setRowHidden**(`row`: number, `hide`: boolean): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setRowHidden](nodelistview.md#setrowhidden)*
 
 **Parameters:**
 
@@ -2056,6 +2123,8 @@ ___
 
 ▸ **setSelectionRectVisible**(`show`: boolean): *void*
 
+*Inherited from [NodeListView](nodelistview.md).[setSelectionRectVisible](nodelistview.md#setselectionrectvisible)*
+
 **Parameters:**
 
 Name | Type |
@@ -2083,6 +2152,8 @@ ___
 ###  setSpacing
 
 ▸ **setSpacing**(`space`: number): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setSpacing](nodelistview.md#setspacing)*
 
 **Parameters:**
 
@@ -2146,6 +2217,8 @@ ___
 
 ▸ **setUniformItemSizes**(`enable`: boolean): *void*
 
+*Inherited from [NodeListView](nodelistview.md).[setUniformItemSizes](nodelistview.md#setuniformitemsizes)*
+
 **Parameters:**
 
 Name | Type |
@@ -2191,6 +2264,8 @@ ___
 ###  setViewMode
 
 ▸ **setViewMode**(`mode`: ViewMode): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setViewMode](nodelistview.md#setviewmode)*
 
 **Parameters:**
 
@@ -2303,6 +2378,8 @@ ___
 
 ▸ **setWordWrap**(`on`: boolean): *void*
 
+*Inherited from [NodeListView](nodelistview.md).[setWordWrap](nodelistview.md#setwordwrap)*
+
 **Parameters:**
 
 Name | Type |
@@ -2316,6 +2393,8 @@ ___
 ###  setWrapping
 
 ▸ **setWrapping**(`enable`: boolean): *void*
+
+*Inherited from [NodeListView](nodelistview.md).[setWrapping](nodelistview.md#setwrapping)*
 
 **Parameters:**
 
@@ -2403,9 +2482,9 @@ ___
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`order` | [SortOrder](../enums/sortorder.md) |
+Name | Type | Default |
+------ | ------ | ------ |
+`order` | [SortOrder](../enums/sortorder.md) | SortOrder.AscendingOrder |
 
 **Returns:** *void*
 
@@ -2414,6 +2493,8 @@ ___
 ###  spacing
 
 ▸ **spacing**(): *number*
+
+*Inherited from [NodeListView](nodelistview.md).[spacing](nodelistview.md#spacing)*
 
 **Returns:** *number*
 
@@ -2483,6 +2564,8 @@ ___
 
 ▸ **uniformItemSizes**(): *boolean*
 
+*Inherited from [NodeListView](nodelistview.md).[uniformItemSizes](nodelistview.md#uniformitemsizes)*
+
 **Returns:** *boolean*
 
 ___
@@ -2520,6 +2603,8 @@ ___
 ###  viewMode
 
 ▸ **viewMode**(): *ViewMode*
+
+*Inherited from [NodeListView](nodelistview.md).[viewMode](nodelistview.md#viewmode)*
 
 **Returns:** *ViewMode*
 
@@ -2582,5 +2667,7 @@ ___
 ###  wordWrap
 
 ▸ **wordWrap**(): *boolean*
+
+*Inherited from [NodeListView](nodelistview.md).[wordWrap](nodelistview.md#wordwrap)*
 
 **Returns:** *boolean*

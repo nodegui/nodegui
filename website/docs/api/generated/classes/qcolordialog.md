@@ -1,151 +1,153 @@
 ---
-id: "qabstractspinbox"
-title: "QAbstractSpinBox"
-sidebar_label: "QAbstractSpinBox"
+id: "qcolordialog"
+title: "QColorDialog"
+sidebar_label: "QColorDialog"
 ---
 
-> This is the abstract base class of button widgets, providing their functionality.
+> Create and control color dialogs.
 
-**This class is a JS wrapper around Qt's [QAbstractSpinBox class](https://doc.qt.io/qt-5/qabstractspinbox.html)**
+**This class is a JS wrapper around Qt's [QColorDialog class](https://doc.qt.io/qt-5/qcolordialog.html)**
 
-The QAbstractSpinBox class is an abstract class and therefore, technically, no further instances actually have to be created.
-It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
+The `QColorDialog` class provides a dialog widget for specifying colors.
 
-## Type parameters
+### Example
 
-▪ **Signals**: *[QAbstractSpinBoxSignals](../interfaces/qabstractspinboxsignals.md)*
+```javascript
+const { QColorDialog, QColor } = require("@nodegui/nodegui");
+
+const colorDialog = new QColorDialog();
+colorDialog.setCurrentColor(new QColor('black'));
+colorDialog.exec();
+
+const color = dialog.currentColor();
+console.log(color.red(), color.green(), color.blue());
+
+```
 
 ## Hierarchy
 
-  ↳ [NodeWidget](nodewidget.md)‹Signals›
+  ↳ [NodeDialog](nodedialog.md)‹[QColorDialogSignals](../interfaces/qcolordialogsignals.md)›
 
-  ↳ **QAbstractSpinBox**
-
-  ↳ [NodeDateTimeEdit](nodedatetimeedit.md)
-
-  ↳ [QDoubleSpinBox](qdoublespinbox.md)
-
-  ↳ [QSpinBox](qspinbox.md)
+  ↳ **QColorDialog**
 
 ## Index
 
 ### Constructors
 
-* [constructor](qabstractspinbox.md#constructor)
+* [constructor](qcolordialog.md#constructor)
 
 ### Properties
 
-* [_rawInlineStyle](qabstractspinbox.md#_rawinlinestyle)
-* [actions](qabstractspinbox.md#actions)
-* [layout](qabstractspinbox.md#optional-layout)
-* [native](qabstractspinbox.md#abstract-native)
-* [nodeChildren](qabstractspinbox.md#nodechildren)
-* [nodeParent](qabstractspinbox.md#optional-nodeparent)
-* [type](qabstractspinbox.md#type)
+* [_rawInlineStyle](qcolordialog.md#_rawinlinestyle)
+* [actions](qcolordialog.md#actions)
+* [layout](qcolordialog.md#optional-layout)
+* [native](qcolordialog.md#native)
+* [nodeChildren](qcolordialog.md#nodechildren)
+* [nodeParent](qcolordialog.md#optional-nodeparent)
+* [type](qcolordialog.md#type)
 
 ### Methods
 
-* [activateWindow](qabstractspinbox.md#activatewindow)
-* [addAction](qabstractspinbox.md#addaction)
-* [addEventListener](qabstractspinbox.md#addeventlistener)
-* [adjustSize](qabstractspinbox.md#adjustsize)
-* [alignment](qabstractspinbox.md#alignment)
-* [buttonSymbols](qabstractspinbox.md#buttonsymbols)
-* [close](qabstractspinbox.md#close)
-* [correctionMode](qabstractspinbox.md#correctionmode)
-* [font](qabstractspinbox.md#font)
-* [geometry](qabstractspinbox.md#geometry)
-* [getFlexNode](qabstractspinbox.md#getflexnode)
-* [hasAcceptableInput](qabstractspinbox.md#hasacceptableinput)
-* [hasFrame](qabstractspinbox.md#hasframe)
-* [hasMouseTracking](qabstractspinbox.md#hasmousetracking)
-* [hide](qabstractspinbox.md#hide)
-* [inherits](qabstractspinbox.md#inherits)
-* [isAccelerated](qabstractspinbox.md#isaccelerated)
-* [isEnabled](qabstractspinbox.md#isenabled)
-* [isGroupSeparatorShown](qabstractspinbox.md#isgroupseparatorshown)
-* [isReadOnly](qabstractspinbox.md#isreadonly)
-* [isVisible](qabstractspinbox.md#isvisible)
-* [keyboardTracking](qabstractspinbox.md#keyboardtracking)
-* [lower](qabstractspinbox.md#lower)
-* [move](qabstractspinbox.md#move)
-* [objectName](qabstractspinbox.md#objectname)
-* [pos](qabstractspinbox.md#pos)
-* [property](qabstractspinbox.md#property)
-* [raise](qabstractspinbox.md#raise)
-* [removeEventListener](qabstractspinbox.md#removeeventlistener)
-* [repaint](qabstractspinbox.md#repaint)
-* [repolish](qabstractspinbox.md#repolish)
-* [resize](qabstractspinbox.md#resize)
-* [selectAll](qabstractspinbox.md#selectall)
-* [setAccelerated](qabstractspinbox.md#setaccelerated)
-* [setAlignment](qabstractspinbox.md#setalignment)
-* [setAttribute](qabstractspinbox.md#setattribute)
-* [setButtonSymbols](qabstractspinbox.md#setbuttonsymbols)
-* [setContextMenuPolicy](qabstractspinbox.md#setcontextmenupolicy)
-* [setCorrectionMode](qabstractspinbox.md#setcorrectionmode)
-* [setCursor](qabstractspinbox.md#setcursor)
-* [setEnabled](qabstractspinbox.md#setenabled)
-* [setFixedSize](qabstractspinbox.md#setfixedsize)
-* [setFlexNodeSizeControlled](qabstractspinbox.md#setflexnodesizecontrolled)
-* [setFont](qabstractspinbox.md#setfont)
-* [setFrame](qabstractspinbox.md#setframe)
-* [setGeometry](qabstractspinbox.md#setgeometry)
-* [setGroupSeparatorShown](qabstractspinbox.md#setgroupseparatorshown)
-* [setInlineStyle](qabstractspinbox.md#setinlinestyle)
-* [setKeyboardTracking](qabstractspinbox.md#setkeyboardtracking)
-* [setLayout](qabstractspinbox.md#setlayout)
-* [setMaximumSize](qabstractspinbox.md#setmaximumsize)
-* [setMinimumSize](qabstractspinbox.md#setminimumsize)
-* [setMouseTracking](qabstractspinbox.md#setmousetracking)
-* [setNodeParent](qabstractspinbox.md#setnodeparent)
-* [setObjectName](qabstractspinbox.md#setobjectname)
-* [setProperty](qabstractspinbox.md#setproperty)
-* [setReadOnly](qabstractspinbox.md#setreadonly)
-* [setSpecialValueText](qabstractspinbox.md#setspecialvaluetext)
-* [setStyleSheet](qabstractspinbox.md#setstylesheet)
-* [setWindowFlag](qabstractspinbox.md#setwindowflag)
-* [setWindowIcon](qabstractspinbox.md#setwindowicon)
-* [setWindowOpacity](qabstractspinbox.md#setwindowopacity)
-* [setWindowState](qabstractspinbox.md#setwindowstate)
-* [setWindowTitle](qabstractspinbox.md#setwindowtitle)
-* [setWrapping](qabstractspinbox.md#setwrapping)
-* [show](qabstractspinbox.md#show)
-* [showFullScreen](qabstractspinbox.md#showfullscreen)
-* [showMaximized](qabstractspinbox.md#showmaximized)
-* [showMinimized](qabstractspinbox.md#showminimized)
-* [showNormal](qabstractspinbox.md#shownormal)
-* [size](qabstractspinbox.md#size)
-* [specialValueText](qabstractspinbox.md#specialvaluetext)
-* [stepDown](qabstractspinbox.md#stepdown)
-* [stepUp](qabstractspinbox.md#stepup)
-* [styleSheet](qabstractspinbox.md#stylesheet)
-* [testAttribute](qabstractspinbox.md#testattribute)
-* [text](qabstractspinbox.md#text)
-* [update](qabstractspinbox.md#update)
-* [updateGeometry](qabstractspinbox.md#updategeometry)
-* [windowOpacity](qabstractspinbox.md#windowopacity)
-* [windowState](qabstractspinbox.md#windowstate)
-* [windowTitle](qabstractspinbox.md#windowtitle)
-* [wrapping](qabstractspinbox.md#wrapping)
+* [activateWindow](qcolordialog.md#activatewindow)
+* [addAction](qcolordialog.md#addaction)
+* [addEventListener](qcolordialog.md#addeventlistener)
+* [adjustSize](qcolordialog.md#adjustsize)
+* [close](qcolordialog.md#close)
+* [currentColor](qcolordialog.md#currentcolor)
+* [exec](qcolordialog.md#exec)
+* [font](qcolordialog.md#font)
+* [geometry](qcolordialog.md#geometry)
+* [getFlexNode](qcolordialog.md#getflexnode)
+* [hasMouseTracking](qcolordialog.md#hasmousetracking)
+* [hide](qcolordialog.md#hide)
+* [inherits](qcolordialog.md#inherits)
+* [isEnabled](qcolordialog.md#isenabled)
+* [isSizeGripEnabled](qcolordialog.md#issizegripenabled)
+* [isVisible](qcolordialog.md#isvisible)
+* [lower](qcolordialog.md#lower)
+* [move](qcolordialog.md#move)
+* [objectName](qcolordialog.md#objectname)
+* [open](qcolordialog.md#open)
+* [options](qcolordialog.md#options)
+* [pos](qcolordialog.md#pos)
+* [property](qcolordialog.md#property)
+* [raise](qcolordialog.md#raise)
+* [reject](qcolordialog.md#reject)
+* [removeEventListener](qcolordialog.md#removeeventlistener)
+* [repaint](qcolordialog.md#repaint)
+* [repolish](qcolordialog.md#repolish)
+* [resize](qcolordialog.md#resize)
+* [result](qcolordialog.md#result)
+* [selectedColor](qcolordialog.md#selectedcolor)
+* [setAttribute](qcolordialog.md#setattribute)
+* [setContextMenuPolicy](qcolordialog.md#setcontextmenupolicy)
+* [setCurrentColor](qcolordialog.md#setcurrentcolor)
+* [setCursor](qcolordialog.md#setcursor)
+* [setEnabled](qcolordialog.md#setenabled)
+* [setFixedSize](qcolordialog.md#setfixedsize)
+* [setFlexNodeSizeControlled](qcolordialog.md#setflexnodesizecontrolled)
+* [setFont](qcolordialog.md#setfont)
+* [setGeometry](qcolordialog.md#setgeometry)
+* [setInlineStyle](qcolordialog.md#setinlinestyle)
+* [setLayout](qcolordialog.md#setlayout)
+* [setMaximumSize](qcolordialog.md#setmaximumsize)
+* [setMinimumSize](qcolordialog.md#setminimumsize)
+* [setModal](qcolordialog.md#setmodal)
+* [setMouseTracking](qcolordialog.md#setmousetracking)
+* [setNodeParent](qcolordialog.md#setnodeparent)
+* [setObjectName](qcolordialog.md#setobjectname)
+* [setOption](qcolordialog.md#setoption)
+* [setOptions](qcolordialog.md#setoptions)
+* [setProperty](qcolordialog.md#setproperty)
+* [setResult](qcolordialog.md#setresult)
+* [setSizeGripEnabled](qcolordialog.md#setsizegripenabled)
+* [setStyleSheet](qcolordialog.md#setstylesheet)
+* [setWindowFlag](qcolordialog.md#setwindowflag)
+* [setWindowIcon](qcolordialog.md#setwindowicon)
+* [setWindowOpacity](qcolordialog.md#setwindowopacity)
+* [setWindowState](qcolordialog.md#setwindowstate)
+* [setWindowTitle](qcolordialog.md#setwindowtitle)
+* [show](qcolordialog.md#show)
+* [showFullScreen](qcolordialog.md#showfullscreen)
+* [showMaximized](qcolordialog.md#showmaximized)
+* [showMinimized](qcolordialog.md#showminimized)
+* [showNormal](qcolordialog.md#shownormal)
+* [size](qcolordialog.md#size)
+* [styleSheet](qcolordialog.md#stylesheet)
+* [testAttribute](qcolordialog.md#testattribute)
+* [testOption](qcolordialog.md#testoption)
+* [update](qcolordialog.md#update)
+* [updateGeometry](qcolordialog.md#updategeometry)
+* [windowOpacity](qcolordialog.md#windowopacity)
+* [windowState](qcolordialog.md#windowstate)
+* [windowTitle](qcolordialog.md#windowtitle)
+* [customColor](qcolordialog.md#static-customcolor)
+* [customCount](qcolordialog.md#static-customcount)
+* [setCustomColor](qcolordialog.md#static-setcustomcolor)
+* [setStandardColor](qcolordialog.md#static-setstandardcolor)
+* [standardColor](qcolordialog.md#static-standardcolor)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QAbstractSpinBox**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAbstractSpinBox](qabstractspinbox.md)*
+\+ **new QColorDialog**(): *[QColorDialog](qcolordialog.md)*
 
-*Inherited from [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+**Returns:** *[QColorDialog](qcolordialog.md)*
+
+\+ **new QColorDialog**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QColorDialog](qcolordialog.md)*
+
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`native` | [NativeElement](../globals.md#nativeelement) |
+`parent` | [NodeWidget](nodewidget.md)‹any› |
 
-**Returns:** *[QAbstractSpinBox](qabstractspinbox.md)*
+**Returns:** *[QColorDialog](qcolordialog.md)*
 
 ## Properties
 
@@ -167,17 +169,17 @@ ___
 
 ### `Optional` layout
 
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+• **layout**? : *[NodeLayout](nodelayout.md)‹[QColorDialogSignals](../interfaces/qcolordialogsignals.md)›*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
-### `Abstract` native
+###  native
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
-*Inherited from [Component](component.md).[native](component.md#abstract-native)*
+*Overrides [Component](component.md).[native](component.md#abstract-native)*
 
 ___
 
@@ -233,20 +235,20 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QColorDialogSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QColorDialogSignals*
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
-`callback` | Signals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`callback` | QColorDialogSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
 
@@ -297,22 +299,6 @@ ___
 
 ___
 
-###  alignment
-
-▸ **alignment**(): *[AlignmentFlag](../enums/alignmentflag.md)*
-
-**Returns:** *[AlignmentFlag](../enums/alignmentflag.md)*
-
-___
-
-###  buttonSymbols
-
-▸ **buttonSymbols**(): *[ButtonSymbols](../enums/buttonsymbols.md)*
-
-**Returns:** *[ButtonSymbols](../enums/buttonsymbols.md)*
-
-___
-
 ###  close
 
 ▸ **close**(): *boolean*
@@ -323,11 +309,21 @@ ___
 
 ___
 
-###  correctionMode
+###  currentColor
 
-▸ **correctionMode**(): *[CorrectionMode](../enums/correctionmode.md)*
+▸ **currentColor**(): *[QColor](qcolor.md)*
 
-**Returns:** *[CorrectionMode](../enums/correctionmode.md)*
+**Returns:** *[QColor](qcolor.md)*
+
+___
+
+###  exec
+
+▸ **exec**(): *number*
+
+*Inherited from [NodeDialog](nodedialog.md).[exec](nodedialog.md#exec)*
+
+**Returns:** *number*
 
 ___
 
@@ -358,22 +354,6 @@ ___
 *Inherited from [YogaWidget](yogawidget.md).[getFlexNode](yogawidget.md#getflexnode)*
 
 **Returns:** *[FlexNode](../globals.md#flexnode)*
-
-___
-
-###  hasAcceptableInput
-
-▸ **hasAcceptableInput**(): *boolean*
-
-**Returns:** *boolean*
-
-___
-
-###  hasFrame
-
-▸ **hasFrame**(): *boolean*
-
-**Returns:** *boolean*
 
 ___
 
@@ -413,14 +393,6 @@ Name | Type |
 
 ___
 
-###  isAccelerated
-
-▸ **isAccelerated**(): *boolean*
-
-**Returns:** *boolean*
-
-___
-
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
@@ -431,17 +403,11 @@ ___
 
 ___
 
-###  isGroupSeparatorShown
+###  isSizeGripEnabled
 
-▸ **isGroupSeparatorShown**(): *boolean*
+▸ **isSizeGripEnabled**(): *boolean*
 
-**Returns:** *boolean*
-
-___
-
-###  isReadOnly
-
-▸ **isReadOnly**(): *boolean*
+*Inherited from [NodeDialog](nodedialog.md).[isSizeGripEnabled](nodedialog.md#issizegripenabled)*
 
 **Returns:** *boolean*
 
@@ -452,14 +418,6 @@ ___
 ▸ **isVisible**(): *boolean*
 
 *Inherited from [QMenu](qmenu.md).[isVisible](qmenu.md#isvisible)*
-
-**Returns:** *boolean*
-
-___
-
-###  keyboardTracking
-
-▸ **keyboardTracking**(): *boolean*
 
 **Returns:** *boolean*
 
@@ -499,6 +457,24 @@ ___
 *Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
 
 **Returns:** *string*
+
+___
+
+###  open
+
+▸ **open**(): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[open](nodedialog.md#open)*
+
+**Returns:** *void*
+
+___
+
+###  options
+
+▸ **options**(): *[ColorDialogOption](../enums/colordialogoption.md)*
+
+**Returns:** *[ColorDialogOption](../enums/colordialogoption.md)*
 
 ___
 
@@ -542,22 +518,32 @@ ___
 
 ___
 
+###  reject
+
+▸ **reject**(): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[reject](nodedialog.md#reject)*
+
+**Returns:** *void*
+
+___
+
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QColorDialogSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QColorDialogSignals*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
-`callback` | Signals[SignalType] |
+`callback` | QColorDialogSignals[SignalType] |
 
 **Returns:** *void*
 
@@ -620,39 +606,21 @@ Name | Type |
 
 ___
 
-###  selectAll
+###  result
 
-▸ **selectAll**(): *void*
+▸ **result**(): *number*
 
-**Returns:** *void*
+*Inherited from [NodeDialog](nodedialog.md).[result](nodedialog.md#result)*
 
-___
-
-###  setAccelerated
-
-▸ **setAccelerated**(`on`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`on` | boolean |
-
-**Returns:** *void*
+**Returns:** *number*
 
 ___
 
-###  setAlignment
+###  selectedColor
 
-▸ **setAlignment**(`alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
+▸ **selectedColor**(): *[QColor](qcolor.md)*
 
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`alignment` | [AlignmentFlag](../enums/alignmentflag.md) |
-
-**Returns:** *void*
+**Returns:** *[QColor](qcolor.md)*
 
 ___
 
@@ -668,20 +636,6 @@ Name | Type |
 ------ | ------ |
 `attribute` | [WidgetAttribute](../enums/widgetattribute.md) |
 `switchOn` | boolean |
-
-**Returns:** *void*
-
-___
-
-###  setButtonSymbols
-
-▸ **setButtonSymbols**(`bs`: [ButtonSymbols](../enums/buttonsymbols.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`bs` | [ButtonSymbols](../enums/buttonsymbols.md) |
 
 **Returns:** *void*
 
@@ -703,15 +657,15 @@ Name | Type |
 
 ___
 
-###  setCorrectionMode
+###  setCurrentColor
 
-▸ **setCorrectionMode**(`cm`: [CorrectionMode](../enums/correctionmode.md)): *void*
+▸ **setCurrentColor**(`color`: [QColor](qcolor.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`cm` | [CorrectionMode](../enums/correctionmode.md) |
+`color` | [QColor](qcolor.md) |
 
 **Returns:** *void*
 
@@ -800,20 +754,6 @@ Name | Type |
 
 ___
 
-###  setFrame
-
-▸ **setFrame**(`enable`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`enable` | boolean |
-
-**Returns:** *void*
-
-___
-
 ###  setGeometry
 
 ▸ **setGeometry**(`x`: number, `y`: number, `w`: number, `h`: number): *void*
@@ -828,20 +768,6 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
-
-**Returns:** *void*
-
-___
-
-###  setGroupSeparatorShown
-
-▸ **setGroupSeparatorShown**(`shown`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`shown` | boolean |
 
 **Returns:** *void*
 
@@ -863,23 +789,9 @@ Name | Type |
 
 ___
 
-###  setKeyboardTracking
-
-▸ **setKeyboardTracking**(`kt`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`kt` | boolean |
-
-**Returns:** *void*
-
-___
-
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹Signals›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QColorDialogSignals](../interfaces/qcolordialogsignals.md)›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -887,7 +799,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹Signals› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹[QColorDialogSignals](../interfaces/qcolordialogsignals.md)› |
 
 **Returns:** *void*
 
@@ -922,6 +834,22 @@ Name | Type |
 ------ | ------ |
 `minw` | number |
 `minh` | number |
+
+**Returns:** *void*
+
+___
+
+###  setModal
+
+▸ **setModal**(`modal`: boolean): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setModal](nodedialog.md#setmodal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`modal` | boolean |
 
 **Returns:** *void*
 
@@ -977,6 +905,35 @@ Name | Type |
 
 ___
 
+###  setOption
+
+▸ **setOption**(`option`: [ColorDialogOption](../enums/colordialogoption.md), `on`: boolean): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`option` | [ColorDialogOption](../enums/colordialogoption.md) | - |
+`on` | boolean | true |
+
+**Returns:** *void*
+
+___
+
+###  setOptions
+
+▸ **setOptions**(`options`: [ColorDialogOption](../enums/colordialogoption.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`options` | [ColorDialogOption](../enums/colordialogoption.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setProperty
 
 ▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
@@ -994,29 +951,33 @@ Name | Type |
 
 ___
 
-###  setReadOnly
+###  setResult
 
-▸ **setReadOnly**(`r`: boolean): *void*
+▸ **setResult**(`i`: number): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setResult](nodedialog.md#setresult)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`r` | boolean |
+`i` | number |
 
 **Returns:** *void*
 
 ___
 
-###  setSpecialValueText
+###  setSizeGripEnabled
 
-▸ **setSpecialValueText**(`txt`: string): *void*
+▸ **setSizeGripEnabled**(`enabled`: boolean): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setSizeGripEnabled](nodedialog.md#setsizegripenabled)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`txt` | string |
+`enabled` | boolean |
 
 **Returns:** *void*
 
@@ -1119,20 +1080,6 @@ Name | Type |
 
 ___
 
-###  setWrapping
-
-▸ **setWrapping**(`w`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`w` | boolean |
-
-**Returns:** *void*
-
-___
-
 ###  show
 
 ▸ **show**(): *void*
@@ -1193,30 +1140,6 @@ ___
 
 ___
 
-###  specialValueText
-
-▸ **specialValueText**(): *string*
-
-**Returns:** *string*
-
-___
-
-###  stepDown
-
-▸ **stepDown**(): *void*
-
-**Returns:** *void*
-
-___
-
-###  stepUp
-
-▸ **stepUp**(): *void*
-
-**Returns:** *void*
-
-___
-
 ###  styleSheet
 
 ▸ **styleSheet**(): *string*
@@ -1243,11 +1166,17 @@ Name | Type |
 
 ___
 
-###  text
+###  testOption
 
-▸ **text**(): *string*
+▸ **testOption**(`option`: [ColorDialogOption](../enums/colordialogoption.md)): *boolean*
 
-**Returns:** *string*
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`option` | [ColorDialogOption](../enums/colordialogoption.md) |
+
+**Returns:** *boolean*
 
 ___
 
@@ -1301,8 +1230,66 @@ ___
 
 ___
 
-###  wrapping
+### `Static` customColor
 
-▸ **wrapping**(): *boolean*
+▸ **customColor**(`index`: number): *[QColor](qcolor.md)*
 
-**Returns:** *boolean*
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+**Returns:** *[QColor](qcolor.md)*
+
+___
+
+### `Static` customCount
+
+▸ **customCount**(): *number*
+
+**Returns:** *number*
+
+___
+
+### `Static` setCustomColor
+
+▸ **setCustomColor**(`index`: number, `color`: [QColor](qcolor.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`color` | [QColor](qcolor.md) |
+
+**Returns:** *void*
+
+___
+
+### `Static` setStandardColor
+
+▸ **setStandardColor**(`index`: number, `color`: [QColor](qcolor.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`color` | [QColor](qcolor.md) |
+
+**Returns:** *void*
+
+___
+
+### `Static` standardColor
+
+▸ **standardColor**(`index`: number): *[QColor](qcolor.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+**Returns:** *[QColor](qcolor.md)*

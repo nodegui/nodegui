@@ -29,6 +29,10 @@ Its the root base class in NodeGui world.
 
   ↳ [EventWidget](eventwidget.md)
 
+  ↳ [QColor](qcolor.md)
+
+  ↳ [QBrush](qbrush.md)
+
   ↳ [QKeySequence](qkeysequence.md)
 
   ↳ [QRect](qrect.md)
@@ -55,13 +59,13 @@ Its the root base class in NodeGui world.
 
   ↳ [QDateTime](qdatetime.md)
 
+  ↳ [QStandardItem](qstandarditem.md)
+
   ↳ [QListWidgetItem](qlistwidgetitem.md)
 
   ↳ [QTableWidgetItem](qtablewidgetitem.md)
 
   ↳ [QTreeWidgetItem](qtreewidgetitem.md)
-
-  ↳ [QColor](qcolor.md)
 
   ↳ [QPainter](qpainter.md)
 

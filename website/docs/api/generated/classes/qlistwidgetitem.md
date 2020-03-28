@@ -47,14 +47,21 @@ listWidget.addItem(listWidgetItem);
 
 ### Methods
 
+* [background](qlistwidgetitem.md#background)
 * [checkState](qlistwidgetitem.md#checkstate)
 * [data](qlistwidgetitem.md#data)
 * [flags](qlistwidgetitem.md#flags)
+* [font](qlistwidgetitem.md#font)
+* [foreground](qlistwidgetitem.md#foreground)
 * [icon](qlistwidgetitem.md#icon)
 * [isHidden](qlistwidgetitem.md#ishidden)
 * [isSelected](qlistwidgetitem.md#isselected)
+* [setBackground](qlistwidgetitem.md#setbackground)
 * [setCheckState](qlistwidgetitem.md#setcheckstate)
+* [setData](qlistwidgetitem.md#setdata)
 * [setFlags](qlistwidgetitem.md#setflags)
+* [setFont](qlistwidgetitem.md#setfont)
+* [setForeground](qlistwidgetitem.md#setforeground)
 * [setHidden](qlistwidgetitem.md#sethidden)
 * [setIcon](qlistwidgetitem.md#seticon)
 * [setNodeParent](qlistwidgetitem.md#setnodeparent)
@@ -70,13 +77,20 @@ listWidget.addItem(listWidgetItem);
 * [text](qlistwidgetitem.md#text)
 * [textAlignment](qlistwidgetitem.md#textalignment)
 * [toolTip](qlistwidgetitem.md#tooltip)
+* [type](qlistwidgetitem.md#type)
 * [whatsThis](qlistwidgetitem.md#whatsthis)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QListWidgetItem**(`arg?`: arg): *[QListWidgetItem](qlistwidgetitem.md)*
+\+ **new QListWidgetItem**(): *[QListWidgetItem](qlistwidgetitem.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
+**Returns:** *[QListWidgetItem](qlistwidgetitem.md)*
+
+\+ **new QListWidgetItem**(`other`: [QListWidgetItem](qlistwidgetitem.md)): *[QListWidgetItem](qlistwidgetitem.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -84,7 +98,31 @@ listWidget.addItem(listWidgetItem);
 
 Name | Type |
 ------ | ------ |
-`arg?` | arg |
+`other` | [QListWidgetItem](qlistwidgetitem.md) |
+
+**Returns:** *[QListWidgetItem](qlistwidgetitem.md)*
+
+\+ **new QListWidgetItem**(`native`: [NativeElement](../globals.md#nativeelement)): *[QListWidgetItem](qlistwidgetitem.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`native` | [NativeElement](../globals.md#nativeelement) |
+
+**Returns:** *[QListWidgetItem](qlistwidgetitem.md)*
+
+\+ **new QListWidgetItem**(`text`: string): *[QListWidgetItem](qlistwidgetitem.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
 
 **Returns:** *[QListWidgetItem](qlistwidgetitem.md)*
 
@@ -113,6 +151,14 @@ ___
 *Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
 
 ## Methods
+
+###  background
+
+▸ **background**(): *[QBrush](qbrush.md)*
+
+**Returns:** *[QBrush](qbrush.md)*
+
+___
 
 ###  checkState
 
@@ -144,6 +190,22 @@ ___
 
 ___
 
+###  font
+
+▸ **font**(): *[QFont](qfont.md)*
+
+**Returns:** *[QFont](qfont.md)*
+
+___
+
+###  foreground
+
+▸ **foreground**(): *[QBrush](qbrush.md)*
+
+**Returns:** *[QBrush](qbrush.md)*
+
+___
+
 ###  icon
 
 ▸ **icon**(): *[QIcon](qicon.md)*
@@ -168,6 +230,20 @@ ___
 
 ___
 
+###  setBackground
+
+▸ **setBackground**(`brush`: [QBrush](qbrush.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`brush` | [QBrush](qbrush.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setCheckState
 
 ▸ **setCheckState**(`state`: [CheckState](../enums/checkstate.md)): *void*
@@ -182,6 +258,21 @@ Name | Type |
 
 ___
 
+###  setData
+
+▸ **setData**(`role`: number, `value`: [QVariant](qvariant.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`role` | number |
+`value` | [QVariant](qvariant.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setFlags
 
 ▸ **setFlags**(`flags`: [ItemFlag](../enums/itemflag.md)): *void*
@@ -191,6 +282,34 @@ ___
 Name | Type |
 ------ | ------ |
 `flags` | [ItemFlag](../enums/itemflag.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFont
+
+▸ **setFont**(`font`: [QFont](qfont.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`font` | [QFont](qfont.md) |
+
+**Returns:** *void*
+
+___
+
+###  setForeground
+
+▸ **setForeground**(`brush`: [QBrush](qbrush.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`brush` | [QBrush](qbrush.md) |
 
 **Returns:** *void*
 
@@ -375,6 +494,14 @@ ___
 ▸ **toolTip**(): *string*
 
 **Returns:** *string*
+
+___
+
+###  type
+
+▸ **type**(): *number*
+
+**Returns:** *number*
 
 ___
 
