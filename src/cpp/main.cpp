@@ -41,6 +41,7 @@
 #include "QtWidgets/QDoubleSpinBox/qdoublespinbox_wrap.h"
 #include "QtWidgets/QErrorMessage/qerrormessage_wrap.h"
 #include "QtWidgets/QFileDialog/qfiledialog_wrap.h"
+#include "QtWidgets/QFontDialog/qfontdialog_wrap.h"
 #include "QtWidgets/QFrame/qframe_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
@@ -125,6 +126,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QDateTimeEditWrap::init(env, exports);
   QErrorMessageWrap::init(env, exports);
   QFileDialogWrap::init(env, exports);
+  QFontDialogWrap::init(env, exports);
   QFrameWrap::init(env, exports);
   QListViewWrap::init(env, exports);
   QListWidgetWrap::init(env, exports);

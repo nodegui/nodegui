@@ -45,6 +45,7 @@ export { QDial, QDialSignals } from './lib/QtWidgets/QDial';
 export { QDoubleSpinBox, QDoubleSpinBoxSignals } from './lib/QtWidgets/QDoubleSpinBox';
 export { QErrorMessage, QErrorMessageSignals } from './lib/QtWidgets/QErrorMessage';
 export { QFileDialog, QFileDialogSignals } from './lib/QtWidgets/QFileDialog';
+export { QFontDialog, QFontDialogSignals, FontDialogOption } from './lib/QtWidgets/QFontDialog';
 export { QFrame, QFrameSignals, Shadow, Shape } from './lib/QtWidgets/QFrame';
 export { QLineEdit, QLineEditSignals, EchoMode } from './lib/QtWidgets/QLineEdit';
 export { QMainWindow, QMainWindowSignals } from './lib/QtWidgets/QMainWindow';
