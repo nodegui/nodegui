@@ -95,6 +95,7 @@ console.log('currentIndexChanged: ' + index);
 * [setCurrentIndex](qcombobox.md#setcurrentindex)
 * [setCurrentText](qcombobox.md#setcurrenttext)
 * [setCursor](qcombobox.md#setcursor)
+* [setEditText](qcombobox.md#setedittext)
 * [setEditable](qcombobox.md#seteditable)
 * [setEnabled](qcombobox.md#setenabled)
 * [setFixedSize](qcombobox.md#setfixedsize)
@@ -106,6 +107,7 @@ console.log('currentIndexChanged: ' + index);
 * [setMaxVisibleItems](qcombobox.md#setmaxvisibleitems)
 * [setMaximumSize](qcombobox.md#setmaximumsize)
 * [setMinimumSize](qcombobox.md#setminimumsize)
+* [setModel](qcombobox.md#setmodel)
 * [setMouseTracking](qcombobox.md#setmousetracking)
 * [setNodeParent](qcombobox.md#setnodeparent)
 * [setObjectName](qcombobox.md#setobjectname)
@@ -790,6 +792,20 @@ Name | Type |
 
 ___
 
+###  setEditText
+
+▸ **setEditText**(`text`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+
+**Returns:** *void*
+
+___
+
 ###  setEditable
 
 ▸ **setEditable**(`editable`: boolean): *void*
@@ -965,6 +981,20 @@ Name | Type |
 ------ | ------ |
 `minw` | number |
 `minh` | number |
+
+**Returns:** *void*
+
+___
+
+###  setModel
+
+▸ **setModel**(`model`: [QStandardItemModel](qstandarditemmodel.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`model` | [QStandardItemModel](qstandarditemmodel.md) |
 
 **Returns:** *void*
 

@@ -60,6 +60,8 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
   ↳ [NodeDialog](nodedialog.md)
 
+  ↳ [QLCDNumber](qlcdnumber.md)
+
   ↳ [QLineEdit](qlineedit.md)
 
   ↳ [QMenuBar](qmenubar.md)
@@ -71,6 +73,8 @@ Implement all native QWidget methods here so that all widgets get access to thos
   ↳ [QProgressBar](qprogressbar.md)
 
   ↳ [QComboBox](qcombobox.md)
+
+  ↳ [QTabBar](qtabbar.md)
 
   ↳ [QTabWidget](qtabwidget.md)
 

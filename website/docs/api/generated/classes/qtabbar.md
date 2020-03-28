@@ -1,151 +1,178 @@
 ---
-id: "qabstractspinbox"
-title: "QAbstractSpinBox"
-sidebar_label: "QAbstractSpinBox"
+id: "qtabbar"
+title: "QTabBar"
+sidebar_label: "QTabBar"
 ---
 
-> This is the abstract base class of button widgets, providing their functionality.
+> Create and control tabbar.
 
-**This class is a JS wrapper around Qt's [QAbstractSpinBox class](https://doc.qt.io/qt-5/qabstractspinbox.html)**
+**This class is a JS wrapper around Qt's [QTabBar class](https://doc.qt.io/qt-5/qtabbar.html)**
 
-The QAbstractSpinBox class is an abstract class and therefore, technically, no further instances actually have to be created.
-It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
+The QTabBar class provides a tab bar, e.g. for use in tabbed dialogs.
 
-## Type parameters
+### Example
 
-▪ **Signals**: *[QAbstractSpinBoxSignals](../interfaces/qabstractspinboxsignals.md)*
+```javascript
+const { QTabBar } = require("@nodegui/nodegui");
+
+const tabBar = new QTabBar();
+
+```
 
 ## Hierarchy
 
-  ↳ [NodeWidget](nodewidget.md)‹Signals›
+  ↳ [NodeWidget](nodewidget.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)›
 
-  ↳ **QAbstractSpinBox**
-
-  ↳ [NodeDateTimeEdit](nodedatetimeedit.md)
-
-  ↳ [QDoubleSpinBox](qdoublespinbox.md)
-
-  ↳ [QSpinBox](qspinbox.md)
+  ↳ **QTabBar**
 
 ## Index
 
 ### Constructors
 
-* [constructor](qabstractspinbox.md#constructor)
+* [constructor](qtabbar.md#constructor)
 
 ### Properties
 
-* [_rawInlineStyle](qabstractspinbox.md#_rawinlinestyle)
-* [actions](qabstractspinbox.md#actions)
-* [layout](qabstractspinbox.md#optional-layout)
-* [native](qabstractspinbox.md#abstract-native)
-* [nodeChildren](qabstractspinbox.md#nodechildren)
-* [nodeParent](qabstractspinbox.md#optional-nodeparent)
-* [type](qabstractspinbox.md#type)
+* [_rawInlineStyle](qtabbar.md#_rawinlinestyle)
+* [actions](qtabbar.md#actions)
+* [layout](qtabbar.md#optional-layout)
+* [native](qtabbar.md#native)
+* [nodeChildren](qtabbar.md#nodechildren)
+* [nodeParent](qtabbar.md#optional-nodeparent)
+* [type](qtabbar.md#type)
 
 ### Methods
 
-* [activateWindow](qabstractspinbox.md#activatewindow)
-* [addAction](qabstractspinbox.md#addaction)
-* [addEventListener](qabstractspinbox.md#addeventlistener)
-* [adjustSize](qabstractspinbox.md#adjustsize)
-* [alignment](qabstractspinbox.md#alignment)
-* [buttonSymbols](qabstractspinbox.md#buttonsymbols)
-* [close](qabstractspinbox.md#close)
-* [correctionMode](qabstractspinbox.md#correctionmode)
-* [font](qabstractspinbox.md#font)
-* [geometry](qabstractspinbox.md#geometry)
-* [getFlexNode](qabstractspinbox.md#getflexnode)
-* [hasAcceptableInput](qabstractspinbox.md#hasacceptableinput)
-* [hasFrame](qabstractspinbox.md#hasframe)
-* [hasMouseTracking](qabstractspinbox.md#hasmousetracking)
-* [hide](qabstractspinbox.md#hide)
-* [inherits](qabstractspinbox.md#inherits)
-* [isAccelerated](qabstractspinbox.md#isaccelerated)
-* [isEnabled](qabstractspinbox.md#isenabled)
-* [isGroupSeparatorShown](qabstractspinbox.md#isgroupseparatorshown)
-* [isReadOnly](qabstractspinbox.md#isreadonly)
-* [isVisible](qabstractspinbox.md#isvisible)
-* [keyboardTracking](qabstractspinbox.md#keyboardtracking)
-* [lower](qabstractspinbox.md#lower)
-* [move](qabstractspinbox.md#move)
-* [objectName](qabstractspinbox.md#objectname)
-* [pos](qabstractspinbox.md#pos)
-* [property](qabstractspinbox.md#property)
-* [raise](qabstractspinbox.md#raise)
-* [removeEventListener](qabstractspinbox.md#removeeventlistener)
-* [repaint](qabstractspinbox.md#repaint)
-* [repolish](qabstractspinbox.md#repolish)
-* [resize](qabstractspinbox.md#resize)
-* [selectAll](qabstractspinbox.md#selectall)
-* [setAccelerated](qabstractspinbox.md#setaccelerated)
-* [setAlignment](qabstractspinbox.md#setalignment)
-* [setAttribute](qabstractspinbox.md#setattribute)
-* [setButtonSymbols](qabstractspinbox.md#setbuttonsymbols)
-* [setContextMenuPolicy](qabstractspinbox.md#setcontextmenupolicy)
-* [setCorrectionMode](qabstractspinbox.md#setcorrectionmode)
-* [setCursor](qabstractspinbox.md#setcursor)
-* [setEnabled](qabstractspinbox.md#setenabled)
-* [setFixedSize](qabstractspinbox.md#setfixedsize)
-* [setFlexNodeSizeControlled](qabstractspinbox.md#setflexnodesizecontrolled)
-* [setFont](qabstractspinbox.md#setfont)
-* [setFrame](qabstractspinbox.md#setframe)
-* [setGeometry](qabstractspinbox.md#setgeometry)
-* [setGroupSeparatorShown](qabstractspinbox.md#setgroupseparatorshown)
-* [setInlineStyle](qabstractspinbox.md#setinlinestyle)
-* [setKeyboardTracking](qabstractspinbox.md#setkeyboardtracking)
-* [setLayout](qabstractspinbox.md#setlayout)
-* [setMaximumSize](qabstractspinbox.md#setmaximumsize)
-* [setMinimumSize](qabstractspinbox.md#setminimumsize)
-* [setMouseTracking](qabstractspinbox.md#setmousetracking)
-* [setNodeParent](qabstractspinbox.md#setnodeparent)
-* [setObjectName](qabstractspinbox.md#setobjectname)
-* [setProperty](qabstractspinbox.md#setproperty)
-* [setReadOnly](qabstractspinbox.md#setreadonly)
-* [setSpecialValueText](qabstractspinbox.md#setspecialvaluetext)
-* [setStyleSheet](qabstractspinbox.md#setstylesheet)
-* [setWindowFlag](qabstractspinbox.md#setwindowflag)
-* [setWindowIcon](qabstractspinbox.md#setwindowicon)
-* [setWindowOpacity](qabstractspinbox.md#setwindowopacity)
-* [setWindowState](qabstractspinbox.md#setwindowstate)
-* [setWindowTitle](qabstractspinbox.md#setwindowtitle)
-* [setWrapping](qabstractspinbox.md#setwrapping)
-* [show](qabstractspinbox.md#show)
-* [showFullScreen](qabstractspinbox.md#showfullscreen)
-* [showMaximized](qabstractspinbox.md#showmaximized)
-* [showMinimized](qabstractspinbox.md#showminimized)
-* [showNormal](qabstractspinbox.md#shownormal)
-* [size](qabstractspinbox.md#size)
-* [specialValueText](qabstractspinbox.md#specialvaluetext)
-* [stepDown](qabstractspinbox.md#stepdown)
-* [stepUp](qabstractspinbox.md#stepup)
-* [styleSheet](qabstractspinbox.md#stylesheet)
-* [testAttribute](qabstractspinbox.md#testattribute)
-* [text](qabstractspinbox.md#text)
-* [update](qabstractspinbox.md#update)
-* [updateGeometry](qabstractspinbox.md#updategeometry)
-* [windowOpacity](qabstractspinbox.md#windowopacity)
-* [windowState](qabstractspinbox.md#windowstate)
-* [windowTitle](qabstractspinbox.md#windowtitle)
-* [wrapping](qabstractspinbox.md#wrapping)
+* [accessibleTabName](qtabbar.md#accessibletabname)
+* [activateWindow](qtabbar.md#activatewindow)
+* [addAction](qtabbar.md#addaction)
+* [addEventListener](qtabbar.md#addeventlistener)
+* [addTab](qtabbar.md#addtab)
+* [adjustSize](qtabbar.md#adjustsize)
+* [autoHide](qtabbar.md#autohide)
+* [changeCurrentOnDrag](qtabbar.md#changecurrentondrag)
+* [close](qtabbar.md#close)
+* [count](qtabbar.md#count)
+* [currentIndex](qtabbar.md#currentindex)
+* [documentMode](qtabbar.md#documentmode)
+* [drawBase](qtabbar.md#drawbase)
+* [elideMode](qtabbar.md#elidemode)
+* [expanding](qtabbar.md#expanding)
+* [font](qtabbar.md#font)
+* [geometry](qtabbar.md#geometry)
+* [getFlexNode](qtabbar.md#getflexnode)
+* [hasMouseTracking](qtabbar.md#hasmousetracking)
+* [hide](qtabbar.md#hide)
+* [iconSize](qtabbar.md#iconsize)
+* [inherits](qtabbar.md#inherits)
+* [insertTab](qtabbar.md#inserttab)
+* [isEnabled](qtabbar.md#isenabled)
+* [isMovable](qtabbar.md#ismovable)
+* [isTabEnabled](qtabbar.md#istabenabled)
+* [isVisible](qtabbar.md#isvisible)
+* [lower](qtabbar.md#lower)
+* [move](qtabbar.md#move)
+* [moveTab](qtabbar.md#movetab)
+* [objectName](qtabbar.md#objectname)
+* [pos](qtabbar.md#pos)
+* [property](qtabbar.md#property)
+* [raise](qtabbar.md#raise)
+* [removeEventListener](qtabbar.md#removeeventlistener)
+* [removeTab](qtabbar.md#removetab)
+* [repaint](qtabbar.md#repaint)
+* [repolish](qtabbar.md#repolish)
+* [resize](qtabbar.md#resize)
+* [selectionBehaviorOnRemove](qtabbar.md#selectionbehavioronremove)
+* [setAccessibleTabName](qtabbar.md#setaccessibletabname)
+* [setAttribute](qtabbar.md#setattribute)
+* [setAutoHide](qtabbar.md#setautohide)
+* [setChangeCurrentOnDrag](qtabbar.md#setchangecurrentondrag)
+* [setContextMenuPolicy](qtabbar.md#setcontextmenupolicy)
+* [setCurrentIndex](qtabbar.md#setcurrentindex)
+* [setCursor](qtabbar.md#setcursor)
+* [setDocumentMode](qtabbar.md#setdocumentmode)
+* [setDrawBase](qtabbar.md#setdrawbase)
+* [setElideMode](qtabbar.md#setelidemode)
+* [setEnabled](qtabbar.md#setenabled)
+* [setExpanding](qtabbar.md#setexpanding)
+* [setFixedSize](qtabbar.md#setfixedsize)
+* [setFlexNodeSizeControlled](qtabbar.md#setflexnodesizecontrolled)
+* [setFont](qtabbar.md#setfont)
+* [setGeometry](qtabbar.md#setgeometry)
+* [setIconSize](qtabbar.md#seticonsize)
+* [setInlineStyle](qtabbar.md#setinlinestyle)
+* [setLayout](qtabbar.md#setlayout)
+* [setMaximumSize](qtabbar.md#setmaximumsize)
+* [setMinimumSize](qtabbar.md#setminimumsize)
+* [setMouseTracking](qtabbar.md#setmousetracking)
+* [setMovable](qtabbar.md#setmovable)
+* [setNodeParent](qtabbar.md#setnodeparent)
+* [setObjectName](qtabbar.md#setobjectname)
+* [setProperty](qtabbar.md#setproperty)
+* [setSelectionBehaviorOnRemove](qtabbar.md#setselectionbehavioronremove)
+* [setShape](qtabbar.md#setshape)
+* [setStyleSheet](qtabbar.md#setstylesheet)
+* [setTabButton](qtabbar.md#settabbutton)
+* [setTabData](qtabbar.md#settabdata)
+* [setTabEnabled](qtabbar.md#settabenabled)
+* [setTabIcon](qtabbar.md#settabicon)
+* [setTabText](qtabbar.md#settabtext)
+* [setTabTextColor](qtabbar.md#settabtextcolor)
+* [setTabToolTip](qtabbar.md#settabtooltip)
+* [setTabWhatsThis](qtabbar.md#settabwhatsthis)
+* [setTabsClosable](qtabbar.md#settabsclosable)
+* [setUsesScrollButtons](qtabbar.md#setusesscrollbuttons)
+* [setWindowFlag](qtabbar.md#setwindowflag)
+* [setWindowIcon](qtabbar.md#setwindowicon)
+* [setWindowOpacity](qtabbar.md#setwindowopacity)
+* [setWindowState](qtabbar.md#setwindowstate)
+* [setWindowTitle](qtabbar.md#setwindowtitle)
+* [shape](qtabbar.md#shape)
+* [show](qtabbar.md#show)
+* [showFullScreen](qtabbar.md#showfullscreen)
+* [showMaximized](qtabbar.md#showmaximized)
+* [showMinimized](qtabbar.md#showminimized)
+* [showNormal](qtabbar.md#shownormal)
+* [size](qtabbar.md#size)
+* [styleSheet](qtabbar.md#stylesheet)
+* [tabAt](qtabbar.md#tabat)
+* [tabData](qtabbar.md#tabdata)
+* [tabIcon](qtabbar.md#tabicon)
+* [tabRect](qtabbar.md#tabrect)
+* [tabText](qtabbar.md#tabtext)
+* [tabTextColor](qtabbar.md#tabtextcolor)
+* [tabToolTip](qtabbar.md#tabtooltip)
+* [tabWhatsThis](qtabbar.md#tabwhatsthis)
+* [tabsClosable](qtabbar.md#tabsclosable)
+* [testAttribute](qtabbar.md#testattribute)
+* [update](qtabbar.md#update)
+* [updateGeometry](qtabbar.md#updategeometry)
+* [usesScrollButtons](qtabbar.md#usesscrollbuttons)
+* [windowOpacity](qtabbar.md#windowopacity)
+* [windowState](qtabbar.md#windowstate)
+* [windowTitle](qtabbar.md#windowtitle)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QAbstractSpinBox**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAbstractSpinBox](qabstractspinbox.md)*
+\+ **new QTabBar**(): *[QTabBar](qtabbar.md)*
 
-*Inherited from [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+**Returns:** *[QTabBar](qtabbar.md)*
+
+\+ **new QTabBar**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QTabBar](qtabbar.md)*
+
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`native` | [NativeElement](../globals.md#nativeelement) |
+`parent` | [NodeWidget](nodewidget.md)‹any› |
 
-**Returns:** *[QAbstractSpinBox](qabstractspinbox.md)*
+**Returns:** *[QTabBar](qtabbar.md)*
 
 ## Properties
 
@@ -167,17 +194,17 @@ ___
 
 ### `Optional` layout
 
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+• **layout**? : *[NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)›*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
-### `Abstract` native
+###  native
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
-*Inherited from [Component](component.md).[native](component.md#abstract-native)*
+*Overrides [Component](component.md).[native](component.md#abstract-native)*
 
 ___
 
@@ -204,6 +231,20 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  accessibleTabName
+
+▸ **accessibleTabName**(`index`: number): *string*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+**Returns:** *string*
+
+___
 
 ###  activateWindow
 
@@ -233,20 +274,20 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QTabBarSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QTabBarSignals*
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
-`callback` | Signals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`callback` | QTabBarSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
 
@@ -287,6 +328,21 @@ Name | Type |
 
 ___
 
+###  addTab
+
+▸ **addTab**(`icon`: [QIcon](qicon.md) | undefined, `text`: string): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`icon` | [QIcon](qicon.md) &#124; undefined |
+`text` | string |
+
+**Returns:** *number*
+
+___
+
 ###  adjustSize
 
 ▸ **adjustSize**(): *void*
@@ -297,19 +353,19 @@ ___
 
 ___
 
-###  alignment
+###  autoHide
 
-▸ **alignment**(): *[AlignmentFlag](../enums/alignmentflag.md)*
+▸ **autoHide**(): *boolean*
 
-**Returns:** *[AlignmentFlag](../enums/alignmentflag.md)*
+**Returns:** *boolean*
 
 ___
 
-###  buttonSymbols
+###  changeCurrentOnDrag
 
-▸ **buttonSymbols**(): *[ButtonSymbols](../enums/buttonsymbols.md)*
+▸ **changeCurrentOnDrag**(): *boolean*
 
-**Returns:** *[ButtonSymbols](../enums/buttonsymbols.md)*
+**Returns:** *boolean*
 
 ___
 
@@ -323,11 +379,51 @@ ___
 
 ___
 
-###  correctionMode
+###  count
 
-▸ **correctionMode**(): *[CorrectionMode](../enums/correctionmode.md)*
+▸ **count**(): *number*
 
-**Returns:** *[CorrectionMode](../enums/correctionmode.md)*
+**Returns:** *number*
+
+___
+
+###  currentIndex
+
+▸ **currentIndex**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  documentMode
+
+▸ **documentMode**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  drawBase
+
+▸ **drawBase**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  elideMode
+
+▸ **elideMode**(): *[TextElideMode](../enums/textelidemode.md)*
+
+**Returns:** *[TextElideMode](../enums/textelidemode.md)*
+
+___
+
+###  expanding
+
+▸ **expanding**(): *boolean*
+
+**Returns:** *boolean*
 
 ___
 
@@ -361,22 +457,6 @@ ___
 
 ___
 
-###  hasAcceptableInput
-
-▸ **hasAcceptableInput**(): *boolean*
-
-**Returns:** *boolean*
-
-___
-
-###  hasFrame
-
-▸ **hasFrame**(): *boolean*
-
-**Returns:** *boolean*
-
-___
-
 ###  hasMouseTracking
 
 ▸ **hasMouseTracking**(): *boolean*
@@ -397,6 +477,14 @@ ___
 
 ___
 
+###  iconSize
+
+▸ **iconSize**(): *[QSize](qsize.md)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  inherits
 
 ▸ **inherits**(`className`: string): *boolean*
@@ -413,11 +501,19 @@ Name | Type |
 
 ___
 
-###  isAccelerated
+###  insertTab
 
-▸ **isAccelerated**(): *boolean*
+▸ **insertTab**(`index`: number, `icon`: [QIcon](qicon.md) | undefined, `text`: string): *number*
 
-**Returns:** *boolean*
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`icon` | [QIcon](qicon.md) &#124; undefined |
+`text` | string |
+
+**Returns:** *number*
 
 ___
 
@@ -431,17 +527,23 @@ ___
 
 ___
 
-###  isGroupSeparatorShown
+###  isMovable
 
-▸ **isGroupSeparatorShown**(): *boolean*
+▸ **isMovable**(): *boolean*
 
 **Returns:** *boolean*
 
 ___
 
-###  isReadOnly
+###  isTabEnabled
 
-▸ **isReadOnly**(): *boolean*
+▸ **isTabEnabled**(`index`: number): *boolean*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
 
 **Returns:** *boolean*
 
@@ -452,14 +554,6 @@ ___
 ▸ **isVisible**(): *boolean*
 
 *Inherited from [QMenu](qmenu.md).[isVisible](qmenu.md#isvisible)*
-
-**Returns:** *boolean*
-
-___
-
-###  keyboardTracking
-
-▸ **keyboardTracking**(): *boolean*
 
 **Returns:** *boolean*
 
@@ -487,6 +581,21 @@ Name | Type |
 ------ | ------ |
 `x` | number |
 `y` | number |
+
+**Returns:** *void*
+
+___
+
+###  moveTab
+
+▸ **moveTab**(`from`: number, `to`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`from` | number |
+`to` | number |
 
 **Returns:** *void*
 
@@ -544,20 +653,20 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QTabBarSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QTabBarSignals*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
-`callback` | Signals[SignalType] |
+`callback` | QTabBarSignals[SignalType] |
 
 **Returns:** *void*
 
@@ -578,6 +687,20 @@ Name | Type |
 Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
+
+**Returns:** *void*
+
+___
+
+###  removeTab
+
+▸ **removeTab**(`index`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
 
 **Returns:** *void*
 
@@ -620,37 +743,24 @@ Name | Type |
 
 ___
 
-###  selectAll
+###  selectionBehaviorOnRemove
 
-▸ **selectAll**(): *void*
+▸ **selectionBehaviorOnRemove**(): *SelectionBehavior*
 
-**Returns:** *void*
+**Returns:** *SelectionBehavior*
 
 ___
 
-###  setAccelerated
+###  setAccessibleTabName
 
-▸ **setAccelerated**(`on`: boolean): *void*
+▸ **setAccessibleTabName**(`index`: number, `name`: string): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`on` | boolean |
-
-**Returns:** *void*
-
-___
-
-###  setAlignment
-
-▸ **setAlignment**(`alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`alignment` | [AlignmentFlag](../enums/alignmentflag.md) |
+`index` | number |
+`name` | string |
 
 **Returns:** *void*
 
@@ -673,15 +783,29 @@ Name | Type |
 
 ___
 
-###  setButtonSymbols
+###  setAutoHide
 
-▸ **setButtonSymbols**(`bs`: [ButtonSymbols](../enums/buttonsymbols.md)): *void*
+▸ **setAutoHide**(`hide`: boolean): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`bs` | [ButtonSymbols](../enums/buttonsymbols.md) |
+`hide` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setChangeCurrentOnDrag
+
+▸ **setChangeCurrentOnDrag**(`change`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`change` | boolean |
 
 **Returns:** *void*
 
@@ -703,15 +827,15 @@ Name | Type |
 
 ___
 
-###  setCorrectionMode
+###  setCurrentIndex
 
-▸ **setCorrectionMode**(`cm`: [CorrectionMode](../enums/correctionmode.md)): *void*
+▸ **setCurrentIndex**(`index`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`cm` | [CorrectionMode](../enums/correctionmode.md) |
+`index` | number |
 
 **Returns:** *void*
 
@@ -733,11 +857,67 @@ Name | Type |
 
 ___
 
+###  setDocumentMode
+
+▸ **setDocumentMode**(`set`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`set` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setDrawBase
+
+▸ **setDrawBase**(`drawTheBase`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`drawTheBase` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setElideMode
+
+▸ **setElideMode**(`mode`: [TextElideMode](../enums/textelidemode.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`mode` | [TextElideMode](../enums/textelidemode.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setEnabled
 
 ▸ **setEnabled**(`enabled`: boolean): *void*
 
 *Inherited from [QMenu](qmenu.md).[setEnabled](qmenu.md#setenabled)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enabled` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setExpanding
+
+▸ **setExpanding**(`enabled`: boolean): *void*
 
 **Parameters:**
 
@@ -800,20 +980,6 @@ Name | Type |
 
 ___
 
-###  setFrame
-
-▸ **setFrame**(`enable`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`enable` | boolean |
-
-**Returns:** *void*
-
-___
-
 ###  setGeometry
 
 ▸ **setGeometry**(`x`: number, `y`: number, `w`: number, `h`: number): *void*
@@ -833,15 +999,15 @@ Name | Type |
 
 ___
 
-###  setGroupSeparatorShown
+###  setIconSize
 
-▸ **setGroupSeparatorShown**(`shown`: boolean): *void*
+▸ **setIconSize**(`size`: [QSize](qsize.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`shown` | boolean |
+`size` | [QSize](qsize.md) |
 
 **Returns:** *void*
 
@@ -863,23 +1029,9 @@ Name | Type |
 
 ___
 
-###  setKeyboardTracking
-
-▸ **setKeyboardTracking**(`kt`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`kt` | boolean |
-
-**Returns:** *void*
-
-___
-
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹Signals›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -887,7 +1039,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹Signals› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)› |
 
 **Returns:** *void*
 
@@ -938,6 +1090,20 @@ ___
 Name | Type |
 ------ | ------ |
 `isMouseTracked` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setMovable
+
+▸ **setMovable**(`movable`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`movable` | boolean |
 
 **Returns:** *void*
 
@@ -994,29 +1160,29 @@ Name | Type |
 
 ___
 
-###  setReadOnly
+###  setSelectionBehaviorOnRemove
 
-▸ **setReadOnly**(`r`: boolean): *void*
+▸ **setSelectionBehaviorOnRemove**(`behavior`: SelectionBehavior): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`r` | boolean |
+`behavior` | SelectionBehavior |
 
 **Returns:** *void*
 
 ___
 
-###  setSpecialValueText
+###  setShape
 
-▸ **setSpecialValueText**(`txt`: string): *void*
+▸ **setShape**(`shape`: [TabBarShape](../enums/tabbarshape.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`txt` | string |
+`shape` | [TabBarShape](../enums/tabbarshape.md) |
 
 **Returns:** *void*
 
@@ -1033,6 +1199,155 @@ ___
 Name | Type |
 ------ | ------ |
 `styleSheet` | string |
+
+**Returns:** *void*
+
+___
+
+###  setTabButton
+
+▸ **setTabButton**(`index`: number, `position`: [ButtonPosition](../enums/buttonposition.md), `widget`: [NodeWidget](nodewidget.md)‹any›): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`position` | [ButtonPosition](../enums/buttonposition.md) |
+`widget` | [NodeWidget](nodewidget.md)‹any› |
+
+**Returns:** *void*
+
+___
+
+###  setTabData
+
+▸ **setTabData**(`index`: number, `data`: [QVariant](qvariant.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`data` | [QVariant](qvariant.md) |
+
+**Returns:** *void*
+
+___
+
+###  setTabEnabled
+
+▸ **setTabEnabled**(`index`: number, `enabled`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`enabled` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setTabIcon
+
+▸ **setTabIcon**(`index`: number, `icon`: [QIcon](qicon.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`icon` | [QIcon](qicon.md) |
+
+**Returns:** *void*
+
+___
+
+###  setTabText
+
+▸ **setTabText**(`index`: number, `text`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`text` | string |
+
+**Returns:** *void*
+
+___
+
+###  setTabTextColor
+
+▸ **setTabTextColor**(`index`: number, `color`: [QColor](qcolor.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`color` | [QColor](qcolor.md) |
+
+**Returns:** *void*
+
+___
+
+###  setTabToolTip
+
+▸ **setTabToolTip**(`index`: number, `tip`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`tip` | string |
+
+**Returns:** *void*
+
+___
+
+###  setTabWhatsThis
+
+▸ **setTabWhatsThis**(`index`: number, `text`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`text` | string |
+
+**Returns:** *void*
+
+___
+
+###  setTabsClosable
+
+▸ **setTabsClosable**(`closeable`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`closeable` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setUsesScrollButtons
+
+▸ **setUsesScrollButtons**(`useButtons`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`useButtons` | boolean |
 
 **Returns:** *void*
 
@@ -1119,17 +1434,11 @@ Name | Type |
 
 ___
 
-###  setWrapping
+###  shape
 
-▸ **setWrapping**(`w`: boolean): *void*
+▸ **shape**(): *[TabBarShape](../enums/tabbarshape.md)*
 
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`w` | boolean |
-
-**Returns:** *void*
+**Returns:** *[TabBarShape](../enums/tabbarshape.md)*
 
 ___
 
@@ -1193,30 +1502,6 @@ ___
 
 ___
 
-###  specialValueText
-
-▸ **specialValueText**(): *string*
-
-**Returns:** *string*
-
-___
-
-###  stepDown
-
-▸ **stepDown**(): *void*
-
-**Returns:** *void*
-
-___
-
-###  stepUp
-
-▸ **stepUp**(): *void*
-
-**Returns:** *void*
-
-___
-
 ###  styleSheet
 
 ▸ **styleSheet**(): *string*
@@ -1224,6 +1509,126 @@ ___
 *Inherited from [QMenu](qmenu.md).[styleSheet](qmenu.md#stylesheet)*
 
 **Returns:** *string*
+
+___
+
+###  tabAt
+
+▸ **tabAt**(`position`: [QPoint](qpoint.md)): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`position` | [QPoint](qpoint.md) |
+
+**Returns:** *number*
+
+___
+
+###  tabData
+
+▸ **tabData**(`index`: number): *[QVariant](qvariant.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+**Returns:** *[QVariant](qvariant.md)*
+
+___
+
+###  tabIcon
+
+▸ **tabIcon**(`index`: number): *[QIcon](qicon.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+**Returns:** *[QIcon](qicon.md)*
+
+___
+
+###  tabRect
+
+▸ **tabRect**(`index`: number): *[QRect](qrect.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
+###  tabText
+
+▸ **tabText**(`index`: number): *string*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+**Returns:** *string*
+
+___
+
+###  tabTextColor
+
+▸ **tabTextColor**(`index`: number): *[QColor](qcolor.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+**Returns:** *[QColor](qcolor.md)*
+
+___
+
+###  tabToolTip
+
+▸ **tabToolTip**(`index`: number): *string*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+**Returns:** *string*
+
+___
+
+###  tabWhatsThis
+
+▸ **tabWhatsThis**(`index`: number): *string*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+**Returns:** *string*
+
+___
+
+###  tabsClosable
+
+▸ **tabsClosable**(): *boolean*
+
+**Returns:** *boolean*
 
 ___
 
@@ -1240,14 +1645,6 @@ Name | Type |
 `attribute` | [WidgetAttribute](../enums/widgetattribute.md) |
 
 **Returns:** *boolean*
-
-___
-
-###  text
-
-▸ **text**(): *string*
-
-**Returns:** *string*
 
 ___
 
@@ -1268,6 +1665,14 @@ ___
 *Inherited from [QMenu](qmenu.md).[updateGeometry](qmenu.md#updategeometry)*
 
 **Returns:** *void*
+
+___
+
+###  usesScrollButtons
+
+▸ **usesScrollButtons**(): *boolean*
+
+**Returns:** *boolean*
 
 ___
 
@@ -1298,11 +1703,3 @@ ___
 *Inherited from [QMenu](qmenu.md).[windowTitle](qmenu.md#windowtitle)*
 
 **Returns:** *string*
-
-___
-
-###  wrapping
-
-▸ **wrapping**(): *boolean*
-
-**Returns:** *boolean*

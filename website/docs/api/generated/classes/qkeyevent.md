@@ -30,13 +30,13 @@ sidebar_label: "QKeyEvent"
 
 ###  constructor
 
-\+ **new QKeyEvent**(`event`: [NativeElement](../globals.md#nativeelement)): *[QKeyEvent](qkeyevent.md)*
+\+ **new QKeyEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QKeyEvent](qkeyevent.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event` | [NativeElement](../globals.md#nativeelement) |
+`event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *[QKeyEvent](qkeyevent.md)*
 

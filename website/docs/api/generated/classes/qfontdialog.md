@@ -1,151 +1,146 @@
 ---
-id: "qabstractspinbox"
-title: "QAbstractSpinBox"
-sidebar_label: "QAbstractSpinBox"
+id: "qfontdialog"
+title: "QFontDialog"
+sidebar_label: "QFontDialog"
 ---
 
-> This is the abstract base class of button widgets, providing their functionality.
+> Create and control font dialogs.
 
-**This class is a JS wrapper around Qt's [QAbstractSpinBox class](https://doc.qt.io/qt-5/qabstractspinbox.html)**
+**This class is a JS wrapper around Qt's [QFontDialog class](https://doc.qt.io/qt-5/qfontdialog.html)**
 
-The QAbstractSpinBox class is an abstract class and therefore, technically, no further instances actually have to be created.
-It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
+The `QFontDialog` class provides a dialog widget for selecting a font.
 
-## Type parameters
+### Example
 
-▪ **Signals**: *[QAbstractSpinBoxSignals](../interfaces/qabstractspinboxsignals.md)*
+```javascript
+const { QFontDialog } = require("@nodegui/nodegui");
+
+const fontDialog = new QFontDialog();
+fontDialog.exec();
+const font = fontDialog.currentFont();
+console.log(font);
+
+```
 
 ## Hierarchy
 
-  ↳ [NodeWidget](nodewidget.md)‹Signals›
+  ↳ [NodeDialog](nodedialog.md)‹[QFontDialogSignals](../interfaces/qfontdialogsignals.md)›
 
-  ↳ **QAbstractSpinBox**
-
-  ↳ [NodeDateTimeEdit](nodedatetimeedit.md)
-
-  ↳ [QDoubleSpinBox](qdoublespinbox.md)
-
-  ↳ [QSpinBox](qspinbox.md)
+  ↳ **QFontDialog**
 
 ## Index
 
 ### Constructors
 
-* [constructor](qabstractspinbox.md#constructor)
+* [constructor](qfontdialog.md#constructor)
 
 ### Properties
 
-* [_rawInlineStyle](qabstractspinbox.md#_rawinlinestyle)
-* [actions](qabstractspinbox.md#actions)
-* [layout](qabstractspinbox.md#optional-layout)
-* [native](qabstractspinbox.md#abstract-native)
-* [nodeChildren](qabstractspinbox.md#nodechildren)
-* [nodeParent](qabstractspinbox.md#optional-nodeparent)
-* [type](qabstractspinbox.md#type)
+* [_rawInlineStyle](qfontdialog.md#_rawinlinestyle)
+* [actions](qfontdialog.md#actions)
+* [layout](qfontdialog.md#optional-layout)
+* [native](qfontdialog.md#native)
+* [nodeChildren](qfontdialog.md#nodechildren)
+* [nodeParent](qfontdialog.md#optional-nodeparent)
+* [type](qfontdialog.md#type)
 
 ### Methods
 
-* [activateWindow](qabstractspinbox.md#activatewindow)
-* [addAction](qabstractspinbox.md#addaction)
-* [addEventListener](qabstractspinbox.md#addeventlistener)
-* [adjustSize](qabstractspinbox.md#adjustsize)
-* [alignment](qabstractspinbox.md#alignment)
-* [buttonSymbols](qabstractspinbox.md#buttonsymbols)
-* [close](qabstractspinbox.md#close)
-* [correctionMode](qabstractspinbox.md#correctionmode)
-* [font](qabstractspinbox.md#font)
-* [geometry](qabstractspinbox.md#geometry)
-* [getFlexNode](qabstractspinbox.md#getflexnode)
-* [hasAcceptableInput](qabstractspinbox.md#hasacceptableinput)
-* [hasFrame](qabstractspinbox.md#hasframe)
-* [hasMouseTracking](qabstractspinbox.md#hasmousetracking)
-* [hide](qabstractspinbox.md#hide)
-* [inherits](qabstractspinbox.md#inherits)
-* [isAccelerated](qabstractspinbox.md#isaccelerated)
-* [isEnabled](qabstractspinbox.md#isenabled)
-* [isGroupSeparatorShown](qabstractspinbox.md#isgroupseparatorshown)
-* [isReadOnly](qabstractspinbox.md#isreadonly)
-* [isVisible](qabstractspinbox.md#isvisible)
-* [keyboardTracking](qabstractspinbox.md#keyboardtracking)
-* [lower](qabstractspinbox.md#lower)
-* [move](qabstractspinbox.md#move)
-* [objectName](qabstractspinbox.md#objectname)
-* [pos](qabstractspinbox.md#pos)
-* [property](qabstractspinbox.md#property)
-* [raise](qabstractspinbox.md#raise)
-* [removeEventListener](qabstractspinbox.md#removeeventlistener)
-* [repaint](qabstractspinbox.md#repaint)
-* [repolish](qabstractspinbox.md#repolish)
-* [resize](qabstractspinbox.md#resize)
-* [selectAll](qabstractspinbox.md#selectall)
-* [setAccelerated](qabstractspinbox.md#setaccelerated)
-* [setAlignment](qabstractspinbox.md#setalignment)
-* [setAttribute](qabstractspinbox.md#setattribute)
-* [setButtonSymbols](qabstractspinbox.md#setbuttonsymbols)
-* [setContextMenuPolicy](qabstractspinbox.md#setcontextmenupolicy)
-* [setCorrectionMode](qabstractspinbox.md#setcorrectionmode)
-* [setCursor](qabstractspinbox.md#setcursor)
-* [setEnabled](qabstractspinbox.md#setenabled)
-* [setFixedSize](qabstractspinbox.md#setfixedsize)
-* [setFlexNodeSizeControlled](qabstractspinbox.md#setflexnodesizecontrolled)
-* [setFont](qabstractspinbox.md#setfont)
-* [setFrame](qabstractspinbox.md#setframe)
-* [setGeometry](qabstractspinbox.md#setgeometry)
-* [setGroupSeparatorShown](qabstractspinbox.md#setgroupseparatorshown)
-* [setInlineStyle](qabstractspinbox.md#setinlinestyle)
-* [setKeyboardTracking](qabstractspinbox.md#setkeyboardtracking)
-* [setLayout](qabstractspinbox.md#setlayout)
-* [setMaximumSize](qabstractspinbox.md#setmaximumsize)
-* [setMinimumSize](qabstractspinbox.md#setminimumsize)
-* [setMouseTracking](qabstractspinbox.md#setmousetracking)
-* [setNodeParent](qabstractspinbox.md#setnodeparent)
-* [setObjectName](qabstractspinbox.md#setobjectname)
-* [setProperty](qabstractspinbox.md#setproperty)
-* [setReadOnly](qabstractspinbox.md#setreadonly)
-* [setSpecialValueText](qabstractspinbox.md#setspecialvaluetext)
-* [setStyleSheet](qabstractspinbox.md#setstylesheet)
-* [setWindowFlag](qabstractspinbox.md#setwindowflag)
-* [setWindowIcon](qabstractspinbox.md#setwindowicon)
-* [setWindowOpacity](qabstractspinbox.md#setwindowopacity)
-* [setWindowState](qabstractspinbox.md#setwindowstate)
-* [setWindowTitle](qabstractspinbox.md#setwindowtitle)
-* [setWrapping](qabstractspinbox.md#setwrapping)
-* [show](qabstractspinbox.md#show)
-* [showFullScreen](qabstractspinbox.md#showfullscreen)
-* [showMaximized](qabstractspinbox.md#showmaximized)
-* [showMinimized](qabstractspinbox.md#showminimized)
-* [showNormal](qabstractspinbox.md#shownormal)
-* [size](qabstractspinbox.md#size)
-* [specialValueText](qabstractspinbox.md#specialvaluetext)
-* [stepDown](qabstractspinbox.md#stepdown)
-* [stepUp](qabstractspinbox.md#stepup)
-* [styleSheet](qabstractspinbox.md#stylesheet)
-* [testAttribute](qabstractspinbox.md#testattribute)
-* [text](qabstractspinbox.md#text)
-* [update](qabstractspinbox.md#update)
-* [updateGeometry](qabstractspinbox.md#updategeometry)
-* [windowOpacity](qabstractspinbox.md#windowopacity)
-* [windowState](qabstractspinbox.md#windowstate)
-* [windowTitle](qabstractspinbox.md#windowtitle)
-* [wrapping](qabstractspinbox.md#wrapping)
+* [activateWindow](qfontdialog.md#activatewindow)
+* [addAction](qfontdialog.md#addaction)
+* [addEventListener](qfontdialog.md#addeventlistener)
+* [adjustSize](qfontdialog.md#adjustsize)
+* [close](qfontdialog.md#close)
+* [currentFont](qfontdialog.md#currentfont)
+* [exec](qfontdialog.md#exec)
+* [font](qfontdialog.md#font)
+* [geometry](qfontdialog.md#geometry)
+* [getFlexNode](qfontdialog.md#getflexnode)
+* [hasMouseTracking](qfontdialog.md#hasmousetracking)
+* [hide](qfontdialog.md#hide)
+* [inherits](qfontdialog.md#inherits)
+* [isEnabled](qfontdialog.md#isenabled)
+* [isSizeGripEnabled](qfontdialog.md#issizegripenabled)
+* [isVisible](qfontdialog.md#isvisible)
+* [lower](qfontdialog.md#lower)
+* [move](qfontdialog.md#move)
+* [objectName](qfontdialog.md#objectname)
+* [open](qfontdialog.md#open)
+* [options](qfontdialog.md#options)
+* [pos](qfontdialog.md#pos)
+* [property](qfontdialog.md#property)
+* [raise](qfontdialog.md#raise)
+* [reject](qfontdialog.md#reject)
+* [removeEventListener](qfontdialog.md#removeeventlistener)
+* [repaint](qfontdialog.md#repaint)
+* [repolish](qfontdialog.md#repolish)
+* [resize](qfontdialog.md#resize)
+* [result](qfontdialog.md#result)
+* [selectedFont](qfontdialog.md#selectedfont)
+* [setAttribute](qfontdialog.md#setattribute)
+* [setContextMenuPolicy](qfontdialog.md#setcontextmenupolicy)
+* [setCurrentFont](qfontdialog.md#setcurrentfont)
+* [setCursor](qfontdialog.md#setcursor)
+* [setEnabled](qfontdialog.md#setenabled)
+* [setFixedSize](qfontdialog.md#setfixedsize)
+* [setFlexNodeSizeControlled](qfontdialog.md#setflexnodesizecontrolled)
+* [setFont](qfontdialog.md#setfont)
+* [setGeometry](qfontdialog.md#setgeometry)
+* [setInlineStyle](qfontdialog.md#setinlinestyle)
+* [setLayout](qfontdialog.md#setlayout)
+* [setMaximumSize](qfontdialog.md#setmaximumsize)
+* [setMinimumSize](qfontdialog.md#setminimumsize)
+* [setModal](qfontdialog.md#setmodal)
+* [setMouseTracking](qfontdialog.md#setmousetracking)
+* [setNodeParent](qfontdialog.md#setnodeparent)
+* [setObjectName](qfontdialog.md#setobjectname)
+* [setOption](qfontdialog.md#setoption)
+* [setOptions](qfontdialog.md#setoptions)
+* [setProperty](qfontdialog.md#setproperty)
+* [setResult](qfontdialog.md#setresult)
+* [setSizeGripEnabled](qfontdialog.md#setsizegripenabled)
+* [setStyleSheet](qfontdialog.md#setstylesheet)
+* [setWindowFlag](qfontdialog.md#setwindowflag)
+* [setWindowIcon](qfontdialog.md#setwindowicon)
+* [setWindowOpacity](qfontdialog.md#setwindowopacity)
+* [setWindowState](qfontdialog.md#setwindowstate)
+* [setWindowTitle](qfontdialog.md#setwindowtitle)
+* [show](qfontdialog.md#show)
+* [showFullScreen](qfontdialog.md#showfullscreen)
+* [showMaximized](qfontdialog.md#showmaximized)
+* [showMinimized](qfontdialog.md#showminimized)
+* [showNormal](qfontdialog.md#shownormal)
+* [size](qfontdialog.md#size)
+* [styleSheet](qfontdialog.md#stylesheet)
+* [testAttribute](qfontdialog.md#testattribute)
+* [testOption](qfontdialog.md#testoption)
+* [update](qfontdialog.md#update)
+* [updateGeometry](qfontdialog.md#updategeometry)
+* [windowOpacity](qfontdialog.md#windowopacity)
+* [windowState](qfontdialog.md#windowstate)
+* [windowTitle](qfontdialog.md#windowtitle)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QAbstractSpinBox**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAbstractSpinBox](qabstractspinbox.md)*
+\+ **new QFontDialog**(): *[QFontDialog](qfontdialog.md)*
 
-*Inherited from [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+**Returns:** *[QFontDialog](qfontdialog.md)*
+
+\+ **new QFontDialog**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QFontDialog](qfontdialog.md)*
+
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`native` | [NativeElement](../globals.md#nativeelement) |
+`parent` | [NodeWidget](nodewidget.md)‹any› |
 
-**Returns:** *[QAbstractSpinBox](qabstractspinbox.md)*
+**Returns:** *[QFontDialog](qfontdialog.md)*
 
 ## Properties
 
@@ -167,17 +162,17 @@ ___
 
 ### `Optional` layout
 
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+• **layout**? : *[NodeLayout](nodelayout.md)‹[QFontDialogSignals](../interfaces/qfontdialogsignals.md)›*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
-### `Abstract` native
+###  native
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
-*Inherited from [Component](component.md).[native](component.md#abstract-native)*
+*Overrides [Component](component.md).[native](component.md#abstract-native)*
 
 ___
 
@@ -233,20 +228,20 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QFontDialogSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QFontDialogSignals*
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
-`callback` | Signals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`callback` | QFontDialogSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
 
@@ -297,22 +292,6 @@ ___
 
 ___
 
-###  alignment
-
-▸ **alignment**(): *[AlignmentFlag](../enums/alignmentflag.md)*
-
-**Returns:** *[AlignmentFlag](../enums/alignmentflag.md)*
-
-___
-
-###  buttonSymbols
-
-▸ **buttonSymbols**(): *[ButtonSymbols](../enums/buttonsymbols.md)*
-
-**Returns:** *[ButtonSymbols](../enums/buttonsymbols.md)*
-
-___
-
 ###  close
 
 ▸ **close**(): *boolean*
@@ -323,11 +302,21 @@ ___
 
 ___
 
-###  correctionMode
+###  currentFont
 
-▸ **correctionMode**(): *[CorrectionMode](../enums/correctionmode.md)*
+▸ **currentFont**(): *[QFont](qfont.md)*
 
-**Returns:** *[CorrectionMode](../enums/correctionmode.md)*
+**Returns:** *[QFont](qfont.md)*
+
+___
+
+###  exec
+
+▸ **exec**(): *number*
+
+*Inherited from [NodeDialog](nodedialog.md).[exec](nodedialog.md#exec)*
+
+**Returns:** *number*
 
 ___
 
@@ -358,22 +347,6 @@ ___
 *Inherited from [YogaWidget](yogawidget.md).[getFlexNode](yogawidget.md#getflexnode)*
 
 **Returns:** *[FlexNode](../globals.md#flexnode)*
-
-___
-
-###  hasAcceptableInput
-
-▸ **hasAcceptableInput**(): *boolean*
-
-**Returns:** *boolean*
-
-___
-
-###  hasFrame
-
-▸ **hasFrame**(): *boolean*
-
-**Returns:** *boolean*
 
 ___
 
@@ -413,14 +386,6 @@ Name | Type |
 
 ___
 
-###  isAccelerated
-
-▸ **isAccelerated**(): *boolean*
-
-**Returns:** *boolean*
-
-___
-
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
@@ -431,17 +396,11 @@ ___
 
 ___
 
-###  isGroupSeparatorShown
+###  isSizeGripEnabled
 
-▸ **isGroupSeparatorShown**(): *boolean*
+▸ **isSizeGripEnabled**(): *boolean*
 
-**Returns:** *boolean*
-
-___
-
-###  isReadOnly
-
-▸ **isReadOnly**(): *boolean*
+*Inherited from [NodeDialog](nodedialog.md).[isSizeGripEnabled](nodedialog.md#issizegripenabled)*
 
 **Returns:** *boolean*
 
@@ -452,14 +411,6 @@ ___
 ▸ **isVisible**(): *boolean*
 
 *Inherited from [QMenu](qmenu.md).[isVisible](qmenu.md#isvisible)*
-
-**Returns:** *boolean*
-
-___
-
-###  keyboardTracking
-
-▸ **keyboardTracking**(): *boolean*
 
 **Returns:** *boolean*
 
@@ -499,6 +450,24 @@ ___
 *Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
 
 **Returns:** *string*
+
+___
+
+###  open
+
+▸ **open**(): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[open](nodedialog.md#open)*
+
+**Returns:** *void*
+
+___
+
+###  options
+
+▸ **options**(): *[FontDialogOption](../enums/fontdialogoption.md)*
+
+**Returns:** *[FontDialogOption](../enums/fontdialogoption.md)*
 
 ___
 
@@ -542,22 +511,32 @@ ___
 
 ___
 
+###  reject
+
+▸ **reject**(): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[reject](nodedialog.md#reject)*
+
+**Returns:** *void*
+
+___
+
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QFontDialogSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QFontDialogSignals*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
-`callback` | Signals[SignalType] |
+`callback` | QFontDialogSignals[SignalType] |
 
 **Returns:** *void*
 
@@ -620,39 +599,21 @@ Name | Type |
 
 ___
 
-###  selectAll
+###  result
 
-▸ **selectAll**(): *void*
+▸ **result**(): *number*
 
-**Returns:** *void*
+*Inherited from [NodeDialog](nodedialog.md).[result](nodedialog.md#result)*
 
-___
-
-###  setAccelerated
-
-▸ **setAccelerated**(`on`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`on` | boolean |
-
-**Returns:** *void*
+**Returns:** *number*
 
 ___
 
-###  setAlignment
+###  selectedFont
 
-▸ **setAlignment**(`alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
+▸ **selectedFont**(): *[QFont](qfont.md)*
 
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`alignment` | [AlignmentFlag](../enums/alignmentflag.md) |
-
-**Returns:** *void*
+**Returns:** *[QFont](qfont.md)*
 
 ___
 
@@ -668,20 +629,6 @@ Name | Type |
 ------ | ------ |
 `attribute` | [WidgetAttribute](../enums/widgetattribute.md) |
 `switchOn` | boolean |
-
-**Returns:** *void*
-
-___
-
-###  setButtonSymbols
-
-▸ **setButtonSymbols**(`bs`: [ButtonSymbols](../enums/buttonsymbols.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`bs` | [ButtonSymbols](../enums/buttonsymbols.md) |
 
 **Returns:** *void*
 
@@ -703,15 +650,15 @@ Name | Type |
 
 ___
 
-###  setCorrectionMode
+###  setCurrentFont
 
-▸ **setCorrectionMode**(`cm`: [CorrectionMode](../enums/correctionmode.md)): *void*
+▸ **setCurrentFont**(`font`: [QFont](qfont.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`cm` | [CorrectionMode](../enums/correctionmode.md) |
+`font` | [QFont](qfont.md) |
 
 **Returns:** *void*
 
@@ -800,20 +747,6 @@ Name | Type |
 
 ___
 
-###  setFrame
-
-▸ **setFrame**(`enable`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`enable` | boolean |
-
-**Returns:** *void*
-
-___
-
 ###  setGeometry
 
 ▸ **setGeometry**(`x`: number, `y`: number, `w`: number, `h`: number): *void*
@@ -828,20 +761,6 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
-
-**Returns:** *void*
-
-___
-
-###  setGroupSeparatorShown
-
-▸ **setGroupSeparatorShown**(`shown`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`shown` | boolean |
 
 **Returns:** *void*
 
@@ -863,23 +782,9 @@ Name | Type |
 
 ___
 
-###  setKeyboardTracking
-
-▸ **setKeyboardTracking**(`kt`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`kt` | boolean |
-
-**Returns:** *void*
-
-___
-
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹Signals›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QFontDialogSignals](../interfaces/qfontdialogsignals.md)›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -887,7 +792,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹Signals› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹[QFontDialogSignals](../interfaces/qfontdialogsignals.md)› |
 
 **Returns:** *void*
 
@@ -922,6 +827,22 @@ Name | Type |
 ------ | ------ |
 `minw` | number |
 `minh` | number |
+
+**Returns:** *void*
+
+___
+
+###  setModal
+
+▸ **setModal**(`modal`: boolean): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setModal](nodedialog.md#setmodal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`modal` | boolean |
 
 **Returns:** *void*
 
@@ -977,6 +898,35 @@ Name | Type |
 
 ___
 
+###  setOption
+
+▸ **setOption**(`option`: [FontDialogOption](../enums/fontdialogoption.md), `on`: boolean): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`option` | [FontDialogOption](../enums/fontdialogoption.md) | - |
+`on` | boolean | true |
+
+**Returns:** *void*
+
+___
+
+###  setOptions
+
+▸ **setOptions**(`options`: [FontDialogOption](../enums/fontdialogoption.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`options` | [FontDialogOption](../enums/fontdialogoption.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setProperty
 
 ▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
@@ -994,29 +944,33 @@ Name | Type |
 
 ___
 
-###  setReadOnly
+###  setResult
 
-▸ **setReadOnly**(`r`: boolean): *void*
+▸ **setResult**(`i`: number): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setResult](nodedialog.md#setresult)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`r` | boolean |
+`i` | number |
 
 **Returns:** *void*
 
 ___
 
-###  setSpecialValueText
+###  setSizeGripEnabled
 
-▸ **setSpecialValueText**(`txt`: string): *void*
+▸ **setSizeGripEnabled**(`enabled`: boolean): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setSizeGripEnabled](nodedialog.md#setsizegripenabled)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`txt` | string |
+`enabled` | boolean |
 
 **Returns:** *void*
 
@@ -1119,20 +1073,6 @@ Name | Type |
 
 ___
 
-###  setWrapping
-
-▸ **setWrapping**(`w`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`w` | boolean |
-
-**Returns:** *void*
-
-___
-
 ###  show
 
 ▸ **show**(): *void*
@@ -1193,30 +1133,6 @@ ___
 
 ___
 
-###  specialValueText
-
-▸ **specialValueText**(): *string*
-
-**Returns:** *string*
-
-___
-
-###  stepDown
-
-▸ **stepDown**(): *void*
-
-**Returns:** *void*
-
-___
-
-###  stepUp
-
-▸ **stepUp**(): *void*
-
-**Returns:** *void*
-
-___
-
 ###  styleSheet
 
 ▸ **styleSheet**(): *string*
@@ -1243,11 +1159,17 @@ Name | Type |
 
 ___
 
-###  text
+###  testOption
 
-▸ **text**(): *string*
+▸ **testOption**(`option`: [FontDialogOption](../enums/fontdialogoption.md)): *boolean*
 
-**Returns:** *string*
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`option` | [FontDialogOption](../enums/fontdialogoption.md) |
+
+**Returns:** *boolean*
 
 ___
 
@@ -1298,11 +1220,3 @@ ___
 *Inherited from [QMenu](qmenu.md).[windowTitle](qmenu.md#windowtitle)*
 
 **Returns:** *string*
-
-___
-
-###  wrapping
-
-▸ **wrapping**(): *boolean*
-
-**Returns:** *boolean*

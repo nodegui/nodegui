@@ -1,50 +1,26 @@
 ---
-id: "qdialogsignals"
-title: "QDialogSignals"
-sidebar_label: "QDialogSignals"
+id: "qlcdnumbersignals"
+title: "QLCDNumberSignals"
+sidebar_label: "QLCDNumberSignals"
 ---
 
 ## Hierarchy
 
   ↳ [QWidgetSignals](qwidgetsignals.md)
 
-  ↳ **QDialogSignals**
-
-  ↳ [QColorDialogSignals](qcolordialogsignals.md)
-
-  ↳ [QFileDialogSignals](qfiledialogsignals.md)
-
-  ↳ [QFontDialogSignals](qfontdialogsignals.md)
-
-  ↳ [QProgressDialogSignals](qprogressdialogsignals.md)
-
-  ↳ [QMessageBoxSignals](qmessageboxsignals.md)
-
-  ↳ [QInputDialogSignals](qinputdialogsignals.md)
+  ↳ **QLCDNumberSignals**
 
 ## Index
 
 ### Properties
 
-* [accepted](qdialogsignals.md#accepted)
-* [customContextMenuRequested](qdialogsignals.md#customcontextmenurequested)
-* [finished](qdialogsignals.md#finished)
-* [objectNameChanged](qdialogsignals.md#objectnamechanged)
-* [rejected](qdialogsignals.md#rejected)
-* [windowIconChanged](qdialogsignals.md#windowiconchanged)
-* [windowTitleChanged](qdialogsignals.md#windowtitlechanged)
+* [customContextMenuRequested](qlcdnumbersignals.md#customcontextmenurequested)
+* [objectNameChanged](qlcdnumbersignals.md#objectnamechanged)
+* [overflow](qlcdnumbersignals.md#overflow)
+* [windowIconChanged](qlcdnumbersignals.md#windowiconchanged)
+* [windowTitleChanged](qlcdnumbersignals.md#windowtitlechanged)
 
 ## Properties
-
-###  accepted
-
-• **accepted**: *function*
-
-#### Type declaration:
-
-▸ (): *void*
-
-___
 
 ###  customContextMenuRequested
 
@@ -67,22 +43,6 @@ Name | Type |
 
 ___
 
-###  finished
-
-• **finished**: *function*
-
-#### Type declaration:
-
-▸ (`result`: number): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`result` | number |
-
-___
-
 ###  objectNameChanged
 
 • **objectNameChanged**: *function*
@@ -101,9 +61,9 @@ Name | Type |
 
 ___
 
-###  rejected
+###  overflow
 
-• **rejected**: *function*
+• **overflow**: *function*
 
 #### Type declaration:
 

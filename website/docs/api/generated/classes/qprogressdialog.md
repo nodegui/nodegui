@@ -1,177 +1,145 @@
 ---
-id: "qtreewidget"
-title: "QTreeWidget"
-sidebar_label: "QTreeWidget"
+id: "qprogressdialog"
+title: "QProgressDialog"
+sidebar_label: "QProgressDialog"
 ---
 
-> Creates a tree view that uses a predefined tree model.
+> Create and control progress dialogs.
 
-**This class is a JS wrapper around Qt's [QTreeWidget class](https://doc.qt.io/qt-5/qtreewidget.html)**
+**This class is a JS wrapper around Qt's [QProgressDialog class](https://doc.qt.io/qt-5/qprogressdialog.html)**
+
+The `QProgressDialog` class provides feedback on the progress of a slow operation.
 
 ### Example
 
 ```javascript
+const { QProgressDialog } = require("@nodegui/nodegui");
 
-const { QMainWindow, QTreeWidgetItem, QTreeWidget } = require("@nodegui/nodegui");
+const progressDialog = new QProgressDialog();
 
-const win = new QMainWindow();
-const tree = new QTreeWidget();
-
-const item1 = new QTreeWidgetItem();
-item1.setText(0, `item-1`);
-const item2 = new QTreeWidgetItem();
-item2.setText(0, `item-2`);
-const item3 = new QTreeWidgetItem();
-item3.setText(0, `item-3`);
-const item4 = new QTreeWidgetItem();
-item4.setText(0, `item-4`);
-const item5 = new QTreeWidgetItem();
-item5.setText(0, `item-5`);
-const item6 = new QTreeWidgetItem();
-item6.setText(0, `item-6`);
-
-tree.addTopLevelItem(item1);
-tree.insertTopLevelItems(0, [item2, item3]);
-tree.addTopLevelItems([item4, item5]);
-tree.insertTopLevelItem(2, item6);
-
-// Add children to item1
-const c1item1 = new QTreeWidgetItem(item1);
-c1item1.setText(0, `c1item1`);
-const c1item2 = new QTreeWidgetItem(item1);
-c1item2.setText(0, `c1item1`);
-
-win.setCentralWidget(tree);
-win.show();
-(global as any).win = win;```
+```
 
 ## Hierarchy
 
-  ↳ [QAbstractScrollArea](qabstractscrollarea.md)‹[QTreeWidgetSignals](../interfaces/qtreewidgetsignals.md)›
+  ↳ [NodeDialog](nodedialog.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)›
 
-  ↳ **QTreeWidget**
+  ↳ **QProgressDialog**
 
 ## Index
 
 ### Constructors
 
-* [constructor](qtreewidget.md#constructor)
+* [constructor](qprogressdialog.md#constructor)
 
 ### Properties
 
-* [_rawInlineStyle](qtreewidget.md#_rawinlinestyle)
-* [actions](qtreewidget.md#actions)
-* [itemWidgets](qtreewidget.md#itemwidgets)
-* [layout](qtreewidget.md#optional-layout)
-* [native](qtreewidget.md#native)
-* [nodeChildren](qtreewidget.md#nodechildren)
-* [nodeParent](qtreewidget.md#optional-nodeparent)
-* [topLevelItems](qtreewidget.md#toplevelitems)
-* [type](qtreewidget.md#type)
-* [viewportWidget](qtreewidget.md#optional-viewportwidget)
+* [_rawInlineStyle](qprogressdialog.md#_rawinlinestyle)
+* [actions](qprogressdialog.md#actions)
+* [layout](qprogressdialog.md#optional-layout)
+* [native](qprogressdialog.md#native)
+* [nodeChildren](qprogressdialog.md#nodechildren)
+* [nodeParent](qprogressdialog.md#optional-nodeparent)
+* [type](qprogressdialog.md#type)
 
 ### Methods
 
-* [activateWindow](qtreewidget.md#activatewindow)
-* [addAction](qtreewidget.md#addaction)
-* [addEventListener](qtreewidget.md#addeventlistener)
-* [addTopLevelItem](qtreewidget.md#addtoplevelitem)
-* [addTopLevelItems](qtreewidget.md#addtoplevelitems)
-* [adjustSize](qtreewidget.md#adjustsize)
-* [close](qtreewidget.md#close)
-* [currentItem](qtreewidget.md#currentitem)
-* [findItems](qtreewidget.md#finditems)
-* [font](qtreewidget.md#font)
-* [frameRect](qtreewidget.md#framerect)
-* [frameShadow](qtreewidget.md#frameshadow)
-* [frameShape](qtreewidget.md#frameshape)
-* [frameStyle](qtreewidget.md#framestyle)
-* [frameWidth](qtreewidget.md#framewidth)
-* [geometry](qtreewidget.md#geometry)
-* [getFlexNode](qtreewidget.md#getflexnode)
-* [hasMouseTracking](qtreewidget.md#hasmousetracking)
-* [hide](qtreewidget.md#hide)
-* [inherits](qtreewidget.md#inherits)
-* [insertTopLevelItem](qtreewidget.md#inserttoplevelitem)
-* [insertTopLevelItems](qtreewidget.md#inserttoplevelitems)
-* [isEnabled](qtreewidget.md#isenabled)
-* [isVisible](qtreewidget.md#isvisible)
-* [lineWidth](qtreewidget.md#linewidth)
-* [lower](qtreewidget.md#lower)
-* [midLineWidth](qtreewidget.md#midlinewidth)
-* [move](qtreewidget.md#move)
-* [objectName](qtreewidget.md#objectname)
-* [pos](qtreewidget.md#pos)
-* [property](qtreewidget.md#property)
-* [raise](qtreewidget.md#raise)
-* [removeEventListener](qtreewidget.md#removeeventlistener)
-* [repaint](qtreewidget.md#repaint)
-* [repolish](qtreewidget.md#repolish)
-* [resize](qtreewidget.md#resize)
-* [selectedItems](qtreewidget.md#selecteditems)
-* [setAttribute](qtreewidget.md#setattribute)
-* [setColumnCount](qtreewidget.md#setcolumncount)
-* [setContextMenuPolicy](qtreewidget.md#setcontextmenupolicy)
-* [setCursor](qtreewidget.md#setcursor)
-* [setEnabled](qtreewidget.md#setenabled)
-* [setFixedSize](qtreewidget.md#setfixedsize)
-* [setFlexNodeSizeControlled](qtreewidget.md#setflexnodesizecontrolled)
-* [setFont](qtreewidget.md#setfont)
-* [setFrameRect](qtreewidget.md#setframerect)
-* [setFrameShadow](qtreewidget.md#setframeshadow)
-* [setFrameShape](qtreewidget.md#setframeshape)
-* [setFrameStyle](qtreewidget.md#setframestyle)
-* [setGeometry](qtreewidget.md#setgeometry)
-* [setHeaderHidden](qtreewidget.md#setheaderhidden)
-* [setHeaderLabel](qtreewidget.md#setheaderlabel)
-* [setHeaderLabels](qtreewidget.md#setheaderlabels)
-* [setHorizontalScrollBarPolicy](qtreewidget.md#sethorizontalscrollbarpolicy)
-* [setInlineStyle](qtreewidget.md#setinlinestyle)
-* [setItemWidget](qtreewidget.md#setitemwidget)
-* [setLayout](qtreewidget.md#setlayout)
-* [setLineWidth](qtreewidget.md#setlinewidth)
-* [setMaximumSize](qtreewidget.md#setmaximumsize)
-* [setMidLineWidth](qtreewidget.md#setmidlinewidth)
-* [setMinimumSize](qtreewidget.md#setminimumsize)
-* [setMouseTracking](qtreewidget.md#setmousetracking)
-* [setNodeParent](qtreewidget.md#setnodeparent)
-* [setObjectName](qtreewidget.md#setobjectname)
-* [setProperty](qtreewidget.md#setproperty)
-* [setSortingEnabled](qtreewidget.md#setsortingenabled)
-* [setStyleSheet](qtreewidget.md#setstylesheet)
-* [setVerticalScrollBarPolicy](qtreewidget.md#setverticalscrollbarpolicy)
-* [setViewport](qtreewidget.md#setviewport)
-* [setWindowFlag](qtreewidget.md#setwindowflag)
-* [setWindowIcon](qtreewidget.md#setwindowicon)
-* [setWindowOpacity](qtreewidget.md#setwindowopacity)
-* [setWindowState](qtreewidget.md#setwindowstate)
-* [setWindowTitle](qtreewidget.md#setwindowtitle)
-* [show](qtreewidget.md#show)
-* [showFullScreen](qtreewidget.md#showfullscreen)
-* [showMaximized](qtreewidget.md#showmaximized)
-* [showMinimized](qtreewidget.md#showminimized)
-* [showNormal](qtreewidget.md#shownormal)
-* [size](qtreewidget.md#size)
-* [styleSheet](qtreewidget.md#stylesheet)
-* [testAttribute](qtreewidget.md#testattribute)
-* [update](qtreewidget.md#update)
-* [updateGeometry](qtreewidget.md#updategeometry)
-* [viewport](qtreewidget.md#viewport)
-* [windowOpacity](qtreewidget.md#windowopacity)
-* [windowState](qtreewidget.md#windowstate)
-* [windowTitle](qtreewidget.md#windowtitle)
+* [activateWindow](qprogressdialog.md#activatewindow)
+* [addAction](qprogressdialog.md#addaction)
+* [addEventListener](qprogressdialog.md#addeventlistener)
+* [adjustSize](qprogressdialog.md#adjustsize)
+* [autoClose](qprogressdialog.md#autoclose)
+* [autoReset](qprogressdialog.md#autoreset)
+* [cancel](qprogressdialog.md#cancel)
+* [close](qprogressdialog.md#close)
+* [exec](qprogressdialog.md#exec)
+* [font](qprogressdialog.md#font)
+* [geometry](qprogressdialog.md#geometry)
+* [getFlexNode](qprogressdialog.md#getflexnode)
+* [hasMouseTracking](qprogressdialog.md#hasmousetracking)
+* [hide](qprogressdialog.md#hide)
+* [inherits](qprogressdialog.md#inherits)
+* [isEnabled](qprogressdialog.md#isenabled)
+* [isSizeGripEnabled](qprogressdialog.md#issizegripenabled)
+* [isVisible](qprogressdialog.md#isvisible)
+* [labelText](qprogressdialog.md#labeltext)
+* [lower](qprogressdialog.md#lower)
+* [maximum](qprogressdialog.md#maximum)
+* [minimum](qprogressdialog.md#minimum)
+* [minimumDuration](qprogressdialog.md#minimumduration)
+* [move](qprogressdialog.md#move)
+* [objectName](qprogressdialog.md#objectname)
+* [open](qprogressdialog.md#open)
+* [pos](qprogressdialog.md#pos)
+* [property](qprogressdialog.md#property)
+* [raise](qprogressdialog.md#raise)
+* [reject](qprogressdialog.md#reject)
+* [removeEventListener](qprogressdialog.md#removeeventlistener)
+* [repaint](qprogressdialog.md#repaint)
+* [repolish](qprogressdialog.md#repolish)
+* [reset](qprogressdialog.md#reset)
+* [resize](qprogressdialog.md#resize)
+* [result](qprogressdialog.md#result)
+* [setAttribute](qprogressdialog.md#setattribute)
+* [setAutoClose](qprogressdialog.md#setautoclose)
+* [setAutoReset](qprogressdialog.md#setautoreset)
+* [setCancelButtonText](qprogressdialog.md#setcancelbuttontext)
+* [setContextMenuPolicy](qprogressdialog.md#setcontextmenupolicy)
+* [setCursor](qprogressdialog.md#setcursor)
+* [setEnabled](qprogressdialog.md#setenabled)
+* [setFixedSize](qprogressdialog.md#setfixedsize)
+* [setFlexNodeSizeControlled](qprogressdialog.md#setflexnodesizecontrolled)
+* [setFont](qprogressdialog.md#setfont)
+* [setGeometry](qprogressdialog.md#setgeometry)
+* [setInlineStyle](qprogressdialog.md#setinlinestyle)
+* [setLabelText](qprogressdialog.md#setlabeltext)
+* [setLayout](qprogressdialog.md#setlayout)
+* [setMaximum](qprogressdialog.md#setmaximum)
+* [setMaximumSize](qprogressdialog.md#setmaximumsize)
+* [setMinimum](qprogressdialog.md#setminimum)
+* [setMinimumDuration](qprogressdialog.md#setminimumduration)
+* [setMinimumSize](qprogressdialog.md#setminimumsize)
+* [setModal](qprogressdialog.md#setmodal)
+* [setMouseTracking](qprogressdialog.md#setmousetracking)
+* [setNodeParent](qprogressdialog.md#setnodeparent)
+* [setObjectName](qprogressdialog.md#setobjectname)
+* [setProperty](qprogressdialog.md#setproperty)
+* [setRange](qprogressdialog.md#setrange)
+* [setResult](qprogressdialog.md#setresult)
+* [setSizeGripEnabled](qprogressdialog.md#setsizegripenabled)
+* [setStyleSheet](qprogressdialog.md#setstylesheet)
+* [setValue](qprogressdialog.md#setvalue)
+* [setWindowFlag](qprogressdialog.md#setwindowflag)
+* [setWindowIcon](qprogressdialog.md#setwindowicon)
+* [setWindowOpacity](qprogressdialog.md#setwindowopacity)
+* [setWindowState](qprogressdialog.md#setwindowstate)
+* [setWindowTitle](qprogressdialog.md#setwindowtitle)
+* [show](qprogressdialog.md#show)
+* [showFullScreen](qprogressdialog.md#showfullscreen)
+* [showMaximized](qprogressdialog.md#showmaximized)
+* [showMinimized](qprogressdialog.md#showminimized)
+* [showNormal](qprogressdialog.md#shownormal)
+* [size](qprogressdialog.md#size)
+* [styleSheet](qprogressdialog.md#stylesheet)
+* [testAttribute](qprogressdialog.md#testattribute)
+* [update](qprogressdialog.md#update)
+* [updateGeometry](qprogressdialog.md#updategeometry)
+* [value](qprogressdialog.md#value)
+* [wasCanceled](qprogressdialog.md#wascanceled)
+* [windowOpacity](qprogressdialog.md#windowopacity)
+* [windowState](qprogressdialog.md#windowstate)
+* [windowTitle](qprogressdialog.md#windowtitle)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QTreeWidget**(): *[QTreeWidget](qtreewidget.md)*
+\+ **new QProgressDialog**(): *[QProgressDialog](qprogressdialog.md)*
 
 *Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-**Returns:** *[QTreeWidget](qtreewidget.md)*
+**Returns:** *[QProgressDialog](qprogressdialog.md)*
 
-\+ **new QTreeWidget**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QTreeWidget](qtreewidget.md)*
+\+ **new QProgressDialog**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QProgressDialog](qprogressdialog.md)*
 
 *Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
@@ -181,7 +149,7 @@ Name | Type |
 ------ | ------ |
 `parent` | [NodeWidget](nodewidget.md)‹any› |
 
-**Returns:** *[QTreeWidget](qtreewidget.md)*
+**Returns:** *[QProgressDialog](qprogressdialog.md)*
 
 ## Properties
 
@@ -201,15 +169,9 @@ ___
 
 ___
 
-###  itemWidgets
-
-• **itemWidgets**: *Map‹[QTreeWidgetItem](qtreewidgetitem.md), [QWidget](qwidget.md)›*
-
-___
-
 ### `Optional` layout
 
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QTreeWidgetSignals](../interfaces/qtreewidgetsignals.md)›*
+• **layout**? : *[NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)›*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
@@ -239,25 +201,11 @@ ___
 
 ___
 
-###  topLevelItems
-
-• **topLevelItems**: *Set‹[QTreeWidgetItem](qtreewidgetitem.md)›*
-
-___
-
 ###  type
 
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
-
-___
-
-### `Optional` viewportWidget
-
-• **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
-
-*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
 
 ## Methods
 
@@ -289,20 +237,20 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QTreeWidgetSignals[SignalType]): *void*
+▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QProgressDialogSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof QTreeWidgetSignals*
+▪ **SignalType**: *keyof QProgressDialogSignals*
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
-`callback` | QTreeWidgetSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`callback` | QProgressDialogSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
 
@@ -343,39 +291,35 @@ Name | Type |
 
 ___
 
-###  addTopLevelItem
-
-▸ **addTopLevelItem**(`item`: [QTreeWidgetItem](qtreewidgetitem.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`item` | [QTreeWidgetItem](qtreewidgetitem.md) |
-
-**Returns:** *void*
-
-___
-
-###  addTopLevelItems
-
-▸ **addTopLevelItems**(`items`: [QTreeWidgetItem](qtreewidgetitem.md)[]): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`items` | [QTreeWidgetItem](qtreewidgetitem.md)[] |
-
-**Returns:** *void*
-
-___
-
 ###  adjustSize
 
 ▸ **adjustSize**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[adjustSize](qmenu.md#adjustsize)*
+
+**Returns:** *void*
+
+___
+
+###  autoClose
+
+▸ **autoClose**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  autoReset
+
+▸ **autoReset**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  cancel
+
+▸ **cancel**(): *void*
 
 **Returns:** *void*
 
@@ -391,29 +335,13 @@ ___
 
 ___
 
-###  currentItem
+###  exec
 
-▸ **currentItem**(): *[QTreeWidgetItem](qtreewidgetitem.md)*
+▸ **exec**(): *number*
 
-Returns the current item in the tree widget.
+*Inherited from [NodeDialog](nodedialog.md).[exec](nodedialog.md#exec)*
 
-**Returns:** *[QTreeWidgetItem](qtreewidgetitem.md)*
-
-___
-
-###  findItems
-
-▸ **findItems**(`text`: string, `flags`: [MatchFlag](../enums/matchflag.md), `column`: number): *[QTreeWidgetItem](qtreewidgetitem.md)[]*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`text` | string |
-`flags` | [MatchFlag](../enums/matchflag.md) |
-`column` | number |
-
-**Returns:** *[QTreeWidgetItem](qtreewidgetitem.md)[]*
+**Returns:** *number*
 
 ___
 
@@ -424,56 +352,6 @@ ___
 *Inherited from [QMenu](qmenu.md).[font](qmenu.md#font)*
 
 **Returns:** *[QFont](qfont.md)*
-
-___
-
-###  frameRect
-
-▸ **frameRect**(): *[QRect](qrect.md)*
-
-*Inherited from [NodeFrame](nodeframe.md).[frameRect](nodeframe.md#framerect)*
-
-**Returns:** *[QRect](qrect.md)*
-
-___
-
-###  frameShadow
-
-▸ **frameShadow**(): *[Shadow](../enums/shadow.md)*
-
-*Inherited from [NodeFrame](nodeframe.md).[frameShadow](nodeframe.md#frameshadow)*
-
-**Returns:** *[Shadow](../enums/shadow.md)*
-
-___
-
-###  frameShape
-
-▸ **frameShape**(): *[Shape](../enums/shape.md)*
-
-*Inherited from [NodeFrame](nodeframe.md).[frameShape](nodeframe.md#frameshape)*
-
-**Returns:** *[Shape](../enums/shape.md)*
-
-___
-
-###  frameStyle
-
-▸ **frameStyle**(): *number*
-
-*Inherited from [NodeFrame](nodeframe.md).[frameStyle](nodeframe.md#framestyle)*
-
-**Returns:** *number*
-
-___
-
-###  frameWidth
-
-▸ **frameWidth**(): *number*
-
-*Inherited from [NodeFrame](nodeframe.md).[frameWidth](nodeframe.md#framewidth)*
-
-**Returns:** *number*
 
 ___
 
@@ -533,41 +411,21 @@ Name | Type |
 
 ___
 
-###  insertTopLevelItem
-
-▸ **insertTopLevelItem**(`index`: number, `item`: [QTreeWidgetItem](qtreewidgetitem.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`index` | number |
-`item` | [QTreeWidgetItem](qtreewidgetitem.md) |
-
-**Returns:** *void*
-
-___
-
-###  insertTopLevelItems
-
-▸ **insertTopLevelItems**(`index`: number, `items`: [QTreeWidgetItem](qtreewidgetitem.md)[]): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`index` | number |
-`items` | [QTreeWidgetItem](qtreewidgetitem.md)[] |
-
-**Returns:** *void*
-
-___
-
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
 
 *Inherited from [QMenu](qmenu.md).[isEnabled](qmenu.md#isenabled)*
+
+**Returns:** *boolean*
+
+___
+
+###  isSizeGripEnabled
+
+▸ **isSizeGripEnabled**(): *boolean*
+
+*Inherited from [NodeDialog](nodedialog.md).[isSizeGripEnabled](nodedialog.md#issizegripenabled)*
 
 **Returns:** *boolean*
 
@@ -583,13 +441,11 @@ ___
 
 ___
 
-###  lineWidth
+###  labelText
 
-▸ **lineWidth**(): *number*
+▸ **labelText**(): *string*
 
-*Inherited from [NodeFrame](nodeframe.md).[lineWidth](nodeframe.md#linewidth)*
-
-**Returns:** *number*
+**Returns:** *string*
 
 ___
 
@@ -603,11 +459,25 @@ ___
 
 ___
 
-###  midLineWidth
+###  maximum
 
-▸ **midLineWidth**(): *number*
+▸ **maximum**(): *number*
 
-*Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
+**Returns:** *number*
+
+___
+
+###  minimum
+
+▸ **minimum**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  minimumDuration
+
+▸ **minimumDuration**(): *number*
 
 **Returns:** *number*
 
@@ -637,6 +507,16 @@ ___
 *Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
 
 **Returns:** *string*
+
+___
+
+###  open
+
+▸ **open**(): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[open](nodedialog.md#open)*
+
+**Returns:** *void*
 
 ___
 
@@ -680,22 +560,32 @@ ___
 
 ___
 
+###  reject
+
+▸ **reject**(): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[reject](nodedialog.md#reject)*
+
+**Returns:** *void*
+
+___
+
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QTreeWidgetSignals[SignalType]): *void*
+▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QProgressDialogSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof QTreeWidgetSignals*
+▪ **SignalType**: *keyof QProgressDialogSignals*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
-`callback` | QTreeWidgetSignals[SignalType] |
+`callback` | QProgressDialogSignals[SignalType] |
 
 **Returns:** *void*
 
@@ -741,6 +631,14 @@ ___
 
 ___
 
+###  reset
+
+▸ **reset**(): *void*
+
+**Returns:** *void*
+
+___
+
 ###  resize
 
 ▸ **resize**(`width`: number, `height`: number): *void*
@@ -758,11 +656,13 @@ Name | Type |
 
 ___
 
-###  selectedItems
+###  result
 
-▸ **selectedItems**(): *[QTreeWidgetItem](qtreewidgetitem.md)[]*
+▸ **result**(): *number*
 
-**Returns:** *[QTreeWidgetItem](qtreewidgetitem.md)[]*
+*Inherited from [NodeDialog](nodedialog.md).[result](nodedialog.md#result)*
+
+**Returns:** *number*
 
 ___
 
@@ -783,17 +683,43 @@ Name | Type |
 
 ___
 
-###  setColumnCount
+###  setAutoClose
 
-▸ **setColumnCount**(`columnCount`: number): *void*
-
-Sets the column count of this QTreeWidget.
+▸ **setAutoClose**(`close`: boolean): *void*
 
 **Parameters:**
 
-Name | Type | Description |
------- | ------ | ------ |
-`columnCount` | number | The number of columns.  |
+Name | Type |
+------ | ------ |
+`close` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setAutoReset
+
+▸ **setAutoReset**(`reset`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reset` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setCancelButtonText
+
+▸ **setCancelButtonText**(`text`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
 
 **Returns:** *void*
 
@@ -898,70 +824,6 @@ Name | Type |
 
 ___
 
-###  setFrameRect
-
-▸ **setFrameRect**(`r`: [QRect](qrect.md)): *void*
-
-*Inherited from [NodeFrame](nodeframe.md).[setFrameRect](nodeframe.md#setframerect)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`r` | [QRect](qrect.md) |
-
-**Returns:** *void*
-
-___
-
-###  setFrameShadow
-
-▸ **setFrameShadow**(`type`: [Shadow](../enums/shadow.md)): *void*
-
-*Inherited from [NodeFrame](nodeframe.md).[setFrameShadow](nodeframe.md#setframeshadow)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`type` | [Shadow](../enums/shadow.md) |
-
-**Returns:** *void*
-
-___
-
-###  setFrameShape
-
-▸ **setFrameShape**(`type`: [Shape](../enums/shape.md)): *void*
-
-*Inherited from [NodeFrame](nodeframe.md).[setFrameShape](nodeframe.md#setframeshape)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`type` | [Shape](../enums/shape.md) |
-
-**Returns:** *void*
-
-___
-
-###  setFrameStyle
-
-▸ **setFrameStyle**(`style`: number): *void*
-
-*Inherited from [NodeFrame](nodeframe.md).[setFrameStyle](nodeframe.md#setframestyle)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`style` | number |
-
-**Returns:** *void*
-
-___
-
 ###  setGeometry
 
 ▸ **setGeometry**(`x`: number, `y`: number, `w`: number, `h`: number): *void*
@@ -976,68 +838,6 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
-
-**Returns:** *void*
-
-___
-
-###  setHeaderHidden
-
-▸ **setHeaderHidden**(`hide`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`hide` | boolean |
-
-**Returns:** *void*
-
-___
-
-###  setHeaderLabel
-
-▸ **setHeaderLabel**(`label`: string): *void*
-
-Sets the header label.
-
-**Parameters:**
-
-Name | Type | Description |
------- | ------ | ------ |
-`label` | string | The header label.  |
-
-**Returns:** *void*
-
-___
-
-###  setHeaderLabels
-
-▸ **setHeaderLabels**(`labels`: string[]): *void*
-
-Sets the header labels of the existing columns.
-
-**Parameters:**
-
-Name | Type | Description |
------- | ------ | ------ |
-`labels` | string[] | The header labels for each column.  |
-
-**Returns:** *void*
-
-___
-
-###  setHorizontalScrollBarPolicy
-
-▸ **setHorizontalScrollBarPolicy**(`policy`: [ScrollBarPolicy](../enums/scrollbarpolicy.md)): *void*
-
-*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setHorizontalScrollBarPolicy](qabstractscrollarea.md#sethorizontalscrollbarpolicy)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`policy` | [ScrollBarPolicy](../enums/scrollbarpolicy.md) |
 
 **Returns:** *void*
 
@@ -1059,19 +859,15 @@ Name | Type |
 
 ___
 
-###  setItemWidget
+###  setLabelText
 
-▸ **setItemWidget**(`item`: [QTreeWidgetItem](qtreewidgetitem.md), `column`: number, `widget`: [QWidget](qwidget.md)): *void*
-
-Sets the given widget to be displayed in the cell specified by the given item and column.
+▸ **setLabelText**(`text`: string): *void*
 
 **Parameters:**
 
-Name | Type | Description |
------- | ------ | ------ |
-`item` | [QTreeWidgetItem](qtreewidgetitem.md) | The targeted item. |
-`column` | number | The column in which to show the edit widget. |
-`widget` | [QWidget](qwidget.md) | The edit widget.  |
+Name | Type |
+------ | ------ |
+`text` | string |
 
 **Returns:** *void*
 
@@ -1079,7 +875,7 @@ ___
 
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QTreeWidgetSignals](../interfaces/qtreewidgetsignals.md)›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -1087,23 +883,21 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹[QTreeWidgetSignals](../interfaces/qtreewidgetsignals.md)› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)› |
 
 **Returns:** *void*
 
 ___
 
-###  setLineWidth
+###  setMaximum
 
-▸ **setLineWidth**(`width`: number): *void*
-
-*Inherited from [NodeFrame](nodeframe.md).[setLineWidth](nodeframe.md#setlinewidth)*
+▸ **setMaximum**(`maximum`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`width` | number |
+`maximum` | number |
 
 **Returns:** *void*
 
@@ -1126,17 +920,29 @@ Name | Type |
 
 ___
 
-###  setMidLineWidth
+###  setMinimum
 
-▸ **setMidLineWidth**(`width`: number): *void*
-
-*Inherited from [NodeFrame](nodeframe.md).[setMidLineWidth](nodeframe.md#setmidlinewidth)*
+▸ **setMinimum**(`minimum`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`width` | number |
+`minimum` | number |
+
+**Returns:** *void*
+
+___
+
+###  setMinimumDuration
+
+▸ **setMinimumDuration**(`ms`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`ms` | number |
 
 **Returns:** *void*
 
@@ -1154,6 +960,22 @@ Name | Type |
 ------ | ------ |
 `minw` | number |
 `minh` | number |
+
+**Returns:** *void*
+
+___
+
+###  setModal
+
+▸ **setModal**(`modal`: boolean): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setModal](nodedialog.md#setmodal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`modal` | boolean |
 
 **Returns:** *void*
 
@@ -1226,17 +1048,48 @@ Name | Type |
 
 ___
 
-###  setSortingEnabled
+###  setRange
 
-▸ **setSortingEnabled**(`enable`: boolean): *void*
-
-Sets if columns can be sorted by clicking on its header
+▸ **setRange**(`minimum`: number, `maximum`: number): *void*
 
 **Parameters:**
 
-Name | Type | Description |
------- | ------ | ------ |
-`enable` | boolean | Sorting enabled or disabled  |
+Name | Type |
+------ | ------ |
+`minimum` | number |
+`maximum` | number |
+
+**Returns:** *void*
+
+___
+
+###  setResult
+
+▸ **setResult**(`i`: number): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setResult](nodedialog.md#setresult)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`i` | number |
+
+**Returns:** *void*
+
+___
+
+###  setSizeGripEnabled
+
+▸ **setSizeGripEnabled**(`enabled`: boolean): *void*
+
+*Inherited from [NodeDialog](nodedialog.md).[setSizeGripEnabled](nodedialog.md#setsizegripenabled)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enabled` | boolean |
 
 **Returns:** *void*
 
@@ -1258,33 +1111,15 @@ Name | Type |
 
 ___
 
-###  setVerticalScrollBarPolicy
+###  setValue
 
-▸ **setVerticalScrollBarPolicy**(`policy`: [ScrollBarPolicy](../enums/scrollbarpolicy.md)): *void*
-
-*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setVerticalScrollBarPolicy](qabstractscrollarea.md#setverticalscrollbarpolicy)*
+▸ **setValue**(`progress`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`policy` | [ScrollBarPolicy](../enums/scrollbarpolicy.md) |
-
-**Returns:** *void*
-
-___
-
-###  setViewport
-
-▸ **setViewport**(`widget`: [NodeWidget](nodewidget.md)‹any›): *void*
-
-*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setViewport](qabstractscrollarea.md#setviewport)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`widget` | [NodeWidget](nodewidget.md)‹any› |
+`progress` | number |
 
 **Returns:** *void*
 
@@ -1477,13 +1312,19 @@ ___
 
 ___
 
-###  viewport
+###  value
 
-▸ **viewport**(): *[QWidget](qwidget.md)*
+▸ **value**(): *number*
 
-*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewport](qabstractscrollarea.md#viewport)*
+**Returns:** *number*
 
-**Returns:** *[QWidget](qwidget.md)*
+___
+
+###  wasCanceled
+
+▸ **wasCanceled**(): *boolean*
+
+**Returns:** *boolean*
 
 ___
 

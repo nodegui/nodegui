@@ -1,151 +1,172 @@
 ---
-id: "qabstractspinbox"
-title: "QAbstractSpinBox"
-sidebar_label: "QAbstractSpinBox"
+id: "qdoublespinbox"
+title: "QDoubleSpinBox"
+sidebar_label: "QDoubleSpinBox"
 ---
 
-> This is the abstract base class of button widgets, providing their functionality.
+> Create and control double spin box widgets.
 
-**This class is a JS wrapper around Qt's [QAbstractSpinBox class](https://doc.qt.io/qt-5/qabstractspinbox.html)**
+**This class is a JS wrapper around Qt's [QDoubleSpinBox class](https://doc.qt.io/qt-5/qdoublespinbox.html)**
 
-The QAbstractSpinBox class is an abstract class and therefore, technically, no further instances actually have to be created.
-It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
+A `QDoubleSpinBox` provides ability to add and manipulate native double spin box widgets.
 
-## Type parameters
+### Example
 
-▪ **Signals**: *[QAbstractSpinBoxSignals](../interfaces/qabstractspinboxsignals.md)*
+```javascript
+const { QDoubleSpinBox } = require("@nodegui/nodegui");
+
+const doublespinBox = new QDoubleSpinBox();
+```
 
 ## Hierarchy
 
-  ↳ [NodeWidget](nodewidget.md)‹Signals›
+  ↳ [QAbstractSpinBox](qabstractspinbox.md)‹[QDoubleSpinBoxSignals](../interfaces/qdoublespinboxsignals.md)›
 
-  ↳ **QAbstractSpinBox**
-
-  ↳ [NodeDateTimeEdit](nodedatetimeedit.md)
-
-  ↳ [QDoubleSpinBox](qdoublespinbox.md)
-
-  ↳ [QSpinBox](qspinbox.md)
+  ↳ **QDoubleSpinBox**
 
 ## Index
 
 ### Constructors
 
-* [constructor](qabstractspinbox.md#constructor)
+* [constructor](qdoublespinbox.md#constructor)
 
 ### Properties
 
-* [_rawInlineStyle](qabstractspinbox.md#_rawinlinestyle)
-* [actions](qabstractspinbox.md#actions)
-* [layout](qabstractspinbox.md#optional-layout)
-* [native](qabstractspinbox.md#abstract-native)
-* [nodeChildren](qabstractspinbox.md#nodechildren)
-* [nodeParent](qabstractspinbox.md#optional-nodeparent)
-* [type](qabstractspinbox.md#type)
+* [_rawInlineStyle](qdoublespinbox.md#_rawinlinestyle)
+* [actions](qdoublespinbox.md#actions)
+* [layout](qdoublespinbox.md#optional-layout)
+* [native](qdoublespinbox.md#native)
+* [nodeChildren](qdoublespinbox.md#nodechildren)
+* [nodeParent](qdoublespinbox.md#optional-nodeparent)
+* [type](qdoublespinbox.md#type)
 
 ### Methods
 
-* [activateWindow](qabstractspinbox.md#activatewindow)
-* [addAction](qabstractspinbox.md#addaction)
-* [addEventListener](qabstractspinbox.md#addeventlistener)
-* [adjustSize](qabstractspinbox.md#adjustsize)
-* [alignment](qabstractspinbox.md#alignment)
-* [buttonSymbols](qabstractspinbox.md#buttonsymbols)
-* [close](qabstractspinbox.md#close)
-* [correctionMode](qabstractspinbox.md#correctionmode)
-* [font](qabstractspinbox.md#font)
-* [geometry](qabstractspinbox.md#geometry)
-* [getFlexNode](qabstractspinbox.md#getflexnode)
-* [hasAcceptableInput](qabstractspinbox.md#hasacceptableinput)
-* [hasFrame](qabstractspinbox.md#hasframe)
-* [hasMouseTracking](qabstractspinbox.md#hasmousetracking)
-* [hide](qabstractspinbox.md#hide)
-* [inherits](qabstractspinbox.md#inherits)
-* [isAccelerated](qabstractspinbox.md#isaccelerated)
-* [isEnabled](qabstractspinbox.md#isenabled)
-* [isGroupSeparatorShown](qabstractspinbox.md#isgroupseparatorshown)
-* [isReadOnly](qabstractspinbox.md#isreadonly)
-* [isVisible](qabstractspinbox.md#isvisible)
-* [keyboardTracking](qabstractspinbox.md#keyboardtracking)
-* [lower](qabstractspinbox.md#lower)
-* [move](qabstractspinbox.md#move)
-* [objectName](qabstractspinbox.md#objectname)
-* [pos](qabstractspinbox.md#pos)
-* [property](qabstractspinbox.md#property)
-* [raise](qabstractspinbox.md#raise)
-* [removeEventListener](qabstractspinbox.md#removeeventlistener)
-* [repaint](qabstractspinbox.md#repaint)
-* [repolish](qabstractspinbox.md#repolish)
-* [resize](qabstractspinbox.md#resize)
-* [selectAll](qabstractspinbox.md#selectall)
-* [setAccelerated](qabstractspinbox.md#setaccelerated)
-* [setAlignment](qabstractspinbox.md#setalignment)
-* [setAttribute](qabstractspinbox.md#setattribute)
-* [setButtonSymbols](qabstractspinbox.md#setbuttonsymbols)
-* [setContextMenuPolicy](qabstractspinbox.md#setcontextmenupolicy)
-* [setCorrectionMode](qabstractspinbox.md#setcorrectionmode)
-* [setCursor](qabstractspinbox.md#setcursor)
-* [setEnabled](qabstractspinbox.md#setenabled)
-* [setFixedSize](qabstractspinbox.md#setfixedsize)
-* [setFlexNodeSizeControlled](qabstractspinbox.md#setflexnodesizecontrolled)
-* [setFont](qabstractspinbox.md#setfont)
-* [setFrame](qabstractspinbox.md#setframe)
-* [setGeometry](qabstractspinbox.md#setgeometry)
-* [setGroupSeparatorShown](qabstractspinbox.md#setgroupseparatorshown)
-* [setInlineStyle](qabstractspinbox.md#setinlinestyle)
-* [setKeyboardTracking](qabstractspinbox.md#setkeyboardtracking)
-* [setLayout](qabstractspinbox.md#setlayout)
-* [setMaximumSize](qabstractspinbox.md#setmaximumsize)
-* [setMinimumSize](qabstractspinbox.md#setminimumsize)
-* [setMouseTracking](qabstractspinbox.md#setmousetracking)
-* [setNodeParent](qabstractspinbox.md#setnodeparent)
-* [setObjectName](qabstractspinbox.md#setobjectname)
-* [setProperty](qabstractspinbox.md#setproperty)
-* [setReadOnly](qabstractspinbox.md#setreadonly)
-* [setSpecialValueText](qabstractspinbox.md#setspecialvaluetext)
-* [setStyleSheet](qabstractspinbox.md#setstylesheet)
-* [setWindowFlag](qabstractspinbox.md#setwindowflag)
-* [setWindowIcon](qabstractspinbox.md#setwindowicon)
-* [setWindowOpacity](qabstractspinbox.md#setwindowopacity)
-* [setWindowState](qabstractspinbox.md#setwindowstate)
-* [setWindowTitle](qabstractspinbox.md#setwindowtitle)
-* [setWrapping](qabstractspinbox.md#setwrapping)
-* [show](qabstractspinbox.md#show)
-* [showFullScreen](qabstractspinbox.md#showfullscreen)
-* [showMaximized](qabstractspinbox.md#showmaximized)
-* [showMinimized](qabstractspinbox.md#showminimized)
-* [showNormal](qabstractspinbox.md#shownormal)
-* [size](qabstractspinbox.md#size)
-* [specialValueText](qabstractspinbox.md#specialvaluetext)
-* [stepDown](qabstractspinbox.md#stepdown)
-* [stepUp](qabstractspinbox.md#stepup)
-* [styleSheet](qabstractspinbox.md#stylesheet)
-* [testAttribute](qabstractspinbox.md#testattribute)
-* [text](qabstractspinbox.md#text)
-* [update](qabstractspinbox.md#update)
-* [updateGeometry](qabstractspinbox.md#updategeometry)
-* [windowOpacity](qabstractspinbox.md#windowopacity)
-* [windowState](qabstractspinbox.md#windowstate)
-* [windowTitle](qabstractspinbox.md#windowtitle)
-* [wrapping](qabstractspinbox.md#wrapping)
+* [activateWindow](qdoublespinbox.md#activatewindow)
+* [addAction](qdoublespinbox.md#addaction)
+* [addEventListener](qdoublespinbox.md#addeventlistener)
+* [adjustSize](qdoublespinbox.md#adjustsize)
+* [alignment](qdoublespinbox.md#alignment)
+* [buttonSymbols](qdoublespinbox.md#buttonsymbols)
+* [cleanText](qdoublespinbox.md#cleantext)
+* [close](qdoublespinbox.md#close)
+* [correctionMode](qdoublespinbox.md#correctionmode)
+* [decimals](qdoublespinbox.md#decimals)
+* [font](qdoublespinbox.md#font)
+* [geometry](qdoublespinbox.md#geometry)
+* [getFlexNode](qdoublespinbox.md#getflexnode)
+* [hasAcceptableInput](qdoublespinbox.md#hasacceptableinput)
+* [hasFrame](qdoublespinbox.md#hasframe)
+* [hasMouseTracking](qdoublespinbox.md#hasmousetracking)
+* [hide](qdoublespinbox.md#hide)
+* [inherits](qdoublespinbox.md#inherits)
+* [isAccelerated](qdoublespinbox.md#isaccelerated)
+* [isEnabled](qdoublespinbox.md#isenabled)
+* [isGroupSeparatorShown](qdoublespinbox.md#isgroupseparatorshown)
+* [isReadOnly](qdoublespinbox.md#isreadonly)
+* [isVisible](qdoublespinbox.md#isvisible)
+* [keyboardTracking](qdoublespinbox.md#keyboardtracking)
+* [lower](qdoublespinbox.md#lower)
+* [maximum](qdoublespinbox.md#maximum)
+* [minimum](qdoublespinbox.md#minimum)
+* [move](qdoublespinbox.md#move)
+* [objectName](qdoublespinbox.md#objectname)
+* [pos](qdoublespinbox.md#pos)
+* [prefix](qdoublespinbox.md#prefix)
+* [property](qdoublespinbox.md#property)
+* [raise](qdoublespinbox.md#raise)
+* [removeEventListener](qdoublespinbox.md#removeeventlistener)
+* [repaint](qdoublespinbox.md#repaint)
+* [repolish](qdoublespinbox.md#repolish)
+* [resize](qdoublespinbox.md#resize)
+* [selectAll](qdoublespinbox.md#selectall)
+* [setAccelerated](qdoublespinbox.md#setaccelerated)
+* [setAlignment](qdoublespinbox.md#setalignment)
+* [setAttribute](qdoublespinbox.md#setattribute)
+* [setButtonSymbols](qdoublespinbox.md#setbuttonsymbols)
+* [setContextMenuPolicy](qdoublespinbox.md#setcontextmenupolicy)
+* [setCorrectionMode](qdoublespinbox.md#setcorrectionmode)
+* [setCursor](qdoublespinbox.md#setcursor)
+* [setDecimals](qdoublespinbox.md#setdecimals)
+* [setEnabled](qdoublespinbox.md#setenabled)
+* [setFixedSize](qdoublespinbox.md#setfixedsize)
+* [setFlexNodeSizeControlled](qdoublespinbox.md#setflexnodesizecontrolled)
+* [setFont](qdoublespinbox.md#setfont)
+* [setFrame](qdoublespinbox.md#setframe)
+* [setGeometry](qdoublespinbox.md#setgeometry)
+* [setGroupSeparatorShown](qdoublespinbox.md#setgroupseparatorshown)
+* [setInlineStyle](qdoublespinbox.md#setinlinestyle)
+* [setKeyboardTracking](qdoublespinbox.md#setkeyboardtracking)
+* [setLayout](qdoublespinbox.md#setlayout)
+* [setMaximum](qdoublespinbox.md#setmaximum)
+* [setMaximumSize](qdoublespinbox.md#setmaximumsize)
+* [setMinimum](qdoublespinbox.md#setminimum)
+* [setMinimumSize](qdoublespinbox.md#setminimumsize)
+* [setMouseTracking](qdoublespinbox.md#setmousetracking)
+* [setNodeParent](qdoublespinbox.md#setnodeparent)
+* [setObjectName](qdoublespinbox.md#setobjectname)
+* [setPrefix](qdoublespinbox.md#setprefix)
+* [setProperty](qdoublespinbox.md#setproperty)
+* [setRange](qdoublespinbox.md#setrange)
+* [setReadOnly](qdoublespinbox.md#setreadonly)
+* [setSingleStep](qdoublespinbox.md#setsinglestep)
+* [setSpecialValueText](qdoublespinbox.md#setspecialvaluetext)
+* [setStepType](qdoublespinbox.md#setsteptype)
+* [setStyleSheet](qdoublespinbox.md#setstylesheet)
+* [setSuffix](qdoublespinbox.md#setsuffix)
+* [setValue](qdoublespinbox.md#setvalue)
+* [setWindowFlag](qdoublespinbox.md#setwindowflag)
+* [setWindowIcon](qdoublespinbox.md#setwindowicon)
+* [setWindowOpacity](qdoublespinbox.md#setwindowopacity)
+* [setWindowState](qdoublespinbox.md#setwindowstate)
+* [setWindowTitle](qdoublespinbox.md#setwindowtitle)
+* [setWrapping](qdoublespinbox.md#setwrapping)
+* [show](qdoublespinbox.md#show)
+* [showFullScreen](qdoublespinbox.md#showfullscreen)
+* [showMaximized](qdoublespinbox.md#showmaximized)
+* [showMinimized](qdoublespinbox.md#showminimized)
+* [showNormal](qdoublespinbox.md#shownormal)
+* [singleStep](qdoublespinbox.md#singlestep)
+* [size](qdoublespinbox.md#size)
+* [specialValueText](qdoublespinbox.md#specialvaluetext)
+* [stepDown](qdoublespinbox.md#stepdown)
+* [stepType](qdoublespinbox.md#steptype)
+* [stepUp](qdoublespinbox.md#stepup)
+* [styleSheet](qdoublespinbox.md#stylesheet)
+* [suffix](qdoublespinbox.md#suffix)
+* [testAttribute](qdoublespinbox.md#testattribute)
+* [text](qdoublespinbox.md#text)
+* [textFromValue](qdoublespinbox.md#textfromvalue)
+* [update](qdoublespinbox.md#update)
+* [updateGeometry](qdoublespinbox.md#updategeometry)
+* [value](qdoublespinbox.md#value)
+* [valueFromText](qdoublespinbox.md#valuefromtext)
+* [windowOpacity](qdoublespinbox.md#windowopacity)
+* [windowState](qdoublespinbox.md#windowstate)
+* [windowTitle](qdoublespinbox.md#windowtitle)
+* [wrapping](qdoublespinbox.md#wrapping)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QAbstractSpinBox**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAbstractSpinBox](qabstractspinbox.md)*
+\+ **new QDoubleSpinBox**(): *[QDoubleSpinBox](qdoublespinbox.md)*
 
-*Inherited from [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+**Returns:** *[QDoubleSpinBox](qdoublespinbox.md)*
+
+\+ **new QDoubleSpinBox**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QDoubleSpinBox](qdoublespinbox.md)*
+
+*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`native` | [NativeElement](../globals.md#nativeelement) |
+`parent` | [NodeWidget](nodewidget.md)‹any› |
 
-**Returns:** *[QAbstractSpinBox](qabstractspinbox.md)*
+**Returns:** *[QDoubleSpinBox](qdoublespinbox.md)*
 
 ## Properties
 
@@ -167,17 +188,17 @@ ___
 
 ### `Optional` layout
 
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+• **layout**? : *[NodeLayout](nodelayout.md)‹[QDoubleSpinBoxSignals](../interfaces/qdoublespinboxsignals.md)›*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
-### `Abstract` native
+###  native
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
-*Inherited from [Component](component.md).[native](component.md#abstract-native)*
+*Overrides [Component](component.md).[native](component.md#abstract-native)*
 
 ___
 
@@ -233,20 +254,20 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QDoubleSpinBoxSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QDoubleSpinBoxSignals*
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
-`callback` | Signals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`callback` | QDoubleSpinBoxSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
 
@@ -301,6 +322,8 @@ ___
 
 ▸ **alignment**(): *[AlignmentFlag](../enums/alignmentflag.md)*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[alignment](qabstractspinbox.md#alignment)*
+
 **Returns:** *[AlignmentFlag](../enums/alignmentflag.md)*
 
 ___
@@ -309,7 +332,17 @@ ___
 
 ▸ **buttonSymbols**(): *[ButtonSymbols](../enums/buttonsymbols.md)*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[buttonSymbols](qabstractspinbox.md#buttonsymbols)*
+
 **Returns:** *[ButtonSymbols](../enums/buttonsymbols.md)*
+
+___
+
+###  cleanText
+
+▸ **cleanText**(): *string*
+
+**Returns:** *string*
 
 ___
 
@@ -327,7 +360,17 @@ ___
 
 ▸ **correctionMode**(): *[CorrectionMode](../enums/correctionmode.md)*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[correctionMode](qabstractspinbox.md#correctionmode)*
+
 **Returns:** *[CorrectionMode](../enums/correctionmode.md)*
+
+___
+
+###  decimals
+
+▸ **decimals**(): *number*
+
+**Returns:** *number*
 
 ___
 
@@ -365,6 +408,8 @@ ___
 
 ▸ **hasAcceptableInput**(): *boolean*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[hasAcceptableInput](qabstractspinbox.md#hasacceptableinput)*
+
 **Returns:** *boolean*
 
 ___
@@ -372,6 +417,8 @@ ___
 ###  hasFrame
 
 ▸ **hasFrame**(): *boolean*
+
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[hasFrame](qabstractspinbox.md#hasframe)*
 
 **Returns:** *boolean*
 
@@ -417,6 +464,8 @@ ___
 
 ▸ **isAccelerated**(): *boolean*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[isAccelerated](qabstractspinbox.md#isaccelerated)*
+
 **Returns:** *boolean*
 
 ___
@@ -435,6 +484,8 @@ ___
 
 ▸ **isGroupSeparatorShown**(): *boolean*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[isGroupSeparatorShown](qabstractspinbox.md#isgroupseparatorshown)*
+
 **Returns:** *boolean*
 
 ___
@@ -442,6 +493,8 @@ ___
 ###  isReadOnly
 
 ▸ **isReadOnly**(): *boolean*
+
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[isReadOnly](qabstractspinbox.md#isreadonly)*
 
 **Returns:** *boolean*
 
@@ -461,6 +514,8 @@ ___
 
 ▸ **keyboardTracking**(): *boolean*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[keyboardTracking](qabstractspinbox.md#keyboardtracking)*
+
 **Returns:** *boolean*
 
 ___
@@ -472,6 +527,22 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  maximum
+
+▸ **maximum**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  minimum
+
+▸ **minimum**(): *number*
+
+**Returns:** *number*
 
 ___
 
@@ -516,6 +587,14 @@ ___
 
 ___
 
+###  prefix
+
+▸ **prefix**(): *string*
+
+**Returns:** *string*
+
+___
+
 ###  property
 
 ▸ **property**(`name`: string): *[QVariant](qvariant.md)*
@@ -544,20 +623,20 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QDoubleSpinBoxSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof Signals*
+▪ **SignalType**: *keyof QDoubleSpinBoxSignals*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
-`callback` | Signals[SignalType] |
+`callback` | QDoubleSpinBoxSignals[SignalType] |
 
 **Returns:** *void*
 
@@ -624,6 +703,8 @@ ___
 
 ▸ **selectAll**(): *void*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[selectAll](qabstractspinbox.md#selectall)*
+
 **Returns:** *void*
 
 ___
@@ -631,6 +712,8 @@ ___
 ###  setAccelerated
 
 ▸ **setAccelerated**(`on`: boolean): *void*
+
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setAccelerated](qabstractspinbox.md#setaccelerated)*
 
 **Parameters:**
 
@@ -645,6 +728,8 @@ ___
 ###  setAlignment
 
 ▸ **setAlignment**(`alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
+
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setAlignment](qabstractspinbox.md#setalignment)*
 
 **Parameters:**
 
@@ -677,6 +762,8 @@ ___
 
 ▸ **setButtonSymbols**(`bs`: [ButtonSymbols](../enums/buttonsymbols.md)): *void*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setButtonSymbols](qabstractspinbox.md#setbuttonsymbols)*
+
 **Parameters:**
 
 Name | Type |
@@ -707,6 +794,8 @@ ___
 
 ▸ **setCorrectionMode**(`cm`: [CorrectionMode](../enums/correctionmode.md)): *void*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setCorrectionMode](qabstractspinbox.md#setcorrectionmode)*
+
 **Parameters:**
 
 Name | Type |
@@ -728,6 +817,20 @@ ___
 Name | Type |
 ------ | ------ |
 `cursor` | [CursorShape](../enums/cursorshape.md) &#124; [QCursor](qcursor.md) |
+
+**Returns:** *void*
+
+___
+
+###  setDecimals
+
+▸ **setDecimals**(`prec`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`prec` | number |
 
 **Returns:** *void*
 
@@ -804,6 +907,8 @@ ___
 
 ▸ **setFrame**(`enable`: boolean): *void*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setFrame](qabstractspinbox.md#setframe)*
+
 **Parameters:**
 
 Name | Type |
@@ -837,6 +942,8 @@ ___
 
 ▸ **setGroupSeparatorShown**(`shown`: boolean): *void*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setGroupSeparatorShown](qabstractspinbox.md#setgroupseparatorshown)*
+
 **Parameters:**
 
 Name | Type |
@@ -867,6 +974,8 @@ ___
 
 ▸ **setKeyboardTracking**(`kt`: boolean): *void*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setKeyboardTracking](qabstractspinbox.md#setkeyboardtracking)*
+
 **Parameters:**
 
 Name | Type |
@@ -879,7 +988,7 @@ ___
 
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹Signals›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QDoubleSpinBoxSignals](../interfaces/qdoublespinboxsignals.md)›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -887,7 +996,21 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹Signals› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹[QDoubleSpinBoxSignals](../interfaces/qdoublespinboxsignals.md)› |
+
+**Returns:** *void*
+
+___
+
+###  setMaximum
+
+▸ **setMaximum**(`max`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`max` | number |
 
 **Returns:** *void*
 
@@ -905,6 +1028,20 @@ Name | Type |
 ------ | ------ |
 `maxw` | number |
 `maxh` | number |
+
+**Returns:** *void*
+
+___
+
+###  setMinimum
+
+▸ **setMinimum**(`min`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`min` | number |
 
 **Returns:** *void*
 
@@ -977,6 +1114,20 @@ Name | Type |
 
 ___
 
+###  setPrefix
+
+▸ **setPrefix**(`prefix`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`prefix` | string |
+
+**Returns:** *void*
+
+___
+
 ###  setProperty
 
 ▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
@@ -994,9 +1145,26 @@ Name | Type |
 
 ___
 
+###  setRange
+
+▸ **setRange**(`minimum`: number, `maximum`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`minimum` | number |
+`maximum` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setReadOnly
 
 ▸ **setReadOnly**(`r`: boolean): *void*
+
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setReadOnly](qabstractspinbox.md#setreadonly)*
 
 **Parameters:**
 
@@ -1008,15 +1176,45 @@ Name | Type |
 
 ___
 
+###  setSingleStep
+
+▸ **setSingleStep**(`val`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`val` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setSpecialValueText
 
 ▸ **setSpecialValueText**(`txt`: string): *void*
+
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setSpecialValueText](qabstractspinbox.md#setspecialvaluetext)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `txt` | string |
+
+**Returns:** *void*
+
+___
+
+###  setStepType
+
+▸ **setStepType**(`stepType`: [StepType](../enums/steptype.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`stepType` | [StepType](../enums/steptype.md) |
 
 **Returns:** *void*
 
@@ -1033,6 +1231,34 @@ ___
 Name | Type |
 ------ | ------ |
 `styleSheet` | string |
+
+**Returns:** *void*
+
+___
+
+###  setSuffix
+
+▸ **setSuffix**(`suffix`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`suffix` | string |
+
+**Returns:** *void*
+
+___
+
+###  setValue
+
+▸ **setValue**(`val`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`val` | number |
 
 **Returns:** *void*
 
@@ -1123,6 +1349,8 @@ ___
 
 ▸ **setWrapping**(`w`: boolean): *void*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setWrapping](qabstractspinbox.md#setwrapping)*
+
 **Parameters:**
 
 Name | Type |
@@ -1183,6 +1411,14 @@ ___
 
 ___
 
+###  singleStep
+
+▸ **singleStep**(): *number*
+
+**Returns:** *number*
+
+___
+
 ###  size
 
 ▸ **size**(): *[QSize](qsize.md)*
@@ -1197,6 +1433,8 @@ ___
 
 ▸ **specialValueText**(): *string*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[specialValueText](qabstractspinbox.md#specialvaluetext)*
+
 **Returns:** *string*
 
 ___
@@ -1205,13 +1443,25 @@ ___
 
 ▸ **stepDown**(): *void*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[stepDown](qabstractspinbox.md#stepdown)*
+
 **Returns:** *void*
+
+___
+
+###  stepType
+
+▸ **stepType**(): *[StepType](../enums/steptype.md)*
+
+**Returns:** *[StepType](../enums/steptype.md)*
 
 ___
 
 ###  stepUp
 
 ▸ **stepUp**(): *void*
+
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[stepUp](qabstractspinbox.md#stepup)*
 
 **Returns:** *void*
 
@@ -1222,6 +1472,14 @@ ___
 ▸ **styleSheet**(): *string*
 
 *Inherited from [QMenu](qmenu.md).[styleSheet](qmenu.md#stylesheet)*
+
+**Returns:** *string*
+
+___
+
+###  suffix
+
+▸ **suffix**(): *string*
 
 **Returns:** *string*
 
@@ -1247,6 +1505,22 @@ ___
 
 ▸ **text**(): *string*
 
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[text](qabstractspinbox.md#text)*
+
+**Returns:** *string*
+
+___
+
+###  textFromValue
+
+▸ **textFromValue**(`value`: number): *string*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`value` | number |
+
 **Returns:** *string*
 
 ___
@@ -1268,6 +1542,28 @@ ___
 *Inherited from [QMenu](qmenu.md).[updateGeometry](qmenu.md#updategeometry)*
 
 **Returns:** *void*
+
+___
+
+###  value
+
+▸ **value**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  valueFromText
+
+▸ **valueFromText**(`text`: string): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+
+**Returns:** *number*
 
 ___
 
@@ -1304,5 +1600,7 @@ ___
 ###  wrapping
 
 ▸ **wrapping**(): *boolean*
+
+*Inherited from [QAbstractSpinBox](qabstractspinbox.md).[wrapping](qabstractspinbox.md#wrapping)*
 
 **Returns:** *boolean*

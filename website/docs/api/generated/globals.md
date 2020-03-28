@@ -18,6 +18,7 @@ sidebar_label: "Globals"
 * [Axis](enums/axis.md)
 * [BGMode](enums/bgmode.md)
 * [BrushStyle](enums/brushstyle.md)
+* [ButtonPosition](enums/buttonposition.md)
 * [ButtonRole](enums/buttonrole.md)
 * [ButtonSymbols](enums/buttonsymbols.md)
 * [CacheMode](enums/cachemode.md)
@@ -25,6 +26,7 @@ sidebar_label: "Globals"
 * [CheckState](enums/checkstate.md)
 * [ChecksumType](enums/checksumtype.md)
 * [ClipOperation](enums/clipoperation.md)
+* [ColorDialogOption](enums/colordialogoption.md)
 * [ConnectionType](enums/connectiontype.md)
 * [ContextMenuPolicy](enums/contextmenupolicy.md)
 * [CoordinateSystem](enums/coordinatesystem.md)
@@ -50,6 +52,7 @@ sidebar_label: "Globals"
 * [Flow](enums/flow.md)
 * [FocusPolicy](enums/focuspolicy.md)
 * [FocusReason](enums/focusreason.md)
+* [FontDialogOption](enums/fontdialogoption.md)
 * [GestureFlag](enums/gestureflag.md)
 * [GestureState](enums/gesturestate.md)
 * [GestureType](enums/gesturetype.md)
@@ -74,6 +77,7 @@ sidebar_label: "Globals"
 * [LineWrapMode](enums/linewrapmode.md)
 * [MaskMode](enums/maskmode.md)
 * [MatchFlag](enums/matchflag.md)
+* [Mode](enums/mode.md)
 * [Modifier](enums/modifier.md)
 * [MouseButton](enums/mousebutton.md)
 * [MouseEventFlag](enums/mouseeventflag.md)
@@ -106,6 +110,7 @@ sidebar_label: "Globals"
 * [ScrollHint](enums/scrollhint.md)
 * [ScrollMode](enums/scrollmode.md)
 * [ScrollPhase](enums/scrollphase.md)
+* [SegmentStyle](enums/segmentstyle.md)
 * [SelectionBehavior](enums/selectionbehavior.md)
 * [SelectionMode](enums/selectionmode.md)
 * [SequenceFormat](enums/sequenceformat.md)
@@ -120,6 +125,7 @@ sidebar_label: "Globals"
 * [SortOrder](enums/sortorder.md)
 * [StepType](enums/steptype.md)
 * [SystemFont](enums/systemfont.md)
+* [TabBarShape](enums/tabbarshape.md)
 * [TabFocusBehavior](enums/tabfocusbehavior.md)
 * [TabPosition](enums/tabposition.md)
 * [TextElideMode](enums/textelidemode.md)
@@ -156,6 +162,7 @@ sidebar_label: "Globals"
 * [NodeDialog](classes/nodedialog.md)
 * [NodeFrame](classes/nodeframe.md)
 * [NodeLayout](classes/nodelayout.md)
+* [NodeListView](classes/nodelistview.md)
 * [NodeObject](classes/nodeobject.md)
 * [NodeTableView](classes/nodetableview.md)
 * [NodeWidget](classes/nodewidget.md)
@@ -167,11 +174,13 @@ sidebar_label: "Globals"
 * [QAction](classes/qaction.md)
 * [QApplication](classes/qapplication.md)
 * [QBoxLayout](classes/qboxlayout.md)
+* [QBrush](classes/qbrush.md)
 * [QButtonGroup](classes/qbuttongroup.md)
 * [QCalendarWidget](classes/qcalendarwidget.md)
 * [QCheckBox](classes/qcheckbox.md)
 * [QClipboard](classes/qclipboard.md)
 * [QColor](classes/qcolor.md)
+* [QColorDialog](classes/qcolordialog.md)
 * [QComboBox](classes/qcombobox.md)
 * [QCursor](classes/qcursor.md)
 * [QDate](classes/qdate.md)
@@ -180,9 +189,12 @@ sidebar_label: "Globals"
 * [QDateTimeEdit](classes/qdatetimeedit.md)
 * [QDial](classes/qdial.md)
 * [QDialog](classes/qdialog.md)
+* [QDoubleSpinBox](classes/qdoublespinbox.md)
+* [QErrorMessage](classes/qerrormessage.md)
 * [QFileDialog](classes/qfiledialog.md)
 * [QFont](classes/qfont.md)
 * [QFontDatabase](classes/qfontdatabase.md)
+* [QFontDialog](classes/qfontdialog.md)
 * [QFrame](classes/qframe.md)
 * [QGridLayout](classes/qgridlayout.md)
 * [QGroupBox](classes/qgroupbox.md)
@@ -190,8 +202,10 @@ sidebar_label: "Globals"
 * [QInputDialog](classes/qinputdialog.md)
 * [QKeyEvent](classes/qkeyevent.md)
 * [QKeySequence](classes/qkeysequence.md)
+* [QLCDNumber](classes/qlcdnumber.md)
 * [QLabel](classes/qlabel.md)
 * [QLineEdit](classes/qlineedit.md)
+* [QListView](classes/qlistview.md)
 * [QListWidget](classes/qlistwidget.md)
 * [QListWidgetItem](classes/qlistwidgetitem.md)
 * [QMainWindow](classes/qmainwindow.md)
@@ -208,6 +222,7 @@ sidebar_label: "Globals"
 * [QPlainTextEdit](classes/qplaintextedit.md)
 * [QPoint](classes/qpoint.md)
 * [QProgressBar](classes/qprogressbar.md)
+* [QProgressDialog](classes/qprogressdialog.md)
 * [QPushButton](classes/qpushbutton.md)
 * [QRadioButton](classes/qradiobutton.md)
 * [QRect](classes/qrect.md)
@@ -219,9 +234,12 @@ sidebar_label: "Globals"
 * [QSlider](classes/qslider.md)
 * [QSpinBox](classes/qspinbox.md)
 * [QStackedWidget](classes/qstackedwidget.md)
+* [QStandardItem](classes/qstandarditem.md)
+* [QStandardItemModel](classes/qstandarditemmodel.md)
 * [QStatusBar](classes/qstatusbar.md)
 * [QStyle](classes/qstyle.md)
 * [QSystemTrayIcon](classes/qsystemtrayicon.md)
+* [QTabBar](classes/qtabbar.md)
 * [QTabWidget](classes/qtabwidget.md)
 * [QTableView](classes/qtableview.md)
 * [QTableWidget](classes/qtablewidget.md)
@@ -247,12 +265,16 @@ sidebar_label: "Globals"
 * [QButtonGroupSignals](interfaces/qbuttongroupsignals.md)
 * [QCalendarWidgetSignals](interfaces/qcalendarwidgetsignals.md)
 * [QCheckBoxSignals](interfaces/qcheckboxsignals.md)
+* [QColorDialogSignals](interfaces/qcolordialogsignals.md)
 * [QComboBoxSignals](interfaces/qcomboboxsignals.md)
 * [QDateTimeEditSignals](interfaces/qdatetimeeditsignals.md)
 * [QDialogSignals](interfaces/qdialogsignals.md)
+* [QDoubleSpinBoxSignals](interfaces/qdoublespinboxsignals.md)
 * [QFileDialogSignals](interfaces/qfiledialogsignals.md)
+* [QFontDialogSignals](interfaces/qfontdialogsignals.md)
 * [QGroupBoxSignals](interfaces/qgroupboxsignals.md)
 * [QInputDialogSignals](interfaces/qinputdialogsignals.md)
+* [QLCDNumberSignals](interfaces/qlcdnumbersignals.md)
 * [QLabelSignals](interfaces/qlabelsignals.md)
 * [QLineEditSignals](interfaces/qlineeditsignals.md)
 * [QListWidgetSignals](interfaces/qlistwidgetsignals.md)
@@ -261,11 +283,14 @@ sidebar_label: "Globals"
 * [QObjectSignals](interfaces/qobjectsignals.md)
 * [QPlainTextEditSignals](interfaces/qplaintexteditsignals.md)
 * [QProgressBarSignals](interfaces/qprogressbarsignals.md)
+* [QProgressDialogSignals](interfaces/qprogressdialogsignals.md)
 * [QShortcutSignals](interfaces/qshortcutsignals.md)
 * [QSpinBoxSignals](interfaces/qspinboxsignals.md)
 * [QStackedWidgetSignals](interfaces/qstackedwidgetsignals.md)
+* [QStandardItemModelSignals](interfaces/qstandarditemmodelsignals.md)
 * [QStatusBarSignals](interfaces/qstatusbarsignals.md)
 * [QSystemTrayIconSignals](interfaces/qsystemtrayiconsignals.md)
+* [QTabBarSignals](interfaces/qtabbarsignals.md)
 * [QTabWidgetSignals](interfaces/qtabwidgetsignals.md)
 * [QTableWidgetSignals](interfaces/qtablewidgetsignals.md)
 * [QToolButtonSignals](interfaces/qtoolbuttonsignals.md)
@@ -284,9 +309,11 @@ sidebar_label: "Globals"
 * [QApplicationSignals](globals.md#qapplicationsignals)
 * [QBoxLayoutSignals](globals.md#qboxlayoutsignals)
 * [QDialSignals](globals.md#qdialsignals)
+* [QErrorMessageSignals](globals.md#qerrormessagesignals)
 * [QFrameSignals](globals.md#qframesignals)
 * [QGridLayoutSignals](globals.md#qgridlayoutsignals)
 * [QLayoutSignals](globals.md#qlayoutsignals)
+* [QListViewSignals](globals.md#qlistviewsignals)
 * [QMainWindowSignals](globals.md#qmainwindowsignals)
 * [QMenuBarSignals](globals.md#qmenubarsignals)
 * [QMenuSignals](globals.md#qmenusignals)
@@ -298,17 +325,12 @@ sidebar_label: "Globals"
 * [QTableViewSignals](globals.md#qtableviewsignals)
 * [QVariantType](globals.md#qvarianttype)
 * [SupportedFormats](globals.md#supportedformats)
-* [arg](globals.md#arg)
 
 ### Variables
 
 * [addon](globals.md#const-addon)
-* [center](globals.md#const-center)
-* [getBtn](globals.md#const-getbtn)
 * [label](globals.md#const-label)
-* [setBtn](globals.md#const-setbtn)
 * [testImagePath](globals.md#const-testimagepath)
-* [textInput](globals.md#const-textinput)
 * [win](globals.md#const-win)
 
 ### Functions
@@ -317,7 +339,6 @@ sidebar_label: "Globals"
 * [checkIfNapiExternal](globals.md#checkifnapiexternal)
 * [checkIfNativeElement](globals.md#checkifnativeelement)
 * [main](globals.md#main)
-* [noop](globals.md#noop)
 * [prepareInlineStyleSheet](globals.md#prepareinlinestylesheet)
 * [wrapWithActivateUvLoop](globals.md#const-wrapwithactivateuvloop)
 
@@ -385,6 +406,12 @@ ___
 
 ___
 
+###  QErrorMessageSignals
+
+Ƭ **QErrorMessageSignals**: *[QDialogSignals](interfaces/qdialogsignals.md)*
+
+___
+
 ###  QFrameSignals
 
 Ƭ **QFrameSignals**: *[QWidgetSignals](interfaces/qwidgetsignals.md)*
@@ -400,6 +427,12 @@ ___
 ###  QLayoutSignals
 
 Ƭ **QLayoutSignals**: *[QObjectSignals](interfaces/qobjectsignals.md)*
+
+___
+
+###  QListViewSignals
+
+Ƭ **QListViewSignals**: *[QAbstractItemViewSignals](interfaces/qabstractitemviewsignals.md)*
 
 ___
 
@@ -467,29 +500,11 @@ ___
 
 Ƭ **SupportedFormats**: *"gif" | "webp"*
 
-___
-
-###  arg
-
-Ƭ **arg**: *string | [NativeElement](globals.md#nativeelement)*
-
 ## Variables
 
 ### `Const` addon
 
 • **addon**: *any* = require('../../../build/Release/nodegui_core.node')
-
-___
-
-### `Const` center
-
-• **center**: *[QWidget](classes/qwidget.md)‹›* = new QWidget()
-
-___
-
-### `Const` getBtn
-
-• **getBtn**: *[QPushButton](classes/qpushbutton.md)‹›* = new QPushButton()
 
 ___
 
@@ -499,21 +514,9 @@ ___
 
 ___
 
-### `Const` setBtn
-
-• **setBtn**: *[QPushButton](classes/qpushbutton.md)‹›* = new QPushButton()
-
-___
-
 ### `Const` testImagePath
 
 • **testImagePath**: *string* = path.resolve(__dirname, 'assets', 'nodegui.png')
-
-___
-
-### `Const` textInput
-
-• **textInput**: *[QLineEdit](classes/qlineedit.md)‹›* = new QLineEdit()
 
 ___
 
@@ -569,14 +572,6 @@ ___
 ###  main
 
 ▸ **main**(): *void*
-
-**Returns:** *void*
-
-___
-
-###  noop
-
-▸ **noop**(): *void*
 
 **Returns:** *void*
 
