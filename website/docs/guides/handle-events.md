@@ -60,7 +60,7 @@ const win = new QMainWindow();
 
 const checkbox = new QCheckBox();
 checkbox.setText('Check/Uncheck me');
-checkbox.addEventListener('clicked', checked => {
+checkbox.addEventListener('clicked', (checked) => {
     console.log('was checked', checked);
 });
 
@@ -83,10 +83,10 @@ const { QMainWindow, QLabel, WidgetEventTypes, QMouseEvent } = require('@nodegui
 const win = new QMainWindow();
 
 const label = new QLabel();
-label.setText('Move your move here');
+label.setText('Move your mouse here');
 label.setMouseTracking(true);
 
-label.addEventListener(WidgetEventTypes.MouseMove, nativeEvt => {
+label.addEventListener(WidgetEventTypes.MouseMove, (nativeEvt) => {
     const mouseEvt = new QMouseEvent(nativeEvt);
     console.log('mouseMoved at: ', { x: mouseEvt.x(), y: mouseEvt.y() });
 });

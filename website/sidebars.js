@@ -16,6 +16,7 @@ module.exports = {
             'guides/scroll-view',
             'guides/images',
             'guides/networking',
+            'guides/helpful-links',
         ],
         Guides: [
             'guides/nodegui-architecture',
