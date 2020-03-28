@@ -46,6 +46,7 @@
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
 #include "QtWidgets/QInputDialog/qinputdialog_wrap.h"
+#include "QtWidgets/QLCDNumber/qlcdnumber_wrap.h"
 #include "QtWidgets/QLabel/qlabel_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 #include "QtWidgets/QLineEdit/qlineedit_wrap.h"
@@ -158,6 +159,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QPlainTextEditWrap::init(env, exports);
   QDialWrap::init(env, exports);
   QLabelWrap::init(env, exports);
+  QLCDNumberWrap::init(env, exports);
   QScrollAreaWrap::init(env, exports);
   QScrollBarWrap::init(env, exports);
   QSystemTrayIconWrap::init(env, exports);
