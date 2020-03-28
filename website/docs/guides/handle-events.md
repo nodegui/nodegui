@@ -15,7 +15,7 @@ Lets see an example to see how this looks in practice.
 
 The following example demonstrates how to add an event listener to a button widget.
 
-<img src="https://github.com/nodegui/nodegui/releases/download/assets/event-example.gif" alt="event example" style={{maxWidth: 700, width:'100%'}}/>
+<img src="https://github.com/nodegui/nodegui/releases/download/assets/event-example.gif" alt="event example" style={{width: '100%', maxWidth: 400}}/>
 
 ```javascript
 const { QMainWindow, QPushButton } = require('@nodegui/nodegui');
@@ -48,8 +48,8 @@ In order to find all the supported events for a widget you can take a look at
 
 #### All Signals for the widgets:
 
--   (https://docs.nodegui.org/docs/api/generated/globals/#interfaces)[https://docs.nodegui.org/docs/api/generated/globals/#interfaces]
--   (https://docs.nodegui.org/docs/api/generated/globals/#type-aliases)[https://docs.nodegui.org/docs/api/generated/globals/#type-aliases]
+-   [https://docs.nodegui.org/docs/api/generated/globals/#interfaces](https://docs.nodegui.org/docs/api/generated/globals/#interfaces)
+-   [https://docs.nodegui.org/docs/api/generated/globals/#type-aliases](https://docs.nodegui.org/docs/api/generated/globals/#type-aliases)
 
 You can subscribe to a signal like so:
 
@@ -73,7 +73,7 @@ The value you receive in the callback depends on the signal. Refer to respective
 
 #### All common QEvents for the widgets
 
-In nodegui all these common QEvents are represented under an enum type: (WidgetEventTypes)[https://docs.nodegui.org/docs/api/generated/enums/widgeteventtypes]
+In nodegui all these common QEvents are represented under an enum type: [WidgetEventTypes](https://docs.nodegui.org/docs/api/generated/enums/widgeteventtypes)
 
 You can subscribe to a QEvent like so:
 
@@ -96,7 +96,7 @@ win.show();
 global.win = win;
 ```
 
-<img src="https://github.com/nodegui/nodegui/releases/download/assets/mouseevent.gif" alt="mouse event listener" style={{maxWidth: 700, width:'100%'}}/>
+<img src="https://github.com/nodegui/nodegui/releases/download/assets/mouseevent.gif" alt="mouse event listener" style={{width: '100%', maxWidth: 400}}/>
 
 Note here that every QEvent handler gives a reference to native QEvent in the handler callback.
 Not all native QEvent wrappers are implemented yet and we might need your help regarding those. Feel free to jump in and contribute to the nodegui core.
