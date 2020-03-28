@@ -3,6 +3,8 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
+#include "QtGui/QBrush/qbrush_wrap.h"
+#include "QtGui/QFont/qfont_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
 #include "core/Component/component_wrap.h"
 
@@ -13,11 +15,18 @@ Napi::Object QListWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QListWidgetItem";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("setCheckState", &QListWidgetItemWrap::setCheckState),
+      {InstanceMethod("setBackground", &QListWidgetItemWrap::setBackground),
+       InstanceMethod("background", &QListWidgetItemWrap::background),
+       InstanceMethod("setCheckState", &QListWidgetItemWrap::setCheckState),
        InstanceMethod("checkState", &QListWidgetItemWrap::checkState),
+       InstanceMethod("setData", &QListWidgetItemWrap::setData),
        InstanceMethod("data", &QListWidgetItemWrap::data),
        InstanceMethod("setFlags", &QListWidgetItemWrap::setFlags),
        InstanceMethod("flags", &QListWidgetItemWrap::flags),
+       InstanceMethod("setFont", &QListWidgetItemWrap::setFont),
+       InstanceMethod("font", &QListWidgetItemWrap::font),
+       InstanceMethod("setForeground", &QListWidgetItemWrap::setForeground),
+       InstanceMethod("foreground", &QListWidgetItemWrap::foreground),
        InstanceMethod("setIcon", &QListWidgetItemWrap::setIcon),
        InstanceMethod("icon", &QListWidgetItemWrap::icon),
        InstanceMethod("setHidden", &QListWidgetItemWrap::setHidden),
@@ -37,6 +46,7 @@ Napi::Object QListWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("toolTip", &QListWidgetItemWrap::toolTip),
        InstanceMethod("setWhatsThis", &QListWidgetItemWrap::setWhatsThis),
        InstanceMethod("whatsThis", &QListWidgetItemWrap::whatsThis),
+       InstanceMethod("type$", &QListWidgetItemWrap::type),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QListWidgetItemWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -80,6 +90,26 @@ QListWidgetItemWrap::QListWidgetItemWrap(const Napi::CallbackInfo& info)
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }
 
+Napi::Value QListWidgetItemWrap::setBackground(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object brushObject = info[0].As<Napi::Object>();
+  QBrushWrap* brushWrap = Napi::ObjectWrap<QBrushWrap>::Unwrap(brushObject);
+  this->instance->setBackground(*brushWrap->getInternalInstance());
+  return env.Null();
+}
+
+Napi::Value QListWidgetItemWrap::background(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QBrush brush = this->instance->background();
+  auto instance = QBrushWrap::constructor.New(
+      {Napi::External<QBrush>::New(env, new QBrush(brush))});
+  return instance;
+}
+
 Napi::Value QListWidgetItemWrap::setCheckState(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -94,12 +124,25 @@ Napi::Value QListWidgetItemWrap::checkState(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   int state = static_cast<int>(this->instance->checkState());
-  return Napi::Value::From(env, state);
+  return Napi::Number::New(env, state);
+}
+
+Napi::Value QListWidgetItemWrap::setData(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int role = info[0].As<Napi::Number>().Int32Value();
+  Napi::Object variantObject = info[1].As<Napi::Object>();
+  QVariantWrap* variantWrap =
+      Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
+  this->instance->setData(role, *variantWrap->getInternalInstance());
+  return env.Null();
 }
 
 Napi::Value QListWidgetItemWrap::data(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
+
   int role = info[0].As<Napi::Number>().Int32Value();
   QVariant data = this->instance->data(role);
   auto instance = QVariantWrap::constructor.New(
@@ -121,7 +164,47 @@ Napi::Value QListWidgetItemWrap::flags(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   int flags = static_cast<int>(this->instance->flags());
-  return Napi::Value::From(env, flags);
+  return Napi::Number::New(env, flags);
+}
+
+Napi::Value QListWidgetItemWrap::setFont(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object fontObject = info[0].As<Napi::Object>();
+  QFontWrap* fontWrap = Napi::ObjectWrap<QFontWrap>::Unwrap(fontObject);
+  this->instance->setFont(*fontWrap->getInternalInstance());
+  return env.Null();
+}
+
+Napi::Value QListWidgetItemWrap::font(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QFont font = this->instance->font();
+  auto instance = QFontWrap::constructor.New(
+      {Napi::External<QFont>::New(env, new QFont(font))});
+  return instance;
+}
+
+Napi::Value QListWidgetItemWrap::setForeground(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object brushObject = info[0].As<Napi::Object>();
+  QBrushWrap* brushWrap = Napi::ObjectWrap<QBrushWrap>::Unwrap(brushObject);
+  this->instance->setForeground(*brushWrap->getInternalInstance());
+  return env.Null();
+}
+
+Napi::Value QListWidgetItemWrap::foreground(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QBrush brush = this->instance->foreground();
+  auto instance = QBrushWrap::constructor.New(
+      {Napi::External<QBrush>::New(env, new QBrush(brush))});
+  return instance;
 }
 
 Napi::Value QListWidgetItemWrap::setIcon(const Napi::CallbackInfo& info) {
@@ -157,7 +240,7 @@ Napi::Value QListWidgetItemWrap::isHidden(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  return Napi::Value::From(env, this->instance->isHidden());
+  return Napi::Boolean::New(env, this->instance->isHidden());
 }
 
 Napi::Value QListWidgetItemWrap::setSelected(const Napi::CallbackInfo& info) {
@@ -173,7 +256,7 @@ Napi::Value QListWidgetItemWrap::isSelected(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  return Napi::Value::From(env, this->instance->isSelected());
+  return Napi::Boolean::New(env, this->instance->isSelected());
 }
 
 Napi::Value QListWidgetItemWrap::setSizeHint(const Napi::CallbackInfo& info) {
@@ -280,4 +363,11 @@ Napi::Value QListWidgetItemWrap::whatsThis(const Napi::CallbackInfo& info) {
 
   std::string whatsThis = this->instance->whatsThis().toStdString();
   return Napi::String::New(env, whatsThis);
+}
+
+Napi::Value QListWidgetItemWrap::type(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Number::New(env, this->instance->type());
 }

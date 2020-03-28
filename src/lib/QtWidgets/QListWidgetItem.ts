@@ -1,9 +1,11 @@
 import addon from '../utils/addon';
+import { checkIfNativeElement } from '../utils/helpers';
 import { NativeElement, Component } from '../core/Component';
+import { QBrush } from '../QtGui/QBrush';
+import { QFont } from '../QtGui/QFont';
 import { QIcon } from '../QtGui/QIcon';
 import { QSize } from '../QtCore/QSize';
 import { QVariant } from '../QtCore/QVariant';
-import { checkIfNativeElement } from '../utils/helpers';
 import { CheckState } from '../QtEnums';
 import { ItemFlag } from '../QtEnums/ItemFlag';
 
@@ -34,7 +36,11 @@ for (let i = 0; i < 30; i++) {
  */
 export class QListWidgetItem extends Component {
     native: NativeElement;
-    constructor(arg?: arg) {
+    constructor();
+    constructor(other: QListWidgetItem);
+    constructor(native: NativeElement);
+    constructor(text: string);
+    constructor(arg?: QListWidgetItem | NativeElement | string) {
         let native;
         if (typeof arg === 'string') {
             native = new addon.QListWidgetItem(arg);
@@ -46,11 +52,20 @@ export class QListWidgetItem extends Component {
         super();
         this.native = native;
     }
+    setBackground(brush: QBrush): void {
+        this.native.setBackground(brush.native);
+    }
+    background(): QBrush {
+        return new QBrush(this.native.background());
+    }
     setCheckState(state: CheckState): void {
         this.native.setCheckState(state);
     }
     checkState(): CheckState {
         return this.native.checkState();
+    }
+    setData(role: number, value: QVariant): void {
+        this.native.setData(role, value.native);
     }
     data(role: number): QVariant {
         return new QVariant(this.native.data(role));
@@ -60,6 +75,18 @@ export class QListWidgetItem extends Component {
     }
     flags(): ItemFlag {
         return this.native.flags();
+    }
+    setFont(font: QFont): void {
+        this.native.setFont(font.native);
+    }
+    font(): QFont {
+        return new QFont(this.native.font());
+    }
+    setForeground(brush: QBrush): void {
+        this.native.setForeground(brush.native);
+    }
+    foreground(): QBrush {
+        return new QBrush(this.native.foreground());
     }
     setIcon(icon: QIcon): void {
         this.native.setIcon(icon.native);
@@ -98,7 +125,7 @@ export class QListWidgetItem extends Component {
         return this.native.text();
     }
     setTextAlignment(alignment: number): void {
-        return this.native.setTextAlignment(alignment);
+        this.native.setTextAlignment(alignment);
     }
     textAlignment(): number {
         return this.native.textAlignment();
@@ -115,6 +142,7 @@ export class QListWidgetItem extends Component {
     whatsThis(): string {
         return this.native.whatsThis();
     }
+    type(): number {
+        return this.native.type$();
+    }
 }
-
-type arg = string | NativeElement;

@@ -4,10 +4,12 @@
 
 #include <QListWidgetItem>
 
+#include "Extras/Export/export.h"
 #include "core/Component/component_wrap.h"
 
 class DLL_EXPORT QListWidgetItemWrap
     : public Napi::ObjectWrap<QListWidgetItemWrap> {
+  COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QListWidgetItem* instance;
   bool disableDeletion;
@@ -20,11 +22,18 @@ class DLL_EXPORT QListWidgetItemWrap
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
+  Napi::Value setBackground(const Napi::CallbackInfo& info);
+  Napi::Value background(const Napi::CallbackInfo& info);
   Napi::Value setCheckState(const Napi::CallbackInfo& info);
   Napi::Value checkState(const Napi::CallbackInfo& info);
+  Napi::Value setData(const Napi::CallbackInfo& info);
   Napi::Value data(const Napi::CallbackInfo& info);
   Napi::Value setFlags(const Napi::CallbackInfo& info);
   Napi::Value flags(const Napi::CallbackInfo& info);
+  Napi::Value setFont(const Napi::CallbackInfo& info);
+  Napi::Value font(const Napi::CallbackInfo& info);
+  Napi::Value setForeground(const Napi::CallbackInfo& info);
+  Napi::Value foreground(const Napi::CallbackInfo& info);
   Napi::Value setIcon(const Napi::CallbackInfo& info);
   Napi::Value icon(const Napi::CallbackInfo& info);
   Napi::Value setHidden(const Napi::CallbackInfo& info);
@@ -43,6 +52,5 @@ class DLL_EXPORT QListWidgetItemWrap
   Napi::Value toolTip(const Napi::CallbackInfo& info);
   Napi::Value setWhatsThis(const Napi::CallbackInfo& info);
   Napi::Value whatsThis(const Napi::CallbackInfo& info);
-
-  COMPONENT_WRAPPED_METHODS_DECLARATION
+  Napi::Value type(const Napi::CallbackInfo& info);
 };

@@ -54,6 +54,15 @@ export { QToolButton, QToolButtonSignals, ToolButtonPopupMode } from './lib/QtWi
 export { QSpinBox, QSpinBoxSignals } from './lib/QtWidgets/QSpinBox';
 export { QRadioButton, QRadioButtonSignals } from './lib/QtWidgets/QRadioButton';
 export { QStackedWidget, QStackedWidgetSignals } from './lib/QtWidgets/QStackedWidget';
+export {
+    QListView,
+    QListViewSignals,
+    Flow,
+    LayoutMode,
+    Movement,
+    ResizeMode,
+    ViewMode,
+} from './lib/QtWidgets/QListView';
 export { QListWidget, QListWidgetSignals } from './lib/QtWidgets/QListWidget';
 export { QListWidgetItem } from './lib/QtWidgets/QListWidgetItem';
 export { QTabBar, QTabBarSignals, ButtonPosition, SelectionBehavior, TabBarShape } from './lib/QtWidgets/QTabBar';

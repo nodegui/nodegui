@@ -2,10 +2,9 @@ import addon from '../utils/addon';
 import { NodeWidget, QWidget } from './QWidget';
 import { NativeElement, Component } from '../core/Component';
 import { QListWidgetItem } from './QListWidgetItem';
-import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
-import { QSize } from '../QtCore/QSize';
+import { NodeListView, QListViewSignals } from './QListView';
 import { QRect } from '../QtCore/QRect';
-import { SortOrder, ScrollHint, AlignmentFlag } from '../QtEnums';
+import { SortOrder, ScrollHint, MatchFlag } from '../QtEnums';
 
 /**
  
@@ -32,7 +31,7 @@ for (let i = 0; i < 30; i++) {
 }
 ```
  */
-export class QListWidget extends QAbstractItemView<QListWidgetSignals> {
+export class QListWidget extends NodeListView<QListWidgetSignals> {
     native: NativeElement;
     items: Set<NativeElement | Component>;
     constructor();
@@ -46,8 +45,23 @@ export class QListWidget extends QAbstractItemView<QListWidgetSignals> {
         }
         super(native);
         this.native = native;
-        this.setNodeParent(parent);
+        parent && this.setNodeParent(parent);
         this.items = new Set();
+    }
+    count(): number {
+        return this.property('count').toInt();
+    }
+    setCurrentRow(row: number): void {
+        this.setProperty('currentRow', row);
+    }
+    currentRow(): number {
+        return this.property('currentRow').toInt();
+    }
+    setSortingEnabled(enable: boolean): void {
+        this.setProperty('sortingEnabled', enable);
+    }
+    isSortingEnabled(): boolean {
+        return this.property('sortingEnabled').toBool();
     }
     addItem(item: QListWidgetItem): void {
         this.native.addItem(item.native);
@@ -64,6 +78,12 @@ export class QListWidget extends QAbstractItemView<QListWidgetSignals> {
     }
     editItem(item: Component): void {
         this.native.editItem(item.native);
+    }
+    findItems(text: string, flags: MatchFlag): QListWidgetItem[] {
+        const nativeItems = this.native.findItems(text, flags);
+        return nativeItems.map(function(item: QListWidgetItem) {
+            return new QListWidgetItem(item);
+        });
     }
     insertItem(row: number, item: QListWidgetItem): void {
         this.native.insertItem(row, item.native);
@@ -93,13 +113,19 @@ export class QListWidget extends QAbstractItemView<QListWidgetSignals> {
     row(item: QListWidgetItem): number {
         return this.native.row(item.native);
     }
+    selectedItems(): QListWidgetItem[] {
+        const nativeItems = this.native.selectedItems();
+        return nativeItems.map(function(item: QListWidgetItem) {
+            return new QListWidgetItem(item);
+        });
+    }
     setCurrentItem(item: QListWidgetItem): void {
         this.native.setCurrentItem(item.native);
     }
-    setItemWidget(item: QListWidgetItem, widget: QWidget): void {
+    setItemWidget(item: QListWidgetItem, widget: NodeWidget<any>): void {
         this.native.setItemWidget(item.native, widget.native);
     }
-    sortItems(order: SortOrder): void {
+    sortItems(order = SortOrder.AscendingOrder): void {
         this.native.sortItems(order);
     }
     takeItem(row: number): void {
@@ -111,148 +137,20 @@ export class QListWidget extends QAbstractItemView<QListWidgetSignals> {
     clear(): void {
         this.native.clear();
     }
-    scrollToItem(item: QListWidgetItem, hint: ScrollHint): void {
+    scrollToItem(item: QListWidgetItem, hint = ScrollHint.EnsureVisible): void {
         this.native.scrollToItem(item.native, hint);
     }
-    clearPropertyFlags(): void {
-        this.native.clearPropertyFlags();
-    }
-    setRowHidden(row: number, hide: boolean): void {
-        this.native.setRowHidden(row, hide);
-    }
-    isRowHidden(row: number): boolean {
-        return this.native.isRowHidden(row);
-    }
-    count(): number {
-        return this.property('count').toInt();
-    }
-    setCurrentRow(row: number): void {
-        this.setProperty('currentRow', row);
-    }
-    currentRow(): number {
-        return this.property('currentRow').toInt();
-    }
-    setSortingEnabled(enable: boolean): void {
-        this.setProperty('sortingEnabled', enable);
-    }
-    isSortingEnabled(): boolean {
-        return this.property('sortingEnabled').toBool();
-    }
-    setBatchSize(batchSize: number): void {
-        this.setProperty('batchSize', batchSize);
-    }
-    batchSize(): number {
-        return this.property('batchSize').toInt();
-    }
-    setFlow(flow: Flow): void {
-        this.setProperty('flow', flow);
-    }
-    flow(): Flow {
-        return this.property('flow').toInt();
-    }
-    setGridSize(size: QSize): void {
-        this.setProperty('gridSize', size.native);
-    }
-    gridSize(): QSize {
-        const gridSize = this.property('gridSize');
-        return QSize.fromQVariant(gridSize);
-    }
-    setWrapping(enable: boolean): void {
-        this.setProperty('isWrapping', enable);
-    }
-    isWrapping(): boolean {
-        return this.property('isWrapping').toBool();
-    }
-    setItemAlignment(alignment: AlignmentFlag): void {
-        this.setProperty('itemAlignment', alignment);
-    }
-    itemAlignment(): AlignmentFlag {
-        return this.property('itemAlignment').toInt();
-    }
-    setLayoutMode(mode: LayoutMode): void {
-        this.setProperty('layoutMode', mode);
-    }
-    layoutMode(): LayoutMode {
-        return this.property('layoutMode').toInt();
-    }
-    setModelColumn(column: number): void {
-        this.setProperty('modelColumn', column);
-    }
-    modelColumn(): number {
-        return this.property('modelColumn').toInt();
-    }
-    setMovement(movement: Movement): void {
-        this.setProperty('movement', movement);
-    }
-    movement(): Movement {
-        return this.property('movement').toInt();
-    }
-    setResizeMode(mode: ResizeMode): void {
-        this.setProperty('resizeMode', mode);
-    }
-    resizeMode(): ResizeMode {
-        return this.property('resizeMode').toInt();
-    }
-    setSelectionRectVisible(show: boolean): void {
-        this.setProperty('selectionRectVisible', show);
-    }
-    isSelectionRectVisible(): boolean {
-        return this.property('selectionRectVisible').toBool();
-    }
-    setSpacing(space: number): void {
-        this.setProperty('spacing', space);
-    }
-    spacing(): number {
-        return this.property('spacing').toInt();
-    }
-    setUniformItemSizes(enable: boolean): void {
-        this.setProperty('uniformItemSizes', enable);
-    }
-    uniformItemSizes(): boolean {
-        return this.property('uniformItemSizes').toBool();
-    }
-    setViewMode(mode: ViewMode): void {
-        this.setProperty('viewMode', mode);
-    }
-    viewMode(): ViewMode {
-        return this.property('viewMode').toInt();
-    }
-    setWordWrap(on: boolean): void {
-        this.setProperty('wordWrap', on);
-    }
-    wordWrap(): boolean {
-        return this.property('wordWrap').toBool();
-    }
 }
 
-export enum Flow {
-    LeftToRight,
-    TopToBottom,
-}
-
-export enum LayoutMode {
-    SinglePass,
-    Batched,
-}
-
-export enum Movement {
-    Static,
-    Free,
-    Snap,
-}
-
-export enum ResizeMode {
-    Fixed,
-    Adjust,
-}
-
-export enum ViewMode {
-    ListMode,
-    IconMode,
-}
-
-export interface QListWidgetSignals extends QAbstractItemViewSignals {
+export interface QListWidgetSignals extends QListViewSignals {
+    currentItemChanged: (current: QListWidgetItem, previous: QListWidgetItem) => void;
     currentRowChanged: (currentRow: number) => void;
     currentTextChanged: (currentText: string) => void;
+    itemActivated: (item: QListWidgetItem) => void;
+    itemChanged: (item: QListWidgetItem) => void;
+    itemClicked: (item: QListWidgetItem) => void;
+    itemDoubleClicked: (item: QListWidgetItem) => void;
+    itemEntered: (item: QListWidgetItem) => void;
+    itemPressed: (item: QListWidgetItem) => void;
     itemSelectionChanged: () => void;
 }

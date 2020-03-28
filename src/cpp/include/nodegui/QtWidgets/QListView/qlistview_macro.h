@@ -12,8 +12,8 @@
    and every widget we export.
  */
 
-#ifndef QListView_WRAPPED_METHODS_DECLARATION
-#define QListView_WRAPPED_METHODS_DECLARATION                         \
+#ifndef QLISTVIEW_WRAPPED_METHODS_DECLARATION
+#define QLISTVIEW_WRAPPED_METHODS_DECLARATION                         \
   QABSTRACTITEMVIEW_WRAPPED_METHODS_DECLARATION                       \
   Napi::Value clearPropertyFlags(const Napi::CallbackInfo& info) {    \
     Napi::Env env = info.Env();                                       \
@@ -36,18 +36,18 @@
     return Napi::Boolean::New(env, this->instance->isRowHidden(row)); \
   }
 
-#endif  // QListView_WRAPPED_METHODS_DECLARATION
+#endif  // QLISTVIEW_WRAPPED_METHODS_DECLARATION
 
-#ifndef QListView_WRAPPED_METHODS_EXPORT_DEFINE
-#define QListView_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)              \
+#ifndef QLISTVIEW_WRAPPED_METHODS_EXPORT_DEFINE
+#define QLISTVIEW_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)              \
   QABSTRACTITEMVIEW_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)            \
   InstanceMethod("clearPropertyFlags", &WidgetWrapName::clearPropertyFlags), \
       InstanceMethod("setRowHidden", &WidgetWrapName::setRowHidden),         \
       InstanceMethod("isRowHidden", &WidgetWrapName::isRowHidden),
 
-#endif  // QListView_WRAPPED_METHODS_EXPORT_DEFINE
+#endif  // QLISTVIEW_WRAPPED_METHODS_EXPORT_DEFINE
 
-#ifndef QListView_SIGNALS
-#define QListView_SIGNALS QABSTRACTITEMVIEW_SIGNALS
+#ifndef QLISTVIEW_SIGNALS
+#define QLISTVIEW_SIGNALS QABSTRACTITEMVIEW_SIGNALS
 
-#endif  // QListView_SIGNALS
+#endif  // QLISTVIEW_SIGNALS

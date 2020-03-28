@@ -47,6 +47,7 @@
 #include "QtWidgets/QLabel/qlabel_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 #include "QtWidgets/QLineEdit/qlineedit_wrap.h"
+#include "QtWidgets/QListView/qlistview_wrap.h"
 #include "QtWidgets/QListWidget/qlistwidget_wrap.h"
 #include "QtWidgets/QListWidgetItem/qlistwidgetitem_wrap.h"
 #include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
@@ -123,6 +124,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QDateTimeEditWrap::init(env, exports);
   QFileDialogWrap::init(env, exports);
   QFrameWrap::init(env, exports);
+  QListViewWrap::init(env, exports);
   QListWidgetWrap::init(env, exports);
   QListWidgetItemWrap::init(env, exports);
   QTableViewWrap::init(env, exports);
