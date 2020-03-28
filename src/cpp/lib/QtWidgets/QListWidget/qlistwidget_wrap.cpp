@@ -18,6 +18,7 @@ Napi::Object QListWidgetWrap::init(Napi::Env env, Napi::Object exports) {
                       &QListWidgetWrap::closePersistentEditor),
        InstanceMethod("currentItem", &QListWidgetWrap::currentItem),
        InstanceMethod("editItem", &QListWidgetWrap::editItem),
+       InstanceMethod("findItems", &QListWidgetWrap::findItems),
        InstanceMethod("insertItem", &QListWidgetWrap::insertItem),
        InstanceMethod("insertItems", &QListWidgetWrap::insertItems),
        InstanceMethod("isPersistentEditorOpen",
@@ -29,6 +30,7 @@ Napi::Object QListWidgetWrap::init(Napi::Env env, Napi::Object exports) {
                       &QListWidgetWrap::openPersistentEditor),
        InstanceMethod("removeItemWidget", &QListWidgetWrap::removeItemWidget),
        InstanceMethod("row", &QListWidgetWrap::row),
+       InstanceMethod("selectedItems", &QListWidgetWrap::selectedItems),
        InstanceMethod("setCurrentItem", &QListWidgetWrap::setCurrentItem),
        InstanceMethod("setItemWidget", &QListWidgetWrap::setItemWidget),
        InstanceMethod("sortItems", &QListWidgetWrap::sortItems),
@@ -36,7 +38,7 @@ Napi::Object QListWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("visualItemRect", &QListWidgetWrap::visualItemRect),
        InstanceMethod("clear", &QListWidgetWrap::clear),
        InstanceMethod("scrollToItem", &QListWidgetWrap::scrollToItem),
-       QListView_WRAPPED_METHODS_EXPORT_DEFINE(QListWidgetWrap)});
+       QLISTVIEW_WRAPPED_METHODS_EXPORT_DEFINE(QListWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -127,6 +129,27 @@ Napi::Value QListWidgetWrap::editItem(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+Napi::Value QListWidgetWrap::findItems(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  std::string napiText = info[0].As<Napi::String>().Utf8Value();
+  QString text = QString::fromUtf8(napiText.c_str());
+  int flags = info[1].As<Napi::Number>().Int32Value();
+  QList<QListWidgetItem*> items =
+      this->instance->findItems(text, static_cast<Qt::MatchFlags>(flags));
+  Napi::Array napiItems = Napi::Array::New(env, items.size());
+  for (int i = 0; i < items.size(); i++) {
+    QListWidgetItem* item = items[i];
+    // disable deletion of the native instance for these by passing true
+    auto instance = QListWidgetItemWrap::constructor.New(
+        {Napi::External<QListWidgetItem>::New(env, item),
+         Napi::Boolean::New(env, true)});
+    napiItems[i] = instance;
+  }
+  return napiItems;
+}
+
 Napi::Value QListWidgetWrap::insertItem(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -165,7 +188,7 @@ Napi::Value QListWidgetWrap::isPersistentEditorOpen(
       Napi::ObjectWrap<QListWidgetItemWrap>::Unwrap(itemObject);
   bool open =
       this->instance->isPersistentEditorOpen(itemWrap->getInternalInstance());
-  return Napi::Value::From(env, open);
+  return Napi::Boolean::New(env, open);
 }
 
 Napi::Value QListWidgetWrap::item(const Napi::CallbackInfo& info) {
@@ -238,7 +261,24 @@ Napi::Value QListWidgetWrap::row(const Napi::CallbackInfo& info) {
   QListWidgetItemWrap* itemWrap =
       Napi::ObjectWrap<QListWidgetItemWrap>::Unwrap(itemObject);
   int row = this->instance->row(itemWrap->getInternalInstance());
-  return Napi::Value::From(env, row);
+  return Napi::Number::New(env, row);
+}
+
+Napi::Value QListWidgetWrap::selectedItems(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QList<QListWidgetItem*> items = this->instance->selectedItems();
+  Napi::Array napiItems = Napi::Array::New(env, items.size());
+  for (int i = 0; i < items.size(); i++) {
+    QListWidgetItem* item = items[i];
+    // disable deletion of the native instance for these by passing true
+    auto instance = QListWidgetItemWrap::constructor.New(
+        {Napi::External<QListWidgetItem>::New(env, item),
+         Napi::Boolean::New(env, true)});
+    napiItems[i] = instance;
+  }
+  return napiItems;
 }
 
 Napi::Value QListWidgetWrap::setCurrentItem(const Napi::CallbackInfo& info) {
@@ -293,9 +333,9 @@ Napi::Value QListWidgetWrap::visualItemRect(const Napi::CallbackInfo& info) {
   QListWidgetItemWrap* itemWrap =
       Napi::ObjectWrap<QListWidgetItemWrap>::Unwrap(itemObject);
   QRect rect = this->instance->visualItemRect(itemWrap->getInternalInstance());
-  auto rectWrap = QRectWrap::constructor.New(
+  auto instance = QRectWrap::constructor.New(
       {Napi::External<QRect>::New(env, new QRect(rect))});
-  return rectWrap;
+  return instance;
 }
 
 Napi::Value QListWidgetWrap::clear(const Napi::CallbackInfo& info) {

@@ -41,19 +41,32 @@ export { QColorDialog, QColorDialogSignals } from './lib/QtWidgets/QColorDialog'
 export { QDateEdit } from './lib/QtWidgets/QDateEdit';
 export { QDateTimeEdit, NodeDateTimeEdit, QDateTimeEditSignals } from './lib/QtWidgets/QDateTimeEdit';
 export { QLabel, QLabelSignals } from './lib/QtWidgets/QLabel';
+export { QLCDNumber, QLCDNumberSignals, Mode, SegmentStyle } from './lib/QtWidgets/QLCDNumber';
 export { QDial, QDialSignals } from './lib/QtWidgets/QDial';
 export { QDoubleSpinBox, QDoubleSpinBoxSignals } from './lib/QtWidgets/QDoubleSpinBox';
+export { QErrorMessage, QErrorMessageSignals } from './lib/QtWidgets/QErrorMessage';
 export { QFileDialog, QFileDialogSignals } from './lib/QtWidgets/QFileDialog';
+export { QFontDialog, QFontDialogSignals, FontDialogOption } from './lib/QtWidgets/QFontDialog';
 export { QFrame, QFrameSignals, Shadow, Shape } from './lib/QtWidgets/QFrame';
 export { QLineEdit, QLineEditSignals, EchoMode } from './lib/QtWidgets/QLineEdit';
 export { QMainWindow, QMainWindowSignals } from './lib/QtWidgets/QMainWindow';
 export { QProgressBar, QProgressBarSignals, QProgressBarDirection } from './lib/QtWidgets/QProgressBar';
+export { QProgressDialog, QProgressDialogSignals } from './lib/QtWidgets/QProgressDialog';
 export { QComboBox, QComboBoxSignals, InsertPolicy } from './lib/QtWidgets/QComboBox';
 export { QPushButton, QPushButtonSignals } from './lib/QtWidgets/QPushButton';
 export { QToolButton, QToolButtonSignals, ToolButtonPopupMode } from './lib/QtWidgets/QToolButton';
 export { QSpinBox, QSpinBoxSignals } from './lib/QtWidgets/QSpinBox';
 export { QRadioButton, QRadioButtonSignals } from './lib/QtWidgets/QRadioButton';
 export { QStackedWidget, QStackedWidgetSignals } from './lib/QtWidgets/QStackedWidget';
+export {
+    QListView,
+    QListViewSignals,
+    Flow,
+    LayoutMode,
+    Movement,
+    ResizeMode,
+    ViewMode,
+} from './lib/QtWidgets/QListView';
 export { QListWidget, QListWidgetSignals } from './lib/QtWidgets/QListWidget';
 export { QListWidgetItem } from './lib/QtWidgets/QListWidgetItem';
 export { QTabBar, QTabBarSignals, ButtonPosition, SelectionBehavior, TabBarShape } from './lib/QtWidgets/QTabBar';

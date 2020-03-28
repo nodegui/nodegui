@@ -10,8 +10,9 @@
 #include "QtWidgets/QListWidget/nlistwidget.hpp"
 
 class DLL_EXPORT QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
-  QListView_WRAPPED_METHODS_DECLARATION private : QPointer<NListWidget>
-                                                      instance;
+  QLISTVIEW_WRAPPED_METHODS_DECLARATION
+ private:
+  QPointer<NListWidget> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
@@ -26,6 +27,7 @@ class DLL_EXPORT QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
   Napi::Value closePersistentEditor(const Napi::CallbackInfo& info);
   Napi::Value currentItem(const Napi::CallbackInfo& info);
   Napi::Value editItem(const Napi::CallbackInfo& info);
+  Napi::Value findItems(const Napi::CallbackInfo& info);
   Napi::Value insertItem(const Napi::CallbackInfo& info);
   Napi::Value insertItems(const Napi::CallbackInfo& info);
   Napi::Value isPersistentEditorOpen(const Napi::CallbackInfo& info);
@@ -35,6 +37,7 @@ class DLL_EXPORT QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
   Napi::Value openPersistentEditor(const Napi::CallbackInfo& info);
   Napi::Value removeItemWidget(const Napi::CallbackInfo& info);
   Napi::Value row(const Napi::CallbackInfo& info);
+  Napi::Value selectedItems(const Napi::CallbackInfo& info);
   Napi::Value setCurrentItem(const Napi::CallbackInfo& info);
   Napi::Value setItemWidget(const Napi::CallbackInfo& info);
   Napi::Value sortItems(const Napi::CallbackInfo& info);
