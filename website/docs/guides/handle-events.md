@@ -69,6 +69,8 @@ win.show();
 global.win = win;
 ```
 
+The value you receive in the callback depends on the signal. Refer to respective signal docs for more details. All the handlers are also typed. So if you are using typescript you should get correct autocomplete for it.
+
 #### All common QEvents for the widgets
 
 In nodegui all these common QEvents are represented under an enum type: (WidgetEventTypes)[https://docs.nodegui.org/docs/api/generated/enums/widgeteventtypes]
