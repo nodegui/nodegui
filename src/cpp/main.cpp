@@ -59,6 +59,7 @@
 #include "QtWidgets/QPainter/qpainter_wrap.h"
 #include "QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
 #include "QtWidgets/QProgressBar/qprogressbar_wrap.h"
+#include "QtWidgets/QProgressDialog/qprogressdialog_wrap.h"
 #include "QtWidgets/QPushButton/qpushbutton_wrap.h"
 #include "QtWidgets/QRadioButton/qradiobutton_wrap.h"
 #include "QtWidgets/QScrollArea/qscrollarea_wrap.h"
@@ -146,6 +147,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QSpinBoxWrap::init(env, exports);
   QCheckBoxWrap::init(env, exports);
   QProgressBarWrap::init(env, exports);
+  QProgressDialogWrap::init(env, exports);
   QRadioButtonWrap::init(env, exports);
   QStackedWidgetWrap::init(env, exports);
   QTabBarWrap::init(env, exports);

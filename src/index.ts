@@ -50,6 +50,7 @@ export { QFrame, QFrameSignals, Shadow, Shape } from './lib/QtWidgets/QFrame';
 export { QLineEdit, QLineEditSignals, EchoMode } from './lib/QtWidgets/QLineEdit';
 export { QMainWindow, QMainWindowSignals } from './lib/QtWidgets/QMainWindow';
 export { QProgressBar, QProgressBarSignals, QProgressBarDirection } from './lib/QtWidgets/QProgressBar';
+export { QProgressDialog, QProgressDialogSignals } from './lib/QtWidgets/QProgressDialog';
 export { QComboBox, QComboBoxSignals, InsertPolicy } from './lib/QtWidgets/QComboBox';
 export { QPushButton, QPushButtonSignals } from './lib/QtWidgets/QPushButton';
 export { QToolButton, QToolButtonSignals, ToolButtonPopupMode } from './lib/QtWidgets/QToolButton';
