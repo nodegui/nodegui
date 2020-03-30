@@ -57,18 +57,18 @@ describe('QPixmap', () => {
     });
     it('save to a file', async () => {
         const outputFilePath = path.resolve(__dirname, 'assets', 'nodegui_save.png');
-        await new Promise(resolve => fs.unlink(outputFilePath, resolve));
+        await new Promise((resolve) => fs.unlink(outputFilePath, resolve));
         const pixmap = new QPixmap(testImagePath);
         pixmap.save(outputFilePath);
-        const exists = await new Promise(resolve => fs.exists(outputFilePath, resolve));
+        const exists = await new Promise((resolve) => fs.exists(outputFilePath, resolve));
         expect(exists).toBe(true);
     });
     it('save to a file of different format', async () => {
         const outputFilePath = path.resolve(__dirname, 'assets', 'nodegui_save.jpg');
-        await new Promise(resolve => fs.unlink(outputFilePath, resolve));
+        await new Promise((resolve) => fs.unlink(outputFilePath, resolve));
         const pixmap = new QPixmap(testImagePath);
         pixmap.save(outputFilePath, 'JPG');
-        const exists = await new Promise(resolve => fs.exists(outputFilePath, resolve));
+        const exists = await new Promise((resolve) => fs.exists(outputFilePath, resolve));
         expect(exists).toBe(true);
     });
 });

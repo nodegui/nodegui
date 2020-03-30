@@ -81,7 +81,7 @@ export class QListWidget extends NodeListView<QListWidgetSignals> {
     }
     findItems(text: string, flags: MatchFlag): QListWidgetItem[] {
         const nativeItems = this.native.findItems(text, flags);
-        return nativeItems.map(function(item: QListWidgetItem) {
+        return nativeItems.map(function (item: QListWidgetItem) {
             return new QListWidgetItem(item);
         });
     }
@@ -115,7 +115,7 @@ export class QListWidget extends NodeListView<QListWidgetSignals> {
     }
     selectedItems(): QListWidgetItem[] {
         const nativeItems = this.native.selectedItems();
-        return nativeItems.map(function(item: QListWidgetItem) {
+        return nativeItems.map(function (item: QListWidgetItem) {
             return new QListWidgetItem(item);
         });
     }

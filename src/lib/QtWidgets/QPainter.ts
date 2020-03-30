@@ -94,7 +94,7 @@ export class QPainter extends Component {
     }
 
     drawConvexPolygon(points: QPoint[]): void {
-        const nativePoints = points.map(point => point.native);
+        const nativePoints = points.map((point) => point.native);
         this.native.drawConvexPolygon(nativePoints);
     }
 
