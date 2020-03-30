@@ -100,6 +100,7 @@ export { QShortcut, QShortcutSignals } from './lib/QtWidgets/QShortcut';
 export { QGroupBox, QGroupBoxSignals } from './lib/QtWidgets/QGroupBox';
 export { QStatusBar, QStatusBarSignals } from './lib/QtWidgets/QStatusBar';
 export { QStandardItemModel, QStandardItemModelSignals } from './lib/QtWidgets/QStandardItemModel';
+export { QStandardItem } from './lib/QtWidgets/QStandardItem';
 // Core
 export { QDate } from './lib/QtCore/QDate';
 export { QDateTime } from './lib/QtCore/QDateTime';

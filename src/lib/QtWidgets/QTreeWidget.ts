@@ -83,7 +83,6 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
     }
 
     insertTopLevelItem(index: number, item: QTreeWidgetItem): void {
-        this.topLevelItems.add(item);
         this.native.insertTopLevelItem(index, item.native);
     }
 
@@ -145,8 +144,13 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
     /**
      * Returns the current item in the tree widget.
      */
-    currentItem(): QTreeWidgetItem {
-        return new QTreeWidgetItem(this.native.currentItem());
+    currentItem(): QTreeWidgetItem | void {
+        const item = this.native.currentItem();
+        if (item) {
+            return new QTreeWidgetItem(item);
+        } else {
+            return undefined;
+        }
     }
 
     /**
@@ -162,6 +166,20 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
         return nativeItems.map(function(eachItem: QTreeWidgetItem) {
             return new QTreeWidgetItem(eachItem);
         });
+    }
+
+    takeTopLevelItem(index: number): QTreeWidgetItem | void {
+        const item = this.native.takeTopLevelItem(index);
+        if (item) {
+            return new QTreeWidgetItem(item);
+        } else {
+            return undefined;
+        }
+    }
+
+    clear(): void {
+        this.topLevelItems.clear();
+        this.native.clear();
     }
 }
 
