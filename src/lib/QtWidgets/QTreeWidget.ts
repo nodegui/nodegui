@@ -87,6 +87,7 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
     }
 
     insertTopLevelItems(index: number, items: QTreeWidgetItem[]): void {
+        this.topLevelItems.add(item)
         const napiItems: NativeElement[] = [];
         items.forEach(item => {
             this.topLevelItems.add(item);
