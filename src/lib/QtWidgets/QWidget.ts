@@ -9,6 +9,7 @@ import { CursorShape, WindowState } from '../QtEnums';
 import { StyleSheet, prepareInlineStyleSheet } from '../core/Style/StyleSheet';
 import { checkIfNativeElement } from '../utils/helpers';
 import { YogaWidget } from '../core/YogaWidget';
+import { QPoint } from '../QtCore/QPoint';
 import { QSize } from '../QtCore/QSize';
 import { QRect } from '../QtCore/QRect';
 import { QObjectSignals } from '../QtCore/QObject';
@@ -72,6 +73,18 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     close(): boolean {
         return this.native.close();
+    }
+    mapFromGlobal(pos: QPoint): QPoint {
+        return new QPoint(this.native.mapFromGlobal(pos.native));
+    }
+    mapFromParent(pos: QPoint): QPoint {
+        return new QPoint(this.native.mapFromParent(pos.native));
+    }
+    mapToGlobal(pos: QPoint): QPoint {
+        return new QPoint(this.native.mapToGlobal(pos.native));
+    }
+    mapToParent(pos: QPoint): QPoint {
+        return new QPoint(this.native.mapToParent(pos.native));
     }
     setStyleSheet(styleSheet: string): void {
         const preparedSheet = StyleSheet.create(styleSheet);

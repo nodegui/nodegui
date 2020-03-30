@@ -73,22 +73,24 @@ Napi::Value QMenuWrap::exec(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  if (info.Length() == 2) {
+  if (info.Length() > 0) {
     Napi::Object pointObject = info[0].As<Napi::Object>();
     QPointWrap* pointWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(pointObject);
-    QPoint* qpoint = pointWrap->getInternalInstance();
 
-    Napi::Object actionObject = info[1].As<Napi::Object>();
-    QActionWrap* actionWrap =
-        Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
-    this->instance->exec(*qpoint, actionWrap->getInternalInstance());
+    QAction* action = nullptr;
+    if (info.Length() == 2) {
+      Napi::Object actionObject = info[1].As<Napi::Object>();
+      QActionWrap* actionWrap =
+          Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
+      action = actionWrap->getInternalInstance();
+    }
+    this->instance->exec(*pointWrap->getInternalInstance(), action);
   } else if (info.Length() == 0) {
     this->instance->exec();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-
   return env.Null();
 }
 
