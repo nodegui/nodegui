@@ -26,6 +26,8 @@ Napi::Object QTreeWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setItemWidget", &QTreeWidgetWrap::setItemWidget),
        InstanceMethod("currentItem", &QTreeWidgetWrap::currentItem),
        InstanceMethod("findItems", &QTreeWidgetWrap::findItems),
+       InstanceMethod("takeTopLevelItem", &QTreeWidgetWrap::takeTopLevelItem),
+       InstanceMethod("clear", &QTreeWidgetWrap::clear),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QTreeWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -213,12 +215,15 @@ Napi::Value QTreeWidgetWrap::currentItem(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   QTreeWidgetItem* currentItem = this->instance->currentItem();
+  if (currentItem != nullptr) {
+    Napi::Object value = QTreeWidgetItemWrap::constructor.New(
+        {Napi::External<QTreeWidgetItem>::New(
+            env, new QTreeWidgetItem(*currentItem))});
 
-  Napi::Object value = QTreeWidgetItemWrap::constructor.New(
-      {Napi::External<QTreeWidgetItem>::New(
-          env, new QTreeWidgetItem(*currentItem))});
-
-  return value;
+    return value;
+  } else {
+    return env.Null();
+  }
 }
 
 Napi::Value QTreeWidgetWrap::findItems(const Napi::CallbackInfo& info) {
@@ -241,4 +246,30 @@ Napi::Value QTreeWidgetWrap::findItems(const Napi::CallbackInfo& info) {
     napiItems[i] = val;
   }
   return napiItems;
+}
+
+Napi::Value QTreeWidgetWrap::takeTopLevelItem(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int index = info[0].As<Napi::Number>().Int32Value();
+
+  QTreeWidgetItem* itemRemoved = this->instance->takeTopLevelItem(index);
+
+  if (itemRemoved != nullptr) {
+    Napi::Object value = QTreeWidgetItemWrap::constructor.New(
+        {Napi::External<QTreeWidgetItem>::New(
+            env, new QTreeWidgetItem(*itemRemoved))});
+
+    return value;
+  } else {
+    return env.Null();
+  }
+}
+
+Napi::Value QTreeWidgetWrap::clear(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->clear();
+  return env.Null();
 }
