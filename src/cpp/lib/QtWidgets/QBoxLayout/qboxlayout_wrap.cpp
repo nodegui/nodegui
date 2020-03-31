@@ -18,8 +18,12 @@ Napi::Object QBoxLayoutWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("insertWidget", &QBoxLayoutWrap::insertWidget),
        InstanceMethod("direction", &QBoxLayoutWrap::direction),
        InstanceMethod("insertLayout", &QBoxLayoutWrap::insertLayout),
+       InstanceMethod("insertSpacing", &QBoxLayoutWrap::insertSpacing),
+       InstanceMethod("insertStretch", &QBoxLayoutWrap::insertStretch),
        InstanceMethod("removeWidget", &QBoxLayoutWrap::removeWidget),
        InstanceMethod("setDirection", &QBoxLayoutWrap::setDirection),
+       InstanceMethod("setStretch", &QBoxLayoutWrap::setStretch),
+       InstanceMethod("count", &QBoxLayoutWrap::count),
        QLAYOUT_WRAPPED_METHODS_EXPORT_DEFINE(QBoxLayoutWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -131,6 +135,26 @@ Napi::Value QBoxLayoutWrap::insertLayout(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+Napi::Value QBoxLayoutWrap::insertSpacing(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int index = info[0].As<Napi::Number>().Int32Value();
+  int size = info[1].As<Napi::Number>().Int32Value();
+  this->instance->insertSpacing(index, size);
+  return env.Null();
+}
+
+Napi::Value QBoxLayoutWrap::insertStretch(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int index = info[0].As<Napi::Number>().Int32Value();
+  int stretch = info[1].As<Napi::Number>().Int32Value();
+  this->instance->insertStretch(index, stretch);
+  return env.Null();
+}
+
 Napi::Value QBoxLayoutWrap::removeWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -149,4 +173,22 @@ Napi::Value QBoxLayoutWrap::setDirection(const Napi::CallbackInfo& info) {
       info[0].As<Napi::Number>().Int32Value());
   this->instance->setDirection(dir);
   return env.Null();
+}
+
+Napi::Value QBoxLayoutWrap::setStretch(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int index = info[0].As<Napi::Number>().Int32Value();
+  int stretch = info[1].As<Napi::Number>().Int32Value();
+  this->instance->setStretch(index, stretch);
+  return env.Null();
+}
+
+Napi::Value QBoxLayoutWrap::count(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int count = this->instance->count();
+  return Napi::Number::New(env, count);
 }

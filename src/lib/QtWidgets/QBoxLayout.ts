@@ -70,12 +70,24 @@ export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
         this.native.insertLayout(index, layout.native, stretch);
         this.childLayouts.add(layout);
     }
+    insertSpacing(index: number, size: number): void {
+        this.native.insertSpacing(index, size);
+    }
+    insertStretch(index: number, stretch = 0): void {
+        this.native.insertStretch(index, stretch);
+    }
     removeWidget(widget: NodeWidget<any>): void {
         this.native.removeWidget(widget.native);
         this.nodeChildren.delete(widget);
     }
     setDirection(dir: Direction): void {
         this.native.setDirection(dir);
+    }
+    setStretch(index: number, stretch: number): void {
+        this.native.setStretch(index, stretch);
+    }
+    count(): number {
+        return this.native.count();
     }
 }
 

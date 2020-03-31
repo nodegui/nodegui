@@ -30,6 +30,10 @@ class DLL_EXPORT QBoxLayoutWrap : public Napi::ObjectWrap<QBoxLayoutWrap> {
   Napi::Value insertWidget(const Napi::CallbackInfo& info);
   Napi::Value direction(const Napi::CallbackInfo& info);
   Napi::Value insertLayout(const Napi::CallbackInfo& info);
+  Napi::Value insertSpacing(const Napi::CallbackInfo& info);
+  Napi::Value insertStretch(const Napi::CallbackInfo& info);
   Napi::Value removeWidget(const Napi::CallbackInfo& info);
   Napi::Value setDirection(const Napi::CallbackInfo& info);
+  Napi::Value setStretch(const Napi::CallbackInfo& info);
+  Napi::Value count(const Napi::CallbackInfo& info);
 };
