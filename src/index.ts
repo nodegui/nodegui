@@ -22,7 +22,7 @@ export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
 export { WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
 export { NodeWidget, QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
-export { NodeLayout, QLayoutSignals } from './lib/QtWidgets/QLayout';
+export { NodeLayout, QLayoutSignals, SizeConstraint } from './lib/QtWidgets/QLayout';
 export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider, QAbstractSliderSignals } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';
