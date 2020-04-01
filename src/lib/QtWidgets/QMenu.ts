@@ -36,16 +36,17 @@ export class QMenu extends NodeWidget<QMenuSignals> {
     setTitle(title: string): void {
         this.native.setTitle(title);
     }
-
     addSeparator(): QAction {
         return this.native.addSeparator();
     }
-    exec(point?: QPoint, action?: QAction): void {
+    exec(point?: QPoint, action?: QAction | null): void {
         if (point && action) {
             this.native.exec(point.native, action.native);
-            return;
+        } else if (point) {
+            this.native.exec(point.native);
+        } else {
+            this.native.exec();
         }
-        this.native.exec();
     }
     popup(point: QPoint, action?: QAction): void {
         this.native.popup(point.native, action?.native);

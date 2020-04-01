@@ -36,8 +36,29 @@ export abstract class NodeLayout<Signals extends QLayoutSignals> extends NodeObj
     type = 'layout';
     abstract addWidget(childWidget: NodeWidget<any>, ...args: any[]): void;
     abstract removeWidget(childWidget: NodeWidget<any>): void;
+    setSizeConstraint(constraint: SizeConstraint): void {
+        this.setProperty('sizeConstraint', constraint);
+    }
+    sizeConstraint(): SizeConstraint {
+        return this.property('sizeConstraint').toInt();
+    }
+    setSpacing(spacing: number): void {
+        this.setProperty('spacing', spacing);
+    }
+    spacing(): number {
+        return this.property('spacing').toInt();
+    }
     activate(): boolean {
         return this.native.activate();
+    }
+    setEnabled(enable: boolean): void {
+        this.native.setEnabled(enable);
+    }
+    isEnabled(): boolean {
+        return this.native.isEnabled();
+    }
+    setContentsMargins(left: number, top: number, right: number, bottom: number): void {
+        this.native.setContentsMargins(left, top, right, bottom);
     }
     invalidate(): void {
         this.native.invalidate();
@@ -50,5 +71,14 @@ export abstract class NodeLayout<Signals extends QLayoutSignals> extends NodeObj
 // export class QLayout extends NodeLayout { //Dont need QLayout for now
 //   native: any;
 // }
+
+export enum SizeConstraint {
+    SetDefaultConstraint = 0,
+    SetNoConstraint = 1,
+    SetMinimumSize = 2,
+    SetFixedSize = 3,
+    SetMaximumSize = 4,
+    SetMinAndMaxSize = 5,
+}
 
 export type QLayoutSignals = QObjectSignals;

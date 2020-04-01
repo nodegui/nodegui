@@ -75,7 +75,7 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
 
     addTopLevelItems(items: QTreeWidgetItem[]): void {
         const napiItems: NativeElement[] = [];
-        items.forEach(item => {
+        items.forEach((item) => {
             this.topLevelItems.add(item);
             napiItems.push(item.native);
         });
@@ -89,7 +89,7 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
 
     insertTopLevelItems(index: number, items: QTreeWidgetItem[]): void {
         const napiItems: NativeElement[] = [];
-        items.forEach(item => {
+        items.forEach((item) => {
             this.topLevelItems.add(item);
             napiItems.push(item.native);
         });
@@ -102,7 +102,7 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
 
     selectedItems(): QTreeWidgetItem[] {
         const nativeItems = this.native.selectedItems();
-        return nativeItems.map(function(eachItem: QTreeWidgetItem) {
+        return nativeItems.map(function (eachItem: QTreeWidgetItem) {
             return new QTreeWidgetItem(eachItem);
         });
     }
@@ -145,8 +145,13 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
     /**
      * Returns the current item in the tree widget.
      */
-    currentItem(): QTreeWidgetItem {
-        return new QTreeWidgetItem(this.native.currentItem());
+    currentItem(): QTreeWidgetItem | void {
+        const item = this.native.currentItem();
+        if (item) {
+            return new QTreeWidgetItem(item);
+        } else {
+            return undefined;
+        }
     }
 
     /**
@@ -159,9 +164,23 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
 
     findItems(text: string, flags: MatchFlag, column: number): QTreeWidgetItem[] {
         const nativeItems = this.native.findItems(text, flags, column);
-        return nativeItems.map(function(eachItem: QTreeWidgetItem) {
+        return nativeItems.map(function (eachItem: QTreeWidgetItem) {
             return new QTreeWidgetItem(eachItem);
         });
+    }
+
+    takeTopLevelItem(index: number): QTreeWidgetItem | void {
+        const item = this.native.takeTopLevelItem(index);
+        if (item) {
+            return new QTreeWidgetItem(item);
+        } else {
+            return undefined;
+        }
+    }
+
+    clear(): void {
+        this.topLevelItems.clear();
+        this.native.clear();
     }
 }
 

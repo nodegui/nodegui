@@ -22,7 +22,7 @@ export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
 export { WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
 export { NodeWidget, QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
-export { NodeLayout, QLayoutSignals } from './lib/QtWidgets/QLayout';
+export { NodeLayout, QLayoutSignals, SizeConstraint } from './lib/QtWidgets/QLayout';
 export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider, QAbstractSliderSignals } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';
@@ -100,6 +100,7 @@ export { QShortcut, QShortcutSignals } from './lib/QtWidgets/QShortcut';
 export { QGroupBox, QGroupBoxSignals } from './lib/QtWidgets/QGroupBox';
 export { QStatusBar, QStatusBarSignals } from './lib/QtWidgets/QStatusBar';
 export { QStandardItemModel, QStandardItemModelSignals } from './lib/QtWidgets/QStandardItemModel';
+export { QStandardItem } from './lib/QtWidgets/QStandardItem';
 // Core
 export { QDate } from './lib/QtCore/QDate';
 export { QDateTime } from './lib/QtCore/QDateTime';
