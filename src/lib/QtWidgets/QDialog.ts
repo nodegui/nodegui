@@ -3,6 +3,7 @@ import { NativeElement } from '../core/Component';
 
 import { checkIfNativeElement } from '../utils/helpers';
 import { NodeWidget, QWidgetSignals } from './QWidget';
+import { DialogCode } from '../QtEnums';
 
 // All Dialogs should extend from NodeDialog
 // Implement all native QDialog methods here so that all dialogs get access to those aswell
@@ -22,7 +23,7 @@ export abstract class NodeDialog<Signals extends QDialogSignals> extends NodeWid
     isSizeGripEnabled(): boolean {
         return this.property('sizeGripEnabled').toBool();
     }
-    exec(): number {
+    exec(): DialogCode {
         return this.native.exec();
     }
     open(): void {

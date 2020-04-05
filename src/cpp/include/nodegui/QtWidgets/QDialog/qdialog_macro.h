@@ -34,8 +34,8 @@
   Napi::Value exec(const Napi::CallbackInfo& info) {      \
     Napi::Env env = info.Env();                           \
     Napi::HandleScope scope(env);                         \
-    this->instance->exec();                               \
-    return env.Null();                                    \
+    int value = static_cast<int>(this->instance->exec()); \
+    return Napi::Number::From(env, value);                \
   }                                                       \
   Napi::Value open(const Napi::CallbackInfo& info) {      \
     Napi::Env env = info.Env();                           \
