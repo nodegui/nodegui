@@ -101,6 +101,14 @@ export { QGroupBox, QGroupBoxSignals } from './lib/QtWidgets/QGroupBox';
 export { QStatusBar, QStatusBarSignals } from './lib/QtWidgets/QStatusBar';
 export { QStandardItemModel, QStandardItemModelSignals } from './lib/QtWidgets/QStandardItemModel';
 export { QStandardItem } from './lib/QtWidgets/QStandardItem';
+export { QTextBrowser, QTextBrowserSignals } from './lib/QtWidgets/QTextBrowser';
+export {
+    QTextEdit,
+    QTextEditSignals,
+    AutoFormattingFlag,
+    QTextEditLineWrapMode,
+    WrapMode,
+} from './lib/QtWidgets/QTextEdit';
 // Core
 export { QDate } from './lib/QtCore/QDate';
 export { QDateTime } from './lib/QtCore/QDateTime';

@@ -78,6 +78,8 @@
 #include "QtWidgets/QTableView/qtableview_wrap.h"
 #include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
+#include "QtWidgets/QTextBrowser/qtextbrowser_wrap.h"
+#include "QtWidgets/QTextEdit/qtextedit_wrap.h"
 #include "QtWidgets/QTimeEdit/qtimeedit_wrap.h"
 #include "QtWidgets/QToolButton/qtoolbutton_wrap.h"
 #include "QtWidgets/QTreeWidget/qtreewidget_wrap.h"
@@ -170,6 +172,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QMessageBoxWrap::init(env, exports);
   QInputDialogWrap::init(env, exports);
   QSliderWrap::init(env, exports);
+  QTextBrowserWrap::init(env, exports);
+  QTextEditWrap::init(env, exports);
   QTimeEditWrap::init(env, exports);
   QButtonGroupWrap::init(env, exports);
   QStatusBarWrap::init(env, exports);
