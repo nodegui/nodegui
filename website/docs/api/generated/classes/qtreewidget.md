@@ -43,7 +43,8 @@ c1item2.setText(0, `c1item1`);
 
 win.setCentralWidget(tree);
 win.show();
-(global as any).win = win;```
+(global as any).win = win; 
+```
 
 ## Hierarchy
 
