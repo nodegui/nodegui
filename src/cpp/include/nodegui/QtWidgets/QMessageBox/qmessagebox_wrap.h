@@ -29,4 +29,5 @@ class DLL_EXPORT QMessageBoxWrap : public Napi::ObjectWrap<QMessageBoxWrap> {
 namespace StaticQMessageBoxWrapMethods {
 DLL_EXPORT Napi::Value about(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value aboutQt(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value question(const Napi::CallbackInfo& info);
 };  // namespace StaticQMessageBoxWrapMethods

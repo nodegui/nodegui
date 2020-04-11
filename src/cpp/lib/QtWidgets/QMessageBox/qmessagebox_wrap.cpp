@@ -20,6 +20,7 @@ Napi::Object QMessageBoxWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("done", &QMessageBoxWrap::done),
        StaticMethod("about", &StaticQMessageBoxWrapMethods::about),
        StaticMethod("aboutQt", &StaticQMessageBoxWrapMethods::aboutQt),
+       StaticMethod("question", &StaticQMessageBoxWrapMethods::question),
        QDIALOG_WRAPPED_METHODS_EXPORT_DEFINE(QMessageBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -118,4 +119,35 @@ Napi::Value StaticQMessageBoxWrapMethods::aboutQt(
                        QString::fromUtf8(title.c_str()));
 
   return env.Null();
+}
+
+Napi::Value StaticQMessageBoxWrapMethods::question(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  //        return addon.QMessageBox.question(parent.native, title, text,
+  //        buttons, defaultButton);
+
+  Napi::Object parentObject = info[0].As<Napi::Object>();
+  NodeWidgetWrap* parentWidgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+
+  Napi::String napiTitle = info[1].As<Napi::String>();
+  std::string title = napiTitle.Utf8Value();
+
+  Napi::String napiText = info[2].As<Napi::String>();
+  std::string text = napiText.Utf8Value();
+
+  Napi::Number napiButtons = info[3].As<Napi::Number>();
+  QMessageBox::StandardButtons buttons =
+      QMessageBox::StandardButtons(napiButtons.Int32Value());
+
+  Napi::Number napiDefaultButton = info[4].As<Napi::Number>();
+  QMessageBox::StandardButtons defaultButton =
+      QMessageBox::StandardButtons(napiDefaultButton.Int32Value());
+
+  int value = static_cast<int>(QMessageBox::question(
+      parentWidgetWrap->getInternalInstance(), QString::fromUtf8(title.c_str()),
+      QString::fromUtf8(text.c_str()), buttons));
+  return Napi::Number::From(env, value);
 }

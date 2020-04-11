@@ -4,6 +4,7 @@ import { NativeElement, NativeRawPointer } from '../core/Component';
 import { NodeDialog, QDialogSignals } from './QDialog';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { QPushButton } from './QPushButton';
+import { StandardButton } from '../QtEnums';
 
 export enum ButtonRole {
     InvalidRole,
@@ -96,6 +97,16 @@ export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
 
     static aboutQt(parent: NodeWidget<any>, title: string): void {
         addon.QMessageBox.aboutQt(parent.native, title);
+    }
+
+    static question(
+        parent: NodeWidget<any>,
+        title: string,
+        text: string,
+        buttons: StandardButton = StandardButton.Yes | StandardButton.No,
+        defaultButton: StandardButton = StandardButton.NoButton,
+    ): StandardButton {
+        return addon.QMessageBox.question(parent.native, title, text, buttons, defaultButton);
     }
 }
 
