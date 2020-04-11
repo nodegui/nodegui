@@ -6,7 +6,7 @@ export class QMouseEvent {
     constructor(event: NativeElement) {
         this.native = new addon.QMouseEvent(event);
     }
-    button(): string {
+    button(): number {
         return this.native.button();
     }
     x(): number {
