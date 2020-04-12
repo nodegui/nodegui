@@ -103,7 +103,6 @@ describe('QWidget', () => {
     it('should accept QCursor as setCursor argument', () => {
         const widget = new QWidget();
         const cursor = new QCursor(CursorShape.BusyCursor);
-        console.log(cursor);
         expect(() => widget.setCursor(cursor)).not.toThrow();
     });
 });
