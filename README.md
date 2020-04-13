@@ -1,6 +1,6 @@
 # NodeGui
 
-[![Join the NodeGUI community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/nodegui)
+[![Financial Contributors on Open Collective](https://opencollective.com/nodegui/all/badge.svg?label=financial+contributors)](https://opencollective.com/nodegui) [![Join the NodeGUI community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/nodegui)
 [![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors)
 [![JS Party #96](https://img.shields.io/badge/JS%20Party-%2396-FFCD00.svg)](https://changelog.com/jsparty/96)
 
@@ -120,6 +120,36 @@ Alternatively, Issues on NodeGui can be funded by anyone via Issuehunt and the a
 ## Code of Conduct
 
 https://github.com/nodegui/.github/blob/master/CODE_OF_CONDUCT.md
+
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/nodegui/nodegui/graphs/contributors"><img src="https://opencollective.com/nodegui/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/nodegui/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/nodegui"><img src="https://opencollective.com/nodegui/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/nodegui/contribute)]
+
+<a href="https://opencollective.com/nodegui/organization/0/website"><img src="https://opencollective.com/nodegui/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/nodegui/organization/1/website"><img src="https://opencollective.com/nodegui/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/nodegui/organization/2/website"><img src="https://opencollective.com/nodegui/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/nodegui/organization/3/website"><img src="https://opencollective.com/nodegui/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/nodegui/organization/4/website"><img src="https://opencollective.com/nodegui/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/nodegui/organization/5/website"><img src="https://opencollective.com/nodegui/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/nodegui/organization/6/website"><img src="https://opencollective.com/nodegui/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/nodegui/organization/7/website"><img src="https://opencollective.com/nodegui/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/nodegui/organization/8/website"><img src="https://opencollective.com/nodegui/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/nodegui/organization/9/website"><img src="https://opencollective.com/nodegui/organization/9/avatar.svg"></a>
 
 ## License
 
