@@ -1,5 +1,6 @@
 import { EventEmitter } from 'events';
 import { NativeElement, Component, NativeRawPointer } from './Component';
+import { wrapWithActivateUvLoop } from '../utils/helpers';
 
 function addDefaultErrorHandler(native: NativeElement, emitter: EventEmitter): void {
     native.subscribeToQtEvent('error');
@@ -38,7 +39,7 @@ export abstract class EventWidget<Signals extends {}> extends Component {
         super();
         if (native.initNodeEventEmitter) {
             this.emitter = new EventEmitter();
-            this.emitter.emit = this.emitter.emit.bind(this.emitter);
+            this.emitter.emit = wrapWithActivateUvLoop(this.emitter.emit.bind(this.emitter));
             native.initNodeEventEmitter(this.emitter.emit);
         } else {
             throw new Error('initNodeEventEmitter not implemented on native side');

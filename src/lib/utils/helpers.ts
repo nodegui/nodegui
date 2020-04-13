@@ -10,15 +10,14 @@ export function checkIfNapiExternal(arg: any): boolean {
     return addon.NUtils.isNapiExternal(arg);
 }
 
-// function noop(): void {
-//     return;
-// }
+function noop(): void {
+    return;
+}
 
 export const wrapWithActivateUvLoop = (func: Function) => {
     return (...args: any[]): any => {
-        // Temporarily removing activateUvLoop
-        // const activateUvLoop = (process as any).activateUvLoop || noop;
-        // activateUvLoop();
+        const activateUvLoop = (process as any).activateUvLoop || noop;
+        activateUvLoop();
         return func(...args);
     };
 };
