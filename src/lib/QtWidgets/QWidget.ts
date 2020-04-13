@@ -136,7 +136,11 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     setCursor(cursor: CursorShape | QCursor): void {
         //TODO:getter
-        this.native.setCursor(cursor);
+        if (typeof cursor === 'number') {
+            this.native.setCursor(cursor);
+        } else {
+            this.native.setCursor(cursor.native);
+        }
     }
     setWindowIcon(icon: QIcon): void {
         //TODO:getter

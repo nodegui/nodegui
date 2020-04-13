@@ -6,6 +6,7 @@
 #include "QtCore/QObject/qobject_macro.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
+#include "QtGui/QCursor/qcursor_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
@@ -117,9 +118,15 @@
   Napi::Value setCursor(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                               \
     Napi::HandleScope scope(env);                                             \
-    Napi::Number cursor = info[0].As<Napi::Number>();                         \
-    this->instance->setCursor(                                                \
-        static_cast<Qt::CursorShape>(cursor.Int32Value()));                   \
+    if (info[0].IsNumber()) {                                                 \
+      Napi::Number cursor = info[0].As<Napi::Number>();                       \
+      this->instance->setCursor(                                              \
+          static_cast<Qt::CursorShape>(cursor.Int32Value()));                 \
+    } else {                                                                  \
+      Napi::Object obj = info[0].As<Napi::Object>();                          \
+      QCursorWrap* wrap = Napi::ObjectWrap<QCursorWrap>::Unwrap(obj);         \
+      this->instance->setCursor(*wrap->getInternalInstance());                \
+    }                                                                         \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value setWindowIcon(const Napi::CallbackInfo& info) {                 \

@@ -1,4 +1,6 @@
 import { QWidget } from '../QWidget';
+import { CursorShape } from '../../QtEnums/CursorShape';
+import { QCursor } from '../../..';
 
 describe('QWidget', () => {
     const view = new QWidget();
@@ -97,5 +99,10 @@ describe('QWidget', () => {
         widget.setWindowTitle('testName');
         expect(mock).toBeCalledWith('testName');
         expect(mock).toBeCalledTimes(1);
+    });
+    it('should accept QCursor as setCursor argument', () => {
+        const widget = new QWidget();
+        const cursor = new QCursor(CursorShape.BusyCursor);
+        expect(() => widget.setCursor(cursor)).not.toThrow();
     });
 });
