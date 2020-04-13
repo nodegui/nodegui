@@ -50,9 +50,9 @@ Name | Type |
 
 ###  button
 
-▸ **button**(): *string*
+▸ **button**(): *number*
 
-**Returns:** *string*
+**Returns:** *number*
 
 ___
 

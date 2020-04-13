@@ -67,13 +67,20 @@ addChildToLayout(new GridLayout(), new QWidget());
 * [addWidget](nodelayout.md#abstract-addwidget)
 * [inherits](nodelayout.md#inherits)
 * [invalidate](nodelayout.md#invalidate)
+* [isEnabled](nodelayout.md#isenabled)
 * [objectName](nodelayout.md#objectname)
 * [property](nodelayout.md#property)
 * [removeEventListener](nodelayout.md#removeeventlistener)
 * [removeWidget](nodelayout.md#abstract-removewidget)
+* [setContentsMargins](nodelayout.md#setcontentsmargins)
+* [setEnabled](nodelayout.md#setenabled)
 * [setNodeParent](nodelayout.md#setnodeparent)
 * [setObjectName](nodelayout.md#setobjectname)
 * [setProperty](nodelayout.md#setproperty)
+* [setSizeConstraint](nodelayout.md#setsizeconstraint)
+* [setSpacing](nodelayout.md#setspacing)
+* [sizeConstraint](nodelayout.md#sizeconstraint)
+* [spacing](nodelayout.md#spacing)
 * [update](nodelayout.md#update)
 
 ## Constructors
@@ -229,6 +236,14 @@ ___
 
 ___
 
+###  isEnabled
+
+▸ **isEnabled**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
 ###  objectName
 
 ▸ **objectName**(): *string*
@@ -310,6 +325,37 @@ Name | Type |
 
 ___
 
+###  setContentsMargins
+
+▸ **setContentsMargins**(`left`: number, `top`: number, `right`: number, `bottom`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`left` | number |
+`top` | number |
+`right` | number |
+`bottom` | number |
+
+**Returns:** *void*
+
+___
+
+###  setEnabled
+
+▸ **setEnabled**(`enable`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enable` | boolean |
+
+**Returns:** *void*
+
+___
+
 ###  setNodeParent
 
 ▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
@@ -356,6 +402,50 @@ Name | Type |
 `value` | [QVariantType](../globals.md#qvarianttype) |
 
 **Returns:** *boolean*
+
+___
+
+###  setSizeConstraint
+
+▸ **setSizeConstraint**(`constraint`: [SizeConstraint](../enums/sizeconstraint.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`constraint` | [SizeConstraint](../enums/sizeconstraint.md) |
+
+**Returns:** *void*
+
+___
+
+###  setSpacing
+
+▸ **setSpacing**(`spacing`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`spacing` | number |
+
+**Returns:** *void*
+
+___
+
+###  sizeConstraint
+
+▸ **sizeConstraint**(): *[SizeConstraint](../enums/sizeconstraint.md)*
+
+**Returns:** *[SizeConstraint](../enums/sizeconstraint.md)*
+
+___
+
+###  spacing
+
+▸ **spacing**(): *number*
+
+**Returns:** *number*
 
 ___
 

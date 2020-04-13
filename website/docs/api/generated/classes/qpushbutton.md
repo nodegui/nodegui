@@ -71,6 +71,10 @@ button.setText("Hello");
 * [isFlat](qpushbutton.md#isflat)
 * [isVisible](qpushbutton.md#isvisible)
 * [lower](qpushbutton.md#lower)
+* [mapFromGlobal](qpushbutton.md#mapfromglobal)
+* [mapFromParent](qpushbutton.md#mapfromparent)
+* [mapToGlobal](qpushbutton.md#maptoglobal)
+* [mapToParent](qpushbutton.md#maptoparent)
 * [menu](qpushbutton.md#menu)
 * [move](qpushbutton.md#move)
 * [objectName](qpushbutton.md#objectname)
@@ -576,6 +580,70 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  mapFromGlobal
+
+▸ **mapFromGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromGlobal](qmenu.md#mapfromglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapFromParent
+
+▸ **mapFromParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromParent](qmenu.md#mapfromparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToGlobal
+
+▸ **mapToGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToGlobal](qmenu.md#maptoglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToParent
+
+▸ **mapToParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToParent](qmenu.md#maptoparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 

@@ -67,6 +67,10 @@ const plainTextEdit = new QPlainTextEdit();
 * [lineWidth](qplaintextedit.md#linewidth)
 * [lineWrapMode](qplaintextedit.md#linewrapmode)
 * [lower](qplaintextedit.md#lower)
+* [mapFromGlobal](qplaintextedit.md#mapfromglobal)
+* [mapFromParent](qplaintextedit.md#mapfromparent)
+* [mapToGlobal](qplaintextedit.md#maptoglobal)
+* [mapToParent](qplaintextedit.md#maptoparent)
 * [midLineWidth](qplaintextedit.md#midlinewidth)
 * [move](qplaintextedit.md#move)
 * [objectName](qplaintextedit.md#objectname)
@@ -509,6 +513,70 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  mapFromGlobal
+
+▸ **mapFromGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromGlobal](qmenu.md#mapfromglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapFromParent
+
+▸ **mapFromParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromParent](qmenu.md#mapfromparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToGlobal
+
+▸ **mapToGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToGlobal](qmenu.md#maptoglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToParent
+
+▸ **mapToParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToParent](qmenu.md#maptoparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 

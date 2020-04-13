@@ -15,6 +15,7 @@ sidebar_label: "Globals"
 * [ApplicationState](enums/applicationstate.md)
 * [ArrowType](enums/arrowtype.md)
 * [AspectRatioMode](enums/aspectratiomode.md)
+* [AutoFormattingFlag](enums/autoformattingflag.md)
 * [Axis](enums/axis.md)
 * [BGMode](enums/bgmode.md)
 * [BrushStyle](enums/brushstyle.md)
@@ -36,6 +37,7 @@ sidebar_label: "Globals"
 * [CursorShape](enums/cursorshape.md)
 * [DateFormat](enums/dateformat.md)
 * [DayOfWeek](enums/dayofweek.md)
+* [DialogCode](enums/dialogcode.md)
 * [DialogLabel](enums/dialoglabel.md)
 * [Direction](enums/direction.md)
 * [DockWidgetArea](enums/dockwidgetarea.md)
@@ -102,6 +104,7 @@ sidebar_label: "Globals"
 * [QSettingsScope](enums/qsettingsscope.md)
 * [QStylePixelMetric](enums/qstylepixelmetric.md)
 * [QSystemTrayIconActivationReason](enums/qsystemtrayiconactivationreason.md)
+* [QTextEditLineWrapMode](enums/qtexteditlinewrapmode.md)
 * [QTextOptionWrapMode](enums/qtextoptionwrapmode.md)
 * [RenderHint](enums/renderhint.md)
 * [ResizeMode](enums/resizemode.md)
@@ -119,6 +122,7 @@ sidebar_label: "Globals"
 * [Shape](enums/shape.md)
 * [ShortcutContext](enums/shortcutcontext.md)
 * [SizeAdjustPolicy](enums/sizeadjustpolicy.md)
+* [SizeConstraint](enums/sizeconstraint.md)
 * [SizeHint](enums/sizehint.md)
 * [SizeMode](enums/sizemode.md)
 * [SliderAction](enums/slideraction.md)
@@ -151,6 +155,7 @@ sidebar_label: "Globals"
 * [WindowModality](enums/windowmodality.md)
 * [WindowState](enums/windowstate.md)
 * [WindowType](enums/windowtype.md)
+* [WrapMode](enums/wrapmode.md)
 * [WritingSystem](enums/writingsystem.md)
 
 ### Classes
@@ -165,6 +170,7 @@ sidebar_label: "Globals"
 * [NodeListView](classes/nodelistview.md)
 * [NodeObject](classes/nodeobject.md)
 * [NodeTableView](classes/nodetableview.md)
+* [NodeTextEdit](classes/nodetextedit.md)
 * [NodeWidget](classes/nodewidget.md)
 * [QAbstractButton](classes/qabstractbutton.md)
 * [QAbstractItemView](classes/qabstractitemview.md)
@@ -244,6 +250,8 @@ sidebar_label: "Globals"
 * [QTableView](classes/qtableview.md)
 * [QTableWidget](classes/qtablewidget.md)
 * [QTableWidgetItem](classes/qtablewidgetitem.md)
+* [QTextBrowser](classes/qtextbrowser.md)
+* [QTextEdit](classes/qtextedit.md)
 * [QTime](classes/qtime.md)
 * [QTimeEdit](classes/qtimeedit.md)
 * [QToolButton](classes/qtoolbutton.md)
@@ -293,6 +301,8 @@ sidebar_label: "Globals"
 * [QTabBarSignals](interfaces/qtabbarsignals.md)
 * [QTabWidgetSignals](interfaces/qtabwidgetsignals.md)
 * [QTableWidgetSignals](interfaces/qtablewidgetsignals.md)
+* [QTextBrowserSignals](interfaces/qtextbrowsersignals.md)
+* [QTextEditSignals](interfaces/qtexteditsignals.md)
 * [QToolButtonSignals](interfaces/qtoolbuttonsignals.md)
 * [QTreeWidgetSignals](interfaces/qtreewidgetsignals.md)
 * [QWidgetSignals](interfaces/qwidgetsignals.md)
@@ -329,9 +339,8 @@ sidebar_label: "Globals"
 ### Variables
 
 * [addon](globals.md#const-addon)
-* [label](globals.md#const-label)
+* [fileDialog](globals.md#const-filedialog)
 * [testImagePath](globals.md#const-testimagepath)
-* [win](globals.md#const-win)
 
 ### Functions
 
@@ -508,21 +517,15 @@ ___
 
 ___
 
-### `Const` label
+### `Const` fileDialog
 
-• **label**: *[QLabel](classes/qlabel.md)‹›* = new QLabel()
+• **fileDialog**: *[QFileDialog](classes/qfiledialog.md)‹›* = new QFileDialog()
 
 ___
 
 ### `Const` testImagePath
 
 • **testImagePath**: *string* = path.resolve(__dirname, 'assets', 'nodegui.png')
-
-___
-
-### `Const` win
-
-• **win**: *[QMainWindow](classes/qmainwindow.md)‹›* = new QMainWindow()
 
 ## Functions
 

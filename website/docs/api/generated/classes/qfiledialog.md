@@ -69,6 +69,10 @@ console.log(selectedFiles);
 * [isVisible](qfiledialog.md#isvisible)
 * [labelText](qfiledialog.md#labeltext)
 * [lower](qfiledialog.md#lower)
+* [mapFromGlobal](qfiledialog.md#mapfromglobal)
+* [mapFromParent](qfiledialog.md#mapfromparent)
+* [mapToGlobal](qfiledialog.md#maptoglobal)
+* [mapToParent](qfiledialog.md#maptoparent)
 * [move](qfiledialog.md#move)
 * [objectName](qfiledialog.md#objectname)
 * [open](qfiledialog.md#open)
@@ -335,11 +339,11 @@ ___
 
 ###  exec
 
-▸ **exec**(): *number*
+▸ **exec**(): *[DialogCode](../enums/dialogcode.md)*
 
 *Inherited from [NodeDialog](nodedialog.md).[exec](nodedialog.md#exec)*
 
-**Returns:** *number*
+**Returns:** *[DialogCode](../enums/dialogcode.md)*
 
 ___
 
@@ -468,6 +472,70 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  mapFromGlobal
+
+▸ **mapFromGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromGlobal](qmenu.md#mapfromglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapFromParent
+
+▸ **mapFromParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromParent](qmenu.md#mapfromparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToGlobal
+
+▸ **mapToGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToGlobal](qmenu.md#maptoglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToParent
+
+▸ **mapToParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToParent](qmenu.md#maptoparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 

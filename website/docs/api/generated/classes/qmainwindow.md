@@ -71,6 +71,10 @@ Once a central widget is set you can add children/layout to the central widget.
 * [isEnabled](qmainwindow.md#isenabled)
 * [isVisible](qmainwindow.md#isvisible)
 * [lower](qmainwindow.md#lower)
+* [mapFromGlobal](qmainwindow.md#mapfromglobal)
+* [mapFromParent](qmainwindow.md#mapfromparent)
+* [mapToGlobal](qmainwindow.md#maptoglobal)
+* [mapToParent](qmainwindow.md#maptoparent)
 * [menuBar](qmainwindow.md#menubar)
 * [move](qmainwindow.md#move)
 * [objectName](qmainwindow.md#objectname)
@@ -415,6 +419,70 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  mapFromGlobal
+
+▸ **mapFromGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromGlobal](qmenu.md#mapfromglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapFromParent
+
+▸ **mapFromParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromParent](qmenu.md#mapfromparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToGlobal
+
+▸ **mapToGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToGlobal](qmenu.md#maptoglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToParent
+
+▸ **mapToParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToParent](qmenu.md#maptoparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 

@@ -112,6 +112,10 @@ Implement all native QWidget methods here so that all widgets get access to thos
 * [isEnabled](nodewidget.md#isenabled)
 * [isVisible](nodewidget.md#isvisible)
 * [lower](nodewidget.md#lower)
+* [mapFromGlobal](nodewidget.md#mapfromglobal)
+* [mapFromParent](nodewidget.md#mapfromparent)
+* [mapToGlobal](nodewidget.md#maptoglobal)
+* [mapToParent](nodewidget.md#maptoparent)
 * [move](nodewidget.md#move)
 * [objectName](nodewidget.md#objectname)
 * [pos](nodewidget.md#pos)
@@ -396,6 +400,62 @@ ___
 ▸ **lower**(): *void*
 
 **Returns:** *void*
+
+___
+
+###  mapFromGlobal
+
+▸ **mapFromGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapFromParent
+
+▸ **mapFromParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToGlobal
+
+▸ **mapToGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToParent
+
+▸ **mapToParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 

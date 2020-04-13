@@ -79,6 +79,10 @@ console.log('currentIndexChanged: ' + index);
 * [itemData](qcombobox.md#itemdata)
 * [itemText](qcombobox.md#itemtext)
 * [lower](qcombobox.md#lower)
+* [mapFromGlobal](qcombobox.md#mapfromglobal)
+* [mapFromParent](qcombobox.md#mapfromparent)
+* [mapToGlobal](qcombobox.md#maptoglobal)
+* [mapToParent](qcombobox.md#maptoparent)
 * [maxVisibleItems](qcombobox.md#maxvisibleitems)
 * [move](qcombobox.md#move)
 * [objectName](qcombobox.md#objectname)
@@ -545,6 +549,70 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  mapFromGlobal
+
+▸ **mapFromGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromGlobal](qmenu.md#mapfromglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapFromParent
+
+▸ **mapFromParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromParent](qmenu.md#mapfromparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToGlobal
+
+▸ **mapToGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToGlobal](qmenu.md#maptoglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToParent
+
+▸ **mapToParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToParent](qmenu.md#maptoparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 

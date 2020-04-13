@@ -65,6 +65,10 @@ console.log(color.red(), color.green(), color.blue());
 * [isSizeGripEnabled](qcolordialog.md#issizegripenabled)
 * [isVisible](qcolordialog.md#isvisible)
 * [lower](qcolordialog.md#lower)
+* [mapFromGlobal](qcolordialog.md#mapfromglobal)
+* [mapFromParent](qcolordialog.md#mapfromparent)
+* [mapToGlobal](qcolordialog.md#maptoglobal)
+* [mapToParent](qcolordialog.md#maptoparent)
 * [move](qcolordialog.md#move)
 * [objectName](qcolordialog.md#objectname)
 * [open](qcolordialog.md#open)
@@ -319,11 +323,11 @@ ___
 
 ###  exec
 
-▸ **exec**(): *number*
+▸ **exec**(): *[DialogCode](../enums/dialogcode.md)*
 
 *Inherited from [NodeDialog](nodedialog.md).[exec](nodedialog.md#exec)*
 
-**Returns:** *number*
+**Returns:** *[DialogCode](../enums/dialogcode.md)*
 
 ___
 
@@ -430,6 +434,70 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  mapFromGlobal
+
+▸ **mapFromGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromGlobal](qmenu.md#mapfromglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapFromParent
+
+▸ **mapFromParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromParent](qmenu.md#mapfromparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToGlobal
+
+▸ **mapToGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToGlobal](qmenu.md#maptoglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToParent
+
+▸ **mapToParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToParent](qmenu.md#maptoparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 

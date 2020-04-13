@@ -56,6 +56,10 @@ const menu = new QMenu();
 * [isEnabled](qmenu.md#isenabled)
 * [isVisible](qmenu.md#isvisible)
 * [lower](qmenu.md#lower)
+* [mapFromGlobal](qmenu.md#mapfromglobal)
+* [mapFromParent](qmenu.md#mapfromparent)
+* [mapToGlobal](qmenu.md#maptoglobal)
+* [mapToParent](qmenu.md#maptoparent)
 * [move](qmenu.md#move)
 * [objectName](qmenu.md#objectname)
 * [popup](qmenu.md#popup)
@@ -295,14 +299,14 @@ ___
 
 ###  exec
 
-▸ **exec**(`point?`: [QPoint](qpoint.md), `action?`: [QAction](qaction.md)): *void*
+▸ **exec**(`point?`: [QPoint](qpoint.md), `action?`: [QAction](qaction.md) | null): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `point?` | [QPoint](qpoint.md) |
-`action?` | [QAction](qaction.md) |
+`action?` | [QAction](qaction.md) &#124; null |
 
 **Returns:** *void*
 
@@ -401,6 +405,70 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  mapFromGlobal
+
+▸ **mapFromGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromGlobal](qmenu.md#mapfromglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapFromParent
+
+▸ **mapFromParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromParent](qmenu.md#mapfromparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToGlobal
+
+▸ **mapToGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToGlobal](qmenu.md#maptoglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToParent
+
+▸ **mapToParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToParent](qmenu.md#maptoparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 

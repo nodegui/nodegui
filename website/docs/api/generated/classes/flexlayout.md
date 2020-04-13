@@ -55,14 +55,21 @@ layout.addWidget(label2);
 * [inherits](flexlayout.md#inherits)
 * [insertChildBefore](flexlayout.md#insertchildbefore)
 * [invalidate](flexlayout.md#invalidate)
+* [isEnabled](flexlayout.md#isenabled)
 * [objectName](flexlayout.md#objectname)
 * [property](flexlayout.md#property)
 * [removeEventListener](flexlayout.md#removeeventlistener)
 * [removeWidget](flexlayout.md#removewidget)
+* [setContentsMargins](flexlayout.md#setcontentsmargins)
+* [setEnabled](flexlayout.md#setenabled)
 * [setFlexNode](flexlayout.md#setflexnode)
 * [setNodeParent](flexlayout.md#setnodeparent)
 * [setObjectName](flexlayout.md#setobjectname)
 * [setProperty](flexlayout.md#setproperty)
+* [setSizeConstraint](flexlayout.md#setsizeconstraint)
+* [setSpacing](flexlayout.md#setspacing)
+* [sizeConstraint](flexlayout.md#sizeconstraint)
+* [spacing](flexlayout.md#spacing)
 * [update](flexlayout.md#update)
 
 ## Constructors
@@ -247,6 +254,16 @@ ___
 
 ___
 
+###  isEnabled
+
+▸ **isEnabled**(): *boolean*
+
+*Inherited from [NodeLayout](nodelayout.md).[isEnabled](nodelayout.md#isenabled)*
+
+**Returns:** *boolean*
+
+___
+
 ###  objectName
 
 ▸ **objectName**(): *string*
@@ -331,6 +348,41 @@ Name | Type |
 
 ___
 
+###  setContentsMargins
+
+▸ **setContentsMargins**(`left`: number, `top`: number, `right`: number, `bottom`: number): *void*
+
+*Inherited from [NodeLayout](nodelayout.md).[setContentsMargins](nodelayout.md#setcontentsmargins)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`left` | number |
+`top` | number |
+`right` | number |
+`bottom` | number |
+
+**Returns:** *void*
+
+___
+
+###  setEnabled
+
+▸ **setEnabled**(`enable`: boolean): *void*
+
+*Inherited from [NodeLayout](nodelayout.md).[setEnabled](nodelayout.md#setenabled)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enable` | boolean |
+
+**Returns:** *void*
+
+___
+
 ###  setFlexNode
 
 ▸ **setFlexNode**(`flexNode`: [FlexNode](../globals.md#flexnode)): *void*
@@ -391,6 +443,58 @@ Name | Type |
 `value` | [QVariantType](../globals.md#qvarianttype) |
 
 **Returns:** *boolean*
+
+___
+
+###  setSizeConstraint
+
+▸ **setSizeConstraint**(`constraint`: [SizeConstraint](../enums/sizeconstraint.md)): *void*
+
+*Inherited from [NodeLayout](nodelayout.md).[setSizeConstraint](nodelayout.md#setsizeconstraint)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`constraint` | [SizeConstraint](../enums/sizeconstraint.md) |
+
+**Returns:** *void*
+
+___
+
+###  setSpacing
+
+▸ **setSpacing**(`spacing`: number): *void*
+
+*Inherited from [NodeLayout](nodelayout.md).[setSpacing](nodelayout.md#setspacing)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`spacing` | number |
+
+**Returns:** *void*
+
+___
+
+###  sizeConstraint
+
+▸ **sizeConstraint**(): *[SizeConstraint](../enums/sizeconstraint.md)*
+
+*Inherited from [NodeLayout](nodelayout.md).[sizeConstraint](nodelayout.md#sizeconstraint)*
+
+**Returns:** *[SizeConstraint](../enums/sizeconstraint.md)*
+
+___
+
+###  spacing
+
+▸ **spacing**(): *number*
+
+*Inherited from [NodeLayout](nodelayout.md).[spacing](nodelayout.md#spacing)*
+
+**Returns:** *number*
 
 ___
 

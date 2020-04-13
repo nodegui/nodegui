@@ -43,8 +43,7 @@ c1item2.setText(0, `c1item1`);
 
 win.setCentralWidget(tree);
 win.show();
-(global as any).win = win; 
-```
+(global as any).win = win;```
 
 ## Hierarchy
 
@@ -79,6 +78,7 @@ win.show();
 * [addTopLevelItem](qtreewidget.md#addtoplevelitem)
 * [addTopLevelItems](qtreewidget.md#addtoplevelitems)
 * [adjustSize](qtreewidget.md#adjustsize)
+* [clear](qtreewidget.md#clear)
 * [close](qtreewidget.md#close)
 * [currentItem](qtreewidget.md#currentitem)
 * [findItems](qtreewidget.md#finditems)
@@ -99,6 +99,10 @@ win.show();
 * [isVisible](qtreewidget.md#isvisible)
 * [lineWidth](qtreewidget.md#linewidth)
 * [lower](qtreewidget.md#lower)
+* [mapFromGlobal](qtreewidget.md#mapfromglobal)
+* [mapFromParent](qtreewidget.md#mapfromparent)
+* [mapToGlobal](qtreewidget.md#maptoglobal)
+* [mapToParent](qtreewidget.md#maptoparent)
 * [midLineWidth](qtreewidget.md#midlinewidth)
 * [move](qtreewidget.md#move)
 * [objectName](qtreewidget.md#objectname)
@@ -154,6 +158,7 @@ win.show();
 * [showNormal](qtreewidget.md#shownormal)
 * [size](qtreewidget.md#size)
 * [styleSheet](qtreewidget.md#stylesheet)
+* [takeTopLevelItem](qtreewidget.md#taketoplevelitem)
 * [testAttribute](qtreewidget.md#testattribute)
 * [update](qtreewidget.md#update)
 * [updateGeometry](qtreewidget.md#updategeometry)
@@ -382,6 +387,14 @@ ___
 
 ___
 
+###  clear
+
+▸ **clear**(): *void*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -394,11 +407,11 @@ ___
 
 ###  currentItem
 
-▸ **currentItem**(): *[QTreeWidgetItem](qtreewidgetitem.md)*
+▸ **currentItem**(): *[QTreeWidgetItem](qtreewidgetitem.md) | void*
 
 Returns the current item in the tree widget.
 
-**Returns:** *[QTreeWidgetItem](qtreewidgetitem.md)*
+**Returns:** *[QTreeWidgetItem](qtreewidgetitem.md) | void*
 
 ___
 
@@ -601,6 +614,70 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  mapFromGlobal
+
+▸ **mapFromGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromGlobal](qmenu.md#mapfromglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapFromParent
+
+▸ **mapFromParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromParent](qmenu.md#mapfromparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToGlobal
+
+▸ **mapToGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToGlobal](qmenu.md#maptoglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToParent
+
+▸ **mapToParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToParent](qmenu.md#maptoparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 
@@ -1439,6 +1516,20 @@ ___
 *Inherited from [QMenu](qmenu.md).[styleSheet](qmenu.md#stylesheet)*
 
 **Returns:** *string*
+
+___
+
+###  takeTopLevelItem
+
+▸ **takeTopLevelItem**(`index`: number): *[QTreeWidgetItem](qtreewidgetitem.md) | void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+**Returns:** *[QTreeWidgetItem](qtreewidgetitem.md) | void*
 
 ___
 

@@ -1,207 +1,217 @@
 ---
-id: "qtablewidget"
-title: "QTableWidget"
-sidebar_label: "QTableWidget"
+id: "nodetextedit"
+title: "NodeTextEdit"
+sidebar_label: "NodeTextEdit"
 ---
 
-> Creates and item-based table view.
+> Create and control editable text field.
 
-**This class is a JS wrapper around Qt's [QTableWidget class](https://doc.qt.io/qt-5/qtablewidget.html)**
+**This class is a JS wrapper around Qt's [QTextEdit class](https://doc.qt.io/qt-5/qtextedit.html)**
+
+A `QTextEdit` provides ability to add and manipulate native editable text field widgets.
 
 ### Example
 
 ```javascript
-const { QTableWidget, QMainWindow, QTableWidgetItem } = require("@nodegui/nodegui");
+const { QTextEdit } = require("@nodegui/nodegui");
 
-const win = new QMainWindow();
-const table = new QTableWidget(2, 3);
-table.setHorizontalHeaderLabels(['first', 'second', 'third']);
-
-const cell00 = new QTableWidgetItem('C00');
-const cell01 = new QTableWidgetItem('C01');
-const cell10 = new QTableWidgetItem('C10');
-const cell11 = new QTableWidgetItem('C11');
-
-table.setItem(0, 0, cell00);
-table.setItem(0, 1, cell01);
-table.setItem(1, 0, cell10);
-table.setItem(1, 1, cell11);
-
-win.setCentralWidget(table);
-win.show();
-(global as any).win = win;
-
+const textEdit = new QTextEdit();
 ```
+
+## Type parameters
+
+▪ **Signals**: *[QTextEditSignals](../interfaces/qtexteditsignals.md)*
 
 ## Hierarchy
 
-  ↳ [QAbstractScrollArea](qabstractscrollarea.md)‹[QTableWidgetSignals](../interfaces/qtablewidgetsignals.md)›
+  ↳ [QAbstractScrollArea](qabstractscrollarea.md)‹Signals›
 
-  ↳ **QTableWidget**
+  ↳ **NodeTextEdit**
+
+  ↳ [QTextEdit](qtextedit.md)
+
+  ↳ [QTextBrowser](qtextbrowser.md)
 
 ## Index
 
 ### Constructors
 
-* [constructor](qtablewidget.md#constructor)
+* [constructor](nodetextedit.md#constructor)
 
 ### Properties
 
-* [_rawInlineStyle](qtablewidget.md#_rawinlinestyle)
-* [actions](qtablewidget.md#actions)
-* [items](qtablewidget.md#items)
-* [layout](qtablewidget.md#optional-layout)
-* [native](qtablewidget.md#native)
-* [nodeChildren](qtablewidget.md#nodechildren)
-* [nodeParent](qtablewidget.md#optional-nodeparent)
-* [type](qtablewidget.md#type)
-* [viewportWidget](qtablewidget.md#optional-viewportwidget)
+* [_rawInlineStyle](nodetextedit.md#_rawinlinestyle)
+* [actions](nodetextedit.md#actions)
+* [layout](nodetextedit.md#optional-layout)
+* [native](nodetextedit.md#abstract-native)
+* [nodeChildren](nodetextedit.md#nodechildren)
+* [nodeParent](nodetextedit.md#optional-nodeparent)
+* [type](nodetextedit.md#type)
+* [viewportWidget](nodetextedit.md#optional-viewportwidget)
 
 ### Methods
 
-* [activateWindow](qtablewidget.md#activatewindow)
-* [addAction](qtablewidget.md#addaction)
-* [addEventListener](qtablewidget.md#addeventlistener)
-* [adjustSize](qtablewidget.md#adjustsize)
-* [clear](qtablewidget.md#clear)
-* [clearContents](qtablewidget.md#clearcontents)
-* [close](qtablewidget.md#close)
-* [closePersistentEditor](qtablewidget.md#closepersistenteditor)
-* [editItem](qtablewidget.md#edititem)
-* [font](qtablewidget.md#font)
-* [frameRect](qtablewidget.md#framerect)
-* [frameShadow](qtablewidget.md#frameshadow)
-* [frameShape](qtablewidget.md#frameshape)
-* [frameStyle](qtablewidget.md#framestyle)
-* [frameWidth](qtablewidget.md#framewidth)
-* [geometry](qtablewidget.md#geometry)
-* [getFlexNode](qtablewidget.md#getflexnode)
-* [hasMouseTracking](qtablewidget.md#hasmousetracking)
-* [hide](qtablewidget.md#hide)
-* [hideColumn](qtablewidget.md#hidecolumn)
-* [hideRow](qtablewidget.md#hiderow)
-* [inherits](qtablewidget.md#inherits)
-* [insertColumn](qtablewidget.md#insertcolumn)
-* [insertRow](qtablewidget.md#insertrow)
-* [isEnabled](qtablewidget.md#isenabled)
-* [isSortingEnabled](qtablewidget.md#issortingenabled)
-* [isVisible](qtablewidget.md#isvisible)
-* [lineWidth](qtablewidget.md#linewidth)
-* [lower](qtablewidget.md#lower)
-* [mapFromGlobal](qtablewidget.md#mapfromglobal)
-* [mapFromParent](qtablewidget.md#mapfromparent)
-* [mapToGlobal](qtablewidget.md#maptoglobal)
-* [mapToParent](qtablewidget.md#maptoparent)
-* [midLineWidth](qtablewidget.md#midlinewidth)
-* [move](qtablewidget.md#move)
-* [objectName](qtablewidget.md#objectname)
-* [pos](qtablewidget.md#pos)
-* [property](qtablewidget.md#property)
-* [raise](qtablewidget.md#raise)
-* [removeColumn](qtablewidget.md#removecolumn)
-* [removeEventListener](qtablewidget.md#removeeventlistener)
-* [removeRow](qtablewidget.md#removerow)
-* [repaint](qtablewidget.md#repaint)
-* [repolish](qtablewidget.md#repolish)
-* [resize](qtablewidget.md#resize)
-* [resizeColumnToContents](qtablewidget.md#resizecolumntocontents)
-* [resizeColumnsToContents](qtablewidget.md#resizecolumnstocontents)
-* [resizeRowToContents](qtablewidget.md#resizerowtocontents)
-* [resizeRowsToContents](qtablewidget.md#resizerowstocontents)
-* [scrollToItem](qtablewidget.md#scrolltoitem)
-* [selectColumn](qtablewidget.md#selectcolumn)
-* [selectRow](qtablewidget.md#selectrow)
-* [selectedRanges](qtablewidget.md#selectedranges)
-* [setAttribute](qtablewidget.md#setattribute)
-* [setCellWidget](qtablewidget.md#setcellwidget)
-* [setColumnWidth](qtablewidget.md#setcolumnwidth)
-* [setContextMenuPolicy](qtablewidget.md#setcontextmenupolicy)
-* [setCursor](qtablewidget.md#setcursor)
-* [setEnabled](qtablewidget.md#setenabled)
-* [setFixedSize](qtablewidget.md#setfixedsize)
-* [setFlexNodeSizeControlled](qtablewidget.md#setflexnodesizecontrolled)
-* [setFont](qtablewidget.md#setfont)
-* [setFrameRect](qtablewidget.md#setframerect)
-* [setFrameShadow](qtablewidget.md#setframeshadow)
-* [setFrameShape](qtablewidget.md#setframeshape)
-* [setFrameStyle](qtablewidget.md#setframestyle)
-* [setGeometry](qtablewidget.md#setgeometry)
-* [setHorizontalHeaderItem](qtablewidget.md#sethorizontalheaderitem)
-* [setHorizontalHeaderLabels](qtablewidget.md#sethorizontalheaderlabels)
-* [setHorizontalScrollBarPolicy](qtablewidget.md#sethorizontalscrollbarpolicy)
-* [setInlineStyle](qtablewidget.md#setinlinestyle)
-* [setItem](qtablewidget.md#setitem)
-* [setLayout](qtablewidget.md#setlayout)
-* [setLineWidth](qtablewidget.md#setlinewidth)
-* [setMaximumSize](qtablewidget.md#setmaximumsize)
-* [setMidLineWidth](qtablewidget.md#setmidlinewidth)
-* [setMinimumSize](qtablewidget.md#setminimumsize)
-* [setMouseTracking](qtablewidget.md#setmousetracking)
-* [setNodeParent](qtablewidget.md#setnodeparent)
-* [setObjectName](qtablewidget.md#setobjectname)
-* [setProperty](qtablewidget.md#setproperty)
-* [setRowHeight](qtablewidget.md#setrowheight)
-* [setShowGrid](qtablewidget.md#setshowgrid)
-* [setSortingEnabled](qtablewidget.md#setsortingenabled)
-* [setStyleSheet](qtablewidget.md#setstylesheet)
-* [setVerticalHeaderItem](qtablewidget.md#setverticalheaderitem)
-* [setVerticalHeaderLabels](qtablewidget.md#setverticalheaderlabels)
-* [setVerticalScrollBarPolicy](qtablewidget.md#setverticalscrollbarpolicy)
-* [setViewport](qtablewidget.md#setviewport)
-* [setWindowFlag](qtablewidget.md#setwindowflag)
-* [setWindowIcon](qtablewidget.md#setwindowicon)
-* [setWindowOpacity](qtablewidget.md#setwindowopacity)
-* [setWindowState](qtablewidget.md#setwindowstate)
-* [setWindowTitle](qtablewidget.md#setwindowtitle)
-* [show](qtablewidget.md#show)
-* [showColumn](qtablewidget.md#showcolumn)
-* [showFullScreen](qtablewidget.md#showfullscreen)
-* [showGrid](qtablewidget.md#showgrid)
-* [showMaximized](qtablewidget.md#showmaximized)
-* [showMinimized](qtablewidget.md#showminimized)
-* [showNormal](qtablewidget.md#shownormal)
-* [showRow](qtablewidget.md#showrow)
-* [size](qtablewidget.md#size)
-* [sortByColumn](qtablewidget.md#sortbycolumn)
-* [styleSheet](qtablewidget.md#stylesheet)
-* [testAttribute](qtablewidget.md#testattribute)
-* [update](qtablewidget.md#update)
-* [updateGeometry](qtablewidget.md#updategeometry)
-* [viewport](qtablewidget.md#viewport)
-* [windowOpacity](qtablewidget.md#windowopacity)
-* [windowState](qtablewidget.md#windowstate)
-* [windowTitle](qtablewidget.md#windowtitle)
+* [acceptRichText](nodetextedit.md#acceptrichtext)
+* [activateWindow](nodetextedit.md#activatewindow)
+* [addAction](nodetextedit.md#addaction)
+* [addEventListener](nodetextedit.md#addeventlistener)
+* [adjustSize](nodetextedit.md#adjustsize)
+* [alignment](nodetextedit.md#alignment)
+* [append](nodetextedit.md#append)
+* [autoFormatting](nodetextedit.md#autoformatting)
+* [canPaste](nodetextedit.md#canpaste)
+* [clear](nodetextedit.md#clear)
+* [close](nodetextedit.md#close)
+* [copy](nodetextedit.md#copy)
+* [currentFont](nodetextedit.md#currentfont)
+* [cursorWidth](nodetextedit.md#cursorwidth)
+* [cut](nodetextedit.md#cut)
+* [documentTitle](nodetextedit.md#documenttitle)
+* [ensureCursorVisible](nodetextedit.md#ensurecursorvisible)
+* [font](nodetextedit.md#font)
+* [fontFamily](nodetextedit.md#fontfamily)
+* [fontItalic](nodetextedit.md#fontitalic)
+* [fontPointSize](nodetextedit.md#fontpointsize)
+* [fontUnderline](nodetextedit.md#fontunderline)
+* [fontWeight](nodetextedit.md#fontweight)
+* [frameRect](nodetextedit.md#framerect)
+* [frameShadow](nodetextedit.md#frameshadow)
+* [frameShape](nodetextedit.md#frameshape)
+* [frameStyle](nodetextedit.md#framestyle)
+* [frameWidth](nodetextedit.md#framewidth)
+* [geometry](nodetextedit.md#geometry)
+* [getFlexNode](nodetextedit.md#getflexnode)
+* [hasMouseTracking](nodetextedit.md#hasmousetracking)
+* [hide](nodetextedit.md#hide)
+* [inherits](nodetextedit.md#inherits)
+* [insertHtml](nodetextedit.md#inserthtml)
+* [insertPlainText](nodetextedit.md#insertplaintext)
+* [isEnabled](nodetextedit.md#isenabled)
+* [isReadOnly](nodetextedit.md#isreadonly)
+* [isUndoRedoEnabled](nodetextedit.md#isundoredoenabled)
+* [isVisible](nodetextedit.md#isvisible)
+* [lineWidth](nodetextedit.md#linewidth)
+* [lineWrapColumnOrWidth](nodetextedit.md#linewrapcolumnorwidth)
+* [lineWrapMode](nodetextedit.md#linewrapmode)
+* [lower](nodetextedit.md#lower)
+* [mapFromGlobal](nodetextedit.md#mapfromglobal)
+* [mapFromParent](nodetextedit.md#mapfromparent)
+* [mapToGlobal](nodetextedit.md#maptoglobal)
+* [mapToParent](nodetextedit.md#maptoparent)
+* [midLineWidth](nodetextedit.md#midlinewidth)
+* [move](nodetextedit.md#move)
+* [objectName](nodetextedit.md#objectname)
+* [overwriteMode](nodetextedit.md#overwritemode)
+* [paste](nodetextedit.md#paste)
+* [placeholderText](nodetextedit.md#placeholdertext)
+* [pos](nodetextedit.md#pos)
+* [property](nodetextedit.md#property)
+* [raise](nodetextedit.md#raise)
+* [redo](nodetextedit.md#redo)
+* [removeEventListener](nodetextedit.md#removeeventlistener)
+* [repaint](nodetextedit.md#repaint)
+* [repolish](nodetextedit.md#repolish)
+* [resize](nodetextedit.md#resize)
+* [scrollToAnchor](nodetextedit.md#scrolltoanchor)
+* [selectAll](nodetextedit.md#selectall)
+* [setAcceptRichText](nodetextedit.md#setacceptrichtext)
+* [setAlignment](nodetextedit.md#setalignment)
+* [setAttribute](nodetextedit.md#setattribute)
+* [setAutoFormatting](nodetextedit.md#setautoformatting)
+* [setContextMenuPolicy](nodetextedit.md#setcontextmenupolicy)
+* [setCurrentFont](nodetextedit.md#setcurrentfont)
+* [setCursor](nodetextedit.md#setcursor)
+* [setCursorWidth](nodetextedit.md#setcursorwidth)
+* [setDocumentTitle](nodetextedit.md#setdocumenttitle)
+* [setEnabled](nodetextedit.md#setenabled)
+* [setFixedSize](nodetextedit.md#setfixedsize)
+* [setFlexNodeSizeControlled](nodetextedit.md#setflexnodesizecontrolled)
+* [setFont](nodetextedit.md#setfont)
+* [setFontFamily](nodetextedit.md#setfontfamily)
+* [setFontItalic](nodetextedit.md#setfontitalic)
+* [setFontPointSize](nodetextedit.md#setfontpointsize)
+* [setFontUnderline](nodetextedit.md#setfontunderline)
+* [setFontWeight](nodetextedit.md#setfontweight)
+* [setFrameRect](nodetextedit.md#setframerect)
+* [setFrameShadow](nodetextedit.md#setframeshadow)
+* [setFrameShape](nodetextedit.md#setframeshape)
+* [setFrameStyle](nodetextedit.md#setframestyle)
+* [setGeometry](nodetextedit.md#setgeometry)
+* [setHorizontalScrollBarPolicy](nodetextedit.md#sethorizontalscrollbarpolicy)
+* [setHtml](nodetextedit.md#sethtml)
+* [setInlineStyle](nodetextedit.md#setinlinestyle)
+* [setLayout](nodetextedit.md#setlayout)
+* [setLineWidth](nodetextedit.md#setlinewidth)
+* [setLineWrapColumnOrWidth](nodetextedit.md#setlinewrapcolumnorwidth)
+* [setLineWrapMode](nodetextedit.md#setlinewrapmode)
+* [setMaximumSize](nodetextedit.md#setmaximumsize)
+* [setMidLineWidth](nodetextedit.md#setmidlinewidth)
+* [setMinimumSize](nodetextedit.md#setminimumsize)
+* [setMouseTracking](nodetextedit.md#setmousetracking)
+* [setNodeParent](nodetextedit.md#setnodeparent)
+* [setObjectName](nodetextedit.md#setobjectname)
+* [setOverwriteMode](nodetextedit.md#setoverwritemode)
+* [setPlaceholderText](nodetextedit.md#setplaceholdertext)
+* [setPlainText](nodetextedit.md#setplaintext)
+* [setProperty](nodetextedit.md#setproperty)
+* [setReadOnly](nodetextedit.md#setreadonly)
+* [setStyleSheet](nodetextedit.md#setstylesheet)
+* [setTabChangesFocus](nodetextedit.md#settabchangesfocus)
+* [setTabStopDistance](nodetextedit.md#settabstopdistance)
+* [setText](nodetextedit.md#settext)
+* [setTextBackgroundColor](nodetextedit.md#settextbackgroundcolor)
+* [setTextColor](nodetextedit.md#settextcolor)
+* [setTextInteractionFlags](nodetextedit.md#settextinteractionflags)
+* [setUndoRedoEnabled](nodetextedit.md#setundoredoenabled)
+* [setVerticalScrollBarPolicy](nodetextedit.md#setverticalscrollbarpolicy)
+* [setViewport](nodetextedit.md#setviewport)
+* [setWindowFlag](nodetextedit.md#setwindowflag)
+* [setWindowIcon](nodetextedit.md#setwindowicon)
+* [setWindowOpacity](nodetextedit.md#setwindowopacity)
+* [setWindowState](nodetextedit.md#setwindowstate)
+* [setWindowTitle](nodetextedit.md#setwindowtitle)
+* [setWordWrapMode](nodetextedit.md#setwordwrapmode)
+* [show](nodetextedit.md#show)
+* [showFullScreen](nodetextedit.md#showfullscreen)
+* [showMaximized](nodetextedit.md#showmaximized)
+* [showMinimized](nodetextedit.md#showminimized)
+* [showNormal](nodetextedit.md#shownormal)
+* [size](nodetextedit.md#size)
+* [styleSheet](nodetextedit.md#stylesheet)
+* [tabChangesFocus](nodetextedit.md#tabchangesfocus)
+* [tabStopDistance](nodetextedit.md#tabstopdistance)
+* [testAttribute](nodetextedit.md#testattribute)
+* [textInteractionFlags](nodetextedit.md#textinteractionflags)
+* [toHtml](nodetextedit.md#tohtml)
+* [toPlainText](nodetextedit.md#toplaintext)
+* [undo](nodetextedit.md#undo)
+* [update](nodetextedit.md#update)
+* [updateGeometry](nodetextedit.md#updategeometry)
+* [viewport](nodetextedit.md#viewport)
+* [windowOpacity](nodetextedit.md#windowopacity)
+* [windowState](nodetextedit.md#windowstate)
+* [windowTitle](nodetextedit.md#windowtitle)
+* [wordWrapMode](nodetextedit.md#wordwrapmode)
+* [zommIn](nodetextedit.md#zommin)
+* [zoomOut](nodetextedit.md#zoomout)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QTableWidget**(`rows`: number, `columns`: number): *[QTableWidget](qtablewidget.md)*
+\+ **new NodeTextEdit**(`native`: [NativeElement](../globals.md#nativeelement)): *[NodeTextEdit](nodetextedit.md)*
 
-*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
+*Inherited from [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`rows` | number |
-`columns` | number |
-
-**Returns:** *[QTableWidget](qtablewidget.md)*
-
-\+ **new QTableWidget**(`rows`: number, `columns`: number, `parent`: [NodeWidget](nodewidget.md)‹any›): *[QTableWidget](qtablewidget.md)*
-
-*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
+*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`rows` | number |
-`columns` | number |
-`parent` | [NodeWidget](nodewidget.md)‹any› |
+`native` | [NativeElement](../globals.md#nativeelement) |
 
-**Returns:** *[QTableWidget](qtablewidget.md)*
+**Returns:** *[NodeTextEdit](nodetextedit.md)*
 
 ## Properties
 
@@ -221,25 +231,19 @@ ___
 
 ___
 
-###  items
-
-• **items**: *Set‹[NativeElement](../globals.md#nativeelement) | [Component](component.md)›*
-
-___
-
 ### `Optional` layout
 
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QTableWidgetSignals](../interfaces/qtablewidgetsignals.md)›*
+• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
-###  native
+### `Abstract` native
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
+*Inherited from [Component](component.md).[native](component.md#abstract-native)*
 
 ___
 
@@ -275,6 +279,14 @@ ___
 
 ## Methods
 
+###  acceptRichText
+
+▸ **acceptRichText**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
 ###  activateWindow
 
 ▸ **activateWindow**(): *void*
@@ -303,20 +315,20 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QTableWidgetSignals[SignalType]): *void*
+▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof QTableWidgetSignals*
+▪ **SignalType**: *keyof Signals*
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
-`callback` | QTableWidgetSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`callback` | Signals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
 
@@ -367,17 +379,47 @@ ___
 
 ___
 
-###  clear
+###  alignment
 
-▸ **clear**(): *void*
+▸ **alignment**(): *[AlignmentFlag](../enums/alignmentflag.md)*
+
+**Returns:** *[AlignmentFlag](../enums/alignmentflag.md)*
+
+___
+
+###  append
+
+▸ **append**(`text`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
 
 **Returns:** *void*
 
 ___
 
-###  clearContents
+###  autoFormatting
 
-▸ **clearContents**(): *void*
+▸ **autoFormatting**(): *[AutoFormattingFlag](../enums/autoformattingflag.md)*
+
+**Returns:** *[AutoFormattingFlag](../enums/autoformattingflag.md)*
+
+___
+
+###  canPaste
+
+▸ **canPaste**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  clear
+
+▸ **clear**(): *void*
 
 **Returns:** *void*
 
@@ -393,29 +435,49 @@ ___
 
 ___
 
-###  closePersistentEditor
+###  copy
 
-▸ **closePersistentEditor**(`item`: [QTableWidgetItem](qtablewidgetitem.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`item` | [QTableWidgetItem](qtablewidgetitem.md) |
+▸ **copy**(): *void*
 
 **Returns:** *void*
 
 ___
 
-###  editItem
+###  currentFont
 
-▸ **editItem**(`item`: [Component](component.md)): *void*
+▸ **currentFont**(): *[QFont](qfont.md)*
 
-**Parameters:**
+**Returns:** *[QFont](qfont.md)*
 
-Name | Type |
------- | ------ |
-`item` | [Component](component.md) |
+___
+
+###  cursorWidth
+
+▸ **cursorWidth**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  cut
+
+▸ **cut**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  documentTitle
+
+▸ **documentTitle**(): *string*
+
+**Returns:** *string*
+
+___
+
+###  ensureCursorVisible
+
+▸ **ensureCursorVisible**(): *void*
 
 **Returns:** *void*
 
@@ -428,6 +490,46 @@ ___
 *Inherited from [QMenu](qmenu.md).[font](qmenu.md#font)*
 
 **Returns:** *[QFont](qfont.md)*
+
+___
+
+###  fontFamily
+
+▸ **fontFamily**(): *string*
+
+**Returns:** *string*
+
+___
+
+###  fontItalic
+
+▸ **fontItalic**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  fontPointSize
+
+▸ **fontPointSize**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  fontUnderline
+
+▸ **fontUnderline**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  fontWeight
+
+▸ **fontWeight**(): *number*
+
+**Returns:** *number*
 
 ___
 
@@ -521,34 +623,6 @@ ___
 
 ___
 
-###  hideColumn
-
-▸ **hideColumn**(`column`: number): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`column` | number |
-
-**Returns:** *void*
-
-___
-
-###  hideRow
-
-▸ **hideRow**(`row`: number): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`row` | number |
-
-**Returns:** *void*
-
-___
-
 ###  inherits
 
 ▸ **inherits**(`className`: string): *boolean*
@@ -565,29 +639,29 @@ Name | Type |
 
 ___
 
-###  insertColumn
+###  insertHtml
 
-▸ **insertColumn**(`column`: number): *void*
+▸ **insertHtml**(`text`: string): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`column` | number |
+`text` | string |
 
 **Returns:** *void*
 
 ___
 
-###  insertRow
+###  insertPlainText
 
-▸ **insertRow**(`row`: number): *void*
+▸ **insertPlainText**(`text`: string): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`row` | number |
+`text` | string |
 
 **Returns:** *void*
 
@@ -603,9 +677,17 @@ ___
 
 ___
 
-###  isSortingEnabled
+###  isReadOnly
 
-▸ **isSortingEnabled**(): *boolean*
+▸ **isReadOnly**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  isUndoRedoEnabled
+
+▸ **isUndoRedoEnabled**(): *boolean*
 
 **Returns:** *boolean*
 
@@ -628,6 +710,22 @@ ___
 *Inherited from [NodeFrame](nodeframe.md).[lineWidth](nodeframe.md#linewidth)*
 
 **Returns:** *number*
+
+___
+
+###  lineWrapColumnOrWidth
+
+▸ **lineWrapColumnOrWidth**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  lineWrapMode
+
+▸ **lineWrapMode**(): *[QTextEditLineWrapMode](../enums/qtexteditlinewrapmode.md)*
+
+**Returns:** *[QTextEditLineWrapMode](../enums/qtexteditlinewrapmode.md)*
 
 ___
 
@@ -742,6 +840,30 @@ ___
 
 ___
 
+###  overwriteMode
+
+▸ **overwriteMode**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  paste
+
+▸ **paste**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  placeholderText
+
+▸ **placeholderText**(): *string*
+
+**Returns:** *string*
+
+___
+
 ###  pos
 
 ▸ **pos**(): *object*
@@ -782,15 +904,9 @@ ___
 
 ___
 
-###  removeColumn
+###  redo
 
-▸ **removeColumn**(`column`: number): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`column` | number |
+▸ **redo**(): *void*
 
 **Returns:** *void*
 
@@ -798,20 +914,20 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QTableWidgetSignals[SignalType]): *void*
+▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof QTableWidgetSignals*
+▪ **SignalType**: *keyof Signals*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
-`callback` | QTableWidgetSignals[SignalType] |
+`callback` | Signals[SignalType] |
 
 **Returns:** *void*
 
@@ -832,20 +948,6 @@ Name | Type |
 Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
-
-**Returns:** *void*
-
-___
-
-###  removeRow
-
-▸ **removeRow**(`row`: number): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`row` | number |
 
 **Returns:** *void*
 
@@ -888,98 +990,53 @@ Name | Type |
 
 ___
 
-###  resizeColumnToContents
+###  scrollToAnchor
 
-▸ **resizeColumnToContents**(`column`: number): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`column` | number |
-
-**Returns:** *void*
-
-___
-
-###  resizeColumnsToContents
-
-▸ **resizeColumnsToContents**(): *void*
-
-**Returns:** *void*
-
-___
-
-###  resizeRowToContents
-
-▸ **resizeRowToContents**(`row`: number): *void*
+▸ **scrollToAnchor**(`name`: string): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`row` | number |
+`name` | string |
 
 **Returns:** *void*
 
 ___
 
-###  resizeRowsToContents
+###  selectAll
 
-▸ **resizeRowsToContents**(): *void*
-
-**Returns:** *void*
-
-___
-
-###  scrollToItem
-
-▸ **scrollToItem**(`item`: [QTableWidgetItem](qtablewidgetitem.md), `hint`: [ScrollHint](../enums/scrollhint.md)): *void*
-
-**Parameters:**
-
-Name | Type | Default |
------- | ------ | ------ |
-`item` | [QTableWidgetItem](qtablewidgetitem.md) | - |
-`hint` | [ScrollHint](../enums/scrollhint.md) | ScrollHint.EnsureVisible |
+▸ **selectAll**(): *void*
 
 **Returns:** *void*
 
 ___
 
-###  selectColumn
+###  setAcceptRichText
 
-▸ **selectColumn**(`column`: number): *void*
+▸ **setAcceptRichText**(`accept`: boolean): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`column` | number |
+`accept` | boolean |
 
 **Returns:** *void*
 
 ___
 
-###  selectRow
+###  setAlignment
 
-▸ **selectRow**(`row`: number): *void*
+▸ **setAlignment**(`alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`row` | number |
+`alignment` | [AlignmentFlag](../enums/alignmentflag.md) |
 
 **Returns:** *void*
-
-___
-
-###  selectedRanges
-
-▸ **selectedRanges**(): *[Range](../interfaces/range.md)[]*
-
-**Returns:** *[Range](../interfaces/range.md)[]*
 
 ___
 
@@ -1000,32 +1057,15 @@ Name | Type |
 
 ___
 
-###  setCellWidget
+###  setAutoFormatting
 
-▸ **setCellWidget**(`row`: number, `column`: number, `widget`: [NodeWidget](nodewidget.md)‹any›): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`row` | number |
-`column` | number |
-`widget` | [NodeWidget](nodewidget.md)‹any› |
-
-**Returns:** *void*
-
-___
-
-###  setColumnWidth
-
-▸ **setColumnWidth**(`column`: number, `width`: number): *void*
+▸ **setAutoFormatting**(`features`: [AutoFormattingFlag](../enums/autoformattingflag.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`column` | number |
-`width` | number |
+`features` | [AutoFormattingFlag](../enums/autoformattingflag.md) |
 
 **Returns:** *void*
 
@@ -1047,6 +1087,20 @@ Name | Type |
 
 ___
 
+###  setCurrentFont
+
+▸ **setCurrentFont**(`f`: [QFont](qfont.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`f` | [QFont](qfont.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setCursor
 
 ▸ **setCursor**(`cursor`: [CursorShape](../enums/cursorshape.md) | [QCursor](qcursor.md)): *void*
@@ -1058,6 +1112,34 @@ ___
 Name | Type |
 ------ | ------ |
 `cursor` | [CursorShape](../enums/cursorshape.md) &#124; [QCursor](qcursor.md) |
+
+**Returns:** *void*
+
+___
+
+###  setCursorWidth
+
+▸ **setCursorWidth**(`width`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`width` | number |
+
+**Returns:** *void*
+
+___
+
+###  setDocumentTitle
+
+▸ **setDocumentTitle**(`title`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`title` | string |
 
 **Returns:** *void*
 
@@ -1125,6 +1207,76 @@ ___
 Name | Type |
 ------ | ------ |
 `font` | [QFont](qfont.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFontFamily
+
+▸ **setFontFamily**(`family`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`family` | string |
+
+**Returns:** *void*
+
+___
+
+###  setFontItalic
+
+▸ **setFontItalic**(`italic`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`italic` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setFontPointSize
+
+▸ **setFontPointSize**(`s`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`s` | number |
+
+**Returns:** *void*
+
+___
+
+###  setFontUnderline
+
+▸ **setFontUnderline**(`underline`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`underline` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setFontWeight
+
+▸ **setFontWeight**(`weight`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`weight` | number |
 
 **Returns:** *void*
 
@@ -1213,35 +1365,6 @@ Name | Type |
 
 ___
 
-###  setHorizontalHeaderItem
-
-▸ **setHorizontalHeaderItem**(`column`: number, `item`: [QTableWidgetItem](qtablewidgetitem.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`column` | number |
-`item` | [QTableWidgetItem](qtablewidgetitem.md) |
-
-**Returns:** *void*
-
-___
-
-###  setHorizontalHeaderLabels
-
-▸ **setHorizontalHeaderLabels**(`labels`: string[]): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`labels` | string[] |
-
-**Returns:** *void*
-
-___
-
 ###  setHorizontalScrollBarPolicy
 
 ▸ **setHorizontalScrollBarPolicy**(`policy`: [ScrollBarPolicy](../enums/scrollbarpolicy.md)): *void*
@@ -1253,6 +1376,20 @@ ___
 Name | Type |
 ------ | ------ |
 `policy` | [ScrollBarPolicy](../enums/scrollbarpolicy.md) |
+
+**Returns:** *void*
+
+___
+
+###  setHtml
+
+▸ **setHtml**(`text`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
 
 **Returns:** *void*
 
@@ -1274,25 +1411,9 @@ Name | Type |
 
 ___
 
-###  setItem
-
-▸ **setItem**(`row`: number, `column`: number, `item`: [QTableWidgetItem](qtablewidgetitem.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`row` | number |
-`column` | number |
-`item` | [QTableWidgetItem](qtablewidgetitem.md) |
-
-**Returns:** *void*
-
-___
-
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QTableWidgetSignals](../interfaces/qtablewidgetsignals.md)›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹Signals›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -1300,7 +1421,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹[QTableWidgetSignals](../interfaces/qtablewidgetsignals.md)› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹Signals› |
 
 **Returns:** *void*
 
@@ -1317,6 +1438,34 @@ ___
 Name | Type |
 ------ | ------ |
 `width` | number |
+
+**Returns:** *void*
+
+___
+
+###  setLineWrapColumnOrWidth
+
+▸ **setLineWrapColumnOrWidth**(`w`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`w` | number |
+
+**Returns:** *void*
+
+___
+
+###  setLineWrapMode
+
+▸ **setLineWrapMode**(`mode`: [QTextEditLineWrapMode](../enums/qtexteditlinewrapmode.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`mode` | [QTextEditLineWrapMode](../enums/qtexteditlinewrapmode.md) |
 
 **Returns:** *void*
 
@@ -1422,6 +1571,48 @@ Name | Type |
 
 ___
 
+###  setOverwriteMode
+
+▸ **setOverwriteMode**(`overwrite`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`overwrite` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setPlaceholderText
+
+▸ **setPlaceholderText**(`placeholderText`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`placeholderText` | string |
+
+**Returns:** *void*
+
+___
+
+###  setPlainText
+
+▸ **setPlainText**(`text`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+
+**Returns:** *void*
+
+___
+
 ###  setProperty
 
 ▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
@@ -1439,44 +1630,15 @@ Name | Type |
 
 ___
 
-###  setRowHeight
+###  setReadOnly
 
-▸ **setRowHeight**(`row`: number, `height`: number): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`row` | number |
-`height` | number |
-
-**Returns:** *void*
-
-___
-
-###  setShowGrid
-
-▸ **setShowGrid**(`show`: boolean): *void*
+▸ **setReadOnly**(`ro`: boolean): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`show` | boolean |
-
-**Returns:** *void*
-
-___
-
-###  setSortingEnabled
-
-▸ **setSortingEnabled**(`enable`: boolean): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`enable` | boolean |
+`ro` | boolean |
 
 **Returns:** *void*
 
@@ -1498,30 +1660,99 @@ Name | Type |
 
 ___
 
-###  setVerticalHeaderItem
+###  setTabChangesFocus
 
-▸ **setVerticalHeaderItem**(`row`: number, `item`: [QTableWidgetItem](qtablewidgetitem.md)): *void*
+▸ **setTabChangesFocus**(`b`: boolean): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`row` | number |
-`item` | [QTableWidgetItem](qtablewidgetitem.md) |
+`b` | boolean |
 
 **Returns:** *void*
 
 ___
 
-###  setVerticalHeaderLabels
+###  setTabStopDistance
 
-▸ **setVerticalHeaderLabels**(`labels`: string[]): *void*
+▸ **setTabStopDistance**(`distance`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`labels` | string[] |
+`distance` | number |
+
+**Returns:** *void*
+
+___
+
+###  setText
+
+▸ **setText**(`text`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+
+**Returns:** *void*
+
+___
+
+###  setTextBackgroundColor
+
+▸ **setTextBackgroundColor**(`color`: [QColor](qcolor.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`color` | [QColor](qcolor.md) |
+
+**Returns:** *void*
+
+___
+
+###  setTextColor
+
+▸ **setTextColor**(`color`: [QColor](qcolor.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`color` | [QColor](qcolor.md) |
+
+**Returns:** *void*
+
+___
+
+###  setTextInteractionFlags
+
+▸ **setTextInteractionFlags**(`flags`: [TextInteractionFlag](../enums/textinteractionflag.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`flags` | [TextInteractionFlag](../enums/textinteractionflag.md) |
+
+**Returns:** *void*
+
+___
+
+###  setUndoRedoEnabled
+
+▸ **setUndoRedoEnabled**(`enable`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enable` | boolean |
 
 **Returns:** *void*
 
@@ -1640,25 +1871,25 @@ Name | Type |
 
 ___
 
-###  show
+###  setWordWrapMode
 
-▸ **show**(): *void*
-
-*Inherited from [QMenu](qmenu.md).[show](qmenu.md#show)*
-
-**Returns:** *void*
-
-___
-
-###  showColumn
-
-▸ **showColumn**(`column`: number): *void*
+▸ **setWordWrapMode**(`policy`: [WrapMode](../enums/wrapmode.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`column` | number |
+`policy` | [WrapMode](../enums/wrapmode.md) |
+
+**Returns:** *void*
+
+___
+
+###  show
+
+▸ **show**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[show](qmenu.md#show)*
 
 **Returns:** *void*
 
@@ -1671,14 +1902,6 @@ ___
 *Inherited from [QMenu](qmenu.md).[showFullScreen](qmenu.md#showfullscreen)*
 
 **Returns:** *void*
-
-___
-
-###  showGrid
-
-▸ **showGrid**(): *boolean*
-
-**Returns:** *boolean*
 
 ___
 
@@ -1712,20 +1935,6 @@ ___
 
 ___
 
-###  showRow
-
-▸ **showRow**(`row`: number): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`row` | number |
-
-**Returns:** *void*
-
-___
-
 ###  size
 
 ▸ **size**(): *[QSize](qsize.md)*
@@ -1736,21 +1945,6 @@ ___
 
 ___
 
-###  sortByColumn
-
-▸ **sortByColumn**(`column`: number, `order`: [SortOrder](../enums/sortorder.md)): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`column` | number |
-`order` | [SortOrder](../enums/sortorder.md) |
-
-**Returns:** *void*
-
-___
-
 ###  styleSheet
 
 ▸ **styleSheet**(): *string*
@@ -1758,6 +1952,22 @@ ___
 *Inherited from [QMenu](qmenu.md).[styleSheet](qmenu.md#stylesheet)*
 
 **Returns:** *string*
+
+___
+
+###  tabChangesFocus
+
+▸ **tabChangesFocus**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  tabStopDistance
+
+▸ **tabStopDistance**(): *number*
+
+**Returns:** *number*
 
 ___
 
@@ -1774,6 +1984,38 @@ Name | Type |
 `attribute` | [WidgetAttribute](../enums/widgetattribute.md) |
 
 **Returns:** *boolean*
+
+___
+
+###  textInteractionFlags
+
+▸ **textInteractionFlags**(): *[TextInteractionFlag](../enums/textinteractionflag.md)*
+
+**Returns:** *[TextInteractionFlag](../enums/textinteractionflag.md)*
+
+___
+
+###  toHtml
+
+▸ **toHtml**(): *string*
+
+**Returns:** *string*
+
+___
+
+###  toPlainText
+
+▸ **toPlainText**(): *string*
+
+**Returns:** *string*
+
+___
+
+###  undo
+
+▸ **undo**(): *void*
+
+**Returns:** *void*
 
 ___
 
@@ -1834,3 +2076,39 @@ ___
 *Inherited from [QMenu](qmenu.md).[windowTitle](qmenu.md#windowtitle)*
 
 **Returns:** *string*
+
+___
+
+###  wordWrapMode
+
+▸ **wordWrapMode**(): *[WrapMode](../enums/wrapmode.md)*
+
+**Returns:** *[WrapMode](../enums/wrapmode.md)*
+
+___
+
+###  zommIn
+
+▸ **zommIn**(`range`: number): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`range` | number | 1 |
+
+**Returns:** *void*
+
+___
+
+###  zoomOut
+
+▸ **zoomOut**(`range`: number): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`range` | number | 1 |
+
+**Returns:** *void*

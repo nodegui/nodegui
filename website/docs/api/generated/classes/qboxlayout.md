@@ -52,19 +52,30 @@ centralWidget.setLayout(boxLayout);
 * [addStretch](qboxlayout.md#addstretch)
 * [addStrut](qboxlayout.md#addstrut)
 * [addWidget](qboxlayout.md#addwidget)
+* [count](qboxlayout.md#count)
 * [direction](qboxlayout.md#direction)
 * [inherits](qboxlayout.md#inherits)
 * [insertLayout](qboxlayout.md#insertlayout)
+* [insertSpacing](qboxlayout.md#insertspacing)
+* [insertStretch](qboxlayout.md#insertstretch)
 * [insertWidget](qboxlayout.md#insertwidget)
 * [invalidate](qboxlayout.md#invalidate)
+* [isEnabled](qboxlayout.md#isenabled)
 * [objectName](qboxlayout.md#objectname)
 * [property](qboxlayout.md#property)
 * [removeEventListener](qboxlayout.md#removeeventlistener)
 * [removeWidget](qboxlayout.md#removewidget)
+* [setContentsMargins](qboxlayout.md#setcontentsmargins)
 * [setDirection](qboxlayout.md#setdirection)
+* [setEnabled](qboxlayout.md#setenabled)
 * [setNodeParent](qboxlayout.md#setnodeparent)
 * [setObjectName](qboxlayout.md#setobjectname)
 * [setProperty](qboxlayout.md#setproperty)
+* [setSizeConstraint](qboxlayout.md#setsizeconstraint)
+* [setSpacing](qboxlayout.md#setspacing)
+* [setStretch](qboxlayout.md#setstretch)
+* [sizeConstraint](qboxlayout.md#sizeconstraint)
+* [spacing](qboxlayout.md#spacing)
 * [update](qboxlayout.md#update)
 
 ## Constructors
@@ -276,6 +287,14 @@ Name | Type | Default |
 
 ___
 
+###  count
+
+▸ **count**(): *number*
+
+**Returns:** *number*
+
+___
+
 ###  direction
 
 ▸ **direction**(): *[Direction](../enums/direction.md)*
@@ -316,6 +335,36 @@ Name | Type | Default |
 
 ___
 
+###  insertSpacing
+
+▸ **insertSpacing**(`index`: number, `size`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`size` | number |
+
+**Returns:** *void*
+
+___
+
+###  insertStretch
+
+▸ **insertStretch**(`index`: number, `stretch`: number): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`index` | number | - |
+`stretch` | number | 0 |
+
+**Returns:** *void*
+
+___
+
 ###  insertWidget
 
 ▸ **insertWidget**(`index`: number, `widget`: [NodeWidget](nodewidget.md)‹any›, `stretch`: number): *void*
@@ -339,6 +388,16 @@ ___
 *Inherited from [NodeLayout](nodelayout.md).[invalidate](nodelayout.md#invalidate)*
 
 **Returns:** *void*
+
+___
+
+###  isEnabled
+
+▸ **isEnabled**(): *boolean*
+
+*Inherited from [NodeLayout](nodelayout.md).[isEnabled](nodelayout.md#isenabled)*
+
+**Returns:** *boolean*
 
 ___
 
@@ -425,6 +484,25 @@ Name | Type |
 
 ___
 
+###  setContentsMargins
+
+▸ **setContentsMargins**(`left`: number, `top`: number, `right`: number, `bottom`: number): *void*
+
+*Inherited from [NodeLayout](nodelayout.md).[setContentsMargins](nodelayout.md#setcontentsmargins)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`left` | number |
+`top` | number |
+`right` | number |
+`bottom` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setDirection
 
 ▸ **setDirection**(`dir`: [Direction](../enums/direction.md)): *void*
@@ -434,6 +512,22 @@ ___
 Name | Type |
 ------ | ------ |
 `dir` | [Direction](../enums/direction.md) |
+
+**Returns:** *void*
+
+___
+
+###  setEnabled
+
+▸ **setEnabled**(`enable`: boolean): *void*
+
+*Inherited from [NodeLayout](nodelayout.md).[setEnabled](nodelayout.md#setenabled)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enable` | boolean |
 
 **Returns:** *void*
 
@@ -485,6 +579,73 @@ Name | Type |
 `value` | [QVariantType](../globals.md#qvarianttype) |
 
 **Returns:** *boolean*
+
+___
+
+###  setSizeConstraint
+
+▸ **setSizeConstraint**(`constraint`: [SizeConstraint](../enums/sizeconstraint.md)): *void*
+
+*Inherited from [NodeLayout](nodelayout.md).[setSizeConstraint](nodelayout.md#setsizeconstraint)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`constraint` | [SizeConstraint](../enums/sizeconstraint.md) |
+
+**Returns:** *void*
+
+___
+
+###  setSpacing
+
+▸ **setSpacing**(`spacing`: number): *void*
+
+*Inherited from [NodeLayout](nodelayout.md).[setSpacing](nodelayout.md#setspacing)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`spacing` | number |
+
+**Returns:** *void*
+
+___
+
+###  setStretch
+
+▸ **setStretch**(`index`: number, `stretch`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+`stretch` | number |
+
+**Returns:** *void*
+
+___
+
+###  sizeConstraint
+
+▸ **sizeConstraint**(): *[SizeConstraint](../enums/sizeconstraint.md)*
+
+*Inherited from [NodeLayout](nodelayout.md).[sizeConstraint](nodelayout.md#sizeconstraint)*
+
+**Returns:** *[SizeConstraint](../enums/sizeconstraint.md)*
+
+___
+
+###  spacing
+
+▸ **spacing**(): *number*
+
+*Inherited from [NodeLayout](nodelayout.md).[spacing](nodelayout.md#spacing)*
+
+**Returns:** *number*
 
 ___
 

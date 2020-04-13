@@ -48,6 +48,8 @@ sidebar_label: "QWidgetSignals"
 
   ↳ [QGroupBoxSignals](qgroupboxsignals.md)
 
+  ↳ [QTextEditSignals](qtexteditsignals.md)
+
 ## Index
 
 ### Properties

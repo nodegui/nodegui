@@ -63,6 +63,10 @@ const progressDialog = new QProgressDialog();
 * [isVisible](qprogressdialog.md#isvisible)
 * [labelText](qprogressdialog.md#labeltext)
 * [lower](qprogressdialog.md#lower)
+* [mapFromGlobal](qprogressdialog.md#mapfromglobal)
+* [mapFromParent](qprogressdialog.md#mapfromparent)
+* [mapToGlobal](qprogressdialog.md#maptoglobal)
+* [mapToParent](qprogressdialog.md#maptoparent)
 * [maximum](qprogressdialog.md#maximum)
 * [minimum](qprogressdialog.md#minimum)
 * [minimumDuration](qprogressdialog.md#minimumduration)
@@ -337,11 +341,11 @@ ___
 
 ###  exec
 
-▸ **exec**(): *number*
+▸ **exec**(): *[DialogCode](../enums/dialogcode.md)*
 
 *Inherited from [NodeDialog](nodedialog.md).[exec](nodedialog.md#exec)*
 
-**Returns:** *number*
+**Returns:** *[DialogCode](../enums/dialogcode.md)*
 
 ___
 
@@ -456,6 +460,70 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  mapFromGlobal
+
+▸ **mapFromGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromGlobal](qmenu.md#mapfromglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapFromParent
+
+▸ **mapFromParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFromParent](qmenu.md#mapfromparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToGlobal
+
+▸ **mapToGlobal**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToGlobal](qmenu.md#maptoglobal)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapToParent
+
+▸ **mapToParent**(`pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapToParent](qmenu.md#maptoparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 
