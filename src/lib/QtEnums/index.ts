@@ -89,3 +89,4 @@ export { WindowState } from './WindowState';
 export { WindowType } from './WindowType';
 export { PenStyle } from './PenStyle';
 export { DialogCode } from './DialogCode';
+export { StandardButton } from './StandardButton';

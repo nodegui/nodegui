@@ -17,6 +17,7 @@
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
+#include "QtGui/QEvent/QCloseEvent/qcloseevent_wrap.h"
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include "QtGui/QEvent/QMouseEvent/qmouseevent_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
@@ -158,6 +159,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QLineEditWrap::init(env, exports);
   QKeyEventWrap::init(env, exports);
   QMouseEventWrap::init(env, exports);
+  QCloseEventWrap::init(env, exports);
   QPlainTextEditWrap::init(env, exports);
   QDialWrap::init(env, exports);
   QLabelWrap::init(env, exports);
