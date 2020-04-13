@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[198],{300:function(l){l.exports=JSON.parse('{"nodegui":{"allTagsPath":"/blog/tags","slug":"nodegui","name":"nodegui","count":1,"permalink":"/blog/tags/nodegui"},"hello":{"allTagsPath":"/blog/tags","slug":"hello","name":"hello","count":1,"permalink":"/blog/tags/hello"}}')}}]);
