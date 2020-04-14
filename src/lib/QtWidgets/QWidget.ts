@@ -16,6 +16,7 @@ import { QObjectSignals } from '../QtCore/QObject';
 import { QFont } from '../QtGui/QFont';
 import { QAction } from './QAction';
 import memoizeOne from 'memoize-one';
+import { QGraphicsEffect } from './QGraphicsEffect';
 
 /**
  
@@ -55,6 +56,7 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     actions: Set<QAction>;
     _rawInlineStyle = '';
     type = 'widget';
+    private _effect?: QGraphicsEffect<any> | null;
     constructor(native: NativeElement) {
         super(native);
         this.actions = new Set<QAction>();
@@ -254,6 +256,10 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     repolish(): void {
         this.native.repolish();
+    }
+    setGraphicsEffect(effect: QGraphicsEffect<any>): void {
+        this._effect = effect;
+        this.native.setGraphicsEffect(effect.native);
     }
 }
 

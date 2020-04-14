@@ -2,8 +2,9 @@
 
 #include <QSize>
 #include <QStyle>
+#include <QGraphicsEffect>
 
-#include "QtCore/QObject/qobject_macro.h"
+#include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
@@ -383,6 +384,17 @@
     this->instance->style()->unpolish(this->instance);                        \
     this->instance->style()->polish(this->instance);                          \
     return env.Null();                                                        \
+  } \
+    Napi::Value setGraphicsEffect(const Napi::CallbackInfo& info) {             \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    Napi::Object effectObject = info[0].As<Napi::Object>();                   \
+    QObjectWrap* effectWrap =                                                 \
+        Napi::ObjectWrap<QObjectWrap>::Unwrap(effectObject);                  \
+    QGraphicsEffect* effect =                                                 \
+        qobject_cast<QGraphicsEffect*>(effectWrap->getInternalInstance());    \
+    this->instance->setGraphicsEffect(effect);                                \
+    return env.Null();                                                        \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -438,7 +450,8 @@
       InstanceMethod("showMinimized", &WidgetWrapName::showMinimized),       \
       InstanceMethod("showNormal", &WidgetWrapName::showNormal),             \
       InstanceMethod("addAction", &WidgetWrapName::addAction),               \
-      InstanceMethod("repolish", &WidgetWrapName::repolish),
+      InstanceMethod("repolish", &WidgetWrapName::repolish), \
+      InstanceMethod("setGraphicsEffect", &WidgetWrapName::setGraphicsEffect),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 
