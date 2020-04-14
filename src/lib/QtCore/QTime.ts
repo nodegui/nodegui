@@ -74,6 +74,9 @@ export class QTime extends Component {
     static isValid(h: number, m: number, s: number, ms = 0): boolean {
         return addon.QTime.isValid(h, m, s, ms);
     }
+    static fromString(timeString: string, format: string | DateFormat): QTime {
+        return new QTime(addon.QTime.fromString(timeString, format));
+    }
     static fromQVariant(variant: QVariant): QTime {
         return new QTime(addon.QTime.fromQVariant(variant.native));
     }

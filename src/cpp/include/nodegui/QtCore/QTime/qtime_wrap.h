@@ -42,5 +42,6 @@ namespace StaticTimeWrapMethods {
 DLL_EXPORT Napi::Value currentTime(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value fromMSecsSinceStartOfDay(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value isValid(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromString(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticTimeWrapMethods

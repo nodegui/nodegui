@@ -30,6 +30,7 @@ Napi::Object QTimeWrap::init(Napi::Env env, Napi::Object exports) {
        StaticMethod("fromMSecsSinceStartOfDay",
                     &StaticTimeWrapMethods::fromMSecsSinceStartOfDay),
        StaticMethod("isValid", &StaticTimeWrapMethods::isValid),
+       StaticMethod("fromString", &StaticTimeWrapMethods::fromString),
        StaticMethod("fromQVariant", &StaticTimeWrapMethods::fromQVariant),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QTimeWrap)});
   constructor = Napi::Persistent(func);
@@ -228,6 +229,27 @@ Napi::Value StaticTimeWrapMethods::isValid(const Napi::CallbackInfo& info) {
   int ms = info[3].As<Napi::Number>().Int32Value();
 
   return Napi::Value::From(env, QTime::isValid(h, m, s, ms));
+}
+
+Napi::Value StaticTimeWrapMethods::fromString(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  std::string timeString = info[0].As<Napi::String>().Utf8Value();
+
+  QTime time;
+  if (info[1].IsString()) {
+    std::string format = info[1].As<Napi::String>().Utf8Value();
+    time = QTime::fromString(QString::fromUtf8(timeString.c_str()),
+                             QString::fromUtf8(format.c_str()));
+  } else {
+    int format = info[1].As<Napi::Number>().Int32Value();
+    time = QTime::fromString(QString::fromUtf8(timeString.c_str()),
+                             static_cast<Qt::DateFormat>(format));
+  }
+  auto instance = QTimeWrap::constructor.New({Napi::External<QTime>::New(
+      env, new QTime(time.hour(), time.minute(), time.second(), time.msec()))});
+  return instance;
 }
 
 Napi::Value StaticTimeWrapMethods::fromQVariant(

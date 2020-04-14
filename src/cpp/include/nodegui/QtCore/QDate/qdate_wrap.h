@@ -43,5 +43,6 @@ DLL_EXPORT Napi::Value currentDate(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value fromJulianDay(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value isLeapYear(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value isValid(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromString(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticDateWrapMethods

@@ -48,6 +48,7 @@ Napi::Object QDateTimeWrap::init(Napi::Env env, Napi::Object exports) {
                     &StaticDateTimeWrapMethods::currentMSecsSinceEpoch),
        StaticMethod("currentSecsSinceEpoch",
                     &StaticDateTimeWrapMethods::currentSecsSinceEpoch),
+       StaticMethod("fromString", &StaticDateTimeWrapMethods::fromString),
        StaticMethod("fromQVariant", &StaticDateTimeWrapMethods::fromQVariant),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDateTimeWrap)});
   constructor = Napi::Persistent(func);
@@ -384,6 +385,28 @@ Napi::Value StaticDateTimeWrapMethods::currentSecsSinceEpoch(
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   return Napi::Value::From(env, QDateTime::currentSecsSinceEpoch());
+}
+
+Napi::Value StaticDateTimeWrapMethods::fromString(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  std::string dateTimeString = info[0].As<Napi::String>().Utf8Value();
+
+  QDateTime dateTime;
+  if (info[1].IsString()) {
+    std::string format = info[1].As<Napi::String>().Utf8Value();
+    dateTime = QDateTime::fromString(QString::fromUtf8(dateTimeString.c_str()),
+                                     QString::fromUtf8(format.c_str()));
+  } else {
+    int format = info[1].As<Napi::Number>().Int32Value();
+    dateTime = QDateTime::fromString(QString::fromUtf8(dateTimeString.c_str()),
+                                     static_cast<Qt::DateFormat>(format));
+  }
+  auto instance = QDateTimeWrap::constructor.New(
+      {Napi::External<QDateTime>::New(env, new QDateTime(dateTime))});
+  return instance;
 }
 
 Napi::Value StaticDateTimeWrapMethods::fromQVariant(

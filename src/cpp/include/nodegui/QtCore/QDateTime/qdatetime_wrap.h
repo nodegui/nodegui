@@ -55,5 +55,6 @@ DLL_EXPORT Napi::Value currentDateTime(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value currentDateTimeUtc(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value currentMSecsSinceEpoch(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value currentSecsSinceEpoch(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromString(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticDateTimeWrapMethods
