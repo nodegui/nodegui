@@ -50,6 +50,7 @@ export { QFontDialog, QFontDialogSignals, FontDialogOption } from './lib/QtWidge
 export { QFrame, QFrameSignals, Shadow, Shape } from './lib/QtWidgets/QFrame';
 export { QGraphicsEffect, QGraphicsEffectSignals } from './lib/QtWidgets/QGraphicsEffect';
 export { QGraphicsBlurEffect, QGraphicsBlurEffectSignals } from './lib/QtWidgets/QGraphicsBlurEffect';
+export { QGraphicsDropShadowEffect, QGraphicsDropShadowEffectSignals } from './lib/QtWidgets/QGraphicsDropShadowEffect';
 export { QLineEdit, QLineEditSignals, EchoMode } from './lib/QtWidgets/QLineEdit';
 export { QMainWindow, QMainWindowSignals } from './lib/QtWidgets/QMainWindow';
 export { QProgressBar, QProgressBarSignals, QProgressBarDirection } from './lib/QtWidgets/QProgressBar';

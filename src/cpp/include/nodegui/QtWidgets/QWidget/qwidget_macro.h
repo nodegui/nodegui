@@ -1,8 +1,8 @@
 #pragma once
 
+#include <QGraphicsEffect>
 #include <QSize>
 #include <QStyle>
-#include <QGraphicsEffect>
 
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
@@ -384,8 +384,8 @@
     this->instance->style()->unpolish(this->instance);                        \
     this->instance->style()->polish(this->instance);                          \
     return env.Null();                                                        \
-  } \
-    Napi::Value setGraphicsEffect(const Napi::CallbackInfo& info) {             \
+  }                                                                           \
+  Napi::Value setGraphicsEffect(const Napi::CallbackInfo& info) {             \
     Napi::Env env = info.Env();                                               \
     Napi::HandleScope scope(env);                                             \
     Napi::Object effectObject = info[0].As<Napi::Object>();                   \
@@ -450,7 +450,7 @@
       InstanceMethod("showMinimized", &WidgetWrapName::showMinimized),       \
       InstanceMethod("showNormal", &WidgetWrapName::showNormal),             \
       InstanceMethod("addAction", &WidgetWrapName::addAction),               \
-      InstanceMethod("repolish", &WidgetWrapName::repolish), \
+      InstanceMethod("repolish", &WidgetWrapName::repolish),                 \
       InstanceMethod("setGraphicsEffect", &WidgetWrapName::setGraphicsEffect),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE

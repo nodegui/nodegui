@@ -44,6 +44,7 @@
 #include "QtWidgets/QFontDialog/qfontdialog_wrap.h"
 #include "QtWidgets/QFrame/qframe_wrap.h"
 #include "QtWidgets/QGraphicsBlurEffect/qgraphicsblureffect_wrap.h"
+#include "QtWidgets/QGraphicsDropShadowEffect/qgraphicsdropshadoweffect_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
 #include "QtWidgets/QInputDialog/qinputdialog_wrap.h"
@@ -134,6 +135,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QFontDialogWrap::init(env, exports);
   QFrameWrap::init(env, exports);
   QGraphicsBlurEffectWrap::init(env, exports);
+  QGraphicsDropShadowEffectWrap::init(env, exports);
   QListViewWrap::init(env, exports);
   QListWidgetWrap::init(env, exports);
   QListWidgetItemWrap::init(env, exports);
