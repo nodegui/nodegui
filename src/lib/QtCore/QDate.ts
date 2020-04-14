@@ -77,6 +77,9 @@ export class QDate extends Component {
     static isValid(year: number, month: number, day: number): boolean {
         return addon.QDate.isValid(year, month, day);
     }
+    static fromString(dateString: string, format: string | DateFormat): QDate {
+        return new QDate(addon.QDate.fromString(dateString, format));
+    }
     static fromQVariant(variant: QVariant): QDate {
         return new QDate(addon.QDate.fromQVariant(variant.native));
     }

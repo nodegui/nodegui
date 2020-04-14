@@ -32,6 +32,7 @@ Napi::Object QDateWrap::init(Napi::Env env, Napi::Object exports) {
        StaticMethod("fromJulianDay", &StaticDateWrapMethods::fromJulianDay),
        StaticMethod("isLeapYear", &StaticDateWrapMethods::isLeapYear),
        StaticMethod("isValid", &StaticDateWrapMethods::isValid),
+       StaticMethod("fromString", &StaticDateWrapMethods::fromString),
        StaticMethod("fromQVariant", &StaticDateWrapMethods::fromQVariant),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDateWrap)});
   constructor = Napi::Persistent(func);
@@ -234,6 +235,26 @@ Napi::Value StaticDateWrapMethods::isValid(const Napi::CallbackInfo& info) {
   int day = info[2].As<Napi::Number>().Int32Value();
 
   return Napi::Value::From(env, QDate::isValid(year, month, day));
+}
+Napi::Value StaticDateWrapMethods::fromString(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  std::string dateString = info[0].As<Napi::String>().Utf8Value();
+
+  QDate date;
+  if (info[1].IsString()) {
+    std::string format = info[1].As<Napi::String>().Utf8Value();
+    date = QDate::fromString(QString::fromUtf8(dateString.c_str()),
+                             QString::fromUtf8(format.c_str()));
+  } else {
+    int format = info[1].As<Napi::Number>().Int32Value();
+    date = QDate::fromString(QString::fromUtf8(dateString.c_str()),
+                             static_cast<Qt::DateFormat>(format));
+  }
+  auto instance = QDateWrap::constructor.New({Napi::External<QDate>::New(
+      env, new QDate(date.year(), date.month(), date.day()))});
+  return instance;
 }
 
 Napi::Value StaticDateWrapMethods::fromQVariant(

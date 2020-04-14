@@ -115,6 +115,9 @@ export class QDateTime extends Component {
     static currentSecsSinceEpoch(): number {
         return addon.QDateTime.currentSecsSinceEpoch();
     }
+    static fromString(dateTimeString: string, format: string | DateFormat): QDateTime {
+        return addon.QDateTime.fromString(dateTimeString, format);
+    }
     static fromQVariant(variant: QVariant): QDateTime {
         return new QDateTime(addon.QDateTime.fromQVariant(variant.native));
     }
