@@ -15,12 +15,11 @@ Napi::Object QTreeWidgetWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("addTopLevelItem", &QTreeWidgetWrap::addTopLevelItem),
        InstanceMethod("addTopLevelItems", &QTreeWidgetWrap::addTopLevelItems),
-       InstanceMethod("insertTopLevelItem",
-                      &QTreeWidgetWrap::insertTopLevelItem),
-       InstanceMethod("insertTopLevelItems",
-                      &QTreeWidgetWrap::insertTopLevelItems),
+       InstanceMethod("insertTopLevelItem",&QTreeWidgetWrap::insertTopLevelItem),
+       InstanceMethod("insertTopLevelItems", &QTreeWidgetWrap::insertTopLevelItems),
        InstanceMethod("selectedItems", &QTreeWidgetWrap::selectedItems),
        InstanceMethod("setColumnCount", &QTreeWidgetWrap::setColumnCount),
+       InstanceMethod("setColumnWidth", &QTreeWidgetWrap::setColumnWidth),
        InstanceMethod("setHeaderLabel", &QTreeWidgetWrap::setHeaderLabel),
        InstanceMethod("setHeaderLabels", &QTreeWidgetWrap::setHeaderLabels),
        InstanceMethod("setItemWidget", &QTreeWidgetWrap::setItemWidget),
@@ -149,6 +148,17 @@ Napi::Value QTreeWidgetWrap::setColumnCount(const Napi::CallbackInfo& info) {
 
   int columns = info[0].As<Napi::Number>().Int32Value();
   this->instance->setColumnCount(columns);
+
+  return env.Null();
+}
+
+Napi::Value QTreeWidgetWrap::setColumnWidth(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int columns = info[0].As<Napi::Number>().Int32Value();
+  int width = info[1].As<Napi::Number>().Int32Value();
+  this->instance->setColumnWidth(columns, width);
 
   return env.Null();
 }

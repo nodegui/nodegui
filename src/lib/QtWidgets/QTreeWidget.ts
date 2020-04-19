@@ -116,6 +116,15 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
     }
 
     /**
+     * Sets the column count of this QTreeWidget.
+     * @param column The column index.
+     * @param width The size of the columns.
+     */
+    setColumnWidth(column: number, width: number): void {
+        this.native.setColumnWidth(column, width);
+    }
+
+    /**
      * Sets the header label.
      * @param label The header label.
      */
