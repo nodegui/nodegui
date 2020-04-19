@@ -34,7 +34,7 @@ Supported versions: Ubuntu 17.10 and up
 3. Make, GCC v7, pkg-config
 4. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
-On Ubuntu: `$ sudo apt-get install pkg-config build-essentials` should install everything except Qt5.
+On Ubuntu: `$ sudo apt-get install pkg-config build-essential` should install everything except Qt5.
 
 Note: If you are using your own version of Qt make sure to
 
