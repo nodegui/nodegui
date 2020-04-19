@@ -31,6 +31,7 @@ class DLL_EXPORT QTreeWidgetWrap : public Napi::ObjectWrap<QTreeWidgetWrap> {
   Napi::Value insertTopLevelItems(const Napi::CallbackInfo &info);
   Napi::Value selectedItems(const Napi::CallbackInfo &info);
   Napi::Value setColumnCount(const Napi::CallbackInfo &info);
+  Napi::Value setColumnWidth(const Napi::CallbackInfo &info);
   Napi::Value setHeaderLabel(const Napi::CallbackInfo &info);
   Napi::Value setHeaderLabels(const Napi::CallbackInfo &info);
   Napi::Value setItemWidget(const Napi::CallbackInfo &info);

@@ -5,9 +5,11 @@ import { DateFormat } from './lib/QtEnums';
 const { QMainWindow, QTreeWidgetItem, QTreeWidget, QDate, ItemDataRole, QDateTime } = require('./index');
 
 const win = new QMainWindow();
+win.resize(500, 500);
 const tree = new QTreeWidget();
 tree.setSortingEnabled(true);
-tree.setHeaderLabels(['Date', 'Time']);
+tree.setHeaderLabels(['Date', 'Time', 'Test Column']);
+tree.setColumnWidth(1, 15); //Sets the size of the selected column (index, size).
 
 const dates = [
     '11/22/1973 02:55:43 AM',
