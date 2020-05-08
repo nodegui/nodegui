@@ -253,6 +253,10 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         this.native.addAction(action.native);
         this.actions.add(action);
         return action;
+	}
+    removeAction(action: QAction): void {
+        this.native.removeAction(action.native);
+        this.actions.delete(action);
     }
     repolish(): void {
         this.native.repolish();

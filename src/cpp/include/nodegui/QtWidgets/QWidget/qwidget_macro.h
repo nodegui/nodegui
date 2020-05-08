@@ -378,6 +378,15 @@
     this->instance->addAction(actionWrap->getInternalInstance());             \
     return env.Null();                                                        \
   }                                                                           \
+  Napi::Value removeAction(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    Napi::Object actionObject = info[0].As<Napi::Object>();                   \
+    QActionWrap* actionWrap =                                                 \
+        Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);                  \
+    this->instance->removeAction(actionWrap->getInternalInstance());             \
+    return env.Null();                                                        \
+  }                                                                           \
   Napi::Value repolish(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                               \
     Napi::HandleScope scope(env);                                             \
@@ -450,6 +459,7 @@
       InstanceMethod("showMinimized", &WidgetWrapName::showMinimized),       \
       InstanceMethod("showNormal", &WidgetWrapName::showNormal),             \
       InstanceMethod("addAction", &WidgetWrapName::addAction),               \
+      InstanceMethod("removeAction", &WidgetWrapName::removeAction),         \
       InstanceMethod("repolish", &WidgetWrapName::repolish),                 \
       InstanceMethod("setGraphicsEffect", &WidgetWrapName::setGraphicsEffect),
 
