@@ -3,6 +3,8 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
+#include "QtGui/QPen/qpen_wrap.h"
+#include "QtWidgets/QPainterPath/qpainterpath_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/Component/component_wrap.h"
 
@@ -14,6 +16,8 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("drawText", &QPainterWrap::drawText),
+       InstanceMethod("drawPath", &QPainterWrap::drawPath),
+       InstanceMethod("strokePath", &QPainterWrap::strokePath),
        InstanceMethod("begin", &QPainterWrap::begin),
        InstanceMethod("end", &QPainterWrap::end),
        InstanceMethod("rotate", &QPainterWrap::rotate),
@@ -63,6 +67,27 @@ Napi::Value QPainterWrap::drawText(const Napi::CallbackInfo& info) {
   this->instance->drawText(x, y, QString::fromUtf8(text.c_str()));
   return env.Null();
 }
+Napi::Value QPainterWrap::drawPath(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Object pathObject = info[0].As<Napi::Object>();
+  QPainterPathWrap* pathWrap = Napi::ObjectWrap<QPainterPathWrap>::Unwrap(pathObject);
+  QPainterPath* path = pathWrap->getInternalInstance();
+  this->instance->drawPath(*path);
+  return env.Null();
+}
+Napi::Value QPainterWrap::strokePath(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Object pathObject = info[0].As<Napi::Object>();
+  QPainterPathWrap* pathWrap = Napi::ObjectWrap<QPainterPathWrap>::Unwrap(pathObject);
+  QPainterPath* path = pathWrap->getInternalInstance();
+  Napi::Object penObject = info[1].As<Napi::Object>();
+  QPenWrap* penWrap = Napi::ObjectWrap<QPenWrap>::Unwrap(penObject);
+  QPen* pen = penWrap->getInternalInstance();
+  this->instance->strokePath(*path, *pen);
+  return env.Null();
+}
 Napi::Value QPainterWrap::begin(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -101,6 +126,11 @@ Napi::Value QPainterWrap::setPen(const Napi::CallbackInfo& info) {
   } else if (type == "style") {
     Qt::PenStyle style = (Qt::PenStyle)info[0].As<Napi::Number>().Int32Value();
     this->instance->setPen(style);
+  } else if (type == "pen") {
+    Napi::Object penObject = info[0].As<Napi::Object>();
+    QPenWrap* penWrap = Napi::ObjectWrap<QPenWrap>::Unwrap(penObject);
+    QPen* pen = penWrap->getInternalInstance();
+    this->instance->setPen(*pen);
   }
   return env.Null();
 }

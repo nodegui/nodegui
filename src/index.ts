@@ -5,6 +5,7 @@ export * from './lib/QtEnums';
 // Gui:
 export { QApplication } from './lib/QtGui/QApplication';
 export { QBrush } from './lib/QtGui/QBrush';
+export { QPen } from './lib/QtGui/QPen';
 export { QKeySequence } from './lib/QtGui/QKeySequence';
 export { QPicture } from './lib/QtGui/QPicture';
 export { QPixmap, ImageFormats } from './lib/QtGui/QPixmap';
@@ -87,6 +88,7 @@ export { QTimeEdit } from './lib/QtWidgets/QTimeEdit';
 export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
 export { QPainter, RenderHint } from './lib/QtWidgets/QPainter';
+export { QPainterPath } from './lib/QtWidgets/QPainterPath';
 export { QDialog, QDialogSignals } from './lib/QtWidgets/QDialog';
 export { QMessageBox, QMessageBoxSignals, QMessageBoxIcon, ButtonRole } from './lib/QtWidgets/QMessageBox';
 export { QInputDialog, QInputDialogSignals, InputDialogOptions, InputMode } from './lib/QtWidgets/QInputDialog';

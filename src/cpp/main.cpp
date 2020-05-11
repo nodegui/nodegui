@@ -14,6 +14,7 @@
 #include "QtCore/QVariant/qvariant_wrap.h"
 #include "QtGui/QApplication/qapplication_wrap.h"
 #include "QtGui/QBrush/qbrush_wrap.h"
+#include "QtGui/QPen/qpen_wrap.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
@@ -60,6 +61,7 @@
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
 #include "QtWidgets/QMessageBox/qmessagebox_wrap.h"
 #include "QtWidgets/QPainter/qpainter_wrap.h"
+#include "QtWidgets/QPainterPath/qpainterpath_wrap.h"
 #include "QtWidgets/QPlainTextEdit/qplaintextedit_wrap.h"
 #include "QtWidgets/QProgressBar/qprogressbar_wrap.h"
 #include "QtWidgets/QProgressDialog/qprogressdialog_wrap.h"
@@ -110,6 +112,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QUrlWrap::init(env, exports);
   QVariantWrap::init(env, exports);
   QBrushWrap::init(env, exports);
+  QPenWrap::init(env, exports);
   QColorWrap::init(env, exports);
   QClipboardWrap::init(env, exports);
   QDialogWrap::init(env, exports);
@@ -143,6 +146,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QTableWidgetWrap::init(env, exports);
   QTableWidgetItemWrap::init(env, exports);
   QPainterWrap::init(env, exports);
+  QPainterPathWrap::init(env, exports);
   QTreeWidgetWrap::init(env, exports);
   QTreeWidgetItemWrap::init(env, exports);
   QGridLayoutWrap::init(env, exports);

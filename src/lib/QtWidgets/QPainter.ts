@@ -1,8 +1,10 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
+import { QPainterPath } from '../QtWidgets/QPainterPath';
 import { PenStyle } from '../QtEnums';
 import { QColor } from '../QtGui/QColor';
 import { QPoint } from '../QtCore/QPoint';
+import { QPen } from '../QtGui/QPen';
 
 /**
  
@@ -57,6 +59,14 @@ export class QPainter extends Component {
         return this.native.drawText(x, y, text);
     }
 
+    drawPath(path: QPainterPath): void {
+        return this.native.drawPath(path.native);
+    }
+
+    strokePath(path: QPainterPath, pen: QPen): void {
+        return this.native.strokePath(path.native, pen.native);
+    }
+
     begin(device: Component): boolean {
         return this.native.begin(device.native);
     }
@@ -69,11 +79,13 @@ export class QPainter extends Component {
         this.native.rotate(angle);
     }
 
-    setPen(arg: PenStyle | QColor): void {
+    setPen(arg: PenStyle | QColor | QPen): void {
         if (typeof arg == 'number') {
             this.native.setPen(arg, 'style');
         } else if (arg instanceof QColor) {
             this.native.setPen(arg.native, 'color');
+        } else if (arg instanceof QPen) {
+            this.native.setPen(arg.native, 'pen');
         }
     }
 
