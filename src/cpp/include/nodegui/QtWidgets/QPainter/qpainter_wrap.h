@@ -21,6 +21,8 @@ class DLL_EXPORT QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value drawText(const Napi::CallbackInfo& info);
+  Napi::Value drawPath(const Napi::CallbackInfo& info);
+  Napi::Value strokePath(const Napi::CallbackInfo& info);
   Napi::Value begin(const Napi::CallbackInfo& info);
   Napi::Value end(const Napi::CallbackInfo& info);
   Napi::Value rotate(const Napi::CallbackInfo& info);

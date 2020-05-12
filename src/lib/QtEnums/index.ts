@@ -88,4 +88,5 @@ export { WindowModality } from './WindowModality';
 export { WindowState } from './WindowState';
 export { WindowType } from './WindowType';
 export { PenStyle } from './PenStyle';
+export { PenCapStyle } from './PenCapStyle';
 export { DialogCode } from './DialogCode';
