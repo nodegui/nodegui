@@ -39,7 +39,7 @@ application might encounter.
 
 ## What's going on here?
 
-Firstly, we are running a regular Node.js app. This means that we are not running in a browser environment. The window you see is actually a native widget created by Qt. QMainWindow is essentially a lightweight javascript wrapper over Qt's QMainWindow. Hence every method you call on QMainWindow instance is actually affecting a native window widget. This is very light weight as compared to browser based solutions and hence is more closer to the Operating system.s
+Firstly, we are running a regular Node.js app. This means that we are not running in a browser environment. The window you see is actually a native widget created by Qt. QMainWindow is essentially a lightweight javascript wrapper over Qt's QMainWindow. Hence every method you call on QMainWindow instance is actually affecting a native window widget. This is very light weight as compared to browser based solutions and hence is more closer to the Operating system.
 
 ## Trying out the starter project
 
