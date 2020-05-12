@@ -58,6 +58,29 @@ https://github.com/nodegui/examples
 
 ## Installation
 
+NodeGui requires CMake and Compilation Tools as it is a wrapper for a native C++ widget toolkit QT.
+Detailed instructions here: https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/
+
+TL;DR:
+MacOS
+
+```
+brew install cmake
+brew install make
+```
+
+Windows
+https://cmake.org/download/
+
+Linux
+
+```
+sudo apt-get install pkg-config build-essential
+sudo apt-get install cmake make
+```
+
+Then install NodeGui from your command line:
+
 #### To install latest stable release:
 
 ```
@@ -199,6 +222,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
