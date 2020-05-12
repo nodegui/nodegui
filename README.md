@@ -217,12 +217,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/shubhamzanwar"><img src="https://avatars0.githubusercontent.com/u/15626155?v=4" width="100px;" alt=""/><br /><sub><b>Shubham Zanwar</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=shubhamzanwar" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Singha360"><img src="https://avatars1.githubusercontent.com/u/35334787?v=4" width="100px;" alt=""/><br /><sub><b>Singha360</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=Singha360" title="Code">💻</a></td>
     <td align="center"><a href="http://wellenline.com"><img src="https://avatars3.githubusercontent.com/u/3790782?v=4" width="100px;" alt=""/><br /><sub><b>Mihkel</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=MihkelBaranov" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/stevo2588"><img src="https://avatars1.githubusercontent.com/u/3278045?v=4" width="100px;" alt=""/><br /><sub><b>Stephen A</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=stevo2588" title="Code">💻</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
