@@ -94,10 +94,10 @@ export abstract class NodeListView<Signals extends QListViewSignals> extends QAb
     uniformItemSizes(): boolean {
         return this.property('uniformItemSizes').toBool();
     }
-    setViewMode(mode: ViewMode): void {
+    setViewMode(mode: ListViewMode): void {
         this.setProperty('viewMode', mode);
     }
-    viewMode(): ViewMode {
+    viewMode(): ListViewMode {
         return this.property('viewMode').toInt();
     }
     setWordWrap(on: boolean): void {
