@@ -22,7 +22,9 @@ Napi::Object QPainterPathWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-QPainterPath* QPainterPathWrap::getInternalInstance() { return this->instance.get(); }
+QPainterPath* QPainterPathWrap::getInternalInstance() {
+  return this->instance.get();
+}
 QPainterPathWrap::~QPainterPathWrap() { this->instance.reset(); }
 
 QPainterPathWrap::QPainterPathWrap(const Napi::CallbackInfo& info)

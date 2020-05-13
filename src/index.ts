@@ -69,7 +69,7 @@ export {
     LayoutMode,
     Movement,
     ResizeMode,
-    ViewMode,
+    ListViewMode,
 } from './lib/QtWidgets/QListView';
 export { QListWidget, QListWidgetSignals } from './lib/QtWidgets/QListWidget';
 export { QListWidgetItem } from './lib/QtWidgets/QListWidgetItem';

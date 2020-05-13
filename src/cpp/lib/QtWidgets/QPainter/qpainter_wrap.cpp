@@ -71,7 +71,8 @@ Napi::Value QPainterWrap::drawPath(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Object pathObject = info[0].As<Napi::Object>();
-  QPainterPathWrap* pathWrap = Napi::ObjectWrap<QPainterPathWrap>::Unwrap(pathObject);
+  QPainterPathWrap* pathWrap =
+      Napi::ObjectWrap<QPainterPathWrap>::Unwrap(pathObject);
   QPainterPath* path = pathWrap->getInternalInstance();
   this->instance->drawPath(*path);
   return env.Null();
@@ -80,7 +81,8 @@ Napi::Value QPainterWrap::strokePath(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Object pathObject = info[0].As<Napi::Object>();
-  QPainterPathWrap* pathWrap = Napi::ObjectWrap<QPainterPathWrap>::Unwrap(pathObject);
+  QPainterPathWrap* pathWrap =
+      Napi::ObjectWrap<QPainterPathWrap>::Unwrap(pathObject);
   QPainterPath* path = pathWrap->getInternalInstance();
   Napi::Object penObject = info[1].As<Napi::Object>();
   QPenWrap* penWrap = Napi::ObjectWrap<QPenWrap>::Unwrap(penObject);

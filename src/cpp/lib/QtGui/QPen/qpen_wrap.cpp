@@ -2,8 +2,8 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
-#include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QBrush/qbrush_wrap.h"
+#include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 
 Napi::FunctionReference QPenWrap::constructor;
@@ -11,15 +11,15 @@ Napi::FunctionReference QPenWrap::constructor;
 Napi::Object QPenWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QPen";
-  Napi::Function func = DefineClass(
-      env, CLASSNAME,
-      {InstanceMethod("setColor", &QPenWrap::setColor),
-       InstanceMethod("color", &QPenWrap::color),
-       InstanceMethod("setStyle", &QPenWrap::setStyle),
-       InstanceMethod("style", &QPenWrap::style),
-       InstanceMethod("setCapStyle", &QPenWrap::setCapStyle),
-       InstanceMethod("setWidth", &QPenWrap::setWidth),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QPenWrap)});
+  Napi::Function func =
+      DefineClass(env, CLASSNAME,
+                  {InstanceMethod("setColor", &QPenWrap::setColor),
+                   InstanceMethod("color", &QPenWrap::color),
+                   InstanceMethod("setStyle", &QPenWrap::setStyle),
+                   InstanceMethod("style", &QPenWrap::style),
+                   InstanceMethod("setCapStyle", &QPenWrap::setCapStyle),
+                   InstanceMethod("setWidth", &QPenWrap::setWidth),
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QPenWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -73,8 +73,7 @@ Napi::Value QPenWrap::setStyle(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  Qt::PenStyle style =
-      (Qt::PenStyle)info[0].As<Napi::Number>().Int32Value();
+  Qt::PenStyle style = (Qt::PenStyle)info[0].As<Napi::Number>().Int32Value();
   this->instance->setStyle(style);
   return env.Null();
 }

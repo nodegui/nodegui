@@ -378,13 +378,13 @@
     this->instance->addAction(actionWrap->getInternalInstance());             \
     return env.Null();                                                        \
   }                                                                           \
-  Napi::Value removeAction(const Napi::CallbackInfo& info) {                     \
+  Napi::Value removeAction(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                               \
     Napi::HandleScope scope(env);                                             \
     Napi::Object actionObject = info[0].As<Napi::Object>();                   \
     QActionWrap* actionWrap =                                                 \
         Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);                  \
-    this->instance->removeAction(actionWrap->getInternalInstance());             \
+    this->instance->removeAction(actionWrap->getInternalInstance());          \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value repolish(const Napi::CallbackInfo& info) {                      \
