@@ -138,7 +138,7 @@ export enum ResizeMode {
     Adjust,
 }
 
-export enum ViewMode {
+export enum ListViewMode {
     ListMode,
     IconMode,
 }
