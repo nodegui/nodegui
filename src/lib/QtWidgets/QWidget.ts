@@ -151,8 +151,14 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     setMinimumSize(minw: number, minh: number): void {
         this.native.setMinimumSize(minw, minh);
     }
+    minimumSize(): QSize {
+        return new QSize(this.native.minimumSize());
+    }
     setMaximumSize(maxw: number, maxh: number): void {
         this.native.setMaximumSize(maxw, maxh);
+    }
+    maximumSize(): QSize {
+        return new QSize(this.native.maximumSize());
     }
     setFixedSize(width: number, height: number): void {
         this.native.setFixedSize(width, height);

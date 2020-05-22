@@ -239,6 +239,14 @@
     this->instance->setMaximumSize(width, height);                            \
     return env.Null();                                                        \
   }                                                                           \
+  Napi::Value maximumSize(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    QSize size = this->instance->maximumSize();                               \
+    auto sizeWrap = QSizeWrap::constructor.New({Napi::External<QSize>::New(   \
+        env, new QSize(size.width(), size.height()))});                       \
+    return sizeWrap;                                                          \
+  }                                                                           \
   Napi::Value setMinimumSize(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
     Napi::HandleScope scope(env);                                             \
@@ -246,6 +254,14 @@
     int height = info[1].As<Napi::Number>().Int32Value();                     \
     this->instance->setMinimumSize(width, height);                            \
     return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value minimumSize(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    QSize size = this->instance->minimumSize();                               \
+    auto sizeWrap = QSizeWrap::constructor.New({Napi::External<QSize>::New(   \
+        env, new QSize(size.width(), size.height()))});                       \
+    return sizeWrap;                                                          \
   }                                                                           \
   Napi::Value repaint(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                               \
@@ -443,6 +459,8 @@
       InstanceMethod("repaint", &WidgetWrapName::repaint),                   \
       InstanceMethod("update", &WidgetWrapName::update),                     \
       InstanceMethod("updateGeometry", &WidgetWrapName::updateGeometry),     \
+      InstanceMethod("maximumSize", &WidgetWrapName::maximumSize),           \
+      InstanceMethod("minimumSize", &WidgetWrapName::minimumSize),           \
       InstanceMethod("pos", &WidgetWrapName::pos),                           \
       InstanceMethod("size", &WidgetWrapName::size),                         \
       InstanceMethod("setAttribute", &WidgetWrapName::setAttribute),         \
