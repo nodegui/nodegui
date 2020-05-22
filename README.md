@@ -219,6 +219,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://wellenline.com"><img src="https://avatars3.githubusercontent.com/u/3790782?v=4" width="100px;" alt=""/><br /><sub><b>Mihkel</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=MihkelBaranov" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/stevo2588"><img src="https://avatars1.githubusercontent.com/u/3278045?v=4" width="100px;" alt=""/><br /><sub><b>Stephen A</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=stevo2588" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="http://liujunjiang.com"><img src="https://avatars1.githubusercontent.com/u/15191056?v=4" width="100px;" alt=""/><br /><sub><b>流君酱</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=jardenliu" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
