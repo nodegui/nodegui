@@ -11,7 +11,7 @@ include("${PLUGIN_CMAKE_DIR}/common.cmake")
 include("${PLUGIN_CMAKE_DIR}/qt.cmake")
 include("${PLUGIN_CMAKE_DIR}/napi.cmake")
 
-function(AddPluginConfig addonName)
+macro(AddPluginConfig addonName)
     AddCommonConfig(${addonName})
     AddQtSupport(${addonName})
     AddNapiSupport(${addonName})
@@ -29,5 +29,5 @@ function(AddPluginConfig addonName)
         "${NODEGUI_ROOT}/src/cpp/include/nodegui"
     )
 
-endfunction(AddPluginConfig addonName)
+endmacro(AddPluginConfig addonName)
 
