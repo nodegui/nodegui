@@ -165,7 +165,7 @@ Since we are not running inside a web browser, there are few differences in the 
 
 The complete list is detailed here: https://doc.qt.io/qt-5/stylesheet-reference.html#list-of-properties
 
-Apart from the properties listed in the link, NodeGui also supports layout properties related to Flex. You can use all flex properties such as align-items, justify-content, flex, etc on all widgets. [The layout styling will be coverted in more detail in the section: Layout.](layout.md)
+Apart from the properties listed in the link, NodeGui also supports layout properties related to Flex. You can use all flex properties such as align-items, justify-content, flex, etc on all widgets. [The layout styling will be converted in more detail in the section: Layout.](layout.md)
 
 ## Advanced usage (Setting QObject Properties)
 
