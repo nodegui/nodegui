@@ -62,12 +62,15 @@ const lineEdit = new QLineEdit();
 * [mapFromParent](qlineedit.md#mapfromparent)
 * [mapToGlobal](qlineedit.md#maptoglobal)
 * [mapToParent](qlineedit.md#maptoparent)
+* [maximumSize](qlineedit.md#maximumsize)
+* [minimumSize](qlineedit.md#minimumsize)
 * [move](qlineedit.md#move)
 * [objectName](qlineedit.md#objectname)
 * [placeholderText](qlineedit.md#placeholdertext)
 * [pos](qlineedit.md#pos)
 * [property](qlineedit.md#property)
 * [raise](qlineedit.md#raise)
+* [removeAction](qlineedit.md#removeaction)
 * [removeEventListener](qlineedit.md#removeeventlistener)
 * [repaint](qlineedit.md#repaint)
 * [repolish](qlineedit.md#repolish)
@@ -81,6 +84,7 @@ const lineEdit = new QLineEdit();
 * [setFlexNodeSizeControlled](qlineedit.md#setflexnodesizecontrolled)
 * [setFont](qlineedit.md#setfont)
 * [setGeometry](qlineedit.md#setgeometry)
+* [setGraphicsEffect](qlineedit.md#setgraphicseffect)
 * [setInlineStyle](qlineedit.md#setinlinestyle)
 * [setLayout](qlineedit.md#setlayout)
 * [setMaximumSize](qlineedit.md#setmaximumsize)
@@ -471,6 +475,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -541,6 +565,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -768,6 +808,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

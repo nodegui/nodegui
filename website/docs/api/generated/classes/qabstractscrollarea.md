@@ -79,12 +79,15 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [mapFromParent](qabstractscrollarea.md#mapfromparent)
 * [mapToGlobal](qabstractscrollarea.md#maptoglobal)
 * [mapToParent](qabstractscrollarea.md#maptoparent)
+* [maximumSize](qabstractscrollarea.md#maximumsize)
 * [midLineWidth](qabstractscrollarea.md#midlinewidth)
+* [minimumSize](qabstractscrollarea.md#minimumsize)
 * [move](qabstractscrollarea.md#move)
 * [objectName](qabstractscrollarea.md#objectname)
 * [pos](qabstractscrollarea.md#pos)
 * [property](qabstractscrollarea.md#property)
 * [raise](qabstractscrollarea.md#raise)
+* [removeAction](qabstractscrollarea.md#removeaction)
 * [removeEventListener](qabstractscrollarea.md#removeeventlistener)
 * [repaint](qabstractscrollarea.md#repaint)
 * [repolish](qabstractscrollarea.md#repolish)
@@ -101,6 +104,7 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [setFrameShape](qabstractscrollarea.md#setframeshape)
 * [setFrameStyle](qabstractscrollarea.md#setframestyle)
 * [setGeometry](qabstractscrollarea.md#setgeometry)
+* [setGraphicsEffect](qabstractscrollarea.md#setgraphicseffect)
 * [setHorizontalScrollBarPolicy](qabstractscrollarea.md#sethorizontalscrollbarpolicy)
 * [setInlineStyle](qabstractscrollarea.md#setinlinestyle)
 * [setLayout](qabstractscrollarea.md#setlayout)
@@ -539,6 +543,16 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  midLineWidth
 
 ▸ **midLineWidth**(): *number*
@@ -546,6 +560,16 @@ ___
 *Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -611,6 +635,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -888,6 +928,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

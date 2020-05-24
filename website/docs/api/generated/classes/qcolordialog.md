@@ -69,6 +69,8 @@ console.log(color.red(), color.green(), color.blue());
 * [mapFromParent](qcolordialog.md#mapfromparent)
 * [mapToGlobal](qcolordialog.md#maptoglobal)
 * [mapToParent](qcolordialog.md#maptoparent)
+* [maximumSize](qcolordialog.md#maximumsize)
+* [minimumSize](qcolordialog.md#minimumsize)
 * [move](qcolordialog.md#move)
 * [objectName](qcolordialog.md#objectname)
 * [open](qcolordialog.md#open)
@@ -77,6 +79,7 @@ console.log(color.red(), color.green(), color.blue());
 * [property](qcolordialog.md#property)
 * [raise](qcolordialog.md#raise)
 * [reject](qcolordialog.md#reject)
+* [removeAction](qcolordialog.md#removeaction)
 * [removeEventListener](qcolordialog.md#removeeventlistener)
 * [repaint](qcolordialog.md#repaint)
 * [repolish](qcolordialog.md#repolish)
@@ -92,6 +95,7 @@ console.log(color.red(), color.green(), color.blue());
 * [setFlexNodeSizeControlled](qcolordialog.md#setflexnodesizecontrolled)
 * [setFont](qcolordialog.md#setfont)
 * [setGeometry](qcolordialog.md#setgeometry)
+* [setGraphicsEffect](qcolordialog.md#setgraphicseffect)
 * [setInlineStyle](qcolordialog.md#setinlinestyle)
 * [setLayout](qcolordialog.md#setlayout)
 * [setMaximumSize](qcolordialog.md#setmaximumsize)
@@ -501,6 +505,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -591,6 +615,22 @@ ___
 ▸ **reject**(): *void*
 
 *Inherited from [NodeDialog](nodedialog.md).[reject](nodedialog.md#reject)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -836,6 +876,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

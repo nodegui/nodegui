@@ -103,12 +103,15 @@ win.show();
 * [mapFromParent](qtreewidget.md#mapfromparent)
 * [mapToGlobal](qtreewidget.md#maptoglobal)
 * [mapToParent](qtreewidget.md#maptoparent)
+* [maximumSize](qtreewidget.md#maximumsize)
 * [midLineWidth](qtreewidget.md#midlinewidth)
+* [minimumSize](qtreewidget.md#minimumsize)
 * [move](qtreewidget.md#move)
 * [objectName](qtreewidget.md#objectname)
 * [pos](qtreewidget.md#pos)
 * [property](qtreewidget.md#property)
 * [raise](qtreewidget.md#raise)
+* [removeAction](qtreewidget.md#removeaction)
 * [removeEventListener](qtreewidget.md#removeeventlistener)
 * [repaint](qtreewidget.md#repaint)
 * [repolish](qtreewidget.md#repolish)
@@ -116,6 +119,7 @@ win.show();
 * [selectedItems](qtreewidget.md#selecteditems)
 * [setAttribute](qtreewidget.md#setattribute)
 * [setColumnCount](qtreewidget.md#setcolumncount)
+* [setColumnWidth](qtreewidget.md#setcolumnwidth)
 * [setContextMenuPolicy](qtreewidget.md#setcontextmenupolicy)
 * [setCursor](qtreewidget.md#setcursor)
 * [setEnabled](qtreewidget.md#setenabled)
@@ -127,6 +131,7 @@ win.show();
 * [setFrameShape](qtreewidget.md#setframeshape)
 * [setFrameStyle](qtreewidget.md#setframestyle)
 * [setGeometry](qtreewidget.md#setgeometry)
+* [setGraphicsEffect](qtreewidget.md#setgraphicseffect)
 * [setHeaderHidden](qtreewidget.md#setheaderhidden)
 * [setHeaderLabel](qtreewidget.md#setheaderlabel)
 * [setHeaderLabels](qtreewidget.md#setheaderlabels)
@@ -681,6 +686,16 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  midLineWidth
 
 ▸ **midLineWidth**(): *number*
@@ -688,6 +703,16 @@ ___
 *Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -753,6 +778,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -872,6 +913,23 @@ Sets the column count of this QTreeWidget.
 Name | Type | Description |
 ------ | ------ | ------ |
 `columnCount` | number | The number of columns.  |
+
+**Returns:** *void*
+
+___
+
+###  setColumnWidth
+
+▸ **setColumnWidth**(`column`: number, `width`: number): *void*
+
+Sets the width of column of this QTreeWidget.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`column` | number | The column index. |
+`width` | number | The size of the columns.  |
 
 **Returns:** *void*
 
@@ -1054,6 +1112,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

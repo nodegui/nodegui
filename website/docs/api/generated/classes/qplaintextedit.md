@@ -71,12 +71,15 @@ const plainTextEdit = new QPlainTextEdit();
 * [mapFromParent](qplaintextedit.md#mapfromparent)
 * [mapToGlobal](qplaintextedit.md#maptoglobal)
 * [mapToParent](qplaintextedit.md#maptoparent)
+* [maximumSize](qplaintextedit.md#maximumsize)
 * [midLineWidth](qplaintextedit.md#midlinewidth)
+* [minimumSize](qplaintextedit.md#minimumsize)
 * [move](qplaintextedit.md#move)
 * [objectName](qplaintextedit.md#objectname)
 * [pos](qplaintextedit.md#pos)
 * [property](qplaintextedit.md#property)
 * [raise](qplaintextedit.md#raise)
+* [removeAction](qplaintextedit.md#removeaction)
 * [removeEventListener](qplaintextedit.md#removeeventlistener)
 * [repaint](qplaintextedit.md#repaint)
 * [repolish](qplaintextedit.md#repolish)
@@ -93,6 +96,7 @@ const plainTextEdit = new QPlainTextEdit();
 * [setFrameShape](qplaintextedit.md#setframeshape)
 * [setFrameStyle](qplaintextedit.md#setframestyle)
 * [setGeometry](qplaintextedit.md#setgeometry)
+* [setGraphicsEffect](qplaintextedit.md#setgraphicseffect)
 * [setHorizontalScrollBarPolicy](qplaintextedit.md#sethorizontalscrollbarpolicy)
 * [setInlineStyle](qplaintextedit.md#setinlinestyle)
 * [setLayout](qplaintextedit.md#setlayout)
@@ -580,6 +584,16 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  midLineWidth
 
 ▸ **midLineWidth**(): *number*
@@ -587,6 +601,16 @@ ___
 *Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -652,6 +676,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -929,6 +969,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

@@ -116,11 +116,14 @@ Implement all native QWidget methods here so that all widgets get access to thos
 * [mapFromParent](nodewidget.md#mapfromparent)
 * [mapToGlobal](nodewidget.md#maptoglobal)
 * [mapToParent](nodewidget.md#maptoparent)
+* [maximumSize](nodewidget.md#maximumsize)
+* [minimumSize](nodewidget.md#minimumsize)
 * [move](nodewidget.md#move)
 * [objectName](nodewidget.md#objectname)
 * [pos](nodewidget.md#pos)
 * [property](nodewidget.md#property)
 * [raise](nodewidget.md#raise)
+* [removeAction](nodewidget.md#removeaction)
 * [removeEventListener](nodewidget.md#removeeventlistener)
 * [repaint](nodewidget.md#repaint)
 * [repolish](nodewidget.md#repolish)
@@ -133,6 +136,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 * [setFlexNodeSizeControlled](nodewidget.md#setflexnodesizecontrolled)
 * [setFont](nodewidget.md#setfont)
 * [setGeometry](nodewidget.md#setgeometry)
+* [setGraphicsEffect](nodewidget.md#setgraphicseffect)
 * [setInlineStyle](nodewidget.md#setinlinestyle)
 * [setLayout](nodewidget.md#setlayout)
 * [setMaximumSize](nodewidget.md#setmaximumsize)
@@ -459,6 +463,22 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -515,6 +535,20 @@ ___
 ###  raise
 
 ▸ **raise**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -708,6 +742,20 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

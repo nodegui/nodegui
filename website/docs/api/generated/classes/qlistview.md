@@ -74,7 +74,9 @@ sidebar_label: "QListView"
 * [mapFromParent](qlistview.md#mapfromparent)
 * [mapToGlobal](qlistview.md#maptoglobal)
 * [mapToParent](qlistview.md#maptoparent)
+* [maximumSize](qlistview.md#maximumsize)
 * [midLineWidth](qlistview.md#midlinewidth)
+* [minimumSize](qlistview.md#minimumsize)
 * [modelColumn](qlistview.md#modelcolumn)
 * [move](qlistview.md#move)
 * [movement](qlistview.md#movement)
@@ -82,6 +84,7 @@ sidebar_label: "QListView"
 * [pos](qlistview.md#pos)
 * [property](qlistview.md#property)
 * [raise](qlistview.md#raise)
+* [removeAction](qlistview.md#removeaction)
 * [removeEventListener](qlistview.md#removeeventlistener)
 * [repaint](qlistview.md#repaint)
 * [repolish](qlistview.md#repolish)
@@ -117,6 +120,7 @@ sidebar_label: "QListView"
 * [setFrameShape](qlistview.md#setframeshape)
 * [setFrameStyle](qlistview.md#setframestyle)
 * [setGeometry](qlistview.md#setgeometry)
+* [setGraphicsEffect](qlistview.md#setgraphicseffect)
 * [setGridSize](qlistview.md#setgridsize)
 * [setHorizontalScrollBarPolicy](qlistview.md#sethorizontalscrollbarpolicy)
 * [setHorizontalScrollMode](qlistview.md#sethorizontalscrollmode)
@@ -812,6 +816,16 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  midLineWidth
 
 ▸ **midLineWidth**(): *number*
@@ -819,6 +833,16 @@ ___
 *Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -904,6 +928,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -1448,6 +1488,22 @@ Name | Type |
 
 ___
 
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
+
+**Returns:** *void*
+
+___
+
 ###  setGridSize
 
 ▸ **setGridSize**(`size`: [QSize](qsize.md)): *void*
@@ -1953,7 +2009,7 @@ ___
 
 ###  setViewMode
 
-▸ **setViewMode**(`mode`: ViewMode): *void*
+▸ **setViewMode**(`mode`: [ListViewMode](../enums/listviewmode.md)): *void*
 
 *Inherited from [NodeListView](nodelistview.md).[setViewMode](nodelistview.md#setviewmode)*
 
@@ -1961,7 +2017,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`mode` | ViewMode |
+`mode` | [ListViewMode](../enums/listviewmode.md) |
 
 **Returns:** *void*
 
@@ -2264,11 +2320,11 @@ ___
 
 ###  viewMode
 
-▸ **viewMode**(): *ViewMode*
+▸ **viewMode**(): *[ListViewMode](../enums/listviewmode.md)*
 
 *Inherited from [NodeListView](nodelistview.md).[viewMode](nodelistview.md#viewmode)*
 
-**Returns:** *ViewMode*
+**Returns:** *[ListViewMode](../enums/listviewmode.md)*
 
 ___
 

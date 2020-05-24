@@ -58,6 +58,7 @@ sidebar_label: "QDateTime"
 * [currentMSecsSinceEpoch](qdatetime.md#static-currentmsecssinceepoch)
 * [currentSecsSinceEpoch](qdatetime.md#static-currentsecssinceepoch)
 * [fromQVariant](qdatetime.md#static-fromqvariant)
+* [fromString](qdatetime.md#static-fromstring)
 
 ## Constructors
 
@@ -485,5 +486,20 @@ ___
 Name | Type |
 ------ | ------ |
 `variant` | [QVariant](qvariant.md) |
+
+**Returns:** *[QDateTime](qdatetime.md)*
+
+___
+
+### `Static` fromString
+
+▸ **fromString**(`dateTimeString`: string, `format`: string | [DateFormat](../enums/dateformat.md)): *[QDateTime](qdatetime.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`dateTimeString` | string |
+`format` | string &#124; [DateFormat](../enums/dateformat.md) |
 
 **Returns:** *[QDateTime](qdatetime.md)*

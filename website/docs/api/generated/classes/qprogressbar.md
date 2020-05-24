@@ -65,13 +65,16 @@ const progressBar = new QProgressBar();
 * [mapToGlobal](qprogressbar.md#maptoglobal)
 * [mapToParent](qprogressbar.md#maptoparent)
 * [maximum](qprogressbar.md#maximum)
+* [maximumSize](qprogressbar.md#maximumsize)
 * [minimum](qprogressbar.md#minimum)
+* [minimumSize](qprogressbar.md#minimumsize)
 * [move](qprogressbar.md#move)
 * [objectName](qprogressbar.md#objectname)
 * [orientation](qprogressbar.md#orientation)
 * [pos](qprogressbar.md#pos)
 * [property](qprogressbar.md#property)
 * [raise](qprogressbar.md#raise)
+* [removeAction](qprogressbar.md#removeaction)
 * [removeEventListener](qprogressbar.md#removeeventlistener)
 * [repaint](qprogressbar.md#repaint)
 * [repolish](qprogressbar.md#repolish)
@@ -88,6 +91,7 @@ const progressBar = new QProgressBar();
 * [setFont](qprogressbar.md#setfont)
 * [setFormat](qprogressbar.md#setformat)
 * [setGeometry](qprogressbar.md#setgeometry)
+* [setGraphicsEffect](qprogressbar.md#setgraphicseffect)
 * [setInlineStyle](qprogressbar.md#setinlinestyle)
 * [setInvertedAppearance](qprogressbar.md#setinvertedappearance)
 * [setLayout](qprogressbar.md#setlayout)
@@ -509,11 +513,31 @@ ___
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  minimum
 
 ▸ **minimum**(): *number*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -587,6 +611,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -844,6 +884,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

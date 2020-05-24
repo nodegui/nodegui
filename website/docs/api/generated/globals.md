@@ -18,6 +18,7 @@ sidebar_label: "Globals"
 * [AutoFormattingFlag](enums/autoformattingflag.md)
 * [Axis](enums/axis.md)
 * [BGMode](enums/bgmode.md)
+* [BlurHint](enums/blurhint.md)
 * [BrushStyle](enums/brushstyle.md)
 * [ButtonPosition](enums/buttonposition.md)
 * [ButtonRole](enums/buttonrole.md)
@@ -77,6 +78,7 @@ sidebar_label: "Globals"
 * [LayoutDirection](enums/layoutdirection.md)
 * [LayoutMode](enums/layoutmode.md)
 * [LineWrapMode](enums/linewrapmode.md)
+* [ListViewMode](enums/listviewmode.md)
 * [MaskMode](enums/maskmode.md)
 * [MatchFlag](enums/matchflag.md)
 * [Mode](enums/mode.md)
@@ -91,6 +93,7 @@ sidebar_label: "Globals"
 * [Option](enums/option.md)
 * [Orientation](enums/orientation.md)
 * [ParsingMode](enums/parsingmode.md)
+* [PenCapStyle](enums/pencapstyle.md)
 * [PenStyle](enums/penstyle.md)
 * [QClipboardMode](enums/qclipboardmode.md)
 * [QFontCapitalization](enums/qfontcapitalization.md)
@@ -202,6 +205,9 @@ sidebar_label: "Globals"
 * [QFontDatabase](classes/qfontdatabase.md)
 * [QFontDialog](classes/qfontdialog.md)
 * [QFrame](classes/qframe.md)
+* [QGraphicsBlurEffect](classes/qgraphicsblureffect.md)
+* [QGraphicsDropShadowEffect](classes/qgraphicsdropshadoweffect.md)
+* [QGraphicsEffect](classes/qgraphicseffect.md)
 * [QGridLayout](classes/qgridlayout.md)
 * [QGroupBox](classes/qgroupbox.md)
 * [QIcon](classes/qicon.md)
@@ -223,6 +229,8 @@ sidebar_label: "Globals"
 * [QMovie](classes/qmovie.md)
 * [QObject](classes/qobject.md)
 * [QPainter](classes/qpainter.md)
+* [QPainterPath](classes/qpainterpath.md)
+* [QPen](classes/qpen.md)
 * [QPicture](classes/qpicture.md)
 * [QPixmap](classes/qpixmap.md)
 * [QPlainTextEdit](classes/qplaintextedit.md)
@@ -280,6 +288,9 @@ sidebar_label: "Globals"
 * [QDoubleSpinBoxSignals](interfaces/qdoublespinboxsignals.md)
 * [QFileDialogSignals](interfaces/qfiledialogsignals.md)
 * [QFontDialogSignals](interfaces/qfontdialogsignals.md)
+* [QGraphicsBlurEffectSignals](interfaces/qgraphicsblureffectsignals.md)
+* [QGraphicsDropShadowEffectSignals](interfaces/qgraphicsdropshadoweffectsignals.md)
+* [QGraphicsEffectSignals](interfaces/qgraphicseffectsignals.md)
 * [QGroupBoxSignals](interfaces/qgroupboxsignals.md)
 * [QInputDialogSignals](interfaces/qinputdialogsignals.md)
 * [QLCDNumberSignals](interfaces/qlcdnumbersignals.md)
@@ -339,8 +350,10 @@ sidebar_label: "Globals"
 ### Variables
 
 * [addon](globals.md#const-addon)
-* [fileDialog](globals.md#const-filedialog)
+* [dates](globals.md#const-dates)
 * [testImagePath](globals.md#const-testimagepath)
+* [tree](globals.md#const-tree)
+* [win](globals.md#const-win)
 
 ### Functions
 
@@ -348,6 +361,7 @@ sidebar_label: "Globals"
 * [checkIfNapiExternal](globals.md#checkifnapiexternal)
 * [checkIfNativeElement](globals.md#checkifnativeelement)
 * [main](globals.md#main)
+* [noop](globals.md#noop)
 * [prepareInlineStyleSheet](globals.md#prepareinlinestylesheet)
 * [wrapWithActivateUvLoop](globals.md#const-wrapwithactivateuvloop)
 
@@ -517,15 +531,52 @@ ___
 
 ___
 
-### `Const` fileDialog
+### `Const` dates
 
-• **fileDialog**: *[QFileDialog](classes/qfiledialog.md)‹›* = new QFileDialog()
+• **dates**: *string[]* = [
+    '11/22/1973 02:55:43 AM',
+    '02/10/1949 08:44:35 AM',
+    '02/06/1970 02:45:24 PM',
+    '02/15/1984 04:04:01 AM',
+    '03/02/1981 01:14:37 PM',
+    '12/24/1937 11:51:14 AM',
+    '01/01/2003 08:44:47 PM',
+    '08/10/1961 12:21:59 PM',
+    '07/14/1977 04:02:20 AM',
+    '11/23/1980 11:58:03 PM',
+    '03/01/1965 12:35:36 AM',
+    '03/04/1996 05:32:37 AM',
+    '07/11/1986 10:16:10 AM',
+    '04/13/1933 02:14:08 PM',
+    '03/28/1972 08:50:09 PM',
+    '06/18/1925 07:06:51 AM',
+    '04/22/2017 08:29:33 PM',
+    '01/12/1932 04:01:28 AM',
+    '10/07/2019 08:14:44 PM',
+    '10/27/1987 11:51:41 AM',
+    '06/09/2002 06:04:50 AM',
+    '12/31/1980 01:33:19 PM',
+    '11/07/1964 04:43:42 PM',
+    '03/26/1957 06:40:36 AM',
+]
 
 ___
 
 ### `Const` testImagePath
 
 • **testImagePath**: *string* = path.resolve(__dirname, 'assets', 'nodegui.png')
+
+___
+
+### `Const` tree
+
+• **tree**: *any* = new QTreeWidget()
+
+___
+
+### `Const` win
+
+• **win**: *any* = new QMainWindow()
 
 ## Functions
 
@@ -575,6 +626,14 @@ ___
 ###  main
 
 ▸ **main**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  noop
+
+▸ **noop**(): *void*
 
 **Returns:** *void*
 

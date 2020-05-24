@@ -65,7 +65,9 @@ const dial = new QDial();
 * [mapToGlobal](qdial.md#maptoglobal)
 * [mapToParent](qdial.md#maptoparent)
 * [maximum](qdial.md#maximum)
+* [maximumSize](qdial.md#maximumsize)
 * [minimum](qdial.md#minimum)
+* [minimumSize](qdial.md#minimumsize)
 * [move](qdial.md#move)
 * [notchSize](qdial.md#notchsize)
 * [notchTarget](qdial.md#notchtarget)
@@ -76,6 +78,7 @@ const dial = new QDial();
 * [pos](qdial.md#pos)
 * [property](qdial.md#property)
 * [raise](qdial.md#raise)
+* [removeAction](qdial.md#removeaction)
 * [removeEventListener](qdial.md#removeeventlistener)
 * [repaint](qdial.md#repaint)
 * [repolish](qdial.md#repolish)
@@ -88,6 +91,7 @@ const dial = new QDial();
 * [setFlexNodeSizeControlled](qdial.md#setflexnodesizecontrolled)
 * [setFont](qdial.md#setfont)
 * [setGeometry](qdial.md#setgeometry)
+* [setGraphicsEffect](qdial.md#setgraphicseffect)
 * [setInlineStyle](qdial.md#setinlinestyle)
 * [setInvertedAppearance](qdial.md#setinvertedappearance)
 * [setInvertedControls](qdial.md#setinvertedcontrols)
@@ -528,6 +532,16 @@ ___
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  minimum
 
 ▸ **minimum**(): *number*
@@ -535,6 +549,16 @@ ___
 *Inherited from [QAbstractSlider](qabstractslider.md).[minimum](qabstractslider.md#minimum)*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -644,6 +668,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -857,6 +897,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

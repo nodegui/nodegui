@@ -67,11 +67,14 @@ const calendarWidget = new QCalendarWidget();
 * [mapFromParent](qcalendarwidget.md#mapfromparent)
 * [mapToGlobal](qcalendarwidget.md#maptoglobal)
 * [mapToParent](qcalendarwidget.md#maptoparent)
+* [maximumSize](qcalendarwidget.md#maximumsize)
+* [minimumSize](qcalendarwidget.md#minimumsize)
 * [move](qcalendarwidget.md#move)
 * [objectName](qcalendarwidget.md#objectname)
 * [pos](qcalendarwidget.md#pos)
 * [property](qcalendarwidget.md#property)
 * [raise](qcalendarwidget.md#raise)
+* [removeAction](qcalendarwidget.md#removeaction)
 * [removeEventListener](qcalendarwidget.md#removeeventlistener)
 * [repaint](qcalendarwidget.md#repaint)
 * [repolish](qcalendarwidget.md#repolish)
@@ -88,6 +91,7 @@ const calendarWidget = new QCalendarWidget();
 * [setFlexNodeSizeControlled](qcalendarwidget.md#setflexnodesizecontrolled)
 * [setFont](qcalendarwidget.md#setfont)
 * [setGeometry](qcalendarwidget.md#setgeometry)
+* [setGraphicsEffect](qcalendarwidget.md#setgraphicseffect)
 * [setGridVisible](qcalendarwidget.md#setgridvisible)
 * [setHorizontalHeaderFormat](qcalendarwidget.md#sethorizontalheaderformat)
 * [setInlineStyle](qcalendarwidget.md#setinlinestyle)
@@ -512,6 +516,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -574,6 +598,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -837,6 +877,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

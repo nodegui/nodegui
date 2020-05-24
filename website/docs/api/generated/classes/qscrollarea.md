@@ -78,12 +78,15 @@ scrollArea.setWidget(imageLabel);
 * [mapFromParent](qscrollarea.md#mapfromparent)
 * [mapToGlobal](qscrollarea.md#maptoglobal)
 * [mapToParent](qscrollarea.md#maptoparent)
+* [maximumSize](qscrollarea.md#maximumsize)
 * [midLineWidth](qscrollarea.md#midlinewidth)
+* [minimumSize](qscrollarea.md#minimumsize)
 * [move](qscrollarea.md#move)
 * [objectName](qscrollarea.md#objectname)
 * [pos](qscrollarea.md#pos)
 * [property](qscrollarea.md#property)
 * [raise](qscrollarea.md#raise)
+* [removeAction](qscrollarea.md#removeaction)
 * [removeEventListener](qscrollarea.md#removeeventlistener)
 * [repaint](qscrollarea.md#repaint)
 * [repolish](qscrollarea.md#repolish)
@@ -101,6 +104,7 @@ scrollArea.setWidget(imageLabel);
 * [setFrameShape](qscrollarea.md#setframeshape)
 * [setFrameStyle](qscrollarea.md#setframestyle)
 * [setGeometry](qscrollarea.md#setgeometry)
+* [setGraphicsEffect](qscrollarea.md#setgraphicseffect)
 * [setHorizontalScrollBarPolicy](qscrollarea.md#sethorizontalscrollbarpolicy)
 * [setInlineStyle](qscrollarea.md#setinlinestyle)
 * [setLayout](qscrollarea.md#setlayout)
@@ -597,6 +601,16 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  midLineWidth
 
 ▸ **midLineWidth**(): *number*
@@ -604,6 +618,16 @@ ___
 *Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -669,6 +693,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -960,6 +1000,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

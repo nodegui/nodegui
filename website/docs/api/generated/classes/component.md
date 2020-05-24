@@ -33,6 +33,8 @@ Its the root base class in NodeGui world.
 
   ↳ [QBrush](qbrush.md)
 
+  ↳ [QPen](qpen.md)
+
   ↳ [QKeySequence](qkeysequence.md)
 
   ↳ [QRect](qrect.md)
@@ -66,6 +68,8 @@ Its the root base class in NodeGui world.
   ↳ [QTableWidgetItem](qtablewidgetitem.md)
 
   ↳ [QTreeWidgetItem](qtreewidgetitem.md)
+
+  ↳ [QPainterPath](qpainterpath.md)
 
   ↳ [QPainter](qpainter.md)
 

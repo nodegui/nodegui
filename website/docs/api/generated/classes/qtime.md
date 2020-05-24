@@ -44,6 +44,7 @@ sidebar_label: "QTime"
 * [currentTime](qtime.md#static-currenttime)
 * [fromMSecsSinceStartOfDay](qtime.md#static-frommsecssincestartofday)
 * [fromQVariant](qtime.md#static-fromqvariant)
+* [fromString](qtime.md#static-fromstring)
 * [isValid](qtime.md#static-isvalid)
 
 ## Constructors
@@ -305,6 +306,21 @@ ___
 Name | Type |
 ------ | ------ |
 `variant` | [QVariant](qvariant.md) |
+
+**Returns:** *[QTime](qtime.md)*
+
+___
+
+### `Static` fromString
+
+▸ **fromString**(`timeString`: string, `format`: string | [DateFormat](../enums/dateformat.md)): *[QTime](qtime.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`timeString` | string |
+`format` | string &#124; [DateFormat](../enums/dateformat.md) |
 
 **Returns:** *[QTime](qtime.md)*
 

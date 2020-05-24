@@ -72,11 +72,14 @@ radioButton.setText("Hello");
 * [mapFromParent](qradiobutton.md#mapfromparent)
 * [mapToGlobal](qradiobutton.md#maptoglobal)
 * [mapToParent](qradiobutton.md#maptoparent)
+* [maximumSize](qradiobutton.md#maximumsize)
+* [minimumSize](qradiobutton.md#minimumsize)
 * [move](qradiobutton.md#move)
 * [objectName](qradiobutton.md#objectname)
 * [pos](qradiobutton.md#pos)
 * [property](qradiobutton.md#property)
 * [raise](qradiobutton.md#raise)
+* [removeAction](qradiobutton.md#removeaction)
 * [removeEventListener](qradiobutton.md#removeeventlistener)
 * [repaint](qradiobutton.md#repaint)
 * [repolish](qradiobutton.md#repolish)
@@ -96,6 +99,7 @@ radioButton.setText("Hello");
 * [setFlexNodeSizeControlled](qradiobutton.md#setflexnodesizecontrolled)
 * [setFont](qradiobutton.md#setfont)
 * [setGeometry](qradiobutton.md#setgeometry)
+* [setGraphicsEffect](qradiobutton.md#setgraphicseffect)
 * [setIcon](qradiobutton.md#seticon)
 * [setIconSize](qradiobutton.md#seticonsize)
 * [setInlineStyle](qradiobutton.md#setinlinestyle)
@@ -602,6 +606,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -664,6 +688,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -989,6 +1029,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

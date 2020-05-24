@@ -1,69 +1,60 @@
 ---
-id: "nodeobject"
-title: "NodeObject"
-sidebar_label: "NodeObject"
+id: "qgraphicseffect"
+title: "QGraphicsEffect"
+sidebar_label: "QGraphicsEffect"
 ---
+
+> This is the abstract base class of graphicseffect, providing their functionality.
+
+**This class is a JS wrapper around Qt's [QGraphicsEffect class](https://doc.qt.io/qt-5/qgraphicseffect.html)**
+
+The QGraphicsEffect class is an abstract class and therefore, technically, no further instances actually have to be created.
+It is inherited by QGraphicsBlurEffect, QGraphicsColorizeEffect, QGraphicsDropShadowEffect, and QGraphicsOpacityEffect.
 
 ## Type parameters
 
-▪ **Signals**: *[QObjectSignals](../interfaces/qobjectsignals.md)*
+▪ **Signals**: *[QGraphicsEffectSignals](../interfaces/qgraphicseffectsignals.md)*
 
 ## Hierarchy
 
-  ↳ [EventWidget](eventwidget.md)‹Signals›
+  ↳ [NodeObject](nodeobject.md)‹Signals›
 
-  ↳ **NodeObject**
+  ↳ **QGraphicsEffect**
 
-  ↳ [QObject](qobject.md)
+  ↳ [QGraphicsBlurEffect](qgraphicsblureffect.md)
 
-  ↳ [QApplication](qapplication.md)
-
-  ↳ [QMovie](qmovie.md)
-
-  ↳ [NodeLayout](nodelayout.md)
-
-  ↳ [YogaWidget](yogawidget.md)
-
-  ↳ [QAction](qaction.md)
-
-  ↳ [QGraphicsEffect](qgraphicseffect.md)
-
-  ↳ [QStandardItemModel](qstandarditemmodel.md)
-
-  ↳ [QButtonGroup](qbuttongroup.md)
-
-  ↳ [QSystemTrayIcon](qsystemtrayicon.md)
-
-  ↳ [QShortcut](qshortcut.md)
+  ↳ [QGraphicsDropShadowEffect](qgraphicsdropshadoweffect.md)
 
 ## Index
 
 ### Constructors
 
-* [constructor](nodeobject.md#constructor)
+* [constructor](qgraphicseffect.md#constructor)
 
 ### Properties
 
-* [native](nodeobject.md#abstract-native)
-* [nodeChildren](nodeobject.md#nodechildren)
-* [nodeParent](nodeobject.md#optional-nodeparent)
+* [native](qgraphicseffect.md#abstract-native)
+* [nodeChildren](qgraphicseffect.md#nodechildren)
+* [nodeParent](qgraphicseffect.md#optional-nodeparent)
 
 ### Methods
 
-* [addEventListener](nodeobject.md#addeventlistener)
-* [inherits](nodeobject.md#inherits)
-* [objectName](nodeobject.md#objectname)
-* [property](nodeobject.md#property)
-* [removeEventListener](nodeobject.md#removeeventlistener)
-* [setNodeParent](nodeobject.md#setnodeparent)
-* [setObjectName](nodeobject.md#setobjectname)
-* [setProperty](nodeobject.md#setproperty)
+* [addEventListener](qgraphicseffect.md#addeventlistener)
+* [inherits](qgraphicseffect.md#inherits)
+* [isEnabled](qgraphicseffect.md#isenabled)
+* [objectName](qgraphicseffect.md#objectname)
+* [property](qgraphicseffect.md#property)
+* [removeEventListener](qgraphicseffect.md#removeeventlistener)
+* [setEnabled](qgraphicseffect.md#setenabled)
+* [setNodeParent](qgraphicseffect.md#setnodeparent)
+* [setObjectName](qgraphicseffect.md#setobjectname)
+* [setProperty](qgraphicseffect.md#setproperty)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new NodeObject**(`native`: [NativeElement](../globals.md#nativeelement)): *[NodeObject](nodeobject.md)*
+\+ **new QGraphicsEffect**(`native`: [NativeElement](../globals.md#nativeelement)): *[QGraphicsEffect](qgraphicseffect.md)*
 
 *Inherited from [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
 
@@ -75,7 +66,7 @@ Name | Type |
 ------ | ------ |
 `native` | [NativeElement](../globals.md#nativeelement) |
 
-**Returns:** *[NodeObject](nodeobject.md)*
+**Returns:** *[QGraphicsEffect](qgraphicseffect.md)*
 
 ## Properties
 
@@ -163,6 +154,8 @@ ___
 
 ▸ **inherits**(`className`: string): *boolean*
 
+*Inherited from [NodeObject](nodeobject.md).[inherits](nodeobject.md#inherits)*
+
 **Parameters:**
 
 Name | Type |
@@ -173,9 +166,19 @@ Name | Type |
 
 ___
 
+###  isEnabled
+
+▸ **isEnabled**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
 ###  objectName
 
 ▸ **objectName**(): *string*
+
+*Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
 
 **Returns:** *string*
 
@@ -184,6 +187,8 @@ ___
 ###  property
 
 ▸ **property**(`name`: string): *[QVariant](qvariant.md)*
+
+*Inherited from [NodeObject](nodeobject.md).[property](nodeobject.md#property)*
 
 **Parameters:**
 
@@ -236,6 +241,20 @@ Name | Type |
 
 ___
 
+###  setEnabled
+
+▸ **setEnabled**(`enable`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enable` | boolean |
+
+**Returns:** *void*
+
+___
+
 ###  setNodeParent
 
 ▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
@@ -256,6 +275,8 @@ ___
 
 ▸ **setObjectName**(`objectName`: string): *void*
 
+*Inherited from [NodeObject](nodeobject.md).[setObjectName](nodeobject.md#setobjectname)*
+
 **Parameters:**
 
 Name | Type |
@@ -269,6 +290,8 @@ ___
 ###  setProperty
 
 ▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
+
+*Inherited from [NodeObject](nodeobject.md).[setProperty](nodeobject.md#setproperty)*
 
 **Parameters:**
 

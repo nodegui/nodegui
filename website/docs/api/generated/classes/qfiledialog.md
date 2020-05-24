@@ -73,6 +73,8 @@ console.log(selectedFiles);
 * [mapFromParent](qfiledialog.md#mapfromparent)
 * [mapToGlobal](qfiledialog.md#maptoglobal)
 * [mapToParent](qfiledialog.md#maptoparent)
+* [maximumSize](qfiledialog.md#maximumsize)
+* [minimumSize](qfiledialog.md#minimumsize)
 * [move](qfiledialog.md#move)
 * [objectName](qfiledialog.md#objectname)
 * [open](qfiledialog.md#open)
@@ -81,6 +83,7 @@ console.log(selectedFiles);
 * [property](qfiledialog.md#property)
 * [raise](qfiledialog.md#raise)
 * [reject](qfiledialog.md#reject)
+* [removeAction](qfiledialog.md#removeaction)
 * [removeEventListener](qfiledialog.md#removeeventlistener)
 * [repaint](qfiledialog.md#repaint)
 * [repolish](qfiledialog.md#repolish)
@@ -98,6 +101,7 @@ console.log(selectedFiles);
 * [setFlexNodeSizeControlled](qfiledialog.md#setflexnodesizecontrolled)
 * [setFont](qfiledialog.md#setfont)
 * [setGeometry](qfiledialog.md#setgeometry)
+* [setGraphicsEffect](qfiledialog.md#setgraphicseffect)
 * [setInlineStyle](qfiledialog.md#setinlinestyle)
 * [setLabelText](qfiledialog.md#setlabeltext)
 * [setLayout](qfiledialog.md#setlayout)
@@ -539,6 +543,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -629,6 +653,22 @@ ___
 ▸ **reject**(): *void*
 
 *Inherited from [NodeDialog](nodedialog.md).[reject](nodedialog.md#reject)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -902,6 +942,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

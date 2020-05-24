@@ -68,8 +68,10 @@ const progressDialog = new QProgressDialog();
 * [mapToGlobal](qprogressdialog.md#maptoglobal)
 * [mapToParent](qprogressdialog.md#maptoparent)
 * [maximum](qprogressdialog.md#maximum)
+* [maximumSize](qprogressdialog.md#maximumsize)
 * [minimum](qprogressdialog.md#minimum)
 * [minimumDuration](qprogressdialog.md#minimumduration)
+* [minimumSize](qprogressdialog.md#minimumsize)
 * [move](qprogressdialog.md#move)
 * [objectName](qprogressdialog.md#objectname)
 * [open](qprogressdialog.md#open)
@@ -77,6 +79,7 @@ const progressDialog = new QProgressDialog();
 * [property](qprogressdialog.md#property)
 * [raise](qprogressdialog.md#raise)
 * [reject](qprogressdialog.md#reject)
+* [removeAction](qprogressdialog.md#removeaction)
 * [removeEventListener](qprogressdialog.md#removeeventlistener)
 * [repaint](qprogressdialog.md#repaint)
 * [repolish](qprogressdialog.md#repolish)
@@ -94,6 +97,7 @@ const progressDialog = new QProgressDialog();
 * [setFlexNodeSizeControlled](qprogressdialog.md#setflexnodesizecontrolled)
 * [setFont](qprogressdialog.md#setfont)
 * [setGeometry](qprogressdialog.md#setgeometry)
+* [setGraphicsEffect](qprogressdialog.md#setgraphicseffect)
 * [setInlineStyle](qprogressdialog.md#setinlinestyle)
 * [setLabelText](qprogressdialog.md#setlabeltext)
 * [setLayout](qprogressdialog.md#setlayout)
@@ -535,6 +539,16 @@ ___
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  minimum
 
 ▸ **minimum**(): *number*
@@ -548,6 +562,16 @@ ___
 ▸ **minimumDuration**(): *number*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -633,6 +657,22 @@ ___
 ▸ **reject**(): *void*
 
 *Inherited from [NodeDialog](nodedialog.md).[reject](nodedialog.md#reject)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -906,6 +946,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

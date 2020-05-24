@@ -44,6 +44,7 @@ sidebar_label: "QDate"
 * [currentDate](qdate.md#static-currentdate)
 * [fromJulianDay](qdate.md#static-fromjulianday)
 * [fromQVariant](qdate.md#static-fromqvariant)
+* [fromString](qdate.md#static-fromstring)
 * [isLeapYear](qdate.md#static-isleapyear)
 * [isValid](qdate.md#static-isvalid)
 
@@ -304,6 +305,21 @@ ___
 Name | Type |
 ------ | ------ |
 `variant` | [QVariant](qvariant.md) |
+
+**Returns:** *[QDate](qdate.md)*
+
+___
+
+### `Static` fromString
+
+▸ **fromString**(`dateString`: string, `format`: string | [DateFormat](../enums/dateformat.md)): *[QDate](qdate.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`dateString` | string |
+`format` | string &#124; [DateFormat](../enums/dateformat.md) |
 
 **Returns:** *[QDate](qdate.md)*
 

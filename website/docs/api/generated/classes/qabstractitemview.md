@@ -80,12 +80,15 @@ It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTable
 * [mapFromParent](qabstractitemview.md#mapfromparent)
 * [mapToGlobal](qabstractitemview.md#maptoglobal)
 * [mapToParent](qabstractitemview.md#maptoparent)
+* [maximumSize](qabstractitemview.md#maximumsize)
 * [midLineWidth](qabstractitemview.md#midlinewidth)
+* [minimumSize](qabstractitemview.md#minimumsize)
 * [move](qabstractitemview.md#move)
 * [objectName](qabstractitemview.md#objectname)
 * [pos](qabstractitemview.md#pos)
 * [property](qabstractitemview.md#property)
 * [raise](qabstractitemview.md#raise)
+* [removeAction](qabstractitemview.md#removeaction)
 * [removeEventListener](qabstractitemview.md#removeeventlistener)
 * [repaint](qabstractitemview.md#repaint)
 * [repolish](qabstractitemview.md#repolish)
@@ -118,6 +121,7 @@ It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTable
 * [setFrameShape](qabstractitemview.md#setframeshape)
 * [setFrameStyle](qabstractitemview.md#setframestyle)
 * [setGeometry](qabstractitemview.md#setgeometry)
+* [setGraphicsEffect](qabstractitemview.md#setgraphicseffect)
 * [setHorizontalScrollBarPolicy](qabstractitemview.md#sethorizontalscrollbarpolicy)
 * [setHorizontalScrollMode](qabstractitemview.md#sethorizontalscrollmode)
 * [setIconSize](qabstractitemview.md#seticonsize)
@@ -672,6 +676,16 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  midLineWidth
 
 ▸ **midLineWidth**(): *number*
@@ -679,6 +693,16 @@ ___
 *Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -744,6 +768,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -1209,6 +1249,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 
