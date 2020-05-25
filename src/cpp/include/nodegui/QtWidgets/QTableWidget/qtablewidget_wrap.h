@@ -53,6 +53,10 @@ class DLL_EXPORT QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   Napi::Value sortByColumn(const Napi::CallbackInfo& info);
   Napi::Value setColumnWidth(const Napi::CallbackInfo& info);
   Napi::Value setRowHeight(const Napi::CallbackInfo& info);
+  Napi::Value columnCount(const Napi::CallbackInfo& info);
+  Napi::Value rowCount(const Napi::CallbackInfo& info);
+  Napi::Value setColumnCount(const Napi::CallbackInfo& info);
+  Napi::Value setRowCount(const Napi::CallbackInfo& info);
   Napi::Value setSortingEnabled(const Napi::CallbackInfo& info);
   Napi::Value isSortingEnabled(const Napi::CallbackInfo& info);
 };

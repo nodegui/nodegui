@@ -153,6 +153,18 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     setRowHeight(row: number, height: number): void {
         this.native.setRowHeight(row, height);
     }
+    columnCount(): number {
+        return this.native.columnCount();
+    }
+    rowCount(): number {
+        return this.native.rowCount();
+    }
+    setColumnCount(count: number): void {
+        this.native.setColumnCount(count);
+    }
+    setRowCount(count: number): void {
+        this.native.setRowCount(count);
+    }
     setSortingEnabled(enable: boolean): void {
         this.native.setSortingEnabled(enable);
     }

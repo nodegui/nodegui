@@ -52,6 +52,10 @@ Napi::Object QTableWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("sortByColumn", &QTableWidgetWrap::sortByColumn),
        InstanceMethod("setColumnWidth", &QTableWidgetWrap::setColumnWidth),
        InstanceMethod("setRowHeight", &QTableWidgetWrap::setRowHeight),
+       InstanceMethod("columnCount", &QTableWidgetWrap::columnCount),
+       InstanceMethod("rowCount", &QTableWidgetWrap::rowCount),
+       InstanceMethod("setColumnCount", &QTableWidgetWrap::setColumnCount),
+       InstanceMethod("setRowCount", &QTableWidgetWrap::setRowCount),
        InstanceMethod("setSortingEnabled",
                       &QTableWidgetWrap::setSortingEnabled),
        InstanceMethod("isSortingEnabled", &QTableWidgetWrap::isSortingEnabled),
@@ -427,6 +431,36 @@ Napi::Value QTableWidgetWrap::setRowHeight(const Napi::CallbackInfo& info) {
   int row = info[0].As<Napi::Number>().Int32Value();
   int height = info[1].As<Napi::Number>().Int32Value();
   this->instance->setRowHeight(row, height);
+  return env.Null();
+}
+Napi::Value QTableWidgetWrap::columnCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int count = static_cast<int>(this->instance->columnCount());
+  return Napi::Number::New(env, count);
+}
+Napi::Value QTableWidgetWrap::rowCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int count = static_cast<int>(this->instance->rowCount());
+  return Napi::Number::New(env, count);
+}
+Napi::Value QTableWidgetWrap::setColumnCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int count = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setColumnCount(count);
+  return env.Null();
+}
+Napi::Value QTableWidgetWrap::setRowCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int count = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setRowCount(count);
   return env.Null();
 }
 

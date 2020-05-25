@@ -1,15 +1,9 @@
-import { QTime } from '.';
-import { DateFormat } from './lib/QtEnums';
-
-//const date = QDate.fromString('04132020', 'MMddyyyy');
-const { QMainWindow, QTreeWidgetItem, QTreeWidget, QDate, ItemDataRole, QDateTime } = require('./index');
+import { QMainWindow, QTableWidget, QTableWidgetItem, QWidget, QBoxLayout } from '.';
+import { QPushButton } from './lib/QtWidgets/QPushButton';
 
 const win = new QMainWindow();
 win.resize(500, 500);
-const tree = new QTreeWidget();
-tree.setSortingEnabled(true);
-tree.setHeaderLabels(['Date', 'Time', 'Test Column']);
-tree.setColumnWidth(1, 15); //Sets the size of the selected column (index, size).
+const table = new QTableWidget(0, 0);
 
 const dates = [
     '11/22/1973 02:55:43 AM',
@@ -37,14 +31,41 @@ const dates = [
     '11/07/1964 04:43:42 PM',
     '03/26/1957 06:40:36 AM',
 ];
-for (const date of dates) {
-    const item = new QTreeWidgetItem();
-    const dateObject = QDate.fromString(date.split(' ')[0], 'MM/dd/yyyy');
-    const timeObject = QTime.fromString(date.split(' ')[1] + ' ' + date.split(' ')[2], 'hh:mm:ss AP');
-    item.setData(0, ItemDataRole.DisplayRole, dateObject.native);
-    item.setData(1, ItemDataRole.DisplayRole, timeObject.native);
-    tree.addTopLevelItem(item);
-}
-win.setCentralWidget(tree);
+
+table.setColumnCount(2);
+table.setRowCount(dates.length);
+table.setHorizontalHeaderLabels(['Date', 'Time']);
+
+const buildDateStrings = (date: string) => {
+    const dateString = date.split(' ')[0];
+    const timeString = date.split(' ')[1] + ' ' + date.split(' ')[2];
+    return [dateString, timeString];
+};
+
+dates.forEach((date, row) => {
+    const [dateString, timeString] = buildDateStrings(date);
+    table.setItem(row, 0, new QTableWidgetItem(dateString));
+    table.setItem(row, 1, new QTableWidgetItem(timeString));
+});
+
+const centralWidget = new QWidget();
+const boxLayout = new QBoxLayout(0);
+
+const button = new QPushButton();
+button.setText('Add row');
+button.addEventListener('clicked', () => {
+    const rowCount = table.rowCount();
+    table.setRowCount(rowCount + 1);
+
+    const date = new Date().toDateString();
+    const [dateString, timeString] = buildDateStrings(date);
+    table.setItem(rowCount, 0, new QTableWidgetItem(dateString));
+    table.setItem(rowCount, 1, new QTableWidgetItem(timeString));
+});
+boxLayout.addWidget(table);
+boxLayout.addWidget(button);
+centralWidget.setLayout(boxLayout);
+
+win.setCentralWidget(centralWidget);
 win.show();
 (global as any).win = win;
