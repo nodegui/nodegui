@@ -24,4 +24,18 @@ class DLL_EXPORT QGridLayoutWrap : public Napi::ObjectWrap<QGridLayoutWrap> {
   // wrapped methods
   Napi::Value addWidget(const Napi::CallbackInfo& info);
   Napi::Value removeWidget(const Napi::CallbackInfo& info);
+  Napi::Value columnStretch(const Napi::CallbackInfo& info);
+  Napi::Value rowStretch(const Napi::CallbackInfo& info);
+  Napi::Value setColumnStretch(const Napi::CallbackInfo& info);
+  Napi::Value setRowStretch(const Napi::CallbackInfo& info);
+  Napi::Value columnMinimumWidth(const Napi::CallbackInfo& info);
+  Napi::Value rowMinimumHeight(const Napi::CallbackInfo& info);
+  Napi::Value setColumnMinimumWidth(const Napi::CallbackInfo& info);
+  Napi::Value setRowMinimumHeight(const Napi::CallbackInfo& info);
+  Napi::Value horizontalSpacing(const Napi::CallbackInfo& info);
+  Napi::Value verticalSpacing(const Napi::CallbackInfo& info);
+  Napi::Value setHorizontalSpacing(const Napi::CallbackInfo& info);
+  Napi::Value setVerticalSpacing(const Napi::CallbackInfo& info);
+  Napi::Value columnCount(const Napi::CallbackInfo& info);
+  Napi::Value rowCount(const Napi::CallbackInfo& info);
 };

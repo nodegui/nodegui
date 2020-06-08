@@ -51,6 +51,48 @@ export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
         this.native.removeWidget(widget.native);
         this.nodeChildren.delete(widget);
     }
+    columnStretch(column: number): number {
+        return this.native.columnStretch(column);
+    }
+    rowStretch(row: number): number {
+        return this.native.rowStretch(row);
+    }
+    setColumnStretch(column: number, stretch: number): void {
+        this.native.setColumnStretch(column, stretch);
+    }
+    setRowStretch(row: number, stretch: number): void {
+        this.native.setRowStretch(row, stretch);
+    }
+    columnMinimumWidth(column: number): number {
+        return this.native.columnMinimumWidth(column);
+    }
+    rowMinimumHeight(row: number): number {
+        return this.native.rowMinimumHeight(row);
+    }
+    setColumnMinimumWidth(column: number, minSize: number): void {
+        this.native.setColumnMinimumWidth(column, minSize);
+    }
+    setRowMinimumHeight(row: number, minSize: number): void {
+        this.native.setRowMinimumHeight(row, minSize);
+    }
+    horizontalSpacing(): number {
+        return this.native.horizontalSpacing();
+    }
+    verticalSpacing(): number {
+        return this.native.verticalSpacing();
+    }
+    setHorizontalSpacing(spacing: number): void {
+        this.native.setHorizontalSpacing(spacing);
+    }
+    setVerticalSpacing(spacing: number): void {
+        this.native.setVerticalSpacing(spacing);
+    }
+    columnCount(): number {
+        return this.native.columnCount();
+    }
+    rowCount(): number {
+        return this.native.rowCount();
+    }
 }
 
 export type QGridLayoutSignals = QLayoutSignals;
