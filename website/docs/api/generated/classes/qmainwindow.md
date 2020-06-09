@@ -75,12 +75,15 @@ Once a central widget is set you can add children/layout to the central widget.
 * [mapFromParent](qmainwindow.md#mapfromparent)
 * [mapToGlobal](qmainwindow.md#maptoglobal)
 * [mapToParent](qmainwindow.md#maptoparent)
+* [maximumSize](qmainwindow.md#maximumsize)
 * [menuBar](qmainwindow.md#menubar)
+* [minimumSize](qmainwindow.md#minimumsize)
 * [move](qmainwindow.md#move)
 * [objectName](qmainwindow.md#objectname)
 * [pos](qmainwindow.md#pos)
 * [property](qmainwindow.md#property)
 * [raise](qmainwindow.md#raise)
+* [removeAction](qmainwindow.md#removeaction)
 * [removeEventListener](qmainwindow.md#removeeventlistener)
 * [removeStatusBar](qmainwindow.md#removestatusbar)
 * [repaint](qmainwindow.md#repaint)
@@ -95,6 +98,7 @@ Once a central widget is set you can add children/layout to the central widget.
 * [setFlexNodeSizeControlled](qmainwindow.md#setflexnodesizecontrolled)
 * [setFont](qmainwindow.md#setfont)
 * [setGeometry](qmainwindow.md#setgeometry)
+* [setGraphicsEffect](qmainwindow.md#setgraphicseffect)
 * [setInlineStyle](qmainwindow.md#setinlinestyle)
 * [setLayout](qmainwindow.md#setlayout)
 * [setMaximumSize](qmainwindow.md#setmaximumsize)
@@ -486,11 +490,31 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  menuBar
 
 ▸ **menuBar**(): *[QMenuBar](qmenubar.md) | undefined*
 
 **Returns:** *[QMenuBar](qmenubar.md) | undefined*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -556,6 +580,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -793,6 +833,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

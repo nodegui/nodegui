@@ -72,11 +72,14 @@ It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 * [mapFromParent](qabstractspinbox.md#mapfromparent)
 * [mapToGlobal](qabstractspinbox.md#maptoglobal)
 * [mapToParent](qabstractspinbox.md#maptoparent)
+* [maximumSize](qabstractspinbox.md#maximumsize)
+* [minimumSize](qabstractspinbox.md#minimumsize)
 * [move](qabstractspinbox.md#move)
 * [objectName](qabstractspinbox.md#objectname)
 * [pos](qabstractspinbox.md#pos)
 * [property](qabstractspinbox.md#property)
 * [raise](qabstractspinbox.md#raise)
+* [removeAction](qabstractspinbox.md#removeaction)
 * [removeEventListener](qabstractspinbox.md#removeeventlistener)
 * [repaint](qabstractspinbox.md#repaint)
 * [repolish](qabstractspinbox.md#repolish)
@@ -95,6 +98,7 @@ It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 * [setFont](qabstractspinbox.md#setfont)
 * [setFrame](qabstractspinbox.md#setframe)
 * [setGeometry](qabstractspinbox.md#setgeometry)
+* [setGraphicsEffect](qabstractspinbox.md#setgraphicseffect)
 * [setGroupSeparatorShown](qabstractspinbox.md#setgroupseparatorshown)
 * [setInlineStyle](qabstractspinbox.md#setinlinestyle)
 * [setKeyboardTracking](qabstractspinbox.md#setkeyboardtracking)
@@ -543,6 +547,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -605,6 +629,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -896,6 +936,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

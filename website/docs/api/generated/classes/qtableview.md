@@ -77,12 +77,15 @@ sidebar_label: "QTableView"
 * [mapFromParent](qtableview.md#mapfromparent)
 * [mapToGlobal](qtableview.md#maptoglobal)
 * [mapToParent](qtableview.md#maptoparent)
+* [maximumSize](qtableview.md#maximumsize)
 * [midLineWidth](qtableview.md#midlinewidth)
+* [minimumSize](qtableview.md#minimumsize)
 * [move](qtableview.md#move)
 * [objectName](qtableview.md#objectname)
 * [pos](qtableview.md#pos)
 * [property](qtableview.md#property)
 * [raise](qtableview.md#raise)
+* [removeAction](qtableview.md#removeaction)
 * [removeEventListener](qtableview.md#removeeventlistener)
 * [repaint](qtableview.md#repaint)
 * [repolish](qtableview.md#repolish)
@@ -128,6 +131,7 @@ sidebar_label: "QTableView"
 * [setFrameShape](qtableview.md#setframeshape)
 * [setFrameStyle](qtableview.md#setframestyle)
 * [setGeometry](qtableview.md#setgeometry)
+* [setGraphicsEffect](qtableview.md#setgraphicseffect)
 * [setGridStyle](qtableview.md#setgridstyle)
 * [setHorizontalScrollBarPolicy](qtableview.md#sethorizontalscrollbarpolicy)
 * [setHorizontalScrollMode](qtableview.md#sethorizontalscrollmode)
@@ -891,6 +895,16 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  midLineWidth
 
 ▸ **midLineWidth**(): *number*
@@ -898,6 +912,16 @@ ___
 *Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -963,6 +987,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -1659,6 +1699,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

@@ -76,11 +76,14 @@ const timeEdit = new QTimeEdit();
 * [mapFromParent](qtimeedit.md#mapfromparent)
 * [mapToGlobal](qtimeedit.md#maptoglobal)
 * [mapToParent](qtimeedit.md#maptoparent)
+* [maximumSize](qtimeedit.md#maximumsize)
+* [minimumSize](qtimeedit.md#minimumsize)
 * [move](qtimeedit.md#move)
 * [objectName](qtimeedit.md#objectname)
 * [pos](qtimeedit.md#pos)
 * [property](qtimeedit.md#property)
 * [raise](qtimeedit.md#raise)
+* [removeAction](qtimeedit.md#removeaction)
 * [removeEventListener](qtimeedit.md#removeeventlistener)
 * [repaint](qtimeedit.md#repaint)
 * [repolish](qtimeedit.md#repolish)
@@ -104,6 +107,7 @@ const timeEdit = new QTimeEdit();
 * [setFont](qtimeedit.md#setfont)
 * [setFrame](qtimeedit.md#setframe)
 * [setGeometry](qtimeedit.md#setgeometry)
+* [setGraphicsEffect](qtimeedit.md#setgraphicseffect)
 * [setGroupSeparatorShown](qtimeedit.md#setgroupseparatorshown)
 * [setInlineStyle](qtimeedit.md#setinlinestyle)
 * [setKeyboardTracking](qtimeedit.md#setkeyboardtracking)
@@ -636,6 +640,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -698,6 +722,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -1081,6 +1121,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

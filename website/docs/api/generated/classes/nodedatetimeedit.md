@@ -67,11 +67,14 @@ sidebar_label: "NodeDateTimeEdit"
 * [mapFromParent](nodedatetimeedit.md#mapfromparent)
 * [mapToGlobal](nodedatetimeedit.md#maptoglobal)
 * [mapToParent](nodedatetimeedit.md#maptoparent)
+* [maximumSize](nodedatetimeedit.md#maximumsize)
+* [minimumSize](nodedatetimeedit.md#minimumsize)
 * [move](nodedatetimeedit.md#move)
 * [objectName](nodedatetimeedit.md#objectname)
 * [pos](nodedatetimeedit.md#pos)
 * [property](nodedatetimeedit.md#property)
 * [raise](nodedatetimeedit.md#raise)
+* [removeAction](nodedatetimeedit.md#removeaction)
 * [removeEventListener](nodedatetimeedit.md#removeeventlistener)
 * [repaint](nodedatetimeedit.md#repaint)
 * [repolish](nodedatetimeedit.md#repolish)
@@ -95,6 +98,7 @@ sidebar_label: "NodeDateTimeEdit"
 * [setFont](nodedatetimeedit.md#setfont)
 * [setFrame](nodedatetimeedit.md#setframe)
 * [setGeometry](nodedatetimeedit.md#setgeometry)
+* [setGraphicsEffect](nodedatetimeedit.md#setgraphicseffect)
 * [setGroupSeparatorShown](nodedatetimeedit.md#setgroupseparatorshown)
 * [setInlineStyle](nodedatetimeedit.md#setinlinestyle)
 * [setKeyboardTracking](nodedatetimeedit.md#setkeyboardtracking)
@@ -611,6 +615,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -673,6 +697,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -1046,6 +1086,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

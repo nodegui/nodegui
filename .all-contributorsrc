@@ -265,6 +265,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "agg23",
+      "name": "Adam Gastineau",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/238679?v=4",
+      "profile": "https://github.com/agg23",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

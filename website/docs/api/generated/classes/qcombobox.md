@@ -84,11 +84,14 @@ console.log('currentIndexChanged: ' + index);
 * [mapToGlobal](qcombobox.md#maptoglobal)
 * [mapToParent](qcombobox.md#maptoparent)
 * [maxVisibleItems](qcombobox.md#maxvisibleitems)
+* [maximumSize](qcombobox.md#maximumsize)
+* [minimumSize](qcombobox.md#minimumsize)
 * [move](qcombobox.md#move)
 * [objectName](qcombobox.md#objectname)
 * [pos](qcombobox.md#pos)
 * [property](qcombobox.md#property)
 * [raise](qcombobox.md#raise)
+* [removeAction](qcombobox.md#removeaction)
 * [removeEventListener](qcombobox.md#removeeventlistener)
 * [removeItem](qcombobox.md#removeitem)
 * [repaint](qcombobox.md#repaint)
@@ -106,6 +109,7 @@ console.log('currentIndexChanged: ' + index);
 * [setFlexNodeSizeControlled](qcombobox.md#setflexnodesizecontrolled)
 * [setFont](qcombobox.md#setfont)
 * [setGeometry](qcombobox.md#setgeometry)
+* [setGraphicsEffect](qcombobox.md#setgraphicseffect)
 * [setInlineStyle](qcombobox.md#setinlinestyle)
 * [setLayout](qcombobox.md#setlayout)
 * [setMaxVisibleItems](qcombobox.md#setmaxvisibleitems)
@@ -624,6 +628,26 @@ ___
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -686,6 +710,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -969,6 +1009,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

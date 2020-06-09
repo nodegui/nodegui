@@ -65,7 +65,9 @@ const scrollbar = new QScrollBar();
 * [mapToGlobal](qscrollbar.md#maptoglobal)
 * [mapToParent](qscrollbar.md#maptoparent)
 * [maximum](qscrollbar.md#maximum)
+* [maximumSize](qscrollbar.md#maximumsize)
 * [minimum](qscrollbar.md#minimum)
+* [minimumSize](qscrollbar.md#minimumsize)
 * [move](qscrollbar.md#move)
 * [objectName](qscrollbar.md#objectname)
 * [orientation](qscrollbar.md#orientation)
@@ -73,6 +75,7 @@ const scrollbar = new QScrollBar();
 * [pos](qscrollbar.md#pos)
 * [property](qscrollbar.md#property)
 * [raise](qscrollbar.md#raise)
+* [removeAction](qscrollbar.md#removeaction)
 * [removeEventListener](qscrollbar.md#removeeventlistener)
 * [repaint](qscrollbar.md#repaint)
 * [repolish](qscrollbar.md#repolish)
@@ -85,6 +88,7 @@ const scrollbar = new QScrollBar();
 * [setFlexNodeSizeControlled](qscrollbar.md#setflexnodesizecontrolled)
 * [setFont](qscrollbar.md#setfont)
 * [setGeometry](qscrollbar.md#setgeometry)
+* [setGraphicsEffect](qscrollbar.md#setgraphicseffect)
 * [setInlineStyle](qscrollbar.md#setinlinestyle)
 * [setInvertedAppearance](qscrollbar.md#setinvertedappearance)
 * [setInvertedControls](qscrollbar.md#setinvertedcontrols)
@@ -521,6 +525,16 @@ ___
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  minimum
 
 ▸ **minimum**(): *number*
@@ -528,6 +542,16 @@ ___
 *Inherited from [QAbstractSlider](qabstractslider.md).[minimum](qabstractslider.md#minimum)*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -613,6 +637,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -826,6 +866,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

@@ -71,7 +71,9 @@ QAbstractSlider will list all methods and properties that are common to all slid
 * [mapToGlobal](qabstractslider.md#maptoglobal)
 * [mapToParent](qabstractslider.md#maptoparent)
 * [maximum](qabstractslider.md#maximum)
+* [maximumSize](qabstractslider.md#maximumsize)
 * [minimum](qabstractslider.md#minimum)
+* [minimumSize](qabstractslider.md#minimumsize)
 * [move](qabstractslider.md#move)
 * [objectName](qabstractslider.md#objectname)
 * [orientation](qabstractslider.md#orientation)
@@ -79,6 +81,7 @@ QAbstractSlider will list all methods and properties that are common to all slid
 * [pos](qabstractslider.md#pos)
 * [property](qabstractslider.md#property)
 * [raise](qabstractslider.md#raise)
+* [removeAction](qabstractslider.md#removeaction)
 * [removeEventListener](qabstractslider.md#removeeventlistener)
 * [repaint](qabstractslider.md#repaint)
 * [repolish](qabstractslider.md#repolish)
@@ -91,6 +94,7 @@ QAbstractSlider will list all methods and properties that are common to all slid
 * [setFlexNodeSizeControlled](qabstractslider.md#setflexnodesizecontrolled)
 * [setFont](qabstractslider.md#setfont)
 * [setGeometry](qabstractslider.md#setgeometry)
+* [setGraphicsEffect](qabstractslider.md#setgraphicseffect)
 * [setInlineStyle](qabstractslider.md#setinlinestyle)
 * [setInvertedAppearance](qabstractslider.md#setinvertedappearance)
 * [setInvertedControls](qabstractslider.md#setinvertedcontrols)
@@ -513,11 +517,31 @@ ___
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  minimum
 
 ▸ **minimum**(): *number*
 
 **Returns:** *number*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -599,6 +623,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -812,6 +852,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

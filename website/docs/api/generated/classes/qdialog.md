@@ -54,6 +54,8 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 * [mapFromParent](qdialog.md#mapfromparent)
 * [mapToGlobal](qdialog.md#maptoglobal)
 * [mapToParent](qdialog.md#maptoparent)
+* [maximumSize](qdialog.md#maximumsize)
+* [minimumSize](qdialog.md#minimumsize)
 * [move](qdialog.md#move)
 * [objectName](qdialog.md#objectname)
 * [open](qdialog.md#open)
@@ -61,6 +63,7 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 * [property](qdialog.md#property)
 * [raise](qdialog.md#raise)
 * [reject](qdialog.md#reject)
+* [removeAction](qdialog.md#removeaction)
 * [removeEventListener](qdialog.md#removeeventlistener)
 * [repaint](qdialog.md#repaint)
 * [repolish](qdialog.md#repolish)
@@ -74,6 +77,7 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 * [setFlexNodeSizeControlled](qdialog.md#setflexnodesizecontrolled)
 * [setFont](qdialog.md#setfont)
 * [setGeometry](qdialog.md#setgeometry)
+* [setGraphicsEffect](qdialog.md#setgraphicseffect)
 * [setInlineStyle](qdialog.md#setinlinestyle)
 * [setLayout](qdialog.md#setlayout)
 * [setMaximumSize](qdialog.md#setmaximumsize)
@@ -461,6 +465,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -543,6 +567,22 @@ ___
 ▸ **reject**(): *void*
 
 *Inherited from [NodeDialog](nodedialog.md).[reject](nodedialog.md#reject)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -766,6 +806,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

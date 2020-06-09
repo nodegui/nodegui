@@ -76,11 +76,14 @@ It is inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
 * [mapFromParent](qabstractbutton.md#mapfromparent)
 * [mapToGlobal](qabstractbutton.md#maptoglobal)
 * [mapToParent](qabstractbutton.md#maptoparent)
+* [maximumSize](qabstractbutton.md#maximumsize)
+* [minimumSize](qabstractbutton.md#minimumsize)
 * [move](qabstractbutton.md#move)
 * [objectName](qabstractbutton.md#objectname)
 * [pos](qabstractbutton.md#pos)
 * [property](qabstractbutton.md#property)
 * [raise](qabstractbutton.md#raise)
+* [removeAction](qabstractbutton.md#removeaction)
 * [removeEventListener](qabstractbutton.md#removeeventlistener)
 * [repaint](qabstractbutton.md#repaint)
 * [repolish](qabstractbutton.md#repolish)
@@ -100,6 +103,7 @@ It is inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
 * [setFlexNodeSizeControlled](qabstractbutton.md#setflexnodesizecontrolled)
 * [setFont](qabstractbutton.md#setfont)
 * [setGeometry](qabstractbutton.md#setgeometry)
+* [setGraphicsEffect](qabstractbutton.md#setgraphicseffect)
 * [setIcon](qabstractbutton.md#seticon)
 * [setIconSize](qabstractbutton.md#seticonsize)
 * [setInlineStyle](qabstractbutton.md#setinlinestyle)
@@ -567,6 +571,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -629,6 +653,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -940,6 +980,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

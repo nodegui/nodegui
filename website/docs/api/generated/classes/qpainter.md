@@ -59,6 +59,7 @@ https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpa
 * [begin](qpainter.md#begin)
 * [drawConvexPolygon](qpainter.md#drawconvexpolygon)
 * [drawLine](qpainter.md#drawline)
+* [drawPath](qpainter.md#drawpath)
 * [drawText](qpainter.md#drawtext)
 * [end](qpainter.md#end)
 * [restore](qpainter.md#restore)
@@ -69,6 +70,7 @@ https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpa
 * [setNodeParent](qpainter.md#setnodeparent)
 * [setPen](qpainter.md#setpen)
 * [setRenderHint](qpainter.md#setrenderhint)
+* [strokePath](qpainter.md#strokepath)
 * [translate](qpainter.md#translate)
 
 ## Constructors
@@ -159,6 +161,20 @@ Name | Type |
 `y1` | number |
 `x2` | number |
 `y2` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawPath
+
+▸ **drawPath**(`path`: [QPainterPath](qpainterpath.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`path` | [QPainterPath](qpainterpath.md) |
 
 **Returns:** *void*
 
@@ -265,13 +281,13 @@ ___
 
 ###  setPen
 
-▸ **setPen**(`arg`: [PenStyle](../enums/penstyle.md) | [QColor](qcolor.md)): *void*
+▸ **setPen**(`arg`: [PenStyle](../enums/penstyle.md) | [QColor](qcolor.md) | [QPen](qpen.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`arg` | [PenStyle](../enums/penstyle.md) &#124; [QColor](qcolor.md) |
+`arg` | [PenStyle](../enums/penstyle.md) &#124; [QColor](qcolor.md) &#124; [QPen](qpen.md) |
 
 **Returns:** *void*
 
@@ -287,6 +303,21 @@ Name | Type | Default |
 ------ | ------ | ------ |
 `hint` | [RenderHint](../enums/renderhint.md) | - |
 `on` | boolean | true |
+
+**Returns:** *void*
+
+___
+
+###  strokePath
+
+▸ **strokePath**(`path`: [QPainterPath](qpainterpath.md), `pen`: [QPen](qpen.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`path` | [QPainterPath](qpainterpath.md) |
+`pen` | [QPen](qpen.md) |
 
 **Returns:** *void*
 

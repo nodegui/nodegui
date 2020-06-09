@@ -69,11 +69,14 @@ const progressBar = new QStatusBar();
 * [mapFromParent](qstatusbar.md#mapfromparent)
 * [mapToGlobal](qstatusbar.md#maptoglobal)
 * [mapToParent](qstatusbar.md#maptoparent)
+* [maximumSize](qstatusbar.md#maximumsize)
+* [minimumSize](qstatusbar.md#minimumsize)
 * [move](qstatusbar.md#move)
 * [objectName](qstatusbar.md#objectname)
 * [pos](qstatusbar.md#pos)
 * [property](qstatusbar.md#property)
 * [raise](qstatusbar.md#raise)
+* [removeAction](qstatusbar.md#removeaction)
 * [removeEventListener](qstatusbar.md#removeeventlistener)
 * [removeWidget](qstatusbar.md#removewidget)
 * [repaint](qstatusbar.md#repaint)
@@ -87,6 +90,7 @@ const progressBar = new QStatusBar();
 * [setFlexNodeSizeControlled](qstatusbar.md#setflexnodesizecontrolled)
 * [setFont](qstatusbar.md#setfont)
 * [setGeometry](qstatusbar.md#setgeometry)
+* [setGraphicsEffect](qstatusbar.md#setgraphicseffect)
 * [setInlineStyle](qstatusbar.md#setinlinestyle)
 * [setLayout](qstatusbar.md#setlayout)
 * [setMaximumSize](qstatusbar.md#setmaximumsize)
@@ -577,6 +581,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -639,6 +663,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -869,6 +909,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 

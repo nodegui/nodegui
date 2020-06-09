@@ -26,7 +26,7 @@ export const CodeExample = () => {
         </p>
 
         <p>
-          With NodeGui you get flexibility of web and perfromance of Native
+          With NodeGui you get flexibility of web and performance of Native
           desktop apps.
         </p>
       </div>

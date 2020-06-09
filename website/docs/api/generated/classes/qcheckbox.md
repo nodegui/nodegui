@@ -74,11 +74,14 @@ checkbox.setText("Hello");
 * [mapFromParent](qcheckbox.md#mapfromparent)
 * [mapToGlobal](qcheckbox.md#maptoglobal)
 * [mapToParent](qcheckbox.md#maptoparent)
+* [maximumSize](qcheckbox.md#maximumsize)
+* [minimumSize](qcheckbox.md#minimumsize)
 * [move](qcheckbox.md#move)
 * [objectName](qcheckbox.md#objectname)
 * [pos](qcheckbox.md#pos)
 * [property](qcheckbox.md#property)
 * [raise](qcheckbox.md#raise)
+* [removeAction](qcheckbox.md#removeaction)
 * [removeEventListener](qcheckbox.md#removeeventlistener)
 * [repaint](qcheckbox.md#repaint)
 * [repolish](qcheckbox.md#repolish)
@@ -99,6 +102,7 @@ checkbox.setText("Hello");
 * [setFlexNodeSizeControlled](qcheckbox.md#setflexnodesizecontrolled)
 * [setFont](qcheckbox.md#setfont)
 * [setGeometry](qcheckbox.md#setgeometry)
+* [setGraphicsEffect](qcheckbox.md#setgraphicseffect)
 * [setIcon](qcheckbox.md#seticon)
 * [setIconSize](qcheckbox.md#seticonsize)
 * [setInlineStyle](qcheckbox.md#setinlinestyle)
@@ -622,6 +626,26 @@ Name | Type |
 
 ___
 
+###  maximumSize
+
+▸ **maximumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSize
+
+▸ **minimumSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
 ###  move
 
 ▸ **move**(`x`: number, `y`: number): *void*
@@ -684,6 +708,22 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  removeAction
+
+▸ **removeAction**(`action`: [QAction](qaction.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[removeAction](qmenu.md#removeaction)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [QAction](qaction.md) |
 
 **Returns:** *void*
 
@@ -1023,6 +1063,22 @@ Name | Type |
 `y` | number |
 `w` | number |
 `h` | number |
+
+**Returns:** *void*
+
+___
+
+###  setGraphicsEffect
+
+▸ **setGraphicsEffect**(`effect`: [QGraphicsEffect](qgraphicseffect.md)‹any›): *void*
+
+*Inherited from [QMenu](qmenu.md).[setGraphicsEffect](qmenu.md#setgraphicseffect)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
 
 **Returns:** *void*
 
