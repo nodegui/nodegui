@@ -127,9 +127,17 @@ Please read https://github.com/nodegui/.github/blob/master/CONTRIBUTING.md
 
 Optionally set `QT_INSTALL_DIR='/path/to/qt'` environment variable to build using your own version of Qt.
 
+## Updating docs
+
+`npm run docs`
+
+then followed by:
+
+`cd website &&  GIT_USER=<your_git_username> yarn deploy`
+
 ## Funding
 
-NodeGUI is an open source project and requires your support. If you like this project, please consider supporting my work by clicking on the Sponsor button on this Github repository or via Ko-Fi.
+NodeGui is an open source project and requires your support. If you like this project, please consider supporting my work by clicking on the Sponsor button on this Github repository or via Ko-Fi.
 Alternatively, Issues on NodeGui can be funded by anyone via Issuehunt and the amount will be distributed to respective contributors.
 
 <p>
