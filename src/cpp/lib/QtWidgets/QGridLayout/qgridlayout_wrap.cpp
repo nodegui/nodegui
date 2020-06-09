@@ -16,14 +16,19 @@ Napi::Object QGridLayoutWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("rowStretch", &QGridLayoutWrap::rowStretch),
        InstanceMethod("setColumnStretch", &QGridLayoutWrap::setColumnStretch),
        InstanceMethod("setRowStretch", &QGridLayoutWrap::setRowStretch),
-       InstanceMethod("columnMinimumWidth", &QGridLayoutWrap::columnMinimumWidth),
+       InstanceMethod("columnMinimumWidth",
+                      &QGridLayoutWrap::columnMinimumWidth),
        InstanceMethod("rowMinimumHeight", &QGridLayoutWrap::rowMinimumHeight),
-       InstanceMethod("setColumnMinimumWidth", &QGridLayoutWrap::setColumnMinimumWidth),
-       InstanceMethod("setRowMinimumHeight", &QGridLayoutWrap::setRowMinimumHeight),
+       InstanceMethod("setColumnMinimumWidth",
+                      &QGridLayoutWrap::setColumnMinimumWidth),
+       InstanceMethod("setRowMinimumHeight",
+                      &QGridLayoutWrap::setRowMinimumHeight),
        InstanceMethod("horizontalSpacing", &QGridLayoutWrap::horizontalSpacing),
        InstanceMethod("verticalSpacing", &QGridLayoutWrap::verticalSpacing),
-       InstanceMethod("setHorizontalSpacing", &QGridLayoutWrap::setHorizontalSpacing),
-       InstanceMethod("setVerticalSpacing", &QGridLayoutWrap::setVerticalSpacing),
+       InstanceMethod("setHorizontalSpacing",
+                      &QGridLayoutWrap::setHorizontalSpacing),
+       InstanceMethod("setVerticalSpacing",
+                      &QGridLayoutWrap::setVerticalSpacing),
        InstanceMethod("columnCount", &QGridLayoutWrap::columnCount),
        InstanceMethod("rowCount", &QGridLayoutWrap::rowCount),
        QLAYOUT_WRAPPED_METHODS_EXPORT_DEFINE(QGridLayoutWrap)});
@@ -120,7 +125,8 @@ Napi::Value QGridLayoutWrap::setRowStretch(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value QGridLayoutWrap::columnMinimumWidth(const Napi::CallbackInfo& info) {
+Napi::Value QGridLayoutWrap::columnMinimumWidth(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -138,7 +144,8 @@ Napi::Value QGridLayoutWrap::rowMinimumHeight(const Napi::CallbackInfo& info) {
   return Napi::Number::From(env, value);
 }
 
-Napi::Value QGridLayoutWrap::setColumnMinimumWidth(const Napi::CallbackInfo& info) {
+Napi::Value QGridLayoutWrap::setColumnMinimumWidth(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -148,7 +155,8 @@ Napi::Value QGridLayoutWrap::setColumnMinimumWidth(const Napi::CallbackInfo& inf
   return env.Null();
 }
 
-Napi::Value QGridLayoutWrap::setRowMinimumHeight(const Napi::CallbackInfo& info) {
+Napi::Value QGridLayoutWrap::setRowMinimumHeight(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -174,7 +182,8 @@ Napi::Value QGridLayoutWrap::verticalSpacing(const Napi::CallbackInfo& info) {
   return Napi::Number::From(env, value);
 }
 
-Napi::Value QGridLayoutWrap::setHorizontalSpacing(const Napi::CallbackInfo& info) {
+Napi::Value QGridLayoutWrap::setHorizontalSpacing(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -183,7 +192,8 @@ Napi::Value QGridLayoutWrap::setHorizontalSpacing(const Napi::CallbackInfo& info
   return env.Null();
 }
 
-Napi::Value QGridLayoutWrap::setVerticalSpacing(const Napi::CallbackInfo& info) {
+Napi::Value QGridLayoutWrap::setVerticalSpacing(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
