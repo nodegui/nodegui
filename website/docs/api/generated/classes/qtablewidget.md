@@ -67,6 +67,7 @@ win.show();
 * [clearContents](qtablewidget.md#clearcontents)
 * [close](qtablewidget.md#close)
 * [closePersistentEditor](qtablewidget.md#closepersistenteditor)
+* [columnCount](qtablewidget.md#columncount)
 * [editItem](qtablewidget.md#edititem)
 * [font](qtablewidget.md#font)
 * [frameRect](qtablewidget.md#framerect)
@@ -111,12 +112,14 @@ win.show();
 * [resizeColumnsToContents](qtablewidget.md#resizecolumnstocontents)
 * [resizeRowToContents](qtablewidget.md#resizerowtocontents)
 * [resizeRowsToContents](qtablewidget.md#resizerowstocontents)
+* [rowCount](qtablewidget.md#rowcount)
 * [scrollToItem](qtablewidget.md#scrolltoitem)
 * [selectColumn](qtablewidget.md#selectcolumn)
 * [selectRow](qtablewidget.md#selectrow)
 * [selectedRanges](qtablewidget.md#selectedranges)
 * [setAttribute](qtablewidget.md#setattribute)
 * [setCellWidget](qtablewidget.md#setcellwidget)
+* [setColumnCount](qtablewidget.md#setcolumncount)
 * [setColumnWidth](qtablewidget.md#setcolumnwidth)
 * [setContextMenuPolicy](qtablewidget.md#setcontextmenupolicy)
 * [setCursor](qtablewidget.md#setcursor)
@@ -144,6 +147,7 @@ win.show();
 * [setNodeParent](qtablewidget.md#setnodeparent)
 * [setObjectName](qtablewidget.md#setobjectname)
 * [setProperty](qtablewidget.md#setproperty)
+* [setRowCount](qtablewidget.md#setrowcount)
 * [setRowHeight](qtablewidget.md#setrowheight)
 * [setShowGrid](qtablewidget.md#setshowgrid)
 * [setSortingEnabled](qtablewidget.md#setsortingenabled)
@@ -307,7 +311,7 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QTableWidgetSignals[SignalType]): *void*
+▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QTableWidgetSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
@@ -408,6 +412,14 @@ Name | Type |
 `item` | [QTableWidgetItem](qtablewidgetitem.md) |
 
 **Returns:** *void*
+
+___
+
+###  columnCount
+
+▸ **columnCount**(): *number*
+
+**Returns:** *number*
 
 ___
 
@@ -838,7 +850,7 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QTableWidgetSignals[SignalType]): *void*
+▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QTableWidgetSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
@@ -972,6 +984,14 @@ ___
 
 ___
 
+###  rowCount
+
+▸ **rowCount**(): *number*
+
+**Returns:** *number*
+
+___
+
 ###  scrollToItem
 
 ▸ **scrollToItem**(`item`: [QTableWidgetItem](qtablewidgetitem.md), `hint`: [ScrollHint](../enums/scrollhint.md)): *void*
@@ -1051,6 +1071,20 @@ Name | Type |
 `row` | number |
 `column` | number |
 `widget` | [NodeWidget](nodewidget.md)‹any› |
+
+**Returns:** *void*
+
+___
+
+###  setColumnCount
+
+▸ **setColumnCount**(`count`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`count` | number |
 
 **Returns:** *void*
 
@@ -1492,6 +1526,20 @@ Name | Type |
 `value` | [QVariantType](../globals.md#qvarianttype) |
 
 **Returns:** *boolean*
+
+___
+
+###  setRowCount
+
+▸ **setRowCount**(`count`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`count` | number |
+
+**Returns:** *void*
 
 ___
 

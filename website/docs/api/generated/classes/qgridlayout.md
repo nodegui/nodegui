@@ -50,6 +50,10 @@ layout.addWidget(label2);
 * [activate](qgridlayout.md#activate)
 * [addEventListener](qgridlayout.md#addeventlistener)
 * [addWidget](qgridlayout.md#addwidget)
+* [columnCount](qgridlayout.md#columncount)
+* [columnMinimumWidth](qgridlayout.md#columnminimumwidth)
+* [columnStretch](qgridlayout.md#columnstretch)
+* [horizontalSpacing](qgridlayout.md#horizontalspacing)
 * [inherits](qgridlayout.md#inherits)
 * [invalidate](qgridlayout.md#invalidate)
 * [isEnabled](qgridlayout.md#isenabled)
@@ -57,16 +61,26 @@ layout.addWidget(label2);
 * [property](qgridlayout.md#property)
 * [removeEventListener](qgridlayout.md#removeeventlistener)
 * [removeWidget](qgridlayout.md#removewidget)
+* [rowCount](qgridlayout.md#rowcount)
+* [rowMinimumHeight](qgridlayout.md#rowminimumheight)
+* [rowStretch](qgridlayout.md#rowstretch)
+* [setColumnMinimumWidth](qgridlayout.md#setcolumnminimumwidth)
+* [setColumnStretch](qgridlayout.md#setcolumnstretch)
 * [setContentsMargins](qgridlayout.md#setcontentsmargins)
 * [setEnabled](qgridlayout.md#setenabled)
+* [setHorizontalSpacing](qgridlayout.md#sethorizontalspacing)
 * [setNodeParent](qgridlayout.md#setnodeparent)
 * [setObjectName](qgridlayout.md#setobjectname)
 * [setProperty](qgridlayout.md#setproperty)
+* [setRowMinimumHeight](qgridlayout.md#setrowminimumheight)
+* [setRowStretch](qgridlayout.md#setrowstretch)
 * [setSizeConstraint](qgridlayout.md#setsizeconstraint)
 * [setSpacing](qgridlayout.md#setspacing)
+* [setVerticalSpacing](qgridlayout.md#setverticalspacing)
 * [sizeConstraint](qgridlayout.md#sizeconstraint)
 * [spacing](qgridlayout.md#spacing)
 * [update](qgridlayout.md#update)
+* [verticalSpacing](qgridlayout.md#verticalspacing)
 
 ## Constructors
 
@@ -136,7 +150,7 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QGridLayoutSignals[SignalType]): *void*
+▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QGridLayoutSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
@@ -210,6 +224,50 @@ Name | Type | Default |
 
 ___
 
+###  columnCount
+
+▸ **columnCount**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  columnMinimumWidth
+
+▸ **columnMinimumWidth**(`column`: number): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`column` | number |
+
+**Returns:** *number*
+
+___
+
+###  columnStretch
+
+▸ **columnStretch**(`column`: number): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`column` | number |
+
+**Returns:** *number*
+
+___
+
+###  horizontalSpacing
+
+▸ **horizontalSpacing**(): *number*
+
+**Returns:** *number*
+
+___
+
 ###  inherits
 
 ▸ **inherits**(`className`: string): *boolean*
@@ -274,7 +332,7 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**<**SignalType**>(`signalType`: SignalType, `callback`: QGridLayoutSignals[SignalType]): *void*
+▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QGridLayoutSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
@@ -329,6 +387,72 @@ Name | Type |
 
 ___
 
+###  rowCount
+
+▸ **rowCount**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  rowMinimumHeight
+
+▸ **rowMinimumHeight**(`row`: number): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`row` | number |
+
+**Returns:** *number*
+
+___
+
+###  rowStretch
+
+▸ **rowStretch**(`row`: number): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`row` | number |
+
+**Returns:** *number*
+
+___
+
+###  setColumnMinimumWidth
+
+▸ **setColumnMinimumWidth**(`column`: number, `minSize`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`column` | number |
+`minSize` | number |
+
+**Returns:** *void*
+
+___
+
+###  setColumnStretch
+
+▸ **setColumnStretch**(`column`: number, `stretch`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`column` | number |
+`stretch` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setContentsMargins
 
 ▸ **setContentsMargins**(`left`: number, `top`: number, `right`: number, `bottom`: number): *void*
@@ -359,6 +483,20 @@ ___
 Name | Type |
 ------ | ------ |
 `enable` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setHorizontalSpacing
+
+▸ **setHorizontalSpacing**(`spacing`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`spacing` | number |
 
 **Returns:** *void*
 
@@ -413,6 +551,36 @@ Name | Type |
 
 ___
 
+###  setRowMinimumHeight
+
+▸ **setRowMinimumHeight**(`row`: number, `minSize`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`row` | number |
+`minSize` | number |
+
+**Returns:** *void*
+
+___
+
+###  setRowStretch
+
+▸ **setRowStretch**(`row`: number, `stretch`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`row` | number |
+`stretch` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setSizeConstraint
 
 ▸ **setSizeConstraint**(`constraint`: [SizeConstraint](../enums/sizeconstraint.md)): *void*
@@ -434,6 +602,20 @@ ___
 ▸ **setSpacing**(`spacing`: number): *void*
 
 *Inherited from [NodeLayout](nodelayout.md).[setSpacing](nodelayout.md#setspacing)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`spacing` | number |
+
+**Returns:** *void*
+
+___
+
+###  setVerticalSpacing
+
+▸ **setVerticalSpacing**(`spacing`: number): *void*
 
 **Parameters:**
 
@@ -472,3 +654,11 @@ ___
 *Inherited from [NodeLayout](nodelayout.md).[update](nodelayout.md#update)*
 
 **Returns:** *void*
+
+___
+
+###  verticalSpacing
+
+▸ **verticalSpacing**(): *number*
+
+**Returns:** *number*

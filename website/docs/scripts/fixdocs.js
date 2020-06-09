@@ -3,13 +3,13 @@ const path = require('path');
 
 async function renameFile(oldPath, newPath) {
     return new Promise((resolve, reject) => {
-        fs.rename(oldPath, newPath, err => (err ? reject(err) : resolve()));
+        fs.rename(oldPath, newPath, (err) => (err ? reject(err) : resolve()));
     });
 }
 
 async function writeFile(filePath, fileContent) {
     return new Promise((resolve, reject) => {
-        fs.writeFile(filePath, fileContent, err => (err ? reject(err) : resolve()));
+        fs.writeFile(filePath, fileContent, (err) => (err ? reject(err) : resolve()));
     });
 }
 
@@ -25,7 +25,7 @@ async function emptyIndexMd() {
 
 async function fixDocs() {
     console.log('Fixing Docs...');
-    await moveGeneratedSideBar();
+    // await moveGeneratedSideBar();
     await emptyIndexMd();
     console.log('Docs fixed successfully.');
 }

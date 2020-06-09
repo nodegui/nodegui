@@ -14,10 +14,11 @@ function noop(): void {
     return;
 }
 
-export const wrapWithActivateUvLoop = (func: Function) => {
-    return (...args: any[]): any => {
+export function wrapWithActivateUvLoop<T extends Function>(func: T): T {
+    const fn = (...args: any[]): any => {
         const activateUvLoop = (process as any).activateUvLoop || noop;
         activateUvLoop();
         return func(...args);
     };
-};
+    return fn as any;
+}
