@@ -1,6 +1,4 @@
 import { QMainWindow, QWidget } from '.';
-import { QPushButton } from './lib/QtWidgets/QPushButton';
-import { FlexLayout } from './lib/core/FlexLayout';
 import { QGridLayout } from './lib/QtWidgets/QGridLayout';
 import { QLabel } from './lib/QtWidgets/QLabel';
 
@@ -44,41 +42,6 @@ columnFour.setInlineStyle('background-color: orange');
 outerLayout.addWidget(columnFour, 1, 1);
 
 console.log(outerLayout.rowCount(), outerLayout.columnCount());
-
-// const inner = new QWidget();
-// outerLayout.addWidget(inner);
-// const innerLayout = new FlexLayout();
-// innerLayout.setFlexNode(inner.getFlexNode());
-// innerLayout.setLogging();
-// inner.setLayout(innerLayout);
-// inner.setInlineStyle('background-color: blue');
-
-// const button = new QPushButton();
-// button.setText('Toggle On');
-// button.addEventListener('clicked', () => {
-//     button.setText(button.text() === 'Toggle On' ? 'Toggle Ou' : 'Toggle On');
-// });
-// innerLayout.addWidget(button);
-
-// const centralWidget = new QWidget();
-// const centralLayout = new FlexLayout();
-
-// centralLayout.setFlexNode(centralWidget.getFlexNode());
-// centralLayout.addWidget(outer);
-// centralWidget.setLayout(centralLayout);
-
-// const inner = new QWidget();
-// const innerLayout = new QGridLayout();
-// inner.setLayout(innerLayout);
-// inner.setInlineStyle('background-color: blue');
-// outerLayout.addWidget(inner);
-
-// const button = new QPushButton();
-// button.setText('Toggle On');
-// button.addEventListener('clicked', () => {
-//     button.setText(button.text() === 'Toggle On' ? 'Toggle Ou' : 'Toggle On');
-// });
-// innerLayout.addWidget(button);
 
 win.setCentralWidget(outer);
 win.show();
