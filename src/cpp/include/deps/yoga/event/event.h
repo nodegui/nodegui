@@ -8,9 +8,9 @@
 #pragma once
 
 #include <yoga/YGEnums.h>
-#include <cstdint>
 
 #include <array>
+#include <cstdint>
 #include <functional>
 #include <vector>
 
