@@ -226,6 +226,7 @@ sidebar_label: "Globals"
 * [QMessageBox](classes/qmessagebox.md)
 * [QModelIndex](classes/qmodelindex.md)
 * [QMouseEvent](classes/qmouseevent.md)
+* [QWheelEvent](classes/qwheelevent.md)
 * [QMovie](classes/qmovie.md)
 * [QObject](classes/qobject.md)
 * [QPainter](classes/qpainter.md)

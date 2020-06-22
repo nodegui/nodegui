@@ -65,6 +65,7 @@ module.exports = {
             'api/generated/classes/qmessagebox',
             'api/generated/classes/qmodelindex',
             'api/generated/classes/qmouseevent',
+            'api/generated/classes/qwheelevent',
             'api/generated/classes/qmovie',
             'api/generated/classes/qobject',
             'api/generated/classes/qpainter',
