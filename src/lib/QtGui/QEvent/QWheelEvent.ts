@@ -82,11 +82,4 @@ export class QWheelEvent {
     position(): { x: number; y: number } {
         return this.native.position();
     }
-
-    x(): number {
-        return this.native.x();
-    }
-    y(): number {
-        return this.native.y();
-    }
 }
