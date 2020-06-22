@@ -1,6 +1,6 @@
 import addon from '../../utils/addon';
 import { NativeElement } from '../../core/Component';
-import { GestureType } from '../../QtEnums';
+import { NativeGestureType } from '../../QtEnums';
 
 export class QNativeGestureEvent {
     native: NativeElement;
@@ -13,7 +13,7 @@ export class QNativeGestureEvent {
     //     return undefined;
     // }
     /** Returns the gesture type */
-    gestureType(): GestureType {
+    gestureType(): NativeGestureType {
         return this.native.gestureType();
     }
     /**

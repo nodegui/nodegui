@@ -23,7 +23,8 @@ class DLL_EXPORT QTabletEventWrap : public Napi::ObjectWrap<QTabletEventWrap> {
   // wrapped methods
   Napi::Value button(const Napi::CallbackInfo& info);
   Napi::Value buttons(const Napi::CallbackInfo& info);
-  Napi::Value deviceType(const Napi::CallbackInfo& info);
+  //Somehow this method isn't found on build?
+  // Napi::Value deviceType(const Napi::CallbackInfo& info);
   Napi::Value globalPos(const Napi::CallbackInfo& info);
   Napi::Value globalPosF(const Napi::CallbackInfo& info);
   Napi::Value globalX(const Napi::CallbackInfo& info);

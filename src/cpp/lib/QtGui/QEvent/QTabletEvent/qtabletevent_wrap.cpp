@@ -15,7 +15,7 @@ Napi::Object QTabletEventWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("button", &QTabletEventWrap::button),
        InstanceMethod("buttons", &QTabletEventWrap::buttons),
-       InstanceMethod("deviceType", &QTabletEventWrap::deviceType),
+      //  InstanceMethod("deviceType", &QTabletEventWrap::deviceType),
        InstanceMethod("globalPos", &QTabletEventWrap::globalPos),
        InstanceMethod("globalPosF", &QTabletEventWrap::globalPosF),
        InstanceMethod("globalX", &QTabletEventWrap::globalX),
@@ -71,11 +71,11 @@ Napi::Value QTabletEventWrap::buttons(const Napi::CallbackInfo& info) {
   int b = static_cast<int>(this->instance->buttons());
   return Napi::Number::From(env, b);
 }
-Napi::Value QTabletEventWrap::deviceType(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  int f = static_cast<int>(this->instance->deviceType());
-  return Napi::Number::From(env, f);
-}
+// Napi::Value QTabletEventWrap::deviceType(const Napi::CallbackInfo& info) {
+//   Napi::Env env = info.Env();
+//   int f = static_cast<int>(this->instance->deviceType());
+//   return Napi::Number::From(env, f);
+// }
 Napi::Value QTabletEventWrap::globalPos(const Napi::CallbackInfo& info) {
   // Uses QPoint
   Napi::Env env = info.Env();

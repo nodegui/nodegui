@@ -55,13 +55,15 @@ export class QTabletEvent {
     buttons(): number {
         return this.native.buttons();
     }
-    /**
+    /*
      * Returns the type of device that generated the event
      * (see enum QTabletEvent::TabletDevice)
+     *
+     * Somehow the build couldn't find this method; may enable in the future
      */
-    deviceType(): TabletDevice {
-        return this.native.deviceType();
-    }
+    // deviceType(): TabletDevice {
+    //     return this.native.deviceType();
+    // }
     /**
      * Returns the global position of the device at the time of the event.
      *
