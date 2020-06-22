@@ -1,5 +1,6 @@
 import addon from '../../utils/addon';
 import { NativeElement } from '../../core/Component';
+import { ScrollPhase } from '../../QtEnums';
 
 export class QWheelEvent {
     native: NativeElement;
@@ -58,7 +59,7 @@ export class QWheelEvent {
      * Returns the scrolling phase of this wheel event
      * Note: The Qt::ScrollBegin and Qt::ScrollEnd phases are currently supported only on macOS
      */
-    phase(): number {
+    phase(): ScrollPhase {
         return this.native.phase();
     }
 

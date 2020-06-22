@@ -19,7 +19,9 @@
 #include "QtGui/QCursor/qcursor_wrap.h"
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include "QtGui/QEvent/QMouseEvent/qmouseevent_wrap.h"
+#include "QtGui/QEvent/QNativeGestureEvent/qnativegestureevent_wrap.h"
 #include "QtGui/QEvent/QWheelEvent/qwheelevent_wrap.h"
+#include "QtGui/QEvent/QTabletEvent/qtabletevent_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
 #include "QtGui/QFontDatabase/qfontdatabase_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
@@ -168,6 +170,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QKeyEventWrap::init(env, exports);
   QMouseEventWrap::init(env, exports);
   QWheelEventWrap::init(env, exports);
+  QTabletEventWrap::init(env, exports);
+  QNativeGestureEventWrap::init(env, exports);
   QPlainTextEditWrap::init(env, exports);
   QDialWrap::init(env, exports);
   QLabelWrap::init(env, exports);
