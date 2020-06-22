@@ -67,6 +67,7 @@ module.exports = {
             'api/generated/classes/qmouseevent',
             'api/generated/classes/qwheelevent',
             'api/generated/classes/qnativegestureevent',
+            'api/generated/classes/qtabletevent',
             'api/generated/classes/qmovie',
             'api/generated/classes/qobject',
             'api/generated/classes/qpainter',

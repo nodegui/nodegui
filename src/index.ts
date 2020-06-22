@@ -22,6 +22,7 @@ export { QKeyEvent } from './lib/QtGui/QEvent/QKeyEvent';
 export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
 export { QWheelEvent } from './lib/QtGui/QEvent/QWheelEvent';
 export { QNativeGestureEvent } from './lib/QtGui/QEvent/QNativeGestureEvent';
+export { QTabletEvent } from './lib/QtGui/QEvent/QTabletEvent';
 export { WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
 export { NodeWidget, QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
