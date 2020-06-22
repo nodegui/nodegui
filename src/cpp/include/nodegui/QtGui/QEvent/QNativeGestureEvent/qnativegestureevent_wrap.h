@@ -7,7 +7,8 @@
 #include "Extras/Export/export.h"
 #include "core/Component/component_macro.h"
 
-class DLL_EXPORT QNativeGestureEventWrap : public Napi::ObjectWrap<QNativeGestureEventWrap> {
+class DLL_EXPORT QNativeGestureEventWrap
+    : public Napi::ObjectWrap<QNativeGestureEventWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

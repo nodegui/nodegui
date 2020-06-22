@@ -8,7 +8,8 @@
 
 Napi::FunctionReference QNativeGestureEventWrap::constructor;
 
-Napi::Object QNativeGestureEventWrap::init(Napi::Env env, Napi::Object exports) {
+Napi::Object QNativeGestureEventWrap::init(Napi::Env env,
+                                           Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QNativeGestureEvent";
   Napi::Function func = DefineClass(
@@ -27,7 +28,9 @@ Napi::Object QNativeGestureEventWrap::init(Napi::Env env, Napi::Object exports) 
   return exports;
 }
 
-QNativeGestureEvent* QNativeGestureEventWrap::getInternalInstance() { return this->instance; }
+QNativeGestureEvent* QNativeGestureEventWrap::getInternalInstance() {
+  return this->instance;
+}
 
 QNativeGestureEventWrap::QNativeGestureEventWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QNativeGestureEventWrap>(info) {
@@ -48,7 +51,8 @@ QNativeGestureEventWrap::~QNativeGestureEventWrap() {
   // Do not destroy instance here. It will be done by Qt Event loop.
 }
 
-Napi::Value QNativeGestureEventWrap::gestureType(const Napi::CallbackInfo& info) {
+Napi::Value QNativeGestureEventWrap::gestureType(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int t = static_cast<int>(this->instance->gestureType());
   return Napi::Number::From(env, t);
@@ -119,6 +123,6 @@ Napi::Value QNativeGestureEventWrap::windowPos(const Napi::CallbackInfo& info) {
 
 Napi::Value QNativeGestureEventWrap::value(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  int v = static_cast<qreal>(this->instance->value());
+  qreal v = static_cast<qreal>(this->instance->value());
   return Napi::Number::From(env, v);
 }
