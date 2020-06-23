@@ -153,30 +153,6 @@ Napi::Value QPainterPathWrap::addPath(const Napi::CallbackInfo& info) {
 
 // }
 
-Napi::Value QPainterPathWrap::addRect(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  /*if(info.Length() == 1) {
-      Napi::Object rectObj = info[0].As<Napi::Object>();
-      Napi::ObjectWrap<QRectF>::Unwrap(rectObj);
-  QPainterPath* myPath = pathWrap->getInternalInstance();
-  myPath->addRect(*rectWrap);
-  return env.Null();
-  }
-  else */
-  if (info.Length() == 4) {
-    qreal x = info[0].As<Napi::Number>().DoubleValue();
-    qreal y = info[1].As<Napi::Number>().DoubleValue();
-    qreal width = info[2].As<Napi::Number>().DoubleValue();
-    qreal height = info[3].As<Napi::Number>().DoubleValue();
-    this->instance->addRect(x, y, width, height);
-  } else {
-    Napi::TypeError::New(env, "Invalid number of arguments to addRect")
-        .ThrowAsJavaScriptException();
-  }
-  return env.Null();
-}
-
 Napi::Value QPainterPathWrap::addRoundedRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -358,12 +334,15 @@ Napi::Value QPainterPathWrap::length(const Napi::CallbackInfo& info) {
 }
 Napi::Value QPainterPathWrap::percentAtLength(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  qreal v = static_cast<qreal>(this->instance->percentAtLength());
+  int l = info[0].As<Napi::Number>().Int32Value();
+  qreal v = static_cast<qreal>(this->instance->percentAtLength(l));
   return Napi::Number::From(env, v);
 }
 Napi::Value QPainterPathWrap::pointAtPercent(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  QPointF point = static_cast<QPointF>(this->instance->pointAtPercent());
+  Napi::HandleScope scope(env);
+  qreal p = info[0].As<Napi::Number>().DoubleValue();
+  QPointF point = static_cast<QPointF>(this->instance->pointAtPercent(p));
   qreal x = static_cast<qreal>(point.x());
   qreal y = static_cast<qreal>(point.y());
   Napi::Object obj = Napi::Object::New(env);
@@ -373,10 +352,13 @@ Napi::Value QPainterPathWrap::pointAtPercent(const Napi::CallbackInfo& info) {
 }
 Napi::Value QPainterPathWrap::reserve(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  this->instance->reserve();
+  int s = info[0].As<Napi::Number>().Int32Value();
+
+  this->instance->reserve(s);
   return env.Null();
 }
-Napi::Value QPainterPathWrap::setElementPositionAt(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::setElementPositionAt(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   int index = info[0].As<Napi::Number>().Int32Value();
@@ -389,7 +371,7 @@ Napi::Value QPainterPathWrap::setFillRule(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   int v = info[0].As<Napi::Number>().Int32Value();
-  this->instance->setFillRule(v);
+  this->instance->setFillRule(static_cast<Qt::FillRule>(v));
   return env.Null();
 }
 
