@@ -123,7 +123,7 @@ Napi::Value QPainterPathWrap::closeSubpath(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value addEllipse(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::addEllipse(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   int x = info[0].As<Napi::Number>().Int32Value();
@@ -134,7 +134,7 @@ Napi::Value addEllipse(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value addPath(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::addPath(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   if (info.Length() < 1) {
@@ -153,7 +153,7 @@ Napi::Value addPath(const Napi::CallbackInfo& info) {
 
 // }
 
-Napi::Value addRect(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::addRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   /*if(info.Length() == 1) {
@@ -177,7 +177,7 @@ Napi::Value addRect(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value addRoundedRect(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::addRoundedRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   if (info.Length() >= 6) {
@@ -203,7 +203,7 @@ Napi::Value addRoundedRect(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value addText(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::addText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   if (info.Length() < 4) {
@@ -221,7 +221,7 @@ Napi::Value addText(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value angleAtPercent(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::angleAtPercent(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   if (info.Length() < 1) {
     Napi::TypeError::New(env, "Invalid number of arguments to angleAtPercent")
@@ -232,7 +232,7 @@ Napi::Value angleAtPercent(const Napi::CallbackInfo& info) {
   return Napi::Number::From(env, v);
 }
 
-Napi::Value arcMoveTo(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::arcMoveTo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   if (info.Length() < 5) {
@@ -249,7 +249,7 @@ Napi::Value arcMoveTo(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value arcTo(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::arcTo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   if (info.Length() < 6) {
@@ -267,7 +267,7 @@ Napi::Value arcTo(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value boundingRect(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::boundingRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   QRectF rect = static_cast<QRectF>(this->instance->boundingRect());
   qreal x = static_cast<qreal>(rect.x());
@@ -282,19 +282,19 @@ Napi::Value boundingRect(const Napi::CallbackInfo& info) {
   return obj;
 }
 
-Napi::Value capacity(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::capacity(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int v = static_cast<int>(this->instance->capacity());
   return Napi::Number::From(env, v);
 }
 
-Napi::Value clear(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   this->instance->clear();
   return env.Null();
 }
 
-Napi::Value connectPath(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::connectPath(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   if (info.Length() < 1) {
@@ -309,7 +309,7 @@ Napi::Value connectPath(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value controlPointRect(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::controlPointRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   QRectF rect = static_cast<QRectF>(this->instance->controlPointRect());
   qreal x = static_cast<qreal>(rect.x());
@@ -324,7 +324,7 @@ Napi::Value controlPointRect(const Napi::CallbackInfo& info) {
   return obj;
 }
 
-Napi::Value currentPosition(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::currentPosition(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   QPointF point = static_cast<QPointF>(this->instance->currentPosition());
   qreal x = static_cast<qreal>(point.x());
@@ -335,33 +335,33 @@ Napi::Value currentPosition(const Napi::CallbackInfo& info) {
   return obj;
 }
 
-Napi::Value elementCount(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::elementCount(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int v = static_cast<int>(this->instance->elementCount());
   return Napi::Number::From(env, v);
 }
-Napi::Value fillRule(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::fillRule(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int v = static_cast<int>(this->instance->fillRule());
   return Napi::Number::From(env, v);
 }
 
-Napi::Value isEmpty(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::isEmpty(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   bool v = static_cast<bool>(this->instance->isEmpty());
   return Napi::Number::From(env, v);
 }
-Napi::Value length(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::length(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   qreal v = static_cast<qreal>(this->instance->length());
   return Napi::Number::From(env, v);
 }
-Napi::Value percentAtLength(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::percentAtLength(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   qreal v = static_cast<qreal>(this->instance->percentAtLength());
   return Napi::Number::From(env, v);
 }
-Napi::Value pointAtPercent(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::pointAtPercent(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   QPointF point = static_cast<QPointF>(this->instance->pointAtPercent());
   qreal x = static_cast<qreal>(point.x());
@@ -371,12 +371,12 @@ Napi::Value pointAtPercent(const Napi::CallbackInfo& info) {
   obj.Set("y", Napi::Number::From(env, y));
   return obj;
 }
-Napi::Value reserve(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::reserve(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   this->instance->reserve();
   return env.Null();
 }
-Napi::Value setElementPositionAt(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::setElementPositionAt(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   int index = info[0].As<Napi::Number>().Int32Value();
@@ -385,7 +385,7 @@ Napi::Value setElementPositionAt(const Napi::CallbackInfo& info) {
   this->instance->setElementPositionAt(index, x, y);
   return env.Null();
 }
-Napi::Value setFillRule(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::setFillRule(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   int v = info[0].As<Napi::Number>().Int32Value();
@@ -393,7 +393,7 @@ Napi::Value setFillRule(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value slopeAtPercent(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::slopeAtPercent(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   qreal v = info[0].As<Napi::Number>().DoubleValue();
@@ -401,7 +401,7 @@ Napi::Value slopeAtPercent(const Napi::CallbackInfo& info) {
   return Napi::Number::From(env, slope);
 }
 // Napi::Value subtracted(const Napi::CallbackInfo& info);
-Napi::Value swap(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::swap(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Object pathObject = info[0].As<Napi::Object>();
@@ -414,7 +414,7 @@ Napi::Value swap(const Napi::CallbackInfo& info) {
 // Napi::Value toFillPolygon(const Napi::CallbackInfo& info);
 // Napi::Value toReversed(const Napi::CallbackInfo& info);
 // Napi::Value toSubpathPolygons(const Napi::CallbackInfo& info);
-Napi::Value translate(const Napi::CallbackInfo& info) {
+Napi::Value QPainterPathWrap::translate(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   qreal x = info[0].As<Napi::Number>().DoubleValue();
