@@ -25,12 +25,11 @@ class DLL_EXPORT QPainterPathWrap : public Napi::ObjectWrap<QPainterPathWrap> {
   Napi::Value cubicTo(const Napi::CallbackInfo& info);
   Napi::Value quadTo(const Napi::CallbackInfo& info);
   Napi::Value closeSubpath(const Napi::CallbackInfo& info);
-  
+
   Napi::Value addEllipse(const Napi::CallbackInfo& info);
   Napi::Value addPath(const Napi::CallbackInfo& info);
   // Needs QVector, QPolygonF to be implemented
   // Napi::Value addPolygon(const Napi::CallbackInfo& info);
-  Napi::Value addRect(const Napi::CallbackInfo& info);
   // Needs QRegion to be implemented
   // Napi::Value addRegion(const Napi::CallbackInfo& info);
   Napi::Value addRoundedRect(const Napi::CallbackInfo& info);
