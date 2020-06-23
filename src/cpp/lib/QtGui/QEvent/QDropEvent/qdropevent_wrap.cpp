@@ -6,21 +6,21 @@
 
 Napi::FunctionReference QDropEventWrap::constructor;
 
-Napi::Object QDropEventWrap::init(Napi::Env env,
-                                           Napi::Object exports) {
+Napi::Object QDropEventWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QDropEvent";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("acceptProposedAction", &QDropEventWrap::acceptProposedAction),
+      {InstanceMethod("acceptProposedAction",
+                      &QDropEventWrap::acceptProposedAction),
        InstanceMethod("dropAction", &QDropEventWrap::dropAction),
        InstanceMethod("keyboardModifiers", &QDropEventWrap::keyboardModifiers),
-    //    InstanceMethod("mimeData", &QDropEventWrap::mimeData),
+       //    InstanceMethod("mimeData", &QDropEventWrap::mimeData),
        InstanceMethod("mouseButtons", &QDropEventWrap::mouseButtons),
        InstanceMethod("pos", &QDropEventWrap::pos),
        InstanceMethod("possibleActions", &QDropEventWrap::possibleActions),
        InstanceMethod("proposedAction", &QDropEventWrap::proposedAction),
-    //    InstanceMethod("source", &QDropEventWrap::source),
+       //    InstanceMethod("source", &QDropEventWrap::source),
 
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)});
   constructor = Napi::Persistent(func);
@@ -28,9 +28,7 @@ Napi::Object QDropEventWrap::init(Napi::Env env,
   return exports;
 }
 
-QDropEvent* QDropEventWrap::getInternalInstance() {
-  return this->instance;
-}
+QDropEvent* QDropEventWrap::getInternalInstance() { return this->instance; }
 
 QDropEventWrap::QDropEventWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QDropEventWrap>(info) {
@@ -76,8 +74,7 @@ Napi::Value QDropEventWrap::mouseButtons(const Napi::CallbackInfo& info) {
   return Napi::Number::From(env, m);
 }
 
-
-//TODO: Implement MimeData to do this...
+// TODO: Implement MimeData to do this...
 // Napi::Value QDropEventWrap::mimeData(const Napi::CallbackInfo& info) {
 //   Napi::Env env = info.Env();
 //   int modifierFlags = static_cast<int>(this->instance->keyboardModifiers());
@@ -112,10 +109,9 @@ Napi::Value QDropEventWrap::setDropAction(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int dropFlags;
   if (info.Length() < 1) {
-      dropFlags = 1; //Default to copy operation
-      return env.Null();
-  }
-  else {
+    dropFlags = 1;  // Default to copy operation
+    return env.Null();
+  } else {
     Napi::Number num = info[0].ToNumber();
     dropFlags = static_cast<int>(num.Int32Value());
   }
@@ -123,7 +119,7 @@ Napi::Value QDropEventWrap::setDropAction(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-//Needs QWidget references... should I ?
+// Needs QWidget references... should I ?
 // Napi::Value QDropEventWrap::source(const Napi::CallbackInfo& info) {
 //   Napi::Env env = info.Env();
 //   return env.Null();
