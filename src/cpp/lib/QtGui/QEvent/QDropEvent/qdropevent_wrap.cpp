@@ -113,13 +113,13 @@ Napi::Value QDropEventWrap::setDropAction(const Napi::CallbackInfo& info) {
   int dropFlags;
   if (info.Length() < 1) {
       dropFlags = 1; //Default to copy operation
-      return;
+      return env.Null();
   }
   else {
-    Napi::Value num = info[0].ToNumber();
-    dropFlags = static_cast<int>num.IntValue();
+    Napi::Number num = info[0].ToNumber();
+    dropFlags = static_cast<int>(num.Int32Value());
   }
-  this->instance->setDropAction(static_cast<Qt::DropAction>dropFlags);
+  this->instance->setDropAction(static_cast<Qt::DropAction>(dropFlags));
   return env.Null();
 }
 
