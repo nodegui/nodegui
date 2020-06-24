@@ -35,6 +35,7 @@ Napi::Object QPainterPathWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("currentPosition", &QPainterPathWrap::currentPosition),
        InstanceMethod("elementCount", &QPainterPathWrap::elementCount),
        InstanceMethod("fillRule", &QPainterPathWrap::fillRule),
+       InstanceMethod("intersects", &QPainterPathWrap::intersects),
        InstanceMethod("isEmpty", &QPainterPathWrap::isEmpty),
        InstanceMethod("length", &QPainterPathWrap::length),
        InstanceMethod("percentAtLength", &QPainterPathWrap::percentAtLength),
@@ -73,48 +74,48 @@ QPainterPathWrap::QPainterPathWrap(const Napi::CallbackInfo& info)
 Napi::Value QPainterPathWrap::moveTo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  int x = info[0].As<Napi::Number>().Int32Value();
-  int y = info[1].As<Napi::Number>().Int32Value();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
   this->instance->moveTo(x, y);
   return env.Null();
 }
 Napi::Value QPainterPathWrap::addRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  int x = info[0].As<Napi::Number>().Int32Value();
-  int y = info[1].As<Napi::Number>().Int32Value();
-  int width = info[2].As<Napi::Number>().Int32Value();
-  int height = info[3].As<Napi::Number>().Int32Value();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  qreal width = info[2].As<Napi::Number>().DoubleValue();
+  qreal height = info[3].As<Napi::Number>().DoubleValue();
   this->instance->addRect(x, y, width, height);
   return env.Null();
 }
 Napi::Value QPainterPathWrap::lineTo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  int x = info[0].As<Napi::Number>().Int32Value();
-  int y = info[1].As<Napi::Number>().Int32Value();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
   this->instance->lineTo(x, y);
   return env.Null();
 }
 Napi::Value QPainterPathWrap::cubicTo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  int c1X = info[0].As<Napi::Number>().Int32Value();
-  int c1Y = info[1].As<Napi::Number>().Int32Value();
-  int c2X = info[2].As<Napi::Number>().Int32Value();
-  int c2Y = info[3].As<Napi::Number>().Int32Value();
-  int endPointX = info[4].As<Napi::Number>().Int32Value();
-  int endPointY = info[5].As<Napi::Number>().Int32Value();
+  qreal c1X = info[0].As<Napi::Number>().DoubleValue();
+  qreal c1Y = info[1].As<Napi::Number>().DoubleValue();
+  qreal c2X = info[2].As<Napi::Number>().DoubleValue();
+  qreal c2Y = info[3].As<Napi::Number>().DoubleValue();
+  qreal endPointX = info[4].As<Napi::Number>().DoubleValue();
+  qreal endPointY = info[5].As<Napi::Number>().DoubleValue();
   this->instance->cubicTo(c1X, c1Y, c2X, c2Y, endPointX, endPointY);
   return env.Null();
 }
 Napi::Value QPainterPathWrap::quadTo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  int cx = info[0].As<Napi::Number>().Int32Value();
-  int cy = info[1].As<Napi::Number>().Int32Value();
-  int endPointX = info[2].As<Napi::Number>().Int32Value();
-  int endPointY = info[3].As<Napi::Number>().Int32Value();
+  qreal cx = info[0].As<Napi::Number>().DoubleValue();
+  qreal cy = info[1].As<Napi::Number>().DoubleValue();
+  qreal endPointX = info[2].As<Napi::Number>().DoubleValue();
+  qreal endPointY = info[3].As<Napi::Number>().DoubleValue();
   this->instance->quadTo(cx, cy, endPointX, endPointY);
   return env.Null();
 }
@@ -128,10 +129,10 @@ Napi::Value QPainterPathWrap::closeSubpath(const Napi::CallbackInfo& info) {
 Napi::Value QPainterPathWrap::addEllipse(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  int x = info[0].As<Napi::Number>().Int32Value();
-  int y = info[1].As<Napi::Number>().Int32Value();
-  int width = info[2].As<Napi::Number>().Int32Value();
-  int height = info[3].As<Napi::Number>().Int32Value();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  qreal width = info[2].As<Napi::Number>().DoubleValue();
+  qreal height = info[3].As<Napi::Number>().DoubleValue();
   this->instance->addEllipse(x, y, width, height);
   return env.Null();
 }
