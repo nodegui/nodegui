@@ -1,5 +1,7 @@
 #include "QtWidgets/QPainterPath/qpainterpath_wrap.h"
 
+#include <iostream>
+
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
@@ -140,6 +142,7 @@ Napi::Value QPainterPathWrap::addPath(const Napi::CallbackInfo& info) {
   if (info.Length() < 1) {
     Napi::TypeError::New(env, "No Path Specified to addPath")
         .ThrowAsJavaScriptException();
+    return env.Null();
   }
   Napi::Object pathObject = info[0].As<Napi::Object>();
   QPainterPathWrap* pathWrap =
@@ -169,12 +172,13 @@ Napi::Value QPainterPathWrap::addRoundedRect(const Napi::CallbackInfo& info) {
       this->instance->addRoundedRect(x, y, width, height, xRadius, yRadius,
                                      mode);
     } else {
-      this->instance->addRoundedRect(x, y, width, height, xRadius, yRadius);
+      this->instance->addRoundedRect(x, y, width, height, xRadius, yRadius,
+                                     Qt::SizeMode::AbsoluteSize);
     }
-    this->instance->addRect(x, y, width, height);
   } else {
     Napi::TypeError::New(env, "Invalid number of arguments to addRoundedRect")
         .ThrowAsJavaScriptException();
+    return env.Null();
   }
   return env.Null();
 }
@@ -185,6 +189,7 @@ Napi::Value QPainterPathWrap::addText(const Napi::CallbackInfo& info) {
   if (info.Length() < 4) {
     Napi::TypeError::New(env, "Invalid number of arguments to addText")
         .ThrowAsJavaScriptException();
+    return env.Null();
   }
   qreal x = info[0].As<Napi::Number>().DoubleValue();
   qreal y = info[1].As<Napi::Number>().DoubleValue();
@@ -194,6 +199,7 @@ Napi::Value QPainterPathWrap::addText(const Napi::CallbackInfo& info) {
   Napi::String text = info[3].As<Napi::String>();
   this->instance->addText(x, y, *qfont,
                           QString::fromStdString(text.Utf8Value()));
+
   return env.Null();
 }
 
@@ -202,6 +208,7 @@ Napi::Value QPainterPathWrap::angleAtPercent(const Napi::CallbackInfo& info) {
   if (info.Length() < 1) {
     Napi::TypeError::New(env, "Invalid number of arguments to angleAtPercent")
         .ThrowAsJavaScriptException();
+    return env.Null();
   }
   qreal t = info[0].As<Napi::Number>().DoubleValue();
   qreal v = static_cast<qreal>(this->instance->angleAtPercent(t));
@@ -214,6 +221,7 @@ Napi::Value QPainterPathWrap::arcMoveTo(const Napi::CallbackInfo& info) {
   if (info.Length() < 5) {
     Napi::TypeError::New(env, "Invalid number of arguments to arcMoveTo")
         .ThrowAsJavaScriptException();
+    return env.Null();
   }
   qreal x = info[0].As<Napi::Number>().DoubleValue();
   qreal y = info[1].As<Napi::Number>().DoubleValue();
@@ -231,6 +239,7 @@ Napi::Value QPainterPathWrap::arcTo(const Napi::CallbackInfo& info) {
   if (info.Length() < 6) {
     Napi::TypeError::New(env, "Invalid number of arguments to arcTo")
         .ThrowAsJavaScriptException();
+    return env.Null();
   }
   qreal x = info[0].As<Napi::Number>().DoubleValue();
   qreal y = info[1].As<Napi::Number>().DoubleValue();
@@ -276,6 +285,7 @@ Napi::Value QPainterPathWrap::connectPath(const Napi::CallbackInfo& info) {
   if (info.Length() < 1) {
     Napi::TypeError::New(env, "No Path Specified to connectPath")
         .ThrowAsJavaScriptException();
+    return env.Null();
   }
   Napi::Object pathObject = info[0].As<Napi::Object>();
   QPainterPathWrap* pathWrap =
@@ -321,7 +331,16 @@ Napi::Value QPainterPathWrap::fillRule(const Napi::CallbackInfo& info) {
   int v = static_cast<int>(this->instance->fillRule());
   return Napi::Number::From(env, v);
 }
-
+Napi::Value QPainterPathWrap::intersects(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Object pathObject = info[0].As<Napi::Object>();
+  QPainterPathWrap* pathWrap =
+      Napi::ObjectWrap<QPainterPathWrap>::Unwrap(pathObject);
+  QPainterPath* path = pathWrap->getInternalInstance();
+  bool result = static_cast<bool>(this->instance->intersects(*path));
+  return Napi::Boolean::From(env, result);
+}
 Napi::Value QPainterPathWrap::isEmpty(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   bool v = static_cast<bool>(this->instance->isEmpty());

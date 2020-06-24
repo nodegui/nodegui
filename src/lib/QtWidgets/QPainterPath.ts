@@ -48,7 +48,7 @@ export class QPainterPath extends Component {
     }
 
     addPath(path: QPainterPath): void {
-        return this.native.addPath(path);
+        return this.native.addPath(path.native);
     }
 
     addRoundedRect(
@@ -58,13 +58,13 @@ export class QPainterPath extends Component {
         height: number,
         xRadius: number,
         yRadius: number,
-        mode: SizeMode,
+        mode: SizeMode = SizeMode.AbsoluteSize,
     ): void {
         return this.native.addRoundedRect(x, y, width, height, xRadius, yRadius, mode);
     }
 
     addText(x: number, y: number, font: QFont, text: string): void {
-        return this.native.addText(x, y, font, text);
+        return this.native.addText(x, y, font.native, text);
     }
 
     angleAtPercent(t: number): number {
@@ -87,7 +87,7 @@ export class QPainterPath extends Component {
         return this.native.clear();
     }
     connectPath(path: QPainterPath): void {
-        return this.native.connectPath(path);
+        return this.native.connectPath(path.native);
     }
     controlPointRect(): { x: number; y: number; width: number; height: number } {
         return this.native.controlPointRect();
@@ -102,7 +102,7 @@ export class QPainterPath extends Component {
         return this.native.fillRule();
     }
     intersects(path: QPainterPath): boolean {
-        return this.native.intersects(path);
+        return this.native.intersects(path.native);
     }
     isEmpty(): boolean {
         return this.native.isEmpty();
@@ -129,7 +129,7 @@ export class QPainterPath extends Component {
         return this.native.slopeAtPercent(p);
     }
     swap(other: QPainterPath): void {
-        return this.native.swap(other);
+        return this.native.swap(other.native);
     }
     translate(x: number, y: number): void {
         return this.native.translate(x, y);

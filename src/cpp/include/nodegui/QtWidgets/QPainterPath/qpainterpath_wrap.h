@@ -52,7 +52,7 @@ class DLL_EXPORT QPainterPathWrap : public Napi::ObjectWrap<QPainterPathWrap> {
   Napi::Value fillRule(const Napi::CallbackInfo& info);
   // A bit complex, needs native object access
   // Napi::Value intersected(const Napi::CallbackInfo& info);
-  // Napi::Value intersects(const Napi::CallbackInfo& info);
+  Napi::Value intersects(const Napi::CallbackInfo& info);
   Napi::Value isEmpty(const Napi::CallbackInfo& info);
   Napi::Value length(const Napi::CallbackInfo& info);
   Napi::Value percentAtLength(const Napi::CallbackInfo& info);
