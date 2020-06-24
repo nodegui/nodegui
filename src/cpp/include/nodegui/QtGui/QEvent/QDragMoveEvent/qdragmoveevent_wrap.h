@@ -12,7 +12,8 @@ NOTE : QDragMoveEvent inherits from QDropEvent
 - Is it possible to inherit from QDropEventWrap directly?
 */
 
-class DLL_EXPORT QDragMoveEventWrap : public Napi::ObjectWrap<QDragMoveEventWrap> {
+class DLL_EXPORT QDragMoveEventWrap
+    : public Napi::ObjectWrap<QDragMoveEventWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:
@@ -27,9 +28,9 @@ class DLL_EXPORT QDragMoveEventWrap : public Napi::ObjectWrap<QDragMoveEventWrap
   static Napi::FunctionReference constructor;
 
   // methods of QDragMoveEvent itself
-  Napi::Value accept(const Napi::CallbackInfo& info);
+  // Napi::Value accept(const Napi::CallbackInfo& info); //already in qevent
   Napi::Value answerRect(const Napi::CallbackInfo& info);
-  Napi::Value ignore(const Napi::CallbackInfo& info);
+  // Napi::Value ignore(const Napi::CallbackInfo& info); //already in qevent
 
   // methods copied from QDropEvent
   Napi::Value acceptProposedAction(const Napi::CallbackInfo& info);
@@ -42,4 +43,12 @@ class DLL_EXPORT QDragMoveEventWrap : public Napi::ObjectWrap<QDragMoveEventWrap
   Napi::Value possibleActions(const Napi::CallbackInfo& info);
   Napi::Value proposedAction(const Napi::CallbackInfo& info);
   Napi::Value setDropAction(const Napi::CallbackInfo& info);
+
+  // Methods from QEvent
+  Napi::Value accept(const Napi::CallbackInfo& info);
+  Napi::Value ignore(const Napi::CallbackInfo& info);
+  Napi::Value isAccepted(const Napi::CallbackInfo& info);
+  Napi::Value setAccepted(const Napi::CallbackInfo& info);
+  Napi::Value spontaneous(const Napi::CallbackInfo& info);
+  Napi::Value _type(const Napi::CallbackInfo& info);
 };

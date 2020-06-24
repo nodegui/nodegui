@@ -31,4 +31,12 @@ class DLL_EXPORT QDropEventWrap : public Napi::ObjectWrap<QDropEventWrap> {
   Napi::Value possibleActions(const Napi::CallbackInfo& info);
   Napi::Value proposedAction(const Napi::CallbackInfo& info);
   Napi::Value setDropAction(const Napi::CallbackInfo& info);
+
+  // Methods from QEvent
+  Napi::Value accept(const Napi::CallbackInfo& info);
+  Napi::Value ignore(const Napi::CallbackInfo& info);
+  Napi::Value isAccepted(const Napi::CallbackInfo& info);
+  Napi::Value setAccepted(const Napi::CallbackInfo& info);
+  Napi::Value spontaneous(const Napi::CallbackInfo& info);
+  Napi::Value _type(const Napi::CallbackInfo& info);
 };

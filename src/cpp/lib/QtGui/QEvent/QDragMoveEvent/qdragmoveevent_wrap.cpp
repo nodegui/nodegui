@@ -1,4 +1,4 @@
-#include "QtGui/QEvent/QDragMoveEventWrap/qdragmoveevent_wrap.h"
+#include "QtGui/QEvent/QDragMoveEvent/qdragmoveevent_wrap.h"
 
 #include <QPoint>
 
@@ -25,11 +25,17 @@ Napi::Object QDragMoveEventWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("proposedAction", &QDragMoveEventWrap::proposedAction),
        //    InstanceMethod("source", &QDragMoveEventWrap::source),
 
-       // Methods of this class
-       InstanceMethod("accept", &QDragMoveEventWrap::proposedAction),
-       InstanceMethod("answerRect", &QDragMoveEventWrap::proposedAction),
-       InstanceMethod("ignore", &QDragMoveEventWrap::proposedAction),
+       // Methods inherited from QEvent
+       InstanceMethod("accept", &QDragMoveEventWrap::accept),
+       InstanceMethod("ignore", &QDragMoveEventWrap::ignore),
+       InstanceMethod("isAccepted", &QDragMoveEventWrap::isAccepted),
+       InstanceMethod("setAccepted", &QDragMoveEventWrap::setAccepted),
+       InstanceMethod("spontaneous", &QDragMoveEventWrap::spontaneous),
+       InstanceMethod("_type", &QDragMoveEventWrap::_type), //Rename to _type to prevent conflict
 
+       // Methods of this class
+       InstanceMethod("answerRect", &QDragMoveEventWrap::proposedAction),
+       //accept and ignore are re-implementations of qevent ones
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDragMoveEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -152,7 +158,7 @@ Napi::Value QDragMoveEventWrap::accept(const Napi::CallbackInfo& info) {
 Napi::Value QDragMoveEventWrap::answerRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   QRect r = static_cast<QRect>(this->instance->answerRect());
-  int x = static_cast<int>(r.x();
+  int x = static_cast<int>(r.x());
   int y = static_cast<int>(r.y());
   int w = static_cast<int>(r.width());
   int h = static_cast<int>(r.height());
@@ -175,4 +181,30 @@ Napi::Value QDragMoveEventWrap::ignore(const Napi::CallbackInfo& info) {
     this->instance->ignore();
   }
   return env.Null();
+}
+
+// Methods from QEvent --------------------------------------------
+
+//accept and ignore are reimplemented above
+
+Napi::Value QDragMoveEventWrap::isAccepted(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool v = this->instance->isAccepted();
+  return Napi::Boolean::From(env, v);
+}
+Napi::Value QDragMoveEventWrap::setAccepted(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool v = info[0].As<Napi::Boolean>().Value();
+  this->instance->setAccepted(v);
+  return env.Null();
+}
+Napi::Value QDragMoveEventWrap::spontaneous(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool v = this->instance->spontaneous();
+  return Napi::Boolean::From(env, v);
+}
+Napi::Value QDragMoveEventWrap::_type(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int v = static_cast<int>(this->instance->type());
+  return Napi::Number::From(env, v);
 }
