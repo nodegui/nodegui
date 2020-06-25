@@ -35,7 +35,7 @@ export class QRectF extends Component {
     Returns a new rectangle with dx1, dy1, dx2 and dy2 added respectively to the existing coordinates of this rectangle.
     */
     adjusted(dx1: number, dy1: number, dx2: number, dy2: number): QRectF {
-        return this.native.adjusted(dx1, dy1, dx2, dy2);
+        return new QRectF(this.native.adjusted(dx1, dy1, dx2, dy2));
     }
 
     /**
@@ -89,7 +89,7 @@ export class QRectF extends Component {
     Returns the intersection of this rectangle and the given rectangle. Note that r.intersected(s) is equivalent to r & s.
     */
     intersected(rectangle: QRectF): QRectF {
-        return this.native.intersected(rectangle.native);
+        return new QRectF(this.native.intersected(rectangle.native));
     }
 
     /**
@@ -204,7 +204,7 @@ export class QRectF extends Component {
     Returns a normalized rectangle; i.e., a rectangle that has a non-negative width and height.
     */
     normalized(): QRectF {
-        return this.native.normalized();
+        return new QRectF(this.native.normalized());
     }
 
     /**
@@ -361,23 +361,23 @@ export class QRectF extends Component {
     */
     translated(dxOrOffset: number | QPointF, dy: number): QRectF {
         if (dxOrOffset instanceof QPointF) {
-            return this.native.translated_QPoint(dxOrOffset.native);
+            return new QRectF(this.native.translated_QPoint(dxOrOffset.native));
         }
-        return this.native.translated(dxOrOffset, dy);
+        return new QRectF(this.native.translated(dxOrOffset, dy));
     }
 
     /**
     Returns a copy of the rectangle that has its width and height exchanged:
     */
     transposed(): QRectF {
-        return this.native.transposed();
+        return new QRectF(this.native.transposed());
     }
 
     /**
     Returns the bounding rectangle of this rectangle and the given rectangle.
     */
     united(rectangle: QRectF): QRectF {
-        return this.native.united(rectangle);
+        return new QRectF(this.native.united(rectangle));
     }
 
     /**
