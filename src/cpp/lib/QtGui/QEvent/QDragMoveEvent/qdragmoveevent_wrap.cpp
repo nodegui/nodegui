@@ -31,11 +31,13 @@ Napi::Object QDragMoveEventWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("isAccepted", &QDragMoveEventWrap::isAccepted),
        InstanceMethod("setAccepted", &QDragMoveEventWrap::setAccepted),
        InstanceMethod("spontaneous", &QDragMoveEventWrap::spontaneous),
-       InstanceMethod("_type", &QDragMoveEventWrap::_type), //Rename to _type to prevent conflict
+       InstanceMethod(
+           "_type",
+           &QDragMoveEventWrap::_type),  // Rename to _type to prevent conflict
 
        // Methods of this class
        InstanceMethod("answerRect", &QDragMoveEventWrap::proposedAction),
-       //accept and ignore are re-implementations of qevent ones
+       // accept and ignore are re-implementations of qevent ones
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDragMoveEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -185,7 +187,7 @@ Napi::Value QDragMoveEventWrap::ignore(const Napi::CallbackInfo& info) {
 
 // Methods from QEvent --------------------------------------------
 
-//accept and ignore are reimplemented above
+// accept and ignore are reimplemented above
 
 Napi::Value QDragMoveEventWrap::isAccepted(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

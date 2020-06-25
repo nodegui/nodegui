@@ -54,7 +54,8 @@ QPointFWrap::QPointFWrap(const Napi::CallbackInfo& info)
 
 // Instance Methods Here
 
-Napi::Value StaticQPointFWrapMethods::dotProduct(const Napi::CallbackInfo& info) {
+Napi::Value StaticQPointFWrapMethods::dotProduct(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 

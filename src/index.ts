@@ -127,6 +127,7 @@ export { QObject, QObjectSignals, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';
 export { QRect } from './lib/QtCore/QRect';
+export { QRectF } from './lib/QtCore/QRectF';
 export { QPoint } from './lib/QtCore/QPoint';
 export { QPointF } from './lib/QtCore/QPointF';
 export { QColor } from './lib/QtGui/QColor';

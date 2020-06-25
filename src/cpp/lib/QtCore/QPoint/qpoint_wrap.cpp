@@ -88,7 +88,6 @@ Napi::Value StaticQPointWrapMethods::fromQVariant(
   return instance;
 }
 
-
 Napi::Value QPointWrap::isNull(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);

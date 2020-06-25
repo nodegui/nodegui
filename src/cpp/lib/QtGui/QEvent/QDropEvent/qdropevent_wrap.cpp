@@ -28,7 +28,9 @@ Napi::Object QDropEventWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("isAccepted", &QDropEventWrap::isAccepted),
        InstanceMethod("setAccepted", &QDropEventWrap::setAccepted),
        InstanceMethod("spontaneous", &QDropEventWrap::spontaneous),
-       InstanceMethod("_type", &QDropEventWrap::_type), //Rename to _type to prevent conflict
+       InstanceMethod(
+           "_type",
+           &QDropEventWrap::_type),  // Rename to _type to prevent conflict
 
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)});
   constructor = Napi::Persistent(func);
