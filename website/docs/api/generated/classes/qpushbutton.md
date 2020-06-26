@@ -43,6 +43,7 @@ button.setText("Hello");
 
 ### Methods
 
+* [acceptDrops](qpushbutton.md#acceptdrops)
 * [activateWindow](qpushbutton.md#activatewindow)
 * [addAction](qpushbutton.md#addaction)
 * [addEventListener](qpushbutton.md#addeventlistener)
@@ -88,6 +89,7 @@ button.setText("Hello");
 * [repaint](qpushbutton.md#repaint)
 * [repolish](qpushbutton.md#repolish)
 * [resize](qpushbutton.md#resize)
+* [setAcceptDrops](qpushbutton.md#setacceptdrops)
 * [setAttribute](qpushbutton.md#setattribute)
 * [setAutoDefault](qpushbutton.md#setautodefault)
 * [setAutoExclusive](qpushbutton.md#setautoexclusive)
@@ -248,6 +250,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -835,6 +847,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

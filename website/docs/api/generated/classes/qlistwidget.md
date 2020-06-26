@@ -53,6 +53,7 @@ listWidget.addItem(listWidgetItem);
 
 ### Methods
 
+* [acceptDrops](qlistwidget.md#acceptdrops)
 * [activateWindow](qlistwidget.md#activatewindow)
 * [addAction](qlistwidget.md#addaction)
 * [addEventListener](qlistwidget.md#addeventlistener)
@@ -141,6 +142,7 @@ listWidget.addItem(listWidgetItem);
 * [selectedItems](qlistwidget.md#selecteditems)
 * [selectionBehavior](qlistwidget.md#selectionbehavior)
 * [selectionMode](qlistwidget.md#selectionmode)
+* [setAcceptDrops](qlistwidget.md#setacceptdrops)
 * [setAlternatingRowColors](qlistwidget.md#setalternatingrowcolors)
 * [setAttribute](qlistwidget.md#setattribute)
 * [setAutoScroll](qlistwidget.md#setautoscroll)
@@ -329,6 +331,16 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -1415,6 +1427,22 @@ ___
 *Inherited from [QAbstractItemView](qabstractitemview.md).[selectionMode](qabstractitemview.md#selectionmode)*
 
 **Returns:** *[SelectionMode](../enums/selectionmode.md)*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

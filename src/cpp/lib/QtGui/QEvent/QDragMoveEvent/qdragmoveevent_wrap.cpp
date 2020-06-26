@@ -1,9 +1,9 @@
 #include "QtGui/QEvent/QDragMoveEvent/qdragmoveevent_wrap.h"
-#include "QtCore/QRect/qrect_wrap.h"
 
 #include <QPoint>
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QRect/qrect_wrap.h"
 
 Napi::FunctionReference QDragMoveEventWrap::constructor;
 
@@ -185,7 +185,7 @@ Napi::Value QDragMoveEventWrap::ignore(const Napi::CallbackInfo& info) {
     int width = info[2].As<Napi::Number>().Int32Value();
     int height = info[3].As<Napi::Number>().Int32Value();
     this->instance->ignore(QRect(x, y, width, height));
-  }else if (info.Length() == 1) {
+  } else if (info.Length() == 1) {
     Napi::Object wrap0_0 = info[0].As<Napi::Object>();
     QRectWrap* wrap0_1 = Napi::ObjectWrap<QRectWrap>::Unwrap(wrap0_0);
     QRect* input0 = wrap0_1->getInternalInstance();

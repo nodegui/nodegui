@@ -44,6 +44,7 @@ It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTable
 
 ### Methods
 
+* [acceptDrops](qabstractitemview.md#acceptdrops)
 * [activateWindow](qabstractitemview.md#activatewindow)
 * [addAction](qabstractitemview.md#addaction)
 * [addEventListener](qabstractitemview.md#addeventlistener)
@@ -99,6 +100,7 @@ It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTable
 * [scrollToTop](qabstractitemview.md#scrolltotop)
 * [selectionBehavior](qabstractitemview.md#selectionbehavior)
 * [selectionMode](qabstractitemview.md#selectionmode)
+* [setAcceptDrops](qabstractitemview.md#setacceptdrops)
 * [setAlternatingRowColors](qabstractitemview.md#setalternatingrowcolors)
 * [setAttribute](qabstractitemview.md#setattribute)
 * [setAutoScroll](qabstractitemview.md#setautoscroll)
@@ -251,6 +253,16 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -912,6 +924,22 @@ ___
 ▸ **selectionMode**(): *[SelectionMode](../enums/selectionmode.md)*
 
 **Returns:** *[SelectionMode](../enums/selectionmode.md)*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

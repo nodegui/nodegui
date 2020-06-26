@@ -34,6 +34,7 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 
 ### Methods
 
+* [acceptDrops](qdialog.md#acceptdrops)
 * [activateWindow](qdialog.md#activatewindow)
 * [addAction](qdialog.md#addaction)
 * [addEventListener](qdialog.md#addeventlistener)
@@ -69,6 +70,7 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 * [repolish](qdialog.md#repolish)
 * [resize](qdialog.md#resize)
 * [result](qdialog.md#result)
+* [setAcceptDrops](qdialog.md#setacceptdrops)
 * [setAttribute](qdialog.md#setattribute)
 * [setContextMenuPolicy](qdialog.md#setcontextmenupolicy)
 * [setCursor](qdialog.md#setcursor)
@@ -182,6 +184,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -673,6 +685,22 @@ ___
 *Inherited from [NodeDialog](nodedialog.md).[result](nodedialog.md#result)*
 
 **Returns:** *number*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

@@ -62,6 +62,7 @@ win.show();
 
 ### Methods
 
+* [acceptDrops](qgroupbox.md#acceptdrops)
 * [activateWindow](qgroupbox.md#activatewindow)
 * [addAction](qgroupbox.md#addaction)
 * [addEventListener](qgroupbox.md#addeventlistener)
@@ -96,6 +97,7 @@ win.show();
 * [repaint](qgroupbox.md#repaint)
 * [repolish](qgroupbox.md#repolish)
 * [resize](qgroupbox.md#resize)
+* [setAcceptDrops](qgroupbox.md#setacceptdrops)
 * [setAlignment](qgroupbox.md#setalignment)
 * [setAttribute](qgroupbox.md#setattribute)
 * [setCheckable](qgroupbox.md#setcheckable)
@@ -218,6 +220,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -689,6 +701,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

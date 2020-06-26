@@ -48,6 +48,7 @@ const tableview = new QTableView();
 
 ### Methods
 
+* [acceptDrops](nodetableview.md#acceptdrops)
 * [activateWindow](nodetableview.md#activatewindow)
 * [addAction](nodetableview.md#addaction)
 * [addEventListener](nodetableview.md#addeventlistener)
@@ -125,6 +126,7 @@ const tableview = new QTableView();
 * [selectRow](nodetableview.md#selectrow)
 * [selectionBehavior](nodetableview.md#selectionbehavior)
 * [selectionMode](nodetableview.md#selectionmode)
+* [setAcceptDrops](nodetableview.md#setacceptdrops)
 * [setAlternatingRowColors](nodetableview.md#setalternatingrowcolors)
 * [setAttribute](nodetableview.md#setattribute)
 * [setAutoScroll](nodetableview.md#setautoscroll)
@@ -292,6 +294,16 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -1263,6 +1275,22 @@ ___
 *Inherited from [QAbstractItemView](qabstractitemview.md).[selectionMode](qabstractitemview.md#selectionmode)*
 
 **Returns:** *[SelectionMode](../enums/selectionmode.md)*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

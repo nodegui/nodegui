@@ -59,6 +59,7 @@ win.show();
 
 ### Methods
 
+* [acceptDrops](qtablewidget.md#acceptdrops)
 * [activateWindow](qtablewidget.md#activatewindow)
 * [addAction](qtablewidget.md#addaction)
 * [addEventListener](qtablewidget.md#addeventlistener)
@@ -117,6 +118,7 @@ win.show();
 * [selectColumn](qtablewidget.md#selectcolumn)
 * [selectRow](qtablewidget.md#selectrow)
 * [selectedRanges](qtablewidget.md#selectedranges)
+* [setAcceptDrops](qtablewidget.md#setacceptdrops)
 * [setAttribute](qtablewidget.md#setattribute)
 * [setCellWidget](qtablewidget.md#setcellwidget)
 * [setColumnCount](qtablewidget.md#setcolumncount)
@@ -282,6 +284,16 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -1040,6 +1052,22 @@ ___
 ▸ **selectedRanges**(): *[Range](../interfaces/range.md)[]*
 
 **Returns:** *[Range](../interfaces/range.md)[]*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

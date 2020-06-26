@@ -48,6 +48,7 @@ console.log(color.red(), color.green(), color.blue());
 
 ### Methods
 
+* [acceptDrops](qcolordialog.md#acceptdrops)
 * [activateWindow](qcolordialog.md#activatewindow)
 * [addAction](qcolordialog.md#addaction)
 * [addEventListener](qcolordialog.md#addeventlistener)
@@ -86,6 +87,7 @@ console.log(color.red(), color.green(), color.blue());
 * [resize](qcolordialog.md#resize)
 * [result](qcolordialog.md#result)
 * [selectedColor](qcolordialog.md#selectedcolor)
+* [setAcceptDrops](qcolordialog.md#setacceptdrops)
 * [setAttribute](qcolordialog.md#setattribute)
 * [setContextMenuPolicy](qcolordialog.md#setcontextmenupolicy)
 * [setCurrentColor](qcolordialog.md#setcurrentcolor)
@@ -214,6 +216,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -729,6 +741,22 @@ ___
 ▸ **selectedColor**(): *[QColor](qcolor.md)*
 
 **Returns:** *[QColor](qcolor.md)*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

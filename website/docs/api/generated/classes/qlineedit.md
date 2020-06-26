@@ -42,6 +42,7 @@ const lineEdit = new QLineEdit();
 
 ### Methods
 
+* [acceptDrops](qlineedit.md#acceptdrops)
 * [activateWindow](qlineedit.md#activatewindow)
 * [addAction](qlineedit.md#addaction)
 * [addEventListener](qlineedit.md#addeventlistener)
@@ -75,6 +76,7 @@ const lineEdit = new QLineEdit();
 * [repaint](qlineedit.md#repaint)
 * [repolish](qlineedit.md#repolish)
 * [resize](qlineedit.md#resize)
+* [setAcceptDrops](qlineedit.md#setacceptdrops)
 * [setAttribute](qlineedit.md#setattribute)
 * [setContextMenuPolicy](qlineedit.md#setcontextmenupolicy)
 * [setCursor](qlineedit.md#setcursor)
@@ -196,6 +198,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -659,6 +671,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

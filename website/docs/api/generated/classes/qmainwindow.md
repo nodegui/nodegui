@@ -56,6 +56,7 @@ Once a central widget is set you can add children/layout to the central widget.
 
 ### Methods
 
+* [acceptDrops](qmainwindow.md#acceptdrops)
 * [activateWindow](qmainwindow.md#activatewindow)
 * [addAction](qmainwindow.md#addaction)
 * [addEventListener](qmainwindow.md#addeventlistener)
@@ -89,6 +90,7 @@ Once a central widget is set you can add children/layout to the central widget.
 * [repaint](qmainwindow.md#repaint)
 * [repolish](qmainwindow.md#repolish)
 * [resize](qmainwindow.md#resize)
+* [setAcceptDrops](qmainwindow.md#setacceptdrops)
 * [setAttribute](qmainwindow.md#setattribute)
 * [setCentralWidget](qmainwindow.md#setcentralwidget)
 * [setContextMenuPolicy](qmainwindow.md#setcontextmenupolicy)
@@ -219,6 +221,16 @@ ___
 **Returns:** *[NodeLayout](nodelayout.md)‹any› | undefined*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -684,6 +696,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

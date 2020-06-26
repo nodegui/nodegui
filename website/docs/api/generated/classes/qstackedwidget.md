@@ -66,6 +66,7 @@ win.show();
 
 ### Methods
 
+* [acceptDrops](qstackedwidget.md#acceptdrops)
 * [activateWindow](qstackedwidget.md#activatewindow)
 * [addAction](qstackedwidget.md#addaction)
 * [addEventListener](qstackedwidget.md#addeventlistener)
@@ -106,6 +107,7 @@ win.show();
 * [repaint](qstackedwidget.md#repaint)
 * [repolish](qstackedwidget.md#repolish)
 * [resize](qstackedwidget.md#resize)
+* [setAcceptDrops](qstackedwidget.md#setacceptdrops)
 * [setAttribute](qstackedwidget.md#setattribute)
 * [setContextMenuPolicy](qstackedwidget.md#setcontextmenupolicy)
 * [setCurrentIndex](qstackedwidget.md#setcurrentindex)
@@ -230,6 +232,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -775,6 +787,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

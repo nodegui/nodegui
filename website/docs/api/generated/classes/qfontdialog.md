@@ -46,6 +46,7 @@ console.log(font);
 
 ### Methods
 
+* [acceptDrops](qfontdialog.md#acceptdrops)
 * [activateWindow](qfontdialog.md#activatewindow)
 * [addAction](qfontdialog.md#addaction)
 * [addEventListener](qfontdialog.md#addeventlistener)
@@ -84,6 +85,7 @@ console.log(font);
 * [resize](qfontdialog.md#resize)
 * [result](qfontdialog.md#result)
 * [selectedFont](qfontdialog.md#selectedfont)
+* [setAcceptDrops](qfontdialog.md#setacceptdrops)
 * [setAttribute](qfontdialog.md#setattribute)
 * [setContextMenuPolicy](qfontdialog.md#setcontextmenupolicy)
 * [setCurrentFont](qfontdialog.md#setcurrentfont)
@@ -207,6 +209,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -722,6 +734,22 @@ ___
 ▸ **selectedFont**(): *[QFont](qfont.md)*
 
 **Returns:** *[QFont](qfont.md)*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

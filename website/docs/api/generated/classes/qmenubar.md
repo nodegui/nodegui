@@ -45,6 +45,7 @@ global.win = win;
 
 ### Methods
 
+* [acceptDrops](qmenubar.md#acceptdrops)
 * [activateWindow](qmenubar.md#activatewindow)
 * [addAction](qmenubar.md#addaction)
 * [addEventListener](qmenubar.md#addeventlistener)
@@ -77,6 +78,7 @@ global.win = win;
 * [repaint](qmenubar.md#repaint)
 * [repolish](qmenubar.md#repolish)
 * [resize](qmenubar.md#resize)
+* [setAcceptDrops](qmenubar.md#setacceptdrops)
 * [setAttribute](qmenubar.md#setattribute)
 * [setContextMenuPolicy](qmenubar.md#setcontextmenupolicy)
 * [setCursor](qmenubar.md#setcursor)
@@ -212,6 +214,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -673,6 +685,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

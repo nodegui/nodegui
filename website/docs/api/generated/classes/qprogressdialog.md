@@ -43,6 +43,7 @@ const progressDialog = new QProgressDialog();
 
 ### Methods
 
+* [acceptDrops](qprogressdialog.md#acceptdrops)
 * [activateWindow](qprogressdialog.md#activatewindow)
 * [addAction](qprogressdialog.md#addaction)
 * [addEventListener](qprogressdialog.md#addeventlistener)
@@ -86,6 +87,7 @@ const progressDialog = new QProgressDialog();
 * [reset](qprogressdialog.md#reset)
 * [resize](qprogressdialog.md#resize)
 * [result](qprogressdialog.md#result)
+* [setAcceptDrops](qprogressdialog.md#setacceptdrops)
 * [setAttribute](qprogressdialog.md#setattribute)
 * [setAutoClose](qprogressdialog.md#setautoclose)
 * [setAutoReset](qprogressdialog.md#setautoreset)
@@ -216,6 +218,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -771,6 +783,22 @@ ___
 *Inherited from [NodeDialog](nodedialog.md).[result](nodedialog.md#result)*
 
 **Returns:** *number*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

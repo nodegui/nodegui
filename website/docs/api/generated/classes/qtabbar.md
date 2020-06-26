@@ -43,6 +43,7 @@ const tabBar = new QTabBar();
 
 ### Methods
 
+* [acceptDrops](qtabbar.md#acceptdrops)
 * [accessibleTabName](qtabbar.md#accessibletabname)
 * [activateWindow](qtabbar.md#activatewindow)
 * [addAction](qtabbar.md#addaction)
@@ -90,6 +91,7 @@ const tabBar = new QTabBar();
 * [repolish](qtabbar.md#repolish)
 * [resize](qtabbar.md#resize)
 * [selectionBehaviorOnRemove](qtabbar.md#selectionbehavioronremove)
+* [setAcceptDrops](qtabbar.md#setacceptdrops)
 * [setAccessibleTabName](qtabbar.md#setaccessibletabname)
 * [setAttribute](qtabbar.md#setattribute)
 * [setAutoHide](qtabbar.md#setautohide)
@@ -239,6 +241,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  accessibleTabName
 
@@ -856,6 +868,22 @@ ___
 ▸ **selectionBehaviorOnRemove**(): *SelectionBehavior*
 
 **Returns:** *SelectionBehavior*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

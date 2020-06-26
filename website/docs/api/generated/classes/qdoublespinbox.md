@@ -42,6 +42,7 @@ const doublespinBox = new QDoubleSpinBox();
 
 ### Methods
 
+* [acceptDrops](qdoublespinbox.md#acceptdrops)
 * [activateWindow](qdoublespinbox.md#activatewindow)
 * [addAction](qdoublespinbox.md#addaction)
 * [addEventListener](qdoublespinbox.md#addeventlistener)
@@ -88,6 +89,7 @@ const doublespinBox = new QDoubleSpinBox();
 * [resize](qdoublespinbox.md#resize)
 * [selectAll](qdoublespinbox.md#selectall)
 * [setAccelerated](qdoublespinbox.md#setaccelerated)
+* [setAcceptDrops](qdoublespinbox.md#setacceptdrops)
 * [setAlignment](qdoublespinbox.md#setalignment)
 * [setAttribute](qdoublespinbox.md#setattribute)
 * [setButtonSymbols](qdoublespinbox.md#setbuttonsymbols)
@@ -233,6 +235,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -822,6 +834,22 @@ ___
 ▸ **setAccelerated**(`on`: boolean): *void*
 
 *Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setAccelerated](qabstractspinbox.md#setaccelerated)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
 
 **Parameters:**
 

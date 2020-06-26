@@ -3,9 +3,9 @@
 #include <napi.h>
 
 #include <QDropEvent>
-#include "QtGui/QEvent/QEvent/qevent_macro.h"
 
 #include "Extras/Export/export.h"
+#include "QtGui/QEvent/QEvent/qevent_macro.h"
 #include "core/Component/component_macro.h"
 
 class DLL_EXPORT QDropEventWrap : public Napi::ObjectWrap<QDropEventWrap> {

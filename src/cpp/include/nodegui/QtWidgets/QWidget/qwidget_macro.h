@@ -437,64 +437,63 @@
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
 
 #ifndef QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
-#define QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)                \
-                                                                             \
-  YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)                   \
-  QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)                      \
-  InstanceMethod("show", &WidgetWrapName::show),                             \
-      InstanceMethod("resize", &WidgetWrapName::resize),                     \
-      InstanceMethod("isVisible", &WidgetWrapName::isVisible),               \
-      InstanceMethod("close", &WidgetWrapName::close),                       \
-      InstanceMethod("mapFromGlobal", &WidgetWrapName::mapFromGlobal),       \
-      InstanceMethod("mapFromParent", &WidgetWrapName::mapFromParent),       \
-      InstanceMethod("mapToGlobal", &WidgetWrapName::mapToGlobal),           \
-      InstanceMethod("mapToParent", &WidgetWrapName::mapToParent),           \
-      InstanceMethod("setLayout", &WidgetWrapName::setLayout),               \
-      InstanceMethod("setStyleSheet", &WidgetWrapName::setStyleSheet),       \
-      InstanceMethod("setCursor", &WidgetWrapName::setCursor),               \
-      InstanceMethod("setWindowIcon", &WidgetWrapName::setWindowIcon),       \
-      InstanceMethod("setWindowState", &WidgetWrapName::setWindowState),     \
-      InstanceMethod("windowState", &WidgetWrapName::windowState),           \
-      InstanceMethod("setWindowTitle", &WidgetWrapName::setWindowTitle),     \
-      InstanceMethod("windowTitle", &WidgetWrapName::windowTitle),           \
-      InstanceMethod("styleSheet", &WidgetWrapName::styleSheet),             \
-      InstanceMethod("hide", &WidgetWrapName::hide),                         \
-      InstanceMethod("move", &WidgetWrapName::move),                         \
-      InstanceMethod("setMouseTracking", &WidgetWrapName::setMouseTracking), \
-      InstanceMethod("hasMouseTracking", &WidgetWrapName::hasMouseTracking), \
-      InstanceMethod("setEnabled", &WidgetWrapName::setEnabled),             \
-      InstanceMethod("isEnabled", &WidgetWrapName::isEnabled),               \
-      InstanceMethod("setFixedSize", &WidgetWrapName::setFixedSize),         \
-      InstanceMethod("setGeometry", &WidgetWrapName::setGeometry),           \
-      InstanceMethod("setMaximumSize", &WidgetWrapName::setMaximumSize),     \
-      InstanceMethod("setMinimumSize", &WidgetWrapName::setMinimumSize),     \
-      InstanceMethod("repaint", &WidgetWrapName::repaint),                   \
-      InstanceMethod("update", &WidgetWrapName::update),                     \
-      InstanceMethod("updateGeometry", &WidgetWrapName::updateGeometry),     \
-      InstanceMethod("maximumSize", &WidgetWrapName::maximumSize),           \
-      InstanceMethod("minimumSize", &WidgetWrapName::minimumSize),           \
-      InstanceMethod("pos", &WidgetWrapName::pos),                           \
-      InstanceMethod("size", &WidgetWrapName::size),                         \
-      InstanceMethod("setAttribute", &WidgetWrapName::setAttribute),         \
-      InstanceMethod("testAttribute", &WidgetWrapName::testAttribute),       \
-      InstanceMethod("setWindowOpacity", &WidgetWrapName::setWindowOpacity), \
-      InstanceMethod("windowOpacity", &WidgetWrapName::windowOpacity),       \
-      InstanceMethod("setWindowFlag", &WidgetWrapName::setWindowFlag),       \
-      InstanceMethod("adjustSize", &WidgetWrapName::adjustSize),             \
-      InstanceMethod("activateWindow", &WidgetWrapName::activateWindow),     \
-      InstanceMethod("raise", &WidgetWrapName::raise),                       \
-      InstanceMethod("lower", &WidgetWrapName::lower),                       \
-      InstanceMethod("showFullScreen", &WidgetWrapName::showFullScreen),     \
-      InstanceMethod("showMaximized", &WidgetWrapName::showMaximized),       \
-      InstanceMethod("showMinimized", &WidgetWrapName::showMinimized),       \
-      InstanceMethod("showNormal", &WidgetWrapName::showNormal),             \
-      InstanceMethod("addAction", &WidgetWrapName::addAction),               \
-      InstanceMethod("removeAction", &WidgetWrapName::removeAction),         \
-      InstanceMethod("repolish", &WidgetWrapName::repolish),                 \
-      InstanceMethod("setGraphicsEffect", &WidgetWrapName::setGraphicsEffect),\
-      InstanceMethod("acceptDrops", &WidgetWrapName::acceptDrops),           \
+#define QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)                  \
+                                                                               \
+  YOGAWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)                     \
+  QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)                        \
+  InstanceMethod("show", &WidgetWrapName::show),                               \
+      InstanceMethod("resize", &WidgetWrapName::resize),                       \
+      InstanceMethod("isVisible", &WidgetWrapName::isVisible),                 \
+      InstanceMethod("close", &WidgetWrapName::close),                         \
+      InstanceMethod("mapFromGlobal", &WidgetWrapName::mapFromGlobal),         \
+      InstanceMethod("mapFromParent", &WidgetWrapName::mapFromParent),         \
+      InstanceMethod("mapToGlobal", &WidgetWrapName::mapToGlobal),             \
+      InstanceMethod("mapToParent", &WidgetWrapName::mapToParent),             \
+      InstanceMethod("setLayout", &WidgetWrapName::setLayout),                 \
+      InstanceMethod("setStyleSheet", &WidgetWrapName::setStyleSheet),         \
+      InstanceMethod("setCursor", &WidgetWrapName::setCursor),                 \
+      InstanceMethod("setWindowIcon", &WidgetWrapName::setWindowIcon),         \
+      InstanceMethod("setWindowState", &WidgetWrapName::setWindowState),       \
+      InstanceMethod("windowState", &WidgetWrapName::windowState),             \
+      InstanceMethod("setWindowTitle", &WidgetWrapName::setWindowTitle),       \
+      InstanceMethod("windowTitle", &WidgetWrapName::windowTitle),             \
+      InstanceMethod("styleSheet", &WidgetWrapName::styleSheet),               \
+      InstanceMethod("hide", &WidgetWrapName::hide),                           \
+      InstanceMethod("move", &WidgetWrapName::move),                           \
+      InstanceMethod("setMouseTracking", &WidgetWrapName::setMouseTracking),   \
+      InstanceMethod("hasMouseTracking", &WidgetWrapName::hasMouseTracking),   \
+      InstanceMethod("setEnabled", &WidgetWrapName::setEnabled),               \
+      InstanceMethod("isEnabled", &WidgetWrapName::isEnabled),                 \
+      InstanceMethod("setFixedSize", &WidgetWrapName::setFixedSize),           \
+      InstanceMethod("setGeometry", &WidgetWrapName::setGeometry),             \
+      InstanceMethod("setMaximumSize", &WidgetWrapName::setMaximumSize),       \
+      InstanceMethod("setMinimumSize", &WidgetWrapName::setMinimumSize),       \
+      InstanceMethod("repaint", &WidgetWrapName::repaint),                     \
+      InstanceMethod("update", &WidgetWrapName::update),                       \
+      InstanceMethod("updateGeometry", &WidgetWrapName::updateGeometry),       \
+      InstanceMethod("maximumSize", &WidgetWrapName::maximumSize),             \
+      InstanceMethod("minimumSize", &WidgetWrapName::minimumSize),             \
+      InstanceMethod("pos", &WidgetWrapName::pos),                             \
+      InstanceMethod("size", &WidgetWrapName::size),                           \
+      InstanceMethod("setAttribute", &WidgetWrapName::setAttribute),           \
+      InstanceMethod("testAttribute", &WidgetWrapName::testAttribute),         \
+      InstanceMethod("setWindowOpacity", &WidgetWrapName::setWindowOpacity),   \
+      InstanceMethod("windowOpacity", &WidgetWrapName::windowOpacity),         \
+      InstanceMethod("setWindowFlag", &WidgetWrapName::setWindowFlag),         \
+      InstanceMethod("adjustSize", &WidgetWrapName::adjustSize),               \
+      InstanceMethod("activateWindow", &WidgetWrapName::activateWindow),       \
+      InstanceMethod("raise", &WidgetWrapName::raise),                         \
+      InstanceMethod("lower", &WidgetWrapName::lower),                         \
+      InstanceMethod("showFullScreen", &WidgetWrapName::showFullScreen),       \
+      InstanceMethod("showMaximized", &WidgetWrapName::showMaximized),         \
+      InstanceMethod("showMinimized", &WidgetWrapName::showMinimized),         \
+      InstanceMethod("showNormal", &WidgetWrapName::showNormal),               \
+      InstanceMethod("addAction", &WidgetWrapName::addAction),                 \
+      InstanceMethod("removeAction", &WidgetWrapName::removeAction),           \
+      InstanceMethod("repolish", &WidgetWrapName::repolish),                   \
+      InstanceMethod("setGraphicsEffect", &WidgetWrapName::setGraphicsEffect), \
+      InstanceMethod("acceptDrops", &WidgetWrapName::acceptDrops),             \
       InstanceMethod("setAcceptDrops", &WidgetWrapName::setAcceptDrops),
-
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

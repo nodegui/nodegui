@@ -43,6 +43,7 @@ const calendarWidget = new QCalendarWidget();
 
 ### Methods
 
+* [acceptDrops](qcalendarwidget.md#acceptdrops)
 * [activateWindow](qcalendarwidget.md#activatewindow)
 * [addAction](qcalendarwidget.md#addaction)
 * [addEventListener](qcalendarwidget.md#addeventlistener)
@@ -80,6 +81,7 @@ const calendarWidget = new QCalendarWidget();
 * [repolish](qcalendarwidget.md#repolish)
 * [resize](qcalendarwidget.md#resize)
 * [selectionMode](qcalendarwidget.md#selectionmode)
+* [setAcceptDrops](qcalendarwidget.md#setacceptdrops)
 * [setAttribute](qcalendarwidget.md#setattribute)
 * [setContextMenuPolicy](qcalendarwidget.md#setcontextmenupolicy)
 * [setCursor](qcalendarwidget.md#setcursor)
@@ -205,6 +207,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -702,6 +714,22 @@ ___
 ▸ **selectionMode**(): *SelectionMode*
 
 **Returns:** *SelectionMode*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

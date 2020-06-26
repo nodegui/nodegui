@@ -43,6 +43,7 @@ const errorMessage = new QErrorMessage();
 
 ### Methods
 
+* [acceptDrops](qerrormessage.md#acceptdrops)
 * [activateWindow](qerrormessage.md#activatewindow)
 * [addAction](qerrormessage.md#addaction)
 * [addEventListener](qerrormessage.md#addeventlistener)
@@ -78,6 +79,7 @@ const errorMessage = new QErrorMessage();
 * [repolish](qerrormessage.md#repolish)
 * [resize](qerrormessage.md#resize)
 * [result](qerrormessage.md#result)
+* [setAcceptDrops](qerrormessage.md#setacceptdrops)
 * [setAttribute](qerrormessage.md#setattribute)
 * [setContextMenuPolicy](qerrormessage.md#setcontextmenupolicy)
 * [setCursor](qerrormessage.md#setcursor)
@@ -198,6 +200,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -689,6 +701,22 @@ ___
 *Inherited from [NodeDialog](nodedialog.md).[result](nodedialog.md#result)*
 
 **Returns:** *number*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

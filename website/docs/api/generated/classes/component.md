@@ -75,6 +75,10 @@ Its the root base class in NodeGui world.
 
   ↳ [QUrl](qurl.md)
 
+  ↳ [QPointF](qpointf.md)
+
+  ↳ [QRectF](qrectf.md)
+
   ↳ [QSettings](qsettings.md)
 
 ## Index

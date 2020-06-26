@@ -29,6 +29,7 @@ sidebar_label: "QTableView"
 
 ### Methods
 
+* [acceptDrops](qtableview.md#acceptdrops)
 * [activateWindow](qtableview.md#activatewindow)
 * [addAction](qtableview.md#addaction)
 * [addEventListener](qtableview.md#addeventlistener)
@@ -106,6 +107,7 @@ sidebar_label: "QTableView"
 * [selectRow](qtableview.md#selectrow)
 * [selectionBehavior](qtableview.md#selectionbehavior)
 * [selectionMode](qtableview.md#selectionmode)
+* [setAcceptDrops](qtableview.md#setacceptdrops)
 * [setAlternatingRowColors](qtableview.md#setalternatingrowcolors)
 * [setAttribute](qtableview.md#setattribute)
 * [setAutoScroll](qtableview.md#setautoscroll)
@@ -277,6 +279,16 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -1292,6 +1304,22 @@ ___
 *Inherited from [QAbstractItemView](qabstractitemview.md).[selectionMode](qabstractitemview.md#selectionmode)*
 
 **Returns:** *[SelectionMode](../enums/selectionmode.md)*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

@@ -42,6 +42,7 @@ const scrollbar = new QScrollBar();
 
 ### Methods
 
+* [acceptDrops](qscrollbar.md#acceptdrops)
 * [activateWindow](qscrollbar.md#activatewindow)
 * [addAction](qscrollbar.md#addaction)
 * [addEventListener](qscrollbar.md#addeventlistener)
@@ -80,6 +81,7 @@ const scrollbar = new QScrollBar();
 * [repaint](qscrollbar.md#repaint)
 * [repolish](qscrollbar.md#repolish)
 * [resize](qscrollbar.md#resize)
+* [setAcceptDrops](qscrollbar.md#setacceptdrops)
 * [setAttribute](qscrollbar.md#setattribute)
 * [setContextMenuPolicy](qscrollbar.md#setcontextmenupolicy)
 * [setCursor](qscrollbar.md#setcursor)
@@ -212,6 +214,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -731,6 +743,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

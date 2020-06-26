@@ -7,7 +7,6 @@
 #include "Extras/Export/export.h"
 #include "core/Component/component_macro.h"
 
-
 /*
 NOTE : QDragMoveEvent inherits from QDropEvent
 - Is it possible to inherit from QDropEventWrap directly?
@@ -45,7 +44,8 @@ class DLL_EXPORT QDragMoveEventWrap
   Napi::Value proposedAction(const Napi::CallbackInfo& info);
   Napi::Value setDropAction(const Napi::CallbackInfo& info);
 
-  // Methods from QEvent (Not using macro because accept and ignore are overloaded)
+  // Methods from QEvent (Not using macro because accept and ignore are
+  // overloaded)
   Napi::Value accept(const Napi::CallbackInfo& info);
   Napi::Value ignore(const Napi::CallbackInfo& info);
   Napi::Value isAccepted(const Napi::CallbackInfo& info);

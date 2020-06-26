@@ -43,6 +43,7 @@ tool.setText('Help');
 
 ### Methods
 
+* [acceptDrops](qtoolbutton.md#acceptdrops)
 * [activateWindow](qtoolbutton.md#activatewindow)
 * [addAction](qtoolbutton.md#addaction)
 * [addEventListener](qtoolbutton.md#addeventlistener)
@@ -89,6 +90,7 @@ tool.setText('Help');
 * [repaint](qtoolbutton.md#repaint)
 * [repolish](qtoolbutton.md#repolish)
 * [resize](qtoolbutton.md#resize)
+* [setAcceptDrops](qtoolbutton.md#setacceptdrops)
 * [setArrowType](qtoolbutton.md#setarrowtype)
 * [setAttribute](qtoolbutton.md#setattribute)
 * [setAutoExclusive](qtoolbutton.md#setautoexclusive)
@@ -240,6 +242,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -835,6 +847,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

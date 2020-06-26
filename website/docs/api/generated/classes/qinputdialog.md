@@ -44,6 +44,7 @@ dialog.exec();
 
 ### Methods
 
+* [acceptDrops](qinputdialog.md#acceptdrops)
 * [activateWindow](qinputdialog.md#activatewindow)
 * [addAction](qinputdialog.md#addaction)
 * [addEventListener](qinputdialog.md#addeventlistener)
@@ -94,6 +95,7 @@ dialog.exec();
 * [repolish](qinputdialog.md#repolish)
 * [resize](qinputdialog.md#resize)
 * [result](qinputdialog.md#result)
+* [setAcceptDrops](qinputdialog.md#setacceptdrops)
 * [setAttribute](qinputdialog.md#setattribute)
 * [setCancelButtonText](qinputdialog.md#setcancelbuttontext)
 * [setComboBoxEditable](qinputdialog.md#setcomboboxeditable)
@@ -232,6 +234,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -843,6 +855,22 @@ ___
 *Inherited from [NodeDialog](nodedialog.md).[result](nodedialog.md#result)*
 
 **Returns:** *number*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

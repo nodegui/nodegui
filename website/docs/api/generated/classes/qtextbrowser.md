@@ -43,6 +43,7 @@ const textBrowser = new QTextBrowser();
 
 ### Methods
 
+* [acceptDrops](qtextbrowser.md#acceptdrops)
 * [acceptRichText](qtextbrowser.md#acceptrichtext)
 * [activateWindow](qtextbrowser.md#activatewindow)
 * [addAction](qtextbrowser.md#addaction)
@@ -122,6 +123,7 @@ const textBrowser = new QTextBrowser();
 * [resize](qtextbrowser.md#resize)
 * [scrollToAnchor](qtextbrowser.md#scrolltoanchor)
 * [selectAll](qtextbrowser.md#selectall)
+* [setAcceptDrops](qtextbrowser.md#setacceptdrops)
 * [setAcceptRichText](qtextbrowser.md#setacceptrichtext)
 * [setAlignment](qtextbrowser.md#setalignment)
 * [setAttribute](qtextbrowser.md#setattribute)
@@ -295,6 +297,16 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  acceptRichText
 
@@ -1228,6 +1240,22 @@ ___
 ▸ **selectAll**(): *void*
 
 *Inherited from [NodeTextEdit](nodetextedit.md).[selectAll](nodetextedit.md#selectall)*
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

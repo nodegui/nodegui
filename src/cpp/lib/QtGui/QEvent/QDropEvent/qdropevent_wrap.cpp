@@ -24,8 +24,8 @@ Napi::Object QDropEventWrap::init(Napi::Env env, Napi::Object exports) {
 
        // Methods inherited from QEvent
        QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)
-       
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)});
+
+           COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

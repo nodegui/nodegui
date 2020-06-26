@@ -48,6 +48,7 @@ sidebar_label: "NodeDialog"
 
 ### Methods
 
+* [acceptDrops](nodedialog.md#acceptdrops)
 * [activateWindow](nodedialog.md#activatewindow)
 * [addAction](nodedialog.md#addaction)
 * [addEventListener](nodedialog.md#addeventlistener)
@@ -83,6 +84,7 @@ sidebar_label: "NodeDialog"
 * [repolish](nodedialog.md#repolish)
 * [resize](nodedialog.md#resize)
 * [result](nodedialog.md#result)
+* [setAcceptDrops](nodedialog.md#setacceptdrops)
 * [setAttribute](nodedialog.md#setattribute)
 * [setContextMenuPolicy](nodedialog.md#setcontextmenupolicy)
 * [setCursor](nodedialog.md#setcursor)
@@ -198,6 +200,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -679,6 +691,22 @@ ___
 ▸ **result**(): *number*
 
 **Returns:** *number*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

@@ -51,6 +51,7 @@ scrollArea.setWidget(imageLabel);
 
 ### Methods
 
+* [acceptDrops](qscrollarea.md#acceptdrops)
 * [activateWindow](qscrollarea.md#activatewindow)
 * [addAction](qscrollarea.md#addaction)
 * [addEventListener](qscrollarea.md#addeventlistener)
@@ -91,6 +92,7 @@ scrollArea.setWidget(imageLabel);
 * [repaint](qscrollarea.md#repaint)
 * [repolish](qscrollarea.md#repolish)
 * [resize](qscrollarea.md#resize)
+* [setAcceptDrops](qscrollarea.md#setacceptdrops)
 * [setAlignment](qscrollarea.md#setalignment)
 * [setAttribute](qscrollarea.md#setattribute)
 * [setContextMenuPolicy](qscrollarea.md#setcontextmenupolicy)
@@ -237,6 +239,16 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -787,6 +799,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 
