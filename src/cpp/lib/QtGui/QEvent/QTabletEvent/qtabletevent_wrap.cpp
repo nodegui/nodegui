@@ -15,7 +15,7 @@ Napi::Object QTabletEventWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("button", &QTabletEventWrap::button),
        InstanceMethod("buttons", &QTabletEventWrap::buttons),
-      //  InstanceMethod("deviceType", &QTabletEventWrap::deviceType),
+       //  InstanceMethod("deviceType", &QTabletEventWrap::deviceType),
        InstanceMethod("globalPos", &QTabletEventWrap::globalPos),
        InstanceMethod("globalPosF", &QTabletEventWrap::globalPosF),
        InstanceMethod("globalX", &QTabletEventWrap::globalX),
@@ -25,7 +25,8 @@ Napi::Object QTabletEventWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("posF", &QTabletEventWrap::posF),
        InstanceMethod("pressure", &QTabletEventWrap::pressure),
        InstanceMethod("rotation", &QTabletEventWrap::rotation),
-       InstanceMethod("tangentialPressure", &QTabletEventWrap::tangentialPressure),
+       InstanceMethod("tangentialPressure",
+                      &QTabletEventWrap::tangentialPressure),
        InstanceMethod("uniqueId", &QTabletEventWrap::uniqueId),
        InstanceMethod("x", &QTabletEventWrap::x),
        InstanceMethod("xTilt", &QTabletEventWrap::xTilt),
@@ -59,7 +60,6 @@ QTabletEventWrap::QTabletEventWrap(const Napi::CallbackInfo& info)
 QTabletEventWrap::~QTabletEventWrap() {
   // Do not destroy instance here. It will be done by Qt Event loop.
 }
-
 
 Napi::Value QTabletEventWrap::button(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -145,7 +145,8 @@ Napi::Value QTabletEventWrap::rotation(const Napi::CallbackInfo& info) {
   qreal v = static_cast<qreal>(this->instance->rotation());
   return Napi::Number::From(env, v);
 }
-Napi::Value QTabletEventWrap::tangentialPressure(const Napi::CallbackInfo& info) {
+Napi::Value QTabletEventWrap::tangentialPressure(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   qreal v = static_cast<qreal>(this->instance->tangentialPressure());
   return Napi::Number::From(env, v);

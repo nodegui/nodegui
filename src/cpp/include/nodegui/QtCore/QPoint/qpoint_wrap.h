@@ -23,6 +23,9 @@ class DLL_EXPORT QPointWrap : public Napi::ObjectWrap<QPointWrap> {
   Napi::Value setY(const Napi::CallbackInfo& info);
   Napi::Value x(const Napi::CallbackInfo& info);
   Napi::Value y(const Napi::CallbackInfo& info);
+  Napi::Value isNull(const Napi::CallbackInfo& info);
+  Napi::Value manhattanLength(const Napi::CallbackInfo& info);
+  Napi::Value transposed(const Napi::CallbackInfo& info);
 };
 
 namespace StaticQPointWrapMethods {
