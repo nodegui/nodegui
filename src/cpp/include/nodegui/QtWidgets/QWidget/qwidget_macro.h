@@ -420,6 +420,18 @@
         qobject_cast<QGraphicsEffect*>(effectWrap->getInternalInstance());    \
     this->instance->setGraphicsEffect(effect);                                \
     return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value acceptDrops(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    return Napi::Boolean::From(env, this->instance->acceptDrops());           \
+  }                                                                           \
+  Napi::Value setAcceptDrops(const Napi::CallbackInfo& info) {                \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool v = info[0].As<Napi::Boolean>().Value();                             \
+    this->instance->setAcceptDrops(v);                                        \
+    return env.Null();                                                        \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -479,7 +491,10 @@
       InstanceMethod("addAction", &WidgetWrapName::addAction),               \
       InstanceMethod("removeAction", &WidgetWrapName::removeAction),         \
       InstanceMethod("repolish", &WidgetWrapName::repolish),                 \
-      InstanceMethod("setGraphicsEffect", &WidgetWrapName::setGraphicsEffect),
+      InstanceMethod("setGraphicsEffect", &WidgetWrapName::setGraphicsEffect),\
+      InstanceMethod("acceptDrops", &WidgetWrapName::acceptDrops),           \
+      InstanceMethod("setAcceptDrops", &WidgetWrapName::setAcceptDrops),
+
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

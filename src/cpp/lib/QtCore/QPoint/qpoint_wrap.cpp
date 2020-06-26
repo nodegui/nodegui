@@ -14,6 +14,9 @@ Napi::Object QPointWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("x", &QPointWrap::x),
        InstanceMethod("setY", &QPointWrap::setY),
        InstanceMethod("y", &QPointWrap::y),
+       InstanceMethod("isNull", &QPointWrap::isNull),
+       InstanceMethod("manhattanLength", &QPointWrap::manhattanLength),
+       InstanceMethod("transposed", &QPointWrap::transposed),
        StaticMethod("fromQVariant", &StaticQPointWrapMethods::fromQVariant),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QPointWrap)});
   constructor = Napi::Persistent(func);
@@ -82,5 +85,28 @@ Napi::Value StaticQPointWrapMethods::fromQVariant(
   QPoint point = variant->value<QPoint>();
   auto instance = QPointWrap::constructor.New(
       {Napi::External<QPoint>::New(env, new QPoint(point))});
+  return instance;
+}
+
+Napi::Value QPointWrap::isNull(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Boolean::New(env, this->instance->isNull());
+}
+
+Napi::Value QPointWrap::manhattanLength(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Number::New(env, this->instance->manhattanLength());
+}
+
+Napi::Value QPointWrap::transposed(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QPoint ret = this->instance->transposed();
+  auto instance = QPointWrap::constructor.New(
+      {Napi::External<QPoint>::New(env, new QPoint(ret))});
   return instance;
 }

@@ -6,7 +6,9 @@
 #include "QtCore/QModelIndex/qmodelindex_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
+#include "QtCore/QPointF/qpointf_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
+#include "QtCore/QRectF/qrectf_wrap.h"
 #include "QtCore/QSettings/qsettings_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtCore/QTime/qtime_wrap.h"
@@ -17,11 +19,13 @@
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
+#include "QtGui/QEvent/QDragMoveEvent/qdragmoveevent_wrap.h"
+#include "QtGui/QEvent/QDropEvent/qdropevent_wrap.h"
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include "QtGui/QEvent/QMouseEvent/qmouseevent_wrap.h"
 #include "QtGui/QEvent/QNativeGestureEvent/qnativegestureevent_wrap.h"
-#include "QtGui/QEvent/QWheelEvent/qwheelevent_wrap.h"
 #include "QtGui/QEvent/QTabletEvent/qtabletevent_wrap.h"
+#include "QtGui/QEvent/QWheelEvent/qwheelevent_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
 #include "QtGui/QFontDatabase/qfontdatabase_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
@@ -109,7 +113,9 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QModelIndexWrap::init(env, exports);
   QObjectWrap::init(env, exports);
   QPointWrap::init(env, exports);
+  QPointFWrap::init(env, exports);
   QRectWrap::init(env, exports);
+  QRectFWrap::init(env, exports);
   QSizeWrap::init(env, exports);
   QTimeWrap::init(env, exports);
   QUrlWrap::init(env, exports);
@@ -171,6 +177,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QMouseEventWrap::init(env, exports);
   QWheelEventWrap::init(env, exports);
   QTabletEventWrap::init(env, exports);
+  QDropEventWrap::init(env, exports);
+  QDragMoveEventWrap::init(env, exports);
   QNativeGestureEventWrap::init(env, exports);
   QPlainTextEditWrap::init(env, exports);
   QDialWrap::init(env, exports);
