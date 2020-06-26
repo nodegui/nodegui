@@ -1,4 +1,5 @@
 #include "QtGui/QEvent/QDragMoveEvent/qdragmoveevent_wrap.h"
+#include "QtCore/QRect/qrect_wrap.h"
 
 #include <QPoint>
 
@@ -152,6 +153,11 @@ Napi::Value QDragMoveEventWrap::accept(const Napi::CallbackInfo& info) {
     int width = info[2].As<Napi::Number>().Int32Value();
     int height = info[3].As<Napi::Number>().Int32Value();
     this->instance->accept(QRect(x, y, width, height));
+  } else if (info.Length() == 1) {
+    Napi::Object wrap0_0 = info[0].As<Napi::Object>();
+    QRectWrap* wrap0_1 = Napi::ObjectWrap<QRectWrap>::Unwrap(wrap0_0);
+    QRect* input0 = wrap0_1->getInternalInstance();
+    this->instance->accept(*input0);
   } else {
     this->instance->accept();
   }
@@ -179,6 +185,11 @@ Napi::Value QDragMoveEventWrap::ignore(const Napi::CallbackInfo& info) {
     int width = info[2].As<Napi::Number>().Int32Value();
     int height = info[3].As<Napi::Number>().Int32Value();
     this->instance->ignore(QRect(x, y, width, height));
+  }else if (info.Length() == 1) {
+    Napi::Object wrap0_0 = info[0].As<Napi::Object>();
+    QRectWrap* wrap0_1 = Napi::ObjectWrap<QRectWrap>::Unwrap(wrap0_0);
+    QRect* input0 = wrap0_1->getInternalInstance();
+    this->instance->ignore(*input0);
   } else {
     this->instance->ignore();
   }

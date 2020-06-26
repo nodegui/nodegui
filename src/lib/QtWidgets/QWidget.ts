@@ -271,6 +271,12 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         this._effect = effect;
         this.native.setGraphicsEffect(effect.native);
     }
+    setAcceptDrops(on: boolean): void {
+        this.native.setAcceptDrops(on);
+    }
+    acceptDrops(): boolean {
+        return this.native.acceptDrops();
+    }
 }
 
 export interface QWidgetSignals extends QObjectSignals {

@@ -23,15 +23,8 @@ Napi::Object QDropEventWrap::init(Napi::Env env, Napi::Object exports) {
        //    InstanceMethod("source", &QDropEventWrap::source),
 
        // Methods inherited from QEvent
-       InstanceMethod("accept", &QDropEventWrap::accept),
-       InstanceMethod("ignore", &QDropEventWrap::ignore),
-       InstanceMethod("isAccepted", &QDropEventWrap::isAccepted),
-       InstanceMethod("setAccepted", &QDropEventWrap::setAccepted),
-       InstanceMethod("spontaneous", &QDropEventWrap::spontaneous),
-       InstanceMethod(
-           "_type",
-           &QDropEventWrap::_type),  // Rename to _type to prevent conflict
-
+       QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)
+       
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -135,36 +128,4 @@ Napi::Value QDropEventWrap::setDropAction(const Napi::CallbackInfo& info) {
 //   return env.Null();
 // }
 
-// Methods from QEvent --------------------------------------------
-
-Napi::Value QDropEventWrap::accept(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  this->instance->accept();
-  return env.Null();
-}
-Napi::Value QDropEventWrap::ignore(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  this->instance->ignore();
-  return env.Null();
-}
-Napi::Value QDropEventWrap::isAccepted(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  bool v = this->instance->isAccepted();
-  return Napi::Boolean::From(env, v);
-}
-Napi::Value QDropEventWrap::setAccepted(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  bool v = info[0].As<Napi::Boolean>().Value();
-  this->instance->setAccepted(v);
-  return env.Null();
-}
-Napi::Value QDropEventWrap::spontaneous(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  bool v = this->instance->spontaneous();
-  return Napi::Boolean::From(env, v);
-}
-Napi::Value QDropEventWrap::_type(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  int v = static_cast<int>(this->instance->type());
-  return Napi::Number::From(env, v);
-}
+// Methods from QEvent defined in Macro already

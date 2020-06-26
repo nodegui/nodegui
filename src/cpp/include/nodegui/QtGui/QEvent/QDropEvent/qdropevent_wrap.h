@@ -3,6 +3,7 @@
 #include <napi.h>
 
 #include <QDropEvent>
+#include "QtGui/QEvent/QEvent/qevent_macro.h"
 
 #include "Extras/Export/export.h"
 #include "core/Component/component_macro.h"
@@ -33,10 +34,5 @@ class DLL_EXPORT QDropEventWrap : public Napi::ObjectWrap<QDropEventWrap> {
   Napi::Value setDropAction(const Napi::CallbackInfo& info);
 
   // Methods from QEvent
-  Napi::Value accept(const Napi::CallbackInfo& info);
-  Napi::Value ignore(const Napi::CallbackInfo& info);
-  Napi::Value isAccepted(const Napi::CallbackInfo& info);
-  Napi::Value setAccepted(const Napi::CallbackInfo& info);
-  Napi::Value spontaneous(const Napi::CallbackInfo& info);
-  Napi::Value _type(const Napi::CallbackInfo& info);
+  QEVENT_WRAPPED_METHODS_DECLARATION
 };

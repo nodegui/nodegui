@@ -10,10 +10,10 @@
 class DLL_EXPORT QRectFWrap : public Napi::ObjectWrap<QRectFWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
-  private:
+ private:
   std::unique_ptr<QRectF> instance;
 
-  public:
+ public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QRectFWrap(const Napi::CallbackInfo& info);
   ~QRectFWrap();
