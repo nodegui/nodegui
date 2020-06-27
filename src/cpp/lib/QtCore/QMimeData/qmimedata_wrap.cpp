@@ -68,7 +68,7 @@ QMimeDataWrap::QMimeDataWrap(const Napi::CallbackInfo& info)
 }
 
 void QMimeDataWrap::cloneFromMimeDataToData(QMimeData* fromData,
-                                                   QMimeData* toData) {
+                                            QMimeData* toData) {
   foreach (QString format, fromData->formats()) {
     // Retrieving data
     QByteArray data = fromData->data(format);

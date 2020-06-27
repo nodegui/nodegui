@@ -10,10 +10,10 @@
 class DLL_EXPORT QMimeDataWrap : public Napi::ObjectWrap<QMimeDataWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
-  private:
+ private:
   std::unique_ptr<QMimeData> instance;
 
-  public:
+ public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QMimeDataWrap(const Napi::CallbackInfo& info);
   ~QMimeDataWrap();
@@ -21,8 +21,8 @@ class DLL_EXPORT QMimeDataWrap : public Napi::ObjectWrap<QMimeDataWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
 
-  static void cloneFromMimeDataToData(QMimeData *fromData, QMimeData *toData);
-  void cloneFromMimeData(QMimeData *data);
+  static void cloneFromMimeDataToData(QMimeData* fromData, QMimeData* toData);
+  void cloneFromMimeData(QMimeData* data);
 
   // wrapped methods
   Napi::Value clear(const Napi::CallbackInfo& info);
@@ -41,5 +41,3 @@ class DLL_EXPORT QMimeDataWrap : public Napi::ObjectWrap<QMimeDataWrap> {
   Napi::Value text(const Napi::CallbackInfo& info);
   Napi::Value urls(const Napi::CallbackInfo& info);
 };
-
-

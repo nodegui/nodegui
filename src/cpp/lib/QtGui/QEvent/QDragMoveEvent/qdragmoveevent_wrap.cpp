@@ -3,9 +3,8 @@
 #include <QPoint>
 
 #include "Extras/Utils/nutils.h"
-#include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QMimeData/qmimedata_wrap.h"
-
+#include "QtCore/QRect/qrect_wrap.h"
 
 Napi::FunctionReference QDragMoveEventWrap::constructor;
 

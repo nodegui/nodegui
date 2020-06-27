@@ -120,7 +120,8 @@ Napi::Value QUrlWrap::adjusted(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  QUrl::FormattingOptions input0 = (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
+  QUrl::FormattingOptions input0 =
+      (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
 
   QUrl ret = this->instance->adjusted(input0);
   auto instance = QUrlWrap::constructor.New(
@@ -239,7 +240,8 @@ Napi::Value QUrlWrap::matches(const Napi::CallbackInfo& info) {
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QUrlWrap* wrap0_1 = Napi::ObjectWrap<QUrlWrap>::Unwrap(wrap0_0);
   QUrl* input0 = wrap0_1->getInternalInstance();
-  QUrl::FormattingOptions input1 = (QUrl::FormattingOptions)info[1].As<Napi::Number>().Int32Value();
+  QUrl::FormattingOptions input1 =
+      (QUrl::FormattingOptions)info[1].As<Napi::Number>().Int32Value();
   return Napi::Boolean::New(env, this->instance->matches(*input0, input1));
 }
 
@@ -305,7 +307,8 @@ Napi::Value QUrlWrap::setAuthority(const Napi::CallbackInfo& info) {
 
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
-  QUrl::ParsingMode input1 = static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
+  QUrl::ParsingMode input1 =
+      static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
   this->instance->setAuthority(input0, input1);
   return env.Null();
 }
@@ -316,7 +319,8 @@ Napi::Value QUrlWrap::setFragment(const Napi::CallbackInfo& info) {
 
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
-  QUrl::ParsingMode input1 = static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
+  QUrl::ParsingMode input1 =
+      static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
   this->instance->setFragment(input0, input1);
   return env.Null();
 }
@@ -327,7 +331,8 @@ Napi::Value QUrlWrap::setHost(const Napi::CallbackInfo& info) {
 
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
-  QUrl::ParsingMode input1 = static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
+  QUrl::ParsingMode input1 =
+      static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
   this->instance->setHost(input0, input1);
   return env.Null();
 }
@@ -338,7 +343,8 @@ Napi::Value QUrlWrap::setPassword(const Napi::CallbackInfo& info) {
 
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
-  QUrl::ParsingMode input1 = static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
+  QUrl::ParsingMode input1 =
+      static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
   this->instance->setPassword(input0, input1);
   return env.Null();
 }
@@ -349,7 +355,8 @@ Napi::Value QUrlWrap::setPath(const Napi::CallbackInfo& info) {
 
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
-  QUrl::ParsingMode input1 = static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
+  QUrl::ParsingMode input1 =
+      static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
   this->instance->setPath(input0, input1);
   return env.Null();
 }
@@ -369,7 +376,8 @@ Napi::Value QUrlWrap::setQuery(const Napi::CallbackInfo& info) {
 
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
-  QUrl::ParsingMode input1 = static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
+  QUrl::ParsingMode input1 =
+      static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
   this->instance->setQuery(input0, input1);
   return env.Null();
 }
@@ -390,7 +398,8 @@ Napi::Value QUrlWrap::setUrl(const Napi::CallbackInfo& info) {
 
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
-  QUrl::ParsingMode input1 = static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
+  QUrl::ParsingMode input1 =
+      static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
   this->instance->setUrl(input0, input1);
   return env.Null();
 }
@@ -401,7 +410,8 @@ Napi::Value QUrlWrap::setUserInfo(const Napi::CallbackInfo& info) {
 
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
-  QUrl::ParsingMode input1 = static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
+  QUrl::ParsingMode input1 =
+      static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
   this->instance->setUserInfo(input0, input1);
   return env.Null();
 }
@@ -412,7 +422,8 @@ Napi::Value QUrlWrap::setUserName(const Napi::CallbackInfo& info) {
 
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
-  QUrl::ParsingMode input1 = static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
+  QUrl::ParsingMode input1 =
+      static_cast<QUrl::ParsingMode>(info[1].As<Napi::Number>().Int32Value());
   this->instance->setUserName(input0, input1);
   return env.Null();
 }
@@ -432,7 +443,8 @@ Napi::Value QUrlWrap::toDisplayString(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  QUrl::FormattingOptions input0 = (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
+  QUrl::FormattingOptions input0 =
+      (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(
       env, this->instance->toDisplayString(input0).toStdString());
 }
@@ -447,8 +459,9 @@ Napi::Value QUrlWrap::toLocalFile(const Napi::CallbackInfo& info) {
 Napi::Value QUrlWrap::toString_withOpts(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  
-  QUrl::FormattingOptions input0 = (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
+
+  QUrl::FormattingOptions input0 =
+      (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->toString(input0).toStdString());
 }
 
@@ -456,7 +469,8 @@ Napi::Value QUrlWrap::url(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  QUrl::FormattingOptions input0 = (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
+  QUrl::FormattingOptions input0 =
+      (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->url(input0).toStdString());
 }
 

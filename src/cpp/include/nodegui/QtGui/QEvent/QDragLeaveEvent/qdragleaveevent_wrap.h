@@ -3,12 +3,13 @@
 #include <napi.h>
 
 #include <QDragLeaveEvent>
-#include "QtGui/QEvent/QEvent/qevent_macro.h"
 
 #include "Extras/Export/export.h"
+#include "QtGui/QEvent/QEvent/qevent_macro.h"
 #include "core/Component/component_macro.h"
 
-class DLL_EXPORT QDragLeaveEventWrap : public Napi::ObjectWrap<QDragLeaveEventWrap> {
+class DLL_EXPORT QDragLeaveEventWrap
+    : public Napi::ObjectWrap<QDragLeaveEventWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

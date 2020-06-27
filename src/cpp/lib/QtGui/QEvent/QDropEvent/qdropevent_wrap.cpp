@@ -82,9 +82,9 @@ Napi::Value QDropEventWrap::mimeData(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   const QMimeData* ret = this->instance->mimeData();
 
-  QMimeData *clone = new QMimeData();
-  //QMimeData has no copy constructor so I do this
-  QMimeDataWrap::cloneFromMimeDataToData((QMimeData *)ret, clone);
+  QMimeData* clone = new QMimeData();
+  // QMimeData has no copy constructor so I do this
+  QMimeDataWrap::cloneFromMimeDataToData((QMimeData*)ret, clone);
   auto instance = QMimeDataWrap::constructor.New(
       {Napi::External<QMimeData>::New(env, clone)});
   return instance;
