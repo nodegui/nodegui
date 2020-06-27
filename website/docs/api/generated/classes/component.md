@@ -51,6 +51,10 @@ Its the root base class in NodeGui world.
 
   ↳ [QFontDatabase](qfontdatabase.md)
 
+  ↳ [QUrl](qurl.md)
+
+  ↳ [QMimeData](qmimedata.md)
+
   ↳ [QPoint](qpoint.md)
 
   ↳ [QModelIndex](qmodelindex.md)
@@ -72,8 +76,6 @@ Its the root base class in NodeGui world.
   ↳ [QPainterPath](qpainterpath.md)
 
   ↳ [QPainter](qpainter.md)
-
-  ↳ [QUrl](qurl.md)
 
   ↳ [QPointF](qpointf.md)
 

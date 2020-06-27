@@ -26,6 +26,7 @@ sidebar_label: "QDropEvent"
 * [ignore](qdropevent.md#ignore)
 * [isAccepted](qdropevent.md#isaccepted)
 * [keyboardModifiers](qdropevent.md#keyboardmodifiers)
+* [mimeData](qdropevent.md#mimedata)
 * [mouseButtons](qdropevent.md#mousebuttons)
 * [pos](qdropevent.md#pos)
 * [posF](qdropevent.md#posf)
@@ -120,6 +121,16 @@ Returns the modifier keys that are pressed
 see Qt::KeyboardModifier for flags
 
 **Returns:** *number*
+
+___
+
+###  mimeData
+
+▸ **mimeData**(): *[QMimeData](qmimedata.md)*
+
+Returns the data that was dropped on the widget and its associated MIME type information
+
+**Returns:** *[QMimeData](qmimedata.md)*
 
 ___
 
