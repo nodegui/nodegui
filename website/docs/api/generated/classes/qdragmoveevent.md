@@ -27,6 +27,7 @@ sidebar_label: "QDragMoveEvent"
 * [ignore](qdragmoveevent.md#ignore)
 * [isAccepted](qdragmoveevent.md#isaccepted)
 * [keyboardModifiers](qdragmoveevent.md#keyboardmodifiers)
+* [mimeData](qdragmoveevent.md#mimedata)
 * [mouseButtons](qdragmoveevent.md#mousebuttons)
 * [pos](qdragmoveevent.md#pos)
 * [posF](qdragmoveevent.md#posf)
@@ -159,6 +160,16 @@ Returns the modifier keys that are pressed
 see Qt::KeyboardModifier for flags
 
 **Returns:** *number*
+
+___
+
+###  mimeData
+
+▸ **mimeData**(): *[QMimeData](qmimedata.md)*
+
+Returns the data that was dropped on the widget and its associated MIME type information
+
+**Returns:** *[QMimeData](qmimedata.md)*
 
 ___
 

@@ -3,6 +3,7 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QDate/qdate_wrap.h"
 #include "QtCore/QDateTime/qdatetime_wrap.h"
+#include "QtCore/QMimeData/qmimedata_wrap.h"
 #include "QtCore/QModelIndex/qmodelindex_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
@@ -19,6 +20,7 @@
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
+#include "QtGui/QEvent/QDragLeaveEvent/qdragleaveevent_wrap.h"
 #include "QtGui/QEvent/QDragMoveEvent/qdragmoveevent_wrap.h"
 #include "QtGui/QEvent/QDropEvent/qdropevent_wrap.h"
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
@@ -110,6 +112,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QApplicationWrap::init(env, exports);
   QDateWrap::init(env, exports);
   QDateTimeWrap::init(env, exports);
+  QMimeDataWrap::init(env, exports);
   QModelIndexWrap::init(env, exports);
   QObjectWrap::init(env, exports);
   QPointWrap::init(env, exports);
@@ -179,6 +182,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QTabletEventWrap::init(env, exports);
   QDropEventWrap::init(env, exports);
   QDragMoveEventWrap::init(env, exports);
+  QDragLeaveEventWrap::init(env, exports);
   QNativeGestureEventWrap::init(env, exports);
   QPlainTextEditWrap::init(env, exports);
   QDialWrap::init(env, exports);

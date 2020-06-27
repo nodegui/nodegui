@@ -25,6 +25,7 @@ export { QNativeGestureEvent } from './lib/QtGui/QEvent/QNativeGestureEvent';
 export { QTabletEvent } from './lib/QtGui/QEvent/QTabletEvent';
 export { QDropEvent } from './lib/QtGui/QEvent/QDropEvent';
 export { QDragMoveEvent } from './lib/QtGui/QEvent/QDragMoveEvent';
+export { QDragLeaveEvent } from './lib/QtGui/QEvent/QDragLeaveEvent';
 export { WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
 export { NodeWidget, QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
@@ -123,6 +124,7 @@ export {
 export { QDate } from './lib/QtCore/QDate';
 export { QDateTime } from './lib/QtCore/QDateTime';
 export { QModelIndex } from './lib/QtCore/QModelIndex';
+export { QMimeData } from './lib/QtCore/QMimeData';
 export { QObject, QObjectSignals, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';

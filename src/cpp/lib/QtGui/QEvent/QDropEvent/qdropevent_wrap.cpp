@@ -3,6 +3,7 @@
 #include <QPoint>
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QMimeData/qmimedata_wrap.h"
 
 Napi::FunctionReference QDropEventWrap::constructor;
 
@@ -15,7 +16,7 @@ Napi::Object QDropEventWrap::init(Napi::Env env, Napi::Object exports) {
                       &QDropEventWrap::acceptProposedAction),
        InstanceMethod("dropAction", &QDropEventWrap::dropAction),
        InstanceMethod("keyboardModifiers", &QDropEventWrap::keyboardModifiers),
-       //    InstanceMethod("mimeData", &QDropEventWrap::mimeData),
+       InstanceMethod("mimeData", &QDropEventWrap::mimeData),
        InstanceMethod("mouseButtons", &QDropEventWrap::mouseButtons),
        InstanceMethod("pos", &QDropEventWrap::pos),
        InstanceMethod("possibleActions", &QDropEventWrap::possibleActions),
@@ -77,12 +78,17 @@ Napi::Value QDropEventWrap::mouseButtons(const Napi::CallbackInfo& info) {
   return Napi::Number::From(env, m);
 }
 
-// TODO: Implement MimeData to do this...
-// Napi::Value QDropEventWrap::mimeData(const Napi::CallbackInfo& info) {
-//   Napi::Env env = info.Env();
-//   int modifierFlags = static_cast<int>(this->instance->keyboardModifiers());
-//   return Napi::Number::From(env, modifierFlags);
-// }
+Napi::Value QDropEventWrap::mimeData(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  const QMimeData* ret = this->instance->mimeData();
+
+  QMimeData* clone = new QMimeData();
+  // QMimeData has no copy constructor so I do this
+  QMimeDataWrap::cloneFromMimeDataToData((QMimeData*)ret, clone);
+  auto instance = QMimeDataWrap::constructor.New(
+      {Napi::External<QMimeData>::New(env, clone)});
+  return instance;
+}
 
 Napi::Value QDropEventWrap::pos(const Napi::CallbackInfo& info) {
   // Uses QPoint
