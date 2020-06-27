@@ -20,10 +20,7 @@
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
-<<<<<<< HEAD
 #include "QtGui/QEvent/QDragLeaveEvent/qdragleaveevent_wrap.h"
-=======
->>>>>>> f4d656d8ef9635da890a990a13be300c4b1456d8
 #include "QtGui/QEvent/QDragMoveEvent/qdragmoveevent_wrap.h"
 #include "QtGui/QEvent/QDropEvent/qdropevent_wrap.h"
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
@@ -103,8 +100,8 @@
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
 #include "core/Integration/integration.h"
-// These cant be instantiated in JS Side
-void InitPrivateHelpers(Napi::Env env) {
+    // These cant be instantiated in JS Side
+    void InitPrivateHelpers(Napi::Env env) {
   qodeIntegration::integrate();
   QLayoutWrap::init(env);  // Abstact class wrapper for pointing to any layout
 }
