@@ -43,6 +43,7 @@ label.setText("Hello");
 
 ### Methods
 
+* [acceptDrops](qlabel.md#acceptdrops)
 * [activateWindow](qlabel.md#activatewindow)
 * [addAction](qlabel.md#addaction)
 * [addEventListener](qlabel.md#addeventlistener)
@@ -93,6 +94,7 @@ label.setText("Hello");
 * [resize](qlabel.md#resize)
 * [selectedText](qlabel.md#selectedtext)
 * [selectionStart](qlabel.md#selectionstart)
+* [setAcceptDrops](qlabel.md#setacceptdrops)
 * [setAlignment](qlabel.md#setalignment)
 * [setAttribute](qlabel.md#setattribute)
 * [setBuddy](qlabel.md#setbuddy)
@@ -235,6 +237,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -850,6 +862,22 @@ ___
 ▸ **selectionStart**(): *number*
 
 **Returns:** *number*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

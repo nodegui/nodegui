@@ -72,6 +72,7 @@ win.show();
 
 ### Methods
 
+* [acceptDrops](qtreewidget.md#acceptdrops)
 * [activateWindow](qtreewidget.md#activatewindow)
 * [addAction](qtreewidget.md#addaction)
 * [addEventListener](qtreewidget.md#addeventlistener)
@@ -117,6 +118,7 @@ win.show();
 * [repolish](qtreewidget.md#repolish)
 * [resize](qtreewidget.md#resize)
 * [selectedItems](qtreewidget.md#selecteditems)
+* [setAcceptDrops](qtreewidget.md#setacceptdrops)
 * [setAttribute](qtreewidget.md#setattribute)
 * [setColumnCount](qtreewidget.md#setcolumncount)
 * [setColumnWidth](qtreewidget.md#setcolumnwidth)
@@ -271,6 +273,16 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -882,6 +894,22 @@ ___
 ▸ **selectedItems**(): *[QTreeWidgetItem](qtreewidgetitem.md)[]*
 
 **Returns:** *[QTreeWidgetItem](qtreewidgetitem.md)[]*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

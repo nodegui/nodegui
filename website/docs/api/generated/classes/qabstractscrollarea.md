@@ -55,6 +55,7 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 
 ### Methods
 
+* [acceptDrops](qabstractscrollarea.md#acceptdrops)
 * [activateWindow](qabstractscrollarea.md#activatewindow)
 * [addAction](qabstractscrollarea.md#addaction)
 * [addEventListener](qabstractscrollarea.md#addeventlistener)
@@ -92,6 +93,7 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [repaint](qabstractscrollarea.md#repaint)
 * [repolish](qabstractscrollarea.md#repolish)
 * [resize](qabstractscrollarea.md#resize)
+* [setAcceptDrops](qabstractscrollarea.md#setacceptdrops)
 * [setAttribute](qabstractscrollarea.md#setattribute)
 * [setContextMenuPolicy](qabstractscrollarea.md#setcontextmenupolicy)
 * [setCursor](qabstractscrollarea.md#setcursor)
@@ -220,6 +222,16 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -729,6 +741,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

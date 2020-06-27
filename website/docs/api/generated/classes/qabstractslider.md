@@ -48,6 +48,7 @@ QAbstractSlider will list all methods and properties that are common to all slid
 
 ### Methods
 
+* [acceptDrops](qabstractslider.md#acceptdrops)
 * [activateWindow](qabstractslider.md#activatewindow)
 * [addAction](qabstractslider.md#addaction)
 * [addEventListener](qabstractslider.md#addeventlistener)
@@ -86,6 +87,7 @@ QAbstractSlider will list all methods and properties that are common to all slid
 * [repaint](qabstractslider.md#repaint)
 * [repolish](qabstractslider.md#repolish)
 * [resize](qabstractslider.md#resize)
+* [setAcceptDrops](qabstractslider.md#setacceptdrops)
 * [setAttribute](qabstractslider.md#setattribute)
 * [setContextMenuPolicy](qabstractslider.md#setcontextmenupolicy)
 * [setCursor](qabstractslider.md#setcursor)
@@ -214,6 +216,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -717,6 +729,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

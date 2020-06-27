@@ -45,6 +45,7 @@ It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 
 ### Methods
 
+* [acceptDrops](qabstractspinbox.md#acceptdrops)
 * [activateWindow](qabstractspinbox.md#activatewindow)
 * [addAction](qabstractspinbox.md#addaction)
 * [addEventListener](qabstractspinbox.md#addeventlistener)
@@ -86,6 +87,7 @@ It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 * [resize](qabstractspinbox.md#resize)
 * [selectAll](qabstractspinbox.md#selectall)
 * [setAccelerated](qabstractspinbox.md#setaccelerated)
+* [setAcceptDrops](qabstractspinbox.md#setacceptdrops)
 * [setAlignment](qabstractspinbox.md#setalignment)
 * [setAttribute](qabstractspinbox.md#setattribute)
 * [setButtonSymbols](qabstractspinbox.md#setbuttonsymbols)
@@ -212,6 +214,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -739,6 +751,22 @@ ___
 ###  setAccelerated
 
 ▸ **setAccelerated**(`on`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
 
 **Parameters:**
 

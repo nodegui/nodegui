@@ -1,7 +1,10 @@
 import addon from '../../utils/addon';
 import { NativeElement } from '../../core/Component';
 import { DropAction } from '../../QtEnums';
+<<<<<<< HEAD
 import { QMimeData } from '../../QtCore/QMimeData';
+=======
+>>>>>>> f4d656d8ef9635da890a990a13be300c4b1456d8
 
 export class QDropEvent {
     native: NativeElement;
@@ -29,12 +32,22 @@ export class QDropEvent {
     keyboardModifiers(): number {
         return this.native.keyboardModifiers();
     }
+<<<<<<< HEAD
     /**
      * Returns the data that was dropped on the widget and its associated MIME type information
      */
     mimeData(): QMimeData {
         return new QMimeData(this.native.mimeData());
     }
+=======
+    /*
+     * Cannot implement yet; need to implement QMimeData first
+     * Returns the data that was dropped on the widget and its associated MIME type information
+     */
+    // mimeData(): QMimeData  {
+    //     return this.native.pos();
+    // }
+>>>>>>> f4d656d8ef9635da890a990a13be300c4b1456d8
     /**
      * Returns the mouse buttons that are pressed
      *

@@ -44,6 +44,7 @@ const timeEdit = new QTimeEdit();
 
 ### Methods
 
+* [acceptDrops](qtimeedit.md#acceptdrops)
 * [activateWindow](qtimeedit.md#activatewindow)
 * [addAction](qtimeedit.md#addaction)
 * [addEventListener](qtimeedit.md#addeventlistener)
@@ -90,6 +91,7 @@ const timeEdit = new QTimeEdit();
 * [resize](qtimeedit.md#resize)
 * [selectAll](qtimeedit.md#selectall)
 * [setAccelerated](qtimeedit.md#setaccelerated)
+* [setAcceptDrops](qtimeedit.md#setacceptdrops)
 * [setAlignment](qtimeedit.md#setalignment)
 * [setAttribute](qtimeedit.md#setattribute)
 * [setButtonSymbols](qtimeedit.md#setbuttonsymbols)
@@ -237,6 +239,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -836,6 +848,22 @@ ___
 ▸ **setAccelerated**(`on`: boolean): *void*
 
 *Inherited from [QAbstractSpinBox](qabstractspinbox.md).[setAccelerated](qabstractspinbox.md#setaccelerated)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
 
 **Parameters:**
 

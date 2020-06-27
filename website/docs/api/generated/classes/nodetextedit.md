@@ -51,6 +51,7 @@ const textEdit = new QTextEdit();
 
 ### Methods
 
+* [acceptDrops](nodetextedit.md#acceptdrops)
 * [acceptRichText](nodetextedit.md#acceptrichtext)
 * [activateWindow](nodetextedit.md#activatewindow)
 * [addAction](nodetextedit.md#addaction)
@@ -117,6 +118,7 @@ const textEdit = new QTextEdit();
 * [resize](nodetextedit.md#resize)
 * [scrollToAnchor](nodetextedit.md#scrolltoanchor)
 * [selectAll](nodetextedit.md#selectall)
+* [setAcceptDrops](nodetextedit.md#setacceptdrops)
 * [setAcceptRichText](nodetextedit.md#setacceptrichtext)
 * [setAlignment](nodetextedit.md#setalignment)
 * [setAttribute](nodetextedit.md#setattribute)
@@ -282,6 +284,16 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  acceptRichText
 
@@ -1047,6 +1059,22 @@ ___
 ###  selectAll
 
 ▸ **selectAll**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

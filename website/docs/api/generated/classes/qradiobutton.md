@@ -43,6 +43,7 @@ radioButton.setText("Hello");
 
 ### Methods
 
+* [acceptDrops](qradiobutton.md#acceptdrops)
 * [activateWindow](qradiobutton.md#activatewindow)
 * [addAction](qradiobutton.md#addaction)
 * [addEventListener](qradiobutton.md#addeventlistener)
@@ -84,6 +85,7 @@ radioButton.setText("Hello");
 * [repaint](qradiobutton.md#repaint)
 * [repolish](qradiobutton.md#repolish)
 * [resize](qradiobutton.md#resize)
+* [setAcceptDrops](qradiobutton.md#setacceptdrops)
 * [setAttribute](qradiobutton.md#setattribute)
 * [setAutoExclusive](qradiobutton.md#setautoexclusive)
 * [setAutoRepeat](qradiobutton.md#setautorepeat)
@@ -227,6 +229,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -782,6 +794,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

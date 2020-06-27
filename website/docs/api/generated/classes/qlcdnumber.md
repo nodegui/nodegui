@@ -43,6 +43,7 @@ const lcd = new QLCDNumber();
 
 ### Methods
 
+* [acceptDrops](qlcdnumber.md#acceptdrops)
 * [activateWindow](qlcdnumber.md#activatewindow)
 * [addAction](qlcdnumber.md#addaction)
 * [addEventListener](qlcdnumber.md#addeventlistener)
@@ -79,6 +80,7 @@ const lcd = new QLCDNumber();
 * [repolish](qlcdnumber.md#repolish)
 * [resize](qlcdnumber.md#resize)
 * [segmentStyle](qlcdnumber.md#segmentstyle)
+* [setAcceptDrops](qlcdnumber.md#setacceptdrops)
 * [setAttribute](qlcdnumber.md#setattribute)
 * [setBinMode](qlcdnumber.md#setbinmode)
 * [setContextMenuPolicy](qlcdnumber.md#setcontextmenupolicy)
@@ -205,6 +207,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -706,6 +718,22 @@ ___
 ▸ **segmentStyle**(): *[SegmentStyle](../enums/segmentstyle.md)*
 
 **Returns:** *[SegmentStyle](../enums/segmentstyle.md)*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

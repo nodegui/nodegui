@@ -50,6 +50,7 @@ const listview = new QListView();
 
 ### Methods
 
+* [acceptDrops](nodelistview.md#acceptdrops)
 * [activateWindow](nodelistview.md#activatewindow)
 * [addAction](nodelistview.md#addaction)
 * [addEventListener](nodelistview.md#addeventlistener)
@@ -117,6 +118,7 @@ const listview = new QListView();
 * [scrollToTop](nodelistview.md#scrolltotop)
 * [selectionBehavior](nodelistview.md#selectionbehavior)
 * [selectionMode](nodelistview.md#selectionmode)
+* [setAcceptDrops](nodelistview.md#setacceptdrops)
 * [setAlternatingRowColors](nodelistview.md#setalternatingrowcolors)
 * [setAttribute](nodelistview.md#setattribute)
 * [setAutoScroll](nodelistview.md#setautoscroll)
@@ -288,6 +290,16 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -1087,6 +1099,22 @@ ___
 *Inherited from [QAbstractItemView](qabstractitemview.md).[selectionMode](qabstractitemview.md#selectionmode)*
 
 **Returns:** *[SelectionMode](../enums/selectionmode.md)*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

@@ -54,6 +54,7 @@ console.log('currentIndexChanged: ' + index);
 
 ### Methods
 
+* [acceptDrops](qcombobox.md#acceptdrops)
 * [activateWindow](qcombobox.md#activatewindow)
 * [addAction](qcombobox.md#addaction)
 * [addEventListener](qcombobox.md#addeventlistener)
@@ -97,6 +98,7 @@ console.log('currentIndexChanged: ' + index);
 * [repaint](qcombobox.md#repaint)
 * [repolish](qcombobox.md#repolish)
 * [resize](qcombobox.md#resize)
+* [setAcceptDrops](qcombobox.md#setacceptdrops)
 * [setAttribute](qcombobox.md#setattribute)
 * [setContextMenuPolicy](qcombobox.md#setcontextmenupolicy)
 * [setCurrentIndex](qcombobox.md#setcurrentindex)
@@ -221,6 +223,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -818,6 +830,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

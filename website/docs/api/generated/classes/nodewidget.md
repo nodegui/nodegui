@@ -98,6 +98,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
 ### Methods
 
+* [acceptDrops](nodewidget.md#acceptdrops)
 * [activateWindow](nodewidget.md#activatewindow)
 * [addAction](nodewidget.md#addaction)
 * [addEventListener](nodewidget.md#addeventlistener)
@@ -128,6 +129,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 * [repaint](nodewidget.md#repaint)
 * [repolish](nodewidget.md#repolish)
 * [resize](nodewidget.md#resize)
+* [setAcceptDrops](nodewidget.md#setacceptdrops)
 * [setAttribute](nodewidget.md#setattribute)
 * [setContextMenuPolicy](nodewidget.md#setcontextmenupolicy)
 * [setCursor](nodewidget.md#setcursor)
@@ -230,6 +232,14 @@ ___
 • **type**: *string* = "widget"
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -621,6 +631,20 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

@@ -44,6 +44,7 @@ view.setLayout(new FlexLayout());
 
 ### Methods
 
+* [acceptDrops](qwidget.md#acceptdrops)
 * [activateWindow](qwidget.md#activatewindow)
 * [addAction](qwidget.md#addaction)
 * [addEventListener](qwidget.md#addeventlistener)
@@ -74,6 +75,7 @@ view.setLayout(new FlexLayout());
 * [repaint](qwidget.md#repaint)
 * [repolish](qwidget.md#repolish)
 * [resize](qwidget.md#resize)
+* [setAcceptDrops](qwidget.md#setacceptdrops)
 * [setAttribute](qwidget.md#setattribute)
 * [setContextMenuPolicy](qwidget.md#setcontextmenupolicy)
 * [setCursor](qwidget.md#setcursor)
@@ -184,6 +186,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -623,6 +635,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

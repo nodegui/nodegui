@@ -48,6 +48,7 @@ messageBox.exec();
 ### Methods
 
 * [accept](qmessagebox.md#accept)
+* [acceptDrops](qmessagebox.md#acceptdrops)
 * [activateWindow](qmessagebox.md#activatewindow)
 * [addAction](qmessagebox.md#addaction)
 * [addButton](qmessagebox.md#addbutton)
@@ -86,6 +87,7 @@ messageBox.exec();
 * [repolish](qmessagebox.md#repolish)
 * [resize](qmessagebox.md#resize)
 * [result](qmessagebox.md#result)
+* [setAcceptDrops](qmessagebox.md#setacceptdrops)
 * [setAttribute](qmessagebox.md#setattribute)
 * [setContextMenuPolicy](qmessagebox.md#setcontextmenupolicy)
 * [setCursor](qmessagebox.md#setcursor)
@@ -218,6 +220,16 @@ ___
 ▸ **accept**(): *void*
 
 **Returns:** *void*
+
+___
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
 
 ___
 
@@ -748,6 +760,22 @@ ___
 *Inherited from [NodeDialog](nodedialog.md).[result](nodedialog.md#result)*
 
 **Returns:** *number*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

@@ -42,6 +42,7 @@ const progressBar = new QProgressBar();
 
 ### Methods
 
+* [acceptDrops](qprogressbar.md#acceptdrops)
 * [activateWindow](qprogressbar.md#activatewindow)
 * [addAction](qprogressbar.md#addaction)
 * [addEventListener](qprogressbar.md#addeventlistener)
@@ -81,6 +82,7 @@ const progressBar = new QProgressBar();
 * [reset](qprogressbar.md#reset)
 * [resetFormat](qprogressbar.md#resetformat)
 * [resize](qprogressbar.md#resize)
+* [setAcceptDrops](qprogressbar.md#setacceptdrops)
 * [setAlignment](qprogressbar.md#setalignment)
 * [setAttribute](qprogressbar.md#setattribute)
 * [setContextMenuPolicy](qprogressbar.md#setcontextmenupolicy)
@@ -210,6 +212,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -721,6 +733,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

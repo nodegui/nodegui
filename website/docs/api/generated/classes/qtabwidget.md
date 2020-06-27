@@ -47,6 +47,7 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 
 ### Methods
 
+* [acceptDrops](qtabwidget.md#acceptdrops)
 * [activateWindow](qtabwidget.md#activatewindow)
 * [addAction](qtabwidget.md#addaction)
 * [addEventListener](qtabwidget.md#addeventlistener)
@@ -82,6 +83,7 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 * [repaint](qtabwidget.md#repaint)
 * [repolish](qtabwidget.md#repolish)
 * [resize](qtabwidget.md#resize)
+* [setAcceptDrops](qtabwidget.md#setacceptdrops)
 * [setAttribute](qtabwidget.md#setattribute)
 * [setContextMenuPolicy](qtabwidget.md#setcontextmenupolicy)
 * [setCurrentIndex](qtabwidget.md#setcurrentindex)
@@ -209,6 +211,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -717,6 +729,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

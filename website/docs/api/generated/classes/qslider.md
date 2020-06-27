@@ -42,6 +42,7 @@ const slider = new QSlider();
 
 ### Methods
 
+* [acceptDrops](qslider.md#acceptdrops)
 * [activateWindow](qslider.md#activatewindow)
 * [addAction](qslider.md#addaction)
 * [addEventListener](qslider.md#addeventlistener)
@@ -80,6 +81,7 @@ const slider = new QSlider();
 * [repaint](qslider.md#repaint)
 * [repolish](qslider.md#repolish)
 * [resize](qslider.md#resize)
+* [setAcceptDrops](qslider.md#setacceptdrops)
 * [setAttribute](qslider.md#setattribute)
 * [setContextMenuPolicy](qslider.md#setcontextmenupolicy)
 * [setCursor](qslider.md#setcursor)
@@ -216,6 +218,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -735,6 +747,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

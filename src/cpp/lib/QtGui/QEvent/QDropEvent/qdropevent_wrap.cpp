@@ -16,7 +16,11 @@ Napi::Object QDropEventWrap::init(Napi::Env env, Napi::Object exports) {
                       &QDropEventWrap::acceptProposedAction),
        InstanceMethod("dropAction", &QDropEventWrap::dropAction),
        InstanceMethod("keyboardModifiers", &QDropEventWrap::keyboardModifiers),
+<<<<<<< HEAD
        InstanceMethod("mimeData", &QDropEventWrap::mimeData),
+=======
+       //    InstanceMethod("mimeData", &QDropEventWrap::mimeData),
+>>>>>>> f4d656d8ef9635da890a990a13be300c4b1456d8
        InstanceMethod("mouseButtons", &QDropEventWrap::mouseButtons),
        InstanceMethod("pos", &QDropEventWrap::pos),
        InstanceMethod("possibleActions", &QDropEventWrap::possibleActions),
@@ -78,6 +82,7 @@ Napi::Value QDropEventWrap::mouseButtons(const Napi::CallbackInfo& info) {
   return Napi::Number::From(env, m);
 }
 
+<<<<<<< HEAD
 Napi::Value QDropEventWrap::mimeData(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   const QMimeData* ret = this->instance->mimeData();
@@ -89,6 +94,14 @@ Napi::Value QDropEventWrap::mimeData(const Napi::CallbackInfo& info) {
       {Napi::External<QMimeData>::New(env, clone)});
   return instance;
 }
+=======
+// TODO: Implement MimeData to do this...
+// Napi::Value QDropEventWrap::mimeData(const Napi::CallbackInfo& info) {
+//   Napi::Env env = info.Env();
+//   int modifierFlags = static_cast<int>(this->instance->keyboardModifiers());
+//   return Napi::Number::From(env, modifierFlags);
+// }
+>>>>>>> f4d656d8ef9635da890a990a13be300c4b1456d8
 
 Napi::Value QDropEventWrap::pos(const Napi::CallbackInfo& info) {
   // Uses QPoint

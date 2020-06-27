@@ -49,6 +49,7 @@ console.log(selectedFiles);
 
 ### Methods
 
+* [acceptDrops](qfiledialog.md#acceptdrops)
 * [acceptMode](qfiledialog.md#acceptmode)
 * [activateWindow](qfiledialog.md#activatewindow)
 * [addAction](qfiledialog.md#addaction)
@@ -90,6 +91,7 @@ console.log(selectedFiles);
 * [resize](qfiledialog.md#resize)
 * [result](qfiledialog.md#result)
 * [selectedFiles](qfiledialog.md#selectedfiles)
+* [setAcceptDrops](qfiledialog.md#setacceptdrops)
 * [setAcceptMode](qfiledialog.md#setacceptmode)
 * [setAttribute](qfiledialog.md#setattribute)
 * [setContextMenuPolicy](qfiledialog.md#setcontextmenupolicy)
@@ -222,6 +224,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  acceptMode
 
@@ -767,6 +779,22 @@ ___
 ▸ **selectedFiles**(): *string[]*
 
 **Returns:** *string[]*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
 
 ___
 

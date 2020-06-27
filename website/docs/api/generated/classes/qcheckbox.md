@@ -43,6 +43,7 @@ checkbox.setText("Hello");
 
 ### Methods
 
+* [acceptDrops](qcheckbox.md#acceptdrops)
 * [activateWindow](qcheckbox.md#activatewindow)
 * [addAction](qcheckbox.md#addaction)
 * [addEventListener](qcheckbox.md#addeventlistener)
@@ -86,6 +87,7 @@ checkbox.setText("Hello");
 * [repaint](qcheckbox.md#repaint)
 * [repolish](qcheckbox.md#repolish)
 * [resize](qcheckbox.md#resize)
+* [setAcceptDrops](qcheckbox.md#setacceptdrops)
 * [setAttribute](qcheckbox.md#setattribute)
 * [setAutoExclusive](qcheckbox.md#setautoexclusive)
 * [setAutoRepeat](qcheckbox.md#setautorepeat)
@@ -231,6 +233,16 @@ ___
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -802,6 +814,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 

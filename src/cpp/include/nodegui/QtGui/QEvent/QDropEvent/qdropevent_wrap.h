@@ -26,7 +26,12 @@ class DLL_EXPORT QDropEventWrap : public Napi::ObjectWrap<QDropEventWrap> {
   Napi::Value dropAction(const Napi::CallbackInfo& info);
   Napi::Value keyboardModifiers(const Napi::CallbackInfo& info);
   Napi::Value mouseButtons(const Napi::CallbackInfo& info);
+<<<<<<< HEAD
   Napi::Value mimeData(const Napi::CallbackInfo& info);
+=======
+  // Need to implement mimeData first?
+  // Napi::Value QDropEventWrap::mimeData
+>>>>>>> f4d656d8ef9635da890a990a13be300c4b1456d8
   Napi::Value pos(const Napi::CallbackInfo& info);
   Napi::Value possibleActions(const Napi::CallbackInfo& info);
   Napi::Value proposedAction(const Napi::CallbackInfo& info);

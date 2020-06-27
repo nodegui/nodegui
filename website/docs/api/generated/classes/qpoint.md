@@ -4,6 +4,8 @@ title: "QPoint"
 sidebar_label: "QPoint"
 ---
 
+The QPoint class defines a point in the plane using integer precision.
+
 ## Hierarchy
 
 * [Component](component.md)
@@ -24,9 +26,12 @@ sidebar_label: "QPoint"
 
 ### Methods
 
+* [isNull](qpoint.md#isnull)
+* [manhattanLength](qpoint.md#manhattanlength)
 * [setNodeParent](qpoint.md#setnodeparent)
 * [setX](qpoint.md#setx)
 * [setY](qpoint.md#sety)
+* [transposed](qpoint.md#transposed)
 * [x](qpoint.md#x)
 * [y](qpoint.md#y)
 * [fromQVariant](qpoint.md#static-fromqvariant)
@@ -92,6 +97,26 @@ ___
 
 ## Methods
 
+###  isNull
+
+▸ **isNull**(): *boolean*
+
+Returns true if both the x and y coordinates are set to 0.0 (ignoring the sign); otherwise returns false.
+
+**Returns:** *boolean*
+
+___
+
+###  manhattanLength
+
+▸ **manhattanLength**(): *number*
+
+Returns the sum of the absolute values of x() and y(), traditionally known as the "Manhattan length" of the vector from the origin to the point.
+
+**Returns:** *number*
+
+___
+
 ###  setNodeParent
 
 ▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
@@ -133,6 +158,16 @@ Name | Type |
 `value` | number |
 
 **Returns:** *void*
+
+___
+
+###  transposed
+
+▸ **transposed**(): *[QPoint](qpoint.md)*
+
+Returns a point with x and y coordinates exchanged
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 

@@ -44,6 +44,7 @@ const progressBar = new QStatusBar();
 
 ### Methods
 
+* [acceptDrops](qstatusbar.md#acceptdrops)
 * [activateWindow](qstatusbar.md#activatewindow)
 * [addAction](qstatusbar.md#addaction)
 * [addEventListener](qstatusbar.md#addeventlistener)
@@ -82,6 +83,7 @@ const progressBar = new QStatusBar();
 * [repaint](qstatusbar.md#repaint)
 * [repolish](qstatusbar.md#repolish)
 * [resize](qstatusbar.md#resize)
+* [setAcceptDrops](qstatusbar.md#setacceptdrops)
 * [setAttribute](qstatusbar.md#setattribute)
 * [setContextMenuPolicy](qstatusbar.md#setcontextmenupolicy)
 * [setCursor](qstatusbar.md#setcursor)
@@ -212,6 +214,16 @@ ___
 • **widgets**: *Set‹[NativeElement](../globals.md#nativeelement)›*
 
 ## Methods
+
+###  acceptDrops
+
+▸ **acceptDrops**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
+
+**Returns:** *boolean*
+
+___
 
 ###  activateWindow
 
@@ -774,6 +786,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setAcceptDrops
+
+▸ **setAcceptDrops**(`on`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAcceptDrops](qmenu.md#setacceptdrops)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
 
 **Returns:** *void*
 
