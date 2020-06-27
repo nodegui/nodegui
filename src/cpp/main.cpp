@@ -182,10 +182,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QTabletEventWrap::init(env, exports);
   QDropEventWrap::init(env, exports);
   QDragMoveEventWrap::init(env, exports);
-<<<<<<< HEAD
   QDragLeaveEventWrap::init(env, exports);
-=======
->>>>>>> f4d656d8ef9635da890a990a13be300c4b1456d8
   QNativeGestureEventWrap::init(env, exports);
   QPlainTextEditWrap::init(env, exports);
   QDialWrap::init(env, exports);
