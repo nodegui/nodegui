@@ -19,6 +19,7 @@ int QtRunLoopWrapper() {
 void integrate() {
   // Bootstrap Qt
   QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
+  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
   app = new NApplication(qode::qode_argc, qode::qode_argv);
   qode::InjectCustomRunLoop(&QtRunLoopWrapper);
   // Other init settings
