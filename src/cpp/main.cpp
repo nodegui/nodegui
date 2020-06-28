@@ -100,8 +100,8 @@
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
 #include "core/Integration/integration.h"
-    // These cant be instantiated in JS Side
-    void InitPrivateHelpers(Napi::Env env) {
+// These cant be instantiated in JS Side
+void InitPrivateHelpers(Napi::Env env) {
   qodeIntegration::integrate();
   QLayoutWrap::init(env);  // Abstact class wrapper for pointing to any layout
 }
