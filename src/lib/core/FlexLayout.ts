@@ -89,4 +89,18 @@ export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
         this.flexNode = flexNode;
         this.native.setFlexNode(flexNode);
     }
+
+    getChildIndex(childWidget: NodeWidget<any>): number {
+        const widgetArr = Array.from(this.nodeChildren);
+        return widgetArr.indexOf(childWidget);
+    }
+
+    getNextSibling(childWidget: NodeWidget<any>): NodeWidget<any> | null {
+        const childIndex = this.getChildIndex(childWidget);
+        const widgetArr = Array.from(this.nodeChildren);
+        if (childIndex !== -1) {
+            return (widgetArr[childIndex + 1] as NodeWidget<any>) || null;
+        }
+        return null;
+    }
 }
