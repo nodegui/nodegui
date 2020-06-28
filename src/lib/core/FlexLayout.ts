@@ -72,7 +72,13 @@ export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
             this.removeWidget(childWidget, childYogaNode);
         }
         const beforeChildYogaNode = beforeChildFlexNode || beforeChildWidget.getFlexNode();
-        this.nodeChildren.add(childWidget); // No orderer required yet, so just inserting at the end.
+
+        const widgetArr = Array.from(this.nodeChildren);
+        const beforeChildIndex = this.getChildIndex(beforeChildWidget);
+        if (beforeChildIndex !== -1) {
+            widgetArr.splice(beforeChildIndex, 0, childWidget);
+        }
+        this.nodeChildren = new Set(widgetArr);
         this.native.insertChildBefore(childWidget.native, beforeChildYogaNode, childYogaNode);
     }
 
@@ -88,5 +94,19 @@ export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
     setFlexNode(flexNode: FlexNode): void {
         this.flexNode = flexNode;
         this.native.setFlexNode(flexNode);
+    }
+
+    getChildIndex(childWidget: NodeWidget<any>): number {
+        const widgetArr = Array.from(this.nodeChildren);
+        return widgetArr.indexOf(childWidget);
+    }
+
+    getNextSibling(childWidget: NodeWidget<any>): NodeWidget<any> | null {
+        const childIndex = this.getChildIndex(childWidget);
+        const widgetArr = Array.from(this.nodeChildren);
+        if (childIndex !== -1) {
+            return (widgetArr[childIndex + 1] as NodeWidget<any>) || null;
+        }
+        return null;
     }
 }
