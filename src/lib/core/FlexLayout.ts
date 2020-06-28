@@ -72,7 +72,13 @@ export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
             this.removeWidget(childWidget, childYogaNode);
         }
         const beforeChildYogaNode = beforeChildFlexNode || beforeChildWidget.getFlexNode();
-        this.nodeChildren.add(childWidget); // No orderer required yet, so just inserting at the end.
+
+        const widgetArr = Array.from(this.nodeChildren);
+        const beforeChildIndex = this.getChildIndex(beforeChildWidget);
+        if (beforeChildIndex !== -1) {
+            widgetArr.splice(beforeChildIndex, 0, childWidget);
+        }
+        this.nodeChildren = new Set(widgetArr);
         this.native.insertChildBefore(childWidget.native, beforeChildYogaNode, childYogaNode);
     }
 
