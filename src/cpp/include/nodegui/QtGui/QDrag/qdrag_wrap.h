@@ -6,6 +6,8 @@
 
 #include "Extras/Export/export.h"
 #include "core/Component/component_macro.h"
+#include "QtGui/QDrag/ndrag.hpp"
+
 /*
 - Note that setMimeData() assigns ownership of the QMimeData object to the QDrag object.
 - The QDrag must be constructed on the heap with a parent QObject to ensure that Qt can clean up after the drag and drop operation has been completed
@@ -15,13 +17,13 @@ class DLL_EXPORT QDragWrap : public Napi::ObjectWrap<QDragWrap> {
 
   private:
   //A guarded pointer, QPointer<T>, behaves like a normal C++ pointer T *, except that it is automatically cleared when the referenced object is destroyed (unlike normal C++ pointers, which become "dangling pointers" in such cases). T must be a subclass of QObject.
-  QPointer<QDrag> instance;
+  QPointer<NDrag> instance;
 
   public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QDragWrap(const Napi::CallbackInfo& info);
   ~QDragWrap();
-  QDrag* getInternalInstance();
+  NDrag* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
 

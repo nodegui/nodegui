@@ -3,6 +3,8 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
+#include "QtCore/QMimeData/qmimedata_wrap.h"
+#include "QtCore/QObject/qobject_wrap.h"
 
 Napi::FunctionReference QDragWrap::constructor;
 
@@ -33,7 +35,7 @@ Napi::Object QDragWrap::init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-QDrag* QDragWrap::getInternalInstance() { return this->instance; }
+NDrag* QDragWrap::getInternalInstance() { return this->instance; }
 
 QDragWrap::QDragWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QDragWrap>(info) {
@@ -43,7 +45,7 @@ QDragWrap::QDragWrap(const Napi::CallbackInfo& info)
     Napi::Object wrap0_0 = info[0].As<Napi::Object>();
     QObjectWrap* wrap0_1 = Napi::ObjectWrap<QObjectWrap>::Unwrap(wrap0_0);
     QObject* dragSource = wrap0_1->getInternalInstance();
-    this->instance = new QDrag(dragSource);
+    this->instance = new NDrag(dragSource);
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
@@ -157,7 +159,7 @@ Napi::Value StaticQDragWrapMethods::cancel(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value QDropEventWrap::mimeData(const Napi::CallbackInfo& info) {
+Napi::Value QDragWrap::mimeData(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   const QMimeData* ret = this->instance->mimeData();
@@ -170,7 +172,7 @@ Napi::Value QDropEventWrap::mimeData(const Napi::CallbackInfo& info) {
   return instance;
 }
 
-Napi::Value QDropEventWrap::setMimeData(const Napi::CallbackInfo& info) {
+Napi::Value QDragWrap::setMimeData(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -187,7 +189,7 @@ Napi::Value QDropEventWrap::setMimeData(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value QDropEventWrap::source(const Napi::CallbackInfo& info) {
+Napi::Value QDragWrap::source(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -199,7 +201,7 @@ Napi::Value QDropEventWrap::source(const Napi::CallbackInfo& info) {
   return instance;
 }
 
-Napi::Value QDropEventWrap::target(const Napi::CallbackInfo& info) {
+Napi::Value QDragWrap::target(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
