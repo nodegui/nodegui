@@ -114,7 +114,7 @@ export class QDrag extends Component {
      * Ownership of the data is transferred to the QDrag object.
      */
     setMimeData(data: QMimeData): void {
-        return this.native.setMimeData(data);
+        return this.native.setMimeData(data.native);
     }
 
     /**
