@@ -1,10 +1,10 @@
 #include "QtGui/QDrag/qdrag_wrap.h"
 
 #include "Extras/Utils/nutils.h"
-#include "QtCore/QPoint/qpoint_wrap.h"
-#include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "QtCore/QMimeData/qmimedata_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
+#include "QtCore/QPoint/qpoint_wrap.h"
+#include "QtGui/QPixmap/qpixmap_wrap.h"
 
 Napi::FunctionReference QDragWrap::constructor;
 
@@ -70,7 +70,8 @@ Napi::Value QDragWrap::dragCursor(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  Qt::DropAction input0 = (Qt::DropAction)info[0].As<Napi::Number>().Int32Value();
+  Qt::DropAction input0 =
+      (Qt::DropAction)info[0].As<Napi::Number>().Int32Value();
 
   QPixmap ret = this->instance->dragCursor(input0);
   auto instance = QPixmapWrap::constructor.New(
@@ -83,11 +84,14 @@ Napi::Value QDragWrap::exec(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   if (info.Length() < 2) {
-    Qt::DropActions input0 = (Qt::DropActions)info[0].As<Napi::Number>().Int32Value();
+    Qt::DropActions input0 =
+        (Qt::DropActions)info[0].As<Napi::Number>().Int32Value();
     return Napi::Number::New(env, this->instance->exec(input0));
   }
-  Qt::DropActions input0 = (Qt::DropActions)info[0].As<Napi::Number>().Int32Value();
-  Qt::DropAction input1 = (Qt::DropAction)info[1].As<Napi::Number>().Int32Value();
+  Qt::DropActions input0 =
+      (Qt::DropActions)info[0].As<Napi::Number>().Int32Value();
+  Qt::DropAction input1 =
+      (Qt::DropAction)info[1].As<Napi::Number>().Int32Value();
   return Napi::Number::New(env, this->instance->exec(input0, input1));
 }
 
@@ -117,7 +121,8 @@ Napi::Value QDragWrap::setDragCursor(const Napi::CallbackInfo& info) {
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPixmapWrap* wrap0_1 = Napi::ObjectWrap<QPixmapWrap>::Unwrap(wrap0_0);
   QPixmap* input0 = wrap0_1->getInternalInstance();
-  Qt::DropAction input1 = (Qt::DropAction)info[1].As<Napi::Number>().Int32Value();
+  Qt::DropAction input1 =
+      (Qt::DropAction)info[1].As<Napi::Number>().Int32Value();
   this->instance->setDragCursor(*input0, input1);
   return env.Null();
 }
