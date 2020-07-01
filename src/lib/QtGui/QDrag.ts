@@ -117,17 +117,21 @@ export class QDrag extends Component {
         return this.native.setMimeData(data.native);
     }
 
-    /**
+    /*
      * Returns the source of the drag object. This is the widget where the drag and drop operation originated.
-     */
-    source(): QObject {
-        return new QObject(this.native.source());
-    }
 
-    /**
-     * Returns the target of the drag and drop operation. This is the widget where the drag object was dropped.
+     THIS FUNCTION CRASHES THE APPLICATION, NEEDS REIMPLEMENTATION
      */
-    target(): QObject {
-        return new QObject(this.native.target());
-    }
+    // source(): QObject {
+    //     return new QObject(this.native.source());
+    // }
+
+    /*
+     * Returns the target of the drag and drop operation. This is the widget where the drag object was dropped.
+     
+    THIS FUNCTION CRASHES THE APPLICATION, NEEDS REIMPLEMENTATION
+     */
+    // target(): QObject {
+    //     return new QObject(this.native.target());
+    // }
 }

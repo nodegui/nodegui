@@ -12,5 +12,15 @@ class DLL_EXPORT NDrag : public QDrag, public EventWidget {
  public:
   using QDrag::QDrag;
 
-  void connectSignalsToEventEmitter() { QOBJECT_SIGNALS }
+  void connectSignalsToEventEmitter() {
+    QOBJECT_SIGNALS
+    QObject::connect(this, &QDrag::actionChanged,
+                     [=](Qt::DropAction action) {
+                       Napi::Env env = this->emitOnNode.Env();
+                       Napi::HandleScope scope(env);
+                       this->emitOnNode.Call(
+                           {Napi::String::New(env, "actionChanged"),
+                            Napi::Number::From(env, static_cast<int>(action))});
+                     });
+  }
 };
