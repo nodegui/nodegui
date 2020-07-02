@@ -231,6 +231,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://liujunjiang.com"><img src="https://avatars1.githubusercontent.com/u/15191056?v=4" width="100px;" alt=""/><br /><sub><b>流君酱</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=jardenliu" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/agg23"><img src="https://avatars1.githubusercontent.com/u/238679?v=4" width="100px;" alt=""/><br /><sub><b>Adam Gastineau</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=agg23" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/swittk"><img src="https://avatars2.githubusercontent.com/u/5000572?v=4" width="100px;" alt=""/><br /><sub><b>swittk</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=swittk" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/craftingmod"><img src="https://avatars2.githubusercontent.com/u/9389278?v=4" width="100px;" alt=""/><br /><sub><b>craftingmod</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=craftingmod" title="Code">💻</a></td>
   </tr>
 </table>
 
