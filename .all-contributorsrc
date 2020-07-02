@@ -283,6 +283,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "craftingmod",
+      "name": "craftingmod",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9389278?v=4",
+      "profile": "https://github.com/craftingmod",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
