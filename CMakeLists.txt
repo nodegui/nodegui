@@ -214,6 +214,7 @@ target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE
 
 
 if (WIN32) 
+    add_definitions(/bigobj)
     target_compile_definitions(${CORE_WIDGETS_ADDON} PRIVATE
         ENABLE_DLL_EXPORT=1
     )
