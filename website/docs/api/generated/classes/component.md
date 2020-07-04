@@ -51,11 +51,13 @@ Its the root base class in NodeGui world.
 
   ↳ [QFontDatabase](qfontdatabase.md)
 
+  ↳ [QPoint](qpoint.md)
+
   ↳ [QUrl](qurl.md)
 
   ↳ [QMimeData](qmimedata.md)
 
-  ↳ [QPoint](qpoint.md)
+  ↳ [QDrag](qdrag.md)
 
   ↳ [QModelIndex](qmodelindex.md)
 

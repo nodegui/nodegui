@@ -204,6 +204,7 @@ sidebar_label: "Globals"
 * [QDial](classes/qdial.md)
 * [QDialog](classes/qdialog.md)
 * [QDoubleSpinBox](classes/qdoublespinbox.md)
+* [QDrag](classes/qdrag.md)
 * [QDragLeaveEvent](classes/qdragleaveevent.md)
 * [QDragMoveEvent](classes/qdragmoveevent.md)
 * [QDropEvent](classes/qdropevent.md)
