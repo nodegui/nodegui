@@ -194,8 +194,7 @@ Napi::Value QDragWrap::setMimeData(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-
-//This function crashes the application
+// This function crashes the application
 Napi::Value QDragWrap::source(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -208,7 +207,7 @@ Napi::Value QDragWrap::source(const Napi::CallbackInfo& info) {
   return instance;
 }
 
-//This function crashes the application
+// This function crashes the application
 Napi::Value QDragWrap::target(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
