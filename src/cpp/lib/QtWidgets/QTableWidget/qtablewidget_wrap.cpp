@@ -188,7 +188,7 @@ Napi::Value QTableWidgetWrap::setHorizontalHeaderItem(
   Napi::HandleScope scope(env);
 
   int column = info[0].As<Napi::Number>().Int32Value();
-  Napi::Object itemObject = info[0].As<Napi::Object>();
+  Napi::Object itemObject = info[1].As<Napi::Object>();
   QTableWidgetItemWrap* itemWrap =
       Napi::ObjectWrap<QTableWidgetItemWrap>::Unwrap(itemObject);
 
