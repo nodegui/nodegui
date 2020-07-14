@@ -40,6 +40,7 @@ module.exports = {
       "api/generated/classes/qdial",
       "api/generated/classes/qdialog",
       "api/generated/classes/qdoublespinbox",
+      "api/generated/classes/qdrag",
       "api/generated/classes/qdragleaveevent",
       "api/generated/classes/qdragmoveevent",
       "api/generated/classes/qdropevent",

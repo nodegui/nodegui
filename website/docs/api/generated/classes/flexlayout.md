@@ -52,6 +52,8 @@ layout.addWidget(label2);
 * [activate](flexlayout.md#activate)
 * [addEventListener](flexlayout.md#addeventlistener)
 * [addWidget](flexlayout.md#addwidget)
+* [getChildIndex](flexlayout.md#getchildindex)
+* [getNextSibling](flexlayout.md#getnextsibling)
 * [inherits](flexlayout.md#inherits)
 * [insertChildBefore](flexlayout.md#insertchildbefore)
 * [invalidate](flexlayout.md#invalidate)
@@ -208,6 +210,34 @@ Name | Type |
 `childFlexNode?` | [FlexNode](../globals.md#flexnode) |
 
 **Returns:** *void*
+
+___
+
+###  getChildIndex
+
+▸ **getChildIndex**(`childWidget`: [NodeWidget](nodewidget.md)‹any›): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`childWidget` | [NodeWidget](nodewidget.md)‹any› |
+
+**Returns:** *number*
+
+___
+
+###  getNextSibling
+
+▸ **getNextSibling**(`childWidget`: [NodeWidget](nodewidget.md)‹any›): *[NodeWidget](nodewidget.md)‹any› | null*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`childWidget` | [NodeWidget](nodewidget.md)‹any› |
+
+**Returns:** *[NodeWidget](nodewidget.md)‹any› | null*
 
 ___
 
