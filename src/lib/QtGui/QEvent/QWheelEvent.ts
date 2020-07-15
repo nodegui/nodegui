@@ -1,10 +1,10 @@
 import addon from '../../utils/addon';
-import { NativeElement } from '../../core/Component';
+import { NativeElement, NativeRawPointer } from '../../core/Component';
 import { ScrollPhase } from '../../QtEnums';
 
 export class QWheelEvent {
     native: NativeElement;
-    constructor(event: NativeElement) {
+    constructor(event: NativeRawPointer<'QEvent'>) {
         this.native = new addon.QWheelEvent(event);
     }
     /**
