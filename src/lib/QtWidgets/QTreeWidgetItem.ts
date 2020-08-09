@@ -1,6 +1,7 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
+import { QIcon } from '../QtGui/QIcon';
 import { QTreeWidget } from './QTreeWidget';
 import { ItemFlag } from '../QtEnums/ItemFlag';
 import { CheckState, ItemDataRole } from '../QtEnums';
@@ -162,5 +163,20 @@ export class QTreeWidgetItem extends Component {
 
     isHidden(): boolean {
         return this.native.isHidden();
+    }
+
+    /**
+     * Sets the icon for the item.
+     * @param icon The icon object
+     */
+    setIcon(icon: QIcon): void {
+        this.native.setIcon(icon.native);
+    }
+
+    /**
+     * Returns the icon object for the item.
+     */
+    icon(): QIcon {
+        return new QIcon(this.native.icon());
     }
 }

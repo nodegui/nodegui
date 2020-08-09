@@ -1,4 +1,5 @@
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
+#include "QtGui/QIcon/qicon_wrap.h"
 
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_wrap.h"
@@ -10,7 +11,10 @@ Napi::Object QTableWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QTableWidgetItem";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("setText", &QTableWidgetItemWrap::setText),
+      {
+       InstanceMethod("icon", &QTableWidgetItemWrap::text),
+       InstanceMethod("setIcon", &QTableWidgetItemWrap::setIcon),
+       InstanceMethod("setText", &QTableWidgetItemWrap::setText),
        InstanceMethod("setToolTip", &QTableWidgetItemWrap::setToolTip),
        InstanceMethod("setTextAlignment",
                       &QTableWidgetItemWrap::setTextAlignment),
@@ -45,6 +49,24 @@ QTableWidgetItemWrap::QTableWidgetItemWrap(const Napi::CallbackInfo& info)
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
+}
+Napi::Value QTableWidgetItemWrap::setIcon(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object iconObject = info[0].As<Napi::Object>();
+  QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
+  this->instance->setIcon(*iconWrap->getInternalInstance());
+  return env.Null();
+}
+Napi::Value QTableWidgetItemWrap::icon(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QIcon icon = this->instance->icon();
+  auto instance = QIconWrap::constructor.New(
+      {Napi::External<QIcon>::New(env, new QIcon(icon))});
+  return instance;
 }
 Napi::Value QTableWidgetItemWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
