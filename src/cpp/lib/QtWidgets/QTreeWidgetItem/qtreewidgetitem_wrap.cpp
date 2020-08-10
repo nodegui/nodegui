@@ -135,17 +135,17 @@ QTreeWidgetItemWrap::QTreeWidgetItemWrap(const Napi::CallbackInfo &info)
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }
 
-Napi::Value QTreeWidgetItemWrap::setIcon(const Napi::CallbackInfo& info) {
+Napi::Value QTreeWidgetItemWrap::setIcon(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
   int const column = info[0].As<Napi::Number>().Int32Value();
   Napi::Object const iconObject = info[1].As<Napi::Object>();
-  QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
+  QIconWrap *iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
   this->instance->setIcon(column, *iconWrap->getInternalInstance());
   return env.Null();
 }
-Napi::Value QTreeWidgetItemWrap::icon(const Napi::CallbackInfo& info) {
+Napi::Value QTreeWidgetItemWrap::icon(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 

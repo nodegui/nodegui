@@ -1,7 +1,7 @@
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
-#include "QtGui/QIcon/qicon_wrap.h"
 
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QIcon/qicon_wrap.h"
 #include "core/Component/component_wrap.h"
 
 Napi::FunctionReference QTableWidgetItemWrap::constructor;
@@ -11,8 +11,7 @@ Napi::Object QTableWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QTableWidgetItem";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {
-       InstanceMethod("setText", &QTableWidgetItemWrap::setText),
+      {InstanceMethod("setText", &QTableWidgetItemWrap::setText),
        InstanceMethod("setToolTip", &QTableWidgetItemWrap::setToolTip),
        InstanceMethod("setTextAlignment",
                       &QTableWidgetItemWrap::setTextAlignment),
