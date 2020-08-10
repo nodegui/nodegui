@@ -14,7 +14,9 @@ Napi::Object QTreeWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QTreeWidgetItem";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("setText", &QTreeWidgetItemWrap::setText),
+      {InstanceMethod("setIcon", &QTreeWidgetItemWrap::setIcon),
+       InstanceMethod("icon", &QTreeWidgetItemWrap::text),
+       InstanceMethod("setText", &QTreeWidgetItemWrap::setText),
        InstanceMethod("parent", &QTreeWidgetItemWrap::parent),
        InstanceMethod("child", &QTreeWidgetItemWrap::child),
        InstanceMethod("text", &QTreeWidgetItemWrap::text),
@@ -133,6 +135,26 @@ QTreeWidgetItemWrap::QTreeWidgetItemWrap(const Napi::CallbackInfo &info)
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }
 
+Napi::Value QTreeWidgetItemWrap::setIcon(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int const column = info[0].As<Napi::Number>().Int32Value();
+  Napi::Object const iconObject = info[1].As<Napi::Object>();
+  QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
+  this->instance->setIcon(column, *iconWrap->getInternalInstance());
+  return env.Null();
+}
+Napi::Value QTreeWidgetItemWrap::icon(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Number const column = info[0].As<Napi::Number>();
+  QIcon icon = this->instance->icon(column);
+  auto instance = QIconWrap::constructor.New(
+      {Napi::External<QIcon>::New(env, new QIcon(icon))});
+  return instance;
+}
 Napi::Value QTreeWidgetItemWrap::setText(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);

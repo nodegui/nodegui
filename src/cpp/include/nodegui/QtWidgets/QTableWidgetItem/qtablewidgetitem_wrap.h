@@ -21,8 +21,6 @@ class DLL_EXPORT QTableWidgetItemWrap
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value setIcon(const Napi::CallbackInfo& info);
-  Napi::Value icon(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
   Napi::Value setToolTip(const Napi::CallbackInfo& info);
   Napi::Value setTextAlignment(const Napi::CallbackInfo& info);

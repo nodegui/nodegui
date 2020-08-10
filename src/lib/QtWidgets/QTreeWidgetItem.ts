@@ -169,14 +169,14 @@ export class QTreeWidgetItem extends Component {
      * Sets the icon for the item.
      * @param icon The icon object
      */
-    setIcon(icon: QIcon): void {
-        this.native.setIcon(icon.native);
+    setIcon(column: number, icon: QIcon): void {
+        this.native.setIcon(column, icon.native);
     }
 
     /**
      * Returns the icon object for the item.
      */
-    icon(): QIcon {
-        return new QIcon(this.native.icon());
+    icon(column: number): QIcon {
+        return new QIcon(this.native.icon(column));
     }
 }
