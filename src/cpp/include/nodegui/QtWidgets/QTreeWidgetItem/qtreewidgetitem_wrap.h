@@ -28,6 +28,8 @@ class DLL_EXPORT QTreeWidgetItemWrap
   static Napi::FunctionReference constructor;
 
   // wrapped methods
+  Napi::Value setIcon(const Napi::CallbackInfo &info);
+  Napi::Value icon(const Napi::CallbackInfo &info);
   Napi::Value setText(const Napi::CallbackInfo &info);
   Napi::Value parent(const Napi::CallbackInfo &info);
   Napi::Value childCount(const Napi::CallbackInfo &info);

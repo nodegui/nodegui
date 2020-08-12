@@ -1,6 +1,9 @@
 import { QMainWindow, QWidget } from '.';
 import { QGridLayout } from './lib/QtWidgets/QGridLayout';
 import { QLabel } from './lib/QtWidgets/QLabel';
+import { QTreeWidget } from './lib/QtWidgets/QTreeWidget';
+import { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
+import { QIcon } from './lib/QtGui/QIcon';
 
 const win = new QMainWindow();
 win.resize(500, 500);
@@ -41,7 +44,57 @@ columnFour.setText('Four');
 columnFour.setInlineStyle('background-color: orange');
 outerLayout.addWidget(columnFour, 1, 1);
 
+const tree = new QTreeWidget();
+tree.setColumnCount(2);
+tree.setHeaderLabels(['First Column', 'Second Column']);
+tree.setSortingEnabled(true);
+tree.setInlineStyle('font-size: 24px');
+outerLayout.addWidget(tree, 2, 0, 2, 0);
+
 console.log(outerLayout.rowCount(), outerLayout.columnCount());
+
+const myImage = './website/static/img/logo.png';
+const icon = new QIcon(myImage);
+
+const item1 = new QTreeWidgetItem();
+item1.setText(0, `item-1`);
+item1.setText(1, `1-item-1`);
+item1.setIcon(1, icon);
+const item2 = new QTreeWidgetItem();
+item2.setText(0, `item-2`);
+item2.setText(1, `1-item-2`);
+item2.setIcon(1, icon);
+const item3 = new QTreeWidgetItem();
+item3.setText(0, `item-3`);
+item3.setText(1, `1-item-3`);
+item3.setIcon(1, icon);
+const item4 = new QTreeWidgetItem();
+item4.setText(0, `item-4`);
+item4.setText(1, `1-item-4`);
+item4.setIcon(1, icon);
+const item5 = new QTreeWidgetItem();
+item5.setText(0, `item-5`);
+item5.setText(1, `1-item-5`);
+item5.setIcon(1, icon);
+const item6 = new QTreeWidgetItem();
+item6.setText(0, `item-6`);
+item6.setText(1, `1-item-6`);
+item6.setIcon(1, icon);
+
+console.info('item6.icon()=', item6.icon(1));
+
+tree.addTopLevelItem(item1);
+tree.insertTopLevelItems(0, [item2, item3]);
+tree.addTopLevelItems([item4, item5]);
+tree.insertTopLevelItem(2, item6);
+
+// Add children to item1
+const c1item1 = new QTreeWidgetItem(item1);
+c1item1.setText(0, `c1item1`);
+c1item1.setText(1, `c1item2`);
+const c1item2 = new QTreeWidgetItem(item1);
+c1item2.setText(0, `c1item1`);
+c1item2.setText(1, `c1item2`);
 
 win.setCentralWidget(outer);
 win.show();

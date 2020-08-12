@@ -1,6 +1,7 @@
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
 
 #include "Extras/Utils/nutils.h"
+#include "QtGui/QIcon/qicon_wrap.h"
 #include "core/Component/component_wrap.h"
 
 Napi::FunctionReference QTableWidgetItemWrap::constructor;
