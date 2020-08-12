@@ -292,6 +292,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "dooglio",
+      "name": "Doug Barbieri",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/643129?v=4",
+      "profile": "http://www.m2osw.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
