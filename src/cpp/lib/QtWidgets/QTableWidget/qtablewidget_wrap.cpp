@@ -113,12 +113,12 @@ Napi::Value QTableWidgetWrap::selectedRanges(const Napi::CallbackInfo& info) {
   Napi::Array napiRange = Napi::Array::New(env, range.size());
 
   for (int i = 0; i < range.size(); i++) {
-    int topRow = range[0].topRow();
-    int leftColumn = range[0].leftColumn();
-    int bottomRow = range[0].bottomRow();
-    int rightColumn = range[0].rightColumn();
-    int columnCount = range[0].columnCount();
-    int rowCount = range[0].rowCount();
+    int topRow = range[i].topRow();
+    int leftColumn = range[i].leftColumn();
+    int bottomRow = range[i].bottomRow();
+    int rightColumn = range[i].rightColumn();
+    int columnCount = range[i].columnCount();
+    int rowCount = range[i].rowCount();
     Napi::Object newRange = Napi::Object::New(env);
     newRange.Set("topRow", Napi::Number::New(env, topRow));
     newRange.Set("leftColumn", Napi::Number::New(env, leftColumn));
