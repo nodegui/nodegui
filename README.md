@@ -233,6 +233,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/swittk"><img src="https://avatars2.githubusercontent.com/u/5000572?v=4" width="100px;" alt=""/><br /><sub><b>swittk</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=swittk" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/craftingmod"><img src="https://avatars2.githubusercontent.com/u/9389278?v=4" width="100px;" alt=""/><br /><sub><b>craftingmod</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=craftingmod" title="Code">💻</a></td>
     <td align="center"><a href="http://www.m2osw.com"><img src="https://avatars1.githubusercontent.com/u/643129?v=4" width="100px;" alt=""/><br /><sub><b>Doug Barbieri</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=dooglio" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/NeryHenrique"><img src="https://avatars0.githubusercontent.com/u/6879141?v=4" width="100px;" alt=""/><br /><sub><b>HENRIQUE DE SOUZA NERY</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=NeryHenrique" title="Code">💻</a></td>
   </tr>
 </table>
 
