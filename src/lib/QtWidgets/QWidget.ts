@@ -2,7 +2,7 @@ import addon from '../utils/addon';
 import { NodeLayout } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { FlexLayout } from '../core/FlexLayout';
-import { WidgetAttribute, WindowType, ContextMenuPolicy } from '../QtEnums';
+import { WidgetAttribute, WindowType, ContextMenuPolicy, FocusReason } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
 import { QCursor } from '../QtGui/QCursor';
 import { CursorShape, WindowState } from '../QtEnums';
@@ -276,6 +276,9 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     acceptDrops(): boolean {
         return this.native.acceptDrops();
+    }
+    setFocus(reason: FocusReason): void {
+        this.native.setFocus(reason);
     }
 }
 
