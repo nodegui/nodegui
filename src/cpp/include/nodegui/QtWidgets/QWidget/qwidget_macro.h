@@ -432,6 +432,13 @@
     bool v = info[0].As<Napi::Boolean>().Value();                             \
     this->instance->setAcceptDrops(v);                                        \
     return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setFocus(const Napi::CallbackInfo& info) {                      \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    int reason = info[0].As<Napi::Number>().Int32Value();                     \
+    this->instance->setFocus(static_cast<Qt::FocusReason>(reason));           \
+    return env.Null();                                                        \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -493,7 +500,8 @@
       InstanceMethod("repolish", &WidgetWrapName::repolish),                   \
       InstanceMethod("setGraphicsEffect", &WidgetWrapName::setGraphicsEffect), \
       InstanceMethod("acceptDrops", &WidgetWrapName::acceptDrops),             \
-      InstanceMethod("setAcceptDrops", &WidgetWrapName::setAcceptDrops),
+      InstanceMethod("setAcceptDrops", &WidgetWrapName::setAcceptDrops),       \
+      InstanceMethod("setFocus", &WidgetWrapName::setFocus),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 
