@@ -102,6 +102,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QDial/qdial_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QLabel/qlabel_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QRawYUV/qrawyuv_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QRawYUV/OpenGLDisplay.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QLayout/qlayout_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QLCDNumber/qlcdnumber_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QMainWindow/qmainwindow_wrap.cpp"

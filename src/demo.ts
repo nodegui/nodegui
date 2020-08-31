@@ -1,10 +1,12 @@
-import { QMainWindow } from '.';
-import { QRawYUV } from './lib/QtWidgets/QRawYUV'
+import { QMainWindow, QRawYUV } from '.';
+import fs from 'fs';
 const window = new QMainWindow();
 window.resize(800, 600);
-const yuvRender = new QRawYUV(window);
-yuvRender.setSize(720, 480);
-
+const yuvRender = new QRawYUV(window, 720, 480);
+const frame = fs.readFileSync('/Users/adminy/Downloads/test.yuv');
+setInterval(() => {
+    yuvRender.render(720, 480, fs.readFileSync('/Users/adminy/Downloads/test.yuv'));
+}, 1000);
 window.show();
 (global as any).window = window;
 // import { QMainWindow, QWidget } from '.';
