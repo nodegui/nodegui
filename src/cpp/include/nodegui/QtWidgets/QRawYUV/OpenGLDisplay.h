@@ -6,6 +6,11 @@
 #include <QOpenGLWidget>
 #include <QScopedPointer>
 
+#include <QCoreApplication>
+#include <QOpenGLShader>
+#include <QOpenGLTexture>
+#include <QResizeEvent>
+
 #include "Extras/Export/export.h"
 #include "core/NodeWidget/nodewidget.h"
 
@@ -18,10 +23,8 @@ class DLL_EXPORT OpenGLDisplay : public QOpenGLWidget,
   explicit OpenGLDisplay(QWidget *parent = nullptr);
   ~OpenGLDisplay();
 
-  void InitDrawBuffer(unsigned bsize);
-  void DisplayVideoFrame(unsigned char *data, int frameWidth, int frameHeight);
-  // void setFrameStyle(int style);
-  // int OpenGLDisplay::frameStyle();
+  void InitDrawBuffer(unsigned width, unsigned height);
+  void DisplayVideoFrame(unsigned char *data);
 
  protected:
   void initializeGL() override;
@@ -29,8 +32,20 @@ class DLL_EXPORT OpenGLDisplay : public QOpenGLWidget,
   void paintGL() override;
 
  private:
-  struct OpenGLDisplayImpl;
-  QScopedPointer<OpenGLDisplayImpl> impl;
+  GLvoid* mBufYuv;
+  int mFrameSize;
+
+  QOpenGLShader* mVShader;
+  QOpenGLShader* mFShader;
+  QOpenGLShaderProgram* mShaderProgram;
+
+  QOpenGLTexture* mTextureY;
+  QOpenGLTexture* mTextureU;
+  QOpenGLTexture* mTextureV;
+
+  GLuint id_y, id_u, id_v;
+  int textureUniformY, textureUniformU, textureUniformV;
+  GLsizei mVideoW, mVideoH;
 };
 
 /***********************************************************************/

@@ -1,9 +1,6 @@
 #include "QtWidgets/QRawYUV/OpenGLDisplay.h"
 
-#include <QCoreApplication>
-#include <QOpenGLShader>
-#include <QOpenGLTexture>
-#include <QResizeEvent>
+
 
 #define PROGRAM_VERTEX_ATTRIBUTE 0
 #define PROGRAM_TEXCOORD_ATTRIBUTE 1
@@ -11,47 +8,27 @@
 #define ATTRIB_VERTEX 0
 #define ATTRIB_TEXTURE 1
 
-struct OpenGLDisplay::OpenGLDisplayImpl {
-  OpenGLDisplayImpl() : mBufYuv(nullptr), mFrameSize(0) {}
-
-  GLvoid* mBufYuv;
-  int mFrameSize;
-
-  QOpenGLShader* mVShader;
-  QOpenGLShader* mFShader;
-  QOpenGLShaderProgram* mShaderProgram;
-
-  QOpenGLTexture* mTextureY;
-  QOpenGLTexture* mTextureU;
-  QOpenGLTexture* mTextureV;
-
-  GLuint id_y, id_u, id_v;
-  int textureUniformY, textureUniformU, textureUniformV;
-  GLsizei mVideoW, mVideoH;
-};
-
 /*************************************************************************/
 
-OpenGLDisplay::OpenGLDisplay(QWidget* parent)
-    : QOpenGLWidget(parent), impl(new OpenGLDisplayImpl) {}
+OpenGLDisplay::OpenGLDisplay(QWidget* parent): QOpenGLWidget(parent) {}
 
 OpenGLDisplay::~OpenGLDisplay() {
-  delete[] reinterpret_cast<unsigned char*>(impl->mBufYuv);
+  delete[] reinterpret_cast<unsigned char*>(this->mBufYuv);
 }
 
-void OpenGLDisplay::InitDrawBuffer(unsigned bsize) {
-  impl->mFrameSize = bsize;
-  impl->mBufYuv = new unsigned char[bsize];
+void OpenGLDisplay::InitDrawBuffer(const unsigned width, const unsigned height) {
+  this->mVideoW = width;
+  this->mVideoH = height;
+  const unsigned yuv_size = width * height * 3 / 2;
+  this->mFrameSize = yuv_size;
+  this->mBufYuv = new unsigned char[yuv_size];
 }
 
 // void OpenGLDisplay::setFrameStyle(int style) {}
 // int OpenGLDisplay::frameStyle() { return 0; }
 
-void OpenGLDisplay::DisplayVideoFrame(unsigned char* data, int frameWidth,
-                                      int frameHeight) {
-  impl->mVideoW = frameWidth;
-  impl->mVideoH = frameHeight;
-  memcpy(impl->mBufYuv, data, impl->mFrameSize);
+void OpenGLDisplay::DisplayVideoFrame(unsigned char* data) {
+  memcpy(this->mBufYuv, data, this->mFrameSize);
   update();
 }
 
@@ -67,7 +44,7 @@ void OpenGLDisplay::initializeGL() {
    * relevant information. */
 
   // Initialize the vertex shader object
-  impl->mVShader = new QOpenGLShader(QOpenGLShader::Vertex, this);
+  this->mVShader = new QOpenGLShader(QOpenGLShader::Vertex, this);
 
   // Vertex shader source
   const char* vsrc =
@@ -81,13 +58,13 @@ void OpenGLDisplay::initializeGL() {
         }";
 
   // Compile the vertex shader program
-  bool bCompile = impl->mVShader->compileSourceCode(vsrc);
+  bool bCompile = this->mVShader->compileSourceCode(vsrc);
   if (!bCompile) {
     throw OpenGlException();
   }
 
   // Initialize the fragment shader function yuv converted to rgb
-  impl->mFShader = new QOpenGLShader(QOpenGLShader::Fragment, this);
+  this->mFShader = new QOpenGLShader(QOpenGLShader::Fragment, this);
 
   // Fragment shader source code
 
@@ -130,32 +107,32 @@ void OpenGLDisplay::initializeGL() {
     }";
 #endif
 
-  bCompile = impl->mFShader->compileSourceCode(fsrc);
+  bCompile = this->mFShader->compileSourceCode(fsrc);
   if (!bCompile) {
     throw OpenGlException();
   }
 
   // Create a shader program container
-  impl->mShaderProgram = new QOpenGLShaderProgram(this);
+  this->mShaderProgram = new QOpenGLShaderProgram(this);
   // Add the fragment shader to the program container
-  impl->mShaderProgram->addShader(impl->mFShader);
+  this->mShaderProgram->addShader(this->mFShader);
   // Add a vertex shader to the program container
-  impl->mShaderProgram->addShader(impl->mVShader);
+  this->mShaderProgram->addShader(this->mVShader);
   // Bind the property vertexIn to the specified location ATTRIB_VERTEX, this
   // property has a declaration in the vertex shader source
-  impl->mShaderProgram->bindAttributeLocation("vertexIn", ATTRIB_VERTEX);
+  this->mShaderProgram->bindAttributeLocation("vertexIn", ATTRIB_VERTEX);
   // Bind the attribute textureIn to the specified location ATTRIB_TEXTURE, the
   // attribute has a declaration in the vertex shader source
-  impl->mShaderProgram->bindAttributeLocation("textureIn", ATTRIB_TEXTURE);
+  this->mShaderProgram->bindAttributeLocation("textureIn", ATTRIB_TEXTURE);
   // Link all the shader programs added to
-  impl->mShaderProgram->link();
+  this->mShaderProgram->link();
   // activate all links
-  impl->mShaderProgram->bind();
+  this->mShaderProgram->bind();
   // Read the position of the data variables tex_y, tex_u, tex_v in the shader,
   // the declaration of these variables can be seen in fragment shader source
-  impl->textureUniformY = impl->mShaderProgram->uniformLocation("tex_y");
-  impl->textureUniformU = impl->mShaderProgram->uniformLocation("tex_u");
-  impl->textureUniformV = impl->mShaderProgram->uniformLocation("tex_v");
+  this->textureUniformY = this->mShaderProgram->uniformLocation("tex_y");
+  this->textureUniformU = this->mShaderProgram->uniformLocation("tex_u");
+  this->textureUniformV = this->mShaderProgram->uniformLocation("tex_v");
 
   // Vertex matrix
   static const GLfloat vertexVertices[] = {
@@ -178,23 +155,23 @@ void OpenGLDisplay::initializeGL() {
   glEnableVertexAttribArray(ATTRIB_TEXTURE);
 
   // Create y, u, v texture objects respectively
-  impl->mTextureY = new QOpenGLTexture(QOpenGLTexture::Target2D);
-  impl->mTextureU = new QOpenGLTexture(QOpenGLTexture::Target2D);
-  impl->mTextureV = new QOpenGLTexture(QOpenGLTexture::Target2D);
-  impl->mTextureY->create();
-  impl->mTextureU->create();
-  impl->mTextureV->create();
+  this->mTextureY = new QOpenGLTexture(QOpenGLTexture::Target2D);
+  this->mTextureU = new QOpenGLTexture(QOpenGLTexture::Target2D);
+  this->mTextureV = new QOpenGLTexture(QOpenGLTexture::Target2D);
+  this->mTextureY->create();
+  this->mTextureU->create();
+  this->mTextureV->create();
 
   // Get the texture index value of the return y component
-  impl->id_y = impl->mTextureY->textureId();
+  this->id_y = this->mTextureY->textureId();
   // Get the texture index value of the returned u component
-  impl->id_u = impl->mTextureU->textureId();
+  this->id_u = this->mTextureU->textureId();
   // Get the texture index value of the returned v component
-  impl->id_v = impl->mTextureV->textureId();
+  this->id_v = this->mTextureV->textureId();
 
   glClearColor(0.3, 0.3, 0.3, 0.0);  // set the background color
-  //    qDebug("addr=%x id_y = %d id_u=%d id_v=%d\n", this, impl->id_y,
-  //    impl->id_u, impl->id_v);
+  //    qDebug("addr=%x id_y = %d id_u=%d id_v=%d\n", this, this->id_y,
+  //    this->id_u, this->id_v);
 }
 
 void OpenGLDisplay::resizeGL(int w, int h) {
@@ -211,7 +188,7 @@ void OpenGLDisplay::paintGL() {
   // Activate the texture unit GL_TEXTURE0
   glActiveTexture(GL_TEXTURE0);
   // Use the texture generated from y to generate texture
-  glBindTexture(GL_TEXTURE_2D, impl->id_y);
+  glBindTexture(GL_TEXTURE_2D, this->id_y);
 
   // Fixes abnormality with 174x100 yuv data
   glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
@@ -220,28 +197,28 @@ void OpenGLDisplay::paintGL() {
   glPixelStorei(GL_UNPACK_SKIP_ROWS, 0);
 
   // Use the memory mBufYuv data to create a real y data texture
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, impl->mVideoW, impl->mVideoH, 0,
-               GL_LUMINANCE, GL_UNSIGNED_BYTE, impl->mBufYuv);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, this->mVideoW, this->mVideoH, 0,
+               GL_LUMINANCE, GL_UNSIGNED_BYTE, this->mBufYuv);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
   // Load u data texture
   glActiveTexture(GL_TEXTURE1);  // Activate texture unit GL_TEXTURE1
-  glBindTexture(GL_TEXTURE_2D, impl->id_u);
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, impl->mVideoW / 2,
-               impl->mVideoH / 2, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE,
-               (char*)impl->mBufYuv + impl->mVideoW * impl->mVideoH);
+  glBindTexture(GL_TEXTURE_2D, this->id_u);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, this->mVideoW / 2,
+               this->mVideoH / 2, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE,
+               (char*)this->mBufYuv + this->mVideoW * this->mVideoH);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
   // Load v data texture
   glActiveTexture(GL_TEXTURE2);  // Activate texture unit GL_TEXTURE2
-  glBindTexture(GL_TEXTURE_2D, impl->id_v);
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, impl->mVideoW / 2,
-               impl->mVideoH / 2, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE,
-               (char*)impl->mBufYuv + impl->mVideoW * impl->mVideoH * 5 / 4);
+  glBindTexture(GL_TEXTURE_2D, this->id_v);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, this->mVideoW / 2,
+               this->mVideoH / 2, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE,
+               (char*)this->mBufYuv + this->mVideoW * this->mVideoH * 5 / 4);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -251,11 +228,11 @@ void OpenGLDisplay::paintGL() {
   // not humanized
   // 0 corresponds to the texture unit GL_TEXTURE0 1 corresponds to the
   // texture unit GL_TEXTURE1 2 corresponds to the texture unit GL_TEXTURE2
-  glUniform1i(impl->textureUniformY, 0);
+  glUniform1i(this->textureUniformY, 0);
   // Specify the u texture to use the new value
-  glUniform1i(impl->textureUniformU, 1);
+  glUniform1i(this->textureUniformU, 1);
   // Specify v texture to use the new value
-  glUniform1i(impl->textureUniformV, 2);
+  glUniform1i(this->textureUniformV, 2);
   // Use the vertex array way to draw graphics
   glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }

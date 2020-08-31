@@ -13,7 +13,7 @@ export class QRawYUV extends NodeObject<any> {
         this.native = native;
         parent.nodeChildren.add(this);
     }
-    render(width: Number, height: Number, pixels: Buffer): void {
-        this.native.render(width, height, pixels);
+    render(pixels: Buffer): void {
+        this.native.render(pixels);
     }
 }

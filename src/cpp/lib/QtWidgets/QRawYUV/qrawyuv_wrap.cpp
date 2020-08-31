@@ -34,8 +34,7 @@ QRawYUVWrap::QRawYUVWrap(const Napi::CallbackInfo& info)
     this->instance = new OpenGLDisplay(parentWidgetWrap->getInternalInstance());
     const unsigned FRAME_WIDTH = info[1].As<Napi::Number>().Int32Value();
     const unsigned FRAME_HEIGHT = info[2].As<Napi::Number>().Int32Value();
-    const unsigned FRAME_SIZE = FRAME_WIDTH * FRAME_HEIGHT * 3 / 2;
-    this->instance->InitDrawBuffer(FRAME_SIZE);
+    this->instance->InitDrawBuffer(FRAME_WIDTH, FRAME_HEIGHT);
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
   }
@@ -47,9 +46,7 @@ QRawYUVWrap::~QRawYUVWrap() { extrautils::safeDelete(this->instance); }
 Napi::Value QRawYUVWrap::render(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  const unsigned FRAME_WIDTH = info[0].As<Napi::Number>().Int32Value();
-  const unsigned FRAME_HEIGHT = info[1].As<Napi::Number>().Int32Value();
-  Napi::Buffer<unsigned char> buffer = info[2].As<Napi::Buffer<unsigned char>>();
-  this->instance->DisplayVideoFrame(buffer.Data(), FRAME_WIDTH, FRAME_HEIGHT);
+  Napi::Buffer<unsigned char> buffer = info[0].As<Napi::Buffer<unsigned char>>();
+  this->instance->DisplayVideoFrame(buffer.Data());
   return env.Null();
 }
