@@ -91,6 +91,7 @@ export { QPlainTextEdit, QPlainTextEditSignals, LineWrapMode } from './lib/QtWid
 export { QScrollArea, QScrollAreaSignals } from './lib/QtWidgets/QScrollArea';
 export { QScrollBar, QScrollBarSignals } from './lib/QtWidgets/QScrollBar';
 export { QSlider, QSliderSignals, TickPosition } from './lib/QtWidgets/QSlider';
+export { QRawYUV } from './lib/QtWidgets/QRawYUV';
 export { QTimeEdit } from './lib/QtWidgets/QTimeEdit';
 export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
