@@ -1,112 +1,101 @@
-import { QMainWindow, QRawYUV } from '.';
-import fs from 'fs';
-const window = new QMainWindow();
-window.resize(800, 600);
-const yuvRender = new QRawYUV(window, 720, 480);
-const frame = fs.readFileSync('/Users/adminy/Downloads/test.yuv');
-setInterval(() => {
-    yuvRender.render(720, 480, fs.readFileSync('/Users/adminy/Downloads/test.yuv'));
-}, 1000);
-window.show();
-(global as any).window = window;
-// import { QMainWindow, QWidget } from '.';
-// import { QGridLayout } from './lib/QtWidgets/QGridLayout';
-// import { QLabel } from './lib/QtWidgets/QLabel';
-// import { QTreeWidget } from './lib/QtWidgets/QTreeWidget';
-// import { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
-// import { QIcon } from './lib/QtGui/QIcon';
+import { QMainWindow, QWidget } from '.';
+import { QGridLayout } from './lib/QtWidgets/QGridLayout';
+import { QLabel } from './lib/QtWidgets/QLabel';
+import { QTreeWidget } from './lib/QtWidgets/QTreeWidget';
+import { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
+import { QIcon } from './lib/QtGui/QIcon';
 
-// const win = new QMainWindow();
-// win.resize(500, 500);
+const win = new QMainWindow();
+win.resize(500, 500);
 
-// const outer = new QWidget();
-// const outerLayout = new QGridLayout();
-// outer.setLayout(outerLayout);
-// outer.setInlineStyle('background-color: red');
-// console.log(outerLayout.rowCount(), outerLayout.columnCount());
-// outerLayout.setColumnStretch(0, 2);
-// outerLayout.setRowStretch(1, 2);
-// outerLayout.setColumnMinimumWidth(1, 200);
-// outerLayout.setRowMinimumHeight(0, 100);
-// outerLayout.setHorizontalSpacing(20);
-// outerLayout.setVerticalSpacing(50);
+const outer = new QWidget();
+const outerLayout = new QGridLayout();
+outer.setLayout(outerLayout);
+outer.setInlineStyle('background-color: red');
+console.log(outerLayout.rowCount(), outerLayout.columnCount());
+outerLayout.setColumnStretch(0, 2);
+outerLayout.setRowStretch(1, 2);
+outerLayout.setColumnMinimumWidth(1, 200);
+outerLayout.setRowMinimumHeight(0, 100);
+outerLayout.setHorizontalSpacing(20);
+outerLayout.setVerticalSpacing(50);
 
-// console.log(outerLayout.columnStretch(0), outerLayout.columnStretch(1));
-// console.log(outerLayout.rowMinimumHeight(0), outerLayout.rowMinimumHeight(1));
-// console.log(outerLayout.verticalSpacing(), outerLayout.horizontalSpacing());
+console.log(outerLayout.columnStretch(0), outerLayout.columnStretch(1));
+console.log(outerLayout.rowMinimumHeight(0), outerLayout.rowMinimumHeight(1));
+console.log(outerLayout.verticalSpacing(), outerLayout.horizontalSpacing());
 
-// const columnOne = new QLabel();
-// columnOne.setText('One');
-// columnOne.setInlineStyle('background-color: blue');
-// outerLayout.addWidget(columnOne, 0, 0);
+const columnOne = new QLabel();
+columnOne.setText('One');
+columnOne.setInlineStyle('background-color: blue');
+outerLayout.addWidget(columnOne, 0, 0);
 
-// const columnTwo = new QLabel();
-// columnTwo.setText('Two');
-// columnTwo.setInlineStyle('background-color: green');
-// outerLayout.addWidget(columnTwo, 0, 1);
+const columnTwo = new QLabel();
+columnTwo.setText('Two');
+columnTwo.setInlineStyle('background-color: green');
+outerLayout.addWidget(columnTwo, 0, 1);
 
-// const columnThree = new QLabel();
-// columnThree.setText('Three');
-// columnThree.setInlineStyle('background-color: yellow');
-// outerLayout.addWidget(columnThree, 1, 0);
+const columnThree = new QLabel();
+columnThree.setText('Three');
+columnThree.setInlineStyle('background-color: yellow');
+outerLayout.addWidget(columnThree, 1, 0);
 
-// const columnFour = new QLabel();
-// columnFour.setText('Four');
-// columnFour.setInlineStyle('background-color: orange');
-// outerLayout.addWidget(columnFour, 1, 1);
+const columnFour = new QLabel();
+columnFour.setText('Four');
+columnFour.setInlineStyle('background-color: orange');
+outerLayout.addWidget(columnFour, 1, 1);
 
-// const tree = new QTreeWidget();
-// tree.setColumnCount(2);
-// tree.setHeaderLabels(['First Column', 'Second Column']);
-// tree.setSortingEnabled(true);
-// tree.setInlineStyle('font-size: 24px');
-// outerLayout.addWidget(tree, 2, 0, 2, 0);
+const tree = new QTreeWidget();
+tree.setColumnCount(2);
+tree.setHeaderLabels(['First Column', 'Second Column']);
+tree.setSortingEnabled(true);
+tree.setInlineStyle('font-size: 24px');
+outerLayout.addWidget(tree, 2, 0, 2, 0);
 
-// console.log(outerLayout.rowCount(), outerLayout.columnCount());
+console.log(outerLayout.rowCount(), outerLayout.columnCount());
 
-// const myImage = './website/static/img/logo.png';
-// const icon = new QIcon(myImage);
+const myImage = './website/static/img/logo.png';
+const icon = new QIcon(myImage);
 
-// const item1 = new QTreeWidgetItem();
-// item1.setText(0, `item-1`);
-// item1.setText(1, `1-item-1`);
-// item1.setIcon(1, icon);
-// const item2 = new QTreeWidgetItem();
-// item2.setText(0, `item-2`);
-// item2.setText(1, `1-item-2`);
-// item2.setIcon(1, icon);
-// const item3 = new QTreeWidgetItem();
-// item3.setText(0, `item-3`);
-// item3.setText(1, `1-item-3`);
-// item3.setIcon(1, icon);
-// const item4 = new QTreeWidgetItem();
-// item4.setText(0, `item-4`);
-// item4.setText(1, `1-item-4`);
-// item4.setIcon(1, icon);
-// const item5 = new QTreeWidgetItem();
-// item5.setText(0, `item-5`);
-// item5.setText(1, `1-item-5`);
-// item5.setIcon(1, icon);
-// const item6 = new QTreeWidgetItem();
-// item6.setText(0, `item-6`);
-// item6.setText(1, `1-item-6`);
-// item6.setIcon(1, icon);
+const item1 = new QTreeWidgetItem();
+item1.setText(0, `item-1`);
+item1.setText(1, `1-item-1`);
+item1.setIcon(1, icon);
+const item2 = new QTreeWidgetItem();
+item2.setText(0, `item-2`);
+item2.setText(1, `1-item-2`);
+item2.setIcon(1, icon);
+const item3 = new QTreeWidgetItem();
+item3.setText(0, `item-3`);
+item3.setText(1, `1-item-3`);
+item3.setIcon(1, icon);
+const item4 = new QTreeWidgetItem();
+item4.setText(0, `item-4`);
+item4.setText(1, `1-item-4`);
+item4.setIcon(1, icon);
+const item5 = new QTreeWidgetItem();
+item5.setText(0, `item-5`);
+item5.setText(1, `1-item-5`);
+item5.setIcon(1, icon);
+const item6 = new QTreeWidgetItem();
+item6.setText(0, `item-6`);
+item6.setText(1, `1-item-6`);
+item6.setIcon(1, icon);
 
-// console.info('item6.icon()=', item6.icon(1));
+console.info('item6.icon()=', item6.icon(1));
 
-// tree.addTopLevelItem(item1);
-// tree.insertTopLevelItems(0, [item2, item3]);
-// tree.addTopLevelItems([item4, item5]);
-// tree.insertTopLevelItem(2, item6);
+tree.addTopLevelItem(item1);
+tree.insertTopLevelItems(0, [item2, item3]);
+tree.addTopLevelItems([item4, item5]);
+tree.insertTopLevelItem(2, item6);
 
-// // Add children to item1
-// const c1item1 = new QTreeWidgetItem(item1);
-// c1item1.setText(0, `c1item1`);
-// c1item1.setText(1, `c1item2`);
-// const c1item2 = new QTreeWidgetItem(item1);
-// c1item2.setText(0, `c1item1`);
-// c1item2.setText(1, `c1item2`);
+// Add children to item1
+const c1item1 = new QTreeWidgetItem(item1);
+c1item1.setText(0, `c1item1`);
+c1item1.setText(1, `c1item2`);
+const c1item2 = new QTreeWidgetItem(item1);
+c1item2.setText(0, `c1item1`);
+c1item2.setText(1, `c1item2`);
 
-// win.setCentralWidget(outer);
-// win.show();
-// (global as any).win = win;
+win.setCentralWidget(outer);
+win.show();
+(global as any).win = win;
