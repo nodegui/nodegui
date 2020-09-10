@@ -10,7 +10,12 @@ Build **performant**, **native** and **cross-platform** desktop applications wit
 
 NodeGUI is powered by **Qt5** 💚 which makes it CPU and memory efficient as compared to other chromium based solutions like electron.
 
-If you are looking for **React** based version, check out: **[React NodeGUI](https://github.com/nodegui/react-nodegui)**.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png" alt="" width="25"> If you are looking for  **React** based version, check out: **[React NodeGUI](https://github.com/nodegui/react-nodegui)**. 
+
+
+
+<img src="https://vuejs.org/images/logo.png" alt="" width="25" /> If you are looking for **Vue** based version, check out: **[Vue NodeGUI](https://github.com/nodegui/vue-nodegui)**.
 
 Visit: https://nodegui.github.io/nodegui for docs.
 
