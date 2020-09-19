@@ -96,6 +96,7 @@ messageBox.exec();
 * [setEnabled](qmessagebox.md#setenabled)
 * [setFixedSize](qmessagebox.md#setfixedsize)
 * [setFlexNodeSizeControlled](qmessagebox.md#setflexnodesizecontrolled)
+* [setFocus](qmessagebox.md#setfocus)
 * [setFont](qmessagebox.md#setfont)
 * [setGeometry](qmessagebox.md#setgeometry)
 * [setGraphicsEffect](qmessagebox.md#setgraphicseffect)
@@ -902,6 +903,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

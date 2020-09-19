@@ -31,13 +31,13 @@ sidebar_label: "QDragLeaveEvent"
 
 ###  constructor
 
-\+ **new QDragLeaveEvent**(`event`: [NativeElement](../globals.md#nativeelement)): *[QDragLeaveEvent](qdragleaveevent.md)*
+\+ **new QDragLeaveEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QDragLeaveEvent](qdragleaveevent.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event` | [NativeElement](../globals.md#nativeelement) |
+`event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *[QDragLeaveEvent](qdragleaveevent.md)*
 

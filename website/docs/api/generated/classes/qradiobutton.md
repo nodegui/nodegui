@@ -99,6 +99,7 @@ radioButton.setText("Hello");
 * [setEnabled](qradiobutton.md#setenabled)
 * [setFixedSize](qradiobutton.md#setfixedsize)
 * [setFlexNodeSizeControlled](qradiobutton.md#setflexnodesizecontrolled)
+* [setFocus](qradiobutton.md#setfocus)
 * [setFont](qradiobutton.md#setfont)
 * [setGeometry](qradiobutton.md#setgeometry)
 * [setGraphicsEffect](qradiobutton.md#setgraphicseffect)
@@ -1022,6 +1023,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

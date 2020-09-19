@@ -365,13 +365,24 @@ sidebar_label: "Globals"
 ### Variables
 
 * [addon](globals.md#const-addon)
+* [c1item1](globals.md#const-c1item1)
+* [c1item2](globals.md#const-c1item2)
 * [columnFour](globals.md#const-columnfour)
 * [columnOne](globals.md#const-columnone)
 * [columnThree](globals.md#const-columnthree)
 * [columnTwo](globals.md#const-columntwo)
+* [icon](globals.md#const-icon)
+* [item1](globals.md#const-item1)
+* [item2](globals.md#const-item2)
+* [item3](globals.md#const-item3)
+* [item4](globals.md#const-item4)
+* [item5](globals.md#const-item5)
+* [item6](globals.md#const-item6)
+* [myImage](globals.md#const-myimage)
 * [outer](globals.md#const-outer)
 * [outerLayout](globals.md#const-outerlayout)
 * [testImagePath](globals.md#const-testimagepath)
+* [tree](globals.md#const-tree)
 * [win](globals.md#const-win)
 
 ### Functions
@@ -379,6 +390,7 @@ sidebar_label: "Globals"
 * [addDefaultErrorHandler](globals.md#adddefaulterrorhandler)
 * [checkIfNapiExternal](globals.md#checkifnapiexternal)
 * [checkIfNativeElement](globals.md#checkifnativeelement)
+* [createTreeWidget](globals.md#createtreewidget)
 * [main](globals.md#main)
 * [noop](globals.md#noop)
 * [prepareInlineStyleSheet](globals.md#prepareinlinestylesheet)
@@ -550,6 +562,18 @@ ___
 
 ___
 
+### `Const` c1item1
+
+• **c1item1**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem(item1)
+
+___
+
+### `Const` c1item2
+
+• **c1item2**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem(item1)
+
+___
+
 ### `Const` columnFour
 
 • **columnFour**: *[QLabel](classes/qlabel.md)‹›* = new QLabel()
@@ -574,6 +598,54 @@ ___
 
 ___
 
+### `Const` icon
+
+• **icon**: *[QIcon](classes/qicon.md)‹›* = new QIcon(myImage)
+
+___
+
+### `Const` item1
+
+• **item1**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
+
+___
+
+### `Const` item2
+
+• **item2**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
+
+___
+
+### `Const` item3
+
+• **item3**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
+
+___
+
+### `Const` item4
+
+• **item4**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
+
+___
+
+### `Const` item5
+
+• **item5**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
+
+___
+
+### `Const` item6
+
+• **item6**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
+
+___
+
+### `Const` myImage
+
+• **myImage**: *"./website/static/img/logo.png"* = "./website/static/img/logo.png"
+
+___
+
 ### `Const` outer
 
 • **outer**: *[QWidget](classes/qwidget.md)‹›* = new QWidget()
@@ -589,6 +661,12 @@ ___
 ### `Const` testImagePath
 
 • **testImagePath**: *string* = path.resolve(__dirname, 'assets', 'nodegui.png')
+
+___
+
+### `Const` tree
+
+• **tree**: *[QTreeWidget](classes/qtreewidget.md)‹›* = new QTreeWidget()
 
 ___
 
@@ -638,6 +716,14 @@ Name | Type |
 `arg` | any |
 
 **Returns:** *boolean*
+
+___
+
+###  createTreeWidget
+
+▸ **createTreeWidget**(): *[QTreeWidget](classes/qtreewidget.md)*
+
+**Returns:** *[QTreeWidget](classes/qtreewidget.md)*
 
 ___
 

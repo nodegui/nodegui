@@ -13,7 +13,7 @@ module.exports = {
                 alt: 'NodeGui Logo',
                 src: 'img/logo-circle.png',
             },
-            links: [
+            items: [
                 { to: 'docs/guides/getting-started', label: 'Docs', position: 'right' },
                 { to: 'docs/api/manual/synopsis', label: 'API', position: 'right' },
                 { to: 'blog', label: 'Blog', position: 'right' },

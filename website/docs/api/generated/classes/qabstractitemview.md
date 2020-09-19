@@ -117,6 +117,7 @@ It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTable
 * [setEnabled](qabstractitemview.md#setenabled)
 * [setFixedSize](qabstractitemview.md#setfixedsize)
 * [setFlexNodeSizeControlled](qabstractitemview.md#setflexnodesizecontrolled)
+* [setFocus](qabstractitemview.md#setfocus)
 * [setFont](qabstractitemview.md#setfont)
 * [setFrameRect](qabstractitemview.md#setframerect)
 * [setFrameShadow](qabstractitemview.md#setframeshadow)
@@ -1178,6 +1179,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

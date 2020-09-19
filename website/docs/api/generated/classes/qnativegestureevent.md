@@ -32,13 +32,13 @@ sidebar_label: "QNativeGestureEvent"
 
 ###  constructor
 
-\+ **new QNativeGestureEvent**(`event`: [NativeElement](../globals.md#nativeelement)): *[QNativeGestureEvent](qnativegestureevent.md)*
+\+ **new QNativeGestureEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QNativeGestureEvent](qnativegestureevent.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event` | [NativeElement](../globals.md#nativeelement) |
+`event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *[QNativeGestureEvent](qnativegestureevent.md)*
 

@@ -163,6 +163,7 @@ listWidget.addItem(listWidgetItem);
 * [setFixedSize](qlistwidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qlistwidget.md#setflexnodesizecontrolled)
 * [setFlow](qlistwidget.md#setflow)
+* [setFocus](qlistwidget.md#setfocus)
 * [setFont](qlistwidget.md#setfont)
 * [setFrameRect](qlistwidget.md#setframerect)
 * [setFrameShadow](qlistwidget.md#setframeshadow)
@@ -1761,6 +1762,22 @@ ___
 Name | Type |
 ------ | ------ |
 `flow` | [Flow](../enums/flow.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

@@ -86,6 +86,7 @@ const errorMessage = new QErrorMessage();
 * [setEnabled](qerrormessage.md#setenabled)
 * [setFixedSize](qerrormessage.md#setfixedsize)
 * [setFlexNodeSizeControlled](qerrormessage.md#setflexnodesizecontrolled)
+* [setFocus](qerrormessage.md#setfocus)
 * [setFont](qerrormessage.md#setfont)
 * [setGeometry](qerrormessage.md#setgeometry)
 * [setGraphicsEffect](qerrormessage.md#setgraphicseffect)
@@ -815,6 +816,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

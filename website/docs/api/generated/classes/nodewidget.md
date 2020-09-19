@@ -136,6 +136,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 * [setEnabled](nodewidget.md#setenabled)
 * [setFixedSize](nodewidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](nodewidget.md#setflexnodesizecontrolled)
+* [setFocus](nodewidget.md#setfocus)
 * [setFont](nodewidget.md#setfont)
 * [setGeometry](nodewidget.md#setgeometry)
 * [setGraphicsEffect](nodewidget.md#setgraphicseffect)
@@ -735,6 +736,20 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

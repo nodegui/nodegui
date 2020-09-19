@@ -146,6 +146,7 @@ const tableview = new QTableView();
 * [setEnabled](nodetableview.md#setenabled)
 * [setFixedSize](nodetableview.md#setfixedsize)
 * [setFlexNodeSizeControlled](nodetableview.md#setflexnodesizecontrolled)
+* [setFocus](nodetableview.md#setfocus)
 * [setFont](nodetableview.md#setfont)
 * [setFrameRect](nodetableview.md#setframerect)
 * [setFrameShadow](nodetableview.md#setframeshadow)
@@ -1593,6 +1594,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

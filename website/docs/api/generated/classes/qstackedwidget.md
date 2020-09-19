@@ -116,6 +116,7 @@ win.show();
 * [setEnabled](qstackedwidget.md#setenabled)
 * [setFixedSize](qstackedwidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qstackedwidget.md#setflexnodesizecontrolled)
+* [setFocus](qstackedwidget.md#setfocus)
 * [setFont](qstackedwidget.md#setfont)
 * [setFrameRect](qstackedwidget.md#setframerect)
 * [setFrameShadow](qstackedwidget.md#setframeshadow)
@@ -931,6 +932,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

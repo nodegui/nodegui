@@ -106,6 +106,7 @@ const dateEdit = new QDateEdit();
 * [setEnabled](qdateedit.md#setenabled)
 * [setFixedSize](qdateedit.md#setfixedsize)
 * [setFlexNodeSizeControlled](qdateedit.md#setflexnodesizecontrolled)
+* [setFocus](qdateedit.md#setfocus)
 * [setFont](qdateedit.md#setfont)
 * [setFrame](qdateedit.md#setframe)
 * [setGeometry](qdateedit.md#setgeometry)
@@ -1098,6 +1099,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

@@ -49,13 +49,13 @@ The QTabletEvent class contains parameters that describe a Tablet event
 
 ###  constructor
 
-\+ **new QTabletEvent**(`event`: [NativeElement](../globals.md#nativeelement)): *[QTabletEvent](qtabletevent.md)*
+\+ **new QTabletEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QTabletEvent](qtabletevent.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event` | [NativeElement](../globals.md#nativeelement) |
+`event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *[QTabletEvent](qtabletevent.md)*
 

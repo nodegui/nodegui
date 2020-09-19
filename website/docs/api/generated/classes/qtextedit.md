@@ -109,6 +109,7 @@ sidebar_label: "QTextEdit"
 * [setEnabled](qtextedit.md#setenabled)
 * [setFixedSize](qtextedit.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtextedit.md#setflexnodesizecontrolled)
+* [setFocus](qtextedit.md#setfocus)
 * [setFont](qtextedit.md#setfont)
 * [setFontFamily](qtextedit.md#setfontfamily)
 * [setFontItalic](qtextedit.md#setfontitalic)
@@ -1311,6 +1312,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

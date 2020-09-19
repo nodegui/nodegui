@@ -106,6 +106,7 @@ const tabBar = new QTabBar();
 * [setExpanding](qtabbar.md#setexpanding)
 * [setFixedSize](qtabbar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtabbar.md#setflexnodesizecontrolled)
+* [setFocus](qtabbar.md#setfocus)
 * [setFont](qtabbar.md#setfont)
 * [setGeometry](qtabbar.md#setgeometry)
 * [setGraphicsEffect](qtabbar.md#setgraphicseffect)
@@ -1095,6 +1096,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

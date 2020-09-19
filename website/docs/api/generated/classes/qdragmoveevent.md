@@ -42,13 +42,13 @@ sidebar_label: "QDragMoveEvent"
 
 ###  constructor
 
-\+ **new QDragMoveEvent**(`event`: [NativeElement](../globals.md#nativeelement)): *[QDragMoveEvent](qdragmoveevent.md)*
+\+ **new QDragMoveEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QDragMoveEvent](qdragmoveevent.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event` | [NativeElement](../globals.md#nativeelement) |
+`event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *[QDragMoveEvent](qdragmoveevent.md)*
 
