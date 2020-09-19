@@ -3,7 +3,7 @@ name: documentation
 on:
     push:
         branches:
-            - test-docs
+            - master
 
 jobs:
     gh-release:
