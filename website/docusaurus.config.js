@@ -6,6 +6,8 @@ module.exports = {
     favicon: 'img/favicon.ico',
     organizationName: 'nodegui', // Usually your GitHub org/user name.
     projectName: 'nodegui', // Usually your repo name.
+    onBrokenLinks: "warn",
+    onDuplicateRoutes: "warn",
     themeConfig: {
         navbar: {
             title: 'NodeGui',
