@@ -53,7 +53,7 @@
         "prebuild": "^10.0.1",
         "prettier": "^2.1.2",
         "ts-jest": "^25.5.1",
-        "typedoc": "^0.17.8",
+        "typedoc": "^0.19.1",
         "typedoc-plugin-markdown": "^2.4.2",
         "typescript": "^3.9.7"
     },
