@@ -77,6 +77,7 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 * [setEnabled](qdialog.md#setenabled)
 * [setFixedSize](qdialog.md#setfixedsize)
 * [setFlexNodeSizeControlled](qdialog.md#setflexnodesizecontrolled)
+* [setFocus](qdialog.md#setfocus)
 * [setFont](qdialog.md#setfont)
 * [setGeometry](qdialog.md#setgeometry)
 * [setGraphicsEffect](qdialog.md#setgraphicseffect)
@@ -799,6 +800,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

@@ -116,6 +116,7 @@ sidebar_label: "QListView"
 * [setFixedSize](qlistview.md#setfixedsize)
 * [setFlexNodeSizeControlled](qlistview.md#setflexnodesizecontrolled)
 * [setFlow](qlistview.md#setflow)
+* [setFocus](qlistview.md#setfocus)
 * [setFont](qlistview.md#setfont)
 * [setFrameRect](qlistview.md#setframerect)
 * [setFrameShadow](qlistview.md#setframeshadow)
@@ -1412,6 +1413,22 @@ ___
 Name | Type |
 ------ | ------ |
 `flow` | [Flow](../enums/flow.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

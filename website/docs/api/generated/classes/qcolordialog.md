@@ -95,6 +95,7 @@ console.log(color.red(), color.green(), color.blue());
 * [setEnabled](qcolordialog.md#setenabled)
 * [setFixedSize](qcolordialog.md#setfixedsize)
 * [setFlexNodeSizeControlled](qcolordialog.md#setflexnodesizecontrolled)
+* [setFocus](qcolordialog.md#setfocus)
 * [setFont](qcolordialog.md#setfont)
 * [setGeometry](qcolordialog.md#setgeometry)
 * [setGraphicsEffect](qcolordialog.md#setgraphicseffect)
@@ -869,6 +870,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

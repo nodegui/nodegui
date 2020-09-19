@@ -30,13 +30,13 @@ sidebar_label: "QMouseEvent"
 
 ###  constructor
 
-\+ **new QMouseEvent**(`event`: [NativeElement](../globals.md#nativeelement)): *[QMouseEvent](qmouseevent.md)*
+\+ **new QMouseEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QMouseEvent](qmouseevent.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event` | [NativeElement](../globals.md#nativeelement) |
+`event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *[QMouseEvent](qmouseevent.md)*
 

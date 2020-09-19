@@ -128,6 +128,7 @@ win.show();
 * [setEnabled](qtablewidget.md#setenabled)
 * [setFixedSize](qtablewidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtablewidget.md#setflexnodesizecontrolled)
+* [setFocus](qtablewidget.md#setfocus)
 * [setFont](qtablewidget.md#setfont)
 * [setFrameRect](qtablewidget.md#setframerect)
 * [setFrameShadow](qtablewidget.md#setframeshadow)
@@ -1211,6 +1212,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

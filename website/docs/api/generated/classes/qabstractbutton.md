@@ -103,6 +103,7 @@ It is inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
 * [setEnabled](qabstractbutton.md#setenabled)
 * [setFixedSize](qabstractbutton.md#setfixedsize)
 * [setFlexNodeSizeControlled](qabstractbutton.md#setflexnodesizecontrolled)
+* [setFocus](qabstractbutton.md#setfocus)
 * [setFont](qabstractbutton.md#setfont)
 * [setGeometry](qabstractbutton.md#setgeometry)
 * [setGraphicsEffect](qabstractbutton.md#setgraphicseffect)
@@ -973,6 +974,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

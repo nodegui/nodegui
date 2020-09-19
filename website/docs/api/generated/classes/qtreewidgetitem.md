@@ -66,6 +66,7 @@ win.show();
 * [childCount](qtreewidgetitem.md#childcount)
 * [data](qtreewidgetitem.md#data)
 * [flags](qtreewidgetitem.md#flags)
+* [icon](qtreewidgetitem.md#icon)
 * [isHidden](qtreewidgetitem.md#ishidden)
 * [parent](qtreewidgetitem.md#parent)
 * [setCheckState](qtreewidgetitem.md#setcheckstate)
@@ -73,6 +74,7 @@ win.show();
 * [setExpanded](qtreewidgetitem.md#setexpanded)
 * [setFlags](qtreewidgetitem.md#setflags)
 * [setHidden](qtreewidgetitem.md#sethidden)
+* [setIcon](qtreewidgetitem.md#seticon)
 * [setNodeParent](qtreewidgetitem.md#setnodeparent)
 * [setSelected](qtreewidgetitem.md#setselected)
 * [setText](qtreewidgetitem.md#settext)
@@ -235,6 +237,22 @@ Returns the flags used to describe the item. These determine whether the item ca
 
 ___
 
+###  icon
+
+▸ **icon**(`column`: number): *[QIcon](qicon.md)*
+
+Returns the icon object for the item.
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`column` | number |
+
+**Returns:** *[QIcon](qicon.md)*
+
+___
+
 ###  isHidden
 
 ▸ **isHidden**(): *boolean*
@@ -327,6 +345,23 @@ ___
 Name | Type |
 ------ | ------ |
 `hide` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setIcon
+
+▸ **setIcon**(`column`: number, `icon`: [QIcon](qicon.md)): *void*
+
+Sets the icon for the item.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`column` | number | - |
+`icon` | [QIcon](qicon.md) | The icon object  |
 
 **Returns:** *void*
 

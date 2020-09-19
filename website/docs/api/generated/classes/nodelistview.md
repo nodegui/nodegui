@@ -137,6 +137,7 @@ const listview = new QListView();
 * [setFixedSize](nodelistview.md#setfixedsize)
 * [setFlexNodeSizeControlled](nodelistview.md#setflexnodesizecontrolled)
 * [setFlow](nodelistview.md#setflow)
+* [setFocus](nodelistview.md#setfocus)
 * [setFont](nodelistview.md#setfont)
 * [setFrameRect](nodelistview.md#setframerect)
 * [setFrameShadow](nodelistview.md#setframeshadow)
@@ -1401,6 +1402,22 @@ ___
 Name | Type |
 ------ | ------ |
 `flow` | [Flow](../enums/flow.md) |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

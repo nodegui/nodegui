@@ -98,6 +98,7 @@ Once a central widget is set you can add children/layout to the central widget.
 * [setEnabled](qmainwindow.md#setenabled)
 * [setFixedSize](qmainwindow.md#setfixedsize)
 * [setFlexNodeSizeControlled](qmainwindow.md#setflexnodesizecontrolled)
+* [setFocus](qmainwindow.md#setfocus)
 * [setFont](qmainwindow.md#setfont)
 * [setGeometry](qmainwindow.md#setgeometry)
 * [setGraphicsEffect](qmainwindow.md#setgraphicseffect)
@@ -826,6 +827,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

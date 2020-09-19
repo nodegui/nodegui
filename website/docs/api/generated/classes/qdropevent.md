@@ -41,13 +41,13 @@ sidebar_label: "QDropEvent"
 
 ###  constructor
 
-\+ **new QDropEvent**(`event`: [NativeElement](../globals.md#nativeelement)): *[QDropEvent](qdropevent.md)*
+\+ **new QDropEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QDropEvent](qdropevent.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event` | [NativeElement](../globals.md#nativeelement) |
+`event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *[QDropEvent](qdropevent.md)*
 

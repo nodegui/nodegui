@@ -93,6 +93,7 @@ console.log(font);
 * [setEnabled](qfontdialog.md#setenabled)
 * [setFixedSize](qfontdialog.md#setfixedsize)
 * [setFlexNodeSizeControlled](qfontdialog.md#setflexnodesizecontrolled)
+* [setFocus](qfontdialog.md#setfocus)
 * [setFont](qfontdialog.md#setfont)
 * [setGeometry](qfontdialog.md#setgeometry)
 * [setGraphicsEffect](qfontdialog.md#setgraphicseffect)
@@ -862,6 +863,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

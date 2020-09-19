@@ -88,6 +88,7 @@ const scrollbar = new QScrollBar();
 * [setEnabled](qscrollbar.md#setenabled)
 * [setFixedSize](qscrollbar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qscrollbar.md#setflexnodesizecontrolled)
+* [setFocus](qscrollbar.md#setfocus)
 * [setFont](qscrollbar.md#setfont)
 * [setGeometry](qscrollbar.md#setgeometry)
 * [setGraphicsEffect](qscrollbar.md#setgraphicseffect)
@@ -859,6 +860,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

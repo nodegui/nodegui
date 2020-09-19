@@ -136,6 +136,7 @@ const textBrowser = new QTextBrowser();
 * [setEnabled](qtextbrowser.md#setenabled)
 * [setFixedSize](qtextbrowser.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtextbrowser.md#setflexnodesizecontrolled)
+* [setFocus](qtextbrowser.md#setfocus)
 * [setFont](qtextbrowser.md#setfont)
 * [setFontFamily](qtextbrowser.md#setfontfamily)
 * [setFontItalic](qtextbrowser.md#setfontitalic)
@@ -1452,6 +1453,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

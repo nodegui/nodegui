@@ -87,6 +87,7 @@ const frame = new QFrame();
 * [setEnabled](qframe.md#setenabled)
 * [setFixedSize](qframe.md#setfixedsize)
 * [setFlexNodeSizeControlled](qframe.md#setflexnodesizecontrolled)
+* [setFocus](qframe.md#setfocus)
 * [setFont](qframe.md#setfont)
 * [setFrameRect](qframe.md#setframerect)
 * [setFrameShadow](qframe.md#setframeshadow)
@@ -832,6 +833,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

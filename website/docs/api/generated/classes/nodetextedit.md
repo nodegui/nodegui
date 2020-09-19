@@ -131,6 +131,7 @@ const textEdit = new QTextEdit();
 * [setEnabled](nodetextedit.md#setenabled)
 * [setFixedSize](nodetextedit.md#setfixedsize)
 * [setFlexNodeSizeControlled](nodetextedit.md#setflexnodesizecontrolled)
+* [setFocus](nodetextedit.md#setfocus)
 * [setFont](nodetextedit.md#setfont)
 * [setFontFamily](nodetextedit.md#setfontfamily)
 * [setFontItalic](nodetextedit.md#setfontitalic)
@@ -1259,6 +1260,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

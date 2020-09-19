@@ -85,6 +85,7 @@ global.win = win;
 * [setEnabled](qmenubar.md#setenabled)
 * [setFixedSize](qmenubar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qmenubar.md#setflexnodesizecontrolled)
+* [setFocus](qmenubar.md#setfocus)
 * [setFont](qmenubar.md#setfont)
 * [setGeometry](qmenubar.md#setgeometry)
 * [setGraphicsEffect](qmenubar.md#setgraphicseffect)
@@ -801,6 +802,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

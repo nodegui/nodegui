@@ -32,13 +32,13 @@ sidebar_label: "QWheelEvent"
 
 ###  constructor
 
-\+ **new QWheelEvent**(`event`: [NativeElement](../globals.md#nativeelement)): *[QWheelEvent](qwheelevent.md)*
+\+ **new QWheelEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QWheelEvent](qwheelevent.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event` | [NativeElement](../globals.md#nativeelement) |
+`event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *[QWheelEvent](qwheelevent.md)*
 

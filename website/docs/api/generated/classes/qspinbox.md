@@ -100,6 +100,7 @@ const spinBox = new QSpinBox();
 * [setEnabled](qspinbox.md#setenabled)
 * [setFixedSize](qspinbox.md#setfixedsize)
 * [setFlexNodeSizeControlled](qspinbox.md#setflexnodesizecontrolled)
+* [setFocus](qspinbox.md#setfocus)
 * [setFont](qspinbox.md#setfont)
 * [setFrame](qspinbox.md#setframe)
 * [setGeometry](qspinbox.md#setgeometry)
@@ -1016,6 +1017,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

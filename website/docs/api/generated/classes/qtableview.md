@@ -127,6 +127,7 @@ sidebar_label: "QTableView"
 * [setEnabled](qtableview.md#setenabled)
 * [setFixedSize](qtableview.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtableview.md#setflexnodesizecontrolled)
+* [setFocus](qtableview.md#setfocus)
 * [setFont](qtableview.md#setfont)
 * [setFrameRect](qtableview.md#setframerect)
 * [setFrameShadow](qtableview.md#setframeshadow)
@@ -1628,6 +1629,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 

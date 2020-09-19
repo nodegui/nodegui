@@ -90,6 +90,7 @@ const lcd = new QLCDNumber();
 * [setEnabled](qlcdnumber.md#setenabled)
 * [setFixedSize](qlcdnumber.md#setfixedsize)
 * [setFlexNodeSizeControlled](qlcdnumber.md#setflexnodesizecontrolled)
+* [setFocus](qlcdnumber.md#setfocus)
 * [setFont](qlcdnumber.md#setfont)
 * [setGeometry](qlcdnumber.md#setgeometry)
 * [setGraphicsEffect](qlcdnumber.md#setgraphicseffect)
@@ -862,6 +863,22 @@ sets whether the widget's size is controlled by someone else (for example a wind
 Name | Type | Description |
 ------ | ------ | ------ |
 `isSizeControlled` | boolean |   |
+
+**Returns:** *void*
+
+___
+
+###  setFocus
+
+▸ **setFocus**(`reason`: [FocusReason](../enums/focusreason.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocus](qmenu.md#setfocus)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) |
 
 **Returns:** *void*
 
