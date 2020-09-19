@@ -1095,7 +1095,7 @@
     "@francoischalifour/autocomplete-preset-algolia" "^1.0.0-alpha.28"
     algoliasearch "^4.0.0"
 
-"@docusaurus/core@2.0.0-alpha.64", "@docusaurus/core@^2.0.0":
+"@docusaurus/core@2.0.0-alpha.64", "@docusaurus/core@^2.0.0-alpha.64":
   version "2.0.0-alpha.64"
   resolved "https://registry.yarnpkg.com/@docusaurus/core/-/core-2.0.0-alpha.64.tgz#08031993fcfff78b395091ec06ed1ab38c06e689"
   integrity sha512-lIFAaBz5SvN/vIMrljHwUiT+EGglqmCbKWUXsGwg8FZ86SqkD0T5hPtpaQBIDkerSMzOqntokUEcXB46AQsieQ==
@@ -1274,7 +1274,7 @@
     "@docusaurus/utils" "2.0.0-alpha.64"
     react-json-view "^1.19.1"
 
-"@docusaurus/plugin-google-analytics@2.0.0-alpha.64", "@docusaurus/plugin-google-analytics@^2.0.0":
+"@docusaurus/plugin-google-analytics@2.0.0-alpha.64", "@docusaurus/plugin-google-analytics@^2.0.0-alpha.64":
   version "2.0.0-alpha.64"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-google-analytics/-/plugin-google-analytics-2.0.0-alpha.64.tgz#c0e0a7cf1ec457a07a90be9593f823a432e264ab"
   integrity sha512-WiyF+OQYo/PqM376BObA5Js9eDAlYD4rMf3D7B59WKpCg+f532EABFFuurgkHAE7O73j6bbCpQ5HuunOgxvpDw==
@@ -1299,7 +1299,7 @@
     fs-extra "^8.1.0"
     sitemap "^3.2.2"
 
-"@docusaurus/preset-classic@^2.0.0":
+"@docusaurus/preset-classic@^2.0.0-alpha.64":
   version "2.0.0-alpha.64"
   resolved "https://registry.yarnpkg.com/@docusaurus/preset-classic/-/preset-classic-2.0.0-alpha.64.tgz#ce141f909a2071cf7b2736a3c35d9eb6226d61e2"
   integrity sha512-j2L7WzLXRLQyDub/hALNZGfL/mNMuMpG+GhWgfHWi/Fb8BRppGMikVp9VqrnlJ8D8OWhkkVcruUkjFO0ODfXmQ==
