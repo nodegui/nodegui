@@ -10,10 +10,7 @@ Build **performant**, **native** and **cross-platform** desktop applications wit
 
 NodeGUI is powered by **Qt5** 💚 which makes it CPU and memory efficient as compared to other chromium based solutions like electron.
 
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png" alt="" width="25"> If you are looking for  **React** based version, check out: **[React NodeGUI](https://github.com/nodegui/react-nodegui)**. 
-
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png" alt="" width="25"> If you are looking for **React** based version, check out: **[React NodeGUI](https://github.com/nodegui/react-nodegui)**.
 
 <img src="https://vuejs.org/images/logo.png" alt="" width="25" /> If you are looking for **Vue** based version, check out: **[Vue NodeGUI](https://github.com/nodegui/vue-nodegui)**.
 
@@ -82,6 +79,7 @@ Linux
 ```
 sudo apt-get install pkg-config build-essential
 sudo apt-get install cmake make
+sudo apt-get install mesa-common-dev libglu1-mesa-dev
 ```
 
 Then install NodeGui from your command line:
@@ -138,7 +136,7 @@ Optionally set `QT_INSTALL_DIR='/path/to/qt'` environment variable to build usin
 
 then followed by:
 
-`cd website &&  GIT_USER=<your_git_username> yarn deploy`
+`cd website && GIT_USER=<your_git_username> yarn deploy`
 
 ## Funding
 
@@ -244,6 +242,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
