@@ -99,6 +99,7 @@ module.exports = {
             'api/generated/classes/qstandarditemmodel',
             'api/generated/classes/qstatusbar',
             'api/generated/classes/qstyle',
+            'api/generated/classes/qsvgwidget',
             'api/generated/classes/qsystemtrayicon',
             'api/generated/classes/qtabbar',
             'api/generated/classes/qtabwidget',

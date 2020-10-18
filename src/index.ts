@@ -99,6 +99,7 @@ export { QPainterPath } from './lib/QtWidgets/QPainterPath';
 export { QDialog, QDialogSignals } from './lib/QtWidgets/QDialog';
 export { QMessageBox, QMessageBoxSignals, QMessageBoxIcon, ButtonRole } from './lib/QtWidgets/QMessageBox';
 export { QInputDialog, QInputDialogSignals, InputDialogOptions, InputMode } from './lib/QtWidgets/QInputDialog';
+export { QSvgWidget } from './lib/QtWidgets/QSvgWidget';
 
 export { QButtonGroup, QButtonGroupSignals } from './lib/QtWidgets/QButtonGroup';
 
