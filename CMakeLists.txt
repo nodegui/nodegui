@@ -137,6 +137,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QTextEdit/qtextedit_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QStandardItemModel/qstandarditemmodel_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QStandardItem/qstandarditem_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QSvgWidget/qsvgwidget_wrap.cpp"
     # Custom widgets (include them for automoc since they contain Q_OBJECT)
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtCore/QObject/nobject.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/core/FlexLayout/flexlayout.hpp"
@@ -198,6 +199,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QStandardItemModel/nstandarditemmodel.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTextBrowser/ntextbrowser.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTextEdit/ntextedit.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QSvgWidget/nsvgwidget.hpp"
 )
 
 AddCommonConfig(${CORE_WIDGETS_ADDON})
@@ -229,5 +231,6 @@ target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
     Qt5::Widgets
     Qt5::Core
     Qt5::Gui
+    Qt5::Svg
 )
 

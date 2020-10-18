@@ -265,6 +265,7 @@ sidebar_label: "Globals"
 * [QStandardItemModel](classes/qstandarditemmodel.md)
 * [QStatusBar](classes/qstatusbar.md)
 * [QStyle](classes/qstyle.md)
+* [QSvgWidget](classes/qsvgwidget.md)
 * [QSystemTrayIcon](classes/qsystemtrayicon.md)
 * [QTabBar](classes/qtabbar.md)
 * [QTabWidget](classes/qtabwidget.md)
