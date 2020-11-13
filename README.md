@@ -74,12 +74,20 @@ brew install make
 Windows
 https://cmake.org/download/
 
-Linux
+Linux (Debian/Ubuntu)
 
 ```
 sudo apt-get install pkg-config build-essential
 sudo apt-get install cmake make
 sudo apt-get install mesa-common-dev libglu1-mesa-dev
+```
+
+Linux (Fedora/RHEL/CentOS)
+
+```
+sudo dnf groupinstall "Development Tools" "Development Libraries"
+sudo dnf groupinstall "C Development Tools and Libraries"
+sudo dnf install mesa-libGL mesa-libGL-devel
 ```
 
 Then install NodeGui from your command line:
