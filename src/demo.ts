@@ -4,9 +4,17 @@ import { QLabel } from './lib/QtWidgets/QLabel';
 import { QTreeWidget } from './lib/QtWidgets/QTreeWidget';
 import { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
 import { QIcon } from './lib/QtGui/QIcon';
+import { QDesktopWidget } from './lib/QtWidgets/QDesktopWidget';
 
 const win = new QMainWindow();
 win.resize(500, 500);
+
+const desktop = new QDesktopWidget();
+const availableGeometry = desktop.availableGeometry();
+const screenGeometry = desktop.screenGeometry();
+console.log(availableGeometry.width() + 'x' + availableGeometry.height());
+console.log(screenGeometry.width() + 'x' + screenGeometry.height());
+console.log(desktop.screenNumber());
 
 const outer = new QWidget();
 const outerLayout = new QGridLayout();
