@@ -1,6 +1,6 @@
 {
     "name": "@nodegui/nodegui",
-    "version": "0.26.0",
+    "version": "0.27.0",
     "description": "A cross platform library to build native desktop apps.",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -8,7 +8,7 @@
     "license": "MIT",
     "private": false,
     "bin": {
-        "qode": "./scripts/qode.js"
+        "qode": "scripts/qode.js"
     },
     "funding": {
         "url": "https://github.com/sponsors/master-atul"
