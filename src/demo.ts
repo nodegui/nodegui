@@ -4,9 +4,26 @@ import { QLabel } from './lib/QtWidgets/QLabel';
 import { QTreeWidget } from './lib/QtWidgets/QTreeWidget';
 import { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
 import { QIcon } from './lib/QtGui/QIcon';
+import { QDesktopWidget } from './lib/QtWidgets/QDesktopWidget';
+import { QApplication } from './lib/QtGui/QApplication';
 
 const win = new QMainWindow();
 win.resize(500, 500);
+
+// ex 1
+const desktop = new QDesktopWidget();
+const availableGeometry = desktop.availableGeometry();
+const screenGeometry = desktop.screenGeometry();
+console.log(availableGeometry.width() + 'x' + availableGeometry.height());
+console.log(screenGeometry.width() + 'x' + screenGeometry.height());
+console.log(desktop.screenNumber());
+// ex 2
+const qApp = QApplication.desktop()
+const availableGeometry2 = qApp.availableGeometry();
+const screenGeometry2 = qApp.screenGeometry();
+console.log(availableGeometry2.width() + 'x' + availableGeometry2.height());
+console.log(screenGeometry2.width() + 'x' + screenGeometry2.height());
+console.log(qApp.screenNumber());
 
 const outer = new QWidget();
 const outerLayout = new QGridLayout();

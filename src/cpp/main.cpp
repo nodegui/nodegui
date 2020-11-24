@@ -99,6 +99,7 @@
 #include "QtWidgets/QToolButton/qtoolbutton_wrap.h"
 #include "QtWidgets/QTreeWidget/qtreewidget_wrap.h"
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
+#include "QtWidgets/QDesktopWidget/qdesktopwidget_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
 #include "core/Integration/integration.h"
@@ -210,6 +211,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QStandardItemModelWrap::init(env, exports);
   QStandardItemWrap::init(env, exports);
   QSvgWidgetWrap::init(env, exports);
+  QDesktopWidgetWrap::init(env, exports);
   return exports;
 }
 
