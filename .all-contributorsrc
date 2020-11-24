@@ -319,6 +319,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "ran-j",
+      "name": "Ranieri",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17410205?v=4",
+      "profile": "https://github.com/ran-j",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
