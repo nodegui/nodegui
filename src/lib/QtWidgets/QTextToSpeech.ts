@@ -24,6 +24,9 @@ export class QTextToSpeech extends NodeObject<QTextToSpeechSignals> {
     say(textTarget: string): void {
         this.native.say(textTarget);
     }
+    setVoice(index: number): void {
+        return this.native.setVoice(index);
+    }
     setPitch(pitch: number): void {
         this.native.setPitch(pitch);
     }
