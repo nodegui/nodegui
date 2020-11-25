@@ -246,11 +246,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/NeryHenrique"><img src="https://avatars0.githubusercontent.com/u/6879141?v=4" width="100px;" alt=""/><br /><sub><b>HENRIQUE DE SOUZA NERY</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=NeryHenrique" title="Code">💻</a></td>
     <td align="center"><a href="https://ruslang.xyz"><img src="https://avatars0.githubusercontent.com/u/25264730?v=4" width="100px;" alt=""/><br /><sub><b>Ruslan Garifullin</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=ruslang02" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/ran-j"><img src="https://avatars0.githubusercontent.com/u/17410205?v=4" width="100px;" alt=""/><br /><sub><b>Ranieri</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=ran-j" title="Code">💻</a> <a href="https://github.com/nodegui/nodegui/commits?author=ran-j" title="Documentation">📖</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
