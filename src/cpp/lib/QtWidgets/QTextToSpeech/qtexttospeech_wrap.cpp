@@ -62,7 +62,7 @@ Napi::Value QTextToSpeechtWrap::setVoice(const Napi::CallbackInfo &info) {
   Napi::HandleScope scope(env);
 
   Napi::Number voiceIndex = info[0].As<Napi::Number>();
-  int shortVoiceIndex = voiceIndex.Int32Value();
+  double shortVoiceIndex = voiceIndex.DoubleValue();
   // this->instance->setVoice(shortVoiceIndex);
   return env.Null();
 }
@@ -72,7 +72,7 @@ Napi::Value QTextToSpeechtWrap::setPitch(const Napi::CallbackInfo &info) {
   Napi::HandleScope scope(env);
 
   Napi::Number inputPitch = info[0].As<Napi::Number>();
-  int pitch = inputPitch.Int32Value();
+  double pitch = inputPitch.DoubleValue();
   this->instance->setPitch(pitch);
   return env.Null();
 }
@@ -89,7 +89,7 @@ Napi::Value QTextToSpeechtWrap::setRate(const Napi::CallbackInfo &info) {
   Napi::HandleScope scope(env);
 
   Napi::Number inputrate = info[0].As<Napi::Number>();
-  int rate = inputrate.Int32Value();
+  double rate = inputrate.DoubleValue();
   this->instance->setRate(rate);
   return env.Null();
 }
