@@ -19,6 +19,7 @@ Napi::Object QTextToSpeechtWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("rate", &QTextToSpeechtWrap::rate),
                    InstanceMethod("setVolume", &QTextToSpeechtWrap::setVolume),
                    InstanceMethod("volume", &QTextToSpeechtWrap::volume),
+                   InstanceMethod("state", &QTextToSpeechtWrap::state),
                    QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QTextToSpeechtWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -121,4 +122,11 @@ Napi::Value QTextToSpeechtWrap::volume(const Napi::CallbackInfo &info) {
   Napi::HandleScope scope(env);
   double currentVolume = this->instance->volume();
   return Napi::Number::New(env, currentVolume);
+}
+
+Napi::Value QTextToSpeechtWrap::state(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int v = static_cast<int>(this->instance->state());
+  return Napi::Number::New(env, v);
 }

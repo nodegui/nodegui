@@ -42,6 +42,9 @@ export class QTextToSpeech extends NodeObject<QTextToSpeechSignals> {
     volume(): number {
         return this.native.volume();
     }
+    state(): State {
+        return this.native.state();
+    }
 }
 export interface QTextToSpeechSignals extends QObjectSignals {
     // localeChanged: (checked: QLocale) => void;
@@ -50,4 +53,11 @@ export interface QTextToSpeechSignals extends QObjectSignals {
     // volumeChanged: (volume: number) => void; // erro to bind
     // stateChanged: (state: number) => void;
     // voiceChanged: (voice: QVoice) => void;
+}
+
+export enum State {
+    Ready,
+    Speaking,
+    Paused,
+    BackendError,
 }
