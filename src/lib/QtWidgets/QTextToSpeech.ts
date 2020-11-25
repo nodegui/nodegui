@@ -47,7 +47,7 @@ export interface QTextToSpeechSignals extends QObjectSignals {
     // localeChanged: (checked: QLocale) => void;
     pitchChanged: (pitch: number) => void;
     rateChanged: (rate: number) => void;
-    volumeChanged: (volume: number) => void;
+    // volumeChanged: (volume: number) => void; // erro to bind
     // stateChanged: (state: number) => void;
     // voiceChanged: (voice: QVoice) => void;
 }

@@ -118,17 +118,26 @@ win.setCentralWidget(outer);
 win.show();
 
 const tts = new QTextToSpeech();
+
+tts.addEventListener('pitchChanged', (n) => {
+    console.log('(EVENT) Pitch After ' + n);
+});
+
+tts.addEventListener('rateChanged', (n) => {
+    console.log('(EVENT) Rate After ' + n);
+});
+
 console.log('Pitch Before setting ', tts.pitch());
 tts.setPitch(5);
-console.log('Pitch After setting ', tts.pitch());
+// console.log('Pitch After setting ', tts.pitch());
 
 console.log('Rate Before setting ', tts.rate());
 tts.setRate(2);
-console.log('Rate After setting ', tts.rate());
+// console.log('Rate After setting ', tts.rate());
 
 console.log('Volume Before setting ', tts.volume());
 tts.setVolume(0.9);
-console.log('Volume After setting ', tts.volume());
+// console.log('Volume After setting ', tts.volume());
 
 setInterval(() => {
     console.log('saying');
