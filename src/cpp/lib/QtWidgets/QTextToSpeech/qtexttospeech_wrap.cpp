@@ -24,6 +24,7 @@ Napi::Object QTextToSpeechtWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("resume", &QTextToSpeechtWrap::resume),
                    InstanceMethod("stop", &QTextToSpeechtWrap::stop),
                    InstanceMethod("setVoice", &QTextToSpeechtWrap::setVoice),
+                   InstanceMethod("availableVoices", &QTextToSpeechtWrap::availableVoices),
                    StaticMethod("availableEngines",
                                 &StaticNQtexttospeechMethods::availableEngines),
                    QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QTextToSpeechtWrap)});
@@ -69,14 +70,32 @@ Napi::Value QTextToSpeechtWrap::say(const Napi::CallbackInfo &info) {
   return env.Null();
 }
 
-Napi::Value QTextToSpeechtWrap::setVoice(const Napi::CallbackInfo &info) { //TODO WRAP QVOICE
+Napi::Value QTextToSpeechtWrap::setVoice(
+    const Napi::CallbackInfo &info) {  // TODO WRAP QVOICE
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Number inpuNumber = info[0].As<Napi::Number>();
-  auto m_voices = this->instance->availableVoices(); 
+  auto m_voices = this->instance->availableVoices();
   this->instance->setVoice(m_voices.at(inpuNumber.Int32Value()));
   return env.Null();
 }
+
+Napi::Value QTextToSpeechtWrap::availableVoices(
+    const Napi::CallbackInfo &info) {  // TODO WRAP QVOICE
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QVector<QVoice> m_voices = this->instance->availableVoices();
+
+  Napi::Array enginesNapi = Napi::Array::New(env, m_voices.size());
+
+  for (int i = 0; i < m_voices.size(); i++) {
+    enginesNapi[i] = Napi::String::New(env, m_voices[i].name().toStdString());
+  }
+
+  return enginesNapi;
+}
+
 
 Napi::Value QTextToSpeechtWrap::setPitch(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
@@ -168,4 +187,3 @@ Napi::Value StaticNQtexttospeechMethods::availableEngines(
   }
   return enginesNapi;
 }
-

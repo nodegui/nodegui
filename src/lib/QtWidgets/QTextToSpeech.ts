@@ -57,6 +57,9 @@ export class QTextToSpeech extends NodeObject<QTextToSpeechSignals> {
     state(): State {
         return this.native.state();
     }
+    availableVoices(): Array<string> {
+        return this.native.availableVoices();
+    }
     static availableEngines(): Array<string> {
         return addon.QTextToSpeech.availableEngines();
     }
