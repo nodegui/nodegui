@@ -12,7 +12,8 @@ class DLL_EXPORT NQtexttospeech : public QTextToSpeech, public EventWidget {
   Q_OBJECT
   EVENTWIDGET_IMPLEMENTATIONS(QTextToSpeech)
  public:
-  using QTextToSpeech::QTextToSpeech;  // inherit all constructors of QApplication
+  using QTextToSpeech::QTextToSpeech;  // inherit all constructors of
+                                       // QApplication
   void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QOBJECT_SIGNALS

@@ -1,13 +1,15 @@
 #pragma once
 
 #include <napi.h>
+
 #include <QPointer>
 
 #include "Extras/Export/export.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "nqtexttospeech.hpp"
 
-class DLL_EXPORT QTextToSpeechtWrap : public Napi::ObjectWrap<QTextToSpeechtWrap> {
+class DLL_EXPORT QTextToSpeechtWrap
+    : public Napi::ObjectWrap<QTextToSpeechtWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<NQtexttospeech> instance;

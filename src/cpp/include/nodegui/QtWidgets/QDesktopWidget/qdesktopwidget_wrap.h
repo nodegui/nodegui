@@ -1,7 +1,8 @@
 #pragma once
-#include "napi.h"
-#include "QtWidgets/QWidget/qwidget_macro.h"
 #include <QPointer>
+
+#include "QtWidgets/QWidget/qwidget_macro.h"
+#include "napi.h"
 #include "nqdesktopwidget.hpp"
 
 class QDesktopWidgetWrap : public Napi::ObjectWrap<QDesktopWidgetWrap> {
