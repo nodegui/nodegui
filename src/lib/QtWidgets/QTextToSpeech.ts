@@ -24,6 +24,12 @@ export class QTextToSpeech extends NodeWidget<QTextToSpeechSignals> {
     rate(): number {
         return this.native.rate();
     }
+    setVolume(volume: number): void {
+        this.native.setVolume(volume);
+    }
+    volume(): number {
+        return this.native.volume();
+    }
 }
 
 export type QTextToSpeechSignals = QWidgetSignals;

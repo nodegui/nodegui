@@ -126,6 +126,10 @@ console.log('Rate Before setting ', tts.rate());
 tts.setRate(2);
 console.log('Rate After setting ', tts.rate());
 
+console.log('Volume Before setting ', tts.volume());
+tts.setVolume(0.5);
+console.log('Volume After setting ', tts.volume());
+
 setInterval(() => {
     console.log('saying');
     tts.say('hey you');
