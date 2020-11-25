@@ -118,7 +118,9 @@ win.setCentralWidget(outer);
 win.show();
 
 const tts = new QTextToSpeech();
-
+console.log('Before setting ', tts.pitch());
+tts.setPitch(5);
+console.log('After setting ', tts.pitch());
 setInterval(() => {
     console.log('saying');
     tts.say('hey you');

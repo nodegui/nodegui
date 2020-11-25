@@ -12,6 +12,12 @@ export class QTextToSpeech extends NodeWidget<QTextToSpeechSignals> {
     say(textTarget: string): void {
         this.native.say(textTarget);
     }
+    setPitch(pitch: number): void {
+        this.native.setPitch(pitch);
+    }
+    pitch(): number {
+        return this.native.pitch();
+    }
 }
 
 export type QTextToSpeechSignals = QWidgetSignals;

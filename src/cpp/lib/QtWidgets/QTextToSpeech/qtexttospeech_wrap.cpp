@@ -14,14 +14,8 @@ Napi::Object QTextToSpeechtWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("say", &QTextToSpeechtWrap::say),
-       //  InstanceMethod("setVoice", &QTextToSpeechtWrap::availableGeometry),
-       //    InstanceMethod("setLocale", &QTextToSpeechtWrap::screenNumber),
-       //    InstanceMethod("availableLocales",
-       //    &QTextToSpeechtWrap::screenNumber), InstanceMethod("locale",
-       //    &QTextToSpeechtWrap::screenNumber), InstanceMethod("setRate",
-       //    &QTextToSpeechtWrap::screenNumber), InstanceMethod("setPitch",
-       //    &QTextToSpeechtWrap::screenNumber), InstanceMethod("volume",
-       //    &QTextToSpeechtWrap::screenNumber),
+        InstanceMethod("setPitch", &QTextToSpeechtWrap::setPitch),
+        InstanceMethod("pitch", &QTextToSpeechtWrap::pitch),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QTextToSpeechtWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -67,4 +61,21 @@ Napi::Value QTextToSpeechtWrap::setVoice(const Napi::CallbackInfo &info) {
   int shortVoiceIndex = voiceIndex.Int32Value();
   // this->instance->setVoice(shortVoiceIndex);
   return env.Null();
+}
+
+Napi::Value QTextToSpeechtWrap::setPitch(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Number inputPitch = info[0].As<Napi::Number>();
+  int pitch = inputPitch.Int32Value();
+  this->instance->setPitch(pitch);
+  return env.Null();
+}
+
+Napi::Value QTextToSpeechtWrap::pitch(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  double currentPitch = this->instance->pitch();
+  return Napi::Number::New(env, currentPitch);
 }
