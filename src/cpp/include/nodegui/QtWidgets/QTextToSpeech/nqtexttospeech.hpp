@@ -30,12 +30,14 @@ class DLL_EXPORT NQtexttospeech : public QTextToSpeech, public EventWidget {
       this->emitOnNode.Call({Napi::String::New(env, "rateChanged"),
                              Napi::Value::From(env, rate)});
     });
-    QObject::connect(this, &QTextToSpeech::stateChanged, [=](QTextToSpeech::State state) {
-      Napi::Env env = this->emitOnNode.Env();
-      Napi::HandleScope scope(env);
-      this->emitOnNode.Call({Napi::String::New(env, "stateChanged"),
-                             Napi::Value::From(env, static_cast<int>(state))});
-    });
+    QObject::connect(this, &QTextToSpeech::stateChanged,
+                     [=](QTextToSpeech::State state) {
+                       Napi::Env env = this->emitOnNode.Env();
+                       Napi::HandleScope scope(env);
+                       this->emitOnNode.Call(
+                           {Napi::String::New(env, "stateChanged"),
+                            Napi::Value::From(env, static_cast<int>(state))});
+                     });
     // QObject::connect(this, &QTextToSpeech::volumeChanged, [=](double volume)
     // { //error to cast
     //   Napi::Env env = this->emitOnNode.Env();
