@@ -18,6 +18,12 @@ export class QTextToSpeech extends NodeWidget<QTextToSpeechSignals> {
     pitch(): number {
         return this.native.pitch();
     }
+    setRate(rate: number): void {
+        this.native.setRate(rate);
+    }
+    rate(): number {
+        return this.native.rate();
+    }
 }
 
 export type QTextToSpeechSignals = QWidgetSignals;

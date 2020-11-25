@@ -16,6 +16,8 @@ Napi::Object QTextToSpeechtWrap::init(Napi::Env env, Napi::Object exports) {
                   {InstanceMethod("say", &QTextToSpeechtWrap::say),
                    InstanceMethod("setPitch", &QTextToSpeechtWrap::setPitch),
                    InstanceMethod("pitch", &QTextToSpeechtWrap::pitch),
+                   InstanceMethod("setRate", &QTextToSpeechtWrap::setRate),
+                   InstanceMethod("rate", &QTextToSpeechtWrap::rate),
                    QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QTextToSpeechtWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -78,4 +80,21 @@ Napi::Value QTextToSpeechtWrap::pitch(const Napi::CallbackInfo &info) {
   Napi::HandleScope scope(env);
   double currentPitch = this->instance->pitch();
   return Napi::Number::New(env, currentPitch);
+}
+
+Napi::Value QTextToSpeechtWrap::setRate(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Number inputrate = info[0].As<Napi::Number>();
+  int rate = inputrate.Int32Value();
+  this->instance->setRate(rate);
+  return env.Null();
+}
+
+Napi::Value QTextToSpeechtWrap::rate(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  double currentRate = this->instance->rate();
+  return Napi::Number::New(env, currentRate);
 }
