@@ -119,6 +119,8 @@ win.show();
 
 const tts = new QTextToSpeech();
 
+console.log('Engines', QTextToSpeech.availableEngines());
+
 tts.addEventListener('pitchChanged', (n) => {
     console.log('(EVENT) Pitch After ' + n);
 });

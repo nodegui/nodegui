@@ -23,6 +23,7 @@ Napi::Object QTextToSpeechtWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("pause", &QTextToSpeechtWrap::pause),
                    InstanceMethod("resume", &QTextToSpeechtWrap::resume),
                    InstanceMethod("stop", &QTextToSpeechtWrap::stop),
+                   StaticMethod("availableEngines", &StaticNQtexttospeechMethods::availableEngines),
                    QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QTextToSpeechtWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -153,4 +154,15 @@ Napi::Value QTextToSpeechtWrap::stop(const Napi::CallbackInfo &info) {
   Napi::HandleScope scope(env);
   this->instance->stop();
   return env.Null();
+}
+
+Napi::Value StaticNQtexttospeechMethods::availableEngines(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QStringList engines = QTextToSpeech::availableEngines();
+  Napi::Array enginesNapi = Napi::Array::New(env, engines.size());
+  for (int i = 0; i < engines.size(); i++) {
+    enginesNapi[i] = Napi::String::New(env, engines[i].toStdString());
+  }
+  return enginesNapi;
 }

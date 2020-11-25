@@ -40,3 +40,7 @@ class DLL_EXPORT QTextToSpeechtWrap
   Napi::Value resume(const Napi::CallbackInfo &info);
   Napi::Value stop(const Napi::CallbackInfo &info);
 };
+
+namespace StaticNQtexttospeechMethods {
+DLL_EXPORT Napi::Value availableEngines(const Napi::CallbackInfo& info);
+}  // namespace StaticNQtexttospeechMethods
