@@ -234,5 +234,6 @@ target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
     Qt5::Core
     Qt5::Gui
     Qt5::Svg
+    Qt5::TextToSpeech
 )
 

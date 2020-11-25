@@ -73,6 +73,11 @@ function getMiniQtConfig() {
                         skipSetup: checkIfExists(path.resolve(qtHome, 'lib', 'libQt5Svg.so')),
                     },
                     {
+                        name: 'Qt Texttospeech',
+                        link: `https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt5_5141/qt.qt5.5141.gcc_64/5.14.1-0-202001240953qtspeech-Linux-RHEL_7_6-GCC-Linux-RHEL_7_6-X86_64.7z`,
+                        skipSetup: checkIfExists(path.resolve(qtHome, 'lib', 'libQt5TextToSpeech.so')),
+                    },
+                    {
                         name: 'Qt ICU',
                         link: `https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt5_5141/qt.qt5.5141.gcc_64/5.14.1-0-202001240953icu-linux-Rhel7.2-x64.7z`,
                         skipSetup: checkIfExists(path.resolve(qtHome, 'lib', 'libicuuc.so')),
