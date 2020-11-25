@@ -10,24 +10,24 @@ Napi::FunctionReference QTextToSpeechtWrap::constructor;
 Napi::Object QTextToSpeechtWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QTextToSpeech";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {InstanceMethod("say", &QTextToSpeechtWrap::say),
-                   InstanceMethod("setPitch", &QTextToSpeechtWrap::setPitch),
-                   InstanceMethod("pitch", &QTextToSpeechtWrap::pitch),
-                   InstanceMethod("setRate", &QTextToSpeechtWrap::setRate),
-                   InstanceMethod("rate", &QTextToSpeechtWrap::rate),
-                   InstanceMethod("setVolume", &QTextToSpeechtWrap::setVolume),
-                   InstanceMethod("volume", &QTextToSpeechtWrap::volume),
-                   InstanceMethod("state", &QTextToSpeechtWrap::state),
-                   InstanceMethod("pause", &QTextToSpeechtWrap::pause),
-                   InstanceMethod("resume", &QTextToSpeechtWrap::resume),
-                   InstanceMethod("stop", &QTextToSpeechtWrap::stop),
-                   InstanceMethod("setVoice", &QTextToSpeechtWrap::setVoice),
-                   InstanceMethod("availableVoices", &QTextToSpeechtWrap::availableVoices),
-                   StaticMethod("availableEngines",
-                                &StaticNQtexttospeechMethods::availableEngines),
-                   QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QTextToSpeechtWrap)});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("say", &QTextToSpeechtWrap::say),
+       InstanceMethod("setPitch", &QTextToSpeechtWrap::setPitch),
+       InstanceMethod("pitch", &QTextToSpeechtWrap::pitch),
+       InstanceMethod("setRate", &QTextToSpeechtWrap::setRate),
+       InstanceMethod("rate", &QTextToSpeechtWrap::rate),
+       InstanceMethod("setVolume", &QTextToSpeechtWrap::setVolume),
+       InstanceMethod("volume", &QTextToSpeechtWrap::volume),
+       InstanceMethod("state", &QTextToSpeechtWrap::state),
+       InstanceMethod("pause", &QTextToSpeechtWrap::pause),
+       InstanceMethod("resume", &QTextToSpeechtWrap::resume),
+       InstanceMethod("stop", &QTextToSpeechtWrap::stop),
+       InstanceMethod("setVoice", &QTextToSpeechtWrap::setVoice),
+       InstanceMethod("availableVoices", &QTextToSpeechtWrap::availableVoices),
+       StaticMethod("availableEngines",
+                    &StaticNQtexttospeechMethods::availableEngines),
+       QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QTextToSpeechtWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -95,7 +95,6 @@ Napi::Value QTextToSpeechtWrap::availableVoices(
 
   return enginesNapi;
 }
-
 
 Napi::Value QTextToSpeechtWrap::setPitch(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
