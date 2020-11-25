@@ -34,7 +34,12 @@ QTextToSpeechtWrap::QTextToSpeechtWrap(const Napi::CallbackInfo &info)
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  if (info.Length() == 0) {
+  if (info.Length() == 1) {
+    Napi::Object parentObject = info[0].As<Napi::Object>();
+    NodeWidgetWrap* parentWidgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+    this->instance = new NQtexttospeech(parentWidgetWrap->getInternalInstance());
+  } else if (info.Length() == 0) {
     this->instance = new NQtexttospeech();
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")

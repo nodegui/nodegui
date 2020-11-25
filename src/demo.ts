@@ -127,7 +127,7 @@ tts.setRate(2);
 console.log('Rate After setting ', tts.rate());
 
 console.log('Volume Before setting ', tts.volume());
-tts.setVolume(0.5);
+tts.setVolume(0.9);
 console.log('Volume After setting ', tts.volume());
 
 setInterval(() => {
