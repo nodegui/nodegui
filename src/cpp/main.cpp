@@ -101,6 +101,7 @@
 #include "QtWidgets/QTreeWidgetItem/qtreewidgetitem_wrap.h"
 #include "QtWidgets/QDesktopWidget/qdesktopwidget_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
+#include "QtWidgets/QTextToSpeech/qtexttospeech_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
 #include "core/Integration/integration.h"
 // These cant be instantiated in JS Side
@@ -212,6 +213,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QStandardItemWrap::init(env, exports);
   QSvgWidgetWrap::init(env, exports);
   QDesktopWidgetWrap::init(env, exports);
+  QTextToSpeechtWrap::init(env, exports);
   return exports;
 }
 

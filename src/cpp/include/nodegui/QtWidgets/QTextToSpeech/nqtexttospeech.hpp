@@ -1,15 +1,20 @@
 #pragma once
+
+#include <QApplication>
 #include <QTextToSpeech>
 #include <QVoice>
 
 #include "Extras/Export/export.h"
-#include "core/NodeWidget/nodewidget.h"
+#include "QtCore/QObject/qobject_macro.h"
 #include "napi.h"
 
-class DLL_EXPORT Nqtexttospeech : public QTextToSpeech, public NodeWidget {
+class DLL_EXPORT NQtexttospeech : public QTextToSpeech, public EventWidget {
   Q_OBJECT
-  NODEWIDGET_IMPLEMENTATIONS(QTextToSpeech)
+  EVENTWIDGET_IMPLEMENTATIONS(QTextToSpeech)
  public:
-  // inherit all constructors of QTextToSpeech
-  using QTextToSpeech::QTextToSpeech;
+  using QTextToSpeech::QTextToSpeech;  // inherit all constructors of QApplication
+  void connectSignalsToEventEmitter() {
+    // Qt Connects: Implement all signal connects here
+    QOBJECT_SIGNALS
+  }
 };

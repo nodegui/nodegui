@@ -4,19 +4,19 @@
 #include <QPointer>
 
 #include "Extras/Export/export.h"
-#include "QtWidgets/QDateTimeEdit/qdatetimeedit_macro.h"
+#include "QtCore/QObject/qobject_macro.h"
 #include "nqtexttospeech.hpp"
 
 class DLL_EXPORT QTextToSpeechtWrap : public Napi::ObjectWrap<QTextToSpeechtWrap> {
-  QDATETIMEEDIT_WRAPPED_METHODS_DECLARATION
+  QOBJECT_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<Nqtexttospeech> instance;
+  QPointer<NQtexttospeech> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QTextToSpeechtWrap(const Napi::CallbackInfo &info);
   ~QTextToSpeechtWrap();
-  Nqtexttospeech *getInternalInstance();
+  NQtexttospeech *getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
@@ -25,4 +25,7 @@ class DLL_EXPORT QTextToSpeechtWrap : public Napi::ObjectWrap<QTextToSpeechtWrap
   Napi::Value setLocale(const Napi::CallbackInfo &info);
   Napi::Value availableLocales(const Napi::CallbackInfo &info);
   Napi::Value locale(const Napi::CallbackInfo &info);
+  Napi::Value setRate(const Napi::CallbackInfo &info);
+  Napi::Value setPitch(const Napi::CallbackInfo &info);
+  Napi::Value volume(const Napi::CallbackInfo &info);
 };

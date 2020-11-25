@@ -6,6 +6,7 @@ import { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
 import { QIcon } from './lib/QtGui/QIcon';
 import { QDesktopWidget } from './lib/QtWidgets/QDesktopWidget';
 import { QApplication } from './lib/QtGui/QApplication';
+import { QTextToSpeech } from './lib/QtWidgets/QTextToSpeech';
 
 const win = new QMainWindow();
 win.resize(500, 500);
@@ -18,7 +19,7 @@ console.log(availableGeometry.width() + 'x' + availableGeometry.height());
 console.log(screenGeometry.width() + 'x' + screenGeometry.height());
 console.log(desktop.screenNumber());
 // ex 2
-const qApp = QApplication.desktop()
+const qApp = QApplication.desktop();
 const availableGeometry2 = qApp.availableGeometry();
 const screenGeometry2 = qApp.screenGeometry();
 console.log(availableGeometry2.width() + 'x' + availableGeometry2.height());
@@ -115,4 +116,12 @@ c1item2.setText(1, `c1item2`);
 
 win.setCentralWidget(outer);
 win.show();
+
+const tts = new QTextToSpeech();
+
+setInterval(() => {
+    console.log('saying');
+    tts.say('hey you');
+}, 5000);
+
 (global as any).win = win;
