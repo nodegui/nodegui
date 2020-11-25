@@ -5,7 +5,7 @@ const fs = require('fs');
 const SETUP_DIR = path.resolve(__dirname, '..', 'miniqt');
 const QT_VERSION = '5.14.1';
 
-const checkIfExists = fullPath => {
+const checkIfExists = (fullPath) => {
     return () => fs.existsSync(fullPath);
 };
 
@@ -25,6 +25,13 @@ function getMiniQtConfig() {
                         name: 'Qt Svg',
                         link: `https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5141/qt.qt5.5141.clang_64/5.14.1-0-202001241000qtsvg-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
                         skipSetup: checkIfExists(path.resolve(qtHome, 'lib', 'QtSvg.framework', 'QtSvg')),
+                    },
+                    {
+                        name: 'Qt Texttospeech',
+                        link: `https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5141/qt.qt5.5141.clang_64/5.14.1-0-202001241000qtspeech-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
+                        skipSetup: checkIfExists(
+                            path.resolve(qtHome, 'lib', 'QtTextToSpeech.framework', 'QtTextToSpeech'),
+                        ),
                     },
                     {
                         name: 'Qt Tools',
