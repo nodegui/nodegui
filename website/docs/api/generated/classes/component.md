@@ -29,29 +29,29 @@ Its the root base class in NodeGui world.
 
   ↳ [EventWidget](eventwidget.md)
 
+  ↳ [QRect](qrect.md)
+
+  ↳ [QIcon](qicon.md)
+
+  ↳ [QCursor](qcursor.md)
+
+  ↳ [QPoint](qpoint.md)
+
+  ↳ [QSize](qsize.md)
+
+  ↳ [QFont](qfont.md)
+
+  ↳ [QKeySequence](qkeysequence.md)
+
   ↳ [QColor](qcolor.md)
 
   ↳ [QBrush](qbrush.md)
 
   ↳ [QPen](qpen.md)
 
-  ↳ [QKeySequence](qkeysequence.md)
-
-  ↳ [QRect](qrect.md)
-
   ↳ [QPicture](qpicture.md)
 
-  ↳ [QIcon](qicon.md)
-
-  ↳ [QFont](qfont.md)
-
-  ↳ [QSize](qsize.md)
-
-  ↳ [QCursor](qcursor.md)
-
   ↳ [QFontDatabase](qfontdatabase.md)
-
-  ↳ [QPoint](qpoint.md)
 
   ↳ [QUrl](qurl.md)
 

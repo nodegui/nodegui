@@ -54,6 +54,7 @@ qApp.quit();
 * [setProperty](qapplication.md#setproperty)
 * [setQuitOnLastWindowClosed](qapplication.md#setquitonlastwindowclosed)
 * [clipboard](qapplication.md#static-clipboard)
+* [desktop](qapplication.md#static-desktop)
 * [instance](qapplication.md#static-instance)
 * [style](qapplication.md#static-style)
 
@@ -358,6 +359,14 @@ ___
 ▸ **clipboard**(): *[QClipboard](qclipboard.md)*
 
 **Returns:** *[QClipboard](qclipboard.md)*
+
+___
+
+### `Static` desktop
+
+▸ **desktop**(): *[QDesktopWidget](qdesktopwidget.md)*
+
+**Returns:** *[QDesktopWidget](qdesktopwidget.md)*
 
 ___
 

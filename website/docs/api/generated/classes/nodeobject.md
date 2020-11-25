@@ -16,10 +16,6 @@ sidebar_label: "NodeObject"
 
   ↳ [QObject](qobject.md)
 
-  ↳ [QApplication](qapplication.md)
-
-  ↳ [QMovie](qmovie.md)
-
   ↳ [NodeLayout](nodelayout.md)
 
   ↳ [YogaWidget](yogawidget.md)
@@ -28,6 +24,10 @@ sidebar_label: "NodeObject"
 
   ↳ [QGraphicsEffect](qgraphicseffect.md)
 
+  ↳ [QApplication](qapplication.md)
+
+  ↳ [QMovie](qmovie.md)
+
   ↳ [QStandardItemModel](qstandarditemmodel.md)
 
   ↳ [QButtonGroup](qbuttongroup.md)
@@ -35,6 +35,8 @@ sidebar_label: "NodeObject"
   ↳ [QSystemTrayIcon](qsystemtrayicon.md)
 
   ↳ [QShortcut](qshortcut.md)
+
+  ↳ [QTextToSpeech](qtexttospeech.md)
 
 ## Index
 

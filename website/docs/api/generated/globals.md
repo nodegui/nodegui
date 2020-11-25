@@ -132,6 +132,7 @@ sidebar_label: "Globals"
 * [SizeMode](enums/sizemode.md)
 * [SliderAction](enums/slideraction.md)
 * [SortOrder](enums/sortorder.md)
+* [State](enums/state.md)
 * [StepType](enums/steptype.md)
 * [SystemFont](enums/systemfont.md)
 * [TabBarShape](enums/tabbarshape.md)
@@ -201,6 +202,7 @@ sidebar_label: "Globals"
 * [QDateEdit](classes/qdateedit.md)
 * [QDateTime](classes/qdatetime.md)
 * [QDateTimeEdit](classes/qdatetimeedit.md)
+* [QDesktopWidget](classes/qdesktopwidget.md)
 * [QDial](classes/qdial.md)
 * [QDialog](classes/qdialog.md)
 * [QDoubleSpinBox](classes/qdoublespinbox.md)
@@ -275,6 +277,7 @@ sidebar_label: "Globals"
 * [QTabletEvent](classes/qtabletevent.md)
 * [QTextBrowser](classes/qtextbrowser.md)
 * [QTextEdit](classes/qtextedit.md)
+* [QTextToSpeech](classes/qtexttospeech.md)
 * [QTime](classes/qtime.md)
 * [QTimeEdit](classes/qtimeedit.md)
 * [QToolButton](classes/qtoolbutton.md)
@@ -330,6 +333,7 @@ sidebar_label: "Globals"
 * [QTableWidgetSignals](interfaces/qtablewidgetsignals.md)
 * [QTextBrowserSignals](interfaces/qtextbrowsersignals.md)
 * [QTextEditSignals](interfaces/qtexteditsignals.md)
+* [QTextToSpeechSignals](interfaces/qtexttospeechsignals.md)
 * [QToolButtonSignals](interfaces/qtoolbuttonsignals.md)
 * [QTreeWidgetSignals](interfaces/qtreewidgetsignals.md)
 * [QWidgetSignals](interfaces/qwidgetsignals.md)
@@ -345,6 +349,7 @@ sidebar_label: "Globals"
 * [QAbstractScrollAreaSignals](globals.md#qabstractscrollareasignals)
 * [QApplicationSignals](globals.md#qapplicationsignals)
 * [QBoxLayoutSignals](globals.md#qboxlayoutsignals)
+* [QDesktopWidgetSignals](globals.md#qdesktopwidgetsignals)
 * [QDialSignals](globals.md#qdialsignals)
 * [QErrorMessageSignals](globals.md#qerrormessagesignals)
 * [QFrameSignals](globals.md#qframesignals)
@@ -366,12 +371,15 @@ sidebar_label: "Globals"
 ### Variables
 
 * [addon](globals.md#const-addon)
+* [availableGeometry](globals.md#const-availablegeometry)
+* [availableGeometry2](globals.md#const-availablegeometry2)
 * [c1item1](globals.md#const-c1item1)
 * [c1item2](globals.md#const-c1item2)
 * [columnFour](globals.md#const-columnfour)
 * [columnOne](globals.md#const-columnone)
 * [columnThree](globals.md#const-columnthree)
 * [columnTwo](globals.md#const-columntwo)
+* [desktop](globals.md#const-desktop)
 * [icon](globals.md#const-icon)
 * [item1](globals.md#const-item1)
 * [item2](globals.md#const-item2)
@@ -382,8 +390,12 @@ sidebar_label: "Globals"
 * [myImage](globals.md#const-myimage)
 * [outer](globals.md#const-outer)
 * [outerLayout](globals.md#const-outerlayout)
+* [qApp](globals.md#const-qapp)
+* [screenGeometry](globals.md#const-screengeometry)
+* [screenGeometry2](globals.md#const-screengeometry2)
 * [testImagePath](globals.md#const-testimagepath)
 * [tree](globals.md#const-tree)
+* [tts](globals.md#const-tts)
 * [win](globals.md#const-win)
 
 ### Functions
@@ -452,6 +464,31 @@ ___
 ###  QBoxLayoutSignals
 
 Ƭ **QBoxLayoutSignals**: *[QLayoutSignals](globals.md#qlayoutsignals)*
+
+___
+
+###  QDesktopWidgetSignals
+
+Ƭ **QDesktopWidgetSignals**: *[QWidgetSignals](interfaces/qwidgetsignals.md)*
+
+> QDesktopWidget is a class that provides access to screen information on multi-head systems..
+
+**This class is a JS wrapper around Qt's [QDesktopWidget Class](https://doc.qt.io/qt-5/qdesktopwidget.html)**
+
+The QDesktopWidget class provides information about the user's desktop, such as its total size, number of screens, the geometry of each screen, and whether they are configured as separate desktops or a single virtual desktop.
+
+### Example
+
+```js
+const { QDesktopWidget } = require("@nodegui/nodegui");
+
+const desktop = new QDesktopWidget();
+const availableGeometry = desktop.availableGeometry();
+const screenGeometry = desktop.screenGeometry();
+console.log(availableGeometry.width() + 'x' + availableGeometry.height());
+console.log(screenGeometry.width() + 'x' + screenGeometry.height());
+console.log(desktop.screenNumber());
+```
 
 ___
 
@@ -563,6 +600,18 @@ ___
 
 ___
 
+### `Const` availableGeometry
+
+• **availableGeometry**: *[QRect](classes/qrect.md)‹›* = desktop.availableGeometry()
+
+___
+
+### `Const` availableGeometry2
+
+• **availableGeometry2**: *[QRect](classes/qrect.md)‹›* = qApp.availableGeometry()
+
+___
+
 ### `Const` c1item1
 
 • **c1item1**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem(item1)
@@ -596,6 +645,12 @@ ___
 ### `Const` columnTwo
 
 • **columnTwo**: *[QLabel](classes/qlabel.md)‹›* = new QLabel()
+
+___
+
+### `Const` desktop
+
+• **desktop**: *[QDesktopWidget](classes/qdesktopwidget.md)‹›* = new QDesktopWidget()
 
 ___
 
@@ -659,6 +714,24 @@ ___
 
 ___
 
+### `Const` qApp
+
+• **qApp**: *[QDesktopWidget](classes/qdesktopwidget.md)‹›* = QApplication.desktop()
+
+___
+
+### `Const` screenGeometry
+
+• **screenGeometry**: *[QRect](classes/qrect.md)‹›* = desktop.screenGeometry()
+
+___
+
+### `Const` screenGeometry2
+
+• **screenGeometry2**: *[QRect](classes/qrect.md)‹›* = qApp.screenGeometry()
+
+___
+
 ### `Const` testImagePath
 
 • **testImagePath**: *string* = path.resolve(__dirname, 'assets', 'nodegui.png')
@@ -668,6 +741,12 @@ ___
 ### `Const` tree
 
 • **tree**: *[QTreeWidget](classes/qtreewidget.md)‹›* = new QTreeWidget()
+
+___
+
+### `Const` tts
+
+• **tts**: *[QTextToSpeech](classes/qtexttospeech.md)‹›* = new QTextToSpeech()
 
 ___
 
