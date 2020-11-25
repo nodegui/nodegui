@@ -6,7 +6,7 @@ import { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
 import { QIcon } from './lib/QtGui/QIcon';
 import { QDesktopWidget } from './lib/QtWidgets/QDesktopWidget';
 import { QApplication } from './lib/QtGui/QApplication';
-import { QTextToSpeech } from './lib/QtWidgets/QTextToSpeech';
+import { QTextToSpeech, State } from './lib/QtWidgets/QTextToSpeech';
 
 const win = new QMainWindow();
 win.resize(500, 500);
@@ -127,8 +127,9 @@ tts.addEventListener('rateChanged', (n) => {
     console.log('(EVENT) Rate After ' + n);
 });
 
-tts.addEventListener('stateChanged', (n) => {
-    console.log('(EVENT) TTS state is ' + n);
+tts.addEventListener('stateChanged', (n: State) => {
+    const stringState = n === State.Speaking ? 'Speaking' : n === State.Paused ? 'Paused' : 'Read';
+    console.log('(EVENT) TTS state is ' + stringState);
 });
 
 console.log('Pitch Before setting ', tts.pitch());
@@ -145,8 +146,17 @@ tts.setVolume(0.9);
 
 // console.log(tts.state());
 
-setInterval(() => {
+setTimeout(() => {
     console.log('saying');
+    setTimeout(() => {
+        tts.pause();
+        setTimeout(() => {
+            tts.resume();
+            setTimeout(() => {
+                tts.stop();
+            }, 4000);
+        }, 2000);
+    }, 1000);
     tts.say(
         "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
     );

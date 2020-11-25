@@ -36,4 +36,7 @@ class DLL_EXPORT QTextToSpeechtWrap
   Napi::Value volume(const Napi::CallbackInfo &info);
   Napi::Value setVolume(const Napi::CallbackInfo &info);
   Napi::Value state(const Napi::CallbackInfo &info);
+  Napi::Value pause(const Napi::CallbackInfo &info);
+  Napi::Value resume(const Napi::CallbackInfo &info);
+  Napi::Value stop(const Napi::CallbackInfo &info);
 };

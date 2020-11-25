@@ -123,7 +123,7 @@ export {
     WrapMode,
 } from './lib/QtWidgets/QTextEdit';
 
-export { QTextToSpeech } from './lib/QtWidgets/QTextToSpeech';
+export { QTextToSpeech, State } from './lib/QtWidgets/QTextToSpeech';
 // Core
 export { QDate } from './lib/QtCore/QDate';
 export { QDateTime } from './lib/QtCore/QDateTime';

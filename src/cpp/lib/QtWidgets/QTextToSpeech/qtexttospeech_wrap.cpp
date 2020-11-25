@@ -20,6 +20,9 @@ Napi::Object QTextToSpeechtWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("setVolume", &QTextToSpeechtWrap::setVolume),
                    InstanceMethod("volume", &QTextToSpeechtWrap::volume),
                    InstanceMethod("state", &QTextToSpeechtWrap::state),
+                   InstanceMethod("pause", &QTextToSpeechtWrap::pause),
+                   InstanceMethod("resume", &QTextToSpeechtWrap::resume),
+                   InstanceMethod("stop", &QTextToSpeechtWrap::stop),
                    QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QTextToSpeechtWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -129,4 +132,25 @@ Napi::Value QTextToSpeechtWrap::state(const Napi::CallbackInfo &info) {
   Napi::HandleScope scope(env);
   int v = static_cast<int>(this->instance->state());
   return Napi::Number::New(env, v);
+}
+
+Napi::Value QTextToSpeechtWrap::pause(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->pause();
+  return env.Null();
+}
+
+Napi::Value QTextToSpeechtWrap::resume(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->resume();
+  return env.Null();
+}
+
+Napi::Value QTextToSpeechtWrap::stop(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->stop();
+  return env.Null();
 }
