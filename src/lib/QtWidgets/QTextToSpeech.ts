@@ -1,9 +1,10 @@
 import { NativeElement } from '../core/Component';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { NodeWidget } from './QWidget';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
+import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 
-export class QTextToSpeech extends NodeWidget<QTextToSpeechSignals> {
+export class QTextToSpeech extends NodeObject<QTextToSpeechSignals> {
     native: NativeElement;
     constructor();
     constructor(native: NativeElement);
@@ -42,5 +43,11 @@ export class QTextToSpeech extends NodeWidget<QTextToSpeechSignals> {
         return this.native.volume();
     }
 }
-
-export type QTextToSpeechSignals = QWidgetSignals;
+export interface QTextToSpeechSignals extends QObjectSignals {
+    // localeChanged: (checked: QLocale) => void;
+    pitchChanged: (pitch: number) => void;
+    rateChanged: (rate: number) => void;
+    volumeChanged: (volume: number) => void;
+    // stateChanged: (state: number) => void;
+    // voiceChanged: (voice: QVoice) => void;
+}

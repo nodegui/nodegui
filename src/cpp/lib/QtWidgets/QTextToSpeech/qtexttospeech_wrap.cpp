@@ -36,9 +36,10 @@ QTextToSpeechtWrap::QTextToSpeechtWrap(const Napi::CallbackInfo &info)
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
+    NodeWidgetWrap *parentWidgetWrap =
         Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NQtexttospeech(parentWidgetWrap->getInternalInstance());
+    this->instance =
+        new NQtexttospeech(parentWidgetWrap->getInternalInstance());
   } else if (info.Length() == 0) {
     this->instance = new NQtexttospeech();
   } else {
