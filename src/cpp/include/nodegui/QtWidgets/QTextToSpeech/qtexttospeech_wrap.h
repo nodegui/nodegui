@@ -24,6 +24,8 @@ class DLL_EXPORT QTextToSpeechtWrap : public Napi::ObjectWrap<QTextToSpeechtWrap
   Napi::Value setVoice(const Napi::CallbackInfo &info);
   Napi::Value setLocale(const Napi::CallbackInfo &info);
   Napi::Value availableLocales(const Napi::CallbackInfo &info);
+  Napi::Value availableVoices(const Napi::CallbackInfo &info);
+  Napi::Value availableEngines(const Napi::CallbackInfo &info);
   Napi::Value locale(const Napi::CallbackInfo &info);
   Napi::Value setRate(const Napi::CallbackInfo &info);
   Napi::Value setPitch(const Napi::CallbackInfo &info);
