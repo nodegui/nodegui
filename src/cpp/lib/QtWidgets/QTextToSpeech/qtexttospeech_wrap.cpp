@@ -11,12 +11,12 @@ Napi::FunctionReference QTextToSpeechtWrap::constructor;
 Napi::Object QTextToSpeechtWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QTextToSpeech";
-  Napi::Function func = DefineClass(
-      env, CLASSNAME,
-      {InstanceMethod("say", &QTextToSpeechtWrap::say),
-        InstanceMethod("setPitch", &QTextToSpeechtWrap::setPitch),
-        InstanceMethod("pitch", &QTextToSpeechtWrap::pitch),
-       QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QTextToSpeechtWrap)});
+  Napi::Function func =
+      DefineClass(env, CLASSNAME,
+                  {InstanceMethod("say", &QTextToSpeechtWrap::say),
+                   InstanceMethod("setPitch", &QTextToSpeechtWrap::setPitch),
+                   InstanceMethod("pitch", &QTextToSpeechtWrap::pitch),
+                   QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QTextToSpeechtWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
