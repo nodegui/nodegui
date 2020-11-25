@@ -50,6 +50,11 @@ function getMiniQtConfig() {
                         skipSetup: checkIfExists(path.resolve(qtHome, 'bin', 'Qt5Svg.dll')),
                     },
                     {
+                        name: 'Qt Texttospeech',
+                        link: `https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_5141/qt.qt5.5141.win64_msvc2017_64/5.14.1-0-202001240957qtspeech-Windows-Windows_10-MSVC2017-Windows-Windows_10-X86_64.7z`,
+                        skipSetup: checkIfExists(path.resolve(qtHome, 'lib', 'Qt5TextToSpeech.dll')),
+                    },
+                    {
                         name: 'Qt Tools',
                         link: `https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_5141/qt.qt5.5141.win64_msvc2017_64/5.14.1-0-202001240957qttools-Windows-Windows_10-MSVC2017-Windows-Windows_10-X86_64.7z`,
                         skipSetup: checkIfExists(path.resolve(qtHome, 'bin', 'windeployqt.exe')),
