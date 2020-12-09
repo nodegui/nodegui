@@ -1,6 +1,7 @@
 import addon from '../utils/addon';
 import { NativeElement, Component } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
  
@@ -37,11 +38,15 @@ win.show();
 export class QTableWidgetItem extends Component {
     native: NativeElement;
     constructor();
+    constructor(other: QTableWidgetItem);
+    constructor(native: NativeElement);
     constructor(text: string);
-    constructor(text?: string) {
+    constructor(arg?: QTableWidgetItem | NativeElement | string) {
         let native;
-        if (text) {
-            native = new addon.QTableWidgetItem(text);
+        if (typeof arg === 'string') {
+            native = new addon.QTableWidgetItem(arg);
+        } else if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
         } else {
             native = new addon.QTableWidgetItem();
         }
