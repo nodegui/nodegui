@@ -1,6 +1,11 @@
 import addon from '../utils/addon';
 import { NativeElement, Component } from '../core/Component';
-import { AlignmentFlag } from '../QtEnums';
+import { AlignmentFlag, CheckState, ItemFlag } from '../QtEnums';
+import { QBrush } from '../QtGui/QBrush';
+import { QVariant } from '../QtCore/QVariant';
+import { QFont } from '../QtGui/QFont';
+import { QIcon } from '../QtGui/QIcon';
+import { QSize } from '../QtCore/QSize';
 
 /**
  
@@ -48,11 +53,77 @@ export class QTableWidgetItem extends Component {
         super();
         this.native = native;
     }
+    setBackground(brush: QBrush): void {
+        this.native.setBackground(brush.native);
+    }
+    row(): number {
+        return this.native.row();
+    }
+    column(): number {
+        return this.native.column();
+    }
+    background(): QBrush {
+        return new QBrush(this.native.background());
+    }
+    setCheckState(state: CheckState): void {
+        this.native.setCheckState(state);
+    }
+    checkState(): CheckState {
+        return this.native.checkState();
+    }
+    setData(role: number, value: QVariant): void {
+        this.native.setData(role, value.native);
+    }
+    data(role: number): QVariant {
+        return new QVariant(this.native.data(role));
+    }
+    setFlags(flags: ItemFlag): void {
+        this.native.setFlags(flags);
+    }
+    flags(): ItemFlag {
+        return this.native.flags();
+    }
+    setFont(font: QFont): void {
+        this.native.setFont(font.native);
+    }
+    font(): QFont {
+        return new QFont(this.native.font());
+    }
+    setForeground(brush: QBrush): void {
+        this.native.setForeground(brush.native);
+    }
+    foreground(): QBrush {
+        return new QBrush(this.native.foreground());
+    }
+    setIcon(icon: QIcon): void {
+        this.native.setIcon(icon.native);
+    }
+    icon(): QIcon {
+        return new QIcon(this.native.icon());
+    }
+    setSelected(select: boolean): void {
+        this.native.setSelected(select);
+    }
+    isSelected(): boolean {
+        return this.native.isSelected();
+    }
+    setSizeHint(size: QSize): void {
+        this.native.setSizeHint(size.native);
+    }
+    sizeHint(): QSize {
+        return new QSize(this.native.sizeHint());
+    }
+    setStatusTip(statusTip: string): void {
+        this.native.setStatusTip(statusTip);
+    }
+    statusTip(): string {
+        return this.native.statusTip();
+    }
     setText(text: string): void {
         this.native.setText(text);
     }
-    setToolTip(text: string): void {
-        this.native.setToolTip(text);
+    text(): string {
+        return this.native.text();
     }
     setTextAlignment(alignment: AlignmentFlag): void {
         this.native.setTextAlignment(alignment);
@@ -60,10 +131,19 @@ export class QTableWidgetItem extends Component {
     textAlignment(): AlignmentFlag {
         return this.native.textAlignment();
     }
-    text(): string {
-        return this.native.text();
+    setToolTip(toolTip: string): void {
+        this.native.setToolTip(toolTip);
     }
     toolTip(): string {
         return this.native.toolTip();
+    }
+    setWhatsThis(whatsThis: string): void {
+        this.native.setWhatsThis(whatsThis);
+    }
+    whatsThis(): string {
+        return this.native.whatsThis();
+    }
+    type(): number {
+        return this.native.type$();
     }
 }
