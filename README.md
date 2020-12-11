@@ -248,6 +248,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/ran-j"><img src="https://avatars0.githubusercontent.com/u/17410205?v=4" width="100px;" alt=""/><br /><sub><b>Ranieri</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=ran-j" title="Code">💻</a> <a href="https://github.com/nodegui/nodegui/commits?author=ran-j" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://master-technology.com"><img src="https://avatars3.githubusercontent.com/u/850871?v=4" width="100px;" alt=""/><br /><sub><b>Nathanael Anderson</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=NathanaelA" title="Code">💻</a></td>
   </tr>
 </table>
 
