@@ -37,6 +37,27 @@ class DLL_EXPORT QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   Napi::Value insertRow(const Napi::CallbackInfo& info);
   Napi::Value removeRow(const Napi::CallbackInfo& info);
   Napi::Value scrollToItem(const Napi::CallbackInfo& info);
+
+  Napi::Value cellWidget(const Napi::CallbackInfo& info);
+  Napi::Value column(const Napi::CallbackInfo& info);
+  Napi::Value row(const Napi::CallbackInfo& info);
+  Napi::Value currentColumn(const Napi::CallbackInfo& info);
+  Napi::Value currentItem(const Napi::CallbackInfo& info);
+  Napi::Value currentRow(const Napi::CallbackInfo& info);
+  Napi::Value findItems(const Napi::CallbackInfo& info);
+  Napi::Value isPersistentEditorOpen(const Napi::CallbackInfo& info);
+  Napi::Value item(const Napi::CallbackInfo& info);
+  Napi::Value itemAt(const Napi::CallbackInfo& info);
+  Napi::Value openPersistentEditor(const Napi::CallbackInfo& info);
+  Napi::Value removeCellWidget(const Napi::CallbackInfo& info);
+  Napi::Value setCurrentCell(const Napi::CallbackInfo& info);
+  Napi::Value setCurrentItem(const Napi::CallbackInfo& info);
+  Napi::Value sortItems(const Napi::CallbackInfo& info);
+  Napi::Value takeItem(const Napi::CallbackInfo& info);
+  Napi::Value visualColumn(const Napi::CallbackInfo& info);
+  Napi::Value visualItemRect(const Napi::CallbackInfo& info);
+  Napi::Value visualRow(const Napi::CallbackInfo& info);
+
   // FROM TABLEVIEW
   Napi::Value hideColumn(const Napi::CallbackInfo& info);
   Napi::Value hideRow(const Napi::CallbackInfo& info);
