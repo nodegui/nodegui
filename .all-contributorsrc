@@ -329,6 +329,15 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "NathanaelA",
+      "name": "Nathanael Anderson",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/850871?v=4",
+      "profile": "https://master-technology.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
