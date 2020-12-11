@@ -46,7 +46,7 @@ Napi::Object QTableWidgetItemWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("toolTip", &QTableWidgetItemWrap::toolTip),
        InstanceMethod("setWhatsThis", &QTableWidgetItemWrap::setWhatsThis),
        InstanceMethod("whatsThis", &QTableWidgetItemWrap::whatsThis),
-       InstanceMethod("type$", &QTableWidgetItemWrap::type),       
+       InstanceMethod("type$", &QTableWidgetItemWrap::type),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QTableWidgetItemWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -92,7 +92,8 @@ Napi::Value QTableWidgetItemWrap::column(const Napi::CallbackInfo& info) {
   return Napi::Number::New(env, state);
 }
 
-Napi::Value QTableWidgetItemWrap::setBackground(const Napi::CallbackInfo& info) {
+Napi::Value QTableWidgetItemWrap::setBackground(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -112,7 +113,8 @@ Napi::Value QTableWidgetItemWrap::background(const Napi::CallbackInfo& info) {
   return instance;
 }
 
-Napi::Value QTableWidgetItemWrap::setCheckState(const Napi::CallbackInfo& info) {
+Napi::Value QTableWidgetItemWrap::setCheckState(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -189,7 +191,8 @@ Napi::Value QTableWidgetItemWrap::font(const Napi::CallbackInfo& info) {
   return instance;
 }
 
-Napi::Value QTableWidgetItemWrap::setForeground(const Napi::CallbackInfo& info) {
+Napi::Value QTableWidgetItemWrap::setForeground(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -309,7 +312,8 @@ Napi::Value QTableWidgetItemWrap::setTextAlignment(
   return env.Null();
 }
 
-Napi::Value QTableWidgetItemWrap::textAlignment(const Napi::CallbackInfo& info) {
+Napi::Value QTableWidgetItemWrap::textAlignment(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 

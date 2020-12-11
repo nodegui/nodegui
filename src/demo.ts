@@ -18,7 +18,7 @@ console.log(availableGeometry.width() + 'x' + availableGeometry.height());
 console.log(screenGeometry.width() + 'x' + screenGeometry.height());
 console.log(desktop.screenNumber());
 // ex 2
-const qApp = QApplication.desktop()
+const qApp = QApplication.desktop();
 const availableGeometry2 = qApp.availableGeometry();
 const screenGeometry2 = qApp.screenGeometry();
 console.log(availableGeometry2.width() + 'x' + availableGeometry2.height());

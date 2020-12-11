@@ -66,10 +66,12 @@ Napi::Object QTableWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("currentItem", &QTableWidgetWrap::currentItem),
        InstanceMethod("currentRow", &QTableWidgetWrap::currentRow),
        InstanceMethod("findItems", &QTableWidgetWrap::findItems),
-       InstanceMethod("isPersistentEditorOpen", &QTableWidgetWrap::isPersistentEditorOpen),
+       InstanceMethod("isPersistentEditorOpen",
+                      &QTableWidgetWrap::isPersistentEditorOpen),
        InstanceMethod("item", &QTableWidgetWrap::item),
        InstanceMethod("itemAt", &QTableWidgetWrap::itemAt),
-       InstanceMethod("openPersistentEditor", &QTableWidgetWrap::openPersistentEditor),
+       InstanceMethod("openPersistentEditor",
+                      &QTableWidgetWrap::openPersistentEditor),
        InstanceMethod("removeCellWidget", &QTableWidgetWrap::removeCellWidget),
        InstanceMethod("row", &QTableWidgetWrap::row),
        InstanceMethod("cellWidget", &QTableWidgetWrap::cellWidget),
@@ -344,8 +346,8 @@ Napi::Value QTableWidgetWrap::cellWidget(const Napi::CallbackInfo& info) {
 
   QWidget* widget = this->instance->cellWidget(row, column);
   auto instance =
-        QWidgetWrap::constructor.New({Napi::External<QWidget>::New(env, widget),
-                                      Napi::Boolean::New(env, true)});
+      QWidgetWrap::constructor.New({Napi::External<QWidget>::New(env, widget),
+                                    Napi::Boolean::New(env, true)});
   return instance;
 }
 
@@ -408,7 +410,8 @@ Napi::Value QTableWidgetWrap::findItems(const Napi::CallbackInfo& info) {
   return napiItems;
 }
 
-Napi::Value QTableWidgetWrap::isPersistentEditorOpen(const Napi::CallbackInfo& info) {
+Napi::Value QTableWidgetWrap::isPersistentEditorOpen(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -447,7 +450,8 @@ Napi::Value QTableWidgetWrap::itemAt(const Napi::CallbackInfo& info) {
   return instance;
 }
 
-Napi::Value QTableWidgetWrap::openPersistentEditor(const Napi::CallbackInfo& info) {
+Napi::Value QTableWidgetWrap::openPersistentEditor(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
@@ -550,7 +554,6 @@ Napi::Value QTableWidgetWrap::visualRow(const Napi::CallbackInfo& info) {
   int row = this->instance->visualRow(logicalRow);
   return Napi::Number::New(env, row);
 }
-
 
 // FROM TABLEVIEW
 
@@ -745,4 +748,3 @@ Napi::Value QTableWidgetWrap::isSortingEnabled(const Napi::CallbackInfo& info) {
   bool enabled = this->instance->isSortingEnabled();
   return Napi::Boolean::New(env, enabled);
 }
-
