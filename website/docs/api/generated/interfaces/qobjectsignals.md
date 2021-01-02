@@ -8,13 +8,13 @@ sidebar_label: "QObjectSignals"
 
 * **QObjectSignals**
 
-  ↳ [QMovieSignals](qmoviesignals.md)
-
   ↳ [QActionSignals](qactionsignals.md)
 
   ↳ [QGraphicsEffectSignals](qgraphicseffectsignals.md)
 
   ↳ [QWidgetSignals](qwidgetsignals.md)
+
+  ↳ [QMovieSignals](qmoviesignals.md)
 
   ↳ [QStandardItemModelSignals](qstandarditemmodelsignals.md)
 

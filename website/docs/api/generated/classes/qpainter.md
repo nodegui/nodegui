@@ -60,6 +60,7 @@ https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpa
 * [drawConvexPolygon](qpainter.md#drawconvexpolygon)
 * [drawLine](qpainter.md#drawline)
 * [drawPath](qpainter.md#drawpath)
+* [drawPie](qpainter.md#drawpie)
 * [drawText](qpainter.md#drawtext)
 * [end](qpainter.md#end)
 * [restore](qpainter.md#restore)
@@ -175,6 +176,25 @@ ___
 Name | Type |
 ------ | ------ |
 `path` | [QPainterPath](qpainterpath.md) |
+
+**Returns:** *void*
+
+___
+
+###  drawPie
+
+▸ **drawPie**(`x`: number, `y`: number, `width`: number, `height`: number, `startAngle`: number, `sweepLength`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+`startAngle` | number |
+`sweepLength` | number |
 
 **Returns:** *void*
 

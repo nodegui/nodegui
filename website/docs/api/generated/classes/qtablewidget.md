@@ -64,12 +64,18 @@ win.show();
 * [addAction](qtablewidget.md#addaction)
 * [addEventListener](qtablewidget.md#addeventlistener)
 * [adjustSize](qtablewidget.md#adjustsize)
+* [cellWidget](qtablewidget.md#cellwidget)
 * [clear](qtablewidget.md#clear)
 * [clearContents](qtablewidget.md#clearcontents)
 * [close](qtablewidget.md#close)
 * [closePersistentEditor](qtablewidget.md#closepersistenteditor)
+* [column](qtablewidget.md#column)
 * [columnCount](qtablewidget.md#columncount)
+* [currentColumn](qtablewidget.md#currentcolumn)
+* [currentItem](qtablewidget.md#currentitem)
+* [currentRow](qtablewidget.md#currentrow)
 * [editItem](qtablewidget.md#edititem)
+* [findItems](qtablewidget.md#finditems)
 * [font](qtablewidget.md#font)
 * [frameRect](qtablewidget.md#framerect)
 * [frameShadow](qtablewidget.md#frameshadow)
@@ -86,8 +92,11 @@ win.show();
 * [insertColumn](qtablewidget.md#insertcolumn)
 * [insertRow](qtablewidget.md#insertrow)
 * [isEnabled](qtablewidget.md#isenabled)
+* [isPersistentEditorOpen](qtablewidget.md#ispersistenteditoropen)
 * [isSortingEnabled](qtablewidget.md#issortingenabled)
 * [isVisible](qtablewidget.md#isvisible)
+* [item](qtablewidget.md#item)
+* [itemAt](qtablewidget.md#itemat)
 * [lineWidth](qtablewidget.md#linewidth)
 * [lower](qtablewidget.md#lower)
 * [mapFromGlobal](qtablewidget.md#mapfromglobal)
@@ -99,10 +108,12 @@ win.show();
 * [minimumSize](qtablewidget.md#minimumsize)
 * [move](qtablewidget.md#move)
 * [objectName](qtablewidget.md#objectname)
+* [openPersistentEditor](qtablewidget.md#openpersistenteditor)
 * [pos](qtablewidget.md#pos)
 * [property](qtablewidget.md#property)
 * [raise](qtablewidget.md#raise)
 * [removeAction](qtablewidget.md#removeaction)
+* [removeCellWidget](qtablewidget.md#removecellwidget)
 * [removeColumn](qtablewidget.md#removecolumn)
 * [removeEventListener](qtablewidget.md#removeeventlistener)
 * [removeRow](qtablewidget.md#removerow)
@@ -113,6 +124,7 @@ win.show();
 * [resizeColumnsToContents](qtablewidget.md#resizecolumnstocontents)
 * [resizeRowToContents](qtablewidget.md#resizerowtocontents)
 * [resizeRowsToContents](qtablewidget.md#resizerowstocontents)
+* [row](qtablewidget.md#row)
 * [rowCount](qtablewidget.md#rowcount)
 * [scrollToItem](qtablewidget.md#scrolltoitem)
 * [selectColumn](qtablewidget.md#selectcolumn)
@@ -124,6 +136,8 @@ win.show();
 * [setColumnCount](qtablewidget.md#setcolumncount)
 * [setColumnWidth](qtablewidget.md#setcolumnwidth)
 * [setContextMenuPolicy](qtablewidget.md#setcontextmenupolicy)
+* [setCurrentCell](qtablewidget.md#setcurrentcell)
+* [setCurrentItem](qtablewidget.md#setcurrentitem)
 * [setCursor](qtablewidget.md#setcursor)
 * [setEnabled](qtablewidget.md#setenabled)
 * [setFixedSize](qtablewidget.md#setfixedsize)
@@ -174,11 +188,16 @@ win.show();
 * [showRow](qtablewidget.md#showrow)
 * [size](qtablewidget.md#size)
 * [sortByColumn](qtablewidget.md#sortbycolumn)
+* [sortItems](qtablewidget.md#sortitems)
 * [styleSheet](qtablewidget.md#stylesheet)
+* [takeItem](qtablewidget.md#takeitem)
 * [testAttribute](qtablewidget.md#testattribute)
 * [update](qtablewidget.md#update)
 * [updateGeometry](qtablewidget.md#updategeometry)
 * [viewport](qtablewidget.md#viewport)
+* [visualColumn](qtablewidget.md#visualcolumn)
+* [visualItemRect](qtablewidget.md#visualitemrect)
+* [visualRow](qtablewidget.md#visualrow)
 * [windowOpacity](qtablewidget.md#windowopacity)
 * [windowState](qtablewidget.md#windowstate)
 * [windowTitle](qtablewidget.md#windowtitle)
@@ -388,6 +407,21 @@ ___
 
 ___
 
+###  cellWidget
+
+▸ **cellWidget**(`row`: number, `column`: number): *[QWidget](qwidget.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`row` | number | 0 |
+`column` | number | 0 |
+
+**Returns:** *[QWidget](qwidget.md)*
+
+___
+
 ###  clear
 
 ▸ **clear**(): *void*
@@ -428,9 +462,47 @@ Name | Type |
 
 ___
 
+###  column
+
+▸ **column**(`item`: [QTableWidgetItem](qtablewidgetitem.md)): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTableWidgetItem](qtablewidgetitem.md) |
+
+**Returns:** *number*
+
+___
+
 ###  columnCount
 
 ▸ **columnCount**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  currentColumn
+
+▸ **currentColumn**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  currentItem
+
+▸ **currentItem**(): *[QTableWidgetItem](qtablewidgetitem.md)*
+
+**Returns:** *[QTableWidgetItem](qtablewidgetitem.md)*
+
+___
+
+###  currentRow
+
+▸ **currentRow**(): *number*
 
 **Returns:** *number*
 
@@ -447,6 +519,21 @@ Name | Type |
 `item` | [Component](component.md) |
 
 **Returns:** *void*
+
+___
+
+###  findItems
+
+▸ **findItems**(`text`: string, `flags`: [MatchFlag](../enums/matchflag.md)): *[QTableWidgetItem](qtablewidgetitem.md)[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+`flags` | [MatchFlag](../enums/matchflag.md) |
+
+**Returns:** *[QTableWidgetItem](qtablewidgetitem.md)[]*
 
 ___
 
@@ -632,6 +719,20 @@ ___
 
 ___
 
+###  isPersistentEditorOpen
+
+▸ **isPersistentEditorOpen**(`item`: [QTableWidgetItem](qtablewidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTableWidgetItem](qtablewidgetitem.md) |
+
+**Returns:** *void*
+
+___
+
 ###  isSortingEnabled
 
 ▸ **isSortingEnabled**(): *boolean*
@@ -647,6 +748,36 @@ ___
 *Inherited from [QMenu](qmenu.md).[isVisible](qmenu.md#isvisible)*
 
 **Returns:** *boolean*
+
+___
+
+###  item
+
+▸ **item**(`row`: number, `column`: number): *[QTableWidgetItem](qtablewidgetitem.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`row` | number | 0 |
+`column` | number | 0 |
+
+**Returns:** *[QTableWidgetItem](qtablewidgetitem.md)*
+
+___
+
+###  itemAt
+
+▸ **itemAt**(`x`: number, `y`: number): *[QTableWidgetItem](qtablewidgetitem.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`x` | number | 0 |
+`y` | number | 0 |
+
+**Returns:** *[QTableWidgetItem](qtablewidgetitem.md)*
 
 ___
 
@@ -791,6 +922,20 @@ ___
 
 ___
 
+###  openPersistentEditor
+
+▸ **openPersistentEditor**(`item`: [QTableWidgetItem](qtablewidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTableWidgetItem](qtablewidgetitem.md) |
+
+**Returns:** *void*
+
+___
+
 ###  pos
 
 ▸ **pos**(): *object*
@@ -842,6 +987,21 @@ ___
 Name | Type |
 ------ | ------ |
 `action` | [QAction](qaction.md) |
+
+**Returns:** *void*
+
+___
+
+###  removeCellWidget
+
+▸ **removeCellWidget**(`row`: number, `column`: number): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`row` | number | 0 |
+`column` | number | 0 |
 
 **Returns:** *void*
 
@@ -997,6 +1157,20 @@ ___
 
 ___
 
+###  row
+
+▸ **row**(`item`: [QTableWidgetItem](qtablewidgetitem.md)): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTableWidgetItem](qtablewidgetitem.md) |
+
+**Returns:** *number*
+
+___
+
 ###  rowCount
 
 ▸ **rowCount**(): *number*
@@ -1145,6 +1319,35 @@ ___
 Name | Type |
 ------ | ------ |
 `contextMenuPolicy` | [ContextMenuPolicy](../enums/contextmenupolicy.md) |
+
+**Returns:** *void*
+
+___
+
+###  setCurrentCell
+
+▸ **setCurrentCell**(`row`: number, `column`: number): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`row` | number | 0 |
+`column` | number | 0 |
+
+**Returns:** *void*
+
+___
+
+###  setCurrentItem
+
+▸ **setCurrentItem**(`item`: [QTableWidgetItem](qtablewidgetitem.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTableWidgetItem](qtablewidgetitem.md) |
 
 **Returns:** *void*
 
@@ -1900,6 +2103,21 @@ Name | Type |
 
 ___
 
+###  sortItems
+
+▸ **sortItems**(`column`: number, `order`: [SortOrder](../enums/sortorder.md)): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`column` | number | 0 |
+`order` | [SortOrder](../enums/sortorder.md) | SortOrder.AscendingOrder |
+
+**Returns:** *void*
+
+___
+
 ###  styleSheet
 
 ▸ **styleSheet**(): *string*
@@ -1907,6 +2125,21 @@ ___
 *Inherited from [QMenu](qmenu.md).[styleSheet](qmenu.md#stylesheet)*
 
 **Returns:** *string*
+
+___
+
+###  takeItem
+
+▸ **takeItem**(`row`: number, `column`: number): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`row` | number | 0 |
+`column` | number | 0 |
+
+**Returns:** *void*
 
 ___
 
@@ -1953,6 +2186,48 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewport](qabstractscrollarea.md#viewport)*
 
 **Returns:** *[QWidget](qwidget.md)*
+
+___
+
+###  visualColumn
+
+▸ **visualColumn**(`logicalColumn`: number): *number*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`logicalColumn` | number | 0 |
+
+**Returns:** *number*
+
+___
+
+###  visualItemRect
+
+▸ **visualItemRect**(`item`: [QTableWidgetItem](qtablewidgetitem.md)): *[QRect](qrect.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`item` | [QTableWidgetItem](qtablewidgetitem.md) |
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
+###  visualRow
+
+▸ **visualRow**(`logicalRow`: number): *number*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`logicalRow` | number | 0 |
+
+**Returns:** *number*
 
 ___
 
