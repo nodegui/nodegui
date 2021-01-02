@@ -30,6 +30,8 @@ class DLL_EXPORT QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   Napi::Value setRenderHint(const Napi::CallbackInfo& info);
   Napi::Value setBrush(const Napi::CallbackInfo& info);
   Napi::Value drawLine(const Napi::CallbackInfo& info);
+  Napi::Value drawEllipse(const Napi::CallbackInfo& info);
+  Napi::Value drawPie(const Napi::CallbackInfo& info);
   Napi::Value scale(const Napi::CallbackInfo& info);
   Napi::Value translate(const Napi::CallbackInfo& info);
   Napi::Value drawConvexPolygon(const Napi::CallbackInfo& info);

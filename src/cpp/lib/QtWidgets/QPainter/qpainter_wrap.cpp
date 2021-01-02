@@ -17,6 +17,8 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("drawText", &QPainterWrap::drawText),
        InstanceMethod("drawPath", &QPainterWrap::drawPath),
+       InstanceMethod("drawPie", &QPainterWrap::drawPie),
+       InstanceMethod("drawEllipse", &QPainterWrap::drawEllipse),
        InstanceMethod("strokePath", &QPainterWrap::strokePath),
        InstanceMethod("begin", &QPainterWrap::begin),
        InstanceMethod("end", &QPainterWrap::end),
@@ -134,6 +136,40 @@ Napi::Value QPainterWrap::setPen(const Napi::CallbackInfo& info) {
     QPen* pen = penWrap->getInternalInstance();
     this->instance->setPen(*pen);
   }
+  return env.Null();
+}
+Napi::Value QPainterWrap::drawEllipse(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  if (info.Length() < 4) {
+    Napi::TypeError::New(env, "Invalid number of arguments to drawEllipse")
+        .ThrowAsJavaScriptException();
+    return env.Null();
+  }
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  qreal width = info[2].As<Napi::Number>().DoubleValue();
+  qreal height = info[3].As<Napi::Number>().DoubleValue();
+  this->instance->drawEllipse(x, y, width, height);
+
+  return env.Null();
+}
+Napi::Value QPainterWrap::drawPie(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  if (info.Length() < 6) {
+    Napi::TypeError::New(env, "Invalid number of arguments to drawPie")
+        .ThrowAsJavaScriptException();
+    return env.Null();
+  }
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  qreal width = info[2].As<Napi::Number>().DoubleValue();
+  qreal height = info[3].As<Napi::Number>().DoubleValue();
+  qreal startAngle = info[4].As<Napi::Number>().DoubleValue();
+  qreal sweepLength = info[5].As<Napi::Number>().DoubleValue();
+  this->instance->drawPie(x, y, width, height, startAngle, sweepLength);
+
   return env.Null();
 }
 Napi::Value QPainterWrap::drawLine(const Napi::CallbackInfo& info) {
