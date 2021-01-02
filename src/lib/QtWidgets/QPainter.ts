@@ -93,6 +93,10 @@ export class QPainter extends Component {
         this.native.setRenderHint(hint, on);
     }
 
+    drawPie(x: number, y: number, width: number, height: number, startAngle: number, sweepLength: number): void {
+        return this.native.drawPie(x, y, width, height, startAngle, sweepLength);
+    }
+
     drawLine(x1: number, y1: number, x2: number, y2: number): void {
         this.native.drawLine(x1, y1, x2, y2);
     }
