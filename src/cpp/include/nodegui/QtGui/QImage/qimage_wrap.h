@@ -18,6 +18,11 @@ class DLL_EXPORT QImageWrap : public Napi::ObjectWrap<QImageWrap> {
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QImageWrap(const Napi::CallbackInfo& info);
   ~QImageWrap();
+  QImage* getInternalInstance();
+
+  Napi::Value allGray(const Napi::CallbackInfo& info);
+  Napi::Value bitPlaneCount(const Napi::CallbackInfo& info);
+  Napi::Value bytesPeerLine(const Napi::CallbackInfo& info);
 };
 
 namespace StaticQImageWrapMethods {
