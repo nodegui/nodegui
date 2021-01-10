@@ -22,7 +22,7 @@ class DLL_EXPORT QImageWrap : public Napi::ObjectWrap<QImageWrap> {
 
   Napi::Value allGray(const Napi::CallbackInfo& info);
   Napi::Value bitPlaneCount(const Napi::CallbackInfo& info);
-  Napi::Value bytesPeerLine(const Napi::CallbackInfo& info);
+  Napi::Value bytesPerLine(const Napi::CallbackInfo& info);
 };
 
 namespace StaticQImageWrapMethods {

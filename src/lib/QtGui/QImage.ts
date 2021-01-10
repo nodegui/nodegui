@@ -39,8 +39,8 @@ export class QImage extends Component {
         return this.native.bitPlaneCount();
     }
 
-    bytesPeerLine(): number {
-        return this.native.bytesPeerLine();
+    bytesPerLine(): number {
+        return this.native.bytesPerLine();
     }
 }
 

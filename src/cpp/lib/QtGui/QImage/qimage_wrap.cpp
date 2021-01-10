@@ -12,7 +12,7 @@ Napi::Object QImageWrap::init(Napi::Env env, Napi::Object exports) {
       DefineClass(env, CLASSNAME,
                   {InstanceMethod("allGray", &QImageWrap::allGray),
                    InstanceMethod("bitPlaneCount", &QImageWrap::bitPlaneCount),
-                   InstanceMethod("bytesPeerLine", &QImageWrap::bytesPeerLine),
+                   InstanceMethod("bytesPerLine", &QImageWrap::bytesPerLine),
                    COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QImageWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -63,7 +63,7 @@ Napi::Value QImageWrap::bitPlaneCount(const Napi::CallbackInfo& info) {
   return Napi::Number::New(env, instance->bitPlaneCount());
 }
 
-Napi::Value QImageWrap::bytesPeerLine(const Napi::CallbackInfo& info) {
+Napi::Value QImageWrap::bytesPerLine(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   return Napi::Number::New(env, instance->bytesPerLine());
