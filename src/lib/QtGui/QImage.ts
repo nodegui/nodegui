@@ -2,6 +2,9 @@ import { Component, NativeElement } from '../core/Component';
 import { QSize } from '../QtCore/QSize';
 import { checkIfNativeElement } from '../utils/helpers';
 import addon from '../utils/addon';
+import { ImageConversionFlag, GlobalColor } from '../QtEnums';
+import { QRect } from '../QtCore/QRect';
+import { QColor } from '../QtGui/QColor';
 
 export class QImage extends Component {
     native!: NativeElement;
@@ -41,6 +44,60 @@ export class QImage extends Component {
 
     bytesPerLine(): number {
         return this.native.bytesPerLine();
+    }
+
+    cacheKey(): number {
+        return this.native.cacheKey();
+    }
+
+    convertTo(format: QImageFormat, flags: ImageConversionFlag = ImageConversionFlag.AutoColor): void {
+        this.native.convertTo(format, flags);
+    }
+
+    convertToFormat(format: QImageFormat, flags: ImageConversionFlag = ImageConversionFlag.AutoColor): QImage {
+        return new QImage(this.native.convertToFormat(format, flags));
+    }
+
+    copy(rectangle: QRect): QImage;
+    copy(x: number, y: number, width: number, height: number): QImage;
+    copy(rectangleOrX: QRect | number, y?: number, width?: number, height?: number): QImage {
+        if (rectangleOrX instanceof QRect) {
+            return new QImage(this.native.copy(rectangleOrX.native));
+        }
+        // eslint-disable-next-line prefer-rest-params
+        return new QImage(this.native.copy(rectangleOrX, y, width, height));
+    }
+
+    createAlphaMask(flags: ImageConversionFlag = ImageConversionFlag.AutoColor): QImage {
+        return new QImage(this.native.createAlphaMask(flags));
+    }
+
+    createHeuristicMask(clipTight = true): QImage {
+        return new QImage(this.native.createHeuristicMask(clipTight));
+    }
+
+    depth(): number {
+        return this.native.depth();
+    }
+
+    devicePixelRatio(): number {
+        return this.native.devicePixelRatio();
+    }
+
+    dotsPerMeterX(): number {
+        return this.native.dotsPerMeterX();
+    }
+
+    dotsPerMeterY(): number {
+        return this.native.dotsPerMeterY();
+    }
+
+    fill(color: QColor | GlobalColor): void {
+        this.native.fill(color instanceof QColor ? color.native : color);
+    }
+
+    format(): QImageFormat {
+        return this.native.format();
     }
 }
 
