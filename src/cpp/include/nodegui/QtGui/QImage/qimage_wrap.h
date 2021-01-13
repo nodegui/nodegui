@@ -35,6 +35,20 @@ class DLL_EXPORT QImageWrap : public Napi::ObjectWrap<QImageWrap> {
   Napi::Value dotsPerMeterY(const Napi::CallbackInfo& info);
   void fill(const Napi::CallbackInfo& info);
   Napi::Value format(const Napi::CallbackInfo& info);
+  Napi::Value hasAlphaChannel(const Napi::CallbackInfo& info);
+  Napi::Value height(const Napi::CallbackInfo& info);
+  void invertPixels(const Napi::CallbackInfo& info);
+  Napi::Value isGrayscale(const Napi::CallbackInfo& info);
+  Napi::Value isNull(const Napi::CallbackInfo& info);
+  Napi::Value load(const Napi::CallbackInfo& info);
+  Napi::Value loadFromData(const Napi::CallbackInfo& info);
+  Napi::Value mirrored(const Napi::CallbackInfo& info);
+  Napi::Value offset(const Napi::CallbackInfo& info);
+  Napi::Value pixelColor(const Napi::CallbackInfo& info);
+  Napi::Value pixelIndex(const Napi::CallbackInfo& info);
+  Napi::Value rect(const Napi::CallbackInfo& info);
+  Napi::Value reinterpretAsFormat(const Napi::CallbackInfo& info);
+  Napi::Value save(const Napi::CallbackInfo& info);
 };
 
 namespace StaticQImageWrapMethods {

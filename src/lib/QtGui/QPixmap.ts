@@ -1,9 +1,9 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
-import {AspectRatioMode, ImageConversionFlag, TransformationMode} from '../QtEnums';
+import { AspectRatioMode, ImageConversionFlag, TransformationMode } from '../QtEnums';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from '../QtCore/QVariant';
-import {QImage} from "./QImage";
+import { QImage } from './QImage';
 
 /**
  

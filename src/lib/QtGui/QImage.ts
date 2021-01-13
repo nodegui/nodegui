@@ -1,9 +1,10 @@
 import { Component, NativeElement } from '../core/Component';
-import { QSize } from '../QtCore/QSize';
 import { checkIfNativeElement } from '../utils/helpers';
 import addon from '../utils/addon';
 import { ImageConversionFlag, GlobalColor } from '../QtEnums';
+import { QSize } from '../QtCore/QSize';
 import { QRect } from '../QtCore/QRect';
+import { QPoint } from '../QtCore/QPoint';
 import { QColor } from '../QtGui/QColor';
 
 export class QImage extends Component {
@@ -64,7 +65,7 @@ export class QImage extends Component {
         if (rectangleOrX instanceof QRect) {
             return new QImage(this.native.copy(rectangleOrX.native));
         }
-        // eslint-disable-next-line prefer-rest-params
+
         return new QImage(this.native.copy(rectangleOrX, y, width, height));
     }
 
@@ -99,6 +100,73 @@ export class QImage extends Component {
     format(): QImageFormat {
         return this.native.format();
     }
+
+    hasAlphaChannel(): boolean {
+        return this.native.hasAlphaChannel();
+    }
+
+    height(): number {
+        return this.native.height();
+    }
+
+    invertPixels(mode: QImageInvertMode = QImageInvertMode.InvertRgb): void {
+        this.native.invertPixels(mode);
+    }
+
+    isGrayscale(): boolean {
+        return this.native.isGrayscale();
+    }
+
+    isNull(): boolean {
+        return this.native.isNull();
+    }
+
+    load(fileName: string, format: string | null = null): boolean {
+        return this.native.load(fileName, format);
+    }
+
+    loadFromData(data: Buffer, format: string | null = null): boolean {
+        return this.native.loadFromData(data, format);
+    }
+
+    mirrored(horizontal = false, vertical = true): QImage {
+        const native = this.native.mirrored(horizontal, vertical);
+        return new QImage(native);
+    }
+
+    offset(): QPoint {
+        const native = this.native.offset();
+        return new QPoint(native);
+    }
+
+    pixelColor(point: QPoint): QColor;
+    pixelColor(x: number, y: number): QColor;
+    pixelColor(pointOrX: QPoint | number, y?: number): QColor {
+        const native =
+            pointOrX instanceof QPoint ? this.native.pixelColor(pointOrX.native) : this.native.pixelColor(pointOrX, y);
+        return new QColor(native);
+    }
+
+    pixelIndex(point: QPoint): number;
+    pixelIndex(x: number, y: number): number;
+    pixelIndex(pointOrX: QPoint | number, y?: number): number {
+        const pixelIndex =
+            pointOrX instanceof QPoint ? this.native.pixelIndex(pointOrX.native) : this.native.pixelIndex(pointOrX, y);
+        return pixelIndex;
+    }
+
+    rect(): QRect {
+        const native = this.native.rect();
+        return new QRect(native);
+    }
+
+    reinterpretAsFormat(format: QImageFormat): boolean {
+        return this.native.reinterpretAsFormat(format);
+    }
+
+    save(fileName: string, format: string | null = null, quality: number = -1): boolean {
+        return this.native.save(fileName, format, quality);
+    }
 }
 
 export enum QImageFormat {
@@ -132,4 +200,9 @@ export enum QImageFormat {
     RGBA64,
     RGBA64_Premultiplied,
     BGR888,
+}
+
+export enum QImageInvertMode {
+    InvertRgb,
+    InvertRgba,
 }

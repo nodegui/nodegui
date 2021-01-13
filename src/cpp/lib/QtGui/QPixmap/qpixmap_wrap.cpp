@@ -149,10 +149,13 @@ Napi::Value QPixmapWrap::fromImage(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  QImage* img = Napi::ObjectWrap<QImageWrap>::Unwrap(info[0].As<Napi::Object>())->getInternalInstance();
-  Qt::ImageConversionFlags flags = static_cast<Qt::ImageConversionFlags>(info[1].As<Napi::Number>().Int32Value());
+  QImage* img = Napi::ObjectWrap<QImageWrap>::Unwrap(info[0].As<Napi::Object>())
+                    ->getInternalInstance();
+  Qt::ImageConversionFlags flags = static_cast<Qt::ImageConversionFlags>(
+      info[1].As<Napi::Number>().Int32Value());
   QPixmap pixmap = QPixmap::fromImage(*img, flags);
-  auto instance = QPixmapWrap::constructor.New({ Napi::External<QPixmap>::New(env, new QPixmap(pixmap) )});
+  auto instance = QPixmapWrap::constructor.New(
+      {Napi::External<QPixmap>::New(env, new QPixmap(pixmap))});
   return instance;
 }
 
