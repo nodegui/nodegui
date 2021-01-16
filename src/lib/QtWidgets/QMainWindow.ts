@@ -33,9 +33,20 @@ Once a central widget is set you can add children/layout to the central widget.
  */
 export class QMainWindow extends NodeWidget<QMainWindowSignals> {
     native: NativeElement;
-    public centralWidget?: NodeWidget<any> | null;
+    private _centralWidget?: NodeWidget<any> | null;
+    public get centralWidget(): NodeWidget<any> | null | undefined {
+        return this._centralWidget;
+    }
+    public set centralWidget(centralWidget: NodeWidget<any> | null | undefined) {
+        if (!centralWidget) {
+            this.takeCentralWidget();
+        } else {
+            this.setCentralWidget(centralWidget);
+        }
+    }
     private _menuBar?: QMenuBar;
     private _statusBar?: QStatusBar | null;
+    private _prevLayout?: NodeLayout<QMainWindowSignals>;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
@@ -60,13 +71,16 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
     }
     setCentralWidget(widget: NodeWidget<any>): void {
         this.native.setCentralWidget(widget.native);
-        this.centralWidget = widget;
-        this.centralWidget.setFlexNodeSizeControlled(true);
+        this._centralWidget = widget;
+        this._centralWidget.setFlexNodeSizeControlled(true);
+        this._prevLayout = this._prevLayout || this.layout;
+        this.layout = this._centralWidget.layout;
     }
     takeCentralWidget(): NodeWidget<any> | null {
-        const centralWidget = this.centralWidget;
-        this.centralWidget = null;
+        const centralWidget = this._centralWidget;
+        this._centralWidget = null;
         if (centralWidget) {
+            this.layout = this._prevLayout;
             this.native.takeCentralWidget();
             return centralWidget;
         }
@@ -81,12 +95,6 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
     }
     setMenuWidget(menuWidget: NodeWidget<any>): void {
         this.native.setMenuWidget(menuWidget.native);
-    }
-    get layout(): NodeLayout<any> | undefined {
-        if (this.centralWidget) {
-            return this.centralWidget.layout;
-        }
-        return super.layout;
     }
     center(): void {
         this.native.center();
