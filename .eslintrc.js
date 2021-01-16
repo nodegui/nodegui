@@ -24,7 +24,7 @@ module.exports = {
                 '@typescript-eslint/no-var-requires': 0,
                 '@typescript-eslint/no-explicit-any': 0,
 
-                // Restore configuration to the default on in v2.34.0 (makes upgrade to v4.13.0 non-breaking)
+                // Restore configuration to the default in v2.34.0 (makes upgrade to v4.13.0 non-breaking)
                 '@typescript-eslint/ban-types': [
                     2,
                     {
