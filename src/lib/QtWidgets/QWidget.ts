@@ -52,7 +52,13 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
  */
 export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWidget<Signals> {
-    layout?: NodeLayout<Signals>;
+    private _layout?: NodeLayout<Signals>;
+    get layout(): NodeLayout<Signals> | undefined {
+        return this._layout;
+    }
+    set layout(layout: NodeLayout<Signals> | undefined) {
+        this._layout = layout;
+    }
     actions: Set<QAction>;
     _rawInlineStyle = '';
     type = 'widget';

@@ -23,6 +23,36 @@ module.exports = {
                 '@typescript-eslint/camelcase': 0,
                 '@typescript-eslint/no-var-requires': 0,
                 '@typescript-eslint/no-explicit-any': 0,
+
+                // Restore configuration to the default on in v2.34.0 (makes upgrade to v4.13.0 non-breaking)
+                '@typescript-eslint/ban-types': [
+                    2,
+                    {
+                        extendDefaults: false,
+                        types: {
+                            String: {
+                                message: 'Use string instead',
+                                fixWith: 'string',
+                            },
+                            Boolean: {
+                                message: 'Use boolean instead',
+                                fixWith: 'boolean',
+                            },
+                            Number: {
+                                message: 'Use number instead',
+                                fixWith: 'number',
+                            },
+                            Object: {
+                                message: 'Use Record<string, any> instead',
+                                fixWith: 'Record<string, any>',
+                            },
+                            Symbol: {
+                                message: 'Use symbol instead',
+                                fixWith: 'symbol',
+                            }
+                        }
+                    }
+                ]
             },
         },
     ],
