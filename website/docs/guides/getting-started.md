@@ -129,6 +129,8 @@ npm start
 
 ```
 
+**Note**: If you encounter errors installing `nodegui`, please check the [FAQs](../faq.md#why-does-installation-fail-at-minimal-qt-setup) for additional help.
+
 That's it!
 
 Congratulations! You've successfully run and modified your first NodeGui app.

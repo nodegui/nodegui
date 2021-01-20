@@ -110,6 +110,16 @@ or a shorter version:
 npm i http://master-release.nodegui.org
 ```
 
+If the installation fails to download the Qt binaries, a mirror can be used by setting the following environment variable and running the install command again:
+
+```sh
+QT_LINK_MIRROR=<alternative domain> # eg. QT_LINK_MIRROR=https://qt-mirror.dannhauer.de
+
+npm install @nodegui/nodegui
+```
+
+See [FAQs](https://github.com/nodegui/nodegui/tree/master/website/docs/faq.md#why-does-installation-fail-at-minimal-qt-setup) for more details.
+
 **Community guides**
 
 -   [Tutorial: Build a native Meme Search Desktop app with Javascript (NodeGui) and Giphy API](https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/)

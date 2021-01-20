@@ -3,6 +3,57 @@ title: FAQ
 sidebar_label: FAQ
 ---
 
+## Why does installation fail at "Minimal Qt setup"?
+
+NodeGui currently relies on the [Qt framework](https://qt.io) to acheive cross-platform native interfaces. The library uses a minimal configuration of specific open source Qt components which are downloaded upon installation.
+
+If the server which hosts the component binaries is down or unavailable, the installation will fail and you might see something along the lines of:
+
+```sh
+Minimal Qt 5.14.1 setup:
+FetchError: request to https://download.qt.io/online/qtsdkrepository/mac_x64/desktop/qt5_5141/qt.qt5.5141.clang_64/5.14.1-0-202001241000qttools-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z failed, reason: connect ETIMEDOUT 77.86.229.90:443
+    at ClientRequest.<anonymous> (.../nodegui/node_modules/node-fetch/lib/index.js:1461:11)
+    at ClientRequest.emit (events.js:315:20)
+    at TLSSocket.socketErrorListener (_http_client.js:426:9)
+    at TLSSocket.emit (events.js:315:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  type: 'system',
+  errno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT'
+}
+```
+
+In this scenario, you would need to find a mirror (alternate domain) for the binaries which can then be substituted using the `QT_LINK_MIRROR` environment variable. Let's assume we've found an active mirror, for example, `https://qt-mirror.dannhauer.de`, we can then follow these steps to configure the installation:
+
+#### **Unix / MacOS**
+
+```sh
+QT_LINK_MIRROR=https://qt-mirror.dannhauer.de
+
+npm install
+```
+
+
+#### **Windows**
+
+```cmd
+set QT_LINK_MIRROR=https://qt-mirror.dannhauer.de
+
+npm install
+```
+
+Now, instead of requesting the resource from
+
+`https://download.qt.io/online/...`
+
+as in the example above, the script responsible for installing these components would use 
+
+`https://qt-mirror.dannhauer.de/online/...`
+
+If this does not solve your problem, please make sure you have installed all the necessary [requirements](guides/getting-started.md#developer-environment)
+
 ## Why am I having trouble installing Qode?
 
 When running `npm install @nodegui/qode`, some users occasionally encounter
