@@ -338,6 +338,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "rocbear",
+      "name": "Ross",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/4415071?v=4",
+      "profile": "https://ubiq.co.za",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
