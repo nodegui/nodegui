@@ -1,10 +1,11 @@
 import { Component, NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import addon from '../utils/addon';
-import { ImageConversionFlag, GlobalColor } from '../QtEnums';
+import { ImageConversionFlag, GlobalColor, AspectRatioMode, TransformationMode } from '../QtEnums';
 import { QSize } from '../QtCore/QSize';
 import { QRect } from '../QtCore/QRect';
 import { QPoint } from '../QtCore/QPoint';
+import { QVariant } from '../QtCore/QVariant';
 import { QColor } from '../QtGui/QColor';
 
 export class QImage extends Component {
@@ -49,6 +50,14 @@ export class QImage extends Component {
 
     cacheKey(): number {
         return this.native.cacheKey();
+    }
+
+    color(i: number): number {
+        return this.native.color(i);
+    }
+
+    colorCount(): number {
+        return this.native.colorCount();
     }
 
     convertTo(format: QImageFormat, flags: ImageConversionFlag = ImageConversionFlag.AutoColor): void {
@@ -109,6 +118,7 @@ export class QImage extends Component {
         return this.native.height();
     }
 
+    // eslint-disable-next-line
     invertPixels(mode: QImageInvertMode = QImageInvertMode.InvertRgb): void {
         this.native.invertPixels(mode);
     }
@@ -164,8 +174,125 @@ export class QImage extends Component {
         return this.native.reinterpretAsFormat(format);
     }
 
-    save(fileName: string, format: string | null = null, quality: number = -1): boolean {
+    save(fileName: string, format: string | null = null, quality = -1): boolean {
         return this.native.save(fileName, format, quality);
+    }
+
+    scaled(size: QSize, aspectRatioMode: AspectRatioMode, transformMode: TransformationMode): QImage;
+    scaled(width: number, height: number, aspectRatioMode: AspectRatioMode, transformMode: TransformationMode): QImage;
+    scaled(
+        sizeOrWidth: QSize | number,
+        modeOrHeight: any,
+        transformOrAspectRatioMode: any,
+        transformMode?: any,
+    ): QImage {
+        let native;
+        if (sizeOrWidth instanceof QSize) {
+            native = this.native.scaled(sizeOrWidth.native, modeOrHeight, transformOrAspectRatioMode);
+        } else {
+            native = this.native.scaled(sizeOrWidth, modeOrHeight, transformOrAspectRatioMode, transformMode);
+        }
+        return new QImage(native);
+    }
+
+    scaledToHeight(height: number, mode: TransformationMode = TransformationMode.FastTransformation): QImage {
+        const native = this.native.scaledToHeight(height, mode);
+        return new QImage(native);
+    }
+
+    scaledToWidth(width: number, mode: TransformationMode = TransformationMode.FastTransformation): QImage {
+        const native = this.native.scaledToWidth(width, mode);
+        return new QImage(native);
+    }
+
+    setAlphaChannel(alphaChannel: QImage): void {
+        this.native.setAlphaChannel(alphaChannel.native);
+    }
+
+    setColor(index: number, colorValue: number): void {
+        this.native.setColor(index, colorValue);
+    }
+
+    setColorCount(colorCount: number): void {
+        this.native.setColorCount(colorCount);
+    }
+
+    setDevicePixelRatio(scaleFactory: number): void {
+        this.native.setDevicePixelRatio(scaleFactory);
+    }
+
+    setDotsPerMeterX(x: number): void {
+        this.native.setDotsPerMeterX(x);
+    }
+
+    setDotsPerMeterY(y: number): void {
+        this.native.setDotsPerMeterY(y);
+    }
+
+    setOffset(offset: QPoint): void {
+        this.native.setOffset(offset.native);
+    }
+
+    setPixel(position: QPoint, indexOrRgb: number): void;
+    setPixel(x: number, y: number, indexOrRgb: number): void;
+    setPixel(positionOrX: QPoint | number, indexOrRgbOrY: number, indexOrRgb?: number): void {
+        if (positionOrX instanceof QPoint) {
+            this.native.setPixel(positionOrX.native, indexOrRgbOrY);
+            return;
+        }
+        this.native.setPixel(positionOrX, indexOrRgbOrY, indexOrRgb);
+    }
+
+    setPixelColor(position: QPoint, color: QColor): void;
+    setPixelColor(x: number, y: number, color: QColor): void;
+    setPixelColor(positionOrX: QPoint | number, colorOrY: QColor | number, color?: QColor): void {
+        if (positionOrX instanceof QPoint) {
+            this.native.setPixel(positionOrX.native, colorOrY);
+            return;
+        }
+        this.native.setPixel(positionOrX, colorOrY, color!.native);
+    }
+
+    setText(key: string, value: string): void {
+        this.native.setText(key, value);
+    }
+
+    size(): QSize {
+        const native = this.native.size();
+        return new QSize(native);
+    }
+
+    sizeInBytes(): number {
+        return this.native.sizeInBytes();
+    }
+
+    swap(other: QImage): void {
+        this.native.swap(other.native);
+    }
+
+    text(key: string): string {
+        return this.native.text(key);
+    }
+
+    textKeys(): string[] {
+        return this.native.textKeys();
+    }
+
+    valid(pos: QPoint): boolean;
+    valid(x: number, y: number): boolean;
+    valid(posOrX: QPoint | number, y?: number): boolean {
+        if (posOrX instanceof QPoint) {
+            return this.native.valid(posOrX.native);
+        }
+        return this.native.valid(posOrX, y);
+    }
+
+    width(): number {
+        return this.native.width();
+    }
+
+    static fromQVariant(variant: QVariant): QImage {
+        return new QImage(addon.QImage.fromQVariant(variant.native));
     }
 }
 

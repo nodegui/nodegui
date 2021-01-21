@@ -2,6 +2,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
+#include "QtCore/QVariant/qvariant_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
@@ -17,6 +18,8 @@ Napi::Object QImageWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("bitPlaneCount", &QImageWrap::bitPlaneCount),
        InstanceMethod("bytesPerLine", &QImageWrap::bytesPerLine),
        InstanceMethod("cacheKey", &QImageWrap::cacheKey),
+       InstanceMethod("color", &QImageWrap::color),
+       InstanceMethod("colorCount", &QImageWrap::colorCount),
        InstanceMethod("convertTo", &QImageWrap::convertTo),
        InstanceMethod("convertToFormat", &QImageWrap::convertToFormat),
        InstanceMethod("copy", &QImageWrap::copy),
@@ -42,6 +45,26 @@ Napi::Object QImageWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("rect", &QImageWrap::rect),
        InstanceMethod("reinterpretAsFormat", &QImageWrap::reinterpretAsFormat),
        InstanceMethod("save", &QImageWrap::save),
+       InstanceMethod("scaled", &QImageWrap::scaled),
+       InstanceMethod("scaledToHeight", &QImageWrap::scaledToHeight),
+       InstanceMethod("scaledToWidth", &QImageWrap::scaledToWidth),
+       InstanceMethod("setAlphaChannel", &QImageWrap::setAlphaChannel),
+       InstanceMethod("setColor", &QImageWrap::setColor),
+       InstanceMethod("setColorCount", &QImageWrap::setColorCount),
+       InstanceMethod("setDevicePixelRatio", &QImageWrap::setDevicePixelRatio),
+       InstanceMethod("setDotsPerMeterX", &QImageWrap::setDotsPerMeterX),
+       InstanceMethod("setDotsPerMeterY", &QImageWrap::setDotsPerMeterY),
+       InstanceMethod("setOffset", &QImageWrap::setOffset),
+       InstanceMethod("setPixel", &QImageWrap::setPixel),
+       InstanceMethod("setPixelColor", &QImageWrap::setPixelColor),
+       InstanceMethod("setText", &QImageWrap::setText),
+       InstanceMethod("size", &QImageWrap::size),
+       InstanceMethod("sizeInBytes", &QImageWrap::sizeInBytes),
+       InstanceMethod("swap", &QImageWrap::swap),
+       InstanceMethod("text", &QImageWrap::text),
+       InstanceMethod("textKeys", &QImageWrap::textKeys),
+       InstanceMethod("valid", &QImageWrap::valid),
+       InstanceMethod("width", &QImageWrap::width),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QImageWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -105,6 +128,19 @@ Napi::Value QImageWrap::cacheKey(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   return Napi::Number::New(env, instance->cacheKey());
+}
+
+Napi::Value QImageWrap::color(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int64_t i = info[0].As<Napi::Number>();
+  return Napi::Number::New(env, instance->color(i));
+}
+
+Napi::Value QImageWrap::colorCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return Napi::Number::New(env, instance->colorCount());
 }
 
 void QImageWrap::convertTo(const Napi::CallbackInfo& info) {
@@ -398,4 +434,264 @@ Napi::Value QImageWrap::save(const Napi::CallbackInfo& info) {
                format.IsNull() ? nullptr
                                : format.As<Napi::String>().Utf8Value().c_str(),
                quality));
+}
+
+Napi::Value QImageWrap::scaled(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  if (info.Length() == 3) {
+    QSize* size =
+        Napi::ObjectWrap<QSizeWrap>::Unwrap(info[0].As<Napi::Object>())
+            ->getInternalInstance();
+    Qt::AspectRatioMode aspectRatioMode = static_cast<Qt::AspectRatioMode>(
+        info[1].As<Napi::Number>().Int32Value());
+    Qt::TransformationMode transformMode = static_cast<Qt::TransformationMode>(
+        info[2].As<Napi::Number>().Int32Value());
+    QImage image =
+        this->instance->scaled(*size, aspectRatioMode, transformMode);
+    auto instance = QImageWrap::constructor.New(
+        {Napi::External<QImage>::New(env, new QImage(image))});
+    return instance;
+  }
+
+  int64_t width = info[0].As<Napi::Number>();
+  int64_t height = info[1].As<Napi::Number>();
+  Qt::AspectRatioMode aspectRatioMode =
+      static_cast<Qt::AspectRatioMode>(info[2].As<Napi::Number>().Int32Value());
+  Qt::TransformationMode transformMode = static_cast<Qt::TransformationMode>(
+      info[3].As<Napi::Number>().Int32Value());
+  QImage image =
+      this->instance->scaled(width, height, aspectRatioMode, transformMode);
+  auto instance = QImageWrap::constructor.New(
+      {Napi::External<QImage>::New(env, new QImage(image))});
+  return instance;
+}
+
+Napi::Value QImageWrap::scaledToHeight(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int64_t height = info[0].As<Napi::Number>();
+  Qt::TransformationMode mode = static_cast<Qt::TransformationMode>(
+      info[1].As<Napi::Number>().Int32Value());
+  QImage image = this->instance->scaledToHeight(height, mode);
+  auto instance = QImageWrap::constructor.New(
+      {Napi::External<QImage>::New(env, new QImage(image))});
+  return instance;
+}
+
+Napi::Value QImageWrap::scaledToWidth(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int64_t width = info[0].As<Napi::Number>();
+  Qt::TransformationMode mode = static_cast<Qt::TransformationMode>(
+      info[1].As<Napi::Number>().Int32Value());
+  QImage image = this->instance->scaledToWidth(width, mode);
+  auto instance = QImageWrap::constructor.New(
+      {Napi::External<QImage>::New(env, new QImage(image))});
+  return instance;
+}
+
+void QImageWrap::setAlphaChannel(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QImage* image =
+      Napi::ObjectWrap<QImageWrap>::Unwrap(info[0].As<Napi::Object>())
+          ->getInternalInstance();
+  this->instance->setAlphaChannel(*image);
+}
+
+void QImageWrap::setColor(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int64_t index = info[0].As<Napi::Number>();
+  int64_t colorValue = info[1].As<Napi::Number>();
+  this->instance->setColor(index, colorValue);
+}
+
+void QImageWrap::setColorCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int64_t colorCount = info[0].As<Napi::Number>();
+  this->instance->setColorCount(colorCount);
+}
+
+void QImageWrap::setDevicePixelRatio(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int64_t scaleFactor = info[0].As<Napi::Number>();
+  this->instance->setDevicePixelRatio(scaleFactor);
+}
+
+void QImageWrap::setDotsPerMeterX(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int64_t x = info[0].As<Napi::Number>();
+  this->instance->setDotsPerMeterX(x);
+}
+
+void QImageWrap::setDotsPerMeterY(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int64_t y = info[0].As<Napi::Number>();
+  this->instance->setDotsPerMeterY(y);
+}
+
+void QImageWrap::setOffset(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QPoint* offset =
+      Napi::ObjectWrap<QPointWrap>::Unwrap(info[0].As<Napi::Object>())
+          ->getInternalInstance();
+  this->instance->setOffset(*offset);
+}
+
+void QImageWrap::setPixel(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  if (info.Length() == 2) {
+    QPoint* position =
+        Napi::ObjectWrap<QPointWrap>::Unwrap(info[0].As<Napi::Object>())
+            ->getInternalInstance();
+    int64_t index_or_rgb = info[1].As<Napi::Number>();
+    this->instance->setPixel(*position, index_or_rgb);
+    return;
+  }
+
+  int64_t x = info[0].As<Napi::Number>();
+  int64_t y = info[1].As<Napi::Number>();
+  int64_t index_or_rgb = info[2].As<Napi::Number>();
+  this->instance->setPixel(x, y, index_or_rgb);
+}
+
+void QImageWrap::setPixelColor(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  if (info.Length() == 2) {
+    QPoint* position =
+        Napi::ObjectWrap<QPointWrap>::Unwrap(info[0].As<Napi::Object>())
+            ->getInternalInstance();
+    QColor* color =
+        Napi::ObjectWrap<QColorWrap>::Unwrap(info[1].As<Napi::Object>())
+            ->getInternalInstance();
+    this->instance->setPixelColor(*position, *color);
+    return;
+  }
+
+  int64_t x = info[0].As<Napi::Number>();
+  int64_t y = info[1].As<Napi::Number>();
+  QColor* color =
+      Napi::ObjectWrap<QColorWrap>::Unwrap(info[2].As<Napi::Object>())
+          ->getInternalInstance();
+  this->instance->setPixelColor(x, y, *color);
+}
+
+void QImageWrap::setText(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QString key(info[0].As<Napi::String>().Utf8Value().c_str());
+  QString value(info[1].As<Napi::String>().Utf8Value().c_str());
+  this->instance->setText(key, value);
+}
+
+Napi::Value QImageWrap::size(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QSize size = this->instance->size();
+  auto instance = QSizeWrap::constructor.New(
+      {Napi::External<QSize>::New(env, new QSize(size))});
+  return instance;
+}
+
+Napi::Value QImageWrap::sizeInBytes(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Number::New(env, this->instance->sizeInBytes());
+}
+
+void QImageWrap::swap(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QImage* image =
+      Napi::ObjectWrap<QImageWrap>::Unwrap(info[0].As<Napi::Object>())
+          ->getInternalInstance();
+  this->instance->swap(*image);
+}
+
+Napi::Value QImageWrap::text(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QString key =
+      this->instance->text(info[0].As<Napi::String>().Utf8Value().c_str());
+  return Napi::String::New(env, key.toUtf8().constData());
+}
+
+Napi::Value QImageWrap::textKeys(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QStringList keys = this->instance->textKeys();
+  Napi::Array js_array = Napi::Array::New(env, keys.size());
+
+  for (int i = 0; i < keys.size(); i++) {
+    Napi::Value value = Napi::String::New(env, keys.at(i).toUtf8().constData());
+    js_array[i] = value;
+  }
+
+  return js_array;
+}
+
+Napi::Value QImageWrap::valid(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  if (info.Length() == 1) {
+    QPoint* point =
+        Napi::ObjectWrap<QPointWrap>::Unwrap(info[0].As<Napi::Object>())
+            ->getInternalInstance();
+    return Napi::Boolean::New(env, this->instance->valid(*point));
+  }
+
+  int64_t x = info[0].As<Napi::Number>();
+  int64_t y = info[1].As<Napi::Number>();
+
+  return Napi::Boolean::New(env, this->instance->valid(x, y));
+}
+
+Napi::Value QImageWrap::width(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Number::New(env, this->instance->width());
+}
+
+
+Napi::Value StaticQImageWrapMethods::fromQVariant(                                                                                                                   
+    const Napi::CallbackInfo& info) {                                                                                                                                 
+  Napi::Env env = info.Env();                                                                                                                                         
+  Napi::HandleScope scope(env);                                                                                                                                       
+  Napi::Object variantObject = info[0].As<Napi::Object>();                                                                                                            
+  QVariantWrap* variantWrap =                                                                                                                                         
+    Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);                                                                                                          
+  QVariant* variant = variantWrap->getInternalInstance();                                                                                                             
+  QImage image = variant->value<QImage>();                                                                                                                         
+  auto instance = QImageWrap::constructor.New(                                                                                                                       
+      {Napi::External<QImage>::New(env, new QImage(image))});                                                                                                      
+  return instance;                                                                                                                                                    
 }

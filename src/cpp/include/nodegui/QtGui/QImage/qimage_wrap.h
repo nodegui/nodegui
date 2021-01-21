@@ -24,6 +24,8 @@ class DLL_EXPORT QImageWrap : public Napi::ObjectWrap<QImageWrap> {
   Napi::Value bitPlaneCount(const Napi::CallbackInfo& info);
   Napi::Value bytesPerLine(const Napi::CallbackInfo& info);
   Napi::Value cacheKey(const Napi::CallbackInfo& info);
+  Napi::Value color(const Napi::CallbackInfo& info);
+  Napi::Value colorCount(const Napi::CallbackInfo& info);
   void convertTo(const Napi::CallbackInfo& info);
   Napi::Value convertToFormat(const Napi::CallbackInfo& info);
   Napi::Value copy(const Napi::CallbackInfo& info);
@@ -49,6 +51,26 @@ class DLL_EXPORT QImageWrap : public Napi::ObjectWrap<QImageWrap> {
   Napi::Value rect(const Napi::CallbackInfo& info);
   Napi::Value reinterpretAsFormat(const Napi::CallbackInfo& info);
   Napi::Value save(const Napi::CallbackInfo& info);
+  Napi::Value scaled(const Napi::CallbackInfo& info);
+  Napi::Value scaledToHeight(const Napi::CallbackInfo& info);
+  Napi::Value scaledToWidth(const Napi::CallbackInfo& info);
+  void setAlphaChannel(const Napi::CallbackInfo& info);
+  void setColor(const Napi::CallbackInfo& info);
+  void setColorCount(const Napi::CallbackInfo& info);
+  void setDevicePixelRatio(const Napi::CallbackInfo& info);
+  void setDotsPerMeterX(const Napi::CallbackInfo& info);
+  void setDotsPerMeterY(const Napi::CallbackInfo& info);
+  void setOffset(const Napi::CallbackInfo& info);
+  void setPixel(const Napi::CallbackInfo& info);
+  void setPixelColor(const Napi::CallbackInfo& info);
+  void setText(const Napi::CallbackInfo& info);
+  Napi::Value size(const Napi::CallbackInfo& info);
+  Napi::Value sizeInBytes(const Napi::CallbackInfo& info);
+  void swap(const Napi::CallbackInfo& info);
+  Napi::Value text(const Napi::CallbackInfo& info);
+  Napi::Value textKeys(const Napi::CallbackInfo& info);
+  Napi::Value valid(const Napi::CallbackInfo& info);
+  Napi::Value width(const Napi::CallbackInfo& info);
 };
 
 namespace StaticQImageWrapMethods {
