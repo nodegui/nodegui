@@ -48,6 +48,7 @@ export { QCheckBox, QCheckBoxSignals } from './lib/QtWidgets/QCheckBox';
 export { QColorDialog, QColorDialogSignals } from './lib/QtWidgets/QColorDialog';
 export { QDateEdit } from './lib/QtWidgets/QDateEdit';
 export { QDateTimeEdit, NodeDateTimeEdit, QDateTimeEditSignals } from './lib/QtWidgets/QDateTimeEdit';
+export { QDesktopWidget } from './lib/QtWidgets/QDesktopWidget';
 export { QLabel, QLabelSignals } from './lib/QtWidgets/QLabel';
 export { QLCDNumber, QLCDNumberSignals, Mode, SegmentStyle } from './lib/QtWidgets/QLCDNumber';
 export { QDial, QDialSignals } from './lib/QtWidgets/QDial';
