@@ -1,8 +1,9 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
-import { AspectRatioMode, TransformationMode } from '../QtEnums';
+import { AspectRatioMode, ImageConversionFlag, TransformationMode } from '../QtEnums';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from '../QtCore/QVariant';
+import { QImage } from './QImage';
 
 /**
  
@@ -67,6 +68,10 @@ export class QPixmap extends Component {
     }
     width(): number {
         return this.native.width();
+    }
+    static fromImage(image: QImage, flags: ImageConversionFlag): QPixmap {
+        const native = addon.QPixmap.fromImage(image.native, flags);
+        return new QPixmap(native);
     }
     static fromQVariant(variant: QVariant): QPixmap {
         return new QPixmap(addon.QPixmap.fromQVariant(variant.native));

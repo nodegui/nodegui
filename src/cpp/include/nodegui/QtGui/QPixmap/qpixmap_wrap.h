@@ -26,6 +26,7 @@ class DLL_EXPORT QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {
   Napi::Value scaled(const Napi::CallbackInfo& info);
   Napi::Value height(const Napi::CallbackInfo& info);
   Napi::Value width(const Napi::CallbackInfo& info);
+  static Napi::Value fromImage(const Napi::CallbackInfo& info);
 };
 
 namespace StaticQPixmapWrapMethods {

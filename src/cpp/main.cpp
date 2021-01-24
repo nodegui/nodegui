@@ -32,6 +32,7 @@
 #include "QtGui/QFont/qfont_wrap.h"
 #include "QtGui/QFontDatabase/qfontdatabase_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
+#include "QtGui/QImage/qimage_wrap.h"
 #include "QtGui/QKeySequence/qkeysequence_wrap.h"
 #include "QtGui/QMovie/qmovie_wrap.h"
 #include "QtGui/QPen/qpen_wrap.h"
@@ -137,6 +138,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QKeySequenceWrap::init(env, exports);
   QFontDatabaseWrap::init(env, exports);
   QIconWrap::init(env, exports);
+  QImageWrap::init(env, exports);
   QFontWrap::init(env, exports);
   QMovieWrap::init(env, exports);
   QStyleWrap::init(env, exports);

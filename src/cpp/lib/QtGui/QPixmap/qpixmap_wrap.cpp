@@ -2,6 +2,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
+#include "QtGui/QImage/qimage_wrap.h"
 
 Napi::FunctionReference QPixmapWrap::constructor;
 
@@ -16,6 +17,7 @@ Napi::Object QPixmapWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("scaled", &QPixmapWrap::scaled),
        InstanceMethod("height", &QPixmapWrap::height),
        InstanceMethod("width", &QPixmapWrap::width),
+       StaticMethod("fromImage", &QPixmapWrap::fromImage),
        StaticMethod("fromQVariant", &StaticQPixmapWrapMethods::fromQVariant),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QPixmapWrap)});
   constructor = Napi::Persistent(func);
@@ -141,6 +143,20 @@ Napi::Value QPixmapWrap::width(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->width());
+}
+
+Napi::Value QPixmapWrap::fromImage(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QImage* img = Napi::ObjectWrap<QImageWrap>::Unwrap(info[0].As<Napi::Object>())
+                    ->getInternalInstance();
+  Qt::ImageConversionFlags flags = static_cast<Qt::ImageConversionFlags>(
+      info[1].As<Napi::Number>().Int32Value());
+  QPixmap pixmap = QPixmap::fromImage(*img, flags);
+  auto instance = QPixmapWrap::constructor.New(
+      {Napi::External<QPixmap>::New(env, new QPixmap(pixmap))});
+  return instance;
 }
 
 Napi::Value StaticQPixmapWrapMethods::fromQVariant(
