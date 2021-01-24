@@ -33,7 +33,7 @@ view.addEventListener(WidgetEventTypes.MouseMove, () => {
 });
 ```
  */
-export abstract class EventWidget<Signals extends {}> extends Component {
+export abstract class EventWidget<Signals extends unknown> extends Component {
     private emitter: EventEmitter;
     constructor(native: NativeElement) {
         super();

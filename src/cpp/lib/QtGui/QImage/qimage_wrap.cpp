@@ -2,9 +2,9 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
-#include "QtCore/QVariant/qvariant_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
+#include "QtCore/QVariant/qvariant_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
 
 Napi::FunctionReference QImageWrap::constructor;
@@ -681,17 +681,16 @@ Napi::Value QImageWrap::width(const Napi::CallbackInfo& info) {
   return Napi::Number::New(env, this->instance->width());
 }
 
-
-Napi::Value StaticQImageWrapMethods::fromQVariant(                                                                                                                   
-    const Napi::CallbackInfo& info) {                                                                                                                                 
-  Napi::Env env = info.Env();                                                                                                                                         
-  Napi::HandleScope scope(env);                                                                                                                                       
-  Napi::Object variantObject = info[0].As<Napi::Object>();                                                                                                            
-  QVariantWrap* variantWrap =                                                                                                                                         
-    Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);                                                                                                          
-  QVariant* variant = variantWrap->getInternalInstance();                                                                                                             
-  QImage image = variant->value<QImage>();                                                                                                                         
-  auto instance = QImageWrap::constructor.New(                                                                                                                       
-      {Napi::External<QImage>::New(env, new QImage(image))});                                                                                                      
-  return instance;                                                                                                                                                    
+Napi::Value StaticQImageWrapMethods::fromQVariant(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Object variantObject = info[0].As<Napi::Object>();
+  QVariantWrap* variantWrap =
+      Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
+  QVariant* variant = variantWrap->getInternalInstance();
+  QImage image = variant->value<QImage>();
+  auto instance = QImageWrap::constructor.New(
+      {Napi::External<QImage>::New(env, new QImage(image))});
+  return instance;
 }

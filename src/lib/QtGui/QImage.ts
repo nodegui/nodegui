@@ -251,7 +251,7 @@ export class QImage extends Component {
             pointOrX instanceof QPoint ? this.native.pixelIndex(pointOrX.native) : this.native.pixelIndex(pointOrX, y);
         return pixelIndex;
     }
-    
+
     /** Returns the enclosing rectangle (0, 0, width(), height()) of the image */
     rect(): QRect {
         const native = this.native.rect();
@@ -287,9 +287,9 @@ export class QImage extends Component {
     scaled(width: number, height: number, aspectRatioMode: AspectRatioMode, transformMode: TransformationMode): QImage;
     scaled(
         sizeOrWidth: QSize | number,
-        modeOrHeight: any,
-        transformOrAspectRatioMode: any,
-        transformMode?: any,
+        modeOrHeight: AspectRatioMode | number,
+        transformOrAspectRatioMode: TransformationMode | AspectRatioMode,
+        transformMode?: TransformationMode,
     ): QImage {
         let native;
         if (sizeOrWidth instanceof QSize) {
@@ -391,7 +391,7 @@ export class QImage extends Component {
             this.native.setPixel(positionOrX.native, colorOrY);
             return;
         }
-        this.native.setPixel(positionOrX, colorOrY, color!.native);
+        this.native.setPixel(positionOrX, colorOrY, color?.native as NativeElement);
     }
 
     /** Sets the image text to the given text and associate it with the given key */

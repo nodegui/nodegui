@@ -52,7 +52,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
  */
 export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWidget<Signals> {
-    layout?: NodeLayout<Signals>;
+    _layout?: NodeLayout<Signals>;
     actions: Set<QAction>;
     _rawInlineStyle = '';
     type = 'widget';
@@ -63,6 +63,12 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         this.setStyleSheet = memoizeOne(this.setStyleSheet);
         this.setInlineStyle = memoizeOne(this.setInlineStyle);
         this.setObjectName = memoizeOne(this.setObjectName);
+    }
+    get layout(): NodeLayout<Signals> | undefined {
+        return this._layout;
+    }
+    set layout(l: NodeLayout<Signals> | undefined) {
+        this._layout = l;
     }
     show(): void {
         this.native.show();
@@ -206,7 +212,7 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
             //if flex layout set the flexnode
             flexLayout.setFlexNode(this.getFlexNode());
         }
-        this.layout = parentLayout;
+        this._layout = parentLayout;
     }
     adjustSize(): void {
         this.native.adjustSize();

@@ -1,6 +1,6 @@
 export type NativeElement = { type: 'native'; [key: string]: any };
 
-export type NativeRawPointer<T> = {};
+export type NativeRawPointer<T extends string> = Record<T, unknown>;
 
 /**
 
