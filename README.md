@@ -261,6 +261,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://master-technology.com"><img src="https://avatars3.githubusercontent.com/u/850871?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nathanael Anderson</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=NathanaelA" title="Code">💻</a></td>
     <td align="center"><a href="https://ubiq.co.za"><img src="https://avatars0.githubusercontent.com/u/4415071?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ross</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=rocbear" title="Code">💻</a> <a href="https://github.com/nodegui/nodegui/commits?author=rocbear" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/4h7l"><img src="https://avatars.githubusercontent.com/u/69183283?v=4?s=100" width="100px;" alt=""/><br /><sub><b>4h7l</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=4h7l" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Maks-s"><img src="https://avatars.githubusercontent.com/u/26678512?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Maks</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=Maks-s" title="Code">💻</a></td>
   </tr>
 </table>
 
