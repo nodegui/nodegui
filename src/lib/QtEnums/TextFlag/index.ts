@@ -1,4 +1,5 @@
 export enum TextFlag {
+    None = 0x0,
     TextSingleLine = 0x0100,
     TextDontClip = 0x0200,
     TextExpandTabs = 0x0400,
