@@ -31,6 +31,7 @@
 #include "QtGui/QEvent/QWheelEvent/qwheelevent_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
 #include "QtGui/QFontDatabase/qfontdatabase_wrap.h"
+#include "QtGui/QFontMetrics/qfontmetrics_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
 #include "QtGui/QImage/qimage_wrap.h"
 #include "QtGui/QKeySequence/qkeysequence_wrap.h"
@@ -137,6 +138,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QPixmapWrap::init(env, exports);
   QKeySequenceWrap::init(env, exports);
   QFontDatabaseWrap::init(env, exports);
+  QFontMetricsWrap::init(env, exports);
   QIconWrap::init(env, exports);
   QImageWrap::init(env, exports);
   QFontWrap::init(env, exports);

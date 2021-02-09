@@ -53,6 +53,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QDragMoveEvent/qdragmoveevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QDragLeaveEvent/qdragleaveevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QFontDatabase/qfontdatabase_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QFontMetrics/qfontmetrics_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QPicture/qpicture_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QPixmap/qpixmap_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QIcon/qicon_wrap.cpp"
@@ -220,7 +221,7 @@ target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE
 )
 
 
-if (WIN32) 
+if (WIN32)
     add_definitions(/bigobj)
     target_compile_definitions(${CORE_WIDGETS_ADDON} PRIVATE
         ENABLE_DLL_EXPORT=1
@@ -236,4 +237,3 @@ target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
     Qt5::Gui
     Qt5::Svg
 )
-
