@@ -147,16 +147,18 @@ QSize FlexLayout::sizeHint() const {
 
 QSize FlexLayout::minimumSize() const {
   calculateLayout();
-  QSize minSize = QSize(YGNodeLayoutGetWidth(this->node),
-                        YGNodeLayoutGetHeight(this->node));
+  QSize minSize = QSize(YGNodeStyleGetMinWidth(this->node).value,
+                        YGNodeStyleGetMinHeight(this->node).value);
   return minSize;
 }
 
 void FlexLayout::setGeometry(const QRect& rect) {
   this->cachedRect = rect;
+
   if (this->throttleTimer.isActive()) {
     return;
   }
+
   this->throttleTimer.start(10);
   // This will call performLayout and throttle requests between 10ms.
 }
@@ -165,32 +167,30 @@ void FlexLayout::performLayout() {
   if (!this->node) {
     return;
   }
+
   QRect rect = this->cachedRect;
-  if (!rect.isValid() || rect != geometry()) {
-    bool isSizeControlled = flexutils::isFlexNodeSizeControlled(this->node);
-    YGValue prevStyleMinWidth = YGNodeStyleGetMinWidth(this->node);
-    YGValue prevStyleMinHeight = YGNodeStyleGetMinHeight(this->node);
-    if (isSizeControlled) {
-      YGNodeMarkDirtyAndPropogateToDescendants(this->node);
-      YGNodeStyleSetMinHeight(this->node, rect.height());
-      YGNodeStyleSetMinWidth(this->node, rect.width());
-    }
-
-    calculateLayout();
-
-    uint count = YGNodeGetChildCount(this->node);
-    for (uint i = 0; i < count; ++i) {
-      YGNode* childNode = YGNodeGetChild(this->node, i);
-      QRect childRect = flexutils::getFlexNodeGeometry(childNode);
-      FlexNodeContext* ctx = flexutils::getFlexNodeContext(childNode);
-      QLayoutItem* childItem = ctx->layoutItem();
-      childItem->setGeometry(childRect);
-    }
-    if (isSizeControlled) {
-      restoreNodeMinStyle(prevStyleMinWidth, prevStyleMinHeight);
-    }
+  if (flexutils::isFlexNodeSizeControlled(this->node)) {
+    YGNodeMarkDirtyAndPropogateToDescendants(this->node);
+    YGNodeStyleSetHeight(this->node, rect.height());
+    YGNodeStyleSetWidth(this->node, rect.width());
   }
-  QLayout::setGeometry(rect);
+
+  calculateLayout();
+
+  QRect calculatedRect = flexutils::getFlexNodeGeometry(this->node);
+
+  // Set our own geometry to calculated size
+  QLayout::setGeometry(calculatedRect);
+
+  // Iterate over children and set their geometry
+  uint count = YGNodeGetChildCount(this->node);
+  for (uint i = 0; i < count; ++i) {
+    YGNode* childNode = YGNodeGetChild(this->node, i);
+    QRect childRect = flexutils::getFlexNodeGeometry(childNode);
+    FlexNodeContext* ctx = flexutils::getFlexNodeContext(childNode);
+    QLayoutItem* childItem = ctx->layoutItem();
+    childItem->setGeometry(childRect);
+  }
 }
 
 void FlexLayout::setFlexNode(YGNodeRef parentNode) { this->node = parentNode; }

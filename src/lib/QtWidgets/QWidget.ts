@@ -19,7 +19,7 @@ import memoizeOne from 'memoize-one';
 import { QGraphicsEffect } from './QGraphicsEffect';
 
 /**
- 
+
 > Abstract class to add functionalities common to all Widgets.
 
 **This class implements all methods, properties of Qt's [QWidget class](https://doc.qt.io/qt-5/qwidget.html) so that it can be inherited by all widgets**
