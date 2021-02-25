@@ -388,10 +388,10 @@ export class QImage extends Component {
     setPixelColor(x: number, y: number, color: QColor): void;
     setPixelColor(positionOrX: QPoint | number, colorOrY: QColor | number, color?: QColor): void {
         if (positionOrX instanceof QPoint) {
-            this.native.setPixel(positionOrX.native, colorOrY);
+            this.native.setPixelColor(positionOrX.native, colorOrY);
             return;
         }
-        this.native.setPixel(positionOrX, colorOrY, color?.native as NativeElement);
+        this.native.setPixelColor(positionOrX, colorOrY, color?.native as NativeElement);
     }
 
     /** Sets the image text to the given text and associate it with the given key */
