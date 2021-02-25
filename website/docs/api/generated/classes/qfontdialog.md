@@ -36,13 +36,17 @@ console.log(font);
 
 ### Properties
 
+* [_layout](qfontdialog.md#optional-_layout)
 * [_rawInlineStyle](qfontdialog.md#_rawinlinestyle)
 * [actions](qfontdialog.md#actions)
-* [layout](qfontdialog.md#optional-layout)
 * [native](qfontdialog.md#native)
 * [nodeChildren](qfontdialog.md#nodechildren)
 * [nodeParent](qfontdialog.md#optional-nodeparent)
 * [type](qfontdialog.md#type)
+
+### Accessors
+
+* [layout](qfontdialog.md#layout)
 
 ### Methods
 
@@ -155,6 +159,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QFontDialogSignals](../interfaces/qfontdialogsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -168,14 +180,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QFontDialogSignals](../interfaces/qfontdialogsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -208,6 +212,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QFontDialogSignals](../interfaces/qfontdialogsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QFontDialogSignals](../interfaces/qfontdialogsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QFontDialogSignals](../interfaces/qfontdialogsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QFontDialogSignals](../interfaces/qfontdialogsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

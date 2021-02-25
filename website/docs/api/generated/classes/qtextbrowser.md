@@ -32,14 +32,18 @@ const textBrowser = new QTextBrowser();
 
 ### Properties
 
+* [_layout](qtextbrowser.md#optional-_layout)
 * [_rawInlineStyle](qtextbrowser.md#_rawinlinestyle)
 * [actions](qtextbrowser.md#actions)
-* [layout](qtextbrowser.md#optional-layout)
 * [native](qtextbrowser.md#native)
 * [nodeChildren](qtextbrowser.md#nodechildren)
 * [nodeParent](qtextbrowser.md#optional-nodeparent)
 * [type](qtextbrowser.md#type)
 * [viewportWidget](qtextbrowser.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](qtextbrowser.md#layout)
 
 ### Methods
 
@@ -235,6 +239,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QTextBrowserSignals](../interfaces/qtextbrowsersignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -248,14 +260,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QTextBrowserSignals](../interfaces/qtextbrowsersignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -296,6 +300,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QTextBrowserSignals](../interfaces/qtextbrowsersignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QTextBrowserSignals](../interfaces/qtextbrowsersignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QTextBrowserSignals](../interfaces/qtextbrowsersignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QTextBrowserSignals](../interfaces/qtextbrowsersignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

@@ -44,14 +44,18 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 
 ### Properties
 
+* [_layout](qabstractscrollarea.md#optional-_layout)
 * [_rawInlineStyle](qabstractscrollarea.md#_rawinlinestyle)
 * [actions](qabstractscrollarea.md#actions)
-* [layout](qabstractscrollarea.md#optional-layout)
 * [native](qabstractscrollarea.md#abstract-native)
 * [nodeChildren](qabstractscrollarea.md#nodechildren)
 * [nodeParent](qabstractscrollarea.md#optional-nodeparent)
 * [type](qabstractscrollarea.md#type)
 * [viewportWidget](qabstractscrollarea.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](qabstractscrollarea.md#layout)
 
 ### Methods
 
@@ -162,6 +166,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -175,14 +187,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -221,6 +225,28 @@ ___
 ### `Optional` viewportWidget
 
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹Signals› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹Signals› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

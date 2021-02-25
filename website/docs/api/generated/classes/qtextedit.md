@@ -18,14 +18,18 @@ sidebar_label: "QTextEdit"
 
 ### Properties
 
+* [_layout](qtextedit.md#optional-_layout)
 * [_rawInlineStyle](qtextedit.md#_rawinlinestyle)
 * [actions](qtextedit.md#actions)
-* [layout](qtextedit.md#optional-layout)
 * [native](qtextedit.md#native)
 * [nodeChildren](qtextedit.md#nodechildren)
 * [nodeParent](qtextedit.md#optional-nodeparent)
 * [type](qtextedit.md#type)
 * [viewportWidget](qtextedit.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](qtextedit.md#layout)
 
 ### Methods
 
@@ -204,6 +208,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QTextEditSignals](../interfaces/qtexteditsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -217,14 +229,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QTextEditSignals](../interfaces/qtexteditsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -265,6 +269,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QTextEditSignals](../interfaces/qtexteditsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QTextEditSignals](../interfaces/qtexteditsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QTextEditSignals](../interfaces/qtexteditsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QTextEditSignals](../interfaces/qtexteditsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

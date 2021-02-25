@@ -30,13 +30,17 @@ const menu = new QMenu();
 
 ### Properties
 
+* [_layout](qmenu.md#optional-_layout)
 * [_rawInlineStyle](qmenu.md#_rawinlinestyle)
 * [actions](qmenu.md#actions)
-* [layout](qmenu.md#optional-layout)
 * [native](qmenu.md#native)
 * [nodeChildren](qmenu.md#nodechildren)
 * [nodeParent](qmenu.md#optional-nodeparent)
 * [type](qmenu.md#type)
+
+### Accessors
+
+* [layout](qmenu.md#layout)
 
 ### Methods
 
@@ -138,6 +142,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QMenuSignals](../globals.md#qmenusignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -151,14 +163,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QMenuSignals](../globals.md#qmenusignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -191,6 +195,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QMenuSignals](../globals.md#qmenusignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QMenuSignals](../globals.md#qmenusignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QMenuSignals](../globals.md#qmenusignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QMenuSignals](../globals.md#qmenusignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

@@ -32,15 +32,19 @@ const plainTextEdit = new QPlainTextEdit();
 
 ### Properties
 
+* [_layout](qplaintextedit.md#optional-_layout)
 * [_rawInlineStyle](qplaintextedit.md#_rawinlinestyle)
 * [actions](qplaintextedit.md#actions)
-* [layout](qplaintextedit.md#optional-layout)
 * [native](qplaintextedit.md#native)
 * [nodeChildren](qplaintextedit.md#nodechildren)
 * [nodeParent](qplaintextedit.md#optional-nodeparent)
 * [placeholderText](qplaintextedit.md#optional-placeholdertext)
 * [type](qplaintextedit.md#type)
 * [viewportWidget](qplaintextedit.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](qplaintextedit.md#layout)
 
 ### Methods
 
@@ -165,6 +169,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -178,14 +190,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -232,6 +236,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

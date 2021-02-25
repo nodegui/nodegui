@@ -32,13 +32,17 @@ const progressBar = new QProgressBar();
 
 ### Properties
 
+* [_layout](qprogressbar.md#optional-_layout)
 * [_rawInlineStyle](qprogressbar.md#_rawinlinestyle)
 * [actions](qprogressbar.md#actions)
-* [layout](qprogressbar.md#optional-layout)
 * [native](qprogressbar.md#native)
 * [nodeChildren](qprogressbar.md#nodechildren)
 * [nodeParent](qprogressbar.md#optional-nodeparent)
 * [type](qprogressbar.md#type)
+
+### Accessors
+
+* [layout](qprogressbar.md#layout)
 
 ### Methods
 
@@ -158,6 +162,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -171,14 +183,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -211,6 +215,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

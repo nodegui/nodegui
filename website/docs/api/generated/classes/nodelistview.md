@@ -39,14 +39,18 @@ const listview = new QListView();
 
 ### Properties
 
+* [_layout](nodelistview.md#optional-_layout)
 * [_rawInlineStyle](nodelistview.md#_rawinlinestyle)
 * [actions](nodelistview.md#actions)
-* [layout](nodelistview.md#optional-layout)
 * [native](nodelistview.md#abstract-native)
 * [nodeChildren](nodelistview.md#nodechildren)
 * [nodeParent](nodelistview.md#optional-nodeparent)
 * [type](nodelistview.md#type)
 * [viewportWidget](nodelistview.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](nodelistview.md#layout)
 
 ### Methods
 
@@ -228,6 +232,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -241,14 +253,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -289,6 +293,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹Signals› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹Signals› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

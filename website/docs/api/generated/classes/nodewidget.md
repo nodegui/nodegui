@@ -48,6 +48,8 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
   ↳ [QWidget](qwidget.md)
 
+  ↳ [QDesktopWidget](qdesktopwidget.md)
+
   ↳ [NodeFrame](nodeframe.md)
 
   ↳ [QAbstractSlider](qabstractslider.md)
@@ -90,13 +92,17 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
 ### Properties
 
+* [_layout](nodewidget.md#optional-_layout)
 * [_rawInlineStyle](nodewidget.md#_rawinlinestyle)
 * [actions](nodewidget.md#actions)
-* [layout](nodewidget.md#optional-layout)
 * [native](nodewidget.md#abstract-native)
 * [nodeChildren](nodewidget.md#nodechildren)
 * [nodeParent](nodewidget.md#optional-nodeparent)
 * [type](nodewidget.md#type)
+
+### Accessors
+
+* [layout](nodewidget.md#layout)
 
 ### Methods
 
@@ -188,6 +194,12 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -197,12 +209,6 @@ ___
 ###  actions
 
 • **actions**: *Set‹[QAction](qaction.md)›*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
 
 ___
 
@@ -233,6 +239,24 @@ ___
 ###  type
 
 • **type**: *string* = "widget"
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹Signals› | undefined): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹Signals› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

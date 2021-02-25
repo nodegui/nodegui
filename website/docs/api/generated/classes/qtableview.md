@@ -18,14 +18,18 @@ sidebar_label: "QTableView"
 
 ### Properties
 
+* [_layout](qtableview.md#optional-_layout)
 * [_rawInlineStyle](qtableview.md#_rawinlinestyle)
 * [actions](qtableview.md#actions)
-* [layout](qtableview.md#optional-layout)
 * [native](qtableview.md#native)
 * [nodeChildren](qtableview.md#nodechildren)
 * [nodeParent](qtableview.md#optional-nodeparent)
 * [type](qtableview.md#type)
 * [viewportWidget](qtableview.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](qtableview.md#layout)
 
 ### Methods
 
@@ -217,6 +221,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QTableViewSignals](../globals.md#qtableviewsignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -230,14 +242,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QTableViewSignals](../globals.md#qtableviewsignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -278,6 +282,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QTableViewSignals](../globals.md#qtableviewsignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QTableViewSignals](../globals.md#qtableviewsignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QTableViewSignals](../globals.md#qtableviewsignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QTableViewSignals](../globals.md#qtableviewsignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

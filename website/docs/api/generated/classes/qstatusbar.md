@@ -32,15 +32,19 @@ const progressBar = new QStatusBar();
 
 ### Properties
 
+* [_layout](qstatusbar.md#optional-_layout)
 * [_rawInlineStyle](qstatusbar.md#_rawinlinestyle)
 * [actions](qstatusbar.md#actions)
-* [layout](qstatusbar.md#optional-layout)
 * [native](qstatusbar.md#native)
 * [nodeChildren](qstatusbar.md#nodechildren)
 * [nodeParent](qstatusbar.md#optional-nodeparent)
 * [permanentWidgets](qstatusbar.md#permanentwidgets)
 * [type](qstatusbar.md#type)
 * [widgets](qstatusbar.md#widgets)
+
+### Accessors
+
+* [layout](qstatusbar.md#layout)
 
 ### Methods
 
@@ -148,6 +152,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -161,14 +173,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -213,6 +217,28 @@ ___
 ###  widgets
 
 • **widgets**: *Set‹[NativeElement](../globals.md#nativeelement)›*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

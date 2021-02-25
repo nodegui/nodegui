@@ -40,14 +40,18 @@ const textEdit = new QTextEdit();
 
 ### Properties
 
+* [_layout](nodetextedit.md#optional-_layout)
 * [_rawInlineStyle](nodetextedit.md#_rawinlinestyle)
 * [actions](nodetextedit.md#actions)
-* [layout](nodetextedit.md#optional-layout)
 * [native](nodetextedit.md#abstract-native)
 * [nodeChildren](nodetextedit.md#nodechildren)
 * [nodeParent](nodetextedit.md#optional-nodeparent)
 * [type](nodetextedit.md#type)
 * [viewportWidget](nodetextedit.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](nodetextedit.md#layout)
 
 ### Methods
 
@@ -222,6 +226,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -235,14 +247,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -283,6 +287,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹Signals› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹Signals› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

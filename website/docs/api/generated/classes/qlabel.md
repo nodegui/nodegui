@@ -33,13 +33,17 @@ label.setText("Hello");
 
 ### Properties
 
+* [_layout](qlabel.md#optional-_layout)
 * [_rawInlineStyle](qlabel.md#_rawinlinestyle)
 * [actions](qlabel.md#actions)
-* [layout](qlabel.md#optional-layout)
 * [native](qlabel.md#native)
 * [nodeChildren](qlabel.md#nodechildren)
 * [nodeParent](qlabel.md#optional-nodeparent)
 * [type](qlabel.md#type)
+
+### Accessors
+
+* [layout](qlabel.md#layout)
 
 ### Methods
 
@@ -183,6 +187,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QLabelSignals](../interfaces/qlabelsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -196,14 +208,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QLabelSignals](../interfaces/qlabelsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -236,6 +240,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QLabelSignals](../interfaces/qlabelsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QLabelSignals](../interfaces/qlabelsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QLabelSignals](../interfaces/qlabelsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QLabelSignals](../interfaces/qlabelsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

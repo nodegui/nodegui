@@ -39,13 +39,17 @@ console.log(selectedFiles);
 
 ### Properties
 
+* [_layout](qfiledialog.md#optional-_layout)
 * [_rawInlineStyle](qfiledialog.md#_rawinlinestyle)
 * [actions](qfiledialog.md#actions)
-* [layout](qfiledialog.md#optional-layout)
 * [native](qfiledialog.md#native)
 * [nodeChildren](qfiledialog.md#nodechildren)
 * [nodeParent](qfiledialog.md#optional-nodeparent)
 * [type](qfiledialog.md#type)
+
+### Accessors
+
+* [layout](qfiledialog.md#layout)
 
 ### Methods
 
@@ -170,6 +174,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QFileDialogSignals](../interfaces/qfiledialogsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -183,14 +195,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QFileDialogSignals](../interfaces/qfiledialogsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -223,6 +227,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QFileDialogSignals](../interfaces/qfiledialogsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QFileDialogSignals](../interfaces/qfiledialogsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QFileDialogSignals](../interfaces/qfiledialogsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QFileDialogSignals](../interfaces/qfiledialogsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

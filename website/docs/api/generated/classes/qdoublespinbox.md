@@ -32,13 +32,17 @@ const doublespinBox = new QDoubleSpinBox();
 
 ### Properties
 
+* [_layout](qdoublespinbox.md#optional-_layout)
 * [_rawInlineStyle](qdoublespinbox.md#_rawinlinestyle)
 * [actions](qdoublespinbox.md#actions)
-* [layout](qdoublespinbox.md#optional-layout)
 * [native](qdoublespinbox.md#native)
 * [nodeChildren](qdoublespinbox.md#nodechildren)
 * [nodeParent](qdoublespinbox.md#optional-nodeparent)
 * [type](qdoublespinbox.md#type)
+
+### Accessors
+
+* [layout](qdoublespinbox.md#layout)
 
 ### Methods
 
@@ -181,6 +185,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QDoubleSpinBoxSignals](../interfaces/qdoublespinboxsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -194,14 +206,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QDoubleSpinBoxSignals](../interfaces/qdoublespinboxsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -234,6 +238,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QDoubleSpinBoxSignals](../interfaces/qdoublespinboxsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QDoubleSpinBoxSignals](../interfaces/qdoublespinboxsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QDoubleSpinBoxSignals](../interfaces/qdoublespinboxsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QDoubleSpinBoxSignals](../interfaces/qdoublespinboxsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

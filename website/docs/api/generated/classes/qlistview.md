@@ -18,14 +18,18 @@ sidebar_label: "QListView"
 
 ### Properties
 
+* [_layout](qlistview.md#optional-_layout)
 * [_rawInlineStyle](qlistview.md#_rawinlinestyle)
 * [actions](qlistview.md#actions)
-* [layout](qlistview.md#optional-layout)
 * [native](qlistview.md#native)
 * [nodeChildren](qlistview.md#nodechildren)
 * [nodeParent](qlistview.md#optional-nodeparent)
 * [type](qlistview.md#type)
 * [viewportWidget](qlistview.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](qlistview.md#layout)
 
 ### Methods
 
@@ -211,6 +215,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -224,14 +236,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -272,6 +276,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

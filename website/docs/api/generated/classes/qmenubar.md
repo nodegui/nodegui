@@ -34,14 +34,18 @@ global.win = win;
 
 ### Properties
 
+* [_layout](qmenubar.md#optional-_layout)
 * [_menus](qmenubar.md#_menus)
 * [_rawInlineStyle](qmenubar.md#_rawinlinestyle)
 * [actions](qmenubar.md#actions)
-* [layout](qmenubar.md#optional-layout)
 * [native](qmenubar.md#native)
 * [nodeChildren](qmenubar.md#nodechildren)
 * [nodeParent](qmenubar.md#optional-nodeparent)
 * [type](qmenubar.md#type)
+
+### Accessors
+
+* [layout](qmenubar.md#layout)
 
 ### Methods
 
@@ -154,6 +158,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _menus
 
 • **_menus**: *Set‹[QMenu](qmenu.md)›*
@@ -173,14 +185,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -213,6 +217,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

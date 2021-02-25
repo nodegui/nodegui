@@ -44,13 +44,17 @@ console.log('currentIndexChanged: ' + index);
 
 ### Properties
 
+* [_layout](qcombobox.md#optional-_layout)
 * [_rawInlineStyle](qcombobox.md#_rawinlinestyle)
 * [actions](qcombobox.md#actions)
-* [layout](qcombobox.md#optional-layout)
 * [native](qcombobox.md#native)
 * [nodeChildren](qcombobox.md#nodechildren)
 * [nodeParent](qcombobox.md#optional-nodeparent)
 * [type](qcombobox.md#type)
+
+### Accessors
+
+* [layout](qcombobox.md#layout)
 
 ### Methods
 
@@ -169,6 +173,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -182,14 +194,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -222,6 +226,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

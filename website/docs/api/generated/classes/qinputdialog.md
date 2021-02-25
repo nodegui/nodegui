@@ -34,13 +34,17 @@ dialog.exec();
 
 ### Properties
 
+* [_layout](qinputdialog.md#optional-_layout)
 * [_rawInlineStyle](qinputdialog.md#_rawinlinestyle)
 * [actions](qinputdialog.md#actions)
-* [layout](qinputdialog.md#optional-layout)
 * [native](qinputdialog.md#native)
 * [nodeChildren](qinputdialog.md#nodechildren)
 * [nodeParent](qinputdialog.md#optional-nodeparent)
 * [type](qinputdialog.md#type)
+
+### Accessors
+
+* [layout](qinputdialog.md#layout)
 
 ### Methods
 
@@ -180,6 +184,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -193,14 +205,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -233,6 +237,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

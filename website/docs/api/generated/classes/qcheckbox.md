@@ -33,13 +33,17 @@ checkbox.setText("Hello");
 
 ### Properties
 
+* [_layout](qcheckbox.md#optional-_layout)
 * [_rawInlineStyle](qcheckbox.md#_rawinlinestyle)
 * [actions](qcheckbox.md#actions)
-* [layout](qcheckbox.md#optional-layout)
 * [native](qcheckbox.md#native)
 * [nodeChildren](qcheckbox.md#nodechildren)
 * [nodeParent](qcheckbox.md#optional-nodeparent)
 * [type](qcheckbox.md#type)
+
+### Accessors
+
+* [layout](qcheckbox.md#layout)
 
 ### Methods
 
@@ -179,6 +183,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -192,14 +204,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -232,6 +236,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

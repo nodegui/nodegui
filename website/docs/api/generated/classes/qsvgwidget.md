@@ -39,13 +39,17 @@ if (!err) svg.load(buffer);
 
 ### Properties
 
+* [_layout](qsvgwidget.md#optional-_layout)
 * [_rawInlineStyle](qsvgwidget.md#_rawinlinestyle)
 * [actions](qsvgwidget.md#actions)
-* [layout](qsvgwidget.md#optional-layout)
 * [native](qsvgwidget.md#native)
 * [nodeChildren](qsvgwidget.md#nodechildren)
 * [nodeParent](qsvgwidget.md#optional-nodeparent)
 * [type](qsvgwidget.md#type)
+
+### Accessors
+
+* [layout](qsvgwidget.md#layout)
 
 ### Methods
 
@@ -144,6 +148,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -157,14 +169,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -197,6 +201,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

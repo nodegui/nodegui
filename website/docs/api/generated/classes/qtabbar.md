@@ -33,13 +33,17 @@ const tabBar = new QTabBar();
 
 ### Properties
 
+* [_layout](qtabbar.md#optional-_layout)
 * [_rawInlineStyle](qtabbar.md#_rawinlinestyle)
 * [actions](qtabbar.md#actions)
-* [layout](qtabbar.md#optional-layout)
 * [native](qtabbar.md#native)
 * [nodeChildren](qtabbar.md#nodechildren)
 * [nodeParent](qtabbar.md#optional-nodeparent)
 * [type](qtabbar.md#type)
+
+### Accessors
+
+* [layout](qtabbar.md#layout)
 
 ### Methods
 
@@ -187,6 +191,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -200,14 +212,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -240,6 +244,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

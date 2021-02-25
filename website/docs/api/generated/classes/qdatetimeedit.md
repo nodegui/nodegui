@@ -39,14 +39,18 @@ dateTimeEdit.setTime(time);
 
 ### Properties
 
+* [_layout](qdatetimeedit.md#optional-_layout)
 * [_rawInlineStyle](qdatetimeedit.md#_rawinlinestyle)
 * [actions](qdatetimeedit.md#actions)
 * [calendar](qdatetimeedit.md#optional-calendar)
-* [layout](qdatetimeedit.md#optional-layout)
 * [native](qdatetimeedit.md#native)
 * [nodeChildren](qdatetimeedit.md#nodechildren)
 * [nodeParent](qdatetimeedit.md#optional-nodeparent)
 * [type](qdatetimeedit.md#type)
+
+### Accessors
+
+* [layout](qdatetimeedit.md#layout)
 
 ### Methods
 
@@ -183,6 +187,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QDateTimeEditSignals](../interfaces/qdatetimeeditsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -204,14 +216,6 @@ ___
 • **calendar**? : *[QCalendarWidget](qcalendarwidget.md)*
 
 *Inherited from [NodeDateTimeEdit](nodedatetimeedit.md).[calendar](nodedatetimeedit.md#optional-calendar)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QDateTimeEditSignals](../interfaces/qdatetimeeditsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -244,6 +248,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QDateTimeEditSignals](../interfaces/qdatetimeeditsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QDateTimeEditSignals](../interfaces/qdatetimeeditsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QDateTimeEditSignals](../interfaces/qdatetimeeditsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QDateTimeEditSignals](../interfaces/qdatetimeeditsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

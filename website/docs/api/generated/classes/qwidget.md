@@ -34,13 +34,17 @@ view.setLayout(new FlexLayout());
 
 ### Properties
 
+* [_layout](qwidget.md#optional-_layout)
 * [_rawInlineStyle](qwidget.md#_rawinlinestyle)
 * [actions](qwidget.md#actions)
-* [layout](qwidget.md#optional-layout)
 * [native](qwidget.md#native)
 * [nodeChildren](qwidget.md#nodechildren)
 * [nodeParent](qwidget.md#optional-nodeparent)
 * [type](qwidget.md#type)
+
+### Accessors
+
+* [layout](qwidget.md#layout)
 
 ### Methods
 
@@ -132,6 +136,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -145,14 +157,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -185,6 +189,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

@@ -59,16 +59,20 @@ win.show();
 
 ### Properties
 
+* [_layout](qtreewidget.md#optional-_layout)
 * [_rawInlineStyle](qtreewidget.md#_rawinlinestyle)
 * [actions](qtreewidget.md#actions)
 * [itemWidgets](qtreewidget.md#itemwidgets)
-* [layout](qtreewidget.md#optional-layout)
 * [native](qtreewidget.md#native)
 * [nodeChildren](qtreewidget.md#nodechildren)
 * [nodeParent](qtreewidget.md#optional-nodeparent)
 * [topLevelItems](qtreewidget.md#toplevelitems)
 * [type](qtreewidget.md#type)
 * [viewportWidget](qtreewidget.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](qtreewidget.md#layout)
 
 ### Methods
 
@@ -199,6 +203,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QTreeWidgetSignals](../interfaces/qtreewidgetsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -218,14 +230,6 @@ ___
 ###  itemWidgets
 
 • **itemWidgets**: *Map‹[QTreeWidgetItem](qtreewidgetitem.md), [QWidget](qwidget.md)›*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QTreeWidgetSignals](../interfaces/qtreewidgetsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -272,6 +276,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QTreeWidgetSignals](../interfaces/qtreewidgetsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QTreeWidgetSignals](../interfaces/qtreewidgetsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QTreeWidgetSignals](../interfaces/qtreewidgetsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QTreeWidgetSignals](../interfaces/qtreewidgetsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

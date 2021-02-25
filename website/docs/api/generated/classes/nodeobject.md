@@ -16,10 +16,6 @@ sidebar_label: "NodeObject"
 
   ↳ [QObject](qobject.md)
 
-  ↳ [QApplication](qapplication.md)
-
-  ↳ [QMovie](qmovie.md)
-
   ↳ [NodeLayout](nodelayout.md)
 
   ↳ [YogaWidget](yogawidget.md)
@@ -27,6 +23,10 @@ sidebar_label: "NodeObject"
   ↳ [QAction](qaction.md)
 
   ↳ [QGraphicsEffect](qgraphicseffect.md)
+
+  ↳ [QApplication](qapplication.md)
+
+  ↳ [QMovie](qmovie.md)
 
   ↳ [QStandardItemModel](qstandarditemmodel.md)
 

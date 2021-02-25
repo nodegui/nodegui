@@ -42,6 +42,7 @@ Once a central widget is set you can add children/layout to the central widget.
 
 ### Properties
 
+* [_layout](qmainwindow.md#optional-_layout)
 * [_rawInlineStyle](qmainwindow.md#_rawinlinestyle)
 * [actions](qmainwindow.md#actions)
 * [centralWidget](qmainwindow.md#optional-centralwidget)
@@ -159,6 +160,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QMainWindowSignals](../globals.md#qmainwindowsignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -217,7 +226,7 @@ ___
 
 • **get layout**(): *[NodeLayout](nodelayout.md)‹any› | undefined*
 
-*Overrides [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
+*Overrides [QMenu](qmenu.md).[layout](qmenu.md#layout)*
 
 **Returns:** *[NodeLayout](nodelayout.md)‹any› | undefined*
 

@@ -219,7 +219,7 @@ ___
 
 ###  setUrls
 
-▸ **setUrls**(`urls`: [[QUrl](qurl.md)]): *void*
+▸ **setUrls**(`urls`: []): *void*
 
 Sets the URLs stored in the MIME data object to those specified by urls.
 
@@ -227,7 +227,7 @@ Sets the URLs stored in the MIME data object to those specified by urls.
 
 Name | Type |
 ------ | ------ |
-`urls` | [[QUrl](qurl.md)] |
+`urls` | [] |
 
 **Returns:** *void*
 
@@ -245,10 +245,10 @@ ___
 
 ###  urls
 
-▸ **urls**(): *[[QUrl](qurl.md)]*
+▸ **urls**(): *[]*
 
 Returns a list of URLs contained within the MIME data object.
 
 URLs correspond to the MIME type text/uri-list.
 
-**Returns:** *[[QUrl](qurl.md)]*
+**Returns:** *[]*

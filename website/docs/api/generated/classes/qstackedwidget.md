@@ -56,13 +56,17 @@ win.show();
 
 ### Properties
 
+* [_layout](qstackedwidget.md#optional-_layout)
 * [_rawInlineStyle](qstackedwidget.md#_rawinlinestyle)
 * [actions](qstackedwidget.md#actions)
-* [layout](qstackedwidget.md#optional-layout)
 * [native](qstackedwidget.md#native)
 * [nodeChildren](qstackedwidget.md#nodechildren)
 * [nodeParent](qstackedwidget.md#optional-nodeparent)
 * [type](qstackedwidget.md#type)
+
+### Accessors
+
+* [layout](qstackedwidget.md#layout)
 
 ### Methods
 
@@ -178,6 +182,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -191,14 +203,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -231,6 +235,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

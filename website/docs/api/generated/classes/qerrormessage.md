@@ -33,13 +33,17 @@ const errorMessage = new QErrorMessage();
 
 ### Properties
 
+* [_layout](qerrormessage.md#optional-_layout)
 * [_rawInlineStyle](qerrormessage.md#_rawinlinestyle)
 * [actions](qerrormessage.md#actions)
-* [layout](qerrormessage.md#optional-layout)
 * [native](qerrormessage.md#native)
 * [nodeChildren](qerrormessage.md#nodechildren)
 * [nodeParent](qerrormessage.md#optional-nodeparent)
 * [type](qerrormessage.md#type)
+
+### Accessors
+
+* [layout](qerrormessage.md#layout)
 
 ### Methods
 
@@ -146,6 +150,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -159,14 +171,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -199,6 +203,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

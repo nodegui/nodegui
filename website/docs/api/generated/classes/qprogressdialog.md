@@ -33,13 +33,17 @@ const progressDialog = new QProgressDialog();
 
 ### Properties
 
+* [_layout](qprogressdialog.md#optional-_layout)
 * [_rawInlineStyle](qprogressdialog.md#_rawinlinestyle)
 * [actions](qprogressdialog.md#actions)
-* [layout](qprogressdialog.md#optional-layout)
 * [native](qprogressdialog.md#native)
 * [nodeChildren](qprogressdialog.md#nodechildren)
 * [nodeParent](qprogressdialog.md#optional-nodeparent)
 * [type](qprogressdialog.md#type)
+
+### Accessors
+
+* [layout](qprogressdialog.md#layout)
 
 ### Methods
 
@@ -164,6 +168,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -177,14 +189,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -217,6 +221,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

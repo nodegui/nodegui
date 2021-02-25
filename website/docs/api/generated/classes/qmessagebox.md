@@ -37,13 +37,17 @@ messageBox.exec();
 
 ### Properties
 
+* [_layout](qmessagebox.md#optional-_layout)
 * [_rawInlineStyle](qmessagebox.md#_rawinlinestyle)
 * [actions](qmessagebox.md#actions)
-* [layout](qmessagebox.md#optional-layout)
 * [native](qmessagebox.md#native)
 * [nodeChildren](qmessagebox.md#nodechildren)
 * [nodeParent](qmessagebox.md#optional-nodeparent)
 * [type](qmessagebox.md#type)
+
+### Accessors
+
+* [layout](qmessagebox.md#layout)
 
 ### Methods
 
@@ -160,6 +164,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -173,14 +185,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -213,6 +217,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

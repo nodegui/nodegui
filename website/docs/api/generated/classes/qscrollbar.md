@@ -32,13 +32,17 @@ const scrollbar = new QScrollBar();
 
 ### Properties
 
+* [_layout](qscrollbar.md#optional-_layout)
 * [_rawInlineStyle](qscrollbar.md#_rawinlinestyle)
 * [actions](qscrollbar.md#actions)
-* [layout](qscrollbar.md#optional-layout)
 * [native](qscrollbar.md#native)
 * [nodeChildren](qscrollbar.md#nodechildren)
 * [nodeParent](qscrollbar.md#optional-nodeparent)
 * [type](qscrollbar.md#type)
+
+### Accessors
+
+* [layout](qscrollbar.md#layout)
 
 ### Methods
 
@@ -160,6 +164,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QScrollBarSignals](../globals.md#qscrollbarsignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -173,14 +185,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QScrollBarSignals](../globals.md#qscrollbarsignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -213,6 +217,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QScrollBarSignals](../globals.md#qscrollbarsignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QScrollBarSignals](../globals.md#qscrollbarsignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QScrollBarSignals](../globals.md#qscrollbarsignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QScrollBarSignals](../globals.md#qscrollbarsignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

@@ -24,13 +24,17 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 
 ### Properties
 
+* [_layout](qdialog.md#optional-_layout)
 * [_rawInlineStyle](qdialog.md#_rawinlinestyle)
 * [actions](qdialog.md#actions)
-* [layout](qdialog.md#optional-layout)
 * [native](qdialog.md#native)
 * [nodeChildren](qdialog.md#nodechildren)
 * [nodeParent](qdialog.md#optional-nodeparent)
 * [type](qdialog.md#type)
+
+### Accessors
+
+* [layout](qdialog.md#layout)
 
 ### Methods
 
@@ -130,6 +134,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -143,14 +155,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -183,6 +187,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

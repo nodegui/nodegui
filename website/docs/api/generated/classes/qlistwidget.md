@@ -41,15 +41,19 @@ listWidget.addItem(listWidgetItem);
 
 ### Properties
 
+* [_layout](qlistwidget.md#optional-_layout)
 * [_rawInlineStyle](qlistwidget.md#_rawinlinestyle)
 * [actions](qlistwidget.md#actions)
 * [items](qlistwidget.md#items)
-* [layout](qlistwidget.md#optional-layout)
 * [native](qlistwidget.md#native)
 * [nodeChildren](qlistwidget.md#nodechildren)
 * [nodeParent](qlistwidget.md#optional-nodeparent)
 * [type](qlistwidget.md#type)
 * [viewportWidget](qlistwidget.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](qlistwidget.md#layout)
 
 ### Methods
 
@@ -263,6 +267,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QListWidgetSignals](../interfaces/qlistwidgetsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -282,14 +294,6 @@ ___
 ###  items
 
 • **items**: *Set‹[NativeElement](../globals.md#nativeelement) | [Component](component.md)›*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QListWidgetSignals](../interfaces/qlistwidgetsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -330,6 +334,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QListWidgetSignals](../interfaces/qlistwidgetsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QListWidgetSignals](../interfaces/qlistwidgetsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QListWidgetSignals](../interfaces/qlistwidgetsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QListWidgetSignals](../interfaces/qlistwidgetsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 

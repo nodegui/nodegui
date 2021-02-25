@@ -1,158 +1,115 @@
 ---
-id: "qradiobutton"
-title: "QRadioButton"
-sidebar_label: "QRadioButton"
+id: "qdesktopwidget"
+title: "QDesktopWidget"
+sidebar_label: "QDesktopWidget"
 ---
-
-> Create and control radio button.
-
-**This class is a JS wrapper around Qt's [QRadioButton class](https://doc.qt.io/qt-5/qradiobutton.html)**
-
-A `QRadioButton` provides ability to add and manipulate native radio button widgets.
-
-### Example
-
-```javascript
-const { QRadioButton } = require("@nodegui/nodegui");
-
-const radioButton = new QRadioButton();
-radioButton.setText("Hello");
-```
 
 ## Hierarchy
 
-  ↳ [QAbstractButton](qabstractbutton.md)‹[QRadioButtonSignals](../globals.md#qradiobuttonsignals)›
+  ↳ [NodeWidget](nodewidget.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)›
 
-  ↳ **QRadioButton**
+  ↳ **QDesktopWidget**
 
 ## Index
 
 ### Constructors
 
-* [constructor](qradiobutton.md#constructor)
+* [constructor](qdesktopwidget.md#constructor)
 
 ### Properties
 
-* [_layout](qradiobutton.md#optional-_layout)
-* [_rawInlineStyle](qradiobutton.md#_rawinlinestyle)
-* [actions](qradiobutton.md#actions)
-* [native](qradiobutton.md#native)
-* [nodeChildren](qradiobutton.md#nodechildren)
-* [nodeParent](qradiobutton.md#optional-nodeparent)
-* [type](qradiobutton.md#type)
+* [_layout](qdesktopwidget.md#optional-_layout)
+* [_rawInlineStyle](qdesktopwidget.md#_rawinlinestyle)
+* [actions](qdesktopwidget.md#actions)
+* [native](qdesktopwidget.md#native)
+* [nodeChildren](qdesktopwidget.md#nodechildren)
+* [nodeParent](qdesktopwidget.md#optional-nodeparent)
+* [type](qdesktopwidget.md#type)
 
 ### Accessors
 
-* [layout](qradiobutton.md#layout)
+* [layout](qdesktopwidget.md#layout)
 
 ### Methods
 
-* [acceptDrops](qradiobutton.md#acceptdrops)
-* [activateWindow](qradiobutton.md#activatewindow)
-* [addAction](qradiobutton.md#addaction)
-* [addEventListener](qradiobutton.md#addeventlistener)
-* [adjustSize](qradiobutton.md#adjustsize)
-* [animateClick](qradiobutton.md#animateclick)
-* [autoExclusive](qradiobutton.md#autoexclusive)
-* [autoRepeat](qradiobutton.md#autorepeat)
-* [autoRepeatDelay](qradiobutton.md#autorepeatdelay)
-* [autoRepeatInterval](qradiobutton.md#autorepeatinterval)
-* [click](qradiobutton.md#click)
-* [close](qradiobutton.md#close)
-* [font](qradiobutton.md#font)
-* [geometry](qradiobutton.md#geometry)
-* [getFlexNode](qradiobutton.md#getflexnode)
-* [hasMouseTracking](qradiobutton.md#hasmousetracking)
-* [hide](qradiobutton.md#hide)
-* [icon](qradiobutton.md#icon)
-* [iconSize](qradiobutton.md#iconsize)
-* [inherits](qradiobutton.md#inherits)
-* [isCheckable](qradiobutton.md#ischeckable)
-* [isChecked](qradiobutton.md#ischecked)
-* [isDown](qradiobutton.md#isdown)
-* [isEnabled](qradiobutton.md#isenabled)
-* [isVisible](qradiobutton.md#isvisible)
-* [lower](qradiobutton.md#lower)
-* [mapFromGlobal](qradiobutton.md#mapfromglobal)
-* [mapFromParent](qradiobutton.md#mapfromparent)
-* [mapToGlobal](qradiobutton.md#maptoglobal)
-* [mapToParent](qradiobutton.md#maptoparent)
-* [maximumSize](qradiobutton.md#maximumsize)
-* [minimumSize](qradiobutton.md#minimumsize)
-* [move](qradiobutton.md#move)
-* [objectName](qradiobutton.md#objectname)
-* [pos](qradiobutton.md#pos)
-* [property](qradiobutton.md#property)
-* [raise](qradiobutton.md#raise)
-* [removeAction](qradiobutton.md#removeaction)
-* [removeEventListener](qradiobutton.md#removeeventlistener)
-* [repaint](qradiobutton.md#repaint)
-* [repolish](qradiobutton.md#repolish)
-* [resize](qradiobutton.md#resize)
-* [setAcceptDrops](qradiobutton.md#setacceptdrops)
-* [setAttribute](qradiobutton.md#setattribute)
-* [setAutoExclusive](qradiobutton.md#setautoexclusive)
-* [setAutoRepeat](qradiobutton.md#setautorepeat)
-* [setAutoRepeatDelay](qradiobutton.md#setautorepeatdelay)
-* [setAutoRepeatInterval](qradiobutton.md#setautorepeatinterval)
-* [setCheckable](qradiobutton.md#setcheckable)
-* [setChecked](qradiobutton.md#setchecked)
-* [setContextMenuPolicy](qradiobutton.md#setcontextmenupolicy)
-* [setCursor](qradiobutton.md#setcursor)
-* [setDown](qradiobutton.md#setdown)
-* [setEnabled](qradiobutton.md#setenabled)
-* [setFixedSize](qradiobutton.md#setfixedsize)
-* [setFlexNodeSizeControlled](qradiobutton.md#setflexnodesizecontrolled)
-* [setFocus](qradiobutton.md#setfocus)
-* [setFont](qradiobutton.md#setfont)
-* [setGeometry](qradiobutton.md#setgeometry)
-* [setGraphicsEffect](qradiobutton.md#setgraphicseffect)
-* [setIcon](qradiobutton.md#seticon)
-* [setIconSize](qradiobutton.md#seticonsize)
-* [setInlineStyle](qradiobutton.md#setinlinestyle)
-* [setLayout](qradiobutton.md#setlayout)
-* [setMaximumSize](qradiobutton.md#setmaximumsize)
-* [setMinimumSize](qradiobutton.md#setminimumsize)
-* [setMouseTracking](qradiobutton.md#setmousetracking)
-* [setNodeParent](qradiobutton.md#setnodeparent)
-* [setObjectName](qradiobutton.md#setobjectname)
-* [setProperty](qradiobutton.md#setproperty)
-* [setShortcut](qradiobutton.md#setshortcut)
-* [setStyleSheet](qradiobutton.md#setstylesheet)
-* [setText](qradiobutton.md#settext)
-* [setWindowFlag](qradiobutton.md#setwindowflag)
-* [setWindowIcon](qradiobutton.md#setwindowicon)
-* [setWindowOpacity](qradiobutton.md#setwindowopacity)
-* [setWindowState](qradiobutton.md#setwindowstate)
-* [setWindowTitle](qradiobutton.md#setwindowtitle)
-* [shortcut](qradiobutton.md#shortcut)
-* [show](qradiobutton.md#show)
-* [showFullScreen](qradiobutton.md#showfullscreen)
-* [showMaximized](qradiobutton.md#showmaximized)
-* [showMinimized](qradiobutton.md#showminimized)
-* [showNormal](qradiobutton.md#shownormal)
-* [size](qradiobutton.md#size)
-* [styleSheet](qradiobutton.md#stylesheet)
-* [testAttribute](qradiobutton.md#testattribute)
-* [text](qradiobutton.md#text)
-* [toggle](qradiobutton.md#toggle)
-* [update](qradiobutton.md#update)
-* [updateGeometry](qradiobutton.md#updategeometry)
-* [windowOpacity](qradiobutton.md#windowopacity)
-* [windowState](qradiobutton.md#windowstate)
-* [windowTitle](qradiobutton.md#windowtitle)
+* [acceptDrops](qdesktopwidget.md#acceptdrops)
+* [activateWindow](qdesktopwidget.md#activatewindow)
+* [addAction](qdesktopwidget.md#addaction)
+* [addEventListener](qdesktopwidget.md#addeventlistener)
+* [adjustSize](qdesktopwidget.md#adjustsize)
+* [availableGeometry](qdesktopwidget.md#availablegeometry)
+* [close](qdesktopwidget.md#close)
+* [font](qdesktopwidget.md#font)
+* [geometry](qdesktopwidget.md#geometry)
+* [getFlexNode](qdesktopwidget.md#getflexnode)
+* [hasMouseTracking](qdesktopwidget.md#hasmousetracking)
+* [hide](qdesktopwidget.md#hide)
+* [inherits](qdesktopwidget.md#inherits)
+* [isEnabled](qdesktopwidget.md#isenabled)
+* [isVisible](qdesktopwidget.md#isvisible)
+* [lower](qdesktopwidget.md#lower)
+* [mapFromGlobal](qdesktopwidget.md#mapfromglobal)
+* [mapFromParent](qdesktopwidget.md#mapfromparent)
+* [mapToGlobal](qdesktopwidget.md#maptoglobal)
+* [mapToParent](qdesktopwidget.md#maptoparent)
+* [maximumSize](qdesktopwidget.md#maximumsize)
+* [minimumSize](qdesktopwidget.md#minimumsize)
+* [move](qdesktopwidget.md#move)
+* [objectName](qdesktopwidget.md#objectname)
+* [pos](qdesktopwidget.md#pos)
+* [property](qdesktopwidget.md#property)
+* [raise](qdesktopwidget.md#raise)
+* [removeAction](qdesktopwidget.md#removeaction)
+* [removeEventListener](qdesktopwidget.md#removeeventlistener)
+* [repaint](qdesktopwidget.md#repaint)
+* [repolish](qdesktopwidget.md#repolish)
+* [resize](qdesktopwidget.md#resize)
+* [screenGeometry](qdesktopwidget.md#screengeometry)
+* [screenNumber](qdesktopwidget.md#screennumber)
+* [setAcceptDrops](qdesktopwidget.md#setacceptdrops)
+* [setAttribute](qdesktopwidget.md#setattribute)
+* [setContextMenuPolicy](qdesktopwidget.md#setcontextmenupolicy)
+* [setCursor](qdesktopwidget.md#setcursor)
+* [setEnabled](qdesktopwidget.md#setenabled)
+* [setFixedSize](qdesktopwidget.md#setfixedsize)
+* [setFlexNodeSizeControlled](qdesktopwidget.md#setflexnodesizecontrolled)
+* [setFocus](qdesktopwidget.md#setfocus)
+* [setFont](qdesktopwidget.md#setfont)
+* [setGeometry](qdesktopwidget.md#setgeometry)
+* [setGraphicsEffect](qdesktopwidget.md#setgraphicseffect)
+* [setInlineStyle](qdesktopwidget.md#setinlinestyle)
+* [setLayout](qdesktopwidget.md#setlayout)
+* [setMaximumSize](qdesktopwidget.md#setmaximumsize)
+* [setMinimumSize](qdesktopwidget.md#setminimumsize)
+* [setMouseTracking](qdesktopwidget.md#setmousetracking)
+* [setNodeParent](qdesktopwidget.md#setnodeparent)
+* [setObjectName](qdesktopwidget.md#setobjectname)
+* [setProperty](qdesktopwidget.md#setproperty)
+* [setStyleSheet](qdesktopwidget.md#setstylesheet)
+* [setWindowFlag](qdesktopwidget.md#setwindowflag)
+* [setWindowIcon](qdesktopwidget.md#setwindowicon)
+* [setWindowOpacity](qdesktopwidget.md#setwindowopacity)
+* [setWindowState](qdesktopwidget.md#setwindowstate)
+* [setWindowTitle](qdesktopwidget.md#setwindowtitle)
+* [show](qdesktopwidget.md#show)
+* [showFullScreen](qdesktopwidget.md#showfullscreen)
+* [showMaximized](qdesktopwidget.md#showmaximized)
+* [showMinimized](qdesktopwidget.md#showminimized)
+* [showNormal](qdesktopwidget.md#shownormal)
+* [size](qdesktopwidget.md#size)
+* [styleSheet](qdesktopwidget.md#stylesheet)
+* [testAttribute](qdesktopwidget.md#testattribute)
+* [update](qdesktopwidget.md#update)
+* [updateGeometry](qdesktopwidget.md#updategeometry)
+* [windowOpacity](qdesktopwidget.md#windowopacity)
+* [windowState](qdesktopwidget.md#windowstate)
+* [windowTitle](qdesktopwidget.md#windowtitle)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QRadioButton**(): *[QRadioButton](qradiobutton.md)*
-
-*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
-
-**Returns:** *[QRadioButton](qradiobutton.md)*
-
-\+ **new QRadioButton**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QRadioButton](qradiobutton.md)*
+\+ **new QDesktopWidget**(`parent?`: [NodeWidget](nodewidget.md)‹any›): *[QDesktopWidget](qdesktopwidget.md)*
 
 *Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
 
@@ -160,28 +117,15 @@ radioButton.setText("Hello");
 
 Name | Type |
 ------ | ------ |
-`parent` | [NodeWidget](nodewidget.md)‹any› |
+`parent?` | [NodeWidget](nodewidget.md)‹any› |
 
-**Returns:** *[QRadioButton](qradiobutton.md)*
-
-\+ **new QRadioButton**(`rawPointer`: [NativeRawPointer](../globals.md#nativerawpointer)‹any›, `disableNativeDeletion?`: undefined | false | true): *[QRadioButton](qradiobutton.md)*
-
-*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`rawPointer` | [NativeRawPointer](../globals.md#nativerawpointer)‹any› |
-`disableNativeDeletion?` | undefined &#124; false &#124; true |
-
-**Returns:** *[QRadioButton](qradiobutton.md)*
+**Returns:** *[QDesktopWidget](qdesktopwidget.md)*
 
 ## Properties
 
 ### `Optional` _layout
 
-• **_layout**? : *[NodeLayout](nodelayout.md)‹[QRadioButtonSignals](../globals.md#qradiobuttonsignals)›*
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)›*
 
 *Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
 
@@ -237,13 +181,13 @@ ___
 
 ###  layout
 
-• **get layout**(): *[NodeLayout](nodelayout.md)‹[QRadioButtonSignals](../globals.md#qradiobuttonsignals)› | undefined*
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)› | undefined*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
 
-**Returns:** *[NodeLayout](nodelayout.md)‹[QRadioButtonSignals](../globals.md#qradiobuttonsignals)› | undefined*
+**Returns:** *[NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)› | undefined*
 
-• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QRadioButtonSignals](../globals.md#qradiobuttonsignals)› | undefined): *void*
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)› | undefined): *void*
 
 *Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
 
@@ -251,7 +195,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`l` | [NodeLayout](nodelayout.md)‹[QRadioButtonSignals](../globals.md#qradiobuttonsignals)› &#124; undefined |
+`l` | [NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)› &#124; undefined |
 
 **Returns:** *void*
 
@@ -295,20 +239,20 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QRadioButtonSignals[SignalType]): *void*
+▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QDesktopWidgetSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof QRadioButtonSignals*
+▪ **SignalType**: *keyof QDesktopWidgetSignals*
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
-`callback` | QRadioButtonSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`callback` | QDesktopWidgetSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
 
 **Returns:** *void*
 
@@ -359,69 +303,17 @@ ___
 
 ___
 
-###  animateClick
+###  availableGeometry
 
-▸ **animateClick**(`msec`: number): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[animateClick](qabstractbutton.md#animateclick)*
+▸ **availableGeometry**(`screen`: number): *[QRect](qrect.md)*
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`msec` | number |
+Name | Type | Default |
+------ | ------ | ------ |
+`screen` | number | -1 |
 
-**Returns:** *void*
-
-___
-
-###  autoExclusive
-
-▸ **autoExclusive**(): *boolean*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[autoExclusive](qabstractbutton.md#autoexclusive)*
-
-**Returns:** *boolean*
-
-___
-
-###  autoRepeat
-
-▸ **autoRepeat**(): *boolean*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[autoRepeat](qabstractbutton.md#autorepeat)*
-
-**Returns:** *boolean*
-
-___
-
-###  autoRepeatDelay
-
-▸ **autoRepeatDelay**(): *number*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[autoRepeatDelay](qabstractbutton.md#autorepeatdelay)*
-
-**Returns:** *number*
-
-___
-
-###  autoRepeatInterval
-
-▸ **autoRepeatInterval**(): *number*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[autoRepeatInterval](qabstractbutton.md#autorepeatinterval)*
-
-**Returns:** *number*
-
-___
-
-###  click
-
-▸ **click**(): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[click](qabstractbutton.md#click)*
-
-**Returns:** *void*
+**Returns:** *[QRect](qrect.md)*
 
 ___
 
@@ -485,26 +377,6 @@ ___
 
 ___
 
-###  icon
-
-▸ **icon**(): *[QIcon](qicon.md)*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[icon](qabstractbutton.md#icon)*
-
-**Returns:** *[QIcon](qicon.md)*
-
-___
-
-###  iconSize
-
-▸ **iconSize**(): *[QSize](qsize.md)*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[iconSize](qabstractbutton.md#iconsize)*
-
-**Returns:** *[QSize](qsize.md)*
-
-___
-
 ###  inherits
 
 ▸ **inherits**(`className`: string): *boolean*
@@ -516,36 +388,6 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
-
-**Returns:** *boolean*
-
-___
-
-###  isCheckable
-
-▸ **isCheckable**(): *boolean*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[isCheckable](qabstractbutton.md#ischeckable)*
-
-**Returns:** *boolean*
-
-___
-
-###  isChecked
-
-▸ **isChecked**(): *boolean*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[isChecked](qabstractbutton.md#ischecked)*
-
-**Returns:** *boolean*
-
-___
-
-###  isDown
-
-▸ **isDown**(): *boolean*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[isDown](qabstractbutton.md#isdown)*
 
 **Returns:** *boolean*
 
@@ -750,20 +592,20 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QRadioButtonSignals[SignalType]): *void*
+▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QDesktopWidgetSignals[SignalType]): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
 **Type parameters:**
 
-▪ **SignalType**: *keyof QRadioButtonSignals*
+▪ **SignalType**: *keyof QDesktopWidgetSignals*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
-`callback` | QRadioButtonSignals[SignalType] |
+`callback` | QDesktopWidgetSignals[SignalType] |
 
 **Returns:** *void*
 
@@ -826,6 +668,28 @@ Name | Type |
 
 ___
 
+###  screenGeometry
+
+▸ **screenGeometry**(`screen`: number): *[QRect](qrect.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`screen` | number | -1 |
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
+###  screenNumber
+
+▸ **screenNumber**(): *number*
+
+**Returns:** *number*
+
+___
+
 ###  setAcceptDrops
 
 ▸ **setAcceptDrops**(`on`: boolean): *void*
@@ -859,102 +723,6 @@ Name | Type |
 
 ___
 
-###  setAutoExclusive
-
-▸ **setAutoExclusive**(`enable`: boolean): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[setAutoExclusive](qabstractbutton.md#setautoexclusive)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`enable` | boolean |
-
-**Returns:** *void*
-
-___
-
-###  setAutoRepeat
-
-▸ **setAutoRepeat**(`enable`: boolean): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[setAutoRepeat](qabstractbutton.md#setautorepeat)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`enable` | boolean |
-
-**Returns:** *void*
-
-___
-
-###  setAutoRepeatDelay
-
-▸ **setAutoRepeatDelay**(`delay`: number): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[setAutoRepeatDelay](qabstractbutton.md#setautorepeatdelay)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`delay` | number |
-
-**Returns:** *void*
-
-___
-
-###  setAutoRepeatInterval
-
-▸ **setAutoRepeatInterval**(`interval`: number): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[setAutoRepeatInterval](qabstractbutton.md#setautorepeatinterval)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`interval` | number |
-
-**Returns:** *void*
-
-___
-
-###  setCheckable
-
-▸ **setCheckable**(`checkable`: boolean): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[setCheckable](qabstractbutton.md#setcheckable)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`checkable` | boolean |
-
-**Returns:** *void*
-
-___
-
-###  setChecked
-
-▸ **setChecked**(`checked`: boolean): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[setChecked](qabstractbutton.md#setchecked)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`checked` | boolean |
-
-**Returns:** *void*
-
-___
-
 ###  setContextMenuPolicy
 
 ▸ **setContextMenuPolicy**(`contextMenuPolicy`: [ContextMenuPolicy](../enums/contextmenupolicy.md)): *void*
@@ -982,22 +750,6 @@ ___
 Name | Type |
 ------ | ------ |
 `cursor` | [CursorShape](../enums/cursorshape.md) &#124; [QCursor](qcursor.md) |
-
-**Returns:** *void*
-
-___
-
-###  setDown
-
-▸ **setDown**(`down`: boolean): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[setDown](qabstractbutton.md#setdown)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`down` | boolean |
 
 **Returns:** *void*
 
@@ -1121,38 +873,6 @@ Name | Type |
 
 ___
 
-###  setIcon
-
-▸ **setIcon**(`icon`: [QIcon](qicon.md)): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[setIcon](qabstractbutton.md#seticon)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`icon` | [QIcon](qicon.md) |
-
-**Returns:** *void*
-
-___
-
-###  setIconSize
-
-▸ **setIconSize**(`iconSize`: [QSize](qsize.md)): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[setIconSize](qabstractbutton.md#seticonsize)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`iconSize` | [QSize](qsize.md) |
-
-**Returns:** *void*
-
-___
-
 ###  setInlineStyle
 
 ▸ **setInlineStyle**(`style`: string): *void*
@@ -1171,7 +891,7 @@ ___
 
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QRadioButtonSignals](../globals.md#qradiobuttonsignals)›): *void*
+▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)›): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -1179,7 +899,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹[QRadioButtonSignals](../globals.md#qradiobuttonsignals)› |
+`parentLayout` | [NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)› |
 
 **Returns:** *void*
 
@@ -1286,22 +1006,6 @@ Name | Type |
 
 ___
 
-###  setShortcut
-
-▸ **setShortcut**(`key`: [QKeySequence](qkeysequence.md)): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[setShortcut](qabstractbutton.md#setshortcut)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`key` | [QKeySequence](qkeysequence.md) |
-
-**Returns:** *void*
-
-___
-
 ###  setStyleSheet
 
 ▸ **setStyleSheet**(`styleSheet`: string): *void*
@@ -1313,22 +1017,6 @@ ___
 Name | Type |
 ------ | ------ |
 `styleSheet` | string |
-
-**Returns:** *void*
-
-___
-
-###  setText
-
-▸ **setText**(`text`: string): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[setText](qabstractbutton.md#settext)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`text` | string |
 
 **Returns:** *void*
 
@@ -1415,16 +1103,6 @@ Name | Type |
 
 ___
 
-###  shortcut
-
-▸ **shortcut**(): *[QKeySequence](qkeysequence.md)*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[shortcut](qabstractbutton.md#shortcut)*
-
-**Returns:** *[QKeySequence](qkeysequence.md)*
-
-___
-
 ###  show
 
 ▸ **show**(): *void*
@@ -1508,26 +1186,6 @@ Name | Type |
 `attribute` | [WidgetAttribute](../enums/widgetattribute.md) |
 
 **Returns:** *boolean*
-
-___
-
-###  text
-
-▸ **text**(): *string*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[text](qabstractbutton.md#text)*
-
-**Returns:** *string*
-
-___
-
-###  toggle
-
-▸ **toggle**(): *void*
-
-*Inherited from [QAbstractButton](qabstractbutton.md).[toggle](qabstractbutton.md#toggle)*
-
-**Returns:** *void*
 
 ___
 

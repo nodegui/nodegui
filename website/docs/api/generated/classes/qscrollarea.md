@@ -39,15 +39,19 @@ scrollArea.setWidget(imageLabel);
 
 ### Properties
 
+* [_layout](qscrollarea.md#optional-_layout)
 * [_rawInlineStyle](qscrollarea.md#_rawinlinestyle)
 * [actions](qscrollarea.md#actions)
 * [contentWidget](qscrollarea.md#optional-contentwidget)
-* [layout](qscrollarea.md#optional-layout)
 * [native](qscrollarea.md#native)
 * [nodeChildren](qscrollarea.md#nodechildren)
 * [nodeParent](qscrollarea.md#optional-nodeparent)
 * [type](qscrollarea.md#type)
 * [viewportWidget](qscrollarea.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](qscrollarea.md#layout)
 
 ### Methods
 
@@ -171,6 +175,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QScrollAreaSignals](../globals.md#qscrollareasignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -190,14 +202,6 @@ ___
 ### `Optional` contentWidget
 
 • **contentWidget**? : *[NodeWidget](nodewidget.md)‹any› | null*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QScrollAreaSignals](../globals.md#qscrollareasignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -238,6 +242,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QScrollAreaSignals](../globals.md#qscrollareasignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QScrollAreaSignals](../globals.md#qscrollareasignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QScrollAreaSignals](../globals.md#qscrollareasignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QScrollAreaSignals](../globals.md#qscrollareasignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
