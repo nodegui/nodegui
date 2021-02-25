@@ -375,6 +375,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "wkirby",
+      "name": "Wyatt Kirby",
+      "avatar_url": "https://avatars.githubusercontent.com/u/579688?v=4",
+      "profile": "http://www.apsis.io",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
