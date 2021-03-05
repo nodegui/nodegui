@@ -14,6 +14,8 @@ NodeGUI is powered by **Qt5** 💚 which makes it CPU and memory efficient as co
 
 <img src="https://vuejs.org/images/logo.png" alt="" width="25" /> If you are looking for **Vue** based version, check out: **[Vue NodeGUI](https://github.com/nodegui/vue-nodegui)**.
 
+<img src="https://github.com/sveltejs/branding/raw/master/svelte-logo.png" alt="" width="25" /> If you are looking for **Svelte** based version, check out: **[Svelte NodeGUI](https://github.com/nodegui/svelte-nodegui)**.
+
 Visit: https://nodegui.github.io/nodegui for docs.
 
 <img alt="logo" src="https://github.com/nodegui/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
