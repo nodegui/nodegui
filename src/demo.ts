@@ -3,7 +3,6 @@ import { QLabel } from './lib/QtWidgets/QLabel';
 import { QScrollArea } from './lib/QtWidgets/QScrollArea';
 import { FlexLayout } from './lib/core/FlexLayout';
 import { WidgetEventTypes } from './lib/core/EventWidget';
-import { SizeConstraint } from './lib/QtWidgets/QLayout';
 
 const win = new QMainWindow();
 win.resize(500, 500);

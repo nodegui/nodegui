@@ -9,13 +9,14 @@
 
 #include <cmath>
 #include <limits>
+
 #include "Yoga-internal.h"
 
 struct YGFloatOptional {
-private:
+ private:
   float value_ = std::numeric_limits<float>::quiet_NaN();
 
-public:
+ public:
   explicit constexpr YGFloatOptional(float value) : value_(value) {}
   constexpr YGFloatOptional() = default;
 
@@ -29,7 +30,7 @@ public:
 
 inline bool operator==(YGFloatOptional lhs, YGFloatOptional rhs) {
   return lhs.unwrap() == rhs.unwrap() ||
-      (lhs.isUndefined() && rhs.isUndefined());
+         (lhs.isUndefined() && rhs.isUndefined());
 }
 inline bool operator!=(YGFloatOptional lhs, YGFloatOptional rhs) {
   return !(lhs == rhs);
@@ -38,16 +39,10 @@ inline bool operator!=(YGFloatOptional lhs, YGFloatOptional rhs) {
 inline bool operator==(YGFloatOptional lhs, float rhs) {
   return lhs == YGFloatOptional{rhs};
 }
-inline bool operator!=(YGFloatOptional lhs, float rhs) {
-  return !(lhs == rhs);
-}
+inline bool operator!=(YGFloatOptional lhs, float rhs) { return !(lhs == rhs); }
 
-inline bool operator==(float lhs, YGFloatOptional rhs) {
-  return rhs == lhs;
-}
-inline bool operator!=(float lhs, YGFloatOptional rhs) {
-  return !(lhs == rhs);
-}
+inline bool operator==(float lhs, YGFloatOptional rhs) { return rhs == lhs; }
+inline bool operator!=(float lhs, YGFloatOptional rhs) { return !(lhs == rhs); }
 
 inline YGFloatOptional operator+(YGFloatOptional lhs, YGFloatOptional rhs) {
   return YGFloatOptional{lhs.unwrap() + rhs.unwrap()};

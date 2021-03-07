@@ -6,16 +6,16 @@
  */
 
 #include "Utils.h"
+
 #include <stdexcept>
 
 using namespace facebook;
 
-YGFlexDirection YGFlexDirectionCross(
-    const YGFlexDirection flexDirection,
-    const YGDirection direction) {
+YGFlexDirection YGFlexDirectionCross(const YGFlexDirection flexDirection,
+                                     const YGDirection direction) {
   return YGFlexDirectionIsColumn(flexDirection)
-      ? YGResolveFlexDirection(YGFlexDirectionRow, direction)
-      : YGFlexDirectionColumn;
+             ? YGResolveFlexDirection(YGFlexDirectionRow, direction)
+             : YGFlexDirectionColumn;
 }
 
 float YGFloatMax(const float a, const float b) {

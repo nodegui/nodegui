@@ -7,9 +7,9 @@
 
 #pragma once
 
-#include "experiments.h"
-
 #include <bitset>
+
+#include "experiments.h"
 
 namespace facebook {
 namespace yoga {
@@ -17,16 +17,14 @@ namespace internal {
 
 namespace detail {
 extern std::bitset<sizeof(int)> enabledExperiments;
-} // namespace detail
+}  // namespace detail
 
 inline bool isEnabled(Experiment experiment) {
   return detail::enabledExperiments.test(static_cast<size_t>(experiment));
 }
 
-inline void disableAllExperiments() {
-  detail::enabledExperiments = 0;
-}
+inline void disableAllExperiments() { detail::enabledExperiments = 0; }
 
-} // namespace internal
-} // namespace yoga
-} // namespace facebook
+}  // namespace internal
+}  // namespace yoga
+}  // namespace facebook

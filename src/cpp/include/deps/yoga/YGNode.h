@@ -9,25 +9,27 @@
 
 #ifdef __cplusplus
 
-#include <cstdint>
 #include <stdio.h>
+
+#include <cstdint>
+
 #include "BitUtils.h"
 #include "CompactValue.h"
 #include "YGConfig.h"
 #include "YGLayout.h"
-#include "YGStyle.h"
 #include "YGMacros.h"
+#include "YGStyle.h"
 #include "Yoga-internal.h"
 
 YGConfigRef YGConfigGetDefault();
 
 struct YOGA_EXPORT YGNode {
-  using MeasureWithContextFn =
-      YGSize (*)(YGNode*, float, YGMeasureMode, float, YGMeasureMode, void*);
+  using MeasureWithContextFn = YGSize (*)(YGNode*, float, YGMeasureMode, float,
+                                          YGMeasureMode, void*);
   using BaselineWithContextFn = float (*)(YGNode*, float, float, void*);
   using PrintWithContextFn = void (*)(YGNode*, void*);
 
-private:
+ private:
   static constexpr size_t hasNewLayout_ = 0;
   static constexpr size_t isReferenceBaseline_ = 1;
   static constexpr size_t isDirty_ = 2;
@@ -62,9 +64,8 @@ private:
   std::array<YGValue, 2> resolvedDimensions_ = {
       {YGValueUndefined, YGValueUndefined}};
 
-  YGFloatOptional relativePosition(
-      const YGFlexDirection axis,
-      const float axisSize) const;
+  YGFloatOptional relativePosition(const YGFlexDirection axis,
+                                   const float axisSize) const;
 
   void setMeasureFunc(decltype(measure_));
   void setBaselineFunc(decltype(baseline_));
@@ -84,14 +85,14 @@ private:
 
   using CompactValue = facebook::yoga::detail::CompactValue;
 
-public:
+ public:
   YGNode() : YGNode{YGConfigGetDefault()} {}
   explicit YGNode(const YGConfigRef config) : config_{config} {
     if (config->useWebDefaults) {
       useWebDefaults();
     }
   };
-  ~YGNode() = default; // cleanup of owner/children relationships in YGNodeFree
+  ~YGNode() = default;  // cleanup of owner/children relationships in YGNodeFree
 
   YGNode(YGNode&&);
 
@@ -194,37 +195,28 @@ public:
   }
 
   // Methods related to positions, margin, padding and border
-  YGFloatOptional getLeadingPosition(
-      const YGFlexDirection axis,
-      const float axisSize) const;
+  YGFloatOptional getLeadingPosition(const YGFlexDirection axis,
+                                     const float axisSize) const;
   bool isLeadingPositionDefined(const YGFlexDirection axis) const;
   bool isTrailingPosDefined(const YGFlexDirection axis) const;
-  YGFloatOptional getTrailingPosition(
-      const YGFlexDirection axis,
-      const float axisSize) const;
-  YGFloatOptional getLeadingMargin(
-      const YGFlexDirection axis,
-      const float widthSize) const;
-  YGFloatOptional getTrailingMargin(
-      const YGFlexDirection axis,
-      const float widthSize) const;
+  YGFloatOptional getTrailingPosition(const YGFlexDirection axis,
+                                      const float axisSize) const;
+  YGFloatOptional getLeadingMargin(const YGFlexDirection axis,
+                                   const float widthSize) const;
+  YGFloatOptional getTrailingMargin(const YGFlexDirection axis,
+                                    const float widthSize) const;
   float getLeadingBorder(const YGFlexDirection flexDirection) const;
   float getTrailingBorder(const YGFlexDirection flexDirection) const;
-  YGFloatOptional getLeadingPadding(
-      const YGFlexDirection axis,
-      const float widthSize) const;
-  YGFloatOptional getTrailingPadding(
-      const YGFlexDirection axis,
-      const float widthSize) const;
-  YGFloatOptional getLeadingPaddingAndBorder(
-      const YGFlexDirection axis,
-      const float widthSize) const;
-  YGFloatOptional getTrailingPaddingAndBorder(
-      const YGFlexDirection axis,
-      const float widthSize) const;
-  YGFloatOptional getMarginForAxis(
-      const YGFlexDirection axis,
-      const float widthSize) const;
+  YGFloatOptional getLeadingPadding(const YGFlexDirection axis,
+                                    const float widthSize) const;
+  YGFloatOptional getTrailingPadding(const YGFlexDirection axis,
+                                     const float widthSize) const;
+  YGFloatOptional getLeadingPaddingAndBorder(const YGFlexDirection axis,
+                                             const float widthSize) const;
+  YGFloatOptional getTrailingPaddingAndBorder(const YGFlexDirection axis,
+                                              const float widthSize) const;
+  YGFloatOptional getMarginForAxis(const YGFlexDirection axis,
+                                   const float widthSize) const;
   // Setters
 
   void setContext(void* context) { context_ = context; }
@@ -244,8 +236,8 @@ public:
   }
 
   void setNodeType(YGNodeType nodeType) {
-    return facebook::yoga::detail::setEnumData<YGNodeType>(
-        flags, nodeType_, nodeType);
+    return facebook::yoga::detail::setEnumData<YGNodeType>(flags, nodeType_,
+                                                           nodeType);
   }
 
   void setMeasureFunc(YGMeasureFunc measureFunc);
@@ -275,8 +267,8 @@ public:
   void setLineIndex(uint32_t lineIndex) { lineIndex_ = lineIndex; }
 
   void setIsReferenceBaseline(bool isReferenceBaseline) {
-    facebook::yoga::detail::setBooleanData(
-        flags, isReferenceBaseline_, isReferenceBaseline);
+    facebook::yoga::detail::setBooleanData(flags, isReferenceBaseline_,
+                                           isReferenceBaseline);
   }
 
   void setOwner(YGNodeRef owner) { owner_ = owner; }
@@ -300,11 +292,8 @@ public:
   void setLayoutBorder(float border, int index);
   void setLayoutPadding(float padding, int index);
   void setLayoutPosition(float position, int index);
-  void setPosition(
-      const YGDirection direction,
-      const float mainSize,
-      const float crossSize,
-      const float ownerWidth);
+  void setPosition(const YGDirection direction, const float mainSize,
+                   const float crossSize, const float ownerWidth);
   void setLayoutDoesLegacyFlagAffectsLayout(bool doesLegacyFlagAffectsLayout);
   void setLayoutDidUseLegacyFlag(bool didUseLegacyFlag);
   void markDirtyAndPropogateDownwards();

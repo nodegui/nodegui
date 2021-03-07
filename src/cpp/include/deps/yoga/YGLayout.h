@@ -19,7 +19,7 @@ struct YGLayout {
   std::array<float, 4> border = {};
   std::array<float, 4> padding = {};
 
-private:
+ private:
   static constexpr size_t directionOffset = 0;
   static constexpr size_t didUseLegacyFlagOffset =
       directionOffset + facebook::yoga::detail::bitWidthFn<YGDirection>();
@@ -29,7 +29,7 @@ private:
       doesLegacyStretchFlagAffectsLayoutOffset + 1;
   uint8_t flags = 0;
 
-public:
+ public:
   uint32_t computedFlexBasisGeneration = 0;
   YGFloatOptional computedFlexBasis = {};
 
@@ -46,18 +46,18 @@ public:
   YGCachedMeasurement cachedLayout = YGCachedMeasurement();
 
   YGDirection direction() const {
-    return facebook::yoga::detail::getEnumData<YGDirection>(
-        flags, directionOffset);
+    return facebook::yoga::detail::getEnumData<YGDirection>(flags,
+                                                            directionOffset);
   }
 
   void setDirection(YGDirection direction) {
-    facebook::yoga::detail::setEnumData<YGDirection>(
-        flags, directionOffset, direction);
+    facebook::yoga::detail::setEnumData<YGDirection>(flags, directionOffset,
+                                                     direction);
   }
 
   bool didUseLegacyFlag() const {
-    return facebook::yoga::detail::getBooleanData(
-        flags, didUseLegacyFlagOffset);
+    return facebook::yoga::detail::getBooleanData(flags,
+                                                  didUseLegacyFlagOffset);
   }
 
   void setDidUseLegacyFlag(bool val) {
@@ -78,8 +78,8 @@ public:
     return facebook::yoga::detail::getBooleanData(flags, hadOverflowOffset);
   }
   void setHadOverflow(bool hadOverflow) {
-    facebook::yoga::detail::setBooleanData(
-        flags, hadOverflowOffset, hadOverflow);
+    facebook::yoga::detail::setBooleanData(flags, hadOverflowOffset,
+                                           hadOverflow);
   }
 
   bool operator==(YGLayout layout) const;

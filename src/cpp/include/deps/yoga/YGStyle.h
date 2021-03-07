@@ -13,12 +13,13 @@
 #include <array>
 #include <cstdint>
 #include <type_traits>
+
+#include "BitUtils.h"
 #include "CompactValue.h"
 #include "YGEnums.h"
 #include "YGFloatOptional.h"
 #include "Yoga-internal.h"
 #include "Yoga.h"
-#include "BitUtils.h"
 
 class YOGA_EXPORT YGStyle {
   template <typename Enum>
@@ -26,7 +27,7 @@ class YOGA_EXPORT YGStyle {
       facebook::yoga::detail::Values<facebook::yoga::enums::count<Enum>()>;
   using CompactValue = facebook::yoga::detail::CompactValue;
 
-public:
+ public:
   using Dimensions = Values<YGDimension>;
   using Edges = Values<YGEdge>;
 
@@ -71,7 +72,7 @@ public:
       style.*Prop = values;
       return *this;
     }
-    operator const Values<Idx>&() const { return style.*Prop; }
+    operator const Values<Idx> &() const { return style.*Prop; }
     Ref operator[](Idx idx) { return {style, idx}; }
     CompactValue operator[](Idx idx) const { return (style.*Prop)[idx]; }
   };
@@ -82,11 +83,12 @@ public:
   }
   ~YGStyle() = default;
 
-private:
+ private:
   static constexpr size_t directionOffset = 0;
   static constexpr size_t flexdirectionOffset =
       directionOffset + facebook::yoga::detail::bitWidthFn<YGDirection>();
-  static constexpr size_t justifyContentOffset = flexdirectionOffset +
+  static constexpr size_t justifyContentOffset =
+      flexdirectionOffset +
       facebook::yoga::detail::bitWidthFn<YGFlexDirection>();
   static constexpr size_t alignContentOffset =
       justifyContentOffset + facebook::yoga::detail::bitWidthFn<YGJustify>();
@@ -119,13 +121,13 @@ private:
   // Yoga specific properties, not compatible with flexbox specification
   YGFloatOptional aspectRatio_ = {};
 
-public:
+ public:
   // for library users needing a type
   using ValueRepr = std::remove_reference<decltype(margin_[0])>::type;
 
   YGDirection direction() const {
-    return facebook::yoga::detail::getEnumData<YGDirection>(
-        flags, directionOffset);
+    return facebook::yoga::detail::getEnumData<YGDirection>(flags,
+                                                            directionOffset);
   }
   BitfieldRef<YGDirection> direction() { return {*this, directionOffset}; }
 
@@ -138,22 +140,22 @@ public:
   }
 
   YGJustify justifyContent() const {
-    return facebook::yoga::detail::getEnumData<YGJustify>(
-        flags, justifyContentOffset);
+    return facebook::yoga::detail::getEnumData<YGJustify>(flags,
+                                                          justifyContentOffset);
   }
   BitfieldRef<YGJustify> justifyContent() {
     return {*this, justifyContentOffset};
   }
 
   YGAlign alignContent() const {
-    return facebook::yoga::detail::getEnumData<YGAlign>(
-        flags, alignContentOffset);
+    return facebook::yoga::detail::getEnumData<YGAlign>(flags,
+                                                        alignContentOffset);
   }
   BitfieldRef<YGAlign> alignContent() { return {*this, alignContentOffset}; }
 
   YGAlign alignItems() const {
-    return facebook::yoga::detail::getEnumData<YGAlign>(
-        flags, alignItemsOffset);
+    return facebook::yoga::detail::getEnumData<YGAlign>(flags,
+                                                        alignItemsOffset);
   }
   BitfieldRef<YGAlign> alignItems() { return {*this, alignItemsOffset}; }
 
@@ -176,8 +178,8 @@ public:
   BitfieldRef<YGWrap> flexWrap() { return {*this, flexWrapOffset}; }
 
   YGOverflow overflow() const {
-    return facebook::yoga::detail::getEnumData<YGOverflow>(
-        flags, overflowOffset);
+    return facebook::yoga::detail::getEnumData<YGOverflow>(flags,
+                                                           overflowOffset);
   }
   BitfieldRef<YGOverflow> overflow() { return {*this, overflowOffset}; }
 

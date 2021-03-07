@@ -7,8 +7,9 @@
 
 #pragma once
 
-#include <cstdio>
 #include <cstdint>
+#include <cstdio>
+
 #include "YGEnums.h"
 
 namespace facebook {
@@ -27,8 +28,8 @@ constexpr int mask(size_t bitWidth, size_t index) {
 // The number of bits necessary to represent enums defined with YG_ENUM_SEQ_DECL
 template <typename Enum>
 constexpr size_t bitWidthFn() {
-  static_assert(
-      enums::count<Enum>() > 0, "Enums must have at least one entries");
+  static_assert(enums::count<Enum>() > 0,
+                "Enums must have at least one entries");
   return log2ceilFn(enums::count<Enum>() - 1);
 }
 
@@ -40,13 +41,13 @@ constexpr Enum getEnumData(int flags, size_t index) {
 template <typename Enum>
 void setEnumData(uint32_t& flags, size_t index, int newValue) {
   flags = (flags & ~mask(bitWidthFn<Enum>(), index)) |
-      ((newValue << index) & (mask(bitWidthFn<Enum>(), index)));
+          ((newValue << index) & (mask(bitWidthFn<Enum>(), index)));
 }
 
 template <typename Enum>
 void setEnumData(uint8_t& flags, size_t index, int newValue) {
   flags = (flags & ~mask(bitWidthFn<Enum>(), index)) |
-      ((newValue << index) & (mask(bitWidthFn<Enum>(), index)));
+          ((newValue << index) & (mask(bitWidthFn<Enum>(), index)));
 }
 
 constexpr bool getBooleanData(int flags, size_t index) {
@@ -61,6 +62,6 @@ inline void setBooleanData(uint8_t& flags, size_t index, bool value) {
   }
 }
 
-} // namespace detail
-} // namespace yoga
-} // namespace facebook
+}  // namespace detail
+}  // namespace yoga
+}  // namespace facebook

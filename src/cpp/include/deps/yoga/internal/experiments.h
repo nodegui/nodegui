@@ -21,6 +21,6 @@ void enable(Experiment);
 void disable(Experiment);
 bool toggle(Experiment);
 
-} // namespace internal
-} // namespace yoga
-} // namespace facebook
+}  // namespace internal
+}  // namespace yoga
+}  // namespace facebook
