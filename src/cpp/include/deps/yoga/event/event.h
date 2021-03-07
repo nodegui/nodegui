@@ -7,12 +7,11 @@
 
 #pragma once
 
-#include <yoga/YGEnums.h>
-
-#include <array>
-#include <cstdint>
 #include <functional>
 #include <vector>
+#include <array>
+#include <yoga/YGEnums.h>
+#include <stdint.h>
 
 struct YGConfig;
 struct YGNode;
@@ -74,7 +73,7 @@ struct YOGA_EXPORT Event {
   class Data {
     const void* data_;
 
-   public:
+  public:
     template <Type E>
     Data(const TypedData<E>& data) : data_{&data} {}
 
@@ -100,7 +99,7 @@ struct YOGA_EXPORT Event {
     publish<E>(*node, eventData);
   }
 
- private:
+private:
   static void publish(const YGNode&, Type, const Data&);
 };
 
@@ -143,5 +142,5 @@ struct Event::TypedData<Event::NodeLayout> {
   void* layoutContext;
 };
 
-}  // namespace yoga
-}  // namespace facebook
+} // namespace yoga
+} // namespace facebook

@@ -6,13 +6,11 @@
  */
 
 #include "YGStyle.h"
-
 #include "Utils.h"
 
 // Yoga specific properties, not compatible with flexbox specification
 bool operator==(const YGStyle& lhs, const YGStyle& rhs) {
-  bool areNonFloatValuesEqual =
-      lhs.direction() == rhs.direction() &&
+  bool areNonFloatValuesEqual = lhs.direction() == rhs.direction() &&
       lhs.flexDirection() == rhs.flexDirection() &&
       lhs.justifyContent() == rhs.justifyContent() &&
       lhs.alignContent() == rhs.alignContent() &&
@@ -29,22 +27,20 @@ bool operator==(const YGStyle& lhs, const YGStyle& rhs) {
       lhs.maxDimensions() == rhs.maxDimensions();
 
   areNonFloatValuesEqual = areNonFloatValuesEqual &&
-                           lhs.flex().isUndefined() == rhs.flex().isUndefined();
+      lhs.flex().isUndefined() == rhs.flex().isUndefined();
   if (areNonFloatValuesEqual && !lhs.flex().isUndefined() &&
       !rhs.flex().isUndefined()) {
     areNonFloatValuesEqual = areNonFloatValuesEqual && lhs.flex() == rhs.flex();
   }
 
-  areNonFloatValuesEqual =
-      areNonFloatValuesEqual &&
+  areNonFloatValuesEqual = areNonFloatValuesEqual &&
       lhs.flexGrow().isUndefined() == rhs.flexGrow().isUndefined();
   if (areNonFloatValuesEqual && !lhs.flexGrow().isUndefined()) {
     areNonFloatValuesEqual =
         areNonFloatValuesEqual && lhs.flexGrow() == rhs.flexGrow();
   }
 
-  areNonFloatValuesEqual =
-      areNonFloatValuesEqual &&
+  areNonFloatValuesEqual = areNonFloatValuesEqual &&
       lhs.flexShrink().isUndefined() == rhs.flexShrink().isUndefined();
   if (areNonFloatValuesEqual && !rhs.flexShrink().isUndefined()) {
     areNonFloatValuesEqual =

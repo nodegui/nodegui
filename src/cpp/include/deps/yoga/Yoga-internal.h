@@ -10,7 +10,6 @@
 #include <array>
 #include <cmath>
 #include <vector>
-
 #include "CompactValue.h"
 #include "Yoga.h"
 
@@ -18,20 +17,24 @@ using YGVector = std::vector<YGNodeRef>;
 
 YG_EXTERN_C_BEGIN
 
-void YGNodeCalculateLayoutWithContext(YGNodeRef node, float availableWidth,
-                                      float availableHeight,
-                                      YGDirection ownerDirection,
-                                      void* layoutContext);
+void YGNodeCalculateLayoutWithContext(
+    YGNodeRef node,
+    float availableWidth,
+    float availableHeight,
+    YGDirection ownerDirection,
+    void* layoutContext);
 
 YG_EXTERN_C_END
 
 namespace facebook {
 namespace yoga {
 
-inline bool isUndefined(float value) { return std::isnan(value); }
+inline bool isUndefined(float value) {
+  return std::isnan(value);
+}
 
-}  // namespace yoga
-}  // namespace facebook
+} // namespace yoga
+} // namespace facebook
 
 using namespace facebook;
 
@@ -51,16 +54,16 @@ struct YGCachedMeasurement {
   float computedHeight;
 
   YGCachedMeasurement()
-      : availableWidth(0),
-        availableHeight(0),
-        widthMeasureMode((YGMeasureMode)-1),
-        heightMeasureMode((YGMeasureMode)-1),
+      : availableWidth(-1),
+        availableHeight(-1),
+        widthMeasureMode(YGMeasureModeUndefined),
+        heightMeasureMode(YGMeasureModeUndefined),
         computedWidth(-1),
         computedHeight(-1) {}
 
   bool operator==(YGCachedMeasurement measurement) const {
     bool isEqual = widthMeasureMode == measurement.widthMeasureMode &&
-                   heightMeasureMode == measurement.heightMeasureMode;
+        heightMeasureMode == measurement.heightMeasureMode;
 
     if (!yoga::isUndefined(availableWidth) ||
         !yoga::isUndefined(measurement.availableWidth)) {
@@ -93,10 +96,10 @@ namespace detail {
 
 template <size_t Size>
 class Values {
- private:
+private:
   std::array<CompactValue, Size> values_;
 
- public:
+public:
   Values() = default;
   explicit Values(const YGValue& defaultValue) noexcept {
     values_.fill(defaultValue);
@@ -132,9 +135,9 @@ class Values {
   Values& operator=(const Values& other) = default;
 };
 
-}  // namespace detail
-}  // namespace yoga
-}  // namespace facebook
+} // namespace detail
+} // namespace yoga
+} // namespace facebook
 
 static const float kDefaultFlexGrow = 0.0f;
 static const float kDefaultFlexShrink = 0.0f;
@@ -144,4 +147,5 @@ extern bool YGFloatsEqual(const float a, const float b);
 extern facebook::yoga::detail::CompactValue YGComputedEdgeValue(
     const facebook::yoga::detail::Values<
         facebook::yoga::enums::count<YGEdge>()>& edges,
-    YGEdge edge, facebook::yoga::detail::CompactValue defaultValue);
+    YGEdge edge,
+    facebook::yoga::detail::CompactValue defaultValue);

@@ -6,7 +6,6 @@
  */
 
 #include "experiments.h"
-
 #include "experiments-inl.h"
 
 namespace facebook {
@@ -17,7 +16,7 @@ namespace detail {
 
 std::bitset<sizeof(int)> enabledExperiments = 0;
 
-}  // namespace detail
+} // namespace detail
 
 void enable(Experiment experiment) {
   detail::enabledExperiments.set(static_cast<size_t>(experiment));
@@ -34,6 +33,6 @@ bool toggle(Experiment experiment) {
   return previousState;
 }
 
-}  // namespace internal
-}  // namespace yoga
-}  // namespace facebook
+} // namespace internal
+} // namespace yoga
+} // namespace facebook

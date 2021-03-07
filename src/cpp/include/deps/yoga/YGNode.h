@@ -6,27 +6,28 @@
  */
 
 #pragma once
-#include <stdio.h>
+
+#ifdef __cplusplus
 
 #include <cstdint>
-
-#include "Bitfield.h"
+#include <stdio.h>
+#include "BitUtils.h"
 #include "CompactValue.h"
 #include "YGConfig.h"
 #include "YGLayout.h"
-#include "YGMacros.h"
 #include "YGStyle.h"
+#include "YGMacros.h"
 #include "Yoga-internal.h"
 
 YGConfigRef YGConfigGetDefault();
 
 struct YOGA_EXPORT YGNode {
-  using MeasureWithContextFn = YGSize (*)(YGNode*, float, YGMeasureMode, float,
-                                          YGMeasureMode, void*);
+  using MeasureWithContextFn =
+      YGSize (*)(YGNode*, float, YGMeasureMode, float, YGMeasureMode, void*);
   using BaselineWithContextFn = float (*)(YGNode*, float, float, void*);
   using PrintWithContextFn = void (*)(YGNode*, void*);
 
- private:
+private:
   static constexpr size_t hasNewLayout_ = 0;
   static constexpr size_t isReferenceBaseline_ = 1;
   static constexpr size_t isDirty_ = 2;
@@ -37,10 +38,7 @@ struct YOGA_EXPORT YGNode {
   static constexpr size_t useWebDefaults_ = 7;
 
   void* context_ = nullptr;
-  using Flags = facebook::yoga::Bitfield<uint8_t, bool, bool, bool, YGNodeType,
-                                         bool, bool, bool, bool>;
-  Flags flags_ = {true,  false, false, YGNodeTypeDefault,
-                  false, false, false, false};
+  uint8_t flags = 1;
   uint8_t reserved_ = 0;
   union {
     YGMeasureFunc noContext;
@@ -64,20 +62,21 @@ struct YOGA_EXPORT YGNode {
   std::array<YGValue, 2> resolvedDimensions_ = {
       {YGValueUndefined, YGValueUndefined}};
 
-  YGFloatOptional relativePosition(const YGFlexDirection axis,
-                                   const float axisSize) const;
+  YGFloatOptional relativePosition(
+      const YGFlexDirection axis,
+      const float axisSize) const;
 
   void setMeasureFunc(decltype(measure_));
   void setBaselineFunc(decltype(baseline_));
 
   void useWebDefaults() {
-    flags_.at<useWebDefaults_>() = true;
+    facebook::yoga::detail::setBooleanData(flags, useWebDefaults_, true);
     style_.flexDirection() = YGFlexDirectionRow;
     style_.alignContent() = YGAlignStretch;
   }
 
   // DANGER DANGER DANGER!
-  // If the the node assigned to has children, we'd either have to deallocate
+  // If the node assigned to has children, we'd either have to deallocate
   // them (potentially incorrect) or ignore them (danger of leaks). Only ever
   // use this after checking that there are no children.
   // DO NOT CHANGE THE VISIBILITY OF THIS METHOD!
@@ -85,14 +84,14 @@ struct YOGA_EXPORT YGNode {
 
   using CompactValue = facebook::yoga::detail::CompactValue;
 
- public:
+public:
   YGNode() : YGNode{YGConfigGetDefault()} {}
   explicit YGNode(const YGConfigRef config) : config_{config} {
     if (config->useWebDefaults) {
       useWebDefaults();
     }
   };
-  ~YGNode() = default;  // cleanup of owner/children relationships in YGNodeFree
+  ~YGNode() = default; // cleanup of owner/children relationships in YGNodeFree
 
   YGNode(YGNode&&);
 
@@ -115,9 +114,13 @@ struct YOGA_EXPORT YGNode {
 
   void print(void*);
 
-  bool getHasNewLayout() const { return flags_.at<hasNewLayout_>(); }
+  bool getHasNewLayout() const {
+    return facebook::yoga::detail::getBooleanData(flags, hasNewLayout_);
+  }
 
-  YGNodeType getNodeType() const { return flags_.at<nodeType_>(); }
+  YGNodeType getNodeType() const {
+    return facebook::yoga::detail::getEnumData<YGNodeType>(flags, nodeType_);
+  }
 
   bool hasMeasureFunc() const noexcept { return measure_.noContext != nullptr; }
 
@@ -143,7 +146,9 @@ struct YOGA_EXPORT YGNode {
 
   uint32_t getLineIndex() const { return lineIndex_; }
 
-  bool isReferenceBaseline() { return flags_.at<isReferenceBaseline_>(); }
+  bool isReferenceBaseline() {
+    return facebook::yoga::detail::getBooleanData(flags, isReferenceBaseline_);
+  }
 
   // returns the YGNodeRef that owns this YGNode. An owner is used to identify
   // the YogaTree that a YGNode belongs to. This method will return the parent
@@ -176,7 +181,9 @@ struct YOGA_EXPORT YGNode {
 
   YGConfigRef getConfig() const { return config_; }
 
-  bool isDirty() const { return flags_.at<isDirty_>(); }
+  bool isDirty() const {
+    return facebook::yoga::detail::getBooleanData(flags, isDirty_);
+  }
 
   std::array<YGValue, 2> getResolvedDimensions() const {
     return resolvedDimensions_;
@@ -187,47 +194,59 @@ struct YOGA_EXPORT YGNode {
   }
 
   // Methods related to positions, margin, padding and border
-  YGFloatOptional getLeadingPosition(const YGFlexDirection axis,
-                                     const float axisSize) const;
+  YGFloatOptional getLeadingPosition(
+      const YGFlexDirection axis,
+      const float axisSize) const;
   bool isLeadingPositionDefined(const YGFlexDirection axis) const;
   bool isTrailingPosDefined(const YGFlexDirection axis) const;
-  YGFloatOptional getTrailingPosition(const YGFlexDirection axis,
-                                      const float axisSize) const;
-  YGFloatOptional getLeadingMargin(const YGFlexDirection axis,
-                                   const float widthSize) const;
-  YGFloatOptional getTrailingMargin(const YGFlexDirection axis,
-                                    const float widthSize) const;
+  YGFloatOptional getTrailingPosition(
+      const YGFlexDirection axis,
+      const float axisSize) const;
+  YGFloatOptional getLeadingMargin(
+      const YGFlexDirection axis,
+      const float widthSize) const;
+  YGFloatOptional getTrailingMargin(
+      const YGFlexDirection axis,
+      const float widthSize) const;
   float getLeadingBorder(const YGFlexDirection flexDirection) const;
   float getTrailingBorder(const YGFlexDirection flexDirection) const;
-  YGFloatOptional getLeadingPadding(const YGFlexDirection axis,
-                                    const float widthSize) const;
-  YGFloatOptional getTrailingPadding(const YGFlexDirection axis,
-                                     const float widthSize) const;
-  YGFloatOptional getLeadingPaddingAndBorder(const YGFlexDirection axis,
-                                             const float widthSize) const;
-  YGFloatOptional getTrailingPaddingAndBorder(const YGFlexDirection axis,
-                                              const float widthSize) const;
-  YGFloatOptional getMarginForAxis(const YGFlexDirection axis,
-                                   const float widthSize) const;
+  YGFloatOptional getLeadingPadding(
+      const YGFlexDirection axis,
+      const float widthSize) const;
+  YGFloatOptional getTrailingPadding(
+      const YGFlexDirection axis,
+      const float widthSize) const;
+  YGFloatOptional getLeadingPaddingAndBorder(
+      const YGFlexDirection axis,
+      const float widthSize) const;
+  YGFloatOptional getTrailingPaddingAndBorder(
+      const YGFlexDirection axis,
+      const float widthSize) const;
+  YGFloatOptional getMarginForAxis(
+      const YGFlexDirection axis,
+      const float widthSize) const;
   // Setters
 
   void setContext(void* context) { context_ = context; }
 
   void setPrintFunc(YGPrintFunc printFunc) {
     print_.noContext = printFunc;
-    flags_.at<printUsesContext_>() = false;
+    facebook::yoga::detail::setBooleanData(flags, printUsesContext_, false);
   }
   void setPrintFunc(PrintWithContextFn printFunc) {
     print_.withContext = printFunc;
-    flags_.at<printUsesContext_>() = true;
+    facebook::yoga::detail::setBooleanData(flags, printUsesContext_, true);
   }
   void setPrintFunc(std::nullptr_t) { setPrintFunc(YGPrintFunc{nullptr}); }
 
   void setHasNewLayout(bool hasNewLayout) {
-    flags_.at<hasNewLayout_>() = hasNewLayout;
+    facebook::yoga::detail::setBooleanData(flags, hasNewLayout_, hasNewLayout);
   }
 
-  void setNodeType(YGNodeType nodeType) { flags_.at<nodeType_>() = nodeType; }
+  void setNodeType(YGNodeType nodeType) {
+    return facebook::yoga::detail::setEnumData<YGNodeType>(
+        flags, nodeType_, nodeType);
+  }
 
   void setMeasureFunc(YGMeasureFunc measureFunc);
   void setMeasureFunc(MeasureWithContextFn);
@@ -236,11 +255,11 @@ struct YOGA_EXPORT YGNode {
   }
 
   void setBaselineFunc(YGBaselineFunc baseLineFunc) {
-    flags_.at<baselineUsesContext_>() = false;
+    facebook::yoga::detail::setBooleanData(flags, baselineUsesContext_, false);
     baseline_.noContext = baseLineFunc;
   }
   void setBaselineFunc(BaselineWithContextFn baseLineFunc) {
-    flags_.at<baselineUsesContext_>() = true;
+    facebook::yoga::detail::setBooleanData(flags, baselineUsesContext_, true);
     baseline_.withContext = baseLineFunc;
   }
   void setBaselineFunc(std::nullptr_t) {
@@ -256,7 +275,8 @@ struct YOGA_EXPORT YGNode {
   void setLineIndex(uint32_t lineIndex) { lineIndex_ = lineIndex; }
 
   void setIsReferenceBaseline(bool isReferenceBaseline) {
-    flags_.at<isReferenceBaseline_>() = isReferenceBaseline;
+    facebook::yoga::detail::setBooleanData(
+        flags, isReferenceBaseline_, isReferenceBaseline);
   }
 
   void setOwner(YGNodeRef owner) { owner_ = owner; }
@@ -280,8 +300,11 @@ struct YOGA_EXPORT YGNode {
   void setLayoutBorder(float border, int index);
   void setLayoutPadding(float padding, int index);
   void setLayoutPosition(float position, int index);
-  void setPosition(const YGDirection direction, const float mainSize,
-                   const float crossSize, const float ownerWidth);
+  void setPosition(
+      const YGDirection direction,
+      const float mainSize,
+      const float crossSize,
+      const float ownerWidth);
   void setLayoutDoesLegacyFlagAffectsLayout(bool doesLegacyFlagAffectsLayout);
   void setLayoutDidUseLegacyFlag(bool didUseLegacyFlag);
   void markDirtyAndPropogateDownwards();
@@ -310,3 +333,5 @@ struct YOGA_EXPORT YGNode {
   bool isLayoutTreeEqualToNode(const YGNode& node) const;
   void reset();
 };
+
+#endif

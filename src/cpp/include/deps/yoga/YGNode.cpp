@@ -6,10 +6,8 @@
  */
 
 #include "YGNode.h"
-
 #include <algorithm>
 #include <iostream>
-
 #include "CompactValue.h"
 #include "Utils.h"
 
@@ -18,7 +16,7 @@ using facebook::yoga::detail::CompactValue;
 
 YGNode::YGNode(YGNode&& node) {
   context_ = node.context_;
-  flags_ = node.flags_;
+  flags = node.flags;
   measure_ = node.measure_;
   baseline_ = node.baseline_;
   print_ = node.print_;
@@ -31,7 +29,7 @@ YGNode::YGNode(YGNode&& node) {
   config_ = node.config_;
   resolvedDimensions_ = node.resolvedDimensions_;
   for (auto c : children_) {
-    c->setOwner(c);
+    c->setOwner(this);
   }
 }
 
@@ -44,7 +42,7 @@ YGNode::YGNode(const YGNode& node, YGConfigRef config) : YGNode{node} {
 
 void YGNode::print(void* printContext) {
   if (print_.noContext != nullptr) {
-    if (flags_.at<printUsesContext_>()) {
+    if (facebook::yoga::detail::getBooleanData(flags, printUsesContext_)) {
       print_.withContext(this, printContext);
     } else {
       print_.noContext(this);
@@ -52,104 +50,114 @@ void YGNode::print(void* printContext) {
   }
 }
 
-YGFloatOptional YGNode::getLeadingPosition(const YGFlexDirection axis,
-                                           const float axisSize) const {
+YGFloatOptional YGNode::getLeadingPosition(
+    const YGFlexDirection axis,
+    const float axisSize) const {
   if (YGFlexDirectionIsRow(axis)) {
-    auto leadingPosition = YGComputedEdgeValue(style_.position(), YGEdgeStart,
-                                               CompactValue::ofUndefined());
+    auto leadingPosition = YGComputedEdgeValue(
+        style_.position(), YGEdgeStart, CompactValue::ofUndefined());
     if (!leadingPosition.isUndefined()) {
       return YGResolveValue(leadingPosition, axisSize);
     }
   }
 
-  auto leadingPosition = YGComputedEdgeValue(style_.position(), leading[axis],
-                                             CompactValue::ofUndefined());
+  auto leadingPosition = YGComputedEdgeValue(
+      style_.position(), leading[axis], CompactValue::ofUndefined());
 
   return leadingPosition.isUndefined()
-             ? YGFloatOptional{0}
-             : YGResolveValue(leadingPosition, axisSize);
+      ? YGFloatOptional{0}
+      : YGResolveValue(leadingPosition, axisSize);
 }
 
-YGFloatOptional YGNode::getTrailingPosition(const YGFlexDirection axis,
-                                            const float axisSize) const {
+YGFloatOptional YGNode::getTrailingPosition(
+    const YGFlexDirection axis,
+    const float axisSize) const {
   if (YGFlexDirectionIsRow(axis)) {
-    auto trailingPosition = YGComputedEdgeValue(style_.position(), YGEdgeEnd,
-                                                CompactValue::ofUndefined());
+    auto trailingPosition = YGComputedEdgeValue(
+        style_.position(), YGEdgeEnd, CompactValue::ofUndefined());
     if (!trailingPosition.isUndefined()) {
       return YGResolveValue(trailingPosition, axisSize);
     }
   }
 
-  auto trailingPosition = YGComputedEdgeValue(style_.position(), trailing[axis],
-                                              CompactValue::ofUndefined());
+  auto trailingPosition = YGComputedEdgeValue(
+      style_.position(), trailing[axis], CompactValue::ofUndefined());
 
   return trailingPosition.isUndefined()
-             ? YGFloatOptional{0}
-             : YGResolveValue(trailingPosition, axisSize);
+      ? YGFloatOptional{0}
+      : YGResolveValue(trailingPosition, axisSize);
 }
 
 bool YGNode::isLeadingPositionDefined(const YGFlexDirection axis) const {
   return (YGFlexDirectionIsRow(axis) &&
-          !YGComputedEdgeValue(style_.position(), YGEdgeStart,
-                               CompactValue::ofUndefined())
+          !YGComputedEdgeValue(
+               style_.position(), YGEdgeStart, CompactValue::ofUndefined())
                .isUndefined()) ||
-         !YGComputedEdgeValue(style_.position(), leading[axis],
-                              CompactValue::ofUndefined())
-              .isUndefined();
+      !YGComputedEdgeValue(
+           style_.position(), leading[axis], CompactValue::ofUndefined())
+           .isUndefined();
 }
 
 bool YGNode::isTrailingPosDefined(const YGFlexDirection axis) const {
   return (YGFlexDirectionIsRow(axis) &&
-          !YGComputedEdgeValue(style_.position(), YGEdgeEnd,
-                               CompactValue::ofUndefined())
+          !YGComputedEdgeValue(
+               style_.position(), YGEdgeEnd, CompactValue::ofUndefined())
                .isUndefined()) ||
-         !YGComputedEdgeValue(style_.position(), trailing[axis],
-                              CompactValue::ofUndefined())
-              .isUndefined();
+      !YGComputedEdgeValue(
+           style_.position(), trailing[axis], CompactValue::ofUndefined())
+           .isUndefined();
 }
 
-YGFloatOptional YGNode::getLeadingMargin(const YGFlexDirection axis,
-                                         const float widthSize) const {
+YGFloatOptional YGNode::getLeadingMargin(
+    const YGFlexDirection axis,
+    const float widthSize) const {
   if (YGFlexDirectionIsRow(axis) &&
       !style_.margin()[YGEdgeStart].isUndefined()) {
     return YGResolveValueMargin(style_.margin()[YGEdgeStart], widthSize);
   }
 
   return YGResolveValueMargin(
-      YGComputedEdgeValue(style_.margin(), leading[axis],
-                          CompactValue::ofZero()),
+      YGComputedEdgeValue(
+          style_.margin(), leading[axis], CompactValue::ofZero()),
       widthSize);
 }
 
-YGFloatOptional YGNode::getTrailingMargin(const YGFlexDirection axis,
-                                          const float widthSize) const {
+YGFloatOptional YGNode::getTrailingMargin(
+    const YGFlexDirection axis,
+    const float widthSize) const {
   if (YGFlexDirectionIsRow(axis) && !style_.margin()[YGEdgeEnd].isUndefined()) {
     return YGResolveValueMargin(style_.margin()[YGEdgeEnd], widthSize);
   }
 
   return YGResolveValueMargin(
-      YGComputedEdgeValue(style_.margin(), trailing[axis],
-                          CompactValue::ofZero()),
+      YGComputedEdgeValue(
+          style_.margin(), trailing[axis], CompactValue::ofZero()),
       widthSize);
 }
 
-YGFloatOptional YGNode::getMarginForAxis(const YGFlexDirection axis,
-                                         const float widthSize) const {
+YGFloatOptional YGNode::getMarginForAxis(
+    const YGFlexDirection axis,
+    const float widthSize) const {
   return getLeadingMargin(axis, widthSize) + getTrailingMargin(axis, widthSize);
 }
 
-YGSize YGNode::measure(float width, YGMeasureMode widthMode, float height,
-                       YGMeasureMode heightMode, void* layoutContext) {
-  return flags_.at<measureUsesContext_>()
-             ? measure_.withContext(this, width, widthMode, height, heightMode,
-                                    layoutContext)
-             : measure_.noContext(this, width, widthMode, height, heightMode);
+YGSize YGNode::measure(
+    float width,
+    YGMeasureMode widthMode,
+    float height,
+    YGMeasureMode heightMode,
+    void* layoutContext) {
+
+  return facebook::yoga::detail::getBooleanData(flags, measureUsesContext_)
+      ? measure_.withContext(
+            this, width, widthMode, height, heightMode, layoutContext)
+      : measure_.noContext(this, width, widthMode, height, heightMode);
 }
 
 float YGNode::baseline(float width, float height, void* layoutContext) {
-  return flags_.at<baselineUsesContext_>()
-             ? baseline_.withContext(this, width, height, layoutContext)
-             : baseline_.noContext(this, width, height);
+  return facebook::yoga::detail::getBooleanData(flags, baselineUsesContext_)
+      ? baseline_.withContext(this, width, height, layoutContext)
+      : baseline_.noContext(this, width, height);
 }
 
 // Setters
@@ -158,10 +166,11 @@ void YGNode::setMeasureFunc(decltype(YGNode::measure_) measureFunc) {
   if (measureFunc.noContext == nullptr) {
     // TODO: t18095186 Move nodeType to opt-in function and mark appropriate
     // places in Litho
-    flags_.at<nodeType_>() = YGNodeTypeDefault;
+    setNodeType(YGNodeTypeDefault);
   } else {
     YGAssertWithNode(
-        this, children_.size() == 0,
+        this,
+        children_.size() == 0,
         "Cannot set measure function: Nodes with measure functions cannot have "
         "children.");
     // TODO: t18095186 Move nodeType to opt-in function and mark appropriate
@@ -173,14 +182,14 @@ void YGNode::setMeasureFunc(decltype(YGNode::measure_) measureFunc) {
 }
 
 void YGNode::setMeasureFunc(YGMeasureFunc measureFunc) {
-  flags_.at<measureUsesContext_>() = false;
+  facebook::yoga::detail::setBooleanData(flags, measureUsesContext_, false);
   decltype(YGNode::measure_) m;
   m.noContext = measureFunc;
   setMeasureFunc(m);
 }
 
 YOGA_EXPORT void YGNode::setMeasureFunc(MeasureWithContextFn measureFunc) {
-  flags_.at<measureUsesContext_>() = true;
+  facebook::yoga::detail::setBooleanData(flags, measureUsesContext_, true);
   decltype(YGNode::measure_) m;
   m.withContext = measureFunc;
   setMeasureFunc(m);
@@ -199,10 +208,10 @@ void YGNode::insertChild(YGNodeRef child, uint32_t index) {
 }
 
 void YGNode::setDirty(bool isDirty) {
-  if (isDirty == flags_.at<isDirty_>()) {
+  if (isDirty == facebook::yoga::detail::getBooleanData(flags, isDirty_)) {
     return;
   }
-  flags_.at<isDirty_>() = isDirty;
+  facebook::yoga::detail::setBooleanData(flags, isDirty_, isDirty);
   if (isDirty && dirtied_) {
     dirtied_(this);
   }
@@ -223,7 +232,7 @@ void YGNode::removeChild(uint32_t index) {
 }
 
 void YGNode::setLayoutDirection(YGDirection direction) {
-  layout_.direction() = direction;
+  layout_.setDirection(direction);
 }
 
 void YGNode::setLayoutMargin(float margin, int index) {
@@ -261,7 +270,7 @@ void YGNode::setLayoutMeasuredDimension(float measuredDimension, int index) {
 }
 
 void YGNode::setLayoutHadOverflow(bool hadOverflow) {
-  layout_.hadOverflow() = hadOverflow;
+  layout_.setHadOverflow(hadOverflow);
 }
 
 void YGNode::setLayoutDimension(float dimension, int index) {
@@ -270,8 +279,9 @@ void YGNode::setLayoutDimension(float dimension, int index) {
 
 // If both left and right are defined, then use left. Otherwise return +left or
 // -right depending on which is defined.
-YGFloatOptional YGNode::relativePosition(const YGFlexDirection axis,
-                                         const float axisSize) const {
+YGFloatOptional YGNode::relativePosition(
+    const YGFlexDirection axis,
+    const float axisSize) const {
   if (isLeadingPositionDefined(axis)) {
     return getLeadingPosition(axis, axisSize);
   }
@@ -283,8 +293,11 @@ YGFloatOptional YGNode::relativePosition(const YGFlexDirection axis,
   return trailingPosition;
 }
 
-void YGNode::setPosition(const YGDirection direction, const float mainSize,
-                         const float crossSize, const float ownerWidth) {
+void YGNode::setPosition(
+    const YGDirection direction,
+    const float mainSize,
+    const float crossSize,
+    const float ownerWidth) {
   /* Root nodes should be always layouted as LTR, so we don't return negative
    * values. */
   const YGDirection directionRespectingRoot =
@@ -294,6 +307,9 @@ void YGNode::setPosition(const YGDirection direction, const float mainSize,
   const YGFlexDirection crossAxis =
       YGFlexDirectionCross(mainAxis, directionRespectingRoot);
 
+  // Here we should check for `YGPositionTypeStatic` and in this case zero inset
+  // properties (left, right, top, bottom, begin, end).
+  // https://www.w3.org/TR/css-position-3/#valdef-position-static
   const YGFloatOptional relativePositionMain =
       relativePosition(mainAxis, mainSize);
   const YGFloatOptional relativePositionCross =
@@ -338,7 +354,9 @@ YGValue YGNode::resolveFlexBasisPtr() const {
     return flexBasis;
   }
   if (!style_.flex().isUndefined() && style_.flex().unwrap() > 0.0f) {
-    return flags_.at<useWebDefaults_>() ? YGValueAuto : YGValueZero;
+    return facebook::yoga::detail::getBooleanData(flags, useWebDefaults_)
+        ? YGValueAuto
+        : YGValueZero;
   }
   return YGValueAuto;
 }
@@ -377,7 +395,7 @@ void YGNode::cloneChildrenIfNeeded(void* cloneContext) {
 }
 
 void YGNode::markDirtyAndPropogate() {
-  if (!flags_.at<isDirty_>()) {
+  if (!facebook::yoga::detail::getBooleanData(flags, isDirty_)) {
     setDirty(true);
     setLayoutComputedFlexBasis(YGFloatOptional());
     if (owner_) {
@@ -387,7 +405,7 @@ void YGNode::markDirtyAndPropogate() {
 }
 
 void YGNode::markDirtyAndPropogateDownwards() {
-  flags_.at<isDirty_>() = true;
+  facebook::yoga::detail::setBooleanData(flags, isDirty_, true);
   for_each(children_.begin(), children_.end(), [](YGNodeRef childNode) {
     childNode->markDirtyAndPropogateDownwards();
   });
@@ -414,17 +432,19 @@ float YGNode::resolveFlexShrink() const {
   if (!style_.flexShrink().isUndefined()) {
     return style_.flexShrink().unwrap();
   }
-  if (!flags_.at<useWebDefaults_>() && !style_.flex().isUndefined() &&
-      style_.flex().unwrap() < 0.0f) {
+  if (!facebook::yoga::detail::getBooleanData(flags, useWebDefaults_) &&
+      !style_.flex().isUndefined() && style_.flex().unwrap() < 0.0f) {
     return -style_.flex().unwrap();
   }
-  return flags_.at<useWebDefaults_>() ? kWebDefaultFlexShrink
-                                      : kDefaultFlexShrink;
+  return facebook::yoga::detail::getBooleanData(flags, useWebDefaults_)
+      ? kWebDefaultFlexShrink
+      : kDefaultFlexShrink;
 }
 
 bool YGNode::isNodeFlexible() {
-  return ((style_.positionType() == YGPositionTypeRelative) &&
-          (resolveFlexGrow() != 0 || resolveFlexShrink() != 0));
+  return (
+      (style_.positionType() != YGPositionTypeAbsolute) &&
+      (resolveFlexGrow() != 0 || resolveFlexShrink() != 0));
 }
 
 float YGNode::getLeadingBorder(const YGFlexDirection axis) const {
@@ -437,8 +457,8 @@ float YGNode::getLeadingBorder(const YGFlexDirection axis) const {
     }
   }
 
-  leadingBorder = YGComputedEdgeValue(style_.border(), leading[axis],
-                                      CompactValue::ofZero());
+  leadingBorder = YGComputedEdgeValue(
+      style_.border(), leading[axis], CompactValue::ofZero());
   return YGFloatMax(leadingBorder.value, 0.0f);
 }
 
@@ -452,13 +472,14 @@ float YGNode::getTrailingBorder(const YGFlexDirection flexDirection) const {
     }
   }
 
-  trailingBorder = YGComputedEdgeValue(style_.border(), trailing[flexDirection],
-                                       CompactValue::ofZero());
+  trailingBorder = YGComputedEdgeValue(
+      style_.border(), trailing[flexDirection], CompactValue::ofZero());
   return YGFloatMax(trailingBorder.value, 0.0f);
 }
 
-YGFloatOptional YGNode::getLeadingPadding(const YGFlexDirection axis,
-                                          const float widthSize) const {
+YGFloatOptional YGNode::getLeadingPadding(
+    const YGFlexDirection axis,
+    const float widthSize) const {
   const YGFloatOptional paddingEdgeStart =
       YGResolveValue(style_.padding()[YGEdgeStart], widthSize);
   if (YGFlexDirectionIsRow(axis) &&
@@ -467,39 +488,42 @@ YGFloatOptional YGNode::getLeadingPadding(const YGFlexDirection axis,
     return paddingEdgeStart;
   }
 
-  YGFloatOptional resolvedValue =
-      YGResolveValue(YGComputedEdgeValue(style_.padding(), leading[axis],
-                                         CompactValue::ofZero()),
-                     widthSize);
+  YGFloatOptional resolvedValue = YGResolveValue(
+      YGComputedEdgeValue(
+          style_.padding(), leading[axis], CompactValue::ofZero()),
+      widthSize);
   return YGFloatOptionalMax(resolvedValue, YGFloatOptional(0.0f));
 }
 
-YGFloatOptional YGNode::getTrailingPadding(const YGFlexDirection axis,
-                                           const float widthSize) const {
+YGFloatOptional YGNode::getTrailingPadding(
+    const YGFlexDirection axis,
+    const float widthSize) const {
   const YGFloatOptional paddingEdgeEnd =
       YGResolveValue(style_.padding()[YGEdgeEnd], widthSize);
   if (YGFlexDirectionIsRow(axis) && paddingEdgeEnd >= YGFloatOptional{0.0f}) {
     return paddingEdgeEnd;
   }
 
-  YGFloatOptional resolvedValue =
-      YGResolveValue(YGComputedEdgeValue(style_.padding(), trailing[axis],
-                                         CompactValue::ofZero()),
-                     widthSize);
+  YGFloatOptional resolvedValue = YGResolveValue(
+      YGComputedEdgeValue(
+          style_.padding(), trailing[axis], CompactValue::ofZero()),
+      widthSize);
 
   return YGFloatOptionalMax(resolvedValue, YGFloatOptional(0.0f));
 }
 
 YGFloatOptional YGNode::getLeadingPaddingAndBorder(
-    const YGFlexDirection axis, const float widthSize) const {
+    const YGFlexDirection axis,
+    const float widthSize) const {
   return getLeadingPadding(axis, widthSize) +
-         YGFloatOptional(getLeadingBorder(axis));
+      YGFloatOptional(getLeadingBorder(axis));
 }
 
 YGFloatOptional YGNode::getTrailingPaddingAndBorder(
-    const YGFlexDirection axis, const float widthSize) const {
+    const YGFlexDirection axis,
+    const float widthSize) const {
   return getTrailingPadding(axis, widthSize) +
-         YGFloatOptional(getTrailingBorder(axis));
+      YGFloatOptional(getTrailingBorder(axis));
 }
 
 bool YGNode::didUseLegacyFlag() {
@@ -518,11 +542,11 @@ bool YGNode::didUseLegacyFlag() {
 
 void YGNode::setLayoutDoesLegacyFlagAffectsLayout(
     bool doesLegacyFlagAffectsLayout) {
-  layout_.doesLegacyStretchFlagAffectsLayout() = doesLegacyFlagAffectsLayout;
+  layout_.setDoesLegacyStretchFlagAffectsLayout(doesLegacyFlagAffectsLayout);
 }
 
 void YGNode::setLayoutDidUseLegacyFlag(bool didUseLegacyFlag) {
-  layout_.didUseLegacyFlag() = didUseLegacyFlag;
+  layout_.setDidUseLegacyFlag(didUseLegacyFlag);
 }
 
 bool YGNode::isLayoutTreeEqualToNode(const YGNode& node) const {
@@ -550,14 +574,17 @@ bool YGNode::isLayoutTreeEqualToNode(const YGNode& node) const {
 }
 
 void YGNode::reset() {
-  YGAssertWithNode(this, children_.size() == 0,
-                   "Cannot reset a node which still has children attached");
-  YGAssertWithNode(this, owner_ == nullptr,
-                   "Cannot reset a node still attached to a owner");
+  YGAssertWithNode(
+      this,
+      children_.size() == 0,
+      "Cannot reset a node which still has children attached");
+  YGAssertWithNode(
+      this, owner_ == nullptr, "Cannot reset a node still attached to a owner");
 
   clearChildren();
 
-  auto webDefaults = flags_.at<useWebDefaults_>();
+  auto webDefaults =
+      facebook::yoga::detail::getBooleanData(flags, useWebDefaults_);
   *this = YGNode{getConfig()};
   if (webDefaults) {
     useWebDefaults();
