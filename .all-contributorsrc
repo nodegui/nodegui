@@ -384,6 +384,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "stvkoch",
+      "name": "Steven Koch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/14454?v=4",
+      "profile": "https://stvkoch.github.io.",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
