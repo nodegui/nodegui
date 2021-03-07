@@ -51,7 +51,7 @@ QScrollAreaWrap::QScrollAreaWrap(const Napi::CallbackInfo& info)
 
   this->rawData = extrautils::configureQWidget(
       this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      true);
+      false);
 }
 
 Napi::Value QScrollAreaWrap::ensureVisible(const Napi::CallbackInfo& info) {

@@ -42,7 +42,6 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
         super(native);
         this.native = native;
         this.setNodeParent(parent);
-        this.setWidgetResizable(true);
     }
     setAlignment(alignment: AlignmentFlag): void {
         this.setProperty('alignment', alignment);
@@ -52,9 +51,6 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     }
     setWidgetResizable(resizable: boolean): void {
         this.setProperty('widgetResizable', resizable);
-        if (this.contentWidget) {
-            this.contentWidget.setFlexNodeSizeControlled(resizable);
-        }
     }
     widgetResizable(): boolean {
         return this.property('widgetResizable').toBool();
@@ -68,7 +64,6 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     setWidget(widget: NodeWidget<any>): void {
         this.contentWidget = widget;
         this.native.setWidget(widget.native);
-        this.contentWidget.setFlexNodeSizeControlled(this.widgetResizable());
     }
     widget(): NodeWidget<any> | null {
         if (this.contentWidget) {
