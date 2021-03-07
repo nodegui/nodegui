@@ -267,6 +267,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/zhb124404"><img src="https://avatars.githubusercontent.com/u/16805041?v=4?s=100" width="100px;" alt=""/><br /><sub><b>zhb124404</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=zhb124404" title="Documentation">📖</a></td>
     <td align="center"><a href="http://www.apsis.io"><img src="https://avatars.githubusercontent.com/u/579688?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Wyatt Kirby</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=wkirby" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://stvkoch.github.io."><img src="https://avatars.githubusercontent.com/u/14454?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Steven Koch</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=stvkoch" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
