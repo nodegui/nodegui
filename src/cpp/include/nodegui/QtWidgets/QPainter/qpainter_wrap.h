@@ -24,7 +24,9 @@ class DLL_EXPORT QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   Napi::Value drawPath(const Napi::CallbackInfo& info);
   Napi::Value strokePath(const Napi::CallbackInfo& info);
   Napi::Value begin(const Napi::CallbackInfo& info);
+  Napi::Value beginNativePainting(const Napi::CallbackInfo& info);
   Napi::Value end(const Napi::CallbackInfo& info);
+  Napi::Value endNativePainting(const Napi::CallbackInfo& info);
   Napi::Value rotate(const Napi::CallbackInfo& info);
   Napi::Value setPen(const Napi::CallbackInfo& info);
   Napi::Value setRenderHint(const Napi::CallbackInfo& info);

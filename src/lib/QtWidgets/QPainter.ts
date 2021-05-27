@@ -7,7 +7,7 @@ import { QPoint } from '../QtCore/QPoint';
 import { QPen } from '../QtGui/QPen';
 
 /**
- 
+
 > Lets you paint on widgets.
 
 * **This class is a JS wrapper around Qt's [QPainter class](https://doc.qt.io/qt-5/qpainter.html)**
@@ -71,8 +71,16 @@ export class QPainter extends Component {
         return this.native.begin(device.native);
     }
 
+    beginNativePainting(): void {
+        this.native.beginNativePainting();
+    }
+
     end(): boolean {
         return this.native.end();
+    }
+
+    endNativePainting(): void {
+        this.native.endNativePainting();
     }
 
     rotate(angle: number): void {
