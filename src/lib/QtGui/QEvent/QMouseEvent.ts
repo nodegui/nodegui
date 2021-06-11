@@ -9,6 +9,9 @@ export class QMouseEvent {
     button(): number {
         return this.native.button();
     }
+    buttons(): number {
+        return this.native.buttons();
+    }
     x(): number {
         return this.native.x();
     }
