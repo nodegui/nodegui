@@ -22,6 +22,7 @@ class DLL_EXPORT QMouseEventWrap : public Napi::ObjectWrap<QMouseEventWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value button(const Napi::CallbackInfo& info);
+  Napi::Value buttons(const Napi::CallbackInfo& info);
   Napi::Value x(const Napi::CallbackInfo& info);
   Napi::Value y(const Napi::CallbackInfo& info);
   Napi::Value globalX(const Napi::CallbackInfo& info);

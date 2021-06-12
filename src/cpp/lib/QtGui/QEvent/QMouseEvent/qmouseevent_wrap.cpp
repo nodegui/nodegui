@@ -12,6 +12,7 @@ Napi::Object QMouseEventWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func =
       DefineClass(env, CLASSNAME,
                   {InstanceMethod("button", &QMouseEventWrap::button),
+                   InstanceMethod("buttons", &QMouseEventWrap::buttons),
                    InstanceMethod("x", &QMouseEventWrap::x),
                    InstanceMethod("y", &QMouseEventWrap::y),
                    InstanceMethod("globalX", &QMouseEventWrap::globalX),
@@ -48,6 +49,12 @@ Napi::Value QMouseEventWrap::button(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int button = static_cast<int>(this->instance->button());
   return Napi::Number::From(env, button);
+}
+
+Napi::Value QMouseEventWrap::buttons(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int buttons = static_cast<int>(this->instance->buttons());
+  return Napi::Number::From(env, buttons);
 }
 
 Napi::Value QMouseEventWrap::x(const Napi::CallbackInfo& info) {
