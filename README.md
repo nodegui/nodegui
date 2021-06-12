@@ -269,6 +269,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://stvkoch.github.io."><img src="https://avatars.githubusercontent.com/u/14454?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Steven Koch</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=stvkoch" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/sedwards2009"><img src="https://avatars.githubusercontent.com/u/6926644?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Simon Edwards</b></sub></a><br /><a href="https://github.com/nodegui/nodegui/commits?author=sedwards2009" title="Code">💻</a></td>
   </tr>
 </table>
 
