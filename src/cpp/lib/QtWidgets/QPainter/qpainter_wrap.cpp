@@ -3,6 +3,8 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
+#include "QtGui/QFont/qfont_wrap.h"
+#include "QtGui/QImage/qimage_wrap.h"
 #include "QtGui/QPen/qpen_wrap.h"
 #include "QtWidgets/QPainterPath/qpainterpath_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
@@ -15,7 +17,8 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QPainter";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("drawText", &QPainterWrap::drawText),
+      {InstanceMethod("drawArc", &QPainterWrap::drawArc),
+       InstanceMethod("drawText", &QPainterWrap::drawText),
        InstanceMethod("drawPath", &QPainterWrap::drawPath),
        InstanceMethod("drawPie", &QPainterWrap::drawPie),
        InstanceMethod("drawEllipse", &QPainterWrap::drawEllipse),
@@ -23,8 +26,10 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("begin", &QPainterWrap::begin),
        InstanceMethod("end", &QPainterWrap::end),
        InstanceMethod("rotate", &QPainterWrap::rotate),
+       InstanceMethod("setFont", &QPainterWrap::setFont),
        InstanceMethod("setPen", &QPainterWrap::setPen),
        InstanceMethod("setBrush", &QPainterWrap::setBrush),
+       InstanceMethod("setTransform", &QPainterWrap::setTransform),
        InstanceMethod("drawLine", &QPainterWrap::drawLine),
        InstanceMethod("scale", &QPainterWrap::scale),
        InstanceMethod("translate", &QPainterWrap::translate),
@@ -35,6 +40,7 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("beginNativePainting",
                       &QPainterWrap::beginNativePainting),
        InstanceMethod("endNativePainting", &QPainterWrap::endNativePainting),
+       InstanceMethod("fillRect", &QPainterWrap::fillRect),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QPainterWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -61,6 +67,18 @@ QPainterWrap::QPainterWrap(const Napi::CallbackInfo& info)
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
+}
+Napi::Value QPainterWrap::drawArc(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  int width = info[2].As<Napi::Number>().Int32Value();
+  int height = info[3].As<Napi::Number>().Int32Value();
+  int startAngle = info[4].As<Napi::Number>().Int32Value();
+  int spanAngle = info[5].As<Napi::Number>().Int32Value();
+  this->instance->drawArc(x, y, width, height, startAngle, spanAngle);
+  return env.Null();
 }
 Napi::Value QPainterWrap::drawText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -99,11 +117,23 @@ Napi::Value QPainterWrap::begin(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  Napi::Object deviceObject = info[0].As<Napi::Object>();
-  NodeWidgetWrap* deviceWrap =
-      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(deviceObject);
-  QWidget* device = deviceWrap->getInternalInstance();
-  bool ret = this->instance->begin(device);
+  Napi::String napiType = info[1].As<Napi::String>();
+  std::string type = napiType.Utf8Value();
+
+  bool ret;
+  if (type == "widget") {
+    Napi::Object deviceObject = info[0].As<Napi::Object>();
+    NodeWidgetWrap* deviceWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(deviceObject);
+    QPaintDevice* device = deviceWrap->getInternalInstance();
+    ret = this->instance->begin(device);
+  } else if (type == "image") {
+    Napi::Object deviceObject = info[0].As<Napi::Object>();
+    QImageWrap* deviceWrap = Napi::ObjectWrap<QImageWrap>::Unwrap(deviceObject);
+    QPaintDevice* device = deviceWrap->getInternalInstance();
+    ret = this->instance->begin(device);
+  }
+
   return Napi::Value::From(env, ret);
 }
 Napi::Value QPainterWrap::end(const Napi::CallbackInfo& info) {
@@ -117,6 +147,15 @@ Napi::Value QPainterWrap::rotate(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
   int angle = info[0].As<Napi::Number>().Int32Value();
   this->instance->rotate(angle);
+  return env.Null();
+}
+Napi::Value QPainterWrap::setFont(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::Object fontObject = info[0].As<Napi::Object>();
+  QFontWrap* fontWrap = Napi::ObjectWrap<QFontWrap>::Unwrap(fontObject);
+  QFont* font = fontWrap->getInternalInstance();
+  this->instance->setFont(*font);
   return env.Null();
 }
 Napi::Value QPainterWrap::setPen(const Napi::CallbackInfo& info) {
@@ -247,6 +286,28 @@ Napi::Value QPainterWrap::setRenderHint(const Napi::CallbackInfo& info) {
   this->instance->setRenderHint(hint, true);
   return env.Null();
 }
+
+Napi::Value QPainterWrap::setTransform(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::String napiType = info[0].As<Napi::String>();
+  std::string type = napiType.Utf8Value();
+  if (type == "matrix2x3") {
+    bool combine = info[1].As<Napi::Boolean>().Value();
+    qreal m11 = info[2].As<Napi::Number>().DoubleValue();
+    qreal m12 = info[3].As<Napi::Number>().DoubleValue();
+    qreal m21 = info[4].As<Napi::Number>().DoubleValue();
+    qreal m22 = info[5].As<Napi::Number>().DoubleValue();
+    qreal m31 = info[6].As<Napi::Number>().DoubleValue();
+    qreal m32 = info[7].As<Napi::Number>().DoubleValue();
+    QTransform xform(m11, m12, m21, m22, m31, m32);
+    this->instance->setTransform(xform, combine);
+  }
+
+  return env.Null();
+}
+
 Napi::Value QPainterWrap::beginNativePainting(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -257,5 +318,18 @@ Napi::Value QPainterWrap::endNativePainting(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   this->instance->endNativePainting();
+  return env.Null();
+}
+Napi::Value QPainterWrap::fillRect(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  int width = info[2].As<Napi::Number>().Int32Value();
+  int height = info[3].As<Napi::Number>().Int32Value();
+  Napi::Object colorObject = info[4].As<Napi::Object>();
+  QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
+  QColor* color = colorWrap->getInternalInstance();
+  this->instance->fillRect(x, y, width, height, *color);
   return env.Null();
 }

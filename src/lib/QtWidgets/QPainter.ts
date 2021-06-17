@@ -5,6 +5,9 @@ import { PenStyle } from '../QtEnums';
 import { QColor } from '../QtGui/QColor';
 import { QPoint } from '../QtCore/QPoint';
 import { QPen } from '../QtGui/QPen';
+import { QWidget } from './QWidget';
+import { QImage } from '../QtGui/QImage';
+import { QFont } from '../QtGui/QFont';
 
 /**
 
@@ -55,6 +58,10 @@ export class QPainter extends Component {
         this.native = native;
     }
 
+    drawArc(x: number, y: number, width: number, height: number, startAngle: number, spanAngle: number): void {
+        this.native.drawArc(x, y, width, height, startAngle, spanAngle);
+    }
+
     drawText(x: number, y: number, text: string): void {
         return this.native.drawText(x, y, text);
     }
@@ -67,8 +74,12 @@ export class QPainter extends Component {
         return this.native.strokePath(path.native, pen.native);
     }
 
-    begin(device: Component): boolean {
-        return this.native.begin(device.native);
+    begin(device: QWidget | QImage): boolean {
+        if (device instanceof QWidget) {
+            return this.native.begin(device.native, 'widget');
+        } else {
+            return this.native.begin(device.native, 'image');
+        }
     }
 
     beginNativePainting(): void {
@@ -87,6 +98,10 @@ export class QPainter extends Component {
         this.native.rotate(angle);
     }
 
+    setFont(font: QFont): void {
+        this.native.setFont(font.native);
+    }
+
     setPen(arg: PenStyle | QColor | QPen): void {
         if (typeof arg == 'number') {
             this.native.setPen(arg, 'style');
@@ -99,6 +114,23 @@ export class QPainter extends Component {
 
     setRenderHint(hint: RenderHint, on = true): void {
         this.native.setRenderHint(hint, on);
+    }
+
+    setTransform(matrix2x3: number[] | Float32Array, combine = false): void {
+        if (matrix2x3.length !== 6) {
+            throw new Error('matrix to QPainter.setTransform() mush have length 6.');
+        }
+
+        this.native.setTransform(
+            'matrix2x3',
+            combine,
+            matrix2x3[0],
+            matrix2x3[1],
+            matrix2x3[2],
+            matrix2x3[3],
+            matrix2x3[4],
+            matrix2x3[5],
+        );
     }
 
     drawEllipse(x: number, y: number, width: number, height: number): void {
@@ -136,6 +168,10 @@ export class QPainter extends Component {
 
     setBrush(color: QColor): void {
         this.native.setBrush(color.native);
+    }
+
+    fillRect(x: number, y: number, width: number, height: number, color: QColor): void {
+        this.native.fillRect(x, y, width, height, color.native);
     }
 }
 

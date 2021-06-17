@@ -20,6 +20,7 @@ class DLL_EXPORT QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
+  Napi::Value drawArc(const Napi::CallbackInfo& info);
   Napi::Value drawText(const Napi::CallbackInfo& info);
   Napi::Value drawPath(const Napi::CallbackInfo& info);
   Napi::Value strokePath(const Napi::CallbackInfo& info);
@@ -28,8 +29,10 @@ class DLL_EXPORT QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   Napi::Value end(const Napi::CallbackInfo& info);
   Napi::Value endNativePainting(const Napi::CallbackInfo& info);
   Napi::Value rotate(const Napi::CallbackInfo& info);
+  Napi::Value setFont(const Napi::CallbackInfo& info);
   Napi::Value setPen(const Napi::CallbackInfo& info);
   Napi::Value setRenderHint(const Napi::CallbackInfo& info);
+  Napi::Value setTransform(const Napi::CallbackInfo& info);
   Napi::Value setBrush(const Napi::CallbackInfo& info);
   Napi::Value drawLine(const Napi::CallbackInfo& info);
   Napi::Value drawEllipse(const Napi::CallbackInfo& info);
@@ -39,4 +42,5 @@ class DLL_EXPORT QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   Napi::Value drawConvexPolygon(const Napi::CallbackInfo& info);
   Napi::Value save(const Napi::CallbackInfo& info);
   Napi::Value restore(const Napi::CallbackInfo& info);
+  Napi::Value fillRect(const Napi::CallbackInfo& info);
 };
