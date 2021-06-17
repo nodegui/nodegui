@@ -33,8 +33,14 @@ export class QFont extends Component {
     family(): string {
         return this.native.family();
     }
+    setPixelSize(value: number): void {
+        this.native.setPixelSize(value);
+    }
     setPointSize(value: number): void {
         this.native.setPointSize(value);
+    }
+    pixelSize(): number {
+        return this.native.pixelSize();
     }
     pointSize(): number {
         return this.native.pointSize();
