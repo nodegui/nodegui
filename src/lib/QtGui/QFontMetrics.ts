@@ -115,4 +115,9 @@ export class QFontMetrics extends Component {
     underlinePos(): number {
         return this.native.underlinePos();
     }
+
+    /** Returns the 'x' height of the font. This is often but not always the same as the height of the character 'x'. */
+    xHeight(): number {
+        return this.native.xHeight();
+    }
 }
