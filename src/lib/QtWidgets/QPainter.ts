@@ -116,9 +116,19 @@ export class QPainter extends Component {
         this.native.setRenderHint(hint, on);
     }
 
+    /**
+     * Sets the world transformation matrix.
+     *
+     * @param matrix2x3 An array of length 6 representing a 2x3 transformation
+     *                  matrix. The order of elements corresponds to the
+     *                  convention used in QTransform, i.e. m11, m12, m21, m22,
+     *                  dx, and dy.
+     * @param combine   If set then this transform will be combining with the
+     *                  curent one. Otherwise it replaces it completely.
+     */
     setTransform(matrix2x3: number[] | Float32Array, combine = false): void {
         if (matrix2x3.length !== 6) {
-            throw new Error('matrix to QPainter.setTransform() mush have length 6.');
+            throw new Error('Parameter "matrix2x3" to QPainter.setTransform() must have length 6.');
         }
 
         this.native.setTransform(
