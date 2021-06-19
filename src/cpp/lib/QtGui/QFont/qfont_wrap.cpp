@@ -15,7 +15,9 @@ Napi::Object QFontWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("capitalization", &QFontWrap::capitalization),
        InstanceMethod("setFamily", &QFontWrap::setFamily),
        InstanceMethod("family", &QFontWrap::family),
+       InstanceMethod("setPixelSize", &QFontWrap::setPixelSize),
        InstanceMethod("setPointSize", &QFontWrap::setPointSize),
+       InstanceMethod("pixelSize", &QFontWrap::pixelSize),
        InstanceMethod("pointSize", &QFontWrap::pointSize),
        InstanceMethod("setStretch", &QFontWrap::setStretch),
        InstanceMethod("stretch", &QFontWrap::stretch),
@@ -91,12 +93,26 @@ Napi::Value QFontWrap::family(const Napi::CallbackInfo& info) {
   return Napi::String::New(env, family.toStdString());
 }
 
+Napi::Value QFontWrap::setPixelSize(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int pointSize = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setPixelSize(pointSize);
+  return env.Null();
+}
+
 Napi::Value QFontWrap::setPointSize(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   int pointSize = info[0].As<Napi::Number>().Int32Value();
   this->instance->setPointSize(pointSize);
   return env.Null();
+}
+
+Napi::Value QFontWrap::pixelSize(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return Napi::Value::From(env, this->instance->pixelSize());
 }
 
 Napi::Value QFontWrap::pointSize(const Napi::CallbackInfo& info) {

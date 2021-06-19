@@ -22,7 +22,9 @@ class DLL_EXPORT QFontWrap : public Napi::ObjectWrap<QFontWrap> {
   Napi::Value capitalization(const Napi::CallbackInfo& info);
   Napi::Value setFamily(const Napi::CallbackInfo& info);
   Napi::Value family(const Napi::CallbackInfo& info);
+  Napi::Value setPixelSize(const Napi::CallbackInfo& info);
   Napi::Value setPointSize(const Napi::CallbackInfo& info);
+  Napi::Value pixelSize(const Napi::CallbackInfo& info);
   Napi::Value pointSize(const Napi::CallbackInfo& info);
   Napi::Value setStretch(const Napi::CallbackInfo& info);
   Napi::Value stretch(const Napi::CallbackInfo& info);

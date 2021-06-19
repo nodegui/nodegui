@@ -30,6 +30,7 @@ Napi::Object QFontMetricsWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("strikeOutPos", &QFontMetricsWrap::strikeOutPos),
        InstanceMethod("swap", &QFontMetricsWrap::swap),
        InstanceMethod("underlinePos", &QFontMetricsWrap::underlinePos),
+       InstanceMethod("xHeight", &QFontMetricsWrap::xHeight),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QFontMetricsWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -218,4 +219,11 @@ Napi::Value QFontMetricsWrap::underlinePos(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->underlinePos());
+}
+
+Napi::Value QFontMetricsWrap::xHeight(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  return Napi::Value::From(env, this->instance->xHeight());
 }

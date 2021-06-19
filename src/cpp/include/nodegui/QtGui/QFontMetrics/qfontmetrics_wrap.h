@@ -37,4 +37,5 @@ class DLL_EXPORT QFontMetricsWrap : public Napi::ObjectWrap<QFontMetricsWrap> {
   Napi::Value strikeOutPos(const Napi::CallbackInfo& info);
   Napi::Value swap(const Napi::CallbackInfo& info);
   Napi::Value underlinePos(const Napi::CallbackInfo& info);
+  Napi::Value xHeight(const Napi::CallbackInfo& info);
 };
