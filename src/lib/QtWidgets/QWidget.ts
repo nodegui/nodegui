@@ -2,7 +2,7 @@ import addon from '../utils/addon';
 import { NodeLayout } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { FlexLayout } from '../core/FlexLayout';
-import { WidgetAttribute, WindowType, ContextMenuPolicy, FocusReason } from '../QtEnums';
+import { WidgetAttribute, WindowType, ContextMenuPolicy, FocusReason, FocusPolicy } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
 import { QCursor } from '../QtGui/QCursor';
 import { CursorShape, WindowState } from '../QtEnums';
@@ -235,6 +235,9 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     setContextMenuPolicy(contextMenuPolicy: ContextMenuPolicy): void {
         this.setProperty('contextMenuPolicy', contextMenuPolicy);
+    }
+    setFocusPolicy(policy: FocusPolicy): void {
+        this.setProperty('focusPolicy', policy);
     }
     showFullScreen(): void {
         this.native.showFullScreen();
