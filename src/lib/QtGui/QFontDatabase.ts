@@ -51,8 +51,14 @@ export class QFontDatabase extends Component {
     bold(family: string, style: string): boolean {
         return this.native.bold(family, style);
     }
+    isFixedPitch(family: string, style: string | null = null): boolean {
+        return this.native.isFixedPitch(family, style);
+    }
     italic(family: string, style: string): boolean {
         return this.native.italic(family, style);
+    }
+    styles(family: string): string[] {
+        return this.native.styles(family);
     }
     weight(family: string, style: string): number {
         return this.native.weight(family, style);
