@@ -32,6 +32,7 @@ class DLL_EXPORT QFontWrap : public Napi::ObjectWrap<QFontWrap> {
   Napi::Value weight(const Napi::CallbackInfo& info);
   Napi::Value setItalic(const Napi::CallbackInfo& info);
   Napi::Value italic(const Napi::CallbackInfo& info);
+  Napi::Value setStyleName(const Napi::CallbackInfo& info);
   Napi::Value toString(const Napi::CallbackInfo& info);
   COMPONENT_WRAPPED_METHODS_DECLARATION
 };
