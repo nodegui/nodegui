@@ -63,6 +63,9 @@ export class QFont extends Component {
     italic(): boolean {
         return this.native.italic();
     }
+    setStyleName(style: string): void {
+        this.native.setStyleName(style);
+    }
     toString(): string {
         return this.native.toString();
     }

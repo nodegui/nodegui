@@ -61,7 +61,9 @@ export class QPainter extends Component {
     drawArc(x: number, y: number, width: number, height: number, startAngle: number, spanAngle: number): void {
         this.native.drawArc(x, y, width, height, startAngle, spanAngle);
     }
-
+    drawImage(x: number, y: number, image: QImage, sx = 0, sy = 0, sw = -1, sh = -1): void {
+        this.native.drawImage(x, y, image.native, sx, sy, sw, sh);
+    }
     drawText(x: number, y: number, text: string): void {
         return this.native.drawText(x, y, text);
     }

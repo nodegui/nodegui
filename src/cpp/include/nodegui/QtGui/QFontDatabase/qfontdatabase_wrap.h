@@ -22,7 +22,9 @@ class DLL_EXPORT QFontDatabaseWrap
   // Wrapped methods
   Napi::Value bold(const Napi::CallbackInfo& info);
   Napi::Value families(const Napi::CallbackInfo& info);
+  Napi::Value isFixedPitch(const Napi::CallbackInfo& info);
   Napi::Value italic(const Napi::CallbackInfo& info);
+  Napi::Value styles(const Napi::CallbackInfo& info);
   Napi::Value weight(const Napi::CallbackInfo& info);
 };
 

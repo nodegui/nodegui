@@ -22,6 +22,7 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("drawPath", &QPainterWrap::drawPath),
        InstanceMethod("drawPie", &QPainterWrap::drawPie),
        InstanceMethod("drawEllipse", &QPainterWrap::drawEllipse),
+       InstanceMethod("drawImage", &QPainterWrap::drawImage),
        InstanceMethod("strokePath", &QPainterWrap::strokePath),
        InstanceMethod("begin", &QPainterWrap::begin),
        InstanceMethod("end", &QPainterWrap::end),
@@ -196,6 +197,27 @@ Napi::Value QPainterWrap::drawEllipse(const Napi::CallbackInfo& info) {
 
   return env.Null();
 }
+
+Napi::Value QPainterWrap::drawImage(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+
+  Napi::Object imageObject = info[2].As<Napi::Object>();
+  QImageWrap* imageWrap = Napi::ObjectWrap<QImageWrap>::Unwrap(imageObject);
+  QImage* image = imageWrap->getInternalInstance();
+
+  int sx = info[3].As<Napi::Number>().Int32Value();
+  int sy = info[4].As<Napi::Number>().Int32Value();
+  int sw = info[5].As<Napi::Number>().Int32Value();
+  int sh = info[6].As<Napi::Number>().Int32Value();
+  this->instance->drawImage(x, y, *image, sx, sy, sw, sh);
+
+  return env.Null();
+}
+
 Napi::Value QPainterWrap::drawPie(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);

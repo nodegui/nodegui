@@ -27,6 +27,7 @@
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include "QtGui/QEvent/QMouseEvent/qmouseevent_wrap.h"
 #include "QtGui/QEvent/QNativeGestureEvent/qnativegestureevent_wrap.h"
+#include "QtGui/QEvent/QPaintEvent/qpaintevent_wrap.h"
 #include "QtGui/QEvent/QTabletEvent/qtabletevent_wrap.h"
 #include "QtGui/QEvent/QWheelEvent/qwheelevent_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
@@ -216,6 +217,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QStandardItemWrap::init(env, exports);
   QSvgWidgetWrap::init(env, exports);
   QDesktopWidgetWrap::init(env, exports);
+  QPaintEventWrap::init(env, exports);
   return exports;
 }
 

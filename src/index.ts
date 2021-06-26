@@ -29,6 +29,7 @@ export { QDrag } from './lib/QtGui/QDrag';
 export { QDropEvent } from './lib/QtGui/QEvent/QDropEvent';
 export { QDragMoveEvent } from './lib/QtGui/QEvent/QDragMoveEvent';
 export { QDragLeaveEvent } from './lib/QtGui/QEvent/QDragLeaveEvent';
+export { QPaintEvent } from './lib/QtGui/QEvent/QPaintEvent';
 export { WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
 export { NodeWidget, QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';

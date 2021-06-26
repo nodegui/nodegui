@@ -25,6 +25,7 @@ Napi::Object QFontWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("weight", &QFontWrap::weight),
        InstanceMethod("setItalic", &QFontWrap::setItalic),
        InstanceMethod("italic", &QFontWrap::italic),
+       InstanceMethod("setStyleName", &QFontWrap::setStyleName),
        InstanceMethod("toString", &QFontWrap::toString),
        StaticMethod("fromQVariant", &StaticQFontWrapMethods::fromQVariant),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QFontWrap)});
@@ -161,6 +162,14 @@ Napi::Value QFontWrap::italic(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->italic());
+}
+
+Napi::Value QFontWrap::setStyleName(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  std::string styleName = info[0].As<Napi::String>().Utf8Value();
+  this->instance->setStyleName(QString::fromStdString(styleName.c_str()));
+  return env.Null();
 }
 
 Napi::Value QFontWrap::toString(const Napi::CallbackInfo& info) {
