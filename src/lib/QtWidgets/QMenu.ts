@@ -56,4 +56,6 @@ export class QMenu extends NodeWidget<QMenuSignals> {
     }
 }
 
-export type QMenuSignals = QWidgetSignals;
+export interface QMenuSignals extends QWidgetSignals {
+    triggered: (action: NativeElement) => void;
+}
