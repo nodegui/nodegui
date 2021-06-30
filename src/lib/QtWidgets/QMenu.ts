@@ -5,7 +5,7 @@ import { QAction } from './QAction';
 import { QPoint } from '../QtCore/QPoint';
 
 /**
- 
+
 > The QMenu class provides a menu widget for use in menu bars, context menus, and other popup menus.
 
 * **This class is a JS wrapper around Qt's [QMenu class](https://doc.qt.io/qt-5/qmenu.html)**
@@ -32,6 +32,9 @@ export class QMenu extends NodeWidget<QMenuSignals> {
         super(native);
         this.native = native;
         this.setNodeParent(parent);
+    }
+    clear(): void {
+        this.native.clear();
     }
     setTitle(title: string): void {
         this.native.setTitle(title);

@@ -16,6 +16,7 @@ Napi::Object QMenuWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func =
       DefineClass(env, CLASSNAME,
                   {InstanceMethod("setTitle", &QMenuWrap::setTitle),
+                   InstanceMethod("clear", &QMenuWrap::clear),
                    InstanceMethod("addSeparator", &QMenuWrap::addSeparator),
                    InstanceMethod("exec", &QMenuWrap::exec),
                    InstanceMethod("popup", &QMenuWrap::popup),
@@ -49,6 +50,14 @@ QMenuWrap::QMenuWrap(const Napi::CallbackInfo& info)
 }
 
 QMenuWrap::~QMenuWrap() { extrautils::safeDelete(this->instance); }
+
+Napi::Value QMenuWrap::clear(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  this->instance->clear();
+  return env.Null();
+}
 
 Napi::Value QMenuWrap::setTitle(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
