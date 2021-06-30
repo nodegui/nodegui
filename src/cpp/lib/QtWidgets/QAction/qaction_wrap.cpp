@@ -29,6 +29,8 @@ Napi::Object QActionWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("isSeparator", &QActionWrap::isSeparator),
        InstanceMethod("setSeparator", &QActionWrap::setSeparator),
        InstanceMethod("setFont", &QActionWrap::setFont),
+       InstanceMethod("data", &QActionWrap::data),
+       InstanceMethod("setData", &QActionWrap::setData),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -204,4 +206,32 @@ Napi::Value QActionWrap::setFont(const Napi::CallbackInfo& info) {
 
   this->instance->setFont(*font);
   return env.Null();
+}
+
+Napi::Value QActionWrap::setData(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object variantObject = info[0].As<Napi::Object>();
+  QVariantWrap *variantWrap =
+      Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
+  QVariant *variant = variantWrap->getInternalInstance();
+
+  this->instance->setData(*variant);
+
+  return env.Null();
+}
+
+Napi::Value QActionWrap::data(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QVariant variant = this->instance->data();
+  if (variant.isNull()) {
+    return env.Null();
+  }
+  auto instance = QVariantWrap::constructor.New(
+      {Napi::External<QVariant>::New(env, new QVariant(variant))});
+
+  return instance;
 }
