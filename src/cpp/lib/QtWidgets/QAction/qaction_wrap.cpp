@@ -208,21 +208,21 @@ Napi::Value QActionWrap::setFont(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value QActionWrap::setData(const Napi::CallbackInfo &info) {
+Napi::Value QActionWrap::setData(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
   Napi::Object variantObject = info[0].As<Napi::Object>();
-  QVariantWrap *variantWrap =
+  QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
-  QVariant *variant = variantWrap->getInternalInstance();
+  QVariant* variant = variantWrap->getInternalInstance();
 
   this->instance->setData(*variant);
 
   return env.Null();
 }
 
-Napi::Value QActionWrap::data(const Napi::CallbackInfo &info) {
+Napi::Value QActionWrap::data(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 

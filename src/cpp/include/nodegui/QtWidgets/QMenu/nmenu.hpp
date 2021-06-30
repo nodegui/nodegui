@@ -14,15 +14,13 @@ class DLL_EXPORT NMenu : public QMenu, public NodeWidget {
   void connectSignalsToEventEmitter() {
     QWIDGET_SIGNALS
 
-    QObject::connect(
-        this, &QMenu::triggered,
-        [=](QAction* action) {
-          Napi::Env env = this->emitOnNode.Env();
-          Napi::HandleScope scope(env);
-          auto actionInstance = QActionWrap::constructor.New(
-              {Napi::External<QAction>::New(env, action)});
-          this->emitOnNode.Call({Napi::String::New(env, "triggered"),
-                                 actionInstance});
-        });
+    QObject::connect(this, &QMenu::triggered, [=](QAction* action) {
+      Napi::Env env = this->emitOnNode.Env();
+      Napi::HandleScope scope(env);
+      auto actionInstance = QActionWrap::constructor.New(
+          {Napi::External<QAction>::New(env, action)});
+      this->emitOnNode.Call(
+          {Napi::String::New(env, "triggered"), actionInstance});
+    });
   }
 };
