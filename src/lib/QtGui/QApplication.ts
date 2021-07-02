@@ -70,4 +70,6 @@ export class QApplication extends NodeObject<QApplicationSignals> {
     }
 }
 
-export type QApplicationSignals = QObjectSignals;
+export interface QApplicationSignals extends QObjectSignals {
+    focusWindowChanged: () => void;
+}
