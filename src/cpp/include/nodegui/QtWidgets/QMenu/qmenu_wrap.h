@@ -19,6 +19,7 @@ class DLL_EXPORT QMenuWrap : public Napi::ObjectWrap<QMenuWrap> {
   NMenu* getInternalInstance();
   static Napi::FunctionReference constructor;
   // wrapped methods
+  Napi::Value clear(const Napi::CallbackInfo& info);
   Napi::Value setTitle(const Napi::CallbackInfo& info);
   Napi::Value addSeparator(const Napi::CallbackInfo& info);
   Napi::Value exec(const Napi::CallbackInfo& info);

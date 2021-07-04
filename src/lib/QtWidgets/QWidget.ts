@@ -220,6 +220,9 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     activateWindow(): void {
         this.native.activateWindow();
     }
+    isActiveWindow(): boolean {
+        return this.property('isActiveWindow').toBool();
+    }
     raise(): void {
         this.native.raise();
     }

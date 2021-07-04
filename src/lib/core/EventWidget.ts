@@ -40,7 +40,16 @@ export abstract class EventWidget<Signals extends unknown> extends Component {
         if (native.initNodeEventEmitter) {
             this.emitter = new EventEmitter();
             this.emitter.emit = wrapWithActivateUvLoop(this.emitter.emit.bind(this.emitter));
-            native.initNodeEventEmitter(this.emitter.emit);
+            const logExceptions = (event: string | symbol, ...args: any[]): boolean => {
+                try {
+                    return this.emitter.emit(event, ...args);
+                } catch (e) {
+                    console.log(`An exception was thrown while dispatching an event of type '${event.toString()}':`);
+                    console.log(e);
+                }
+                return false;
+            };
+            native.initNodeEventEmitter(logExceptions);
         } else {
             throw new Error('initNodeEventEmitter not implemented on native side');
         }

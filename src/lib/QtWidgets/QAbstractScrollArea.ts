@@ -1,9 +1,11 @@
 import { NodeWidget, QWidget } from './QWidget';
 import { NodeFrame, QFrameSignals } from './QFrame';
 import { ScrollBarPolicy } from '../QtEnums/ScrollBarPolicy';
+import { QSize } from '../QtCore/QSize';
+import { QScrollBar } from './QScrollBar';
 
 /**
- 
+
 > Abstract class to add functionalities common to all scrollarea based widgets.
 
 **This class implements all methods, properties of Qt's [QAbstractScrollArea class](https://doc.qt.io/qt-5/qabstractscrollarea.html) so that it can be inherited by all scroll based widgets**
@@ -27,8 +29,17 @@ export abstract class QAbstractScrollArea<Signals extends QAbstractScrollAreaSig
         }
         return this.viewportWidget;
     }
+    maximumViewportSize(): QSize {
+        return this.native.maximumViewportSize();
+    }
+    setHorizontalScrollBar(scrollBar: QScrollBar): void {
+        this.native.setHorizontalScrollBar(scrollBar.native);
+    }
     setHorizontalScrollBarPolicy(policy: ScrollBarPolicy): void {
         this.native.setProperty('horizontalScrollBarPolicy', policy);
+    }
+    setVerticalScrollBar(scrollBar: QScrollBar): void {
+        this.native.setVerticalScrollBar(scrollBar.native);
     }
     setVerticalScrollBarPolicy(policy: ScrollBarPolicy): void {
         this.native.setProperty('verticalScrollBarPolicy', policy);
