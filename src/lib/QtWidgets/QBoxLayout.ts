@@ -2,10 +2,10 @@ import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NodeLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
-import { Direction } from '../QtEnums';
+import { AlignmentFlag, Direction } from '../QtEnums';
 
 /**
- 
+
 > Lines up child widgets horizontally or vertically.
 
 * **This class is a JS wrapper around Qt's [QBoxLayout class](https://doc.qt.io/qt-5/qboxlayout.html)**
@@ -55,8 +55,8 @@ export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     addStrut(size: number): void {
         this.native.addStrut(size);
     }
-    addWidget(widget: NodeWidget<any>, stretch = 0): void {
-        this.native.addWidget(widget.native, stretch);
+    addWidget(widget: NodeWidget<any>, stretch = 0, alignment: AlignmentFlag = 0): void {
+        this.native.addWidget(widget.native, stretch, alignment);
         this.nodeChildren.add(widget);
     }
     insertWidget(index: number, widget: NodeWidget<any>, stretch = 0): void {
