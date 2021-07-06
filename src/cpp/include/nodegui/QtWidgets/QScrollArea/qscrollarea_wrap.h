@@ -26,4 +26,6 @@ class DLL_EXPORT QScrollAreaWrap : public Napi::ObjectWrap<QScrollAreaWrap> {
   Napi::Value ensureWidgetVisible(const Napi::CallbackInfo& info);
   Napi::Value setWidget(const Napi::CallbackInfo& info);
   Napi::Value takeWidget(const Napi::CallbackInfo& info);
+  Napi::Value setViewportMargins(const Napi::CallbackInfo& info);
+  Napi::Value viewportMargins(const Napi::CallbackInfo& info);
 };

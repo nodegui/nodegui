@@ -15,6 +15,9 @@ Napi::Object QScrollAreaWrap::init(Napi::Env env, Napi::Object exports) {
                       &QScrollAreaWrap::ensureWidgetVisible),
        InstanceMethod("setWidget", &QScrollAreaWrap::setWidget),
        InstanceMethod("takeWidget", &QScrollAreaWrap::takeWidget),
+       InstanceMethod("setViewportMargins",
+                      &QScrollAreaWrap::setViewportMargins),
+       InstanceMethod("viewportMargins", &QScrollAreaWrap::viewportMargins),
        QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QScrollAreaWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -99,4 +102,39 @@ Napi::Value QScrollAreaWrap::takeWidget(const Napi::CallbackInfo& info) {
   this->instance->takeWidget();
   // We will not return the value here since we are doing it in js side anyway
   return env.Null();
+}
+
+Napi::Value QScrollAreaWrap::setViewportMargins(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  NScrollArea* nScrollArea = qobject_cast<NScrollArea*>(this->instance);
+  if (nScrollArea != nullptr) {
+    int left = info[0].As<Napi::Number>().Int32Value();
+    int top = info[1].As<Napi::Number>().Int32Value();
+    int right = info[2].As<Napi::Number>().Int32Value();
+    int bottom = info[3].As<Napi::Number>().Int32Value();
+    nScrollArea->setViewportMargins(left, top, right, bottom);
+  }
+  return env.Null();
+}
+
+Napi::Value QScrollAreaWrap::viewportMargins(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  NScrollArea* nScrollArea = qobject_cast<NScrollArea*>(this->instance);
+
+  QMargins margins;
+  if (nScrollArea != nullptr) {
+    margins = nScrollArea->viewportMargins();
+  }
+
+  Napi::Array resultNapi = Napi::Array::New(env, 4);
+  resultNapi[int(0)] = Napi::Number::From(env, margins.left());
+  resultNapi[1] = Napi::Value::From(env, margins.top());
+  resultNapi[2] = Napi::Value::From(env, margins.right());
+  resultNapi[3] = Napi::Value::From(env, margins.bottom());
+  return resultNapi;
 }
