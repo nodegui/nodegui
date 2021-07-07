@@ -1,11 +1,11 @@
 import addon from '../../utils/addon';
-import { NativeElement, NativeRawPointer } from '../../core/Component';
+import { NativeRawPointer } from '../../core/Component';
 import { QRect } from '../../..';
+import { QEvent } from './QEvent';
 
-export class QPaintEvent {
-    native: NativeElement;
+export class QPaintEvent extends QEvent {
     constructor(event: NativeRawPointer<'QEvent'>) {
-        this.native = new addon.QPaintEvent(event);
+        super(new addon.QPaintEvent(event));
     }
     rect(): QRect {
         return this.native.rect();

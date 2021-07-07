@@ -1,10 +1,10 @@
 import addon from '../../utils/addon';
-import { NativeElement, NativeRawPointer } from '../../core/Component';
+import { NativeRawPointer } from '../../core/Component';
+import { QEvent } from './QEvent';
 
-export class QMouseEvent {
-    native: NativeElement;
+export class QMouseEvent extends QEvent {
     constructor(event: NativeRawPointer<'QEvent'>) {
-        this.native = new addon.QMouseEvent(event);
+        super(new addon.QMouseEvent(event));
     }
     button(): number {
         return this.native.button();

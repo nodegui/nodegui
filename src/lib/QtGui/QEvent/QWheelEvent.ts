@@ -1,11 +1,11 @@
 import addon from '../../utils/addon';
-import { NativeElement, NativeRawPointer } from '../../core/Component';
+import { NativeRawPointer } from '../../core/Component';
 import { ScrollPhase } from '../../QtEnums';
+import { QEvent } from './QEvent';
 
-export class QWheelEvent {
-    native: NativeElement;
+export class QWheelEvent extends QEvent {
     constructor(event: NativeRawPointer<'QEvent'>) {
-        this.native = new addon.QWheelEvent(event);
+        super(new addon.QWheelEvent(event));
     }
     /**
      * Returns the relative amount that the wheel was rotated, in eighths of a degree.

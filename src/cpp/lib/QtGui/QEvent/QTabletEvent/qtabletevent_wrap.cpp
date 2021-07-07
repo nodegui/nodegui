@@ -34,7 +34,8 @@ Napi::Object QTabletEventWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("yTilt", &QTabletEventWrap::yTilt),
        InstanceMethod("z", &QTabletEventWrap::z),
 
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QTabletEventWrap)});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QTabletEventWrap)
+           QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QTabletEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

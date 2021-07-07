@@ -1,5 +1,6 @@
 import addon from '../../utils/addon';
-import { NativeElement, NativeRawPointer } from '../../core/Component';
+import { NativeRawPointer } from '../../core/Component';
+import { QEvent } from './QEvent';
 
 enum PointerType {
     /** An unknown device */
@@ -28,14 +29,14 @@ enum TabletDevice {
 /**
  * The QTabletEvent class contains parameters that describe a Tablet event
  */
-export class QTabletEvent {
+export class QTabletEvent extends QEvent {
     static readonly PointerType = PointerType;
     static readonly TabletDevice = TabletDevice;
     readonly PointerType = PointerType;
     readonly TabletDevice = TabletDevice;
-    native: NativeElement;
+
     constructor(event: NativeRawPointer<'QEvent'>) {
-        this.native = new addon.QTabletEvent(event);
+        super(new addon.QTabletEvent(event));
     }
     /**
      * Returns the button that caused the event.
