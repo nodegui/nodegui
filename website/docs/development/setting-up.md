@@ -13,6 +13,41 @@ Make sure you follow the setup guide of [Qode][qode_setup] so that you have a bu
 3. Make, GCC v7
 4. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
+
+__*Only for M1 Macs*__
+
+**_Setting up Qt:_**
+
+You will need to download and install Qt from source since there are no binaries from Qt for M1 yet. 
+
+(https://www.reddit.com/r/QtFramework/comments/ll58wg/how_to_build_qt_creator_for_macos_arm64_a_guide/)
+
+```
+git clone git://code.qt.io/qt/qt5.git
+cd qt5
+git checkout 5.15
+
+./init-repository --module-subset=essential -f
+git submodule init qtsvg
+git submodule update qtsvg
+
+cd ..
+mkdir qt5-5.15-macOS-release
+cd qt5-5.15-macOS-release
+
+../qt5/configure -release QMAKE_APPLE_DEVICE_ARCHS=arm64 -opensource -confirm-license -nomake examples -nomake tests -skip qt3d -skip webengine -skip qtactiveqt -skip qtcanvas3d  -skip qtdeclarative -skip qtdatavis3d -skip qtdoc -skip qtgamepad -skip qtcharts -skip qtgraphicaleffects -skip qtlocation  -skip qtpurchasing -skip qtquickcontrols -skip qtquickcontrols2 -skip qtremoteobjects -skip qtscxml -skip qtsensors -skip qtserialbus -skip qtserialport -skip qtspeech -skip qtvirtualkeyboard -skip qtscript
+
+make -j15
+
+make install
+```
+
+This should install Qt into something like this `/usr/local/Qt-5.15.3` (your directory can change. This will be displayed when running make)
+
+Now just set `export QT_INSTALL_DIR=/usr/local/Qt-5.15.3` in either your .zshrc or .bashrc
+
+Further steps would now use this custom Qt installation.
+
 ### Windows:
 
 **Requirements**
