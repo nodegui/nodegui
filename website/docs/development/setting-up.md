@@ -13,6 +13,25 @@ Make sure you follow the setup guide of [Qode][qode_setup] so that you have a bu
 3. Make, GCC v7
 4. Qt (_Optional_): Make sure you followed the setup instructions from [Qode][qode_setup]
 
+
+__*Only for M1 Macs*__
+
+You will need to download and install Qt from source since there are no binaries from Qt yet. Make sure to select opersource license while compiling.
+You can download Qt source from here: https://www.qt.io/offline-installers (Choose 5.x.x version of Qt). 
+The link should look like this: http://download.qt.io/official_releases/qt/5.12/5.12.11/single/qt-everywhere-src-5.12.11.tar.xz
+
+Now extract the source from qt-everywhere-src-5.x.x.tar.xz and do
+
+```
+cd <extracted qt directory>
+./configure
+make -j 10
+make install
+```
+This should install Qt into something like this `/usr/local/Qt-5.12.11` (your directory can change. This will be displayed when running make)
+
+Now just set `export QT_INSTALL_DIR=/usr/local/Qt-5.12.11` in either your .zshrc or .bashrc
+
 ### Windows:
 
 **Requirements**
