@@ -1,12 +1,12 @@
 import addon from '../../utils/addon';
-import { NativeElement, NativeRawPointer } from '../../core/Component';
+import { NativeRawPointer } from '../../core/Component';
 import { DropAction } from '../../QtEnums';
 import { QMimeData } from '../../QtCore/QMimeData';
+import { QEvent } from './QEvent';
 
-export class QDragMoveEvent {
-    native: NativeElement;
+export class QDragMoveEvent extends QEvent {
     constructor(event: NativeRawPointer<'QEvent'>) {
-        this.native = new addon.QDragMoveEvent(event);
+        super(new addon.QDragMoveEvent(event));
     }
 
     /**
@@ -114,30 +114,4 @@ export class QDragMoveEvent {
     //    source(): QObject {
     //        return this.native.source();
     //    }
-
-    //Methods from QEvent ---------------------------
-    isAccepted(): boolean {
-        return this.native.isAccepted();
-    }
-    /**
-     * Sets the accept flag of the event object
-     */
-    setAccepted(accepted: boolean): void {
-        return this.native.setAccepted(accepted);
-    }
-    /**
-     * Returns true if the event originated outside the application (a system event); otherwise returns false.
-     *
-     * The return value of this function is not defined for paint events.
-     */
-    spontaneous(): boolean {
-        return this.native.spontaneous();
-    }
-    /**
-     * Returns the event type
-     * @returns {Number} This is QEvent::Type
-     */
-    type(): number {
-        return this.native._type();
-    }
 }

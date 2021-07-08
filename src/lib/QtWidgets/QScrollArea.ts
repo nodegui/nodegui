@@ -3,9 +3,10 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { AlignmentFlag } from '../QtEnums';
+import { Margins } from '../utils/Margins';
 
 /**
- 
+
 > A `QScrollArea` provides a scrolling view onto another widget.
 
 * **This class is a JS wrapper around Qt's [QScrollArea class](https://doc.qt.io/qt-5/qscrollarea.html)**
@@ -80,6 +81,21 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
             return contentWidget;
         }
         return null;
+    }
+    setViewportMargins(left: number, top: number, right: number, bottom: number): void {
+        // Technically part of QAbstractScrollArea, but the C++ side has subclass specific
+        // code needed, and setViewportMargins() isn't implemented yet for all of the
+        // subclasses.
+        this.native.setViewportMargins(left, top, right, bottom);
+    }
+    viewportMargins(): Margins {
+        const marginsArray = this.native.viewportMargins();
+        return {
+            left: marginsArray[0],
+            top: marginsArray[1],
+            right: marginsArray[2],
+            bottom: marginsArray[3],
+        };
     }
 }
 

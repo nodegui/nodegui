@@ -289,8 +289,11 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     acceptDrops(): boolean {
         return this.native.acceptDrops();
     }
-    setFocus(reason: FocusReason): void {
+    setFocus(reason = FocusReason.OtherFocusReason): void {
         this.native.setFocus(reason);
+    }
+    clearFocus(): void {
+        this.native.clearFocus();
     }
 }
 

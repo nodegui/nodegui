@@ -5,10 +5,12 @@
 #include <QMouseEvent>
 
 #include "Extras/Export/export.h"
+#include "QtGui/QEvent/QEvent/qevent_macro.h"
 #include "core/Component/component_macro.h"
 
 class DLL_EXPORT QMouseEventWrap : public Napi::ObjectWrap<QMouseEventWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
+  QEVENT_WRAPPED_METHODS_DECLARATION
 
  private:
   QMouseEvent* instance;

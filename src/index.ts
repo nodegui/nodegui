@@ -150,3 +150,4 @@ export { FlexLayout, FlexLayoutSignals } from './lib/core/FlexLayout';
 export { StyleSheet } from './lib/core/Style/StyleSheet';
 export { NativeElement, Component } from './lib/core/Component';
 export { checkIfNativeElement, checkIfNapiExternal } from './lib/utils/helpers';
+export { Margins } from './lib/utils/Margins';

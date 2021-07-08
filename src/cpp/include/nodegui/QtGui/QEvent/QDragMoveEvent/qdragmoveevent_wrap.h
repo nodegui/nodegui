@@ -7,11 +7,6 @@
 #include "Extras/Export/export.h"
 #include "core/Component/component_macro.h"
 
-/*
-NOTE : QDragMoveEvent inherits from QDropEvent
-- Is it possible to inherit from QDropEventWrap directly?
-*/
-
 class DLL_EXPORT QDragMoveEventWrap
     : public Napi::ObjectWrap<QDragMoveEventWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION

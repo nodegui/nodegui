@@ -1,11 +1,11 @@
 import addon from '../../utils/addon';
-import { NativeElement, NativeRawPointer } from '../../core/Component';
+import { NativeRawPointer } from '../../core/Component';
 import { NativeGestureType } from '../../QtEnums';
+import { QEvent } from './QEvent';
 
-export class QNativeGestureEvent {
-    native: NativeElement;
+export class QNativeGestureEvent extends QEvent {
     constructor(event: NativeRawPointer<'QEvent'>) {
-        this.native = new addon.QNativeGestureEvent(event);
+        super(new addon.QNativeGestureEvent(event));
     }
 
     //Needs QTouchDevice to implement this

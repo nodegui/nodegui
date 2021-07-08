@@ -439,6 +439,12 @@
     int reason = info[0].As<Napi::Number>().Int32Value();                     \
     this->instance->setFocus(static_cast<Qt::FocusReason>(reason));           \
     return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value clearFocus(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    this->instance->clearFocus();                                             \
+    return env.Null();                                                        \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -501,7 +507,8 @@
       InstanceMethod("setGraphicsEffect", &WidgetWrapName::setGraphicsEffect), \
       InstanceMethod("acceptDrops", &WidgetWrapName::acceptDrops),             \
       InstanceMethod("setAcceptDrops", &WidgetWrapName::setAcceptDrops),       \
-      InstanceMethod("setFocus", &WidgetWrapName::setFocus),
+      InstanceMethod("setFocus", &WidgetWrapName::setFocus),                   \
+      InstanceMethod("clearFocus", &WidgetWrapName::clearFocus),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

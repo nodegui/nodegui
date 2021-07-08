@@ -16,7 +16,8 @@ Napi::Object QKeyEventWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("modifiers", &QKeyEventWrap::modifiers),
                    InstanceMethod("count", &QKeyEventWrap::count),
                    InstanceMethod("isAutoRepeat", &QKeyEventWrap::isAutoRepeat),
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QKeyEventWrap)});
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QKeyEventWrap)
+                       QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QKeyEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
