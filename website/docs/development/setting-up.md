@@ -28,6 +28,8 @@ cd qt5
 git checkout 5.15
 
 ./init-repository --module-subset=essential -f
+git submodule init qtsvg
+git submodule update qtsvg
 
 cd ..
 mkdir qt5-5.15-macOS-release
