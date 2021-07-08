@@ -24,7 +24,7 @@ Now extract the source from qt-everywhere-src-5.x.x.tar.xz and do
 
 ```
 cd <extracted qt directory>
-./configure
+./configure -skip qtwebengine
 make -j 10
 make install
 ```
