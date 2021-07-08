@@ -132,7 +132,7 @@ Napi::Value QScrollAreaWrap::viewportMargins(const Napi::CallbackInfo& info) {
   }
 
   Napi::Array resultNapi = Napi::Array::New(env, 4);
-  resultNapi[int(0)] = Napi::Number::From(env, margins.left());
+  resultNapi[uint32_t(0)] = Napi::Number::From(env, margins.left());
   resultNapi[1] = Napi::Value::From(env, margins.top());
   resultNapi[2] = Napi::Value::From(env, margins.right());
   resultNapi[3] = Napi::Value::From(env, margins.bottom());
