@@ -55,6 +55,7 @@ const progressDialog = new QProgressDialog();
 * [autoClose](qprogressdialog.md#autoclose)
 * [autoReset](qprogressdialog.md#autoreset)
 * [cancel](qprogressdialog.md#cancel)
+* [clearFocus](qprogressdialog.md#clearfocus)
 * [close](qprogressdialog.md#close)
 * [exec](qprogressdialog.md#exec)
 * [font](qprogressdialog.md#font)
@@ -63,6 +64,7 @@ const progressDialog = new QProgressDialog();
 * [hasMouseTracking](qprogressdialog.md#hasmousetracking)
 * [hide](qprogressdialog.md#hide)
 * [inherits](qprogressdialog.md#inherits)
+* [isActiveWindow](qprogressdialog.md#isactivewindow)
 * [isEnabled](qprogressdialog.md#isenabled)
 * [isSizeGripEnabled](qprogressdialog.md#issizegripenabled)
 * [isVisible](qprogressdialog.md#isvisible)
@@ -102,6 +104,7 @@ const progressDialog = new QProgressDialog();
 * [setFixedSize](qprogressdialog.md#setfixedsize)
 * [setFlexNodeSizeControlled](qprogressdialog.md#setflexnodesizecontrolled)
 * [setFocus](qprogressdialog.md#setfocus)
+* [setFocusPolicy](qprogressdialog.md#setfocuspolicy)
 * [setFont](qprogressdialog.md#setfont)
 * [setGeometry](qprogressdialog.md#setgeometry)
 * [setGraphicsEffect](qprogressdialog.md#setgraphicseffect)
@@ -372,6 +375,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -453,6 +466,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -979,9 +1002,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

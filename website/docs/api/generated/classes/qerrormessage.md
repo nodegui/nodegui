@@ -52,6 +52,7 @@ const errorMessage = new QErrorMessage();
 * [addAction](qerrormessage.md#addaction)
 * [addEventListener](qerrormessage.md#addeventlistener)
 * [adjustSize](qerrormessage.md#adjustsize)
+* [clearFocus](qerrormessage.md#clearfocus)
 * [close](qerrormessage.md#close)
 * [exec](qerrormessage.md#exec)
 * [font](qerrormessage.md#font)
@@ -60,6 +61,7 @@ const errorMessage = new QErrorMessage();
 * [hasMouseTracking](qerrormessage.md#hasmousetracking)
 * [hide](qerrormessage.md#hide)
 * [inherits](qerrormessage.md#inherits)
+* [isActiveWindow](qerrormessage.md#isactivewindow)
 * [isEnabled](qerrormessage.md#isenabled)
 * [isSizeGripEnabled](qerrormessage.md#issizegripenabled)
 * [isVisible](qerrormessage.md#isvisible)
@@ -91,6 +93,7 @@ const errorMessage = new QErrorMessage();
 * [setFixedSize](qerrormessage.md#setfixedsize)
 * [setFlexNodeSizeControlled](qerrormessage.md#setflexnodesizecontrolled)
 * [setFocus](qerrormessage.md#setfocus)
+* [setFocusPolicy](qerrormessage.md#setfocuspolicy)
 * [setFont](qerrormessage.md#setfont)
 * [setGeometry](qerrormessage.md#setgeometry)
 * [setGraphicsEffect](qerrormessage.md#setgraphicseffect)
@@ -330,6 +333,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -411,6 +424,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -855,9 +878,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

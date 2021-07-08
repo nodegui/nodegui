@@ -8,7 +8,9 @@ The QTabletEvent class contains parameters that describe a Tablet event
 
 ## Hierarchy
 
-* **QTabletEvent**
+* [QEvent](qevent.md)
+
+  ↳ **QTabletEvent**
 
 ## Index
 
@@ -26,18 +28,24 @@ The QTabletEvent class contains parameters that describe a Tablet event
 
 ### Methods
 
+* [accept](qtabletevent.md#accept)
 * [button](qtabletevent.md#button)
 * [buttons](qtabletevent.md#buttons)
 * [globalPos](qtabletevent.md#globalpos)
 * [globalPosF](qtabletevent.md#globalposf)
 * [globalX](qtabletevent.md#globalx)
 * [globalY](qtabletevent.md#globaly)
+* [ignore](qtabletevent.md#ignore)
+* [isAccepted](qtabletevent.md#isaccepted)
 * [pointerType](qtabletevent.md#pointertype)
 * [pos](qtabletevent.md#pos)
 * [posF](qtabletevent.md#posf)
 * [pressure](qtabletevent.md#pressure)
 * [rotation](qtabletevent.md#rotation)
+* [setAccepted](qtabletevent.md#setaccepted)
+* [spontaneous](qtabletevent.md#spontaneous)
 * [tangentialPressure](qtabletevent.md#tangentialpressure)
+* [type](qtabletevent.md#type)
 * [uniqueId](qtabletevent.md#uniqueid)
 * [x](qtabletevent.md#x)
 * [xTilt](qtabletevent.md#xtilt)
@@ -50,6 +58,8 @@ The QTabletEvent class contains parameters that describe a Tablet event
 ###  constructor
 
 \+ **new QTabletEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QTabletEvent](qtabletevent.md)*
+
+*Overrides [QEvent](qevent.md).[constructor](qevent.md#constructor)*
 
 **Parameters:**
 
@@ -77,6 +87,8 @@ ___
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
+*Inherited from [QEvent](qevent.md).[native](qevent.md#native)*
+
 ___
 
 ### `Static` `Readonly` PointerType
@@ -90,6 +102,19 @@ ___
 ▪ **TabletDevice**: *[TabletDevice](../enums/tabletdevice.md)* = TabletDevice
 
 ## Methods
+
+###  accept
+
+▸ **accept**(): *void*
+
+*Inherited from [QEvent](qevent.md).[accept](qevent.md#accept)*
+
+Sets the accept flag of the event object, the equivalent of calling setAccepted(true).
+Setting the accept parameter indicates that the event receiver wants the event. Unwanted events might be propagated to the parent widget
+
+**Returns:** *void*
+
+___
 
 ###  button
 
@@ -175,6 +200,30 @@ Returns the global y position of the mouse pointer at the time of the event
 
 ___
 
+###  ignore
+
+▸ **ignore**(): *void*
+
+*Inherited from [QEvent](qevent.md).[ignore](qevent.md#ignore)*
+
+Clears the accept flag parameter of the event object, the equivalent of calling setAccepted(false).
+Clearing the accept parameter indicates that the event receiver does not want the event.
+Unwanted events might be propagated to the parent widget.
+
+**Returns:** *void*
+
+___
+
+###  isAccepted
+
+▸ **isAccepted**(): *boolean*
+
+*Inherited from [QEvent](qevent.md).[isAccepted](qevent.md#isaccepted)*
+
+**Returns:** *boolean*
+
+___
+
 ###  pointerType
 
 ▸ **pointerType**(): *[PointerType](../enums/pointertype.md)*
@@ -245,6 +294,38 @@ If the device does not support rotation, this value is always 0.0.
 
 ___
 
+###  setAccepted
+
+▸ **setAccepted**(`accepted`: boolean): *void*
+
+*Inherited from [QEvent](qevent.md).[setAccepted](qevent.md#setaccepted)*
+
+Sets the accept flag of the event object
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`accepted` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  spontaneous
+
+▸ **spontaneous**(): *boolean*
+
+*Inherited from [QEvent](qevent.md).[spontaneous](qevent.md#spontaneous)*
+
+Returns true if the event originated outside the application (a system event); otherwise returns false.
+
+The return value of this function is not defined for paint events.
+
+**Returns:** *boolean*
+
+___
+
 ###  tangentialPressure
 
 ▸ **tangentialPressure**(): *number*
@@ -256,6 +337,20 @@ Current airbrushes can only move in the positive direction from the neutrual pos
 If the device does not support tangential pressure, this value is always 0.0.
 
 **Returns:** *number*
+
+___
+
+###  type
+
+▸ **type**(): *number*
+
+*Inherited from [QEvent](qevent.md).[type](qevent.md#type)*
+
+Returns the event type
+
+**Returns:** *number*
+
+This is QEvent::Type
 
 ___
 

@@ -52,6 +52,7 @@ const progressBar = new QProgressBar();
 * [addEventListener](qprogressbar.md#addeventlistener)
 * [adjustSize](qprogressbar.md#adjustsize)
 * [alignment](qprogressbar.md#alignment)
+* [clearFocus](qprogressbar.md#clearfocus)
 * [close](qprogressbar.md#close)
 * [font](qprogressbar.md#font)
 * [format](qprogressbar.md#format)
@@ -61,6 +62,7 @@ const progressBar = new QProgressBar();
 * [hide](qprogressbar.md#hide)
 * [inherits](qprogressbar.md#inherits)
 * [invertedAppearance](qprogressbar.md#invertedappearance)
+* [isActiveWindow](qprogressbar.md#isactivewindow)
 * [isEnabled](qprogressbar.md#isenabled)
 * [isTextVisible](qprogressbar.md#istextvisible)
 * [isVisible](qprogressbar.md#isvisible)
@@ -95,6 +97,7 @@ const progressBar = new QProgressBar();
 * [setFixedSize](qprogressbar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qprogressbar.md#setflexnodesizecontrolled)
 * [setFocus](qprogressbar.md#setfocus)
+* [setFocusPolicy](qprogressbar.md#setfocuspolicy)
 * [setFont](qprogressbar.md#setfont)
 * [setFormat](qprogressbar.md#setformat)
 * [setGeometry](qprogressbar.md#setgeometry)
@@ -350,6 +353,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -437,6 +450,16 @@ ___
 ###  invertedAppearance
 
 ▸ **invertedAppearance**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -903,9 +926,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

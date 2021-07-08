@@ -10,6 +10,8 @@ sidebar_label: "QWidgetSignals"
 
   ↳ **QWidgetSignals**
 
+  ↳ [QMenuSignals](qmenusignals.md)
+
   ↳ [QAbstractSliderSignals](qabstractslidersignals.md)
 
   ↳ [QAbstractButtonSignals](qabstractbuttonsignals.md)

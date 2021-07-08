@@ -272,7 +272,7 @@ ___
 
 ###  addWidget
 
-▸ **addWidget**(`widget`: [NodeWidget](nodewidget.md)‹any›, `stretch`: number): *void*
+▸ **addWidget**(`widget`: [NodeWidget](nodewidget.md)‹any›, `stretch`: number, `alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
 
 *Overrides [NodeLayout](nodelayout.md).[addWidget](nodelayout.md#abstract-addwidget)*
 
@@ -282,6 +282,7 @@ Name | Type | Default |
 ------ | ------ | ------ |
 `widget` | [NodeWidget](nodewidget.md)‹any› | - |
 `stretch` | number | 0 |
+`alignment` | [AlignmentFlag](../enums/alignmentflag.md) | 0 |
 
 **Returns:** *void*
 

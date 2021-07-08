@@ -64,6 +64,7 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [addAction](qabstractscrollarea.md#addaction)
 * [addEventListener](qabstractscrollarea.md#addeventlistener)
 * [adjustSize](qabstractscrollarea.md#adjustsize)
+* [clearFocus](qabstractscrollarea.md#clearfocus)
 * [close](qabstractscrollarea.md#close)
 * [font](qabstractscrollarea.md#font)
 * [frameRect](qabstractscrollarea.md#framerect)
@@ -76,6 +77,7 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [hasMouseTracking](qabstractscrollarea.md#hasmousetracking)
 * [hide](qabstractscrollarea.md#hide)
 * [inherits](qabstractscrollarea.md#inherits)
+* [isActiveWindow](qabstractscrollarea.md#isactivewindow)
 * [isEnabled](qabstractscrollarea.md#isenabled)
 * [isVisible](qabstractscrollarea.md#isvisible)
 * [lineWidth](qabstractscrollarea.md#linewidth)
@@ -85,6 +87,7 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [mapToGlobal](qabstractscrollarea.md#maptoglobal)
 * [mapToParent](qabstractscrollarea.md#maptoparent)
 * [maximumSize](qabstractscrollarea.md#maximumsize)
+* [maximumViewportSize](qabstractscrollarea.md#maximumviewportsize)
 * [midLineWidth](qabstractscrollarea.md#midlinewidth)
 * [minimumSize](qabstractscrollarea.md#minimumsize)
 * [move](qabstractscrollarea.md#move)
@@ -105,6 +108,7 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [setFixedSize](qabstractscrollarea.md#setfixedsize)
 * [setFlexNodeSizeControlled](qabstractscrollarea.md#setflexnodesizecontrolled)
 * [setFocus](qabstractscrollarea.md#setfocus)
+* [setFocusPolicy](qabstractscrollarea.md#setfocuspolicy)
 * [setFont](qabstractscrollarea.md#setfont)
 * [setFrameRect](qabstractscrollarea.md#setframerect)
 * [setFrameShadow](qabstractscrollarea.md#setframeshadow)
@@ -112,6 +116,7 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [setFrameStyle](qabstractscrollarea.md#setframestyle)
 * [setGeometry](qabstractscrollarea.md#setgeometry)
 * [setGraphicsEffect](qabstractscrollarea.md#setgraphicseffect)
+* [setHorizontalScrollBar](qabstractscrollarea.md#sethorizontalscrollbar)
 * [setHorizontalScrollBarPolicy](qabstractscrollarea.md#sethorizontalscrollbarpolicy)
 * [setInlineStyle](qabstractscrollarea.md#setinlinestyle)
 * [setLayout](qabstractscrollarea.md#setlayout)
@@ -124,6 +129,7 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 * [setObjectName](qabstractscrollarea.md#setobjectname)
 * [setProperty](qabstractscrollarea.md#setproperty)
 * [setStyleSheet](qabstractscrollarea.md#setstylesheet)
+* [setVerticalScrollBar](qabstractscrollarea.md#setverticalscrollbar)
 * [setVerticalScrollBarPolicy](qabstractscrollarea.md#setverticalscrollbarpolicy)
 * [setViewport](qabstractscrollarea.md#setviewport)
 * [setWindowFlag](qabstractscrollarea.md#setwindowflag)
@@ -352,6 +358,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -478,6 +494,16 @@ Name | Type |
 
 ___
 
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
@@ -587,6 +613,14 @@ ___
 ▸ **maximumSize**(): *[QSize](qsize.md)*
 
 *Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  maximumViewportSize
+
+▸ **maximumViewportSize**(): *[QSize](qsize.md)*
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -897,9 +931,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
@@ -1015,6 +1065,20 @@ ___
 Name | Type |
 ------ | ------ |
 `effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
+
+**Returns:** *void*
+
+___
+
+###  setHorizontalScrollBar
+
+▸ **setHorizontalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 
@@ -1210,6 +1274,20 @@ ___
 Name | Type |
 ------ | ------ |
 `styleSheet` | string |
+
+**Returns:** *void*
+
+___
+
+###  setVerticalScrollBar
+
+▸ **setVerticalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 

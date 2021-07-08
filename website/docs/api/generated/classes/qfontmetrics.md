@@ -43,6 +43,7 @@ sidebar_label: "QFontMetrics"
 * [strikeOutPos](qfontmetrics.md#strikeoutpos)
 * [swap](qfontmetrics.md#swap)
 * [underlinePos](qfontmetrics.md#underlinepos)
+* [xHeight](qfontmetrics.md#xheight)
 
 ## Constructors
 
@@ -342,5 +343,15 @@ ___
 ▸ **underlinePos**(): *number*
 
 Returns the distance from the base line to where an underscore should be drawn
+
+**Returns:** *number*
+
+___
+
+###  xHeight
+
+▸ **xHeight**(): *number*
+
+Returns the 'x' height of the font. This is often but not always the same as the height of the character 'x'.
 
 **Returns:** *number*

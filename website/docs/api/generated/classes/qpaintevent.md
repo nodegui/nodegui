@@ -1,39 +1,40 @@
 ---
-id: "qdragleaveevent"
-title: "QDragLeaveEvent"
-sidebar_label: "QDragLeaveEvent"
+id: "qpaintevent"
+title: "QPaintEvent"
+sidebar_label: "QPaintEvent"
 ---
 
 ## Hierarchy
 
 * [QEvent](qevent.md)
 
-  ↳ **QDragLeaveEvent**
+  ↳ **QPaintEvent**
 
 ## Index
 
 ### Constructors
 
-* [constructor](qdragleaveevent.md#constructor)
+* [constructor](qpaintevent.md#constructor)
 
 ### Properties
 
-* [native](qdragleaveevent.md#native)
+* [native](qpaintevent.md#native)
 
 ### Methods
 
-* [accept](qdragleaveevent.md#accept)
-* [ignore](qdragleaveevent.md#ignore)
-* [isAccepted](qdragleaveevent.md#isaccepted)
-* [setAccepted](qdragleaveevent.md#setaccepted)
-* [spontaneous](qdragleaveevent.md#spontaneous)
-* [type](qdragleaveevent.md#type)
+* [accept](qpaintevent.md#accept)
+* [ignore](qpaintevent.md#ignore)
+* [isAccepted](qpaintevent.md#isaccepted)
+* [rect](qpaintevent.md#rect)
+* [setAccepted](qpaintevent.md#setaccepted)
+* [spontaneous](qpaintevent.md#spontaneous)
+* [type](qpaintevent.md#type)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QDragLeaveEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QDragLeaveEvent](qdragleaveevent.md)*
+\+ **new QPaintEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QPaintEvent](qpaintevent.md)*
 
 *Overrides [QEvent](qevent.md).[constructor](qevent.md#constructor)*
 
@@ -43,7 +44,7 @@ Name | Type |
 ------ | ------ |
 `event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
-**Returns:** *[QDragLeaveEvent](qdragleaveevent.md)*
+**Returns:** *[QPaintEvent](qpaintevent.md)*
 
 ## Properties
 
@@ -89,6 +90,14 @@ ___
 *Inherited from [QEvent](qevent.md).[isAccepted](qevent.md#isaccepted)*
 
 **Returns:** *boolean*
+
+___
+
+###  rect
+
+▸ **rect**(): *[QRect](qrect.md)*
+
+**Returns:** *[QRect](qrect.md)*
 
 ___
 

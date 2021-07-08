@@ -212,6 +212,7 @@ sidebar_label: "Globals"
 * [QDragMoveEvent](classes/qdragmoveevent.md)
 * [QDropEvent](classes/qdropevent.md)
 * [QErrorMessage](classes/qerrormessage.md)
+* [QEvent](classes/qevent.md)
 * [QFileDialog](classes/qfiledialog.md)
 * [QFont](classes/qfont.md)
 * [QFontDatabase](classes/qfontdatabase.md)
@@ -244,6 +245,7 @@ sidebar_label: "Globals"
 * [QMovie](classes/qmovie.md)
 * [QNativeGestureEvent](classes/qnativegestureevent.md)
 * [QObject](classes/qobject.md)
+* [QPaintEvent](classes/qpaintevent.md)
 * [QPainter](classes/qpainter.md)
 * [QPainterPath](classes/qpainterpath.md)
 * [QPen](classes/qpen.md)
@@ -294,11 +296,13 @@ sidebar_label: "Globals"
 
 ### Interfaces
 
+* [Margins](interfaces/margins.md)
 * [QAbstractButtonSignals](interfaces/qabstractbuttonsignals.md)
 * [QAbstractItemViewSignals](interfaces/qabstractitemviewsignals.md)
 * [QAbstractSliderSignals](interfaces/qabstractslidersignals.md)
 * [QAbstractSpinBoxSignals](interfaces/qabstractspinboxsignals.md)
 * [QActionSignals](interfaces/qactionsignals.md)
+* [QApplicationSignals](interfaces/qapplicationsignals.md)
 * [QButtonGroupSignals](interfaces/qbuttongroupsignals.md)
 * [QCalendarWidgetSignals](interfaces/qcalendarwidgetsignals.md)
 * [QCheckBoxSignals](interfaces/qcheckboxsignals.md)
@@ -318,6 +322,7 @@ sidebar_label: "Globals"
 * [QLabelSignals](interfaces/qlabelsignals.md)
 * [QLineEditSignals](interfaces/qlineeditsignals.md)
 * [QListWidgetSignals](interfaces/qlistwidgetsignals.md)
+* [QMenuSignals](interfaces/qmenusignals.md)
 * [QMessageBoxSignals](interfaces/qmessageboxsignals.md)
 * [QMovieSignals](interfaces/qmoviesignals.md)
 * [QObjectSignals](interfaces/qobjectsignals.md)
@@ -348,7 +353,6 @@ sidebar_label: "Globals"
 * [NativeElement](globals.md#nativeelement)
 * [NativeRawPointer](globals.md#nativerawpointer)
 * [QAbstractScrollAreaSignals](globals.md#qabstractscrollareasignals)
-* [QApplicationSignals](globals.md#qapplicationsignals)
 * [QBoxLayoutSignals](globals.md#qboxlayoutsignals)
 * [QDesktopWidgetSignals](globals.md#qdesktopwidgetsignals)
 * [QDialSignals](globals.md#qdialsignals)
@@ -359,7 +363,6 @@ sidebar_label: "Globals"
 * [QListViewSignals](globals.md#qlistviewsignals)
 * [QMainWindowSignals](globals.md#qmainwindowsignals)
 * [QMenuBarSignals](globals.md#qmenubarsignals)
-* [QMenuSignals](globals.md#qmenusignals)
 * [QPushButtonSignals](globals.md#qpushbuttonsignals)
 * [QRadioButtonSignals](globals.md#qradiobuttonsignals)
 * [QScrollAreaSignals](globals.md#qscrollareasignals)
@@ -372,30 +375,11 @@ sidebar_label: "Globals"
 ### Variables
 
 * [addon](globals.md#const-addon)
-* [availableGeometry](globals.md#const-availablegeometry)
-* [availableGeometry2](globals.md#const-availablegeometry2)
-* [c1item1](globals.md#const-c1item1)
-* [c1item2](globals.md#const-c1item2)
-* [columnFour](globals.md#const-columnfour)
-* [columnOne](globals.md#const-columnone)
-* [columnThree](globals.md#const-columnthree)
-* [columnTwo](globals.md#const-columntwo)
-* [desktop](globals.md#const-desktop)
-* [icon](globals.md#const-icon)
-* [item1](globals.md#const-item1)
-* [item2](globals.md#const-item2)
-* [item3](globals.md#const-item3)
-* [item4](globals.md#const-item4)
-* [item5](globals.md#const-item5)
-* [item6](globals.md#const-item6)
-* [myImage](globals.md#const-myimage)
 * [outer](globals.md#const-outer)
-* [outerLayout](globals.md#const-outerlayout)
-* [qApp](globals.md#const-qapp)
-* [screenGeometry](globals.md#const-screengeometry)
-* [screenGeometry2](globals.md#const-screengeometry2)
+* [scrollArea](globals.md#const-scrollarea)
+* [sview](globals.md#const-sview)
 * [testImagePath](globals.md#const-testimagepath)
-* [tree](globals.md#const-tree)
+* [textView](globals.md#const-textview)
 * [win](globals.md#const-win)
 
 ### Functions
@@ -450,12 +434,6 @@ ___
 ###  QAbstractScrollAreaSignals
 
 Ƭ **QAbstractScrollAreaSignals**: *[QFrameSignals](globals.md#qframesignals)*
-
-___
-
-###  QApplicationSignals
-
-Ƭ **QApplicationSignals**: *[QObjectSignals](interfaces/qobjectsignals.md)*
 
 ___
 
@@ -538,12 +516,6 @@ ___
 
 ___
 
-###  QMenuSignals
-
-Ƭ **QMenuSignals**: *[QWidgetSignals](interfaces/qwidgetsignals.md)*
-
-___
-
 ###  QPushButtonSignals
 
 Ƭ **QPushButtonSignals**: *[QAbstractButtonSignals](interfaces/qabstractbuttonsignals.md)*
@@ -598,135 +570,21 @@ ___
 
 ___
 
-### `Const` availableGeometry
-
-• **availableGeometry**: *[QRect](classes/qrect.md)‹›* = desktop.availableGeometry()
-
-___
-
-### `Const` availableGeometry2
-
-• **availableGeometry2**: *[QRect](classes/qrect.md)‹›* = qApp.availableGeometry()
-
-___
-
-### `Const` c1item1
-
-• **c1item1**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem(item1)
-
-___
-
-### `Const` c1item2
-
-• **c1item2**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem(item1)
-
-___
-
-### `Const` columnFour
-
-• **columnFour**: *[QLabel](classes/qlabel.md)‹›* = new QLabel()
-
-___
-
-### `Const` columnOne
-
-• **columnOne**: *[QLabel](classes/qlabel.md)‹›* = new QLabel()
-
-___
-
-### `Const` columnThree
-
-• **columnThree**: *[QLabel](classes/qlabel.md)‹›* = new QLabel()
-
-___
-
-### `Const` columnTwo
-
-• **columnTwo**: *[QLabel](classes/qlabel.md)‹›* = new QLabel()
-
-___
-
-### `Const` desktop
-
-• **desktop**: *[QDesktopWidget](classes/qdesktopwidget.md)‹›* = new QDesktopWidget()
-
-___
-
-### `Const` icon
-
-• **icon**: *[QIcon](classes/qicon.md)‹›* = new QIcon(myImage)
-
-___
-
-### `Const` item1
-
-• **item1**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
-
-___
-
-### `Const` item2
-
-• **item2**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
-
-___
-
-### `Const` item3
-
-• **item3**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
-
-___
-
-### `Const` item4
-
-• **item4**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
-
-___
-
-### `Const` item5
-
-• **item5**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
-
-___
-
-### `Const` item6
-
-• **item6**: *[QTreeWidgetItem](classes/qtreewidgetitem.md)‹›* = new QTreeWidgetItem()
-
-___
-
-### `Const` myImage
-
-• **myImage**: *"./website/static/img/logo.png"* = "./website/static/img/logo.png"
-
-___
-
 ### `Const` outer
 
 • **outer**: *[QWidget](classes/qwidget.md)‹›* = new QWidget()
 
 ___
 
-### `Const` outerLayout
+### `Const` scrollArea
 
-• **outerLayout**: *[QGridLayout](classes/qgridlayout.md)‹›* = new QGridLayout()
-
-___
-
-### `Const` qApp
-
-• **qApp**: *[QDesktopWidget](classes/qdesktopwidget.md)‹›* = QApplication.desktop()
+• **scrollArea**: *[QScrollArea](classes/qscrollarea.md)‹›* = new QScrollArea()
 
 ___
 
-### `Const` screenGeometry
+### `Const` sview
 
-• **screenGeometry**: *[QRect](classes/qrect.md)‹›* = desktop.screenGeometry()
-
-___
-
-### `Const` screenGeometry2
-
-• **screenGeometry2**: *[QRect](classes/qrect.md)‹›* = qApp.screenGeometry()
+• **sview**: *[QWidget](classes/qwidget.md)‹›* = new QWidget()
 
 ___
 
@@ -736,9 +594,9 @@ ___
 
 ___
 
-### `Const` tree
+### `Const` textView
 
-• **tree**: *[QTreeWidget](classes/qtreewidget.md)‹›* = new QTreeWidget()
+• **textView**: *[QLabel](classes/qlabel.md)‹›* = new QLabel()
 
 ___
 

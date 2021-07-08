@@ -51,6 +51,7 @@ const frame = new QFrame();
 * [addAction](qframe.md#addaction)
 * [addEventListener](qframe.md#addeventlistener)
 * [adjustSize](qframe.md#adjustsize)
+* [clearFocus](qframe.md#clearfocus)
 * [close](qframe.md#close)
 * [font](qframe.md#font)
 * [frameRect](qframe.md#framerect)
@@ -63,6 +64,7 @@ const frame = new QFrame();
 * [hasMouseTracking](qframe.md#hasmousetracking)
 * [hide](qframe.md#hide)
 * [inherits](qframe.md#inherits)
+* [isActiveWindow](qframe.md#isactivewindow)
 * [isEnabled](qframe.md#isenabled)
 * [isVisible](qframe.md#isvisible)
 * [lineWidth](qframe.md#linewidth)
@@ -92,6 +94,7 @@ const frame = new QFrame();
 * [setFixedSize](qframe.md#setfixedsize)
 * [setFlexNodeSizeControlled](qframe.md#setflexnodesizecontrolled)
 * [setFocus](qframe.md#setfocus)
+* [setFocusPolicy](qframe.md#setfocuspolicy)
 * [setFont](qframe.md#setfont)
 * [setFrameRect](qframe.md#setframerect)
 * [setFrameShadow](qframe.md#setframeshadow)
@@ -327,6 +330,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -448,6 +461,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -872,9 +895,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

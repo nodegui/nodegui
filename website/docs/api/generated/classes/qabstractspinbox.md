@@ -56,6 +56,7 @@ It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 * [adjustSize](qabstractspinbox.md#adjustsize)
 * [alignment](qabstractspinbox.md#alignment)
 * [buttonSymbols](qabstractspinbox.md#buttonsymbols)
+* [clearFocus](qabstractspinbox.md#clearfocus)
 * [close](qabstractspinbox.md#close)
 * [correctionMode](qabstractspinbox.md#correctionmode)
 * [font](qabstractspinbox.md#font)
@@ -67,6 +68,7 @@ It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 * [hide](qabstractspinbox.md#hide)
 * [inherits](qabstractspinbox.md#inherits)
 * [isAccelerated](qabstractspinbox.md#isaccelerated)
+* [isActiveWindow](qabstractspinbox.md#isactivewindow)
 * [isEnabled](qabstractspinbox.md#isenabled)
 * [isGroupSeparatorShown](qabstractspinbox.md#isgroupseparatorshown)
 * [isReadOnly](qabstractspinbox.md#isreadonly)
@@ -102,6 +104,7 @@ It is inherited by QDateTimeEdit and QSpinBox. (n/a QDoubleSpinBox)
 * [setFixedSize](qabstractspinbox.md#setfixedsize)
 * [setFlexNodeSizeControlled](qabstractspinbox.md#setflexnodesizecontrolled)
 * [setFocus](qabstractspinbox.md#setfocus)
+* [setFocusPolicy](qabstractspinbox.md#setfocuspolicy)
 * [setFont](qabstractspinbox.md#setfont)
 * [setFrame](qabstractspinbox.md#setframe)
 * [setGeometry](qabstractspinbox.md#setgeometry)
@@ -360,6 +363,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -463,6 +476,16 @@ ___
 ###  isAccelerated
 
 ▸ **isAccelerated**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -955,9 +978,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

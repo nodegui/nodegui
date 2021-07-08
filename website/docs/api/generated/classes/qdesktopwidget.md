@@ -38,6 +38,7 @@ sidebar_label: "QDesktopWidget"
 * [addEventListener](qdesktopwidget.md#addeventlistener)
 * [adjustSize](qdesktopwidget.md#adjustsize)
 * [availableGeometry](qdesktopwidget.md#availablegeometry)
+* [clearFocus](qdesktopwidget.md#clearfocus)
 * [close](qdesktopwidget.md#close)
 * [font](qdesktopwidget.md#font)
 * [geometry](qdesktopwidget.md#geometry)
@@ -45,6 +46,7 @@ sidebar_label: "QDesktopWidget"
 * [hasMouseTracking](qdesktopwidget.md#hasmousetracking)
 * [hide](qdesktopwidget.md#hide)
 * [inherits](qdesktopwidget.md#inherits)
+* [isActiveWindow](qdesktopwidget.md#isactivewindow)
 * [isEnabled](qdesktopwidget.md#isenabled)
 * [isVisible](qdesktopwidget.md#isvisible)
 * [lower](qdesktopwidget.md#lower)
@@ -74,6 +76,7 @@ sidebar_label: "QDesktopWidget"
 * [setFixedSize](qdesktopwidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qdesktopwidget.md#setflexnodesizecontrolled)
 * [setFocus](qdesktopwidget.md#setfocus)
+* [setFocusPolicy](qdesktopwidget.md#setfocuspolicy)
 * [setFont](qdesktopwidget.md#setfont)
 * [setGeometry](qdesktopwidget.md#setgeometry)
 * [setGraphicsEffect](qdesktopwidget.md#setgraphicseffect)
@@ -317,6 +320,16 @@ Name | Type | Default |
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -388,6 +401,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -814,9 +837,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

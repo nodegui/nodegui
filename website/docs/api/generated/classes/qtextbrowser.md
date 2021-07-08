@@ -60,6 +60,7 @@ const textBrowser = new QTextBrowser();
 * [backwardHistoryCount](qtextbrowser.md#backwardhistorycount)
 * [canPaste](qtextbrowser.md#canpaste)
 * [clear](qtextbrowser.md#clear)
+* [clearFocus](qtextbrowser.md#clearfocus)
 * [clearHistory](qtextbrowser.md#clearhistory)
 * [close](qtextbrowser.md#close)
 * [copy](qtextbrowser.md#copy)
@@ -91,6 +92,7 @@ const textBrowser = new QTextBrowser();
 * [inherits](qtextbrowser.md#inherits)
 * [insertHtml](qtextbrowser.md#inserthtml)
 * [insertPlainText](qtextbrowser.md#insertplaintext)
+* [isActiveWindow](qtextbrowser.md#isactivewindow)
 * [isBackwardAvailable](qtextbrowser.md#isbackwardavailable)
 * [isEnabled](qtextbrowser.md#isenabled)
 * [isForwardAvailable](qtextbrowser.md#isforwardavailable)
@@ -106,6 +108,7 @@ const textBrowser = new QTextBrowser();
 * [mapToGlobal](qtextbrowser.md#maptoglobal)
 * [mapToParent](qtextbrowser.md#maptoparent)
 * [maximumSize](qtextbrowser.md#maximumsize)
+* [maximumViewportSize](qtextbrowser.md#maximumviewportsize)
 * [midLineWidth](qtextbrowser.md#midlinewidth)
 * [minimumSize](qtextbrowser.md#minimumsize)
 * [move](qtextbrowser.md#move)
@@ -141,6 +144,7 @@ const textBrowser = new QTextBrowser();
 * [setFixedSize](qtextbrowser.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtextbrowser.md#setflexnodesizecontrolled)
 * [setFocus](qtextbrowser.md#setfocus)
+* [setFocusPolicy](qtextbrowser.md#setfocuspolicy)
 * [setFont](qtextbrowser.md#setfont)
 * [setFontFamily](qtextbrowser.md#setfontfamily)
 * [setFontItalic](qtextbrowser.md#setfontitalic)
@@ -153,6 +157,7 @@ const textBrowser = new QTextBrowser();
 * [setFrameStyle](qtextbrowser.md#setframestyle)
 * [setGeometry](qtextbrowser.md#setgeometry)
 * [setGraphicsEffect](qtextbrowser.md#setgraphicseffect)
+* [setHorizontalScrollBar](qtextbrowser.md#sethorizontalscrollbar)
 * [setHorizontalScrollBarPolicy](qtextbrowser.md#sethorizontalscrollbarpolicy)
 * [setHtml](qtextbrowser.md#sethtml)
 * [setInlineStyle](qtextbrowser.md#setinlinestyle)
@@ -182,6 +187,7 @@ const textBrowser = new QTextBrowser();
 * [setTextColor](qtextbrowser.md#settextcolor)
 * [setTextInteractionFlags](qtextbrowser.md#settextinteractionflags)
 * [setUndoRedoEnabled](qtextbrowser.md#setundoredoenabled)
+* [setVerticalScrollBar](qtextbrowser.md#setverticalscrollbar)
 * [setVerticalScrollBarPolicy](qtextbrowser.md#setverticalscrollbarpolicy)
 * [setViewport](qtextbrowser.md#setviewport)
 * [setWindowFlag](qtextbrowser.md#setwindowflag)
@@ -509,6 +515,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  clearHistory
 
 ▸ **clearHistory**(): *void*
@@ -831,6 +847,16 @@ Name | Type |
 
 ___
 
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isBackwardAvailable
 
 ▸ **isBackwardAvailable**(): *boolean*
@@ -996,6 +1022,16 @@ ___
 ▸ **maximumSize**(): *[QSize](qsize.md)*
 
 *Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  maximumViewportSize
+
+▸ **maximumViewportSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[maximumViewportSize](qabstractscrollarea.md#maximumviewportsize)*
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -1492,9 +1528,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
@@ -1690,6 +1742,22 @@ ___
 Name | Type |
 ------ | ------ |
 `effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
+
+**Returns:** *void*
+
+___
+
+###  setHorizontalScrollBar
+
+▸ **setHorizontalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setHorizontalScrollBar](qabstractscrollarea.md#sethorizontalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 
@@ -2153,6 +2221,22 @@ ___
 Name | Type |
 ------ | ------ |
 `enable` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setVerticalScrollBar
+
+▸ **setVerticalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setVerticalScrollBar](qabstractscrollarea.md#setverticalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 

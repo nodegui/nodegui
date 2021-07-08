@@ -57,6 +57,7 @@ const timeEdit = new QTimeEdit();
 * [buttonSymbols](qtimeedit.md#buttonsymbols)
 * [calendarPopup](qtimeedit.md#calendarpopup)
 * [calendarWidget](qtimeedit.md#calendarwidget)
+* [clearFocus](qtimeedit.md#clearfocus)
 * [close](qtimeedit.md#close)
 * [correctionMode](qtimeedit.md#correctionmode)
 * [date](qtimeedit.md#date)
@@ -71,6 +72,7 @@ const timeEdit = new QTimeEdit();
 * [hide](qtimeedit.md#hide)
 * [inherits](qtimeedit.md#inherits)
 * [isAccelerated](qtimeedit.md#isaccelerated)
+* [isActiveWindow](qtimeedit.md#isactivewindow)
 * [isEnabled](qtimeedit.md#isenabled)
 * [isGroupSeparatorShown](qtimeedit.md#isgroupseparatorshown)
 * [isReadOnly](qtimeedit.md#isreadonly)
@@ -111,6 +113,7 @@ const timeEdit = new QTimeEdit();
 * [setFixedSize](qtimeedit.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtimeedit.md#setflexnodesizecontrolled)
 * [setFocus](qtimeedit.md#setfocus)
+* [setFocusPolicy](qtimeedit.md#setfocuspolicy)
 * [setFont](qtimeedit.md#setfont)
 * [setFrame](qtimeedit.md#setframe)
 * [setGeometry](qtimeedit.md#setgeometry)
@@ -409,6 +412,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -550,6 +563,16 @@ ___
 ▸ **isAccelerated**(): *boolean*
 
 *Inherited from [QAbstractSpinBox](qabstractspinbox.md).[isAccelerated](qabstractspinbox.md#isaccelerated)*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -1138,9 +1161,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

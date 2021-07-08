@@ -55,6 +55,7 @@ It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTable
 * [adjustSize](qabstractitemview.md#adjustsize)
 * [alternatingRowColors](qabstractitemview.md#alternatingrowcolors)
 * [autoScrollMargin](qabstractitemview.md#autoscrollmargin)
+* [clearFocus](qabstractitemview.md#clearfocus)
 * [close](qabstractitemview.md#close)
 * [currentIndex](qabstractitemview.md#currentindex)
 * [defaultDropAction](qabstractitemview.md#defaultdropaction)
@@ -77,6 +78,7 @@ It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTable
 * [iconSize](qabstractitemview.md#iconsize)
 * [indexWidget](qabstractitemview.md#indexwidget)
 * [inherits](qabstractitemview.md#inherits)
+* [isActiveWindow](qabstractitemview.md#isactivewindow)
 * [isEnabled](qabstractitemview.md#isenabled)
 * [isVisible](qabstractitemview.md#isvisible)
 * [lineWidth](qabstractitemview.md#linewidth)
@@ -86,6 +88,7 @@ It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTable
 * [mapToGlobal](qabstractitemview.md#maptoglobal)
 * [mapToParent](qabstractitemview.md#maptoparent)
 * [maximumSize](qabstractitemview.md#maximumsize)
+* [maximumViewportSize](qabstractitemview.md#maximumviewportsize)
 * [midLineWidth](qabstractitemview.md#midlinewidth)
 * [minimumSize](qabstractitemview.md#minimumsize)
 * [move](qabstractitemview.md#move)
@@ -122,6 +125,7 @@ It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTable
 * [setFixedSize](qabstractitemview.md#setfixedsize)
 * [setFlexNodeSizeControlled](qabstractitemview.md#setflexnodesizecontrolled)
 * [setFocus](qabstractitemview.md#setfocus)
+* [setFocusPolicy](qabstractitemview.md#setfocuspolicy)
 * [setFont](qabstractitemview.md#setfont)
 * [setFrameRect](qabstractitemview.md#setframerect)
 * [setFrameShadow](qabstractitemview.md#setframeshadow)
@@ -129,6 +133,7 @@ It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTable
 * [setFrameStyle](qabstractitemview.md#setframestyle)
 * [setGeometry](qabstractitemview.md#setgeometry)
 * [setGraphicsEffect](qabstractitemview.md#setgraphicseffect)
+* [setHorizontalScrollBar](qabstractitemview.md#sethorizontalscrollbar)
 * [setHorizontalScrollBarPolicy](qabstractitemview.md#sethorizontalscrollbarpolicy)
 * [setHorizontalScrollMode](qabstractitemview.md#sethorizontalscrollmode)
 * [setIconSize](qabstractitemview.md#seticonsize)
@@ -148,6 +153,7 @@ It is inherited by QListWidget. (n/a QColumnView, QHeaderView, QListView, QTable
 * [setStyleSheet](qabstractitemview.md#setstylesheet)
 * [setTabKeyNavigation](qabstractitemview.md#settabkeynavigation)
 * [setTextElideMode](qabstractitemview.md#settextelidemode)
+* [setVerticalScrollBar](qabstractitemview.md#setverticalscrollbar)
 * [setVerticalScrollBarPolicy](qabstractitemview.md#setverticalscrollbarpolicy)
 * [setVerticalScrollMode](qabstractitemview.md#setverticalscrollmode)
 * [setViewport](qabstractitemview.md#setviewport)
@@ -399,6 +405,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -611,6 +627,16 @@ Name | Type |
 
 ___
 
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
@@ -720,6 +746,16 @@ ___
 ▸ **maximumSize**(): *[QSize](qsize.md)*
 
 *Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  maximumViewportSize
+
+▸ **maximumViewportSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[maximumViewportSize](qabstractscrollarea.md#maximumviewportsize)*
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -1218,9 +1254,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
@@ -1336,6 +1388,22 @@ ___
 Name | Type |
 ------ | ------ |
 `effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
+
+**Returns:** *void*
+
+___
+
+###  setHorizontalScrollBar
+
+▸ **setHorizontalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setHorizontalScrollBar](qabstractscrollarea.md#sethorizontalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 
@@ -1632,6 +1700,22 @@ ___
 Name | Type |
 ------ | ------ |
 `mode` | [TextElideMode](../enums/textelidemode.md) |
+
+**Returns:** *void*
+
+___
+
+###  setVerticalScrollBar
+
+▸ **setVerticalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setVerticalScrollBar](qabstractscrollarea.md#setverticalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 

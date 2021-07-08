@@ -53,6 +53,7 @@ view.setLayout(new FlexLayout());
 * [addAction](qwidget.md#addaction)
 * [addEventListener](qwidget.md#addeventlistener)
 * [adjustSize](qwidget.md#adjustsize)
+* [clearFocus](qwidget.md#clearfocus)
 * [close](qwidget.md#close)
 * [font](qwidget.md#font)
 * [geometry](qwidget.md#geometry)
@@ -60,6 +61,7 @@ view.setLayout(new FlexLayout());
 * [hasMouseTracking](qwidget.md#hasmousetracking)
 * [hide](qwidget.md#hide)
 * [inherits](qwidget.md#inherits)
+* [isActiveWindow](qwidget.md#isactivewindow)
 * [isEnabled](qwidget.md#isenabled)
 * [isVisible](qwidget.md#isvisible)
 * [lower](qwidget.md#lower)
@@ -87,6 +89,7 @@ view.setLayout(new FlexLayout());
 * [setFixedSize](qwidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qwidget.md#setflexnodesizecontrolled)
 * [setFocus](qwidget.md#setfocus)
+* [setFocusPolicy](qwidget.md#setfocuspolicy)
 * [setFont](qwidget.md#setfont)
 * [setGeometry](qwidget.md#setgeometry)
 * [setGraphicsEffect](qwidget.md#setgraphicseffect)
@@ -316,6 +319,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -387,6 +400,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -791,9 +814,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

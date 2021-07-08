@@ -52,6 +52,7 @@ const calendarWidget = new QCalendarWidget();
 * [addAction](qcalendarwidget.md#addaction)
 * [addEventListener](qcalendarwidget.md#addeventlistener)
 * [adjustSize](qcalendarwidget.md#adjustsize)
+* [clearFocus](qcalendarwidget.md#clearfocus)
 * [close](qcalendarwidget.md#close)
 * [dateEditAcceptDelay](qcalendarwidget.md#dateeditacceptdelay)
 * [firstDayOfWeek](qcalendarwidget.md#firstdayofweek)
@@ -62,6 +63,7 @@ const calendarWidget = new QCalendarWidget();
 * [hide](qcalendarwidget.md#hide)
 * [horizontalHeaderFormat](qcalendarwidget.md#horizontalheaderformat)
 * [inherits](qcalendarwidget.md#inherits)
+* [isActiveWindow](qcalendarwidget.md#isactivewindow)
 * [isDateEditEnabled](qcalendarwidget.md#isdateeditenabled)
 * [isEnabled](qcalendarwidget.md#isenabled)
 * [isGridVisible](qcalendarwidget.md#isgridvisible)
@@ -96,6 +98,7 @@ const calendarWidget = new QCalendarWidget();
 * [setFixedSize](qcalendarwidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qcalendarwidget.md#setflexnodesizecontrolled)
 * [setFocus](qcalendarwidget.md#setfocus)
+* [setFocusPolicy](qcalendarwidget.md#setfocuspolicy)
 * [setFont](qcalendarwidget.md#setfont)
 * [setGeometry](qcalendarwidget.md#setgeometry)
 * [setGraphicsEffect](qcalendarwidget.md#setgraphicseffect)
@@ -337,6 +340,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -432,6 +445,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -910,9 +933,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

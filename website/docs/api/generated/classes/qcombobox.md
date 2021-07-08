@@ -66,6 +66,7 @@ console.log('currentIndexChanged: ' + index);
 * [addItems](qcombobox.md#additems)
 * [adjustSize](qcombobox.md#adjustsize)
 * [clear](qcombobox.md#clear)
+* [clearFocus](qcombobox.md#clearfocus)
 * [close](qcombobox.md#close)
 * [currentIndex](qcombobox.md#currentindex)
 * [currentText](qcombobox.md#currenttext)
@@ -78,6 +79,7 @@ console.log('currentIndexChanged: ' + index);
 * [insertItem](qcombobox.md#insertitem)
 * [insertItems](qcombobox.md#insertitems)
 * [insertSeparator](qcombobox.md#insertseparator)
+* [isActiveWindow](qcombobox.md#isactivewindow)
 * [isEditable](qcombobox.md#iseditable)
 * [isEnabled](qcombobox.md#isenabled)
 * [isVisible](qcombobox.md#isvisible)
@@ -114,6 +116,7 @@ console.log('currentIndexChanged: ' + index);
 * [setFixedSize](qcombobox.md#setfixedsize)
 * [setFlexNodeSizeControlled](qcombobox.md#setflexnodesizecontrolled)
 * [setFocus](qcombobox.md#setfocus)
+* [setFocusPolicy](qcombobox.md#setfocuspolicy)
 * [setFont](qcombobox.md#setfont)
 * [setGeometry](qcombobox.md#setgeometry)
 * [setGraphicsEffect](qcombobox.md#setgraphicseffect)
@@ -391,6 +394,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -526,6 +539,16 @@ Name | Type |
 `index` | number |
 
 **Returns:** *void*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
 
 ___
 
@@ -1042,9 +1065,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

@@ -61,6 +61,7 @@ It is inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
 * [autoRepeat](qabstractbutton.md#autorepeat)
 * [autoRepeatDelay](qabstractbutton.md#autorepeatdelay)
 * [autoRepeatInterval](qabstractbutton.md#autorepeatinterval)
+* [clearFocus](qabstractbutton.md#clearfocus)
 * [click](qabstractbutton.md#click)
 * [close](qabstractbutton.md#close)
 * [font](qabstractbutton.md#font)
@@ -71,6 +72,7 @@ It is inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
 * [icon](qabstractbutton.md#icon)
 * [iconSize](qabstractbutton.md#iconsize)
 * [inherits](qabstractbutton.md#inherits)
+* [isActiveWindow](qabstractbutton.md#isactivewindow)
 * [isCheckable](qabstractbutton.md#ischeckable)
 * [isChecked](qabstractbutton.md#ischecked)
 * [isDown](qabstractbutton.md#isdown)
@@ -108,6 +110,7 @@ It is inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
 * [setFixedSize](qabstractbutton.md#setfixedsize)
 * [setFlexNodeSizeControlled](qabstractbutton.md#setflexnodesizecontrolled)
 * [setFocus](qabstractbutton.md#setfocus)
+* [setFocusPolicy](qabstractbutton.md#setfocuspolicy)
 * [setFont](qabstractbutton.md#setfont)
 * [setGeometry](qabstractbutton.md#setgeometry)
 * [setGraphicsEffect](qabstractbutton.md#setgraphicseffect)
@@ -392,6 +395,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  click
 
 ▸ **click**(): *void*
@@ -487,6 +500,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -1013,9 +1036,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

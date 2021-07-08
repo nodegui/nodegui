@@ -72,6 +72,7 @@ win.show();
 * [addEventListener](qgroupbox.md#addeventlistener)
 * [adjustSize](qgroupbox.md#adjustsize)
 * [alignment](qgroupbox.md#alignment)
+* [clearFocus](qgroupbox.md#clearfocus)
 * [close](qgroupbox.md#close)
 * [font](qgroupbox.md#font)
 * [geometry](qgroupbox.md#geometry)
@@ -79,6 +80,7 @@ win.show();
 * [hasMouseTracking](qgroupbox.md#hasmousetracking)
 * [hide](qgroupbox.md#hide)
 * [inherits](qgroupbox.md#inherits)
+* [isActiveWindow](qgroupbox.md#isactivewindow)
 * [isCheckable](qgroupbox.md#ischeckable)
 * [isChecked](qgroupbox.md#ischecked)
 * [isEnabled](qgroupbox.md#isenabled)
@@ -113,6 +115,7 @@ win.show();
 * [setFlat](qgroupbox.md#setflat)
 * [setFlexNodeSizeControlled](qgroupbox.md#setflexnodesizecontrolled)
 * [setFocus](qgroupbox.md#setfocus)
+* [setFocusPolicy](qgroupbox.md#setfocuspolicy)
 * [setFont](qgroupbox.md#setfont)
 * [setGeometry](qgroupbox.md#setgeometry)
 * [setGraphicsEffect](qgroupbox.md#setgraphicseffect)
@@ -358,6 +361,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -429,6 +442,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -913,9 +936,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

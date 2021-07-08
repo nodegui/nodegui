@@ -45,6 +45,7 @@ menu.addAction(menuAction);
 ### Methods
 
 * [addEventListener](qaction.md#addeventlistener)
+* [data](qaction.md#data)
 * [font](qaction.md#font)
 * [inherits](qaction.md#inherits)
 * [isCheckable](qaction.md#ischeckable)
@@ -55,6 +56,7 @@ menu.addAction(menuAction);
 * [removeEventListener](qaction.md#removeeventlistener)
 * [setCheckable](qaction.md#setcheckable)
 * [setChecked](qaction.md#setchecked)
+* [setData](qaction.md#setdata)
 * [setEnabled](qaction.md#setenabled)
 * [setFont](qaction.md#setfont)
 * [setIcon](qaction.md#seticon)
@@ -192,6 +194,14 @@ Name | Type |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
 **Returns:** *void*
+
+___
+
+###  data
+
+▸ **data**(): *[QVariant](qvariant.md)*
+
+**Returns:** *[QVariant](qvariant.md)*
 
 ___
 
@@ -333,6 +343,20 @@ ___
 Name | Type |
 ------ | ------ |
 `isChecked` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setData
+
+▸ **setData**(`value`: [QVariant](qvariant.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`value` | [QVariant](qvariant.md) |
 
 **Returns:** *void*
 

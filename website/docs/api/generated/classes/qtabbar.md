@@ -56,6 +56,7 @@ const tabBar = new QTabBar();
 * [adjustSize](qtabbar.md#adjustsize)
 * [autoHide](qtabbar.md#autohide)
 * [changeCurrentOnDrag](qtabbar.md#changecurrentondrag)
+* [clearFocus](qtabbar.md#clearfocus)
 * [close](qtabbar.md#close)
 * [count](qtabbar.md#count)
 * [currentIndex](qtabbar.md#currentindex)
@@ -71,6 +72,7 @@ const tabBar = new QTabBar();
 * [iconSize](qtabbar.md#iconsize)
 * [inherits](qtabbar.md#inherits)
 * [insertTab](qtabbar.md#inserttab)
+* [isActiveWindow](qtabbar.md#isactivewindow)
 * [isEnabled](qtabbar.md#isenabled)
 * [isMovable](qtabbar.md#ismovable)
 * [isTabEnabled](qtabbar.md#istabenabled)
@@ -111,6 +113,7 @@ const tabBar = new QTabBar();
 * [setFixedSize](qtabbar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtabbar.md#setflexnodesizecontrolled)
 * [setFocus](qtabbar.md#setfocus)
+* [setFocusPolicy](qtabbar.md#setfocuspolicy)
 * [setFont](qtabbar.md#setfont)
 * [setGeometry](qtabbar.md#setgeometry)
 * [setGraphicsEffect](qtabbar.md#setgraphicseffect)
@@ -416,6 +419,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -561,6 +574,16 @@ Name | Type |
 `text` | string |
 
 **Returns:** *number*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
 
 ___
 
@@ -1135,9 +1158,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

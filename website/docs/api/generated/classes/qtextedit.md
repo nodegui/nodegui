@@ -44,6 +44,7 @@ sidebar_label: "QTextEdit"
 * [autoFormatting](qtextedit.md#autoformatting)
 * [canPaste](qtextedit.md#canpaste)
 * [clear](qtextedit.md#clear)
+* [clearFocus](qtextedit.md#clearfocus)
 * [close](qtextedit.md#close)
 * [copy](qtextedit.md#copy)
 * [currentFont](qtextedit.md#currentfont)
@@ -69,6 +70,7 @@ sidebar_label: "QTextEdit"
 * [inherits](qtextedit.md#inherits)
 * [insertHtml](qtextedit.md#inserthtml)
 * [insertPlainText](qtextedit.md#insertplaintext)
+* [isActiveWindow](qtextedit.md#isactivewindow)
 * [isEnabled](qtextedit.md#isenabled)
 * [isReadOnly](qtextedit.md#isreadonly)
 * [isUndoRedoEnabled](qtextedit.md#isundoredoenabled)
@@ -82,6 +84,7 @@ sidebar_label: "QTextEdit"
 * [mapToGlobal](qtextedit.md#maptoglobal)
 * [mapToParent](qtextedit.md#maptoparent)
 * [maximumSize](qtextedit.md#maximumsize)
+* [maximumViewportSize](qtextedit.md#maximumviewportsize)
 * [midLineWidth](qtextedit.md#midlinewidth)
 * [minimumSize](qtextedit.md#minimumsize)
 * [move](qtextedit.md#move)
@@ -114,6 +117,7 @@ sidebar_label: "QTextEdit"
 * [setFixedSize](qtextedit.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtextedit.md#setflexnodesizecontrolled)
 * [setFocus](qtextedit.md#setfocus)
+* [setFocusPolicy](qtextedit.md#setfocuspolicy)
 * [setFont](qtextedit.md#setfont)
 * [setFontFamily](qtextedit.md#setfontfamily)
 * [setFontItalic](qtextedit.md#setfontitalic)
@@ -126,6 +130,7 @@ sidebar_label: "QTextEdit"
 * [setFrameStyle](qtextedit.md#setframestyle)
 * [setGeometry](qtextedit.md#setgeometry)
 * [setGraphicsEffect](qtextedit.md#setgraphicseffect)
+* [setHorizontalScrollBar](qtextedit.md#sethorizontalscrollbar)
 * [setHorizontalScrollBarPolicy](qtextedit.md#sethorizontalscrollbarpolicy)
 * [setHtml](qtextedit.md#sethtml)
 * [setInlineStyle](qtextedit.md#setinlinestyle)
@@ -152,6 +157,7 @@ sidebar_label: "QTextEdit"
 * [setTextColor](qtextedit.md#settextcolor)
 * [setTextInteractionFlags](qtextedit.md#settextinteractionflags)
 * [setUndoRedoEnabled](qtextedit.md#setundoredoenabled)
+* [setVerticalScrollBar](qtextedit.md#setverticalscrollbar)
 * [setVerticalScrollBarPolicy](qtextedit.md#setverticalscrollbarpolicy)
 * [setViewport](qtextedit.md#setviewport)
 * [setWindowFlag](qtextedit.md#setwindowflag)
@@ -462,6 +468,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -730,6 +746,16 @@ Name | Type |
 
 ___
 
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
@@ -879,6 +905,16 @@ ___
 ▸ **maximumSize**(): *[QSize](qsize.md)*
 
 *Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  maximumViewportSize
+
+▸ **maximumViewportSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[maximumViewportSize](qabstractscrollarea.md#maximumviewportsize)*
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -1351,9 +1387,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
@@ -1549,6 +1601,22 @@ ___
 Name | Type |
 ------ | ------ |
 `effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
+
+**Returns:** *void*
+
+___
+
+###  setHorizontalScrollBar
+
+▸ **setHorizontalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setHorizontalScrollBar](qabstractscrollarea.md#sethorizontalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 
@@ -1970,6 +2038,22 @@ ___
 Name | Type |
 ------ | ------ |
 `enable` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setVerticalScrollBar
+
+▸ **setVerticalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setVerticalScrollBar](qabstractscrollarea.md#setverticalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 

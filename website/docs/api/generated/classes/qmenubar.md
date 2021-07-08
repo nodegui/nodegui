@@ -56,6 +56,7 @@ global.win = win;
 * [addMenu](qmenubar.md#addmenu)
 * [addSeparator](qmenubar.md#addseparator)
 * [adjustSize](qmenubar.md#adjustsize)
+* [clearFocus](qmenubar.md#clearfocus)
 * [close](qmenubar.md#close)
 * [font](qmenubar.md#font)
 * [geometry](qmenubar.md#geometry)
@@ -63,6 +64,7 @@ global.win = win;
 * [hasMouseTracking](qmenubar.md#hasmousetracking)
 * [hide](qmenubar.md#hide)
 * [inherits](qmenubar.md#inherits)
+* [isActiveWindow](qmenubar.md#isactivewindow)
 * [isEnabled](qmenubar.md#isenabled)
 * [isVisible](qmenubar.md#isvisible)
 * [lower](qmenubar.md#lower)
@@ -90,6 +92,7 @@ global.win = win;
 * [setFixedSize](qmenubar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qmenubar.md#setflexnodesizecontrolled)
 * [setFocus](qmenubar.md#setfocus)
+* [setFocusPolicy](qmenubar.md#setfocuspolicy)
 * [setFont](qmenubar.md#setfont)
 * [setGeometry](qmenubar.md#setgeometry)
 * [setGraphicsEffect](qmenubar.md#setgraphicseffect)
@@ -366,6 +369,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -437,6 +450,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -841,9 +864,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

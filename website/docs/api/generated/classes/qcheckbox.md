@@ -58,6 +58,7 @@ checkbox.setText("Hello");
 * [autoRepeatDelay](qcheckbox.md#autorepeatdelay)
 * [autoRepeatInterval](qcheckbox.md#autorepeatinterval)
 * [checkState](qcheckbox.md#checkstate)
+* [clearFocus](qcheckbox.md#clearfocus)
 * [click](qcheckbox.md#click)
 * [close](qcheckbox.md#close)
 * [font](qcheckbox.md#font)
@@ -68,6 +69,7 @@ checkbox.setText("Hello");
 * [icon](qcheckbox.md#icon)
 * [iconSize](qcheckbox.md#iconsize)
 * [inherits](qcheckbox.md#inherits)
+* [isActiveWindow](qcheckbox.md#isactivewindow)
 * [isCheckable](qcheckbox.md#ischeckable)
 * [isChecked](qcheckbox.md#ischecked)
 * [isDown](qcheckbox.md#isdown)
@@ -107,6 +109,7 @@ checkbox.setText("Hello");
 * [setFixedSize](qcheckbox.md#setfixedsize)
 * [setFlexNodeSizeControlled](qcheckbox.md#setflexnodesizecontrolled)
 * [setFocus](qcheckbox.md#setfocus)
+* [setFocusPolicy](qcheckbox.md#setfocuspolicy)
 * [setFont](qcheckbox.md#setfont)
 * [setGeometry](qcheckbox.md#setgeometry)
 * [setGraphicsEffect](qcheckbox.md#setgraphicseffect)
@@ -427,6 +430,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  click
 
 ▸ **click**(): *void*
@@ -528,6 +541,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -1096,9 +1119,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

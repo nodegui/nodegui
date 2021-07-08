@@ -40,6 +40,7 @@ sidebar_label: "QTableView"
 * [adjustSize](qtableview.md#adjustsize)
 * [alternatingRowColors](qtableview.md#alternatingrowcolors)
 * [autoScrollMargin](qtableview.md#autoscrollmargin)
+* [clearFocus](qtableview.md#clearfocus)
 * [clearSpans](qtableview.md#clearspans)
 * [close](qtableview.md#close)
 * [columnAt](qtableview.md#columnat)
@@ -70,6 +71,7 @@ sidebar_label: "QTableView"
 * [iconSize](qtableview.md#iconsize)
 * [indexWidget](qtableview.md#indexwidget)
 * [inherits](qtableview.md#inherits)
+* [isActiveWindow](qtableview.md#isactivewindow)
 * [isColumnHidden](qtableview.md#iscolumnhidden)
 * [isCornerButtonEnabled](qtableview.md#iscornerbuttonenabled)
 * [isEnabled](qtableview.md#isenabled)
@@ -83,6 +85,7 @@ sidebar_label: "QTableView"
 * [mapToGlobal](qtableview.md#maptoglobal)
 * [mapToParent](qtableview.md#maptoparent)
 * [maximumSize](qtableview.md#maximumsize)
+* [maximumViewportSize](qtableview.md#maximumviewportsize)
 * [midLineWidth](qtableview.md#midlinewidth)
 * [minimumSize](qtableview.md#minimumsize)
 * [move](qtableview.md#move)
@@ -132,6 +135,7 @@ sidebar_label: "QTableView"
 * [setFixedSize](qtableview.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtableview.md#setflexnodesizecontrolled)
 * [setFocus](qtableview.md#setfocus)
+* [setFocusPolicy](qtableview.md#setfocuspolicy)
 * [setFont](qtableview.md#setfont)
 * [setFrameRect](qtableview.md#setframerect)
 * [setFrameShadow](qtableview.md#setframeshadow)
@@ -140,6 +144,7 @@ sidebar_label: "QTableView"
 * [setGeometry](qtableview.md#setgeometry)
 * [setGraphicsEffect](qtableview.md#setgraphicseffect)
 * [setGridStyle](qtableview.md#setgridstyle)
+* [setHorizontalScrollBar](qtableview.md#sethorizontalscrollbar)
 * [setHorizontalScrollBarPolicy](qtableview.md#sethorizontalscrollbarpolicy)
 * [setHorizontalScrollMode](qtableview.md#sethorizontalscrollmode)
 * [setIconSize](qtableview.md#seticonsize)
@@ -164,6 +169,7 @@ sidebar_label: "QTableView"
 * [setStyleSheet](qtableview.md#setstylesheet)
 * [setTabKeyNavigation](qtableview.md#settabkeynavigation)
 * [setTextElideMode](qtableview.md#settextelidemode)
+* [setVerticalScrollBar](qtableview.md#setverticalscrollbar)
 * [setVerticalScrollBarPolicy](qtableview.md#setverticalscrollbarpolicy)
 * [setVerticalScrollMode](qtableview.md#setverticalscrollmode)
 * [setViewport](qtableview.md#setviewport)
@@ -426,6 +432,16 @@ ___
 *Inherited from [QAbstractItemView](qabstractitemview.md).[autoScrollMargin](qabstractitemview.md#autoscrollmargin)*
 
 **Returns:** *number*
+
+___
+
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
 
 ___
 
@@ -778,6 +794,16 @@ Name | Type |
 
 ___
 
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isColumnHidden
 
 ▸ **isColumnHidden**(`column`: number): *boolean*
@@ -939,6 +965,16 @@ ___
 ▸ **maximumSize**(): *[QSize](qsize.md)*
 
 *Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  maximumViewportSize
+
+▸ **maximumViewportSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[maximumViewportSize](qabstractscrollarea.md#maximumviewportsize)*
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -1668,9 +1704,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
@@ -1802,6 +1854,22 @@ ___
 Name | Type |
 ------ | ------ |
 `style` | [PenStyle](../enums/penstyle.md) |
+
+**Returns:** *void*
+
+___
+
+###  setHorizontalScrollBar
+
+▸ **setHorizontalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setHorizontalScrollBar](qabstractscrollarea.md#sethorizontalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 
@@ -2197,6 +2265,22 @@ ___
 Name | Type |
 ------ | ------ |
 `mode` | [TextElideMode](../enums/textelidemode.md) |
+
+**Returns:** *void*
+
+___
+
+###  setVerticalScrollBar
+
+▸ **setVerticalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setVerticalScrollBar](qabstractscrollarea.md#setverticalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 

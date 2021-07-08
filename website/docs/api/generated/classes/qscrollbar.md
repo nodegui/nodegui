@@ -51,6 +51,7 @@ const scrollbar = new QScrollBar();
 * [addAction](qscrollbar.md#addaction)
 * [addEventListener](qscrollbar.md#addeventlistener)
 * [adjustSize](qscrollbar.md#adjustsize)
+* [clearFocus](qscrollbar.md#clearfocus)
 * [close](qscrollbar.md#close)
 * [font](qscrollbar.md#font)
 * [geometry](qscrollbar.md#geometry)
@@ -61,6 +62,7 @@ const scrollbar = new QScrollBar();
 * [inherits](qscrollbar.md#inherits)
 * [invertedAppearance](qscrollbar.md#invertedappearance)
 * [invertedControls](qscrollbar.md#invertedcontrols)
+* [isActiveWindow](qscrollbar.md#isactivewindow)
 * [isEnabled](qscrollbar.md#isenabled)
 * [isSliderDown](qscrollbar.md#issliderdown)
 * [isVisible](qscrollbar.md#isvisible)
@@ -93,6 +95,7 @@ const scrollbar = new QScrollBar();
 * [setFixedSize](qscrollbar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qscrollbar.md#setflexnodesizecontrolled)
 * [setFocus](qscrollbar.md#setfocus)
+* [setFocusPolicy](qscrollbar.md#setfocuspolicy)
 * [setFont](qscrollbar.md#setfont)
 * [setGeometry](qscrollbar.md#setgeometry)
 * [setGraphicsEffect](qscrollbar.md#setgraphicseffect)
@@ -344,6 +347,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -445,6 +458,16 @@ ___
 ▸ **invertedControls**(): *boolean*
 
 *Inherited from [QAbstractSlider](qabstractslider.md).[invertedControls](qabstractslider.md#invertedcontrols)*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -899,9 +922,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

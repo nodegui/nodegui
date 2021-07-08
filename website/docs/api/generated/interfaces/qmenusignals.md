@@ -1,24 +1,24 @@
 ---
-id: "qprogressbarsignals"
-title: "QProgressBarSignals"
-sidebar_label: "QProgressBarSignals"
+id: "qmenusignals"
+title: "QMenuSignals"
+sidebar_label: "QMenuSignals"
 ---
 
 ## Hierarchy
 
   ↳ [QWidgetSignals](qwidgetsignals.md)
 
-  ↳ **QProgressBarSignals**
+  ↳ **QMenuSignals**
 
 ## Index
 
 ### Properties
 
-* [customContextMenuRequested](qprogressbarsignals.md#customcontextmenurequested)
-* [objectNameChanged](qprogressbarsignals.md#objectnamechanged)
-* [valueChanged](qprogressbarsignals.md#valuechanged)
-* [windowIconChanged](qprogressbarsignals.md#windowiconchanged)
-* [windowTitleChanged](qprogressbarsignals.md#windowtitlechanged)
+* [customContextMenuRequested](qmenusignals.md#customcontextmenurequested)
+* [objectNameChanged](qmenusignals.md#objectnamechanged)
+* [triggered](qmenusignals.md#triggered)
+* [windowIconChanged](qmenusignals.md#windowiconchanged)
+* [windowTitleChanged](qmenusignals.md#windowtitlechanged)
 
 ## Properties
 
@@ -61,19 +61,19 @@ Name | Type |
 
 ___
 
-###  valueChanged
+###  triggered
 
-• **valueChanged**: *function*
+• **triggered**: *function*
 
 #### Type declaration:
 
-▸ (`value`: number): *void*
+▸ (`action`: [NativeElement](../globals.md#nativeelement)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`value` | number |
+`action` | [NativeElement](../globals.md#nativeelement) |
 
 ___
 

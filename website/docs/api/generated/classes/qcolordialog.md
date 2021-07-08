@@ -57,6 +57,7 @@ console.log(color.red(), color.green(), color.blue());
 * [addAction](qcolordialog.md#addaction)
 * [addEventListener](qcolordialog.md#addeventlistener)
 * [adjustSize](qcolordialog.md#adjustsize)
+* [clearFocus](qcolordialog.md#clearfocus)
 * [close](qcolordialog.md#close)
 * [currentColor](qcolordialog.md#currentcolor)
 * [exec](qcolordialog.md#exec)
@@ -66,6 +67,7 @@ console.log(color.red(), color.green(), color.blue());
 * [hasMouseTracking](qcolordialog.md#hasmousetracking)
 * [hide](qcolordialog.md#hide)
 * [inherits](qcolordialog.md#inherits)
+* [isActiveWindow](qcolordialog.md#isactivewindow)
 * [isEnabled](qcolordialog.md#isenabled)
 * [isSizeGripEnabled](qcolordialog.md#issizegripenabled)
 * [isVisible](qcolordialog.md#isvisible)
@@ -100,6 +102,7 @@ console.log(color.red(), color.green(), color.blue());
 * [setFixedSize](qcolordialog.md#setfixedsize)
 * [setFlexNodeSizeControlled](qcolordialog.md#setflexnodesizecontrolled)
 * [setFocus](qcolordialog.md#setfocus)
+* [setFocusPolicy](qcolordialog.md#setfocuspolicy)
 * [setFont](qcolordialog.md#setfont)
 * [setGeometry](qcolordialog.md#setgeometry)
 * [setGraphicsEffect](qcolordialog.md#setgraphicseffect)
@@ -346,6 +349,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -435,6 +448,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -909,9 +932,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

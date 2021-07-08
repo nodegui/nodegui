@@ -24,9 +24,9 @@ QAbstractSlider will list all methods and properties that are common to all slid
 
   ↳ **QAbstractSlider**
 
-  ↳ [QDial](qdial.md)
-
   ↳ [QScrollBar](qscrollbar.md)
+
+  ↳ [QDial](qdial.md)
 
   ↳ [QSlider](qslider.md)
 
@@ -57,6 +57,7 @@ QAbstractSlider will list all methods and properties that are common to all slid
 * [addAction](qabstractslider.md#addaction)
 * [addEventListener](qabstractslider.md#addeventlistener)
 * [adjustSize](qabstractslider.md#adjustsize)
+* [clearFocus](qabstractslider.md#clearfocus)
 * [close](qabstractslider.md#close)
 * [font](qabstractslider.md#font)
 * [geometry](qabstractslider.md#geometry)
@@ -67,6 +68,7 @@ QAbstractSlider will list all methods and properties that are common to all slid
 * [inherits](qabstractslider.md#inherits)
 * [invertedAppearance](qabstractslider.md#invertedappearance)
 * [invertedControls](qabstractslider.md#invertedcontrols)
+* [isActiveWindow](qabstractslider.md#isactivewindow)
 * [isEnabled](qabstractslider.md#isenabled)
 * [isSliderDown](qabstractslider.md#issliderdown)
 * [isVisible](qabstractslider.md#isvisible)
@@ -99,6 +101,7 @@ QAbstractSlider will list all methods and properties that are common to all slid
 * [setFixedSize](qabstractslider.md#setfixedsize)
 * [setFlexNodeSizeControlled](qabstractslider.md#setflexnodesizecontrolled)
 * [setFocus](qabstractslider.md#setfocus)
+* [setFocusPolicy](qabstractslider.md#setfocuspolicy)
 * [setFont](qabstractslider.md#setfont)
 * [setGeometry](qabstractslider.md#setgeometry)
 * [setGraphicsEffect](qabstractslider.md#setgraphicseffect)
@@ -346,6 +349,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -441,6 +454,16 @@ ___
 ###  invertedControls
 
 ▸ **invertedControls**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -885,9 +908,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

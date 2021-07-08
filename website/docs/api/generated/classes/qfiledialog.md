@@ -59,6 +59,7 @@ console.log(selectedFiles);
 * [addAction](qfiledialog.md#addaction)
 * [addEventListener](qfiledialog.md#addeventlistener)
 * [adjustSize](qfiledialog.md#adjustsize)
+* [clearFocus](qfiledialog.md#clearfocus)
 * [close](qfiledialog.md#close)
 * [defaultSuffix](qfiledialog.md#defaultsuffix)
 * [exec](qfiledialog.md#exec)
@@ -69,6 +70,7 @@ console.log(selectedFiles);
 * [hasMouseTracking](qfiledialog.md#hasmousetracking)
 * [hide](qfiledialog.md#hide)
 * [inherits](qfiledialog.md#inherits)
+* [isActiveWindow](qfiledialog.md#isactivewindow)
 * [isEnabled](qfiledialog.md#isenabled)
 * [isSizeGripEnabled](qfiledialog.md#issizegripenabled)
 * [isVisible](qfiledialog.md#isvisible)
@@ -106,6 +108,7 @@ console.log(selectedFiles);
 * [setFixedSize](qfiledialog.md#setfixedsize)
 * [setFlexNodeSizeControlled](qfiledialog.md#setflexnodesizecontrolled)
 * [setFocus](qfiledialog.md#setfocus)
+* [setFocusPolicy](qfiledialog.md#setfocuspolicy)
 * [setFont](qfiledialog.md#setfont)
 * [setGeometry](qfiledialog.md#setgeometry)
 * [setGraphicsEffect](qfiledialog.md#setgraphicseffect)
@@ -362,6 +365,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -459,6 +472,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -975,9 +998,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

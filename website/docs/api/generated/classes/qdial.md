@@ -51,6 +51,7 @@ const dial = new QDial();
 * [addAction](qdial.md#addaction)
 * [addEventListener](qdial.md#addeventlistener)
 * [adjustSize](qdial.md#adjustsize)
+* [clearFocus](qdial.md#clearfocus)
 * [close](qdial.md#close)
 * [font](qdial.md#font)
 * [geometry](qdial.md#geometry)
@@ -61,6 +62,7 @@ const dial = new QDial();
 * [inherits](qdial.md#inherits)
 * [invertedAppearance](qdial.md#invertedappearance)
 * [invertedControls](qdial.md#invertedcontrols)
+* [isActiveWindow](qdial.md#isactivewindow)
 * [isEnabled](qdial.md#isenabled)
 * [isSliderDown](qdial.md#issliderdown)
 * [isVisible](qdial.md#isvisible)
@@ -96,6 +98,7 @@ const dial = new QDial();
 * [setFixedSize](qdial.md#setfixedsize)
 * [setFlexNodeSizeControlled](qdial.md#setflexnodesizecontrolled)
 * [setFocus](qdial.md#setfocus)
+* [setFocusPolicy](qdial.md#setfocuspolicy)
 * [setFont](qdial.md#setfont)
 * [setGeometry](qdial.md#setgeometry)
 * [setGraphicsEffect](qdial.md#setgraphicseffect)
@@ -351,6 +354,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -452,6 +465,16 @@ ___
 ▸ **invertedControls**(): *boolean*
 
 *Inherited from [QAbstractSlider](qabstractslider.md).[invertedControls](qabstractslider.md#invertedcontrols)*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -930,9 +953,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

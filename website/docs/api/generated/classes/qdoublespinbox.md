@@ -54,6 +54,7 @@ const doublespinBox = new QDoubleSpinBox();
 * [alignment](qdoublespinbox.md#alignment)
 * [buttonSymbols](qdoublespinbox.md#buttonsymbols)
 * [cleanText](qdoublespinbox.md#cleantext)
+* [clearFocus](qdoublespinbox.md#clearfocus)
 * [close](qdoublespinbox.md#close)
 * [correctionMode](qdoublespinbox.md#correctionmode)
 * [decimals](qdoublespinbox.md#decimals)
@@ -66,6 +67,7 @@ const doublespinBox = new QDoubleSpinBox();
 * [hide](qdoublespinbox.md#hide)
 * [inherits](qdoublespinbox.md#inherits)
 * [isAccelerated](qdoublespinbox.md#isaccelerated)
+* [isActiveWindow](qdoublespinbox.md#isactivewindow)
 * [isEnabled](qdoublespinbox.md#isenabled)
 * [isGroupSeparatorShown](qdoublespinbox.md#isgroupseparatorshown)
 * [isReadOnly](qdoublespinbox.md#isreadonly)
@@ -105,6 +107,7 @@ const doublespinBox = new QDoubleSpinBox();
 * [setFixedSize](qdoublespinbox.md#setfixedsize)
 * [setFlexNodeSizeControlled](qdoublespinbox.md#setflexnodesizecontrolled)
 * [setFocus](qdoublespinbox.md#setfocus)
+* [setFocusPolicy](qdoublespinbox.md#setfocuspolicy)
 * [setFont](qdoublespinbox.md#setfont)
 * [setFrame](qdoublespinbox.md#setframe)
 * [setGeometry](qdoublespinbox.md#setgeometry)
@@ -393,6 +396,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -512,6 +525,16 @@ ___
 ▸ **isAccelerated**(): *boolean*
 
 *Inherited from [QAbstractSpinBox](qabstractspinbox.md).[isAccelerated](qabstractspinbox.md#isaccelerated)*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -1058,9 +1081,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

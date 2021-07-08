@@ -57,6 +57,7 @@ radioButton.setText("Hello");
 * [autoRepeat](qradiobutton.md#autorepeat)
 * [autoRepeatDelay](qradiobutton.md#autorepeatdelay)
 * [autoRepeatInterval](qradiobutton.md#autorepeatinterval)
+* [clearFocus](qradiobutton.md#clearfocus)
 * [click](qradiobutton.md#click)
 * [close](qradiobutton.md#close)
 * [font](qradiobutton.md#font)
@@ -67,6 +68,7 @@ radioButton.setText("Hello");
 * [icon](qradiobutton.md#icon)
 * [iconSize](qradiobutton.md#iconsize)
 * [inherits](qradiobutton.md#inherits)
+* [isActiveWindow](qradiobutton.md#isactivewindow)
 * [isCheckable](qradiobutton.md#ischeckable)
 * [isChecked](qradiobutton.md#ischecked)
 * [isDown](qradiobutton.md#isdown)
@@ -104,6 +106,7 @@ radioButton.setText("Hello");
 * [setFixedSize](qradiobutton.md#setfixedsize)
 * [setFlexNodeSizeControlled](qradiobutton.md#setflexnodesizecontrolled)
 * [setFocus](qradiobutton.md#setfocus)
+* [setFocusPolicy](qradiobutton.md#setfocuspolicy)
 * [setFont](qradiobutton.md#setfont)
 * [setGeometry](qradiobutton.md#setgeometry)
 * [setGraphicsEffect](qradiobutton.md#setgraphicseffect)
@@ -415,6 +418,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  click
 
 ▸ **click**(): *void*
@@ -516,6 +529,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -1062,9 +1085,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

@@ -71,6 +71,7 @@ win.show();
 * [cellWidget](qtablewidget.md#cellwidget)
 * [clear](qtablewidget.md#clear)
 * [clearContents](qtablewidget.md#clearcontents)
+* [clearFocus](qtablewidget.md#clearfocus)
 * [close](qtablewidget.md#close)
 * [closePersistentEditor](qtablewidget.md#closepersistenteditor)
 * [column](qtablewidget.md#column)
@@ -95,6 +96,7 @@ win.show();
 * [inherits](qtablewidget.md#inherits)
 * [insertColumn](qtablewidget.md#insertcolumn)
 * [insertRow](qtablewidget.md#insertrow)
+* [isActiveWindow](qtablewidget.md#isactivewindow)
 * [isEnabled](qtablewidget.md#isenabled)
 * [isPersistentEditorOpen](qtablewidget.md#ispersistenteditoropen)
 * [isSortingEnabled](qtablewidget.md#issortingenabled)
@@ -108,6 +110,7 @@ win.show();
 * [mapToGlobal](qtablewidget.md#maptoglobal)
 * [mapToParent](qtablewidget.md#maptoparent)
 * [maximumSize](qtablewidget.md#maximumsize)
+* [maximumViewportSize](qtablewidget.md#maximumviewportsize)
 * [midLineWidth](qtablewidget.md#midlinewidth)
 * [minimumSize](qtablewidget.md#minimumsize)
 * [move](qtablewidget.md#move)
@@ -147,6 +150,7 @@ win.show();
 * [setFixedSize](qtablewidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtablewidget.md#setflexnodesizecontrolled)
 * [setFocus](qtablewidget.md#setfocus)
+* [setFocusPolicy](qtablewidget.md#setfocuspolicy)
 * [setFont](qtablewidget.md#setfont)
 * [setFrameRect](qtablewidget.md#setframerect)
 * [setFrameShadow](qtablewidget.md#setframeshadow)
@@ -156,6 +160,7 @@ win.show();
 * [setGraphicsEffect](qtablewidget.md#setgraphicseffect)
 * [setHorizontalHeaderItem](qtablewidget.md#sethorizontalheaderitem)
 * [setHorizontalHeaderLabels](qtablewidget.md#sethorizontalheaderlabels)
+* [setHorizontalScrollBar](qtablewidget.md#sethorizontalscrollbar)
 * [setHorizontalScrollBarPolicy](qtablewidget.md#sethorizontalscrollbarpolicy)
 * [setInlineStyle](qtablewidget.md#setinlinestyle)
 * [setItem](qtablewidget.md#setitem)
@@ -175,6 +180,7 @@ win.show();
 * [setStyleSheet](qtablewidget.md#setstylesheet)
 * [setVerticalHeaderItem](qtablewidget.md#setverticalheaderitem)
 * [setVerticalHeaderLabels](qtablewidget.md#setverticalheaderlabels)
+* [setVerticalScrollBar](qtablewidget.md#setverticalscrollbar)
 * [setVerticalScrollBarPolicy](qtablewidget.md#setverticalscrollbarpolicy)
 * [setViewport](qtablewidget.md#setviewport)
 * [setWindowFlag](qtablewidget.md#setwindowflag)
@@ -464,6 +470,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -735,6 +751,16 @@ Name | Type |
 
 ___
 
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
@@ -896,6 +922,16 @@ ___
 ▸ **maximumSize**(): *[QSize](qsize.md)*
 
 *Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  maximumViewportSize
+
+▸ **maximumViewportSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[maximumViewportSize](qabstractscrollarea.md#maximumviewportsize)*
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -1454,9 +1490,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
@@ -1601,6 +1653,22 @@ ___
 Name | Type |
 ------ | ------ |
 `labels` | string[] |
+
+**Returns:** *void*
+
+___
+
+###  setHorizontalScrollBar
+
+▸ **setHorizontalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setHorizontalScrollBar](qabstractscrollarea.md#sethorizontalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 
@@ -1900,6 +1968,22 @@ ___
 Name | Type |
 ------ | ------ |
 `labels` | string[] |
+
+**Returns:** *void*
+
+___
+
+###  setVerticalScrollBar
+
+▸ **setVerticalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setVerticalScrollBar](qabstractscrollarea.md#setverticalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 

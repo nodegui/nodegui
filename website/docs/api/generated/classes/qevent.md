@@ -1,49 +1,63 @@
 ---
-id: "qdragleaveevent"
-title: "QDragLeaveEvent"
-sidebar_label: "QDragLeaveEvent"
+id: "qevent"
+title: "QEvent"
+sidebar_label: "QEvent"
 ---
 
 ## Hierarchy
 
-* [QEvent](qevent.md)
+* **QEvent**
 
-  ↳ **QDragLeaveEvent**
+  ↳ [QKeyEvent](qkeyevent.md)
+
+  ↳ [QMouseEvent](qmouseevent.md)
+
+  ↳ [QWheelEvent](qwheelevent.md)
+
+  ↳ [QNativeGestureEvent](qnativegestureevent.md)
+
+  ↳ [QTabletEvent](qtabletevent.md)
+
+  ↳ [QDropEvent](qdropevent.md)
+
+  ↳ [QDragMoveEvent](qdragmoveevent.md)
+
+  ↳ [QDragLeaveEvent](qdragleaveevent.md)
+
+  ↳ [QPaintEvent](qpaintevent.md)
 
 ## Index
 
 ### Constructors
 
-* [constructor](qdragleaveevent.md#constructor)
+* [constructor](qevent.md#constructor)
 
 ### Properties
 
-* [native](qdragleaveevent.md#native)
+* [native](qevent.md#native)
 
 ### Methods
 
-* [accept](qdragleaveevent.md#accept)
-* [ignore](qdragleaveevent.md#ignore)
-* [isAccepted](qdragleaveevent.md#isaccepted)
-* [setAccepted](qdragleaveevent.md#setaccepted)
-* [spontaneous](qdragleaveevent.md#spontaneous)
-* [type](qdragleaveevent.md#type)
+* [accept](qevent.md#accept)
+* [ignore](qevent.md#ignore)
+* [isAccepted](qevent.md#isaccepted)
+* [setAccepted](qevent.md#setaccepted)
+* [spontaneous](qevent.md#spontaneous)
+* [type](qevent.md#type)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QDragLeaveEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QDragLeaveEvent](qdragleaveevent.md)*
-
-*Overrides [QEvent](qevent.md).[constructor](qevent.md#constructor)*
+\+ **new QEvent**(`native`: [NativeElement](../globals.md#nativeelement)): *[QEvent](qevent.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
+`native` | [NativeElement](../globals.md#nativeelement) |
 
-**Returns:** *[QDragLeaveEvent](qdragleaveevent.md)*
+**Returns:** *[QEvent](qevent.md)*
 
 ## Properties
 
@@ -51,15 +65,11 @@ Name | Type |
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
-*Inherited from [QEvent](qevent.md).[native](qevent.md#native)*
-
 ## Methods
 
 ###  accept
 
 ▸ **accept**(): *void*
-
-*Inherited from [QEvent](qevent.md).[accept](qevent.md#accept)*
 
 Sets the accept flag of the event object, the equivalent of calling setAccepted(true).
 Setting the accept parameter indicates that the event receiver wants the event. Unwanted events might be propagated to the parent widget
@@ -71,8 +81,6 @@ ___
 ###  ignore
 
 ▸ **ignore**(): *void*
-
-*Inherited from [QEvent](qevent.md).[ignore](qevent.md#ignore)*
 
 Clears the accept flag parameter of the event object, the equivalent of calling setAccepted(false).
 Clearing the accept parameter indicates that the event receiver does not want the event.
@@ -86,8 +94,6 @@ ___
 
 ▸ **isAccepted**(): *boolean*
 
-*Inherited from [QEvent](qevent.md).[isAccepted](qevent.md#isaccepted)*
-
 **Returns:** *boolean*
 
 ___
@@ -95,8 +101,6 @@ ___
 ###  setAccepted
 
 ▸ **setAccepted**(`accepted`: boolean): *void*
-
-*Inherited from [QEvent](qevent.md).[setAccepted](qevent.md#setaccepted)*
 
 Sets the accept flag of the event object
 
@@ -114,8 +118,6 @@ ___
 
 ▸ **spontaneous**(): *boolean*
 
-*Inherited from [QEvent](qevent.md).[spontaneous](qevent.md#spontaneous)*
-
 Returns true if the event originated outside the application (a system event); otherwise returns false.
 
 The return value of this function is not defined for paint events.
@@ -127,8 +129,6 @@ ___
 ###  type
 
 ▸ **type**(): *number*
-
-*Inherited from [QEvent](qevent.md).[type](qevent.md#type)*
 
 Returns the event type
 

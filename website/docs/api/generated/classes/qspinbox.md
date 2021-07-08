@@ -54,6 +54,7 @@ const spinBox = new QSpinBox();
 * [alignment](qspinbox.md#alignment)
 * [buttonSymbols](qspinbox.md#buttonsymbols)
 * [cleanText](qspinbox.md#cleantext)
+* [clearFocus](qspinbox.md#clearfocus)
 * [close](qspinbox.md#close)
 * [correctionMode](qspinbox.md#correctionmode)
 * [displayIntegerBase](qspinbox.md#displayintegerbase)
@@ -66,6 +67,7 @@ const spinBox = new QSpinBox();
 * [hide](qspinbox.md#hide)
 * [inherits](qspinbox.md#inherits)
 * [isAccelerated](qspinbox.md#isaccelerated)
+* [isActiveWindow](qspinbox.md#isactivewindow)
 * [isEnabled](qspinbox.md#isenabled)
 * [isGroupSeparatorShown](qspinbox.md#isgroupseparatorshown)
 * [isReadOnly](qspinbox.md#isreadonly)
@@ -105,6 +107,7 @@ const spinBox = new QSpinBox();
 * [setFixedSize](qspinbox.md#setfixedsize)
 * [setFlexNodeSizeControlled](qspinbox.md#setflexnodesizecontrolled)
 * [setFocus](qspinbox.md#setfocus)
+* [setFocusPolicy](qspinbox.md#setfocuspolicy)
 * [setFont](qspinbox.md#setfont)
 * [setFrame](qspinbox.md#setframe)
 * [setGeometry](qspinbox.md#setgeometry)
@@ -391,6 +394,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -510,6 +523,16 @@ ___
 ▸ **isAccelerated**(): *boolean*
 
 *Inherited from [QAbstractSpinBox](qabstractspinbox.md).[isAccelerated](qabstractspinbox.md#isaccelerated)*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -1056,9 +1079,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

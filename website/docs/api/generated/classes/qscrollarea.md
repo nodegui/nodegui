@@ -61,6 +61,7 @@ scrollArea.setWidget(imageLabel);
 * [addEventListener](qscrollarea.md#addeventlistener)
 * [adjustSize](qscrollarea.md#adjustsize)
 * [alignment](qscrollarea.md#alignment)
+* [clearFocus](qscrollarea.md#clearfocus)
 * [close](qscrollarea.md#close)
 * [ensureVisible](qscrollarea.md#ensurevisible)
 * [ensureWidgetVisible](qscrollarea.md#ensurewidgetvisible)
@@ -75,6 +76,7 @@ scrollArea.setWidget(imageLabel);
 * [hasMouseTracking](qscrollarea.md#hasmousetracking)
 * [hide](qscrollarea.md#hide)
 * [inherits](qscrollarea.md#inherits)
+* [isActiveWindow](qscrollarea.md#isactivewindow)
 * [isEnabled](qscrollarea.md#isenabled)
 * [isVisible](qscrollarea.md#isvisible)
 * [lineWidth](qscrollarea.md#linewidth)
@@ -84,6 +86,7 @@ scrollArea.setWidget(imageLabel);
 * [mapToGlobal](qscrollarea.md#maptoglobal)
 * [mapToParent](qscrollarea.md#maptoparent)
 * [maximumSize](qscrollarea.md#maximumsize)
+* [maximumViewportSize](qscrollarea.md#maximumviewportsize)
 * [midLineWidth](qscrollarea.md#midlinewidth)
 * [minimumSize](qscrollarea.md#minimumsize)
 * [move](qscrollarea.md#move)
@@ -105,6 +108,7 @@ scrollArea.setWidget(imageLabel);
 * [setFixedSize](qscrollarea.md#setfixedsize)
 * [setFlexNodeSizeControlled](qscrollarea.md#setflexnodesizecontrolled)
 * [setFocus](qscrollarea.md#setfocus)
+* [setFocusPolicy](qscrollarea.md#setfocuspolicy)
 * [setFont](qscrollarea.md#setfont)
 * [setFrameRect](qscrollarea.md#setframerect)
 * [setFrameShadow](qscrollarea.md#setframeshadow)
@@ -112,6 +116,7 @@ scrollArea.setWidget(imageLabel);
 * [setFrameStyle](qscrollarea.md#setframestyle)
 * [setGeometry](qscrollarea.md#setgeometry)
 * [setGraphicsEffect](qscrollarea.md#setgraphicseffect)
+* [setHorizontalScrollBar](qscrollarea.md#sethorizontalscrollbar)
 * [setHorizontalScrollBarPolicy](qscrollarea.md#sethorizontalscrollbarpolicy)
 * [setInlineStyle](qscrollarea.md#setinlinestyle)
 * [setLayout](qscrollarea.md#setlayout)
@@ -124,8 +129,10 @@ scrollArea.setWidget(imageLabel);
 * [setObjectName](qscrollarea.md#setobjectname)
 * [setProperty](qscrollarea.md#setproperty)
 * [setStyleSheet](qscrollarea.md#setstylesheet)
+* [setVerticalScrollBar](qscrollarea.md#setverticalscrollbar)
 * [setVerticalScrollBarPolicy](qscrollarea.md#setverticalscrollbarpolicy)
 * [setViewport](qscrollarea.md#setviewport)
+* [setViewportMargins](qscrollarea.md#setviewportmargins)
 * [setWidget](qscrollarea.md#setwidget)
 * [setWidgetResizable](qscrollarea.md#setwidgetresizable)
 * [setWindowFlag](qscrollarea.md#setwindowflag)
@@ -145,6 +152,7 @@ scrollArea.setWidget(imageLabel);
 * [update](qscrollarea.md#update)
 * [updateGeometry](qscrollarea.md#updategeometry)
 * [viewport](qscrollarea.md#viewport)
+* [viewportMargins](qscrollarea.md#viewportmargins)
 * [widget](qscrollarea.md#widget)
 * [widgetResizable](qscrollarea.md#widgetresizable)
 * [windowOpacity](qscrollarea.md#windowopacity)
@@ -377,6 +385,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -536,6 +554,16 @@ Name | Type |
 
 ___
 
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
@@ -645,6 +673,16 @@ ___
 ▸ **maximumSize**(): *[QSize](qsize.md)*
 
 *Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  maximumViewportSize
+
+▸ **maximumViewportSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[maximumViewportSize](qabstractscrollarea.md#maximumviewportsize)*
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -969,9 +1007,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
@@ -1087,6 +1141,22 @@ ___
 Name | Type |
 ------ | ------ |
 `effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
+
+**Returns:** *void*
+
+___
+
+###  setHorizontalScrollBar
+
+▸ **setHorizontalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setHorizontalScrollBar](qabstractscrollarea.md#sethorizontalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 
@@ -1289,6 +1359,22 @@ Name | Type |
 
 ___
 
+###  setVerticalScrollBar
+
+▸ **setVerticalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setVerticalScrollBar](qabstractscrollarea.md#setverticalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setVerticalScrollBarPolicy
 
 ▸ **setVerticalScrollBarPolicy**(`policy`: [ScrollBarPolicy](../enums/scrollbarpolicy.md)): *void*
@@ -1316,6 +1402,23 @@ ___
 Name | Type |
 ------ | ------ |
 `widget` | [NodeWidget](nodewidget.md)‹any› |
+
+**Returns:** *void*
+
+___
+
+###  setViewportMargins
+
+▸ **setViewportMargins**(`left`: number, `top`: number, `right`: number, `bottom`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`left` | number |
+`top` | number |
+`right` | number |
+`bottom` | number |
 
 **Returns:** *void*
 
@@ -1551,6 +1654,14 @@ ___
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewport](qabstractscrollarea.md#viewport)*
 
 **Returns:** *[QWidget](qwidget.md)*
+
+___
+
+###  viewportMargins
+
+▸ **viewportMargins**(): *[Margins](../interfaces/margins.md)*
+
+**Returns:** *[Margins](../interfaces/margins.md)*
 
 ___
 

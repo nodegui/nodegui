@@ -52,6 +52,7 @@ const lineEdit = new QLineEdit();
 * [addEventListener](qlineedit.md#addeventlistener)
 * [adjustSize](qlineedit.md#adjustsize)
 * [clear](qlineedit.md#clear)
+* [clearFocus](qlineedit.md#clearfocus)
 * [close](qlineedit.md#close)
 * [font](qlineedit.md#font)
 * [geometry](qlineedit.md#geometry)
@@ -59,6 +60,7 @@ const lineEdit = new QLineEdit();
 * [hasMouseTracking](qlineedit.md#hasmousetracking)
 * [hide](qlineedit.md#hide)
 * [inherits](qlineedit.md#inherits)
+* [isActiveWindow](qlineedit.md#isactivewindow)
 * [isEnabled](qlineedit.md#isenabled)
 * [isReadOnly](qlineedit.md#isreadonly)
 * [isVisible](qlineedit.md#isvisible)
@@ -89,6 +91,7 @@ const lineEdit = new QLineEdit();
 * [setFixedSize](qlineedit.md#setfixedsize)
 * [setFlexNodeSizeControlled](qlineedit.md#setflexnodesizecontrolled)
 * [setFocus](qlineedit.md#setfocus)
+* [setFocusPolicy](qlineedit.md#setfocuspolicy)
 * [setFont](qlineedit.md#setfont)
 * [setGeometry](qlineedit.md#setgeometry)
 * [setGraphicsEffect](qlineedit.md#setgraphicseffect)
@@ -336,6 +339,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -407,6 +420,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -841,9 +864,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
