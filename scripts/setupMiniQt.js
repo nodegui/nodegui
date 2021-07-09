@@ -5,7 +5,7 @@ const { miniQt, useCustomQt, qtHome } = require('../config/qtConfig');
 
 async function setupQt() {
     return Promise.all(
-        miniQt.artifacts.map(async artifact =>
+        miniQt.artifacts.map(async (artifact) =>
             setupArtifact({
                 outDir: miniQt.setupDir,
                 id: 'nodegui-mini-qt',
@@ -20,7 +20,7 @@ async function setupQt() {
 if (!useCustomQt) {
     console.log(`Minimal Qt ${miniQt.version} setup:`);
 
-    setupQt().catch(err => {
+    setupQt().catch((err) => {
         console.error(err);
         process.exit(1);
     });
