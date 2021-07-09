@@ -4,36 +4,50 @@ const fs = require('fs');
 
 const SETUP_DIR = path.resolve(__dirname, '..', 'miniqt');
 const QT_VERSION = '5.14.1';
-const MIRROR = Boolean(process.env.QT_LINK_MIRROR) ? process.env.QT_LINK_MIRROR : "https://download.qt.io";
+const MIRROR = Boolean(process.env.QT_LINK_MIRROR) ? process.env.QT_LINK_MIRROR : 'https://download.qt.io';
 
-const checkIfExists = fullPath => {
+const checkIfExists = (fullPath) => {
     return () => fs.existsSync(fullPath);
 };
 
 function getMiniQtConfig() {
     switch (os.platform()) {
         case 'darwin': {
-            const qtHome = path.resolve(SETUP_DIR, QT_VERSION, 'clang_64');
-            return {
-                qtHome,
-                artifacts: [
-                    {
-                        name: 'Qt Base',
-                        link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt5_5141/qt.qt5.5141.clang_64/5.14.1-0-202001241000qtbase-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
-                        skipSetup: checkIfExists(path.resolve(qtHome, 'plugins', 'platforms', 'libqcocoa.dylib')),
-                    },
-                    {
-                        name: 'Qt Svg',
-                        link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt5_5141/qt.qt5.5141.clang_64/5.14.1-0-202001241000qtsvg-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
-                        skipSetup: checkIfExists(path.resolve(qtHome, 'lib', 'QtSvg.framework', 'QtSvg')),
-                    },
-                    {
-                        name: 'Qt Tools',
-                        link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt5_5141/qt.qt5.5141.clang_64/5.14.1-0-202001241000qttools-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
-                        skipSetup: checkIfExists(path.resolve(qtHome, 'bin', 'macdeployqt')),
-                    },
-                ],
-            };
+            if (os.arch() === 'arm64') {
+                const qtHome = path.resolve(SETUP_DIR, 'Qt-5.15.3');
+                return {
+                    qtHome,
+                    artifacts: [
+                        {
+                            name: 'Mini Qt Bundle',
+                            link: `https://github.com/nodegui/nodegui/releases/download/miniQtm1-5153/Qt-5.15.3.zip`,
+                            skipSetup: checkIfExists(path.resolve(qtHome, 'plugins', 'platforms', 'libqcocoa.dylib')),
+                        },
+                    ],
+                };
+            } else {
+                const qtHome = path.resolve(SETUP_DIR, QT_VERSION, 'clang_64');
+                return {
+                    qtHome,
+                    artifacts: [
+                        {
+                            name: 'Qt Base',
+                            link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt5_5141/qt.qt5.5141.clang_64/5.14.1-0-202001241000qtbase-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
+                            skipSetup: checkIfExists(path.resolve(qtHome, 'plugins', 'platforms', 'libqcocoa.dylib')),
+                        },
+                        {
+                            name: 'Qt Svg',
+                            link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt5_5141/qt.qt5.5141.clang_64/5.14.1-0-202001241000qtsvg-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
+                            skipSetup: checkIfExists(path.resolve(qtHome, 'lib', 'QtSvg.framework', 'QtSvg')),
+                        },
+                        {
+                            name: 'Qt Tools',
+                            link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt5_5141/qt.qt5.5141.clang_64/5.14.1-0-202001241000qttools-MacOS-MacOS_10_13-Clang-MacOS-MacOS_10_13-X86_64.7z`,
+                            skipSetup: checkIfExists(path.resolve(qtHome, 'bin', 'macdeployqt')),
+                        },
+                    ],
+                };
+            }
         }
         case 'win32': {
             const qtHome = path.resolve(SETUP_DIR, QT_VERSION, 'msvc2017_64');
