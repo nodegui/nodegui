@@ -1,68 +1,48 @@
-import { QMainWindow, QWidget } from '.';
+import { QMainWindow } from './lib/QtWidgets/QMainWindow';
 import { QLabel } from './lib/QtWidgets/QLabel';
-import { QScrollArea } from './lib/QtWidgets/QScrollArea';
 import { FlexLayout } from './lib/core/FlexLayout';
-import { WidgetEventTypes } from './lib/core/EventWidget';
+import { QPushButton } from './lib/QtWidgets/QPushButton';
+import { QWidget } from './lib/QtWidgets/QWidget';
 
 const win = new QMainWindow();
-win.resize(500, 500);
-win.setObjectName('win');
+win.setWindowTitle('Hello World');
 
-const outer = new QWidget();
-outer.setObjectName('outer');
-outer.setInlineStyle(`border: 2px solid pink;`);
-const scrollArea = new QScrollArea();
-scrollArea.setObjectName('scrollArea');
-outer.setLayout(new FlexLayout());
+const centralWidget = new QWidget();
+centralWidget.setObjectName('myroot');
+const rootLayout = new FlexLayout();
+centralWidget.setLayout(rootLayout);
 
-scrollArea.setInlineStyle(`flex: 1; min-height:0; align-self:'stretch';border: 2px solid green;`);
-const sview = new QWidget();
-sview.setObjectName('sview');
-sview.setLayout(new FlexLayout());
-sview.setInlineStyle(`border:2px solid yellow; min-width: 100%;`);
+const label = new QLabel();
+label.setObjectName('mylabel');
+label.setText('Hello');
 
-const textView = new QLabel();
-textView.setObjectName('textView');
-textView.setText(`
-a
-a
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-a
-a
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-a
-a
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-a
-a
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-a
-a
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-a
-a
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-a
-a
+const button = new QPushButton();
+button.setText('Hello');
+const label2 = new QLabel();
+label2.setText('World');
+label2.setInlineStyle(`
+  color: red;
 `);
 
-sview.layout?.addWidget(textView);
-scrollArea.setWidget(sview);
-outer.layout?.addWidget(scrollArea);
-outer.addEventListener(WidgetEventTypes.Resize, () => {
-    // console.log('scrollarea min +' + scrollArea.minimumSize().width(), 'X', scrollArea.minimumSize().height());
-    // console.log('scrollarea size +' + scrollArea.size().width(), 'X', scrollArea.size().height());
-});
-win.setCentralWidget(outer);
+rootLayout.addWidget(label);
+rootLayout.addWidget(button);
+rootLayout.addWidget(label2);
+win.setCentralWidget(centralWidget);
+win.setStyleSheet(
+    `
+    #myroot {
+      background-color: #009688;
+      height: '100%';
+      align-items: 'center';
+      justify-content: 'center';
+    }
+    #mylabel {
+      font-size: 16px;
+      font-weight: bold;
+      padding: 1;
+    }
+  `,
+);
 win.show();
-(global as any).win = win;
 
-// <Window windowTitle="Hello 👋🏽" minSize={minSize} styleSheet={styleSheet}>
-// <View>
-//   <ScrollArea style="flex: 1; border: 1px solid green;">
-//     <View style="border:2px solid yellow;">
-//       <Comp></Comp>
-//     </View>
-//   </ScrollArea>
-// </View>
-// </Window>
+(global as any).win = win;
