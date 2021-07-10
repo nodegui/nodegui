@@ -1,0 +1,18 @@
+name: Build and Deploy to npm
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish-npm-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - run: yarn
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
