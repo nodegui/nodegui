@@ -16,6 +16,7 @@ jobs:
       - name: Install ubuntu deps
         run: sudo apt install mesa-common-dev libglu1-mesa-dev
       - run: npm install
+      - run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' >> .npmrc
       - run: npm publish --access=public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
