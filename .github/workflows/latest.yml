@@ -13,7 +13,7 @@ jobs:
             - uses: actions/checkout@master
             - uses: actions/setup-node@master
               with:
-                  node-version: '13.x'
+                  node-version: '14.x'
             - name: Install deps
               run: npm install --ignore-scripts
             - name: Build nodegui
