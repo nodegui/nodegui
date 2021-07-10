@@ -6,6 +6,7 @@ on:
 
 jobs:
   publish-npm-package:
+    if: contains(github.event.release.tag_name, 'v0.0.0-latest-master') == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
