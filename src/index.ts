@@ -35,7 +35,7 @@ export { WidgetEventTypes } from './lib/core/EventWidget';
 export { NodeWidget, QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
 export { NodeLayout, QLayoutSignals, SizeConstraint } from './lib/QtWidgets/QLayout';
 export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
-export { QAbstractSlider, QAbstractSliderSignals } from './lib/QtWidgets/QAbstractSlider';
+export { QAbstractSlider, QAbstractSliderSignals, SliderAction } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';
 export { QAbstractItemView, QAbstractItemViewSignals } from './lib/QtWidgets/QAbstractItemView';
 export {
