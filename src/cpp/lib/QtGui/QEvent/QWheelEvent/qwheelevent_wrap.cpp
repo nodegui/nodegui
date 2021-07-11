@@ -21,7 +21,9 @@ Napi::Object QWheelEventWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("pixelDelta", &QWheelEventWrap::pixelDelta),
        InstanceMethod("position", &QWheelEventWrap::position),
 
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QWheelEventWrap)});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QWheelEventWrap)
+           QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QWheelEventWrap)
+               QINPUTEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QWheelEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

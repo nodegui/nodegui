@@ -1,9 +1,9 @@
 import addon from '../../utils/addon';
 import { NativeRawPointer } from '../../core/Component';
 import { ScrollPhase } from '../../QtEnums';
-import { QEvent } from './QEvent';
+import { QInputEvent } from './QInputEvent';
 
-export class QWheelEvent extends QEvent {
+export class QWheelEvent extends QInputEvent {
     constructor(event: NativeRawPointer<'QEvent'>) {
         super(new addon.QWheelEvent(event));
     }

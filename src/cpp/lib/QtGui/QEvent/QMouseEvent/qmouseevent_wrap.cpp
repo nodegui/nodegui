@@ -9,17 +9,18 @@ Napi::FunctionReference QMouseEventWrap::constructor;
 Napi::Object QMouseEventWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QMouseEvent";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {InstanceMethod("button", &QMouseEventWrap::button),
-                   InstanceMethod("buttons", &QMouseEventWrap::buttons),
-                   InstanceMethod("x", &QMouseEventWrap::x),
-                   InstanceMethod("y", &QMouseEventWrap::y),
-                   InstanceMethod("globalX", &QMouseEventWrap::globalX),
-                   InstanceMethod("globalY", &QMouseEventWrap::globalY),
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("button", &QMouseEventWrap::button),
+       InstanceMethod("buttons", &QMouseEventWrap::buttons),
+       InstanceMethod("x", &QMouseEventWrap::x),
+       InstanceMethod("y", &QMouseEventWrap::y),
+       InstanceMethod("globalX", &QMouseEventWrap::globalX),
+       InstanceMethod("globalY", &QMouseEventWrap::globalY),
 
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QMouseEventWrap)
-                       QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QMouseEventWrap)});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QMouseEventWrap)
+           QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QMouseEventWrap)
+               QINPUTEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QMouseEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

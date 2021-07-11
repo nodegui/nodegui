@@ -8,7 +8,7 @@ function addDefaultErrorHandler(native: NativeElement, emitter: EventEmitter): v
 }
 
 /**
- 
+
 > Abstract class that adds event handling support to all widgets.
 
 **This class implements an event emitter and merges it with Qt's event and signal system. It allows us to register and unregister event and signal listener at will from javascript**
@@ -110,10 +110,10 @@ export abstract class EventWidget<Signals extends unknown> extends Component {
     addEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;
 
     /**
-    
+
      @param eventType
      @param callback
-    
+
      For example in the case of QPushButton:
      ```js
      const button = new QPushButton();
