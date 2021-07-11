@@ -1,6 +1,6 @@
 import addon from '../../utils/addon';
 import { NativeRawPointer } from '../../core/Component';
-import { QEvent } from './QEvent';
+import { QInputEvent } from './QInputEvent';
 
 enum PointerType {
     /** An unknown device */
@@ -29,7 +29,7 @@ enum TabletDevice {
 /**
  * The QTabletEvent class contains parameters that describe a Tablet event
  */
-export class QTabletEvent extends QEvent {
+export class QTabletEvent extends QInputEvent {
     static readonly PointerType = PointerType;
     static readonly TabletDevice = TabletDevice;
     readonly PointerType = PointerType;

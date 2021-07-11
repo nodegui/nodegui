@@ -1,9 +1,9 @@
 import addon from '../../utils/addon';
 import { NativeRawPointer } from '../../core/Component';
 import { NativeGestureType } from '../../QtEnums';
-import { QEvent } from './QEvent';
+import { QInputEvent } from './QInputEvent';
 
-export class QNativeGestureEvent extends QEvent {
+export class QNativeGestureEvent extends QInputEvent {
     constructor(event: NativeRawPointer<'QEvent'>) {
         super(new addon.QNativeGestureEvent(event));
     }

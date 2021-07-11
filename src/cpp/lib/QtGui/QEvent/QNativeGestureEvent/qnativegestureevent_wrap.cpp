@@ -21,8 +21,10 @@ Napi::Object QNativeGestureEventWrap::init(Napi::Env env,
        InstanceMethod("screenPos", &QNativeGestureEventWrap::screenPos),
        InstanceMethod("windowPos", &QNativeGestureEventWrap::windowPos),
        InstanceMethod("value", &QNativeGestureEventWrap::value),
-
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QNativeGestureEventWrap)});
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QNativeGestureEventWrap)
+           QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QNativeGestureEventWrap)
+               QINPUTEVENT_WRAPPED_METHODS_EXPORT_DEFINE(
+                   QNativeGestureEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

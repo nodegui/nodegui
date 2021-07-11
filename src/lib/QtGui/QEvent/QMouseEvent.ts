@@ -1,8 +1,8 @@
 import addon from '../../utils/addon';
 import { NativeRawPointer } from '../../core/Component';
-import { QEvent } from './QEvent';
+import { QInputEvent } from './QInputEvent';
 
-export class QMouseEvent extends QEvent {
+export class QMouseEvent extends QInputEvent {
     constructor(event: NativeRawPointer<'QEvent'>) {
         super(new addon.QMouseEvent(event));
     }
