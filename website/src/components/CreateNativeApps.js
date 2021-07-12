@@ -15,13 +15,13 @@ export const CreateNativeApps = () => {
     return (
       <div>
         <h3>
-          Create native apps for Windows, MacOs and Linux using JavaScript and
+          Create native apps for Windows, MacOS and Linux using JavaScript and
           CSS
         </h3>
 
         <p>
-          lets you create truly native apps and doesn't compromise on your
-          users' experience. It provides a core set of platform agnostic native
+          NodeGUI lets you create truly native apps while not compromising on your
+          users' experience, by providing a core set of platform agnostic native
           widgets that map directly to the platform’s native UI building blocks.
         </p>
 
