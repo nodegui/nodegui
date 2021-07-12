@@ -41,17 +41,17 @@ https://github.com/nodegui/examples
 
 ## Features
 
--   🧬 Cross platform. Should work on major Linux flavours, Windows and MacOS.
--   📉 Low CPU and memory footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
--   💅 Styling with CSS (includes actual cascading). Also has full support for Flexbox layout (thanks to Yoga).
--   ✅ Complete Nodejs api support (Currently runs on Node v12.x - and is easily upgradable). Hence has access to all nodejs compatible npm modules.
--   🎪 Native widget event listener support. Supports all events available from Qt / NodeJs.
--   💸 Can be used for Commercial applications.
--   🕵️‍♂️ Good Devtools support.
--   📚 Good documentation and website.
--   🧙‍♂️ Good documentation for contributors.
--   🦹🏻‍♀️ Good support for dark mode (Thanks to Qt).
--   🏅First class Typescript support. (Works on regular JS projects too 😉).
+-   🧬 **Cross platform.** Should work on major Linux flavours, Windows and MacOS.
+-   📉 **Low CPU and memory** footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
+-   💅 **Styling with CSS** (includes actual cascading). Also has full support for Flexbox layout (thanks to Yoga).
+-   ✅ **Complete Nodejs api support** (Currently runs on Node v12.x - and is easily upgradable). Hence has access to all nodejs compatible npm modules.
+-   🎪 **Native widget event listener support.** Supports all events available from Qt / NodeJs.
+-   💸 **Can be used for Commercial applications.**
+-   🕵️‍♂️ **Good Devtools support.**
+-   📚 **Good documentation and website.**
+-   🧙‍♂️ **Good documentation for contributors.**
+-   🦹🏻‍♀️ **Good support for dark mode (Thanks to Qt).**
+-   🏅**First class Typescript support.** (Works on regular JS projects too 😉).
 
 ## Getting Started
 
