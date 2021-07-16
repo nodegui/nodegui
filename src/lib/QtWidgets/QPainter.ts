@@ -185,6 +185,18 @@ export class QPainter extends Component {
     fillRect(x: number, y: number, width: number, height: number, color: QColor): void {
         this.native.fillRect(x, y, width, height, color.native);
     }
+    compositionMode(): CompositionMode {
+        return this.native.compositionMode();
+    }
+    setCompositionMode(mode: CompositionMode): void {
+        this.native.setCompositionMode(mode);
+    }
+    opacity(): number {
+        return this.native.opacity();
+    }
+    setOpacity(opacity: number): void {
+        this.native.setOpacity(opacity);
+    }
 }
 
 export enum RenderHint {
@@ -195,4 +207,45 @@ export enum RenderHint {
     NonCosmeticDefaultPen = 0x10,
     Qt4CompatiblePainting = 0x20,
     LosslessImageRendering = 0x40,
+}
+
+export enum CompositionMode {
+    CompositionMode_SourceOver = 0,
+    CompositionMode_DestinationOver = 1,
+    CompositionMode_Clear = 2,
+    CompositionMode_Source = 3,
+    CompositionMode_Destination = 4,
+    CompositionMode_SourceIn = 5,
+    CompositionMode_DestinationIn = 6,
+    CompositionMode_SourceOut = 7,
+    CompositionMode_DestinationOut = 8,
+    CompositionMode_SourceAtop = 9,
+    CompositionMode_DestinationAtop = 10,
+    CompositionMode_Xor = 11,
+    CompositionMode_Plus = 12,
+    CompositionMode_Multiply = 13,
+    CompositionMode_Screen = 14,
+    CompositionMode_Overlay = 15,
+    CompositionMode_Darken = 16,
+    CompositionMode_Lighten = 17,
+    CompositionMode_ColorDodge = 18,
+    CompositionMode_ColorBurn = 19,
+    CompositionMode_HardLight = 20,
+    CompositionMode_SoftLight = 21,
+    CompositionMode_Difference = 22,
+    CompositionMode_Exclusion = 23,
+    RasterOp_SourceOrDestination = 24,
+    RasterOp_SourceAndDestination = 25,
+    RasterOp_SourceXorDestination = 26,
+    RasterOp_NotSourceAndNotDestination = 27,
+    RasterOp_NotSourceOrNotDestination = 28,
+    RasterOp_NotSourceXorDestination = 29,
+    RasterOp_NotSource = 30,
+    RasterOp_NotSourceAndDestination = 31,
+    RasterOp_SourceAndNotDestination = 32,
+    RasterOp_NotSourceOrDestination = 33,
+    RasterOp_ClearDestination = 35,
+    RasterOp_SetDestination = 36,
+    RasterOp_NotDestination = 37,
+    RasterOp_SourceOrNotDestination = 34,
 }
