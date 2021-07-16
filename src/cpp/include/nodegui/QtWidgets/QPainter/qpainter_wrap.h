@@ -44,4 +44,8 @@ class DLL_EXPORT QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   Napi::Value save(const Napi::CallbackInfo& info);
   Napi::Value restore(const Napi::CallbackInfo& info);
   Napi::Value fillRect(const Napi::CallbackInfo& info);
+  Napi::Value compositionMode(const Napi::CallbackInfo& info);
+  Napi::Value setCompositionMode(const Napi::CallbackInfo& info);
+  Napi::Value opacity(const Napi::CallbackInfo& info);
+  Napi::Value setOpacity(const Napi::CallbackInfo& info);
 };

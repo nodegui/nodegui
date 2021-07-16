@@ -42,6 +42,10 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
                       &QPainterWrap::beginNativePainting),
        InstanceMethod("endNativePainting", &QPainterWrap::endNativePainting),
        InstanceMethod("fillRect", &QPainterWrap::fillRect),
+       InstanceMethod("compositionMode", &QPainterWrap::compositionMode),
+       InstanceMethod("setCompositionMode", &QPainterWrap::setCompositionMode),
+       InstanceMethod("opacity", &QPainterWrap::opacity),
+       InstanceMethod("setOpacity", &QPainterWrap::setOpacity),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QPainterWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -353,5 +357,32 @@ Napi::Value QPainterWrap::fillRect(const Napi::CallbackInfo& info) {
   QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
   QColor* color = colorWrap->getInternalInstance();
   this->instance->fillRect(x, y, width, height, *color);
+  return env.Null();
+}
+Napi::Value QPainterWrap::compositionMode(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  uint mode = static_cast<uint>(this->instance->compositionMode());
+  return Napi::Value::From(env, mode);
+}
+Napi::Value QPainterWrap::setCompositionMode(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QPainter::CompositionMode mode =
+      (QPainter::CompositionMode)info[0].As<Napi::Number>().Uint32Value();
+  this->instance->setCompositionMode(mode);
+  return env.Null();
+}
+Napi::Value QPainterWrap::opacity(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  qreal opacity = this->instance->opacity();
+  return Napi::Value::From(env, opacity);
+}
+Napi::Value QPainterWrap::setOpacity(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  qreal opacity = info[0].As<Napi::Number>().DoubleValue();
+  this->instance->setOpacity(opacity);
   return env.Null();
 }

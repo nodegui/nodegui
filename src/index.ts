@@ -98,7 +98,7 @@ export { QSlider, QSliderSignals, TickPosition } from './lib/QtWidgets/QSlider';
 export { QTimeEdit } from './lib/QtWidgets/QTimeEdit';
 export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
-export { QPainter, RenderHint } from './lib/QtWidgets/QPainter';
+export { CompositionMode, QPainter, RenderHint } from './lib/QtWidgets/QPainter';
 export { QPainterPath } from './lib/QtWidgets/QPainterPath';
 export { QDialog, QDialogSignals } from './lib/QtWidgets/QDialog';
 export { QMessageBox, QMessageBoxSignals, QMessageBoxIcon, ButtonRole } from './lib/QtWidgets/QMessageBox';
