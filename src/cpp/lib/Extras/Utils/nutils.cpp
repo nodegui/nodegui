@@ -43,8 +43,17 @@ QVariant* extrautils::convertToQVariant(Napi::Env& env, Napi::Value& value) {
   } else if (value.IsSymbol()) {
     return new QVariant();
   } else if (value.IsArray()) {
-    // TODO: fix this
-    return new QVariant();
+    // Note: This assumes an array of strings.
+    Napi::Array array = value.As<Napi::Array>();
+    QStringList value;
+    uint32_t len = array.Length();
+    for (uint32_t i=0; i<len; i++) {
+      if (array.Get(i).IsString()) {
+        std::string stringValue = array.Get(i).As<Napi::String>().Utf8Value();
+        value.append(QString::fromUtf8(stringValue.c_str()));
+      }
+    }
+    return new QVariant(value);
   } else if (value.IsArrayBuffer()) {
     // TODO: fix this
     return new QVariant();

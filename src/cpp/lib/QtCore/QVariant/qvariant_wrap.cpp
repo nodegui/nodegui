@@ -13,6 +13,7 @@ Napi::Object QVariantWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("toInt", &QVariantWrap::toInt),
                    InstanceMethod("toDouble", &QVariantWrap::toDouble),
                    InstanceMethod("toBool", &QVariantWrap::toBool),
+                   InstanceMethod("toStringList", &QVariantWrap::toStringList),
                    StaticMethod("converToQVariant",
                                 &StaticQVariantWrapMethods::converToQVariant),
                    COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QVariantWrap)});
@@ -59,6 +60,16 @@ Napi::Value QVariantWrap::toBool(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
   bool value = this->instance->value<bool>();
   return Napi::Value::From(env, value);
+}
+Napi::Value QVariantWrap::toStringList(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QStringList value = this->instance->toStringList();
+  Napi::Array result = Napi::Array::New(env, value.size());
+  for (int i = 0; i < value.size(); i++) {
+    result[i] = Napi::String::New(env, value[i].toStdString());
+  }
+  return result;
 }
 
 Napi::Value StaticQVariantWrapMethods::converToQVariant(
