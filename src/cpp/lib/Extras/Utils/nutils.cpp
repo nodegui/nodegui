@@ -47,7 +47,7 @@ QVariant* extrautils::convertToQVariant(Napi::Env& env, Napi::Value& value) {
     Napi::Array array = value.As<Napi::Array>();
     QStringList value;
     uint32_t len = array.Length();
-    for (uint32_t i=0; i<len; i++) {
+    for (uint32_t i = 0; i < len; i++) {
       if (array.Get(i).IsString()) {
         std::string stringValue = array.Get(i).As<Napi::String>().Utf8Value();
         value.append(QString::fromUtf8(stringValue.c_str()));
