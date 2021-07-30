@@ -28,6 +28,8 @@ class DLL_EXPORT QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
   Napi::Value exit(const Napi::CallbackInfo& info);
   Napi::Value setQuitOnLastWindowClosed(const Napi::CallbackInfo& info);
   Napi::Value quitOnLastWindowClosed(const Napi::CallbackInfo& info);
+  Napi::Value palette(const Napi::CallbackInfo& info);
+  // setStyleSheet
 };
 
 namespace StaticQApplicationWrapMethods {
