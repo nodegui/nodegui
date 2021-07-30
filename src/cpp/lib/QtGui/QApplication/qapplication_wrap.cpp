@@ -22,6 +22,7 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("quitOnLastWindowClosed",
                       &QApplicationWrap::quitOnLastWindowClosed),
        InstanceMethod("palette", &QApplicationWrap::palette),
+       InstanceMethod("setStyleSheet", &QApplicationWrap::setStyleSheet),
        StaticMethod("instance", &StaticQApplicationWrapMethods::instance),
        StaticMethod("clipboard", &StaticQApplicationWrapMethods::clipboard),
        StaticMethod("style", &StaticQApplicationWrapMethods::style),
@@ -90,6 +91,19 @@ Napi::Value QApplicationWrap::palette(const Napi::CallbackInfo& info) {
   QPalette* palette = new QPalette(this->instance->palette());
   return QPaletteWrap::constructor.New(
       {Napi::External<QPalette>::New(env, palette)});
+}
+
+Napi::Value QApplicationWrap::setStyleSheet(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::String text = info[0].As<Napi::String>();
+  std::string style = text.Utf8Value();
+  QString newStyle = QString::fromStdString(style);
+  QString currentStyleSheet = this->instance->styleSheet();
+  if (newStyle != currentStyleSheet) {
+    this->instance->setStyleSheet(newStyle);
+  }
+  return env.Null();
 }
 
 Napi::Value StaticQApplicationWrapMethods::instance(
