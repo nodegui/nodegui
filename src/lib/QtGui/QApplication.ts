@@ -5,6 +5,7 @@ import { QClipboard } from './QClipboard';
 import { QStyle } from './QStyle';
 import { QObjectSignals, NodeObject } from '../QtCore/QObject';
 import { QDesktopWidget } from '../QtWidgets/QDesktopWidget';
+import { QPalette } from './QPalette';
 
 /**
  
@@ -61,6 +62,9 @@ export class QApplication extends NodeObject<QApplicationSignals> {
     }
     quitOnLastWindowClosed(): boolean {
         return this.native.quitOnLastWindowClosed();
+    }
+    palette(): QPalette {
+        return new QPalette(this.native.palette());
     }
     static style(): QStyle {
         return new QStyle(addon.QApplication.style());

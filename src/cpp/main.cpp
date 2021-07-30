@@ -37,6 +37,7 @@
 #include "QtGui/QImage/qimage_wrap.h"
 #include "QtGui/QKeySequence/qkeysequence_wrap.h"
 #include "QtGui/QMovie/qmovie_wrap.h"
+#include "QtGui/QPalette/qpalette_wrap.h"
 #include "QtGui/QPen/qpen_wrap.h"
 #include "QtGui/QPicture/qpicture_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
@@ -218,6 +219,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QSvgWidgetWrap::init(env, exports);
   QDesktopWidgetWrap::init(env, exports);
   QPaintEventWrap::init(env, exports);
+  QPaletteWrap::init(env, exports);
   return exports;
 }
 
