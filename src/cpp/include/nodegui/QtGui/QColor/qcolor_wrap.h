@@ -27,6 +27,8 @@ class DLL_EXPORT QColorWrap : public Napi::ObjectWrap<QColorWrap> {
   Napi::Value blue(const Napi::CallbackInfo& info);
   Napi::Value setAlpha(const Napi::CallbackInfo& info);
   Napi::Value alpha(const Napi::CallbackInfo& info);
+  Napi::Value rgb(const Napi::CallbackInfo& info);
+  Napi::Value rgba(const Napi::CallbackInfo& info);
 };
 
 namespace StaticQColorWrapMethods {

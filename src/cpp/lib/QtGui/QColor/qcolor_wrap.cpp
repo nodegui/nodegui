@@ -18,6 +18,8 @@ Napi::Object QColorWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("blue", &QColorWrap::blue),
        InstanceMethod("setAlpha", &QColorWrap::setAlpha),
        InstanceMethod("alpha", &QColorWrap::alpha),
+       InstanceMethod("rgb", &QColorWrap::rgb),
+       InstanceMethod("rgba", &QColorWrap::rgba),
        StaticMethod("fromQVariant", &StaticQColorWrapMethods::fromQVariant),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QColorWrap)});
   constructor = Napi::Persistent(func);
@@ -114,6 +116,16 @@ Napi::Value QColorWrap::alpha(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->alpha());
+}
+Napi::Value QColorWrap::rgb(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return Napi::Value::From(env, this->instance->rgb());
+}
+Napi::Value QColorWrap::rgba(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return Napi::Value::From(env, this->instance->rgba());
 }
 
 Napi::Value StaticQColorWrapMethods::fromQVariant(
