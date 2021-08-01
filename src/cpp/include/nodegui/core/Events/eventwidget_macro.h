@@ -22,6 +22,14 @@
     return env.Null();                                               \
   }                                                                  \
                                                                      \
+  Napi::Value getNodeEventEmitter(const Napi::CallbackInfo& info) {  \
+    Napi::Env env = info.Env();                                      \
+    if (this->instance->emitOnNode) {                                \
+      return this->instance->emitOnNode.Value();                     \
+    } else {                                                         \
+      return env.Null();                                             \
+    }                                                                \
+  }                                                                  \
   Napi::Value subscribeToQtEvent(const Napi::CallbackInfo& info) {   \
     Napi::Env env = info.Env();                                      \
     Napi::String eventString = info[0].As<Napi::String>();           \
@@ -42,6 +50,8 @@
   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)         \
   InstanceMethod("initNodeEventEmitter",                          \
                  &WidgetWrapName::initNodeEventEmitter),          \
+      InstanceMethod("getNodeEventEmitter",                       \
+                     &WidgetWrapName::getNodeEventEmitter),       \
       InstanceMethod("subscribeToQtEvent",                        \
                      &WidgetWrapName::subscribeToQtEvent),        \
       InstanceMethod("unSubscribeToQtEvent",                      \
