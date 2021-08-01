@@ -38,30 +38,37 @@ export abstract class EventWidget<Signals extends unknown> extends Component {
     private _isEventProcessed = false;
     constructor(native: NativeElement) {
         super();
-        if (native.initNodeEventEmitter) {
-            this.emitter = new EventEmitter();
-            this.emitter.emit = wrapWithActivateUvLoop(this.emitter.emit.bind(this.emitter));
-            const logExceptions = (event: string | symbol, ...args: any[]): boolean => {
-                // Preserve the value of `_isQObjectEventProcessed` as we dispatch this event
-                // to JS land, and restore it afterwards. This lets us support recursive event
-                // dispatches on the same object.
-                const previousEventProcessed = this._isEventProcessed;
-                this._isEventProcessed = false;
-                try {
-                    this.emitter.emit(event, ...args);
-                } catch (e) {
-                    console.log(`An exception was thrown while dispatching an event of type '${event.toString()}':`);
-                    console.log(e);
-                }
-
-                const returnCode = this._isEventProcessed;
-                this._isEventProcessed = previousEventProcessed;
-                return returnCode;
-            };
-            native.initNodeEventEmitter(logExceptions);
-        } else {
+        if (native.initNodeEventEmitter == null) {
             throw new Error('initNodeEventEmitter not implemented on native side');
         }
+
+        const preexistingEmitterFunc = native.getNodeEventEmitter();
+        if (preexistingEmitterFunc != null) {
+            this.emitter = preexistingEmitterFunc.emitter;
+            return;
+        }
+
+        this.emitter = new EventEmitter();
+        this.emitter.emit = wrapWithActivateUvLoop(this.emitter.emit.bind(this.emitter));
+        const logExceptions = (event: string | symbol, ...args: any[]): boolean => {
+            // Preserve the value of `_isQObjectEventProcessed` as we dispatch this event
+            // to JS land, and restore it afterwards. This lets us support recursive event
+            // dispatches on the same object.
+            const previousEventProcessed = this._isEventProcessed;
+            this._isEventProcessed = false;
+            try {
+                this.emitter.emit(event, ...args);
+            } catch (e) {
+                console.log(`An exception was thrown while dispatching an event of type '${event.toString()}':`);
+                console.log(e);
+            }
+
+            const returnCode = this._isEventProcessed;
+            this._isEventProcessed = previousEventProcessed;
+            return returnCode;
+        };
+        logExceptions.emitter = this.emitter;
+        native.initNodeEventEmitter(logExceptions);
         addDefaultErrorHandler(native, this.emitter);
     }
 
