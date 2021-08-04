@@ -2,9 +2,10 @@ import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NodeLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
+import { AlignmentFlag } from '../QtEnums';
 
 /**
- 
+
 > The QGridLayout class lays out widgets in a grid.
 
 * **This class is a JS wrapper around Qt's [QGridLayout](https://doc.qt.io/qt-5/qgridlayout.html)**
@@ -43,6 +44,18 @@ export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
         this.setNodeParent(parent);
         this.native = native;
     }
+
+    addLayout(
+        layout: NodeLayout<any>,
+        row: number,
+        column: number,
+        rowSpan = 1,
+        columnSpan = 1,
+        alignment = AlignmentFlag.AlignLeft,
+    ): void {
+        this.native.addLayout(layout.native, row, column, rowSpan, columnSpan, alignment);
+    }
+
     addWidget(widget: NodeWidget<any>, row = 0, col = 0, rowSpan = 1, colSpan = 1): void {
         this.native.addWidget(widget.native, row, col, rowSpan, colSpan);
         this.nodeChildren.add(widget);
