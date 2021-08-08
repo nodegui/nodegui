@@ -66,6 +66,9 @@ export class QFontDatabase extends Component {
     static addApplicationFont(fileName: string): number {
         return addon.QFontDatabase.addApplicationFont(fileName);
     }
+    static applicationFontFamilies(id: number): string[] {
+        return addon.QFontDatabase.applicationFontFamilies(id);
+    }
     static removeApplicationFont(id: number): boolean {
         return addon.QFontDatabase.removeApplicationFont(id);
     }

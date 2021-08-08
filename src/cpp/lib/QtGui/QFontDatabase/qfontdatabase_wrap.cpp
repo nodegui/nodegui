@@ -17,6 +17,8 @@ Napi::Object QFontDatabaseWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("families", &QFontDatabaseWrap::families),
        StaticMethod("addApplicationFont",
                     &StaticQFontDatabaseWrapMethods::addApplicationFont),
+       StaticMethod("applicationFontFamilies",
+                    &StaticQFontDatabaseWrapMethods::applicationFontFamilies),
        StaticMethod("removeApplicationFont",
                     &StaticQFontDatabaseWrapMethods::removeApplicationFont),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QFontDatabaseWrap)});
@@ -121,6 +123,23 @@ Napi::Value StaticQFontDatabaseWrapMethods::addApplicationFont(
   int id =
       QFontDatabase::addApplicationFont(QString::fromUtf8(fileName.c_str()));
   return Napi::Value::From(env, id);
+}
+
+Napi::Value StaticQFontDatabaseWrapMethods::applicationFontFamilies(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int id = info[0].As<Napi::Number>().Int32Value();
+  QStringList keys = QFontDatabase::applicationFontFamilies(id);
+  Napi::Array js_array = Napi::Array::New(env, keys.size());
+
+  for (int i = 0; i < keys.size(); i++) {
+    Napi::Value value = Napi::String::New(env, keys.at(i).toUtf8().constData());
+    js_array[i] = value;
+  }
+
+  return js_array;
 }
 
 Napi::Value StaticQFontDatabaseWrapMethods::removeApplicationFont(

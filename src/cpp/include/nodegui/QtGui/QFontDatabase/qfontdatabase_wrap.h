@@ -30,5 +30,6 @@ class DLL_EXPORT QFontDatabaseWrap
 
 namespace StaticQFontDatabaseWrapMethods {
 DLL_EXPORT Napi::Value addApplicationFont(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value applicationFontFamilies(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value removeApplicationFont(const Napi::CallbackInfo& info);
 }  // namespace StaticQFontDatabaseWrapMethods
