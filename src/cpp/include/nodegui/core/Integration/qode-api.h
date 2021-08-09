@@ -1,3 +1,4 @@
+// Temporary fix till we figure out how to get this working without exe symbol exports
 #ifdef _WIN32
 #define QODE_FIX static
 #else
