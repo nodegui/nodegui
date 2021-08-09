@@ -16,7 +16,7 @@ macro(AddQodeSupport addonName)
         message(STATUS "Using Qode installation for ${addonName} QODE_BINARY_DIR:${QODE_BINARY_DIR}")
         
         target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE 
-            "${QODE_BINARY_DIR}\\qode.lib"      
+            "${QODE_BINARY_DIR}\\node.lib"      
         )
 
     endif() 
