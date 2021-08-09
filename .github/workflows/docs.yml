@@ -33,7 +33,7 @@ jobs:
               run: |
                   git config --global user.email "actions@gihub.com"
                   git config --global user.name "gh-actions"
-                  npm install --ignore-scripts
+                  yarn install --ignore-scripts
                   npm run docs
                   cd website
                   if [ -e yarn.lock ]; then
