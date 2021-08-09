@@ -228,7 +228,7 @@ if (WIN32)
     target_compile_definitions(${CORE_WIDGETS_ADDON} PRIVATE
         ENABLE_DLL_EXPORT=1
     )
-    target_compile_options(${CORE_WIDGETS_ADDON} PRIVATE "/MP4")
+    target_compile_options(${CORE_WIDGETS_ADDON} PRIVATE "/MP")
 
 endif()
 
