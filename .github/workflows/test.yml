@@ -20,6 +20,8 @@ jobs:
               run: yarn install
             - name: Build nodegui
               run: npm run build
+              env:
+                CMAKE_BUILD_PARALLEL_LEVEL: 8
             - name: Run tests
               run: npm run test
             - name: Run linters for cpp

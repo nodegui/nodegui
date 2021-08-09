@@ -1,7 +1,7 @@
 {
     "name": "@nodegui/nodegui",
     "version": "0.36.0",
-    "description": "A cross platform library to build native desktop apps.",
+    "description": "A cross-platform library to build native desktop apps.",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
     "author": "Atul R <atulanand94@gmail.com>",
@@ -61,7 +61,7 @@
     },
     "binary": {
         "napi_versions": [
-            3
+            4
         ]
     },
     "husky": {
