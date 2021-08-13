@@ -106,6 +106,9 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         const preparedSheet = prepareInlineStyleSheet(this, style);
         this.native.setStyleSheet(preparedSheet);
     }
+    frameGeometry(): QRect {
+        return QRect.fromQVariant(this.property('frameGeometry'));
+    }
     setGeometry(x: number, y: number, w: number, h: number): void {
         this.native.setGeometry(x, y, w, h);
     }
@@ -294,6 +297,12 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     clearFocus(): void {
         this.native.clearFocus();
+    }
+    x(): number {
+        return this.property('x').toInt();
+    }
+    y(): number {
+        return this.property('y').toInt();
     }
 }
 
