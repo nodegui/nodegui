@@ -1,6 +1,7 @@
 #include <napi.h>
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QAbstractItemModel/qabstractitemmodel_wrap.h"
 #include "QtCore/QDate/qdate_wrap.h"
 #include "QtCore/QDateTime/qdatetime_wrap.h"
 #include "QtCore/QMimeData/qmimedata_wrap.h"
@@ -220,6 +221,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QDesktopWidgetWrap::init(env, exports);
   QPaintEventWrap::init(env, exports);
   QPaletteWrap::init(env, exports);
+  QAbstractItemModelWrap::init(env, exports);
   return exports;
 }
 

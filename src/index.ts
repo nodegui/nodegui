@@ -128,6 +128,8 @@ export {
     WrapMode,
 } from './lib/QtWidgets/QTextEdit';
 // Core
+export { QAbstractItemModel } from './lib/QtCore/QAbstractItemModel';
+export { QAbstractTableModel } from './lib/QtCore/QAbstractTableModel';
 export { QDate } from './lib/QtCore/QDate';
 export { QDateTime } from './lib/QtCore/QDateTime';
 export { QModelIndex } from './lib/QtCore/QModelIndex';

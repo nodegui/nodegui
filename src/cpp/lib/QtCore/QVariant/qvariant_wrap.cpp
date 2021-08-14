@@ -14,8 +14,8 @@ Napi::Object QVariantWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("toDouble", &QVariantWrap::toDouble),
                    InstanceMethod("toBool", &QVariantWrap::toBool),
                    InstanceMethod("toStringList", &QVariantWrap::toStringList),
-                   StaticMethod("converToQVariant",
-                                &StaticQVariantWrapMethods::converToQVariant),
+                   StaticMethod("convertToQVariant",
+                                &StaticQVariantWrapMethods::convertToQVariant),
                    COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QVariantWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -72,7 +72,7 @@ Napi::Value QVariantWrap::toStringList(const Napi::CallbackInfo& info) {
   return result;
 }
 
-Napi::Value StaticQVariantWrapMethods::converToQVariant(
+Napi::Value StaticQVariantWrapMethods::convertToQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
