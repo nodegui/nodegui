@@ -15,6 +15,7 @@ Napi::Object QAbstractItemModelWrap::init(Napi::Env env, Napi::Object exports) {
       InstanceMethod("hasIndex", &QAbstractItemModelWrap::hasIndex),
       InstanceMethod("createIndex", &QAbstractItemModelWrap::createIndex),
       InstanceMethod("_super_flags", &QAbstractItemModelWrap::_super_flags),
+      InstanceMethod("emitDataChanged", &QAbstractItemModelWrap::emitDataChanged),
       QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QAbstractItemModelWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -73,4 +74,26 @@ Napi::Value QAbstractItemModelWrap::_super_flags(const Napi::CallbackInfo& info)
 
   auto result = Napi::Value::From(env, static_cast<uint>(this->instance->QAbstractItemModel::flags(*index)));
   return result;
+}
+
+Napi::Value QAbstractItemModelWrap::emitDataChanged(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QModelIndexWrap* topLeftModelIndexWrap = Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
+  QModelIndex* topLeftIndex = topLeftModelIndexWrap->getInternalInstance();
+
+  QModelIndexWrap* bottomRightModelIndexWrap = Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[1].As<Napi::Object>());
+  QModelIndex* bottomRightIndex = bottomRightModelIndexWrap->getInternalInstance();
+
+  Napi::Array rolesNapi = info[2].As<Napi::Array>();
+  QVector<int> roles(rolesNapi.Length());
+  for (int i = 0; i < rolesNapi.Length(); i++) {
+    Napi::Value numberNapi = rolesNapi[i];
+    roles.append(numberNapi.As<Napi::Number>().Int32Value());
+  }
+
+  emit this->instance->dataChanged(*topLeftIndex, *bottomRightIndex, roles);
+
+  return env.Null();
 }
