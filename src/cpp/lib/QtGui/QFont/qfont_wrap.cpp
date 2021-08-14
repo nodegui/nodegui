@@ -11,7 +11,9 @@ Napi::Object QFontWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QFont";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("setCapitalization", &QFontWrap::setCapitalization),
+      {InstanceMethod("setBold", &QFontWrap::setBold),
+       InstanceMethod("bold", &QFontWrap::bold),
+       InstanceMethod("setCapitalization", &QFontWrap::setCapitalization),
        InstanceMethod("capitalization", &QFontWrap::capitalization),
        InstanceMethod("setFamily", &QFontWrap::setFamily),
        InstanceMethod("family", &QFontWrap::family),
@@ -61,6 +63,20 @@ QFontWrap::QFontWrap(const Napi::CallbackInfo& info)
 QFontWrap::~QFontWrap() { this->instance.reset(); }
 
 QFont* QFontWrap::getInternalInstance() { return this->instance.get(); }
+
+Napi::Value QFontWrap::setBold(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int enable = info[0].As<Napi::Boolean>().Value();
+  this->instance->setBold(enable);
+  return env.Null();
+}
+
+Napi::Value QFontWrap::bold(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return Napi::Value::From(env, this->instance->bold());
+}
 
 Napi::Value QFontWrap::setCapitalization(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

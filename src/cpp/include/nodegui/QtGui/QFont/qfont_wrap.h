@@ -18,6 +18,8 @@ class DLL_EXPORT QFontWrap : public Napi::ObjectWrap<QFontWrap> {
   ~QFontWrap();
   QFont* getInternalInstance();
   // Wrapped methods
+  Napi::Value bold(const Napi::CallbackInfo& info);
+  Napi::Value setBold(const Napi::CallbackInfo& info);
   Napi::Value setCapitalization(const Napi::CallbackInfo& info);
   Napi::Value capitalization(const Napi::CallbackInfo& info);
   Napi::Value setFamily(const Napi::CallbackInfo& info);
