@@ -21,6 +21,12 @@ export class QFont extends Component {
             this.native = new addon.QFont();
         }
     }
+    bold(): boolean {
+        return this.native.bold();
+    }
+    setBold(enable: boolean): void {
+        this.native.setBold(enable);
+    }
     setCapitalization(caps: QFontCapitalization): void {
         this.native.setCapitalization(caps);
     }
