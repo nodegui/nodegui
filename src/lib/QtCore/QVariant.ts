@@ -14,7 +14,7 @@ export class QVariant extends Component {
         if (checkIfNativeElement(arg) && arg instanceof addon.QVariant) {
             this.native = arg as NativeElement;
         } else if (arg) {
-            this.native = new addon.QVariant.converToQVariant(arg);
+            this.native = new addon.QVariant.convertToQVariant(arg);
         } else {
             this.native = new addon.QVariant();
         }

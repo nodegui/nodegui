@@ -24,7 +24,8 @@
         "lint:ts": "cross-env tsc --noEmit && cross-env eslint './src/**/*.{ts,tsx,js,jsx}' --fix",
         "docs": "cross-env typedoc && node ./website/docs/scripts/fixdocs.js",
         "qode": "cross-env node ./scripts/qode.js",
-        "prepublishOnly": "cross-env npm run build"
+        "prepublishOnly": "cross-env npm run build",
+        "example-modelview_1_readonly": "node ./scripts/qode.js dist/examples/modelview_1_readonly.js"
     },
     "engines": {
         "node": ">=14.x.x"

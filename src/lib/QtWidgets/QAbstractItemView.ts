@@ -4,9 +4,10 @@ import { QModelIndex } from '../QtCore/QModelIndex';
 import { QSize } from '../QtCore/QSize';
 import { DropAction } from '../QtEnums/DropAction';
 import { TextElideMode } from '../QtEnums/TextElideMode';
+import { QAbstractItemModel } from '../QtCore/QAbstractItemModel';
 
 /**
- 
+
 > This is the abstract base class of button widgets, providing their functionality.
 
 * **This class is a JS wrapper around Qt's [QAbstractItemView class](https://doc.qt.io/qt-5/qabstractitemview.html)**
@@ -137,6 +138,9 @@ export abstract class QAbstractItemView<Signals extends QAbstractItemViewSignals
     }
     resetVerticalScrollMode(): void {
         this.native.resetVerticalScrollMode();
+    }
+    setModel(model: QAbstractItemModel): void {
+        this.native.setModel(model.native);
     }
 }
 
