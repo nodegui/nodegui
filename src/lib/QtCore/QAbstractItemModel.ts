@@ -3,7 +3,7 @@ import { NativeElement } from '../core/Component';
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { QModelIndex } from './QModelIndex';
 import { QVariant } from './QVariant';
-import { ItemDataRole, ItemFlag } from '../QtEnums';
+import { ItemDataRole, ItemFlag, Orientation } from '../QtEnums';
 
 export interface QAbstractItemSignals extends QObjectSignals {
     // itemChanged: (item: QStandardItem) => void;
@@ -71,6 +71,15 @@ export class QAbstractItemModel extends NodeObject<any> {
                     }
                     return ItemFlag.NoItemFlags;
 
+                case 'headerData':
+                    try {
+                        return this.headerData(args[0], args[1], args[2]).native;
+                    } catch (e) {
+                        console.log(`An exception was thrown while dispatching to method 'headerData':`);
+                        console.log(e);
+                    }
+                    return new QVariant().native;
+
                 default:
                     return null;
             }
@@ -113,5 +122,9 @@ export class QAbstractItemModel extends NodeObject<any> {
 
     emitDataChanged(topLeft: QModelIndex, bottomRight: QModelIndex, roles: ItemDataRole[]): void {
         this.native.emitDataChanged(topLeft.native, bottomRight.native, roles);
+    }
+
+    headerData(section: number, orientation: Orientation, role: number): QVariant {
+        return new QVariant();
     }
 }

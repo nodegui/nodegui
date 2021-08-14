@@ -87,6 +87,21 @@ class DLL_EXPORT NAbstractItemModel : public QAbstractItemModel, public EventWid
     return result;
   }
 
+  QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override {
+    Napi::Env env = this->dispatchOnNode.Env();
+    Napi::HandleScope scope(env);
+
+    auto sectionValue = Napi::Value::From(env, static_cast<int>(section));
+    auto orientationValue = Napi::Value::From(env, static_cast<int>(orientation));
+    auto roleValue = Napi::Value::From(env, static_cast<int>(role));
+
+    Napi::Value variantJsObject = this->dispatchOnNode.Call({Napi::String::New(env, "headerData"), sectionValue, orientationValue, roleValue});
+
+    QVariantWrap* variantWrap = Napi::ObjectWrap<QVariantWrap>::Unwrap(variantJsObject.As<Napi::Object>());
+    QVariant* variant = variantWrap->getInternalInstance();
+    return *variant;
+  }
+
   QModelIndex _protected_createIndex(int row, int column) const {
     return createIndex(row, column);
   }
