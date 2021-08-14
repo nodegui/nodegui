@@ -110,4 +110,8 @@ export class QAbstractItemModel extends NodeObject<any> {
     flags(index: QModelIndex): ItemFlag {
         return this.native._super_flags(index.native);
     }
+
+    emitDataChanged(topLeft: QModelIndex, bottomRight: QModelIndex, roles: ItemDataRole[]): void {
+        this.native.emitDataChanged(topLeft.native, bottomRight.native, roles);
+    }
 }

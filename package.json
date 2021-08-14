@@ -26,7 +26,8 @@
         "qode": "cross-env node ./scripts/qode.js",
         "prepublishOnly": "cross-env npm run build",
         "example-modelview_1_readonly": "node ./scripts/qode.js dist/examples/modelview_1_readonly.js",
-        "example-modelview_2_formatting": "node ./scripts/qode.js dist/examples/modelview_2_formatting.js"
+        "example-modelview_2_formatting": "node ./scripts/qode.js dist/examples/modelview_2_formatting.js",
+        "example-modelview_3_changingmodel": "node ./scripts/qode.js dist/examples/modelview_3_changingmodel.js"
     },
     "engines": {
         "node": ">=14.x.x"
