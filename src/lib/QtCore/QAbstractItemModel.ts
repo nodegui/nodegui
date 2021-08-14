@@ -37,7 +37,7 @@ export class QAbstractItemModel extends NodeObject<any> {
 
                 case 'rowCount':
                     try {
-                        return this.columnCount(new QModelIndex(args[0]));
+                        return this.rowCount(new QModelIndex(args[0]));
                     } catch (e) {
                         console.log(`An exception was thrown while dispatching to method 'rowCount':`);
                         console.log(e);
