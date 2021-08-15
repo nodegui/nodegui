@@ -80,6 +80,15 @@ export class QAbstractItemModel extends NodeObject<any> {
                     }
                     return new QVariant().native;
 
+                case 'setData':
+                    try {
+                        return this.setData(new QModelIndex(args[0]), new QVariant(args[1]), args[2]);
+                    } catch (e) {
+                        console.log(`An exception was thrown while dispatching to method 'setData':`);
+                        console.log(e);
+                    }
+                    return false;
+
                 default:
                     return null;
             }
@@ -116,6 +125,10 @@ export class QAbstractItemModel extends NodeObject<any> {
         return new QModelIndex(result);
     }
 
+    checkIndex(index: QModelIndex): boolean {
+        return this.native.checkIndex(index.native);
+    }
+
     flags(index: QModelIndex): ItemFlag {
         return this.native._super_flags(index.native);
     }
@@ -126,5 +139,9 @@ export class QAbstractItemModel extends NodeObject<any> {
 
     headerData(section: number, orientation: Orientation, role: number): QVariant {
         return new QVariant();
+    }
+
+    setData(index: QModelIndex, value: QVariant, role = ItemDataRole.EditRole): boolean {
+        return false;
     }
 }

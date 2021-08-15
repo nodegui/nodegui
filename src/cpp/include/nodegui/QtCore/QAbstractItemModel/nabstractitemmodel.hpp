@@ -102,6 +102,19 @@ class DLL_EXPORT NAbstractItemModel : public QAbstractItemModel, public EventWid
     return *variant;
   }
 
+  bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override {
+    Napi::Env env = this->dispatchOnNode.Env();
+    Napi::HandleScope scope(env);
+
+    auto modelIndexWrap = QModelIndexWrap::constructor.New({Napi::External<QModelIndex>::New(env, new QModelIndex(index))});
+    auto valueWrap = QVariantWrap::constructor.New({Napi::External<QVariant>::New(env, new QVariant(value))});
+    auto roleValue = Napi::Value::From(env, role);
+
+    Napi::Value booleanJs = this->dispatchOnNode.Call({Napi::String::New(env, "setData"), modelIndexWrap, valueWrap, roleValue});
+
+    return booleanJs.As<Napi::Boolean>().Value();
+  }
+
   QModelIndex _protected_createIndex(int row, int column) const {
     return createIndex(row, column);
   }

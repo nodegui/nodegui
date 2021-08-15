@@ -28,4 +28,5 @@ class DLL_EXPORT QAbstractItemModelWrap : public Napi::ObjectWrap<QAbstractItemM
   Napi::Value createIndex(const Napi::CallbackInfo& info);
   Napi::Value _super_flags(const Napi::CallbackInfo& info);
   Napi::Value emitDataChanged(const Napi::CallbackInfo& info);
+  Napi::Value checkIndex(const Napi::CallbackInfo& info);
 };

@@ -28,7 +28,8 @@
         "example-modelview_1_readonly": "node ./scripts/qode.js dist/examples/modelview_1_readonly.js",
         "example-modelview_2_formatting": "node ./scripts/qode.js dist/examples/modelview_2_formatting.js",
         "example-modelview_3_changingmodel": "node ./scripts/qode.js dist/examples/modelview_3_changingmodel.js",
-        "example-modelview_4_headers": "node ./scripts/qode.js dist/examples/modelview_4_headers.js"
+        "example-modelview_4_headers": "node ./scripts/qode.js dist/examples/modelview_4_headers.js",
+        "example-modelview_5_edit": "node ./scripts/qode.js dist/examples/modelview_5_edit.js"
     },
     "engines": {
         "node": ">=14.x.x"
