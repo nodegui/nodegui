@@ -22,6 +22,7 @@ module.exports = {
                 '@typescript-eslint/camelcase': 0,
                 '@typescript-eslint/no-var-requires': 0,
                 '@typescript-eslint/no-explicit-any': 0,
+                '@typescript-eslint/no-unused-vars': ['warn', { args: 'none' }],
             },
         },
     ],
