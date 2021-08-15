@@ -118,4 +118,16 @@ class DLL_EXPORT NAbstractItemModel : public QAbstractItemModel, public EventWid
   QModelIndex _protected_createIndex(int row, int column) const {
     return createIndex(row, column);
   }
+
+  QModelIndex buddy(const QModelIndex &index) const override {
+    Napi::Env env = this->dispatchOnNode.Env();
+    Napi::HandleScope scope(env);
+
+    auto indexWrap = QModelIndexWrap::constructor.New({Napi::External<QModelIndex>::New(env, new QModelIndex(index))});
+    Napi::Value buddyIndexNapiWrap = this->dispatchOnNode.Call({Napi::String::New(env, "buddy"), indexWrap});
+
+    QModelIndexWrap* buddyIndexWrap = Napi::ObjectWrap<QModelIndexWrap>::Unwrap(buddyIndexNapiWrap.As<Napi::Object>());
+    QModelIndex* buddyIndex = buddyIndexWrap->getInternalInstance();
+    return *buddyIndex;
+  }
 };

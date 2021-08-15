@@ -89,11 +89,24 @@ export class QAbstractItemModel extends NodeObject<any> {
                     }
                     return false;
 
+                case 'buddy':
+                    try {
+                        return this.buddy(new QModelIndex(args[0])).native;
+                    } catch (e) {
+                        console.log(`An exception was thrown while dispatching to method 'buddy':`);
+                        console.log(e);
+                    }
+                    return new QModelIndex().native;
+
                 default:
                     return null;
             }
         };
         this.native.initNodeDispatcher(dispatcher);
+    }
+
+    buddy(child: QModelIndex): QModelIndex {
+        return new QModelIndex(this.native._super_buddy(child.native));
     }
 
     index(row: number, column: number, parent = new QModelIndex()): QModelIndex {

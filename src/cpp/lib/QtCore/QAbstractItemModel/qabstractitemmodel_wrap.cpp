@@ -17,6 +17,7 @@ Napi::Object QAbstractItemModelWrap::init(Napi::Env env, Napi::Object exports) {
       InstanceMethod("_super_flags", &QAbstractItemModelWrap::_super_flags),
       InstanceMethod("emitDataChanged", &QAbstractItemModelWrap::emitDataChanged),
       InstanceMethod("checkIndex", &QAbstractItemModelWrap::checkIndex),
+      InstanceMethod("_super_buddy", &QAbstractItemModelWrap::_super_buddy),
       QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QAbstractItemModelWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -108,4 +109,17 @@ Napi::Value QAbstractItemModelWrap::checkIndex(const Napi::CallbackInfo& info) {
 
   auto result = Napi::Value::From(env, static_cast<uint>(this->instance->checkIndex(*index)));
   return result;
+}
+
+Napi::Value QAbstractItemModelWrap::_super_buddy(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QModelIndexWrap* modelIndexWrap = Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
+  QModelIndex* index = modelIndexWrap->getInternalInstance();
+
+  auto resultIndex = this->instance->QAbstractItemModel::buddy(*index);
+
+  auto resultModelIndexWrap = QModelIndexWrap::constructor.New({Napi::External<QModelIndex>::New(env, new QModelIndex(resultIndex))});
+  return resultModelIndexWrap;
 }
