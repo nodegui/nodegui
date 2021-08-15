@@ -1,7 +1,7 @@
 #pragma once
 
-#include "QtCore/QModelIndex/qmodelindex_wrap.h"
 #include "QtCore/QAbstractItemModel/qabstractitemmodel_wrap.h"
+#include "QtCore/QModelIndex/qmodelindex_wrap.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
@@ -96,7 +96,7 @@
     Napi::Object modelObject = info[0].As<Napi::Object>();                  \
     QAbstractItemModelWrap* modelWrap =                                     \
         Napi::ObjectWrap<QAbstractItemModelWrap>::Unwrap(modelObject);      \
-    QAbstractItemView* instance=  this->instance;                           \
+    QAbstractItemView* instance = this->instance;                           \
     instance->setModel(modelWrap->getInternalInstance());                   \
     return env.Null();                                                      \
   }
