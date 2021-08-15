@@ -8,12 +8,13 @@
 #include "QtCore/QObject/qobject_macro.h"
 #include "nabstractitemmodel.hpp"
 
-
-class DLL_EXPORT QAbstractItemModelWrap : public Napi::ObjectWrap<QAbstractItemModelWrap> {
+class DLL_EXPORT QAbstractItemModelWrap
+    : public Napi::ObjectWrap<QAbstractItemModelWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
 
  private:
   QPointer<NAbstractItemModel> instance;
+
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QAbstractItemModelWrap(const Napi::CallbackInfo& info);
