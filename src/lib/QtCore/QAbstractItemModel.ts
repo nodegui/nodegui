@@ -5,9 +5,7 @@ import { QModelIndex } from './QModelIndex';
 import { QVariant } from './QVariant';
 import { ItemDataRole, ItemFlag, Orientation } from '../QtEnums';
 
-export interface QAbstractItemSignals extends QObjectSignals {
-    // itemChanged: (item: QStandardItem) => void;
-}
+export type QAbstractItemSignals = QObjectSignals;
 
 export class QAbstractItemModel extends NodeObject<any> {
     native: NativeElement;
