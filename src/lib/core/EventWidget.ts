@@ -129,8 +129,18 @@ export abstract class EventWidget<Signals extends unknown> extends Component {
      */
     addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeRawPointer<'QEvent'>) => void): void;
     addEventListener(eventOrSignalType: string, callback: (...payloads: any[]) => void): void {
-        this.native.subscribeToQtEvent(eventOrSignalType);
-        this.emitter.addListener(eventOrSignalType, callback);
+        if (this.native.subscribeToQtEvent(eventOrSignalType)) {
+            this.emitter.addListener(eventOrSignalType, callback);
+        } else {
+            try {
+                throw new Error();
+            } catch (ex) {
+                console.log(
+                    `WARNING: Unable to add event listener '${eventOrSignalType}'. (Perhaps this instance was not created by NodeGui.)`,
+                );
+                console.log(ex);
+            }
+        }
     }
 
     removeEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;
