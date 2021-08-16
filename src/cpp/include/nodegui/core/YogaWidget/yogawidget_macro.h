@@ -8,21 +8,30 @@
  */
 
 #ifndef YOGAWIDGET_WRAPPED_METHODS_DECLARATION
-#define YOGAWIDGET_WRAPPED_METHODS_DECLARATION                               \
-                                                                             \
-  Napi::Value getFlexNode(const Napi::CallbackInfo& info) {                  \
-    YGNodeRef node = this->instance->getFlexNode();                          \
-    Napi::Value yogaNodeRef = Napi::External<YGNode>::New(info.Env(), node); \
-    return yogaNodeRef;                                                      \
-  }                                                                          \
-  Napi::Value setFlexNodeSizeControlled(const Napi::CallbackInfo& info) {    \
-    Napi::Env env = info.Env();                                              \
-    Napi::HandleScope scope(env);                                            \
-    Napi::Boolean isSizeControlled = info[0].As<Napi::Boolean>();            \
-    YGNodeRef node = this->instance->getFlexNode();                          \
-    FlexNodeContext* ctx = flexutils::getFlexNodeContext(node);              \
-    ctx->isSizeControlled = isSizeControlled.Value();                        \
-    return env.Null();                                                       \
+#define YOGAWIDGET_WRAPPED_METHODS_DECLARATION                                 \
+                                                                               \
+  Napi::Value getFlexNode(const Napi::CallbackInfo& info) {                    \
+    FlexItem* item = dynamic_cast<FlexItem*>(this->instance.data());           \
+    if (item) {                                                                \
+      YGNodeRef node = item->getFlexNode();                                    \
+      Napi::Value yogaNodeRef = Napi::External<YGNode>::New(info.Env(), node); \
+      return yogaNodeRef;                                                      \
+    } else {                                                                   \
+      Napi::Env env = info.Env();                                              \
+      return env.Null();                                                       \
+    }                                                                          \
+  }                                                                            \
+  Napi::Value setFlexNodeSizeControlled(const Napi::CallbackInfo& info) {      \
+    Napi::Env env = info.Env();                                                \
+    Napi::HandleScope scope(env);                                              \
+    FlexItem* item = dynamic_cast<FlexItem*>(this->instance.data());           \
+    if (item) {                                                                \
+      Napi::Boolean isSizeControlled = info[0].As<Napi::Boolean>();            \
+      YGNodeRef node = item->getFlexNode();                                    \
+      FlexNodeContext* ctx = flexutils::getFlexNodeContext(node);              \
+      ctx->isSizeControlled = isSizeControlled.Value();                        \
+    }                                                                          \
+    return env.Null();                                                         \
   }
 
 #endif  // YOGAWIDGET_WRAPPED_METHODS_DECLARATION

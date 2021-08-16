@@ -3,6 +3,7 @@
 #include <QTableView>
 
 #include "QtWidgets/QAbstractItemView/qabstractitemview_macro.h"
+#include "QtWidgets/QHeaderView/qheaderview_wrap.h"
 
 /*
 
@@ -203,48 +204,66 @@
     Qt::SortOrder order = static_cast<Qt::SortOrder>(orderInt);               \
     this->instance->sortByColumn(column, order);                              \
     return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value horizontalHeader(const Napi::CallbackInfo& info) {              \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    auto header = this->instance->horizontalHeader();                         \
+    auto instance = QHeaderViewWrap::constructor.New(                         \
+        {Napi::External<QHeaderView>::New(env, header)});                     \
+    return instance;                                                          \
+  }                                                                           \
+  Napi::Value verticalHeader(const Napi::CallbackInfo& info) {                \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    auto header = this->instance->verticalHeader();                           \
+    auto instance = QHeaderViewWrap::constructor.New(                         \
+        {Napi::External<QHeaderView>::New(env, header)});                     \
+    return instance;                                                          \
   }
 
 #endif  // QTABLEVIEW_WRAPPED_METHODS_DECLARATION
 
 #ifndef QTABLEVIEW_WRAPPED_METHODS_EXPORT_DEFINE
-#define QTABLEVIEW_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)           \
-                                                                           \
-  QABSTRACTITEMVIEW_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)          \
-                                                                           \
-  InstanceMethod("clearSpans", &WidgetWrapName::clearSpans),               \
-      InstanceMethod("columnAt", &WidgetWrapName::columnAt),               \
-      InstanceMethod("columnSpan", &WidgetWrapName::columnSpan),           \
-      InstanceMethod("columnViewportPosition",                             \
-                     &WidgetWrapName::columnViewportPosition),             \
-      InstanceMethod("columnWidth", &WidgetWrapName::columnWidth),         \
-      InstanceMethod("isColumnHidden", &WidgetWrapName::isColumnHidden),   \
-      InstanceMethod("isRowHidden", &WidgetWrapName::isRowHidden),         \
-      InstanceMethod("rowAt", &WidgetWrapName::rowAt),                     \
-      InstanceMethod("rowHeight", &WidgetWrapName::rowHeight),             \
-      InstanceMethod("rowSpan", &WidgetWrapName::rowSpan),                 \
-      InstanceMethod("rowViewportPosition",                                \
-                     &WidgetWrapName::rowViewportPosition),                \
-      InstanceMethod("setColumnHidden", &WidgetWrapName::setColumnHidden), \
-      InstanceMethod("setColumnWidth", &WidgetWrapName::setColumnWidth),   \
-      InstanceMethod("setRowHeight", &WidgetWrapName::setRowHeight),       \
-      InstanceMethod("setRowHidden", &WidgetWrapName::setRowHidden),       \
-      InstanceMethod("setSpan", &WidgetWrapName::setSpan),                 \
-      InstanceMethod("hideColumn", &WidgetWrapName::hideColumn),           \
-      InstanceMethod("hideRow", &WidgetWrapName::hideRow),                 \
-      InstanceMethod("resizeColumnToContents",                             \
-                     &WidgetWrapName::resizeColumnToContents),             \
-      InstanceMethod("resizeColumnsToContents",                            \
-                     &WidgetWrapName::resizeColumnsToContents),            \
-      InstanceMethod("resizeRowToContents",                                \
-                     &WidgetWrapName::resizeRowToContents),                \
-      InstanceMethod("resizeRowsToContents",                               \
-                     &WidgetWrapName::resizeRowsToContents),               \
-      InstanceMethod("selectColumn", &WidgetWrapName::selectColumn),       \
-      InstanceMethod("selectRow", &WidgetWrapName::selectRow),             \
-      InstanceMethod("showColumn", &WidgetWrapName::showColumn),           \
-      InstanceMethod("showRow", &WidgetWrapName::showRow),                 \
-      InstanceMethod("sortByColumn", &WidgetWrapName::sortByColumn),
+#define QTABLEVIEW_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)             \
+                                                                             \
+  QABSTRACTITEMVIEW_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)            \
+                                                                             \
+  InstanceMethod("clearSpans", &WidgetWrapName::clearSpans),                 \
+      InstanceMethod("columnAt", &WidgetWrapName::columnAt),                 \
+      InstanceMethod("columnSpan", &WidgetWrapName::columnSpan),             \
+      InstanceMethod("columnViewportPosition",                               \
+                     &WidgetWrapName::columnViewportPosition),               \
+      InstanceMethod("columnWidth", &WidgetWrapName::columnWidth),           \
+      InstanceMethod("isColumnHidden", &WidgetWrapName::isColumnHidden),     \
+      InstanceMethod("isRowHidden", &WidgetWrapName::isRowHidden),           \
+      InstanceMethod("rowAt", &WidgetWrapName::rowAt),                       \
+      InstanceMethod("rowHeight", &WidgetWrapName::rowHeight),               \
+      InstanceMethod("rowSpan", &WidgetWrapName::rowSpan),                   \
+      InstanceMethod("rowViewportPosition",                                  \
+                     &WidgetWrapName::rowViewportPosition),                  \
+      InstanceMethod("setColumnHidden", &WidgetWrapName::setColumnHidden),   \
+      InstanceMethod("setColumnWidth", &WidgetWrapName::setColumnWidth),     \
+      InstanceMethod("setRowHeight", &WidgetWrapName::setRowHeight),         \
+      InstanceMethod("setRowHidden", &WidgetWrapName::setRowHidden),         \
+      InstanceMethod("setSpan", &WidgetWrapName::setSpan),                   \
+      InstanceMethod("hideColumn", &WidgetWrapName::hideColumn),             \
+      InstanceMethod("hideRow", &WidgetWrapName::hideRow),                   \
+      InstanceMethod("resizeColumnToContents",                               \
+                     &WidgetWrapName::resizeColumnToContents),               \
+      InstanceMethod("resizeColumnsToContents",                              \
+                     &WidgetWrapName::resizeColumnsToContents),              \
+      InstanceMethod("resizeRowToContents",                                  \
+                     &WidgetWrapName::resizeRowToContents),                  \
+      InstanceMethod("resizeRowsToContents",                                 \
+                     &WidgetWrapName::resizeRowsToContents),                 \
+      InstanceMethod("selectColumn", &WidgetWrapName::selectColumn),         \
+      InstanceMethod("selectRow", &WidgetWrapName::selectRow),               \
+      InstanceMethod("showColumn", &WidgetWrapName::showColumn),             \
+      InstanceMethod("showRow", &WidgetWrapName::showRow),                   \
+      InstanceMethod("sortByColumn", &WidgetWrapName::sortByColumn),         \
+      InstanceMethod("horizontalHeader", &WidgetWrapName::horizontalHeader), \
+      InstanceMethod("verticalHeader", &WidgetWrapName::horizontalHeader)
 
 #endif  // QTABLEVIEW_WRAPPED_METHODS_EXPORT_DEFINE
 
