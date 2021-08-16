@@ -40,10 +40,12 @@
     Napi::String eventString = info[0].As<Napi::String>();           \
     EventWidget* eventWidget =                                       \
         dynamic_cast<EventWidget*>(this->instance.data());           \
+    bool success = false;                                            \
     if (eventWidget) {                                               \
       eventWidget->subscribeToQtEvent(eventString.Utf8Value());      \
+      success = true;                                                \
     }                                                                \
-    return env.Null();                                               \
+    return Napi::Boolean::New(env, success);                         \
   }                                                                  \
   Napi::Value unSubscribeToQtEvent(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env();                                      \
