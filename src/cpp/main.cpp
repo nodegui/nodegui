@@ -64,6 +64,7 @@
 #include "QtWidgets/QGraphicsDropShadowEffect/qgraphicsdropshadoweffect_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
+#include "QtWidgets/QHeaderView/qheaderview_wrap.h"
 #include "QtWidgets/QInputDialog/qinputdialog_wrap.h"
 #include "QtWidgets/QLCDNumber/qlcdnumber_wrap.h"
 #include "QtWidgets/QLabel/qlabel_wrap.h"
@@ -222,6 +223,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QPaintEventWrap::init(env, exports);
   QPaletteWrap::init(env, exports);
   QAbstractItemModelWrap::init(env, exports);
+  QHeaderViewWrap::init(env, exports);
   return exports;
 }
 

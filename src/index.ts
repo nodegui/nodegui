@@ -74,6 +74,7 @@ export { QToolButton, QToolButtonSignals, ToolButtonPopupMode } from './lib/QtWi
 export { QSpinBox, QSpinBoxSignals } from './lib/QtWidgets/QSpinBox';
 export { QRadioButton, QRadioButtonSignals } from './lib/QtWidgets/QRadioButton';
 export { QStackedWidget, QStackedWidgetSignals } from './lib/QtWidgets/QStackedWidget';
+export { QHeaderView, QHeaderViewSignals } from './lib/QtWidgets/QHeaderView';
 export {
     QListView,
     QListViewSignals,
