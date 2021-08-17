@@ -15,7 +15,7 @@ class DLL_EXPORT NStackedWidget : public QStackedWidget, public NodeWidget {
   using QStackedWidget::QStackedWidget;  // inherit all constructors of
                                          // QStackedWidget
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QFRAME_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QStackedWidget::currentChanged, [=](int index) {

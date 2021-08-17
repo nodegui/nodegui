@@ -12,7 +12,7 @@ class DLL_EXPORT NTabWidget : public QTabWidget, public NodeWidget {
  public:
   using QTabWidget::QTabWidget;  // inherit all constructors of QTabWidget
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QWIDGET_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QTabWidget::currentChanged, [=](int index) {

@@ -11,7 +11,7 @@ class DLL_EXPORT NDial : public QDial, public NodeWidget {
  public:
   using QDial::QDial;  // inherit all constructors of QDial
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QABSTRACT_SLIDER_SIGNALS
   }

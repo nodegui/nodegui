@@ -14,7 +14,7 @@ class DLL_EXPORT NGraphicsBlurEffect : public QGraphicsBlurEffect,
  public:
   using QGraphicsBlurEffect::QGraphicsBlurEffect;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QGRAPHICSEFFECT_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QGraphicsBlurEffect::blurHintsChanged,

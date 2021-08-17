@@ -11,5 +11,5 @@ class DLL_EXPORT NMenuBar : public QMenuBar, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QMenuBar)
  public:
   using QMenuBar::QMenuBar;  // inherit all constructors of QMenuBar
-  void connectSignalsToEventEmitter() { QWIDGET_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QWIDGET_SIGNALS }
 };

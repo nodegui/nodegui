@@ -12,5 +12,5 @@ class DLL_EXPORT NTableView : public QTableView, public NodeWidget {
  public:
   using QTableView::QTableView;
 
-  void connectSignalsToEventEmitter() { QTABLEVIEW_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QTABLEVIEW_SIGNALS }
 };

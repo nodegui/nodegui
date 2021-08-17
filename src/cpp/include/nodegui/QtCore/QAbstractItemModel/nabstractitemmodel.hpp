@@ -14,7 +14,7 @@ class DLL_EXPORT NAbstractItemModel : public QAbstractItemModel,
  public:
   Napi::FunctionReference dispatchOnNode;
 
-  void connectSignalsToEventEmitter(){
+  virtual void connectSignalsToEventEmitter(){
       // Qt Connects: Implement all signal connects here
       QOBJECT_SIGNALS}
 

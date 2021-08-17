@@ -12,7 +12,7 @@ class DLL_EXPORT NApplication : public QApplication, public EventWidget {
   EVENTWIDGET_IMPLEMENTATIONS(QApplication)
  public:
   using QApplication::QApplication;  // inherit all constructors of QApplication
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QOBJECT_SIGNALS
 

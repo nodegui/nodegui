@@ -13,7 +13,7 @@ class DLL_EXPORT NTabBar : public QTabBar, public NodeWidget {
  public:
   using QTabBar::QTabBar;  // inherit all constructors of QTabBar
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QWIDGET_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QTabBar::currentChanged, [=](int index) {

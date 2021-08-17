@@ -13,5 +13,5 @@ class DLL_EXPORT NSvgWidget : public QSvgWidget, public NodeWidget {
  public:
   using QSvgWidget::QSvgWidget;  // inherit all constructors of QSvgWidget
 
-  void connectSignalsToEventEmitter() { QWIDGET_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QWIDGET_SIGNALS }
 };

@@ -11,7 +11,7 @@ class DLL_EXPORT NMenu : public QMenu, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QMenu)
  public:
   using QMenu::QMenu;  // inherit all constructors of QMenu
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QWIDGET_SIGNALS
 
     QObject::connect(this, &QMenu::triggered, [=](QAction* action) {

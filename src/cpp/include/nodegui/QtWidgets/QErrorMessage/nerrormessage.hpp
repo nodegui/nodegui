@@ -13,7 +13,7 @@ class DLL_EXPORT NErrorMessage : public QErrorMessage, public NodeWidget {
  public:
   using QErrorMessage::QErrorMessage;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QDIALOG_SIGNALS
     // Qt Connects: Implement all signal connects here
   }

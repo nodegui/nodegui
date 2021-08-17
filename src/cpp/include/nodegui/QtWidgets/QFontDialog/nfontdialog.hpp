@@ -14,7 +14,7 @@ class DLL_EXPORT NFontDialog : public QFontDialog, public NodeWidget {
  public:
   using QFontDialog::QFontDialog;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QDIALOG_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(

@@ -11,5 +11,5 @@ class DLL_EXPORT NMainWindow : public QMainWindow, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QMainWindow)
  public:
   using QMainWindow::QMainWindow;  // inherit all constructors of QMainWindow
-  void connectSignalsToEventEmitter() { QWIDGET_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QWIDGET_SIGNALS }
 };

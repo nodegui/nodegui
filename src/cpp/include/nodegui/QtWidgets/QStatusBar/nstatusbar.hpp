@@ -13,7 +13,7 @@ class DLL_EXPORT NStatusBar : public QStatusBar, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QStatusBar)
   using QStatusBar::QStatusBar;  // inherit all constructors of QStatusBar
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QObject::connect(
         this, &QStatusBar::messageChanged, [=](const QString &message) {
           Napi::Env env = this->emitOnNode.Env();

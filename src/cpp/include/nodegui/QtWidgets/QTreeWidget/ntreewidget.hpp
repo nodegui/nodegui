@@ -14,7 +14,7 @@ class DLL_EXPORT NTreeWidget : public QTreeWidget, public NodeWidget {
  public:
   using QTreeWidget::QTreeWidget;  // inherit all constructors of QTreeWidget
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QABSTRACTSCROLLAREA_SIGNALS
     QObject::connect(this, &QTreeWidget::itemSelectionChanged, [=]() {
       Napi::Env env = this->emitOnNode.Env();

@@ -13,7 +13,7 @@ class DLL_EXPORT NTextBrowser : public QTextBrowser, public NodeWidget {
  public:
   using QTextBrowser::QTextBrowser;  // inherit all constructors of QTextBrowser
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QTEXTEDIT_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QTextBrowser::anchorClicked, [=](const QUrl& link) {

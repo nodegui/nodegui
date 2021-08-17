@@ -12,7 +12,7 @@ class DLL_EXPORT NComboBox : public QComboBox, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QComboBox)
   using QComboBox::QComboBox;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QWIDGET_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(

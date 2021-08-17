@@ -11,7 +11,7 @@ class DLL_EXPORT NShortcut : public QShortcut, public EventWidget {
   EVENTWIDGET_IMPLEMENTATIONS(QShortcut)
  public:
   using QShortcut::QShortcut;  // inherit all constructors of QShortcut
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QOBJECT_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QShortcut::activated, [=]() {

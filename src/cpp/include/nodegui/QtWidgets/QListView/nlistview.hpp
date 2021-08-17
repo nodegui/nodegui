@@ -12,5 +12,5 @@ class DLL_EXPORT NListView : public QListView, public NodeWidget {
  public:
   using QListView::QListView;
 
-  void connectSignalsToEventEmitter() { QLISTVIEW_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QLISTVIEW_SIGNALS }
 };

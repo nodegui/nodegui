@@ -14,7 +14,7 @@ class DLL_EXPORT NGraphicsDropShadowEffect : public QGraphicsDropShadowEffect,
  public:
   using QGraphicsDropShadowEffect::QGraphicsDropShadowEffect;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QGRAPHICSEFFECT_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(

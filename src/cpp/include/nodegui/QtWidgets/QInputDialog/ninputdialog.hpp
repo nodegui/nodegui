@@ -11,7 +11,7 @@ class DLL_EXPORT NInputDialog : public QInputDialog, public NodeWidget {
   Q_OBJECT
   NODEWIDGET_IMPLEMENTATIONS(QInputDialog)
   using QInputDialog::QInputDialog;
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QDIALOG_SIGNALS
     QObject::connect(this, &QInputDialog::doubleValueChanged, [=](double val) {
       Napi::Env env = this->emitOnNode.Env();
