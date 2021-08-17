@@ -12,7 +12,7 @@ class DLL_EXPORT NFileDialog : public QFileDialog, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QFileDialog)
   using QFileDialog::QFileDialog;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QDIALOG_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(

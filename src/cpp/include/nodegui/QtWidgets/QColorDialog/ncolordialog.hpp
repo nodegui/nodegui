@@ -14,7 +14,7 @@ class DLL_EXPORT NColorDialog : public QColorDialog, public NodeWidget {
  public:
   using QColorDialog::QColorDialog;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QDIALOG_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(

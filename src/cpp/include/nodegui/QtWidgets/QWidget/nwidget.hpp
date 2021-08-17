@@ -22,5 +22,5 @@ class DLL_EXPORT NWidget : public QWidget, public NodeWidget {
     QWidget::paintEvent(e);
   }
 
-  void connectSignalsToEventEmitter() { QWIDGET_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QWIDGET_SIGNALS }
 };

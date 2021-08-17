@@ -13,7 +13,7 @@ class DLL_EXPORT NDateEdit : public QDateEdit, public NodeWidget {
   // inherit all constructors of QDateEdit
   using QDateEdit::QDateEdit;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QDATETIMEEDIT_SIGNALS
   }

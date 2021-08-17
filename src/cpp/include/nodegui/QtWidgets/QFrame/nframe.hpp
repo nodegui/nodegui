@@ -12,5 +12,5 @@ class DLL_EXPORT NFrame : public QFrame, public NodeWidget {
  public:
   using QFrame::QFrame;
 
-  void connectSignalsToEventEmitter() { QFRAME_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QFRAME_SIGNALS }
 };

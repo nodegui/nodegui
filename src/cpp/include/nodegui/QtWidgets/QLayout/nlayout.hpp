@@ -10,5 +10,5 @@ class DLL_EXPORT NLayout : public QLayout, public EventWidget {
  public:
   EVENTWIDGET_IMPLEMENTATIONS(QLayout)
   using QLayout::QLayout;
-  void connectSignalsToEventEmitter() { QLAYOUT_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QLAYOUT_SIGNALS }
 };

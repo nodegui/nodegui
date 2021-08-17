@@ -12,5 +12,5 @@ class DLL_EXPORT NObject : public QObject, public EventWidget {
  public:
   using QObject::QObject;
 
-  void connectSignalsToEventEmitter() { QOBJECT_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QOBJECT_SIGNALS }
 };

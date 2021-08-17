@@ -12,7 +12,7 @@ class DLL_EXPORT NLCDNumber : public QLCDNumber, public NodeWidget {
  public:
   using QLCDNumber::QLCDNumber;  // inherit all constructors of QLCDNumber
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QWIDGET_SIGNALS
     QObject::connect(this, &QLCDNumber::overflow, [=]() {
       Napi::Env env = this->emitOnNode.Env();

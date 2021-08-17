@@ -12,7 +12,7 @@ class DLL_EXPORT NGroupBox : public QGroupBox, public NodeWidget {
  public:
   using QGroupBox::QGroupBox;  // inherit all constructors of QGroupBox
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QWIDGET_SIGNALS
     QObject::connect(this, &QGroupBox::clicked, [=](bool checked) {
       Napi::Env env = this->emitOnNode.Env();

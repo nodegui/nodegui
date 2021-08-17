@@ -11,7 +11,7 @@ class DLL_EXPORT NAction : public QAction, public EventWidget {
   EVENTWIDGET_IMPLEMENTATIONS(QAction)
  public:
   using QAction::QAction;  // inherit all constructors of QAction
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QOBJECT_SIGNALS
     QObject::connect(this, &QAction::triggered, [=](bool checked) {

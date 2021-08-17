@@ -12,7 +12,7 @@ class DLL_EXPORT NTextEdit : public QTextEdit, public NodeWidget {
  public:
   using QTextEdit::QTextEdit;  // inherit all constructors of QTextEdit
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QTEXTEDIT_SIGNALS
     // Qt Connects: Implement all signal connects here
   }

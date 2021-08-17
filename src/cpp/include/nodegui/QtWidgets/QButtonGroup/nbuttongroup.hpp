@@ -12,7 +12,7 @@ class DLL_EXPORT NButtonGroup : public QButtonGroup, public EventWidget {
   EVENTWIDGET_IMPLEMENTATIONS(QButtonGroup)
  public:
   using QButtonGroup::QButtonGroup;  // inherit all constructors of QButtonGroup
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QOBJECT_SIGNALS
     // Qt Connects: Implement all signal connects here
     connect(this, QOverload<int>::of(&QButtonGroup::buttonClicked),

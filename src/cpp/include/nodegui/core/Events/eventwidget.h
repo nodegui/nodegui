@@ -17,7 +17,7 @@ class DLL_EXPORT EventWidget {
 
   bool event(QEvent* event);
 
-  void connectSignalsToEventEmitter();
+  virtual void connectSignalsToEventEmitter();
 
   ~EventWidget();
 };

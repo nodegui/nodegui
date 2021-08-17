@@ -14,7 +14,7 @@ class DLL_EXPORT NMovie : public QMovie, public EventWidget {
  public:
   using QMovie::QMovie;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QOBJECT_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QMovie::error,

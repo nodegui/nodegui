@@ -13,7 +13,7 @@ class DLL_EXPORT NLabel : public QLabel, public NodeWidget {
  public:
   using QLabel::QLabel;  // inherit all constructors of QLabel
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QFRAME_SIGNALS
     QObject::connect(this, &QLabel::linkActivated, [=](const QString& link) {
       Napi::Env env = this->emitOnNode.Env();

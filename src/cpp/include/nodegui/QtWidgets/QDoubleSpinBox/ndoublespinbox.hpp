@@ -14,7 +14,7 @@ class DLL_EXPORT NDoubleSpinBox : public QDoubleSpinBox, public NodeWidget {
   using QDoubleSpinBox::QDoubleSpinBox;  // inherit all constructors of
                                          // QDoubleSpinBox
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QABSTRACTSPINBOX_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(

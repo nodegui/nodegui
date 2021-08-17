@@ -12,7 +12,7 @@ class DLL_EXPORT NScrollBar : public QScrollBar, public NodeWidget {
  public:
   using QScrollBar::QScrollBar;  // inherit all constructors of QScrollBar
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QABSTRACT_SLIDER_SIGNALS
   }

@@ -15,7 +15,7 @@ class DLL_EXPORT NToolButton : public QToolButton, public NodeWidget {
  public:
   using QToolButton::QToolButton;  // inherit all constructors of QToolButton
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QABSTRACT_BUTTON_SIGNALS
     QObject::connect(this, &QToolButton::triggered, [=](QAction* action) {

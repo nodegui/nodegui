@@ -12,7 +12,7 @@ class DLL_EXPORT NSystemTrayIcon : public QSystemTrayIcon, public EventWidget {
  public:
   // inherit all constructors of QSystemTrayIcon
   using QSystemTrayIcon::QSystemTrayIcon;
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QOBJECT_SIGNALS
     QObject::connect(this, &QSystemTrayIcon::activated, [=](int reason) {
       Napi::Env env = this->emitOnNode.Env();

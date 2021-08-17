@@ -14,5 +14,5 @@ class DLL_EXPORT NPushButton : public QPushButton, public NodeWidget {
  public:
   using QPushButton::QPushButton;  // inherit all constructors of QPushButton
 
-  void connectSignalsToEventEmitter() { QABSTRACT_BUTTON_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QABSTRACT_BUTTON_SIGNALS }
 };

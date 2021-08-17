@@ -11,7 +11,7 @@ class DLL_EXPORT NPlainTextEdit : public QPlainTextEdit, public NodeWidget {
   using QPlainTextEdit::QPlainTextEdit;  // inherit all constructors of
                                          // QPlainTextEdit
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QABSTRACTSCROLLAREA_SIGNALS
 
     // Qt Connects: Implement all signal connects here

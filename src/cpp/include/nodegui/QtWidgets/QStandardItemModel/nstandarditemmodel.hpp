@@ -14,7 +14,7 @@ class DLL_EXPORT NStandardItemModel : public QStandardItemModel,
  public:
   using QStandardItemModel::QStandardItemModel;  // inherit all constructors of
                                                  // QStandardItemModel
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QOBJECT_SIGNALS
 
     QObject::connect(

@@ -12,5 +12,5 @@ class DLL_EXPORT NHeaderView : public QHeaderView, public NodeWidget {
  public:
   using QHeaderView::QHeaderView;
 
-  void connectSignalsToEventEmitter() { QABSTRACTITEMVIEW_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QABSTRACTITEMVIEW_SIGNALS }
 };
