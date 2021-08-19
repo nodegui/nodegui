@@ -9,20 +9,22 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "10.13" CACHE STRING "Minimum OS X deployment ve
 
 function(AddCommonConfig addonName)
     target_compile_features(${addonName} PRIVATE
+        cxx_constexpr
         cxx_inheriting_constructors
         cxx_lambdas
         cxx_auto_type
         cxx_variadic_templates
         cxx_variable_templates
+        cxx_std_17
     )
-    
+
     if(napi_build_version)
         target_compile_definitions(${addonName} PRIVATE
             NAPI_VERSION=${napi_build_version}
         )
     endif()
-    
-    if (WIN32) 
+
+    if (WIN32)
         target_compile_definitions(${addonName} PRIVATE
             ENUM_BITFIELDS_NOT_SUPPORTED
         )
