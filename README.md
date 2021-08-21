@@ -162,6 +162,15 @@ Now just `rm -rf node_modules` and do `npm install` again.
 
 The logs should say something like `CustomQt detected at <your qt path>. Hence, skipping Mini Qt installation`.
 
+
+**Running example programs**
+
+A number of small programs to show different parts of the Qt API are in `src/examples`. They can be run directly with:
+
+```
+npm run qode dist/examples/modelview_1_readonly.js
+```
+
 **Community guides**
 
 -   [Tutorial: Build a native Meme Search Desktop app with Javascript (NodeGui) and Giphy API](https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/)
