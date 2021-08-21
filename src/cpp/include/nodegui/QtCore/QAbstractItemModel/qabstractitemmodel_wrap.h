@@ -31,4 +31,18 @@ class DLL_EXPORT QAbstractItemModelWrap
   Napi::Value emitDataChanged(const Napi::CallbackInfo& info);
   Napi::Value checkIndex(const Napi::CallbackInfo& info);
   Napi::Value _super_buddy(const Napi::CallbackInfo& info);
+  Napi::Value beginInsertColumns(const Napi::CallbackInfo& info);
+  Napi::Value beginInsertRows(const Napi::CallbackInfo& info);
+  Napi::Value beginMoveColumns(const Napi::CallbackInfo& info);
+  Napi::Value beginMoveRows(const Napi::CallbackInfo& info);
+  Napi::Value beginRemoveColumns(const Napi::CallbackInfo& info);
+  Napi::Value beginRemoveRows(const Napi::CallbackInfo& info);
+  Napi::Value beginResetModel(const Napi::CallbackInfo& info);
+  Napi::Value endResetModel(const Napi::CallbackInfo& info);
+  Napi::Value endInsertColumns(const Napi::CallbackInfo& info);
+  Napi::Value endInsertRows(const Napi::CallbackInfo& info);
+  Napi::Value endMoveColumns(const Napi::CallbackInfo& info);
+  Napi::Value endMoveRows(const Napi::CallbackInfo& info);
+  Napi::Value endRemoveColumns(const Napi::CallbackInfo& info);
+  Napi::Value endRemoveRows(const Napi::CallbackInfo& info);
 };

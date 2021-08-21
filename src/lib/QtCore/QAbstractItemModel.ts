@@ -202,14 +202,45 @@ export class QAbstractItemModel extends NodeObject<any> {
     // TODO: void layoutChanged(const QList<QPersistentModelIndex> &parents = QList<QPersistentModelIndex>(), QAbstractItemModel::LayoutChangeHint hint = QAbstractItemModel::NoLayoutChangeHint)
 
     // *** Protected Functions ***
+    beginInsertColumns(parent: QModelIndex, first: number, last: number): void {
+        this.native.beginInsertColumns(parent, first, last);
+    }
 
-    // TODO: void beginInsertColumns(const QModelIndex &parent, int first, int last)
-    // TODO: void beginInsertRows(const QModelIndex &parent, int first, int last)
-    // TODO: bool beginMoveColumns(const QModelIndex &sourceParent, int sourceFirst, int sourceLast, const QModelIndex &destinationParent, int destinationChild)
-    // TODO: bool beginMoveRows(const QModelIndex &sourceParent, int sourceFirst, int sourceLast, const QModelIndex &destinationParent, int destinationChild)
-    // TODO: void beginRemoveColumns(const QModelIndex &parent, int first, int last)
-    // TODO: void beginRemoveRows(const QModelIndex &parent, int first, int last)
-    // TODO: void beginResetModel()
+    beginInsertRows(parent: QModelIndex, first: number, last: number): void {
+        this.native.beginInsertRows(parent, first, last);
+    }
+
+    beginMoveColumns(
+        sourceParent: QModelIndex,
+        sourceFirst: number,
+        sourceLast: number,
+        destinationParent: QModelIndex,
+        destinationChild: number,
+    ): boolean {
+        return this.native.beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationChild);
+    }
+
+    beginMoveRows(
+        sourceParent: QModelIndex,
+        sourceFirst: number,
+        sourceLast: number,
+        destinationParent: QModelIndex,
+        destinationChild: number,
+    ): boolean {
+        return this.native.beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationChild);
+    }
+
+    beginRemoveColumns(parent: QModelIndex, first: number, last: number): void {
+        this.native.beginRemoveColumns(parent, first, last);
+    }
+
+    beginRemoveRows(parent: QModelIndex, first: number, last: number): void {
+        this.native.beginRemoveRows(parent, first, last);
+    }
+
+    beginResetModel(): void {
+        this.native.beginResetModel();
+    }
     // TODO: void changePersistentIndex(const QModelIndex &from, const QModelIndex &to)
     // TODO: void changePersistentIndexList(const QModelIndexList &from, const QModelIndexList &to)
 
@@ -219,12 +250,33 @@ export class QAbstractItemModel extends NodeObject<any> {
     }
 
     // TODO: QModelIndex createIndex(int row, int column, quintptr id) const
-    // TODO: void endInsertColumns()
-    // TODO: void endInsertRows()
-    // TODO: void endMoveColumns()
-    // TODO: void endMoveRows()
-    // TODO: void endRemoveColumns()
-    // TODO: void endRemoveRows()
-    // TODO: void endResetModel()
+
+    endInsertColumns(): void {
+        this.native.endInsertColumns();
+    }
+
+    endInsertRows(): void {
+        this.native.endInsertRows();
+    }
+
+    endMoveColumns(): void {
+        this.native.endMoveColumns();
+    }
+
+    endMoveRows(): void {
+        this.native.endMoveRows();
+    }
+
+    endRemoveColumns(): void {
+        this.native.endRemoveColumns();
+    }
+
+    endRemoveRows(): void {
+        this.native.endRemoveRows();
+    }
+
+    endResetModel(): void {
+        this.native.endResetModel();
+    }
     // TODO: QModelIndexList persistentIndexList() const
 }

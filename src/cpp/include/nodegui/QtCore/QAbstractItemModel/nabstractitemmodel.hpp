@@ -160,4 +160,56 @@ class DLL_EXPORT NAbstractItemModel : public QAbstractItemModel,
     QModelIndex* buddyIndex = buddyIndexWrap->getInternalInstance();
     return *buddyIndex;
   }
+
+  void _protected_beginResetModel() { beginResetModel(); }
+
+  void _protected_endResetModel() { endResetModel(); }
+
+  void _protected_beginInsertColumns(const QModelIndex& parent, int first,
+                                     int last) {
+    beginInsertColumns(parent, first, last);
+  }
+
+  void _protected_beginInsertRows(const QModelIndex& parent, int first,
+                                  int last) {
+    beginInsertRows(parent, first, last);
+  }
+
+  bool _protected_beginMoveColumns(const QModelIndex& sourceParent,
+                                   int sourceFirst, int sourceLast,
+                                   const QModelIndex& destinationParent,
+                                   int destinationChild) {
+    return beginMoveColumns(sourceParent, sourceFirst, sourceLast,
+                            destinationParent, destinationChild);
+  }
+
+  bool _protected_beginMoveRows(const QModelIndex& sourceParent,
+                                int sourceFirst, int sourceLast,
+                                const QModelIndex& destinationParent,
+                                int destinationChild) {
+    return beginMoveRows(sourceParent, sourceFirst, sourceLast,
+                         destinationParent, destinationChild);
+  }
+
+  void _protected_beginRemoveColumns(const QModelIndex& parent, int first,
+                                     int last) {
+    beginRemoveColumns(parent, first, last);
+  }
+
+  void _protected_beginRemoveRows(const QModelIndex& parent, int first,
+                                  int last) {
+    beginRemoveRows(parent, first, last);
+  }
+
+  void _protected_endInsertColumns() { endInsertColumns(); }
+
+  void _protected_endInsertRows() { endInsertRows(); }
+
+  void _protected_endMoveColumns() { endMoveColumns(); }
+
+  void _protected_endMoveRows() { endMoveRows(); }
+
+  void _protected_endRemoveColumns() { endRemoveColumns(); }
+
+  void _protected_endRemoveRows() { endRemoveRows(); }
 };

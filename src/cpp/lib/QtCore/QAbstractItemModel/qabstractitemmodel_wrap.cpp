@@ -19,6 +19,29 @@ Napi::Object QAbstractItemModelWrap::init(Napi::Env env, Napi::Object exports) {
                       &QAbstractItemModelWrap::emitDataChanged),
        InstanceMethod("checkIndex", &QAbstractItemModelWrap::checkIndex),
        InstanceMethod("_super_buddy", &QAbstractItemModelWrap::_super_buddy),
+       InstanceMethod("beginInsertColumns",
+                      &QAbstractItemModelWrap::beginInsertColumns),
+       InstanceMethod("beginInsertRows",
+                      &QAbstractItemModelWrap::beginInsertRows),
+       InstanceMethod("beginMoveColumns",
+                      &QAbstractItemModelWrap::beginMoveColumns),
+       InstanceMethod("beginMoveRows", &QAbstractItemModelWrap::beginMoveRows),
+       InstanceMethod("beginRemoveColumns",
+                      &QAbstractItemModelWrap::beginRemoveColumns),
+       InstanceMethod("beginRemoveRows",
+                      &QAbstractItemModelWrap::beginRemoveRows),
+       InstanceMethod("beginResetModel",
+                      &QAbstractItemModelWrap::beginResetModel),
+       InstanceMethod("endResetModel", &QAbstractItemModelWrap::endResetModel),
+       InstanceMethod("endInsertColumns",
+                      &QAbstractItemModelWrap::endInsertColumns),
+       InstanceMethod("endInsertRows", &QAbstractItemModelWrap::endInsertRows),
+       InstanceMethod("endMoveColumns",
+                      &QAbstractItemModelWrap::endMoveColumns),
+       InstanceMethod("endMoveRows", &QAbstractItemModelWrap::endMoveRows),
+       InstanceMethod("endRemoveColumns",
+                      &QAbstractItemModelWrap::endRemoveColumns),
+       InstanceMethod("endRemoveRows", &QAbstractItemModelWrap::endRemoveRows),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QAbstractItemModelWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -146,4 +169,158 @@ Napi::Value QAbstractItemModelWrap::_super_buddy(
   auto resultModelIndexWrap = QModelIndexWrap::constructor.New(
       {Napi::External<QModelIndex>::New(env, new QModelIndex(resultIndex))});
   return resultModelIndexWrap;
+}
+
+Napi::Value QAbstractItemModelWrap::beginInsertColumns(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QModelIndexWrap* parentWrap =
+      Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
+  QModelIndex* parent = parentWrap->getInternalInstance();
+  int first = info[1].As<Napi::Number>().Int32Value();
+  int last = info[2].As<Napi::Number>().Int32Value();
+  this->instance->_protected_beginInsertColumns(*parent, first, last);
+  return env.Null();
+}
+
+Napi::Value QAbstractItemModelWrap::beginInsertRows(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QModelIndexWrap* parentWrap =
+      Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
+  QModelIndex* parent = parentWrap->getInternalInstance();
+  int first = info[1].As<Napi::Number>().Int32Value();
+  int last = info[2].As<Napi::Number>().Int32Value();
+  this->instance->_protected_beginInsertRows(*parent, first, last);
+  return env.Null();
+}
+
+Napi::Value QAbstractItemModelWrap::beginMoveColumns(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QModelIndexWrap* sourceParentWrap =
+      Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
+  QModelIndex* sourceParent = sourceParentWrap->getInternalInstance();
+  int sourceFirst = info[1].As<Napi::Number>().Int32Value();
+  int sourceLast = info[2].As<Napi::Number>().Int32Value();
+  QModelIndexWrap* destinationParentWrap =
+      Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[3].As<Napi::Object>());
+  QModelIndex* destinationParent = destinationParentWrap->getInternalInstance();
+  int destinationChild = info[4].As<Napi::Number>().Int32Value();
+  bool result = this->instance->_protected_beginMoveColumns(
+      *sourceParent, sourceFirst, sourceLast, *destinationParent,
+      destinationChild);
+  return Napi::Boolean::New(env, result);
+}
+
+Napi::Value QAbstractItemModelWrap::beginMoveRows(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QModelIndexWrap* sourceParentWrap =
+      Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
+  QModelIndex* sourceParent = sourceParentWrap->getInternalInstance();
+  int sourceFirst = info[1].As<Napi::Number>().Int32Value();
+  int sourceLast = info[2].As<Napi::Number>().Int32Value();
+  QModelIndexWrap* destinationParentWrap =
+      Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[3].As<Napi::Object>());
+  QModelIndex* destinationParent = destinationParentWrap->getInternalInstance();
+  int destinationChild = info[4].As<Napi::Number>().Int32Value();
+  bool result = this->instance->_protected_beginMoveRows(
+      *sourceParent, sourceFirst, sourceLast, *destinationParent,
+      destinationChild);
+  return Napi::Boolean::New(env, result);
+}
+
+Napi::Value QAbstractItemModelWrap::beginRemoveColumns(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QModelIndexWrap* parentWrap =
+      Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
+  QModelIndex* parent = parentWrap->getInternalInstance();
+  int first = info[1].As<Napi::Number>().Int32Value();
+  int last = info[2].As<Napi::Number>().Int32Value();
+  this->instance->_protected_beginRemoveColumns(*parent, first, last);
+  return env.Null();
+}
+
+Napi::Value QAbstractItemModelWrap::beginRemoveRows(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QModelIndexWrap* parentWrap =
+      Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
+  QModelIndex* parent = parentWrap->getInternalInstance();
+  int first = info[1].As<Napi::Number>().Int32Value();
+  int last = info[2].As<Napi::Number>().Int32Value();
+  this->instance->_protected_beginRemoveRows(*parent, first, last);
+  return env.Null();
+}
+
+Napi::Value QAbstractItemModelWrap::beginResetModel(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->_protected_beginResetModel();
+  return env.Null();
+}
+
+Napi::Value QAbstractItemModelWrap::endInsertColumns(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->_protected_endInsertColumns();
+  return env.Null();
+}
+
+Napi::Value QAbstractItemModelWrap::endInsertRows(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->_protected_endInsertRows();
+  return env.Null();
+}
+
+Napi::Value QAbstractItemModelWrap::endMoveColumns(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->_protected_endMoveColumns();
+  return env.Null();
+}
+
+Napi::Value QAbstractItemModelWrap::endMoveRows(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->_protected_endMoveRows();
+  return env.Null();
+}
+
+Napi::Value QAbstractItemModelWrap::endRemoveColumns(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->_protected_endRemoveColumns();
+  return env.Null();
+}
+
+Napi::Value QAbstractItemModelWrap::endRemoveRows(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->_protected_endRemoveRows();
+  return env.Null();
+}
+
+Napi::Value QAbstractItemModelWrap::endResetModel(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->_protected_endResetModel();
+  return env.Null();
 }
