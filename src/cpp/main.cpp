@@ -4,6 +4,7 @@
 #include "QtCore/QAbstractItemModel/qabstractitemmodel_wrap.h"
 #include "QtCore/QDate/qdate_wrap.h"
 #include "QtCore/QDateTime/qdatetime_wrap.h"
+#include "QtCore/QItemSelectionModel/qitemselectionmodel_wrap.h"
 #include "QtCore/QMimeData/qmimedata_wrap.h"
 #include "QtCore/QModelIndex/qmodelindex_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
@@ -224,6 +225,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QPaletteWrap::init(env, exports);
   QAbstractItemModelWrap::init(env, exports);
   QHeaderViewWrap::init(env, exports);
+  QItemSelectionModelWrap::init(env, exports);
   return exports;
 }
 

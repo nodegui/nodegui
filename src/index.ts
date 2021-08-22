@@ -38,7 +38,15 @@ export { NodeLayout, QLayoutSignals, SizeConstraint } from './lib/QtWidgets/QLay
 export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider, QAbstractSliderSignals, SliderAction } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';
-export { QAbstractItemView, QAbstractItemViewSignals } from './lib/QtWidgets/QAbstractItemView';
+export {
+    DragDropMode,
+    EditTrigger,
+    QAbstractItemView,
+    QAbstractItemViewSignals,
+    QAbstractItemViewSelectionBehavior,
+    ScrollMode,
+    SelectionMode,
+} from './lib/QtWidgets/QAbstractItemView';
 export {
     QAbstractSpinBox,
     QAbstractSpinBoxSignals,
@@ -133,6 +141,7 @@ export { QAbstractItemModel } from './lib/QtCore/QAbstractItemModel';
 export { QAbstractTableModel } from './lib/QtCore/QAbstractTableModel';
 export { QDate } from './lib/QtCore/QDate';
 export { QDateTime } from './lib/QtCore/QDateTime';
+export { QItemSelectionModel, SelectionFlag } from './lib/QtCore/QItemSelectionModel';
 export { QModelIndex } from './lib/QtCore/QModelIndex';
 export { QMimeData } from './lib/QtCore/QMimeData';
 export { QObject, QObjectSignals, NodeObject } from './lib/QtCore/QObject';

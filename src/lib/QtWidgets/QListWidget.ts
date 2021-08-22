@@ -5,9 +5,10 @@ import { QListWidgetItem } from './QListWidgetItem';
 import { NodeListView, QListViewSignals } from './QListView';
 import { QRect } from '../QtCore/QRect';
 import { SortOrder, ScrollHint, MatchFlag } from '../QtEnums';
+import { QModelIndex } from '../QtCore/QModelIndex';
 
 /**
- 
+
 > Create and control a item-based list.
 
 * **This class is a JS wrapper around Qt's [QListWidget class](https://doc.qt.io/qt-5/qlistwidget.html)**
@@ -70,8 +71,12 @@ export class QListWidget extends NodeListView<QListWidgetSignals> {
     addItems(labels: string[]): void {
         this.native.addItems(labels);
     }
-    closePersistentEditor(item: QListWidgetItem): void {
-        this.native.closePersistentEditor(item.native);
+    closePersistentEditor(itemOrIndex: QListWidgetItem | QModelIndex): void {
+        if (itemOrIndex instanceof QListWidgetItem) {
+            this.native.closePersistentEditor_QListWidgetItem(itemOrIndex.native);
+        } else {
+            this.native.closePersistentEditor(itemOrIndex.native);
+        }
     }
     currentItem(): QListWidgetItem {
         return new QListWidgetItem(this.native.currentItem());
@@ -92,8 +97,12 @@ export class QListWidget extends NodeListView<QListWidgetSignals> {
     insertItems(row: number, labels: string[]): void {
         this.native.insertItems(row, labels);
     }
-    isPersistentEditorOpen(item: QListWidgetItem): boolean {
-        return this.native.isPersistentEditorOpen(item.native);
+    isPersistentEditorOpen(itemOrIndex: QListWidgetItem | QModelIndex): boolean {
+        if (itemOrIndex instanceof QListWidgetItem) {
+            return this.native.isPersistentEditorOpen_QListWidgetItem(itemOrIndex.native);
+        } else {
+            return this.native.isPersistentEditorOpen(itemOrIndex.native);
+        }
     }
     item(row: number): QListWidgetItem {
         return new QListWidgetItem(this.native.item(row));
@@ -104,8 +113,12 @@ export class QListWidget extends NodeListView<QListWidgetSignals> {
     itemWidget(item: QListWidgetItem): QWidget {
         return new QWidget(this.native.itemWidget(item.native));
     }
-    openPersistentEditor(item: QListWidgetItem): void {
-        this.native.openPersistentEditor(item.native);
+    openPersistentEditor(itemOrIndex: QListWidgetItem | QModelIndex): void {
+        if (itemOrIndex instanceof QListWidgetItem) {
+            this.native.openPersistentEditor_QListWidgetItem(itemOrIndex.native);
+        } else {
+            this.native.openPersistentEditor(itemOrIndex.native);
+        }
     }
     removeItemWidget(item: QListWidgetItem): void {
         this.native.removeItemWidget(item.native);

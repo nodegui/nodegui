@@ -24,17 +24,20 @@ class DLL_EXPORT QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
   // wrapped methods
   Napi::Value addItem(const Napi::CallbackInfo& info);
   Napi::Value addItems(const Napi::CallbackInfo& info);
-  Napi::Value closePersistentEditor(const Napi::CallbackInfo& info);
+  Napi::Value closePersistentEditor_QListWidgetItem(
+      const Napi::CallbackInfo& info);
   Napi::Value currentItem(const Napi::CallbackInfo& info);
   Napi::Value editItem(const Napi::CallbackInfo& info);
   Napi::Value findItems(const Napi::CallbackInfo& info);
   Napi::Value insertItem(const Napi::CallbackInfo& info);
   Napi::Value insertItems(const Napi::CallbackInfo& info);
-  Napi::Value isPersistentEditorOpen(const Napi::CallbackInfo& info);
+  Napi::Value isPersistentEditorOpen_QListWidgetItem(
+      const Napi::CallbackInfo& info);
   Napi::Value item(const Napi::CallbackInfo& info);
   Napi::Value itemAt(const Napi::CallbackInfo& info);
   Napi::Value itemWidget(const Napi::CallbackInfo& info);
-  Napi::Value openPersistentEditor(const Napi::CallbackInfo& info);
+  Napi::Value openPersistentEditor_QListWidgetItem(
+      const Napi::CallbackInfo& info);
   Napi::Value removeItemWidget(const Napi::CallbackInfo& info);
   Napi::Value row(const Napi::CallbackInfo& info);
   Napi::Value selectedItems(const Napi::CallbackInfo& info);

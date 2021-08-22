@@ -217,7 +217,13 @@ export class QAbstractItemModel extends NodeObject<any> {
         destinationParent: QModelIndex,
         destinationChild: number,
     ): boolean {
-        return this.native.beginMoveColumns(sourceParent.native, sourceFirst, sourceLast, destinationParent.native, destinationChild);
+        return this.native.beginMoveColumns(
+            sourceParent.native,
+            sourceFirst,
+            sourceLast,
+            destinationParent.native,
+            destinationChild,
+        );
     }
 
     beginMoveRows(
@@ -227,7 +233,13 @@ export class QAbstractItemModel extends NodeObject<any> {
         destinationParent: QModelIndex,
         destinationChild: number,
     ): boolean {
-        return this.native.beginMoveRows(sourceParent.native, sourceFirst, sourceLast, destinationParent.native, destinationChild);
+        return this.native.beginMoveRows(
+            sourceParent.native,
+            sourceFirst,
+            sourceLast,
+            destinationParent.native,
+            destinationChild,
+        );
     }
 
     beginRemoveColumns(parent: QModelIndex, first: number, last: number): void {

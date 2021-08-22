@@ -14,20 +14,20 @@ Napi::Object QListWidgetWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("addItem", &QListWidgetWrap::addItem),
        InstanceMethod("addItems", &QListWidgetWrap::addItems),
-       InstanceMethod("closePersistentEditor",
-                      &QListWidgetWrap::closePersistentEditor),
+       InstanceMethod("closePersistentEditor_QListWidgetItem",
+                      &QListWidgetWrap::closePersistentEditor_QListWidgetItem),
        InstanceMethod("currentItem", &QListWidgetWrap::currentItem),
        InstanceMethod("editItem", &QListWidgetWrap::editItem),
        InstanceMethod("findItems", &QListWidgetWrap::findItems),
        InstanceMethod("insertItem", &QListWidgetWrap::insertItem),
        InstanceMethod("insertItems", &QListWidgetWrap::insertItems),
-       InstanceMethod("isPersistentEditorOpen",
-                      &QListWidgetWrap::isPersistentEditorOpen),
+       InstanceMethod("isPersistentEditorOpen_QModelIndex",
+                      &QListWidgetWrap::isPersistentEditorOpen_QListWidgetItem),
        InstanceMethod("item", &QListWidgetWrap::item),
        InstanceMethod("itemAt", &QListWidgetWrap::itemAt),
        InstanceMethod("itemWidget", &QListWidgetWrap::itemWidget),
-       InstanceMethod("openPersistentEditor",
-                      &QListWidgetWrap::openPersistentEditor),
+       InstanceMethod("openPersistentEditor_QListWidgetItem",
+                      &QListWidgetWrap::openPersistentEditor_QListWidgetItem),
        InstanceMethod("removeItemWidget", &QListWidgetWrap::removeItemWidget),
        InstanceMethod("row", &QListWidgetWrap::row),
        InstanceMethod("selectedItems", &QListWidgetWrap::selectedItems),
@@ -95,7 +95,7 @@ Napi::Value QListWidgetWrap::addItems(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value QListWidgetWrap::closePersistentEditor(
+Napi::Value QListWidgetWrap::closePersistentEditor_QListWidgetItem(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -178,7 +178,7 @@ Napi::Value QListWidgetWrap::insertItems(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value QListWidgetWrap::isPersistentEditorOpen(
+Napi::Value QListWidgetWrap::isPersistentEditorOpen_QListWidgetItem(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -230,7 +230,7 @@ Napi::Value QListWidgetWrap::itemWidget(const Napi::CallbackInfo& info) {
   return instance;
 }
 
-Napi::Value QListWidgetWrap::openPersistentEditor(
+Napi::Value QListWidgetWrap::openPersistentEditor_QListWidgetItem(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);

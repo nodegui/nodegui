@@ -7,7 +7,7 @@ import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScro
 import { QRect } from '../QtCore/QRect';
 
 /**
- 
+
 > Creates and item-based table view.
 
 * **This class is a JS wrapper around Qt's [QTableWidget class](https://doc.qt.io/qt-5/qtablewidget.html)**
