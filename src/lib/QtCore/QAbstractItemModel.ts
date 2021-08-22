@@ -203,11 +203,11 @@ export class QAbstractItemModel extends NodeObject<any> {
 
     // *** Protected Functions ***
     beginInsertColumns(parent: QModelIndex, first: number, last: number): void {
-        this.native.beginInsertColumns(parent, first, last);
+        this.native.beginInsertColumns(parent.native, first, last);
     }
 
     beginInsertRows(parent: QModelIndex, first: number, last: number): void {
-        this.native.beginInsertRows(parent, first, last);
+        this.native.beginInsertRows(parent.native, first, last);
     }
 
     beginMoveColumns(
@@ -217,7 +217,7 @@ export class QAbstractItemModel extends NodeObject<any> {
         destinationParent: QModelIndex,
         destinationChild: number,
     ): boolean {
-        return this.native.beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationChild);
+        return this.native.beginMoveColumns(sourceParent.native, sourceFirst, sourceLast, destinationParent.native, destinationChild);
     }
 
     beginMoveRows(
@@ -227,15 +227,15 @@ export class QAbstractItemModel extends NodeObject<any> {
         destinationParent: QModelIndex,
         destinationChild: number,
     ): boolean {
-        return this.native.beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationChild);
+        return this.native.beginMoveRows(sourceParent.native, sourceFirst, sourceLast, destinationParent.native, destinationChild);
     }
 
     beginRemoveColumns(parent: QModelIndex, first: number, last: number): void {
-        this.native.beginRemoveColumns(parent, first, last);
+        this.native.beginRemoveColumns(parent.native, first, last);
     }
 
     beginRemoveRows(parent: QModelIndex, first: number, last: number): void {
-        this.native.beginRemoveRows(parent, first, last);
+        this.native.beginRemoveRows(parent.native, first, last);
     }
 
     beginResetModel(): void {
