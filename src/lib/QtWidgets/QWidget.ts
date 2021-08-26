@@ -304,6 +304,12 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     y(): number {
         return this.property('y').toInt();
     }
+    width(): number {
+        return this.property('width').toInt();
+    }
+    height(): number {
+        return this.property('height').toInt();
+    }
 }
 
 export interface QWidgetSignals extends QObjectSignals {
