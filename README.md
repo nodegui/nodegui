@@ -1,9 +1,7 @@
 # NodeGui
 
-[![Join the NodeGUI community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/nodegui)
 [![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors)
 [![JS Party #96](https://img.shields.io/badge/JS%20Party-%2396-FFCD00.svg)](https://changelog.com/jsparty/96)
-
 [![Build and Test status](https://github.com/nodegui/nodegui/workflows/.github/workflows/test.yml/badge.svg)](https://github.com/nodegui/nodegui/actions)
 
 Build **performant**, **native** and **cross-platform** desktop applications with **Node.js** and **CSS like styling**.🚀
@@ -44,7 +42,7 @@ https://github.com/nodegui/examples
 -   🧬 **Cross platform.** Should work on major Linux flavours, Windows and MacOS.
 -   📉 **Low CPU and memory** footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
 -   💅 **Styling with CSS** (includes actual cascading). Also has full support for Flexbox layout (thanks to Yoga).
--   ✅ **Complete Nodejs api support** (Currently runs on Node v12.x - and is easily upgradable). Hence has access to all nodejs compatible npm modules.
+-   ✅ **Complete Nodejs api support** (Currently runs on Node v16.x - and is easily upgradable). Hence has access to all nodejs compatible npm modules.
 -   🎪 **Native widget event listener support.** Supports all events available from Qt / NodeJs.
 -   💸 **Can be used for Commercial applications.**
 -   🕵️‍♂️ **Good Devtools support.**
