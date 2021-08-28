@@ -136,6 +136,8 @@ export {
     QTextEditLineWrapMode,
     WrapMode,
 } from './lib/QtWidgets/QTextEdit';
+export { QStyleFactory } from './lib/QtWidgets/QStyleFactory';
+
 // Core
 export { QAbstractItemModel } from './lib/QtCore/QAbstractItemModel';
 export { QAbstractTableModel } from './lib/QtCore/QAbstractTableModel';

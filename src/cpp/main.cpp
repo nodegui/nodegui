@@ -94,6 +94,7 @@
 #include "QtWidgets/QStandardItem/qstandarditem_wrap.h"
 #include "QtWidgets/QStandardItemModel/qstandarditemmodel_wrap.h"
 #include "QtWidgets/QStatusBar/qstatusbar_wrap.h"
+#include "QtWidgets/QStyleFactory/qstylefactory_wrap.h"
 #include "QtWidgets/QSvgWidget/qsvgwidget_wrap.h"
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include "QtWidgets/QTabBar/qtabbar_wrap.h"
@@ -226,6 +227,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QAbstractItemModelWrap::init(env, exports);
   QHeaderViewWrap::init(env, exports);
   QItemSelectionModelWrap::init(env, exports);
+  QStyleFactoryWrap::init(env, exports);
   return exports;
 }
 

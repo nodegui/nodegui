@@ -35,5 +35,6 @@ class DLL_EXPORT QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
 namespace StaticQApplicationWrapMethods {
 DLL_EXPORT Napi::Value instance(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value clipboard(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value setStyle(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value style(const Napi::CallbackInfo& info);
 }  // namespace StaticQApplicationWrapMethods

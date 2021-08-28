@@ -25,6 +25,7 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setStyleSheet", &QApplicationWrap::setStyleSheet),
        StaticMethod("instance", &StaticQApplicationWrapMethods::instance),
        StaticMethod("clipboard", &StaticQApplicationWrapMethods::clipboard),
+       StaticMethod("setStyle", &StaticQApplicationWrapMethods::setStyle),
        StaticMethod("style", &StaticQApplicationWrapMethods::style),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QApplicationWrap)});
   constructor = Napi::Persistent(func);
@@ -123,6 +124,19 @@ Napi::Value StaticQApplicationWrapMethods::clipboard(
   QClipboard* clipboard = QApplication::clipboard();
   return QClipboardWrap::constructor.New(
       {Napi::External<QClipboard>::New(env, clipboard)});
+}
+
+Napi::Value StaticQApplicationWrapMethods::setStyle(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QStyleWrap* styleWrap =
+      Napi::ObjectWrap<QStyleWrap>::Unwrap(info[0].As<Napi::Object>());
+  QStyle* style = styleWrap->getInternalInstance();
+  QApplication::setStyle(style);
+
+  return env.Null();
 }
 
 Napi::Value StaticQApplicationWrapMethods::style(

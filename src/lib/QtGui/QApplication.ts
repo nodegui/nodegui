@@ -74,6 +74,9 @@ export class QApplication extends NodeObject<QApplicationSignals> {
         const preparedSheet = StyleSheet.create(styleSheet);
         this.native.setStyleSheet(preparedSheet);
     }
+    static setStyle(style: QStyle): void {
+        addon.QApplication.setStyle(style.native);
+    }
     static style(): QStyle {
         return new QStyle(addon.QApplication.style());
     }
