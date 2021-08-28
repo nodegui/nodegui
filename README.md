@@ -1,12 +1,13 @@
 # NodeGui
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/All_contributors-66-orange.svg)](#contributors)
 [![JS Party #96](https://img.shields.io/badge/JS%20Party-%2396-FFCD00.svg)](https://changelog.com/jsparty/96)
 [![Build and Test status](https://github.com/nodegui/nodegui/workflows/.github/workflows/test.yml/badge.svg)](https://github.com/nodegui/nodegui/actions)
+[![Discuss on GitHub](https://img.shields.io/badge/Discuss%20on-GitHub-blue)](https://github.com/nodegui/nodegui/discussions)
 
 Build **performant**, **native** and **cross-platform** desktop applications with **Node.js** and **CSS like styling**.🚀
 
-NodeGUI is powered by **Qt5** 💚 which makes it CPU and memory efficient as compared to other chromium based solutions like electron.
+NodeGUI is powered by **Qt5** 💚 which makes it CPU and memory efficient as compared to other chromium based solutions like Electron.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png" alt="" width="25"> If you are looking for **React** based version, check out: **[React NodeGUI](https://github.com/nodegui/react-nodegui)**.
 
@@ -14,7 +15,7 @@ NodeGUI is powered by **Qt5** 💚 which makes it CPU and memory efficient as co
 
 <img src="https://github.com/sveltejs/branding/raw/master/svelte-logo.png" alt="" width="25" /> If you are looking for **Svelte** based version, check out: **[Svelte NodeGUI](https://github.com/nodegui/svelte-nodegui)**
 
-Visit: https://nodegui.github.io/nodegui for docs.
+Visit https://nodegui.github.io/nodegui for docs.
 
 <img alt="logo" src="https://github.com/nodegui/nodegui/raw/master/extras/logo/nodegui.png" height="200" />
 
@@ -29,9 +30,7 @@ Visit: https://nodegui.github.io/nodegui for docs.
 <div style="display:inline; margin: 0 auto;"><img alt="kitchen" src="https://github.com/nodegui/nodegui/raw/master/extras/assets/kitchen.png" height="280" /><img alt="demo_mac" src="https://github.com/nodegui/examples/raw/master/react-nodegui/weather-app-widget/weather_widget_mac.png" height="280" /><img alt="demo_win" src="https://github.com/nodegui/examples/raw/master/react-nodegui/image-view/image_view_win.jpg" height="280" />
 </div>
 
-**More screenshots?**
-
-### More Examples:
+### Code Examples
 
 https://github.com/nodegui/examples
 
@@ -39,10 +38,10 @@ https://github.com/nodegui/examples
 
 ## Features
 
--   🧬 **Cross platform.** Should work on major Linux flavours, Windows and MacOS.
--   📉 **Low CPU and memory** footprint. Current CPU stays at 0% on idle and memory usage is under 20mb for a hello world program.
+-   🧬 **Cross platform.** Works on major Linux flavours, Windows, and MacOS.
+-   📉 **Low CPU and memory** footprint. Current CPU stays at 0% on idle and memory usage is under 20MB for a Hello World program.
 -   💅 **Styling with CSS** (includes actual cascading). Also has full support for Flexbox layout (thanks to Yoga).
--   ✅ **Complete Nodejs api support** (Currently runs on Node v16.x - and is easily upgradable). Hence has access to all nodejs compatible npm modules.
+-   ✅ **Complete Nodejs API support** (Currently runs on Node v16.x - and is easily upgradable). Hence has access to all Nodejs compatible NPM modules.
 -   🎪 **Native widget event listener support.** Supports all events available from Qt / NodeJs.
 -   💸 **Can be used for Commercial applications.**
 -   🕵️‍♂️ **Good Devtools support.**
@@ -126,7 +125,7 @@ See [FAQs](https://github.com/nodegui/nodegui/tree/master/website/docs/faq.md#wh
 
 **Compiling Qt from source**
 
-You will need to download and install Qt from source since there are no binaries from Qt for M1 yet. 
+You will need to download and install Qt from source since there are no binaries from Qt for M1 yet.
 
 (https://www.reddit.com/r/QtFramework/comments/ll58wg/how_to_build_qt_creator_for_macos_arm64_a_guide/)
 
