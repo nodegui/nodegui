@@ -15,7 +15,7 @@ jobs:
           node-version: '16.x'
       - name: Install ubuntu deps
         run: sudo apt update
-        run: sudo apt install mesa-common-dev libglu1-mesa-dev
+      - run: sudo apt install mesa-common-dev libglu1-mesa-dev
       - run: yarn install
       - run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' >> .npmrc
       - run: npm publish --access=public
