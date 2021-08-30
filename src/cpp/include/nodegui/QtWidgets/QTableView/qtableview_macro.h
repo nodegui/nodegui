@@ -263,7 +263,7 @@
       InstanceMethod("showRow", &WidgetWrapName::showRow),                   \
       InstanceMethod("sortByColumn", &WidgetWrapName::sortByColumn),         \
       InstanceMethod("horizontalHeader", &WidgetWrapName::horizontalHeader), \
-      InstanceMethod("verticalHeader", &WidgetWrapName::horizontalHeader)
+      InstanceMethod("verticalHeader", &WidgetWrapName::verticalHeader)
 
 #endif  // QTABLEVIEW_WRAPPED_METHODS_EXPORT_DEFINE
 
