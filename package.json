@@ -1,6 +1,6 @@
 {
     "name": "@nodegui/nodegui",
-    "version": "0.37.0",
+    "version": "0.37.3",
     "description": "A cross-platform library to build native desktop apps.",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
