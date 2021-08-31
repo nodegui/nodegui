@@ -17,22 +17,32 @@ class DLL_EXPORT QHeaderViewWrap : public Napi::ObjectWrap<QHeaderViewWrap> {
     QPointWrap* pointWrap =
         Napi::ObjectWrap<QPointWrap>::Unwrap(info[0].As<Napi::Object>());
     QPoint* point = pointWrap->getInternalInstance();
-    QModelIndex result = this->instance->QAbstractItemView::indexAt(*point);
-    auto resultInstance = QModelIndexWrap::constructor.New(
-        {Napi::External<QModelIndex>::New(env, new QModelIndex(result))});
-    return resultInstance;
+
+    NHeaderView* wrapper = dynamic_cast<NHeaderView*>(this->instance.data());
+    if (wrapper) {
+      QModelIndex result = wrapper->_protected_indexAt(*point);
+      auto resultInstance = QModelIndexWrap::constructor.New(
+          {Napi::External<QModelIndex>::New(env, new QModelIndex(result))});
+      return resultInstance;
+    } else {
+      return env.Null();
+    }
   }
 
   Napi::Value scrollTo(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
-    QModelIndexWrap* indexWrap =
-        Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
-    QModelIndex* index = indexWrap->getInternalInstance();
-    QAbstractItemView::ScrollHint hint =
-        static_cast<QAbstractItemView::ScrollHint>(
-            info[1].As<Napi::Number>().Int32Value());
-    this->instance->QAbstractItemView::scrollTo(*index, hint);
+
+    NHeaderView* wrapper = dynamic_cast<NHeaderView*>(this->instance.data());
+    if (wrapper) {
+      QModelIndexWrap* indexWrap =
+          Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
+      QModelIndex* index = indexWrap->getInternalInstance();
+      QAbstractItemView::ScrollHint hint =
+          static_cast<QAbstractItemView::ScrollHint>(
+              info[1].As<Napi::Number>().Int32Value());
+      wrapper->_protected_scrollTo(*index, hint);
+    }
     return env.Null();
   }
 

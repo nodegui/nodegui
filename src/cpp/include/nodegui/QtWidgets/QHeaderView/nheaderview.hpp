@@ -12,5 +12,13 @@ class DLL_EXPORT NHeaderView : public QHeaderView, public NodeWidget {
  public:
   using QHeaderView::QHeaderView;
 
-  virtual void connectSignalsToEventEmitter() { QABSTRACTITEMVIEW_SIGNALS }
+  virtual void connectSignalsToEventEmitter(){QABSTRACTITEMVIEW_SIGNALS}
+
+  QModelIndex _protected_indexAt(const QPoint &p) const {
+    return indexAt(p);
+  }
+
+  void _protected_scrollTo(const QModelIndex &index, ScrollHint hint) {
+    scrollTo(index, hint);
+  }
 };

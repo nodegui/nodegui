@@ -28,7 +28,7 @@ QHeaderViewWrap::QHeaderViewWrap(const Napi::CallbackInfo& info)
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  int len = info.Length();
+  size_t len = info.Length();
 
   this->disableDeletion = false;
   if (len == 1) {
