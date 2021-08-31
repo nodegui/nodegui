@@ -12,6 +12,7 @@ class DLL_EXPORT QTableWidgetItemWrap
   COMPONENT_WRAPPED_METHODS_DECLARATION
  private:
   QTableWidgetItem* instance;
+  bool disableDeletion;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
