@@ -57,9 +57,9 @@ QTableWidgetItem* QTableWidgetItemWrap::getInternalInstance() {
   return this->instance;
 }
 QTableWidgetItemWrap::~QTableWidgetItemWrap() {
-    if (!this->disableDeletion) {
-	delete this->instance;
-    }
+  if (!this->disableDeletion) {
+    delete this->instance;
+  }
 }
 
 QTableWidgetItemWrap::QTableWidgetItemWrap(const Napi::CallbackInfo& info)
@@ -67,7 +67,6 @@ QTableWidgetItemWrap::QTableWidgetItemWrap(const Napi::CallbackInfo& info)
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-    
   if (info.Length() > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<QTableWidgetItem>>().Data();
@@ -82,7 +81,8 @@ QTableWidgetItemWrap::QTableWidgetItemWrap(const Napi::CallbackInfo& info)
     } else if (info.Length() == 0) {
       this->instance = new QTableWidgetItem();
     } else {
-      Napi::TypeError::New(env, "QTableWidgetItemWrap: Wrong number of arguments")
+      Napi::TypeError::New(env,
+                           "QTableWidgetItemWrap: Wrong number of arguments")
           .ThrowAsJavaScriptException();
     }
   }
