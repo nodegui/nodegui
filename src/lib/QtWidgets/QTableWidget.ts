@@ -40,8 +40,6 @@ win.show();
 export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     native: NativeElement;
     items: Set<NativeElement | Component>;
-    constructor(rows: number, columns: number);
-    constructor(rows: number, columns: number, parent: NodeWidget<any>);
     constructor(rows: number, columns: number, parent?: NodeWidget<any>) {
         let native;
         if (parent) {
