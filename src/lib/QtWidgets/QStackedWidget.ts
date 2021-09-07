@@ -4,7 +4,7 @@ import { NodeFrame, QFrameSignals } from './QFrame';
 import { NativeElement } from '../core/Component';
 
 /**
- 
+
 > Create and control stacked widgets where only one is visible at a time.
 
 * **This class is a JS wrapper around Qt's [QStackedWidget class](https://doc.qt.io/qt-5/qstackedwidget.html)**
@@ -60,25 +60,31 @@ export class QStackedWidget extends NodeFrame<QStackedWidgetSignals> {
         this.native = native;
     }
 
+    // *** Public Function ***
     addWidget(widget: NodeWidget<any>): void {
         this.native.addWidget(widget.native);
         this.nodeChildren.add(widget);
         widget.setFlexNodeSizeControlled(true);
     }
-
+    count(): number {
+        return this.property('count').toInt();
+    }
+    currentIndex(): number {
+        return this.native.currentIndex();
+    }
+    // TODO: QWidget *	currentWidget() const
+    // TODO: int 	indexOf(QWidget *widget) const
+    // TODO: int 	insertWidget(int index, QWidget *widget)
     removeWidget(widget: NodeWidget<any>): void {
         this.native.removeWidget(widget.native);
         this.nodeChildren.delete(widget);
     }
+    // TODO: QWidget *	widget(int index) const
 
+    // *** Public Slots ***
     setCurrentIndex(index: number): void {
         this.native.setCurrentIndex(index);
     }
-
-    currentIndex(): number {
-        return this.native.currentIndex();
-    }
-
     setCurrentWidget(widget: NodeWidget<any>): void {
         this.native.setCurrentWidget(widget.native);
     }
