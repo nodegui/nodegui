@@ -3,7 +3,8 @@ import { Component, NativeElement } from '../core/Component';
 import { QFont } from './QFont';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QSize } from '../QtCore/QSize';
-import { TextFlag } from '../QtEnums';
+import { TextElideMode, TextFlag } from '../QtEnums';
+import { QRect } from '../..';
 
 export class QFontMetrics extends Component {
     native: NativeElement;
@@ -20,6 +21,7 @@ export class QFontMetrics extends Component {
             this.native = new addon.QFontMetrics(arg.native);
         }
     }
+    // *** Public Functions ***
 
     /** Returns the ascent of the font */
     ascent(): number {
@@ -31,6 +33,10 @@ export class QFontMetrics extends Component {
         return this.native.averageCharWidth();
     }
 
+    boundingRect(text: string): QRect {
+        return new QRect(this.native.boundingRect(text));
+    }
+
     /** Returns the cap height of the font */
     capHeight(): number {
         return this.native.capHeight();
@@ -39,6 +45,10 @@ export class QFontMetrics extends Component {
     /** Returns the descent of the font */
     descent(): number {
         return this.native.descent();
+    }
+
+    elidedText(text: string, mode: TextElideMode, width: number, flags = 0): string {
+        return this.native.elidedText(text, mode, width, flags);
     }
 
     /** Returns the font DPI */
@@ -61,6 +71,10 @@ export class QFontMetrics extends Component {
         return this.native.inFont(text);
     }
 
+    inFontUcs4(ucs4: number): boolean {
+        return this.native.inFontUcs4(ucs4);
+    }
+
     /** Returns the leading of the font */
     leading(): number {
         return this.native.leading();
@@ -79,6 +93,15 @@ export class QFontMetrics extends Component {
     /** Returns the width of the underline and strikeout lines, adjusted for the point size of the font */
     lineWidth(): number {
         return this.native.lineWidth();
+    }
+    maxWidth(): number {
+        return this.native.maxWidth();
+    }
+    minLeftBearing(): number {
+        return this.native.minLeftBearing();
+    }
+    minRightBearing(): number {
+        return this.native.minRightBearing();
     }
 
     /** Returns the distance from the base line to where an overline should be drawn */
@@ -109,6 +132,10 @@ export class QFontMetrics extends Component {
     /** Swaps metrics other with this metrics. This operation is very fast and never fails */
     swap(other: QFontMetrics): void {
         return this.native.swap(other.native);
+    }
+
+    tightBoundingRect(text: string): QRect {
+        return new QRect(this.native.tightBoundingRect(text));
     }
 
     /** Returns the distance from the base line to where an underscore should be drawn */

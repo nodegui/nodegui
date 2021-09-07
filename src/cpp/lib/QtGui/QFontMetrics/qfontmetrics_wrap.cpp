@@ -1,6 +1,7 @@
 #include "QtGui/QFontMetrics/qfontmetrics_wrap.h"
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
 
@@ -31,6 +32,14 @@ Napi::Object QFontMetricsWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("swap", &QFontMetricsWrap::swap),
        InstanceMethod("underlinePos", &QFontMetricsWrap::underlinePos),
        InstanceMethod("xHeight", &QFontMetricsWrap::xHeight),
+       InstanceMethod("maxWidth", &QFontMetricsWrap::maxWidth),
+       InstanceMethod("minLeftBearing", &QFontMetricsWrap::minLeftBearing),
+       InstanceMethod("minRightBearing", &QFontMetricsWrap::minRightBearing),
+       InstanceMethod("inFontUcs4", &QFontMetricsWrap::inFontUcs4),
+       InstanceMethod("boundingRect", &QFontMetricsWrap::boundingRect),
+       InstanceMethod("tightBoundingRect",
+                      &QFontMetricsWrap::tightBoundingRect),
+       InstanceMethod("elidedText", &QFontMetricsWrap::elidedText),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QFontMetricsWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -226,4 +235,69 @@ Napi::Value QFontMetricsWrap::xHeight(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->xHeight());
+}
+
+Napi::Value QFontMetricsWrap::maxWidth(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int result = this->instance->maxWidth();
+  return Napi::Number::New(env, result);
+}
+
+Napi::Value QFontMetricsWrap::minLeftBearing(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int result = this->instance->minLeftBearing();
+  return Napi::Number::New(env, result);
+}
+
+Napi::Value QFontMetricsWrap::minRightBearing(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int result = this->instance->minRightBearing();
+  return Napi::Number::New(env, result);
+}
+
+Napi::Value QFontMetricsWrap::inFontUcs4(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  uint ucs4 = info[0].As<Napi::Number>().Uint32Value();
+  bool result = this->instance->inFontUcs4(ucs4);
+  return Napi::Boolean::New(env, result);
+}
+
+Napi::Value QFontMetricsWrap::boundingRect(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  std::string textNapiText = info[0].As<Napi::String>().Utf8Value();
+  QString text = QString::fromUtf8(textNapiText.c_str());
+  QRect result = this->instance->boundingRect(text);
+  auto resultInstance = QRectWrap::constructor.New(
+      {Napi::External<QRect>::New(env, new QRect(result))});
+  return resultInstance;
+}
+
+Napi::Value QFontMetricsWrap::tightBoundingRect(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  std::string textNapiText = info[0].As<Napi::String>().Utf8Value();
+  QString text = QString::fromUtf8(textNapiText.c_str());
+  QRect result = this->instance->tightBoundingRect(text);
+  auto resultInstance = QRectWrap::constructor.New(
+      {Napi::External<QRect>::New(env, new QRect(result))});
+  return resultInstance;
+}
+
+Napi::Value QFontMetricsWrap::elidedText(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  std::string textNapiText = info[0].As<Napi::String>().Utf8Value();
+  QString text = QString::fromUtf8(textNapiText.c_str());
+  Qt::TextElideMode mode =
+      static_cast<Qt::TextElideMode>(info[1].As<Napi::Number>().Int32Value());
+  int width = info[2].As<Napi::Number>().Int32Value();
+  int flags = info[3].As<Napi::Number>().Int32Value();
+  QString result = this->instance->elidedText(text, mode, width, flags);
+  return Napi::String::New(env, result.toStdString());
 }

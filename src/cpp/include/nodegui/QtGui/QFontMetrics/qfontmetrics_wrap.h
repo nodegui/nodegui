@@ -38,4 +38,11 @@ class DLL_EXPORT QFontMetricsWrap : public Napi::ObjectWrap<QFontMetricsWrap> {
   Napi::Value swap(const Napi::CallbackInfo& info);
   Napi::Value underlinePos(const Napi::CallbackInfo& info);
   Napi::Value xHeight(const Napi::CallbackInfo& info);
+  Napi::Value maxWidth(const Napi::CallbackInfo& info);
+  Napi::Value minLeftBearing(const Napi::CallbackInfo& info);
+  Napi::Value minRightBearing(const Napi::CallbackInfo& info);
+  Napi::Value inFontUcs4(const Napi::CallbackInfo& info);
+  Napi::Value boundingRect(const Napi::CallbackInfo& info);
+  Napi::Value tightBoundingRect(const Napi::CallbackInfo& info);
+  Napi::Value elidedText(const Napi::CallbackInfo& info);
 };
