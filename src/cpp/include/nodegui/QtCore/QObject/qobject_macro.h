@@ -59,20 +59,34 @@
     Napi::HandleScope scope(env);                                            \
     QString objectName = this->instance->objectName();                       \
     return Napi::String::New(env, objectName.toStdString());                 \
+  }                                                                          \
+  Napi::Value dumpObjectTree(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                              \
+    Napi::HandleScope scope(env);                                            \
+    this->instance->dumpObjectTree();                                        \
+    return env.Null();                                                       \
+  }                                                                          \
+  Napi::Value dumpObjectInfo(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                              \
+    Napi::HandleScope scope(env);                                            \
+    this->instance->dumpObjectInfo();                                        \
+    return env.Null();                                                       \
   }
 
 #endif  // QOBJECT_WRAPPED_METHODS_DECLARATION
 
 #ifndef QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
-#define QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(ComponentWrapName)          \
-                                                                          \
-  EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(ComponentWrapName)            \
-                                                                          \
-  InstanceMethod("inherits", &ComponentWrapName::inherits),               \
-      InstanceMethod("setProperty", &ComponentWrapName::setProperty),     \
-      InstanceMethod("property", &ComponentWrapName::property),           \
-      InstanceMethod("setObjectName", &ComponentWrapName::setObjectName), \
-      InstanceMethod("objectName", &ComponentWrapName::objectName),
+#define QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(ComponentWrapName)            \
+                                                                            \
+  EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(ComponentWrapName)              \
+                                                                            \
+  InstanceMethod("inherits", &ComponentWrapName::inherits),                 \
+      InstanceMethod("setProperty", &ComponentWrapName::setProperty),       \
+      InstanceMethod("property", &ComponentWrapName::property),             \
+      InstanceMethod("setObjectName", &ComponentWrapName::setObjectName),   \
+      InstanceMethod("objectName", &ComponentWrapName::objectName),         \
+      InstanceMethod("dumpObjectTree", &ComponentWrapName::dumpObjectTree), \
+      InstanceMethod("dumpObjectInfo", &ComponentWrapName::dumpObjectInfo),
 
 #endif  // QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
 

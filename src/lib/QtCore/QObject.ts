@@ -21,6 +21,12 @@ export abstract class NodeObject<Signals extends QObjectSignals> extends EventWi
     objectName(): string {
         return this.native.objectName();
     }
+    dumpObjectTree(): void {
+        this.native.dumpObjectTree();
+    }
+    dumpObjectInfo(): void {
+        this.native.dumpObjectInfo();
+    }
 }
 
 export interface QObjectSignals {
