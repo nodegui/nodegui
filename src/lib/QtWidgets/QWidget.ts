@@ -17,6 +17,7 @@ import { QFont } from '../QtGui/QFont';
 import { QAction } from './QAction';
 import memoizeOne from 'memoize-one';
 import { QGraphicsEffect } from './QGraphicsEffect';
+import { QSizePolicyPolicy } from '../..';
 
 /**
 
@@ -70,198 +71,15 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     set layout(l: NodeLayout<Signals> | undefined) {
         this._layout = l;
     }
-    show(): void {
-        this.native.show();
+    // *** Public Functions ***
+    acceptDrops(): boolean {
+        return this.native.acceptDrops();
     }
-    hide(): void {
-        this.native.hide();
-    }
-    isVisible(): boolean {
-        return this.native.isVisible();
-    }
-    close(): boolean {
-        return this.native.close();
-    }
-    mapFromGlobal(pos: QPoint): QPoint {
-        return new QPoint(this.native.mapFromGlobal(pos.native));
-    }
-    mapFromParent(pos: QPoint): QPoint {
-        return new QPoint(this.native.mapFromParent(pos.native));
-    }
-    mapToGlobal(pos: QPoint): QPoint {
-        return new QPoint(this.native.mapToGlobal(pos.native));
-    }
-    mapToParent(pos: QPoint): QPoint {
-        return new QPoint(this.native.mapToParent(pos.native));
-    }
-    setStyleSheet(styleSheet: string): void {
-        const preparedSheet = StyleSheet.create(styleSheet);
-        this.native.setStyleSheet(preparedSheet);
-    }
-    styleSheet(): string {
-        return this.native.styleSheet();
-    }
-    setInlineStyle(style: string): void {
-        this._rawInlineStyle = style;
-        const preparedSheet = prepareInlineStyleSheet(this, style);
-        this.native.setStyleSheet(preparedSheet);
-    }
-    frameGeometry(): QRect {
-        return QRect.fromQVariant(this.property('frameGeometry'));
-    }
-    setGeometry(x: number, y: number, w: number, h: number): void {
-        this.native.setGeometry(x, y, w, h);
-    }
-    geometry(): QRect {
-        return QRect.fromQVariant(this.property('geometry'));
-    }
-    setMouseTracking(isMouseTracked: boolean): void {
-        this.native.setMouseTracking(isMouseTracked);
-    }
-    hasMouseTracking(): boolean {
-        return this.native.hasMouseTracking();
-    }
-    setEnabled(enabled: boolean): void {
-        this.native.setEnabled(enabled);
-    }
-    isEnabled(): boolean {
-        return this.native.isEnabled();
-    }
-    setWindowOpacity(opacity: number): void {
-        this.native.setWindowOpacity(opacity);
-    }
-    windowOpacity(): number {
-        return this.native.windowOpacity();
-    }
-    setWindowTitle(title: string): void {
-        return this.native.setWindowTitle(title);
-    }
-    windowTitle(): string {
-        return this.native.windowTitle();
-    }
-    setWindowState(state: WindowState): void {
-        return this.native.setWindowState(state);
-    }
-    windowState(): number {
-        return this.native.windowState();
-    }
-    setCursor(cursor: CursorShape | QCursor): void {
-        //TODO:getter
-        if (typeof cursor === 'number') {
-            this.native.setCursor(cursor);
-        } else {
-            this.native.setCursor(cursor.native);
-        }
-    }
-    setWindowIcon(icon: QIcon): void {
-        //TODO:getter
-        this.native.setWindowIcon(icon.native);
-    }
-    setMinimumSize(minw: number, minh: number): void {
-        this.native.setMinimumSize(minw, minh);
-    }
-    minimumSize(): QSize {
-        return new QSize(this.native.minimumSize());
-    }
-    setMaximumSize(maxw: number, maxh: number): void {
-        this.native.setMaximumSize(maxw, maxh);
-    }
-    maximumSize(): QSize {
-        return new QSize(this.native.maximumSize());
-    }
-    setFixedSize(width: number, height: number): void {
-        this.native.setFixedSize(width, height);
-    }
-    resize(width: number, height: number): void {
-        this.native.resize(width, height);
-    }
-    size(): QSize {
-        return new QSize(this.native.size());
-    }
-    move(x: number, y: number): void {
-        this.native.move(x, y);
-    }
-    pos(): { x: number; y: number } {
-        return this.native.pos();
-    }
-    repaint(): void {
-        // react:⛔️
-        this.native.repaint();
-    }
-    update(): void {
-        // react:⛔️
-        this.native.update();
-    }
-    updateGeometry(): void {
-        // react:⛔️
-        this.native.updateGeometry();
-    }
-    setAttribute(attribute: WidgetAttribute, switchOn: boolean): void {
-        // react:⛔️
-        return this.native.setAttribute(attribute, switchOn);
-    }
-    testAttribute(attribute: WidgetAttribute): boolean {
-        // react:⛔️
-        return this.native.testAttribute(attribute);
-    }
-    setWindowFlag(windowType: WindowType, switchOn: boolean): void {
-        // react:⛔️
-        return this.native.setWindowFlag(windowType, switchOn);
-    }
-    setLayout(parentLayout: NodeLayout<Signals>): void {
-        const flexLayout = parentLayout as FlexLayout;
-        this.native.setLayout(parentLayout.native);
-        if (flexLayout.setFlexNode) {
-            //if flex layout set the flexnode
-            flexLayout.setFlexNode(this.getFlexNode());
-        }
-        this._layout = parentLayout;
-    }
-    adjustSize(): void {
-        this.native.adjustSize();
-    }
+    // TODO: QString 	accessibleDescription() const
+    // TODO: QString 	accessibleName() const
+    // TODO: QList<QAction *> 	actions() const
     activateWindow(): void {
         this.native.activateWindow();
-    }
-    isActiveWindow(): boolean {
-        return this.property('isActiveWindow').toBool();
-    }
-    raise(): void {
-        this.native.raise();
-    }
-    lower(): void {
-        this.native.lower();
-    }
-    setObjectName(objectName: string): void {
-        super.setObjectName(objectName);
-        if (this._rawInlineStyle) {
-            this.setInlineStyle(this._rawInlineStyle);
-        }
-        this.repolish();
-    }
-    setContextMenuPolicy(contextMenuPolicy: ContextMenuPolicy): void {
-        this.setProperty('contextMenuPolicy', contextMenuPolicy);
-    }
-    setFocusPolicy(policy: FocusPolicy): void {
-        this.setProperty('focusPolicy', policy);
-    }
-    showFullScreen(): void {
-        this.native.showFullScreen();
-    }
-    showMinimized(): void {
-        this.native.showMinimized();
-    }
-    showMaximized(): void {
-        this.native.showMaximized();
-    }
-    showNormal(): void {
-        this.native.showNormal();
-    }
-    setFont(font: QFont): void {
-        this.native.setProperty('font', font.native);
-    }
-    font(): QFont {
-        return QFont.fromQVariant(this.property('font'));
     }
     addAction(action: QAction | string): QAction {
         if (typeof action === 'string') {
@@ -275,40 +93,391 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         this.actions.add(action);
         return action;
     }
+    // TODO: void 	addActions(QList<QAction *> actions)
+    adjustSize(): void {
+        this.native.adjustSize();
+    }
+    // TODO: bool 	autoFillBackground() const
+    // TODO: QPalette::ColorRole 	backgroundRole() const
+    // TODO: QBackingStore *	backingStore() const
+    // TODO: QSize 	baseSize() const
+    // TODO: QWidget *	childAt(int x, int y) const
+    // TODO: QWidget *	childAt(const QPoint &p) const
+    // TODO: QRect 	childrenRect() const
+    // TODO: QRegion 	childrenRegion() const
+    clearFocus(): void {
+        this.native.clearFocus();
+    }
+    // TODO: void 	clearMask()
+    // TODO: QMargins 	contentsMargins() const
+    // TODO: QRect 	contentsRect() const
+    // TODO: Qt::ContextMenuPolicy 	contextMenuPolicy() const
+    // TODO: QCursor 	cursor() const
+    // TODO: WId 	effectiveWinId() const
+    // TODO: void 	ensurePolished() const
+    // TODO: Qt::FocusPolicy 	focusPolicy() const
+    // TODO: QWidget *	focusProxy() const
+    // TODO: QWidget *	focusWidget() const
+    font(): QFont {
+        return QFont.fromQVariant(this.property('font'));
+    }
+    // TODO: QFontInfo 	fontInfo() const
+    // TODO: QFontMetrics 	fontMetrics() const
+    // TODO: QPalette::ColorRole 	foregroundRole() const
+    frameGeometry(): QRect {
+        return QRect.fromQVariant(this.property('frameGeometry'));
+    }
+    // TODO: QSize 	frameSize() const
+    geometry(): QRect {
+        return QRect.fromQVariant(this.property('geometry'));
+    }
+    // TODO: QPixmap 	grab(const QRect &rectangle = QRect(QPoint(0, 0), QSize(-1, -1)))
+    // TODO: void 	grabGesture(Qt::GestureType gesture, Qt::GestureFlags flags = Qt::GestureFlags())
+    // TODO: void 	grabKeyboard()
+    // TODO: void 	grabMouse()
+    // TODO: void 	grabMouse(const QCursor &cursor)
+    // TODO: int 	grabShortcut(const QKeySequence &key, Qt::ShortcutContext context = Qt::WindowShortcut)
+    // TODO: QGraphicsEffect *	graphicsEffect() const
+    // TODO: QGraphicsProxyWidget *	graphicsProxyWidget() const
+    // TODO: bool 	hasEditFocus() const
+    // TODO: bool 	hasFocus() const
+    // TODO: virtual bool 	hasHeightForWidth() const
+    hasMouseTracking(): boolean {
+        return this.native.hasMouseTracking();
+    }
+    // TODO: bool 	hasTabletTracking() const
+    height(): number {
+        return this.property('height').toInt();
+    }
+    // TODO: virtual int 	heightForWidth(int w) const
+    // TODO: Qt::InputMethodHints 	inputMethodHints() const
+    // TODO: virtual QVariant 	inputMethodQuery(Qt::InputMethodQuery query) const
+    // TODO: void 	insertAction(QAction *before, QAction *action)
+    // TODO: void 	insertActions(QAction *before, QList<QAction *> actions)
+    isActiveWindow(): boolean {
+        return this.property('isActiveWindow').toBool();
+    }
+    // TODO: bool 	isAncestorOf(const QWidget *child) const
+    isEnabled(): boolean {
+        return this.native.isEnabled();
+    }
+    // TODO: bool 	isEnabledTo(const QWidget *ancestor) const
+    // TODO: bool 	isFullScreen() const
+    // TODO: bool 	isHidden() const
+    // TODO: bool 	isMaximized() const
+    // TODO: bool 	isMinimized() const
+    // TODO: bool 	isModal() const
+    isVisible(): boolean {
+        return this.native.isVisible();
+    }
+    // TODO: bool 	isVisibleTo(const QWidget *ancestor) const
+    // TODO: bool 	isWindow() const
+    // TODO: bool 	isWindowModified() const
+    // TODO: QLayout *	layout() const
+    // TODO: Qt::LayoutDirection 	layoutDirection() const
+    // TODO: QLocale 	locale() const
+    // TODO: QPoint 	mapFrom(const QWidget *parent, const QPoint &pos) const
+    mapFromGlobal(pos: QPoint): QPoint {
+        return new QPoint(this.native.mapFromGlobal(pos.native));
+    }
+    mapFromParent(pos: QPoint): QPoint {
+        return new QPoint(this.native.mapFromParent(pos.native));
+    }
+    // TODO: QPoint 	mapTo(const QWidget *parent, const QPoint &pos) const
+    mapToGlobal(pos: QPoint): QPoint {
+        return new QPoint(this.native.mapToGlobal(pos.native));
+    }
+    mapToParent(pos: QPoint): QPoint {
+        return new QPoint(this.native.mapToParent(pos.native));
+    }
+    // TODO: QRegion 	mask() const
+    // TODO: int 	maximumHeight() const
+    maximumSize(): QSize {
+        return new QSize(this.native.maximumSize());
+    }
+    // TODO: int 	maximumWidth() const
+    // TODO: int 	minimumHeight() const
+    minimumSize(): QSize {
+        return new QSize(this.native.minimumSize());
+    }
+    // TODO: virtual QSize 	minimumSizeHint() const
+    // TODO: int 	minimumWidth() const
+    // TODO: void 	move(const QPoint &)
+    move(x: number, y: number): void {
+        this.native.move(x, y);
+    }
+    // TODO: QWidget *	nativeParentWidget() const
+    // TODO: QWidget *	nextInFocusChain() const
+    // TODO: QRect 	normalGeometry() const
+    // TODO: void 	overrideWindowFlags(Qt::WindowFlags flags)
+    // TODO: const QPalette &	palette() const
+    // TODO: QWidget *	parentWidget() const
+    pos(): { x: number; y: number } {
+        return this.native.pos();
+    }
+    // TODO: QWidget *	previousInFocusChain() const
+    // TODO: QRect 	rect() const
+    // TODO: void 	releaseKeyboard()
+    // TODO: void 	releaseMouse()
+    // TODO: void 	releaseShortcut(int id)
     removeAction(action: QAction): void {
         this.native.removeAction(action.native);
         this.actions.delete(action);
     }
+    // TODO: void 	render(QPaintDevice *target, const QPoint &targetOffset = QPoint(), const QRegion &sourceRegion = QRegion(), QWidget::RenderFlags renderFlags = RenderFlags(DrawWindowBackground | DrawChildren))
+    // TODO: void 	render(QPainter *painter, const QPoint &targetOffset = QPoint(), const QRegion &sourceRegion = QRegion(), QWidget::RenderFlags renderFlags = RenderFlags(DrawWindowBackground | DrawChildren))
+    // TODO: void 	repaint(int x, int y, int w, int h)
+    // TODO: void 	repaint(const QRect &rect)
+    // TODO: void 	repaint(const QRegion &rgn)
     repolish(): void {
         this.native.repolish();
+    }
+    // TODO: void 	resize(const QSize &)
+    resize(width: number, height: number): void {
+        this.native.resize(width, height);
+    }
+    setAcceptDrops(on: boolean): void {
+        this.native.setAcceptDrops(on);
+    }
+    // TODO: void 	setAcceptDrops(bool on)
+    // TODO: void 	setAccessibleDescription(const QString &description)
+    // TODO: void 	setAccessibleName(const QString &name)
+    setAttribute(attribute: WidgetAttribute, switchOn: boolean): void {
+        // react:⛔️
+        return this.native.setAttribute(attribute, switchOn);
+    }
+    // TODO: void 	setAutoFillBackground(bool enabled)
+    // TODO: void 	setBackgroundRole(QPalette::ColorRole role)
+    // TODO: void 	setBaseSize(const QSize &)
+    // TODO: void 	setBaseSize(int basew, int baseh)
+    // TODO: void 	setContentsMargins(int left, int top, int right, int bottom)
+    // TODO: void 	setContentsMargins(const QMargins &margins)
+    setContextMenuPolicy(contextMenuPolicy: ContextMenuPolicy): void {
+        this.setProperty('contextMenuPolicy', contextMenuPolicy);
+    }
+    setCursor(cursor: CursorShape | QCursor): void {
+        if (typeof cursor === 'number') {
+            this.native.setCursor(cursor);
+        } else {
+            this.native.setCursor(cursor.native);
+        }
+    }
+    // TODO: void 	setEditFocus(bool enable)
+    // TODO: void 	setFixedHeight(int h)
+    // TODO: void 	setFixedSize(const QSize &s)
+    setFixedSize(width: number, height: number): void {
+        this.native.setFixedSize(width, height);
+    }
+    // TODO: void 	setFixedWidth(int w)
+    setFocusPolicy(policy: FocusPolicy): void {
+        this.setProperty('focusPolicy', policy);
+    }
+    // TODO: void 	setFocusProxy(QWidget *w)
+    setFont(font: QFont): void {
+        this.native.setProperty('font', font.native);
+    }
+    // TODO: void 	setForegroundRole(QPalette::ColorRole role)
+    // TODO: void 	setGeometry(const QRect &)
+    setGeometry(x: number, y: number, w: number, h: number): void {
+        this.native.setGeometry(x, y, w, h);
     }
     setGraphicsEffect(effect: QGraphicsEffect<any>): void {
         this._effect = effect;
         this.native.setGraphicsEffect(effect.native);
     }
-    setAcceptDrops(on: boolean): void {
-        this.native.setAcceptDrops(on);
+    // TODO: void 	setInputMethodHints(Qt::InputMethodHints hints)
+    setInlineStyle(style: string): void {
+        this._rawInlineStyle = style;
+        const preparedSheet = prepareInlineStyleSheet(this, style);
+        this.native.setStyleSheet(preparedSheet);
     }
-    acceptDrops(): boolean {
-        return this.native.acceptDrops();
+    setLayout(parentLayout: NodeLayout<Signals>): void {
+        const flexLayout = parentLayout as FlexLayout;
+        this.native.setLayout(parentLayout.native);
+        if (flexLayout.setFlexNode) {
+            //if flex layout set the flexnode
+            flexLayout.setFlexNode(this.getFlexNode());
+        }
+        this._layout = parentLayout;
     }
-    setFocus(reason = FocusReason.OtherFocusReason): void {
-        this.native.setFocus(reason);
+    // TODO: void 	setLayoutDirection(Qt::LayoutDirection direction)
+    // TODO: void 	setLocale(const QLocale &locale)
+    // TODO: void 	setMask(const QBitmap &bitmap)
+    // TODO: void 	setMask(const QRegion &region)
+    setMaximumHeight(maxh: number): void {
+        this.native.setMaximumHeight(maxh);
     }
-    clearFocus(): void {
-        this.native.clearFocus();
+    // TODO: void 	setMaximumSize(const QSize &)
+    setMaximumSize(maxw: number, maxh: number): void {
+        this.native.setMaximumSize(maxw, maxh);
     }
+    setMaximumWidth(maxw: number): void {
+        this.native.setMaximumWidth(maxw);
+    }
+    // TODO: void 	setMinimumSize(const QSize &)
+    setMinimumHeight(minh: number): void {
+        this.native.setMinimumHeight(minh);
+    }
+    setMinimumSize(minw: number, minh: number): void {
+        this.native.setMinimumSize(minw, minh);
+    }
+    setMinimumWidth(minw: number): void {
+        this.native.setMinimumWidth(minw);
+    }
+    setMouseTracking(isMouseTracked: boolean): void {
+        this.native.setMouseTracking(isMouseTracked);
+    }
+    setObjectName(objectName: string): void {
+        super.setObjectName(objectName);
+        if (this._rawInlineStyle) {
+            this.setInlineStyle(this._rawInlineStyle);
+        }
+        this.repolish();
+    }
+    // TODO: void 	setPalette(const QPalette &)
+    // TODO: void 	setParent(QWidget *parent)
+    // TODO: void 	setParent(QWidget *parent, Qt::WindowFlags f)
+    // TODO: void 	setShortcutAutoRepeat(int id, bool enable = true)
+    // TODO: void 	setShortcutEnabled(int id, bool enable = true)
+    // TODO: void 	setSizeIncrement(const QSize &)
+    // TODO: void 	setSizeIncrement(int w, int h)
+    // TODO: void 	setSizePolicy(QSizePolicy)
+    setSizePolicy(horizontal: QSizePolicyPolicy, vertical: QSizePolicyPolicy): void {
+        this.native.setSizePolicy(horizontal, vertical);
+    }
+    // TODO: void 	setStatusTip(const QString &)
+    // TODO: void 	setStyle(QStyle *style)
+    // TODO: void 	setTabletTracking(bool enable)
+    // TODO: void 	setToolTip(const QString &)
+    // TODO: void 	setToolTipDuration(int msec)
+    // TODO: void 	setUpdatesEnabled(bool enable)
+    // TODO: void 	setWhatsThis(const QString &)
+    // TODO: void 	setWindowFilePath(const QString &filePath)
+    setWindowFlag(windowType: WindowType, switchOn: boolean): void {
+        // react:⛔️
+        return this.native.setWindowFlag(windowType, switchOn);
+    }
+    // TODO: void 	setWindowFlags(Qt::WindowFlags type)
+    setWindowIcon(icon: QIcon): void {
+        //TODO:getter
+        this.native.setWindowIcon(icon.native);
+    }
+    // TODO: void 	setWindowModality(Qt::WindowModality windowModality)
+    setWindowOpacity(opacity: number): void {
+        this.native.setWindowOpacity(opacity);
+    }
+    // TODO: void 	setWindowRole(const QString &role)
+    setWindowState(state: WindowState): void {
+        return this.native.setWindowState(state);
+    }
+    size(): QSize {
+        return new QSize(this.native.size());
+    }
+    styleSheet(): string {
+        return this.native.styleSheet();
+    }
+    testAttribute(attribute: WidgetAttribute): boolean {
+        // react:⛔️
+        return this.native.testAttribute(attribute);
+    }
+    // TODO: QString 	toolTip() const
+    // TODO: int 	toolTipDuration() const
+    // TODO: bool 	underMouse() const
+    // TODO: void 	ungrabGesture(Qt::GestureType gesture)
+    // TODO: void 	unsetCursor()
+    // TODO: void 	unsetLayoutDirection()
+    // TODO: void 	unsetLocale()
+    // TODO: void 	update(int x, int y, int w, int h)
+    // TODO: void 	update(const QRect &rect)
+    // TODO: void 	update(const QRegion &rgn)
+    updateGeometry(): void {
+        // react:⛔️
+        this.native.updateGeometry();
+    }
+    // TODO:     bool 	updatesEnabled() const
+    // TODO: QRegion 	visibleRegion() const
+    // TODO: QString 	whatsThis() const
+    width(): number {
+        return this.property('width').toInt();
+    }
+    // TODO: WId 	winId() const
+    // TODO: QWidget *	window() const
+    // TODO: QString 	windowFilePath() const
+    // TODO: Qt::WindowFlags 	windowFlags() const
+    // TODO: QWindow *	windowHandle() const
+    // TODO: QIcon 	windowIcon() const
+    // TODO: Qt::WindowModality 	windowModality() const
+    windowOpacity(): number {
+        return this.native.windowOpacity();
+    }
+    // TODO: QString 	windowRole() const
+    windowState(): number {
+        return this.native.windowState();
+    }
+    windowTitle(): string {
+        return this.native.windowTitle();
+    }
+    // TODO: Qt::WindowType 	windowType() const
     x(): number {
         return this.property('x').toInt();
     }
     y(): number {
         return this.property('y').toInt();
     }
-    width(): number {
-        return this.property('width').toInt();
+
+    // *** Public Slots ***
+    close(): boolean {
+        return this.native.close();
     }
-    height(): number {
-        return this.property('height').toInt();
+    hide(): void {
+        this.native.hide();
+    }
+    lower(): void {
+        this.native.lower();
+    }
+    raise(): void {
+        this.native.raise();
+    }
+    repaint(): void {
+        // react:⛔️
+        this.native.repaint();
+    }
+    // TODO: void 	setDisabled(bool disable)
+    setEnabled(enabled: boolean): void {
+        this.native.setEnabled(enabled);
+    }
+    setFocus(reason = FocusReason.OtherFocusReason): void {
+        this.native.setFocus(reason);
+    }
+    // TODO: void 	setHidden(bool hidden)
+    setStyleSheet(styleSheet: string): void {
+        const preparedSheet = StyleSheet.create(styleSheet);
+        this.native.setStyleSheet(preparedSheet);
+    }
+    // TODO: void 	setStyleSheet(const QString &styleSheet)
+    // TODO: virtual void 	setVisible(bool visible)
+    // TODO: void 	setWindowModified(bool)
+    setWindowTitle(title: string): void {
+        return this.native.setWindowTitle(title);
+    }
+    show(): void {
+        this.native.show();
+    }
+    showFullScreen(): void {
+        this.native.showFullScreen();
+    }
+    showMaximized(): void {
+        this.native.showMaximized();
+    }
+    showMinimized(): void {
+        this.native.showMinimized();
+    }
+    showNormal(): void {
+        this.native.showNormal();
+    }
+    update(): void {
+        // react:⛔️
+        this.native.update();
     }
 }
 
