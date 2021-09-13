@@ -9,6 +9,7 @@
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
+#include "QtGui/QStyle/qstyle_wrap.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 #include "core/YogaWidget/yogawidget_macro.h"
@@ -483,6 +484,13 @@
     int minh = info[0].As<Napi::Number>().Int32Value();                       \
     this->instance->setMinimumHeight(minh);                                   \
     return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value style(const Napi::CallbackInfo& info) {                         \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    QStyle* style = this->instance->style();                                  \
+    return QStyleWrap::constructor.New(                                       \
+        {Napi::External<QStyle>::New(env, style)});                           \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -551,7 +559,8 @@
       InstanceMethod("setMaximumHeight", &WidgetWrapName::setMaximumHeight),   \
       InstanceMethod("setMinimumWidth", &WidgetWrapName::setMinimumWidth),     \
       InstanceMethod("setMaximumWidth", &WidgetWrapName::setMaximumWidth),     \
-      InstanceMethod("setMinimumHeight", &WidgetWrapName::setMinimumHeight),
+      InstanceMethod("setMinimumHeight", &WidgetWrapName::setMinimumHeight),   \
+      InstanceMethod("style", &WidgetWrapName::style),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

@@ -17,7 +17,7 @@ import { QFont } from '../QtGui/QFont';
 import { QAction } from './QAction';
 import memoizeOne from 'memoize-one';
 import { QGraphicsEffect } from './QGraphicsEffect';
-import { QSizePolicyPolicy } from '../..';
+import { QSizePolicyPolicy, QStyle } from '../..';
 
 /**
 
@@ -372,6 +372,14 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     size(): QSize {
         return new QSize(this.native.size());
+    }
+    // TODO: virtual QSize 	sizeHint() const
+    // TODO: QSize 	sizeIncrement() const
+    // TODO: QSizePolicy 	sizePolicy() const
+    // TODO: void 	stackUnder(QWidget *w)
+    // TODO: QString 	statusTip() const
+    style(): QStyle {
+        return new QStyle(this.native.style());
     }
     styleSheet(): string {
         return this.native.styleSheet();
