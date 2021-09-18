@@ -64,23 +64,3 @@ Napi::Value QStyleWrap::unpolish(const Napi::CallbackInfo& info) {
   this->instance->unpolish(qwidget);
   return env.Null();
 }
-
-/*
-Napi::Value QStyleWrap::polish(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  QWidget* qwidget = info[0].As<Napi::External<QWidget>>();
-  this->instance->polish(qwidget);
-  return env.Null();
-}
-
-Napi::Value QStyleWrap::unpolish(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
-  QWidget* qwidget = info[0].As<Napi::External<QWidget>>();
-  this->instance->unpolish(qwidget);
-  return env.Null();
-}
-*/
