@@ -20,6 +20,7 @@ export { QClipboard, QClipboardMode } from './lib/QtGui/QClipboard';
 export { QStyle, QStylePixelMetric } from './lib/QtGui/QStyle';
 export { QFontDatabase, SystemFont, WritingSystem } from './lib/QtGui/QFontDatabase';
 export { QFontMetrics } from './lib/QtGui/QFontMetrics';
+export { QFontMetricsF } from './lib/QtGui/QFontMetricsF';
 // Events: Maybe a separate module ?
 export { QKeyEvent } from './lib/QtGui/QEvent/QKeyEvent';
 export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
@@ -150,6 +151,7 @@ export { QMimeData } from './lib/QtCore/QMimeData';
 export { QObject, QObjectSignals, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';
+export { QSizeF } from './lib/QtCore/QSizeF';
 export { QRect } from './lib/QtCore/QRect';
 export { QRectF } from './lib/QtCore/QRectF';
 export { QPoint } from './lib/QtCore/QPoint';
