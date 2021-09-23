@@ -58,24 +58,9 @@ export class QPainter extends Component {
         this.native = native;
     }
 
-    drawArc(x: number, y: number, width: number, height: number, startAngle: number, spanAngle: number): void {
-        this.native.drawArc(x, y, width, height, startAngle, spanAngle);
-    }
-    drawImage(x: number, y: number, image: QImage, sx = 0, sy = 0, sw = -1, sh = -1): void {
-        this.native.drawImage(x, y, image.native, sx, sy, sw, sh);
-    }
-    drawText(x: number, y: number, text: string): void {
-        return this.native.drawText(x, y, text);
-    }
-
-    drawPath(path: QPainterPath): void {
-        return this.native.drawPath(path.native);
-    }
-
-    strokePath(path: QPainterPath, pen: QPen): void {
-        return this.native.strokePath(path.native, pen.native);
-    }
-
+    // *** Public Functions ***
+    // TODO: const QBrush &	background() const
+    // TODO: Qt::BGMode 	backgroundMode() const
     begin(device: QWidget | QImage): boolean {
         if (device instanceof QWidget) {
             return this.native.begin(device.native, 'widget');
@@ -83,27 +68,125 @@ export class QPainter extends Component {
             return this.native.begin(device.native, 'image');
         }
     }
-
     beginNativePainting(): void {
         this.native.beginNativePainting();
     }
-
+    // TODO: QRectF 	boundingRect(const QRectF &rectangle, int flags, const QString &text)
+    // TODO: QRect 	boundingRect(const QRect &rectangle, int flags, const QString &text)
+    // TODO: QRect 	boundingRect(int x, int y, int w, int h, int flags, const QString &text)
+    // TODO: QRectF 	boundingRect(const QRectF &rectangle, const QString &text, const QTextOption &option = QTextOption())
+    // TODO: const QBrush &	brush() const
+    // TODO: QPoint 	brushOrigin() const
+    // TODO: QRectF 	clipBoundingRect() const
+    // TODO: QPainterPath 	clipPath() const
+    // TODO: QRegion 	clipRegion() const
+    // TODO: QTransform 	combinedTransform() const
+    compositionMode(): CompositionMode {
+        return this.native.compositionMode();
+    }
+    // TODO: QPaintDevice *	device() const
+    // TODO: const QTransform &	deviceTransform() const
+    // TODO: void 	drawArc(const QRectF &rectangle, int startAngle, int spanAngle)
+    drawArc(x: number, y: number, width: number, height: number, startAngle: number, spanAngle: number): void {
+        this.native.drawArc(x, y, width, height, startAngle, spanAngle);
+    }
+    // TODO: void 	drawChord(const QRectF &rectangle, int startAngle, int spanAngle)
+    // TODO: void 	drawChord(int x, int y, int width, int height, int startAngle, int spanAngle)
+    // TODO: void 	drawChord(const QRect &rectangle, int startAngle, int spanAngle)
+    drawConvexPolygon(points: QPoint[]): void {
+        const nativePoints = points.map((point) => point.native);
+        this.native.drawConvexPolygon(nativePoints);
+    }
+    // TODO: void 	drawConvexPolygon(const QPolygonF &polygon)
+    drawEllipse(x: number, y: number, width: number, height: number): void {
+        return this.native.drawEllipse(x, y, width, height);
+    }
+    // TODO: void 	drawEllipse(const QRectF &rectangle)
+    // TODO: void 	drawGlyphRun(const QPointF &position, const QGlyphRun &glyphs)
+    drawImage(x: number, y: number, image: QImage, sx = 0, sy = 0, sw = -1, sh = -1): void {
+        this.native.drawImage(x, y, image.native, sx, sy, sw, sh);
+    }
+    drawPie(x: number, y: number, width: number, height: number, startAngle: number, sweepLength: number): void {
+        return this.native.drawPie(x, y, width, height, startAngle, sweepLength);
+    }
+    drawLine(x1: number, y1: number, x2: number, y2: number): void {
+        this.native.drawLine(x1, y1, x2, y2);
+    }
+    // TODO: void 	drawLines(const QVector<QLineF> &lines)
+    drawPath(path: QPainterPath): void {
+        return this.native.drawPath(path.native);
+    }
+    // TODO: void 	drawPicture(int x, int y, const QPicture &picture)
+    // TODO: void 	drawPie(int x, int y, int width, int height, int startAngle, int spanAngle)
+    // TODO: void 	drawPixmap(int x, int y, int w, int h, const QPixmap &pixmap, int sx, int sy, int sw, int sh)
+    // TODO: void 	drawPixmapFragments(const QPainter::PixmapFragment *fragments, int fragmentCount, const QPixmap &pixmap, QPainter::PixmapFragmentHints hints = PixmapFragmentHints())
+    // TODO: void 	drawPoint(int x, int y)
+    // TODO: void 	drawPoints(const QPointF *points, int pointCount)
+    // TODO: void 	drawPolygon(const QPointF *points, int pointCount, Qt::FillRule fillRule = Qt::OddEvenFill)
+    // TODO: void 	drawRect(int x, int y, int width, int height)
+    // TODO: void 	drawRects(const QVector<QRectF> &rectangles)
+    // TODO: void 	drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, Qt::SizeMode mode = Qt::AbsoluteSize)
+    // TODO: void 	drawStaticText(int left, int top, const QStaticText &staticText)
+    drawText(x: number, y: number, text: string): void {
+        return this.native.drawText(x, y, text);
+    }
+    // TODO: void 	drawText(int x, int y, int width, int height, int flags, const QString &text, QRect *boundingRect = nullptr)
+    // TODO: void 	drawTiledPixmap(int x, int y, int width, int height, const QPixmap &pixmap, int sx = 0, int sy = 0)
     end(): boolean {
         return this.native.end();
     }
-
     endNativePainting(): void {
         this.native.endNativePainting();
     }
-
+    // TODO: void 	eraseRect(int x, int y, int width, int height)
+    fillRect(x: number, y: number, width: number, height: number, color: QColor): void {
+        this.native.fillRect(x, y, width, height, color.native);
+    }
+    // TODO: const QFont &	font() const
+    // TODO: QFontInfo 	fontInfo() const
+    // TODO: QFontMetrics 	fontMetrics() const
+    // TODO: bool 	hasClipping() const
+    // TODO: bool 	isActive() const
+    // TODO: Qt::LayoutDirection 	layoutDirection() const
+    opacity(): number {
+        return this.native.opacity();
+    }
+    // TODO: QPaintEngine *	paintEngine() const
+    // TODO: const QPen &	pen() const
+    // TODO: QPainter::RenderHints 	renderHints() const
+    // TODO: void 	resetTransform()
+    restore(): void {
+        this.native.restore();
+    }
     rotate(angle: number): void {
         this.native.rotate(angle);
     }
-
+    save(): void {
+        this.native.save();
+    }
+    scale(sx: number, sy: number): void {
+        this.native.scale(sx, sy);
+    }
+    // TODO: void 	setBackground(const QBrush &brush)
+    // TODO: void 	setBackgroundMode(Qt::BGMode mode)
+    setBrush(color: QColor): void {
+        this.native.setBrush(color.native);
+    }
+    // TODO: void 	setBrushOrigin(int x, int y)
+    setCompositionMode(mode: CompositionMode): void {
+        this.native.setCompositionMode(mode);
+    }
+    // TODO: void 	setClipRect(int x, int y, int width, int height, Qt::ClipOperation operation = Qt::ReplaceClip)
+    // TODO: void 	setClipRegion(const QRegion &region, Qt::ClipOperation operation = Qt::ReplaceClip)
+    // TODO: void 	setClipping(bool enable)
+    // TODO: void 	setCompositionMode(QPainter::CompositionMode mode)
     setFont(font: QFont): void {
         this.native.setFont(font.native);
     }
-
+    // TODO: void 	setLayoutDirection(Qt::LayoutDirection direction)
+    setOpacity(opacity: number): void {
+        this.native.setOpacity(opacity);
+    }
     setPen(arg: PenStyle | QColor | QPen): void {
         if (typeof arg == 'number') {
             this.native.setPen(arg, 'style');
@@ -113,11 +196,9 @@ export class QPainter extends Component {
             this.native.setPen(arg.native, 'pen');
         }
     }
-
     setRenderHint(hint: RenderHint, on = true): void {
         this.native.setRenderHint(hint, on);
     }
-
     /**
      * Sets the world transformation matrix.
      *
@@ -144,59 +225,27 @@ export class QPainter extends Component {
             matrix2x3[5],
         );
     }
-
-    drawEllipse(x: number, y: number, width: number, height: number): void {
-        return this.native.drawEllipse(x, y, width, height);
+    // TODO: void 	setViewTransformEnabled(bool enable)
+    // TODO: void 	setViewport(const QRect &rectangle)
+    // TODO: void 	setViewport(int x, int y, int width, int height)
+    // TODO: void 	setWindow(const QRect &rectangle)
+    // TODO: void 	setWindow(int x, int y, int width, int height)
+    // TODO: void 	setWorldMatrixEnabled(bool enable)
+    // TODO: void 	setWorldTransform(const QTransform &matrix, bool combine = false)
+    // TODO: void 	shear(qreal sh, qreal sv)
+    strokePath(path: QPainterPath, pen: QPen): void {
+        return this.native.strokePath(path.native, pen.native);
     }
-
-    drawPie(x: number, y: number, width: number, height: number, startAngle: number, sweepLength: number): void {
-        return this.native.drawPie(x, y, width, height, startAngle, sweepLength);
-    }
-
-    drawLine(x1: number, y1: number, x2: number, y2: number): void {
-        this.native.drawLine(x1, y1, x2, y2);
-    }
-
-    scale(sx: number, sy: number): void {
-        this.native.scale(sx, sy);
-    }
-
+    // TODO: bool 	testRenderHint(QPainter::RenderHint hint) const
+    // TODO: const QTransform &	transform() const
     translate(dx: number, dy: number): void {
         this.native.translate(dx, dy);
     }
-
-    drawConvexPolygon(points: QPoint[]): void {
-        const nativePoints = points.map((point) => point.native);
-        this.native.drawConvexPolygon(nativePoints);
-    }
-
-    save(): void {
-        this.native.save();
-    }
-
-    restore(): void {
-        this.native.restore();
-    }
-
-    setBrush(color: QColor): void {
-        this.native.setBrush(color.native);
-    }
-
-    fillRect(x: number, y: number, width: number, height: number, color: QColor): void {
-        this.native.fillRect(x, y, width, height, color.native);
-    }
-    compositionMode(): CompositionMode {
-        return this.native.compositionMode();
-    }
-    setCompositionMode(mode: CompositionMode): void {
-        this.native.setCompositionMode(mode);
-    }
-    opacity(): number {
-        return this.native.opacity();
-    }
-    setOpacity(opacity: number): void {
-        this.native.setOpacity(opacity);
-    }
+    // TODO: bool 	viewTransformEnabled() const
+    // TODO: QRect 	viewport() const
+    // TODO: QRect 	window() const
+    // TODO: bool 	worldMatrixEnabled() const
+    // TODO: const QTransform &	worldTransform() const
 }
 
 export enum RenderHint {
