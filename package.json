@@ -18,7 +18,7 @@
         "build": "cross-env tsc && npm run build:addon",
         "install": "cross-env npm run setupqt && (node ./scripts/skip.js || npm run build:addon)",
         "setupqt": "cross-env node ./scripts/setupMiniQt.js",
-        "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=2 cmake-js compile",
+        "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
         "test": "node ./scripts/qode.js ./node_modules/jest/bin/jest -i",
         "lint:cpp": "cross-env clang-format -i --glob=src/cpp/**/*.[h,c]*",
         "lint:ts": "cross-env tsc --noEmit && cross-env eslint './src/**/*.{ts,tsx,js,jsx}' --fix",
