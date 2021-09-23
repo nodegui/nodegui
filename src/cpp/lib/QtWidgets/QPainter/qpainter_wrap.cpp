@@ -2,6 +2,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
+#include "QtCore/QRect/qrect_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
 #include "QtGui/QImage/qimage_wrap.h"
@@ -46,6 +47,13 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setCompositionMode", &QPainterWrap::setCompositionMode),
        InstanceMethod("opacity", &QPainterWrap::opacity),
        InstanceMethod("setOpacity", &QPainterWrap::setOpacity),
+       InstanceMethod("drawPoint", &QPainterWrap::drawPoint),
+       InstanceMethod("drawRect", &QPainterWrap::drawRect),
+       InstanceMethod("eraseRect", &QPainterWrap::eraseRect),
+       InstanceMethod("boundingRect", &QPainterWrap::boundingRect),
+       InstanceMethod("drawChord", &QPainterWrap::drawChord),
+       InstanceMethod("drawPie", &QPainterWrap::drawPie),
+       InstanceMethod("setBrushOrigin", &QPainterWrap::setBrushOrigin),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QPainterWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -384,5 +392,68 @@ Napi::Value QPainterWrap::setOpacity(const Napi::CallbackInfo& info) {
   Napi::HandleScope scope(env);
   qreal opacity = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setOpacity(opacity);
+  return env.Null();
+}
+Napi::Value QPainterWrap::drawPoint(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  this->instance->drawPoint(x, y);
+  return env.Null();
+}
+Napi::Value QPainterWrap::drawRect(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  int width = info[2].As<Napi::Number>().Int32Value();
+  int height = info[3].As<Napi::Number>().Int32Value();
+  this->instance->drawRect(x, y, width, height);
+  return env.Null();
+}
+Napi::Value QPainterWrap::eraseRect(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  int width = info[2].As<Napi::Number>().Int32Value();
+  int height = info[3].As<Napi::Number>().Int32Value();
+  this->instance->eraseRect(x, y, width, height);
+  return env.Null();
+}
+Napi::Value QPainterWrap::boundingRect(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  int w = info[2].As<Napi::Number>().Int32Value();
+  int h = info[3].As<Napi::Number>().Int32Value();
+  int flags = info[4].As<Napi::Number>().Int32Value();
+  std::string textNapiText = info[5].As<Napi::String>().Utf8Value();
+  QString text = QString::fromUtf8(textNapiText.c_str());
+  QRect result = this->instance->boundingRect(x, y, w, h, flags, text);
+  auto resultInstance = QRectWrap::constructor.New(
+      {Napi::External<QRect>::New(env, new QRect(result))});
+  return resultInstance;
+}
+Napi::Value QPainterWrap::drawChord(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  int width = info[2].As<Napi::Number>().Int32Value();
+  int height = info[3].As<Napi::Number>().Int32Value();
+  int startAngle = info[4].As<Napi::Number>().Int32Value();
+  int spanAngle = info[5].As<Napi::Number>().Int32Value();
+  this->instance->drawChord(x, y, width, height, startAngle, spanAngle);
+  return env.Null();
+}
+Napi::Value QPainterWrap::setBrushOrigin(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  this->instance->setBrushOrigin(x, y);
   return env.Null();
 }

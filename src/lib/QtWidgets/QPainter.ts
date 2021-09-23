@@ -8,6 +8,7 @@ import { QPen } from '../QtGui/QPen';
 import { QWidget } from './QWidget';
 import { QImage } from '../QtGui/QImage';
 import { QFont } from '../QtGui/QFont';
+import { QRect } from '../QtCore/QRect';
 
 /**
 
@@ -73,7 +74,9 @@ export class QPainter extends Component {
     }
     // TODO: QRectF 	boundingRect(const QRectF &rectangle, int flags, const QString &text)
     // TODO: QRect 	boundingRect(const QRect &rectangle, int flags, const QString &text)
-    // TODO: QRect 	boundingRect(int x, int y, int w, int h, int flags, const QString &text)
+    boundingRect(x: number, y: number, w: number, h: number, flags: number, text: string): QRect {
+        return new QRect(this.native.boundingRect(x, y, w, h, flags, text));
+    }
     // TODO: QRectF 	boundingRect(const QRectF &rectangle, const QString &text, const QTextOption &option = QTextOption())
     // TODO: const QBrush &	brush() const
     // TODO: QPoint 	brushOrigin() const
@@ -91,7 +94,9 @@ export class QPainter extends Component {
         this.native.drawArc(x, y, width, height, startAngle, spanAngle);
     }
     // TODO: void 	drawChord(const QRectF &rectangle, int startAngle, int spanAngle)
-    // TODO: void 	drawChord(int x, int y, int width, int height, int startAngle, int spanAngle)
+    drawChord(x: number, y: number, width: number, height: number, startAngle: number, spanAngle: number): void {
+        this.native.drawChord(x, y, width, height, startAngle, spanAngle);
+    }
     // TODO: void 	drawChord(const QRect &rectangle, int startAngle, int spanAngle)
     drawConvexPolygon(points: QPoint[]): void {
         const nativePoints = points.map((point) => point.native);
@@ -106,9 +111,6 @@ export class QPainter extends Component {
     drawImage(x: number, y: number, image: QImage, sx = 0, sy = 0, sw = -1, sh = -1): void {
         this.native.drawImage(x, y, image.native, sx, sy, sw, sh);
     }
-    drawPie(x: number, y: number, width: number, height: number, startAngle: number, sweepLength: number): void {
-        return this.native.drawPie(x, y, width, height, startAngle, sweepLength);
-    }
     drawLine(x1: number, y1: number, x2: number, y2: number): void {
         this.native.drawLine(x1, y1, x2, y2);
     }
@@ -117,13 +119,19 @@ export class QPainter extends Component {
         return this.native.drawPath(path.native);
     }
     // TODO: void 	drawPicture(int x, int y, const QPicture &picture)
-    // TODO: void 	drawPie(int x, int y, int width, int height, int startAngle, int spanAngle)
+    drawPie(x: number, y: number, width: number, height: number, startAngle: number, sweepLength: number): void {
+        return this.native.drawPie(x, y, width, height, startAngle, sweepLength);
+    }
     // TODO: void 	drawPixmap(int x, int y, int w, int h, const QPixmap &pixmap, int sx, int sy, int sw, int sh)
     // TODO: void 	drawPixmapFragments(const QPainter::PixmapFragment *fragments, int fragmentCount, const QPixmap &pixmap, QPainter::PixmapFragmentHints hints = PixmapFragmentHints())
-    // TODO: void 	drawPoint(int x, int y)
+    drawPoint(x: number, y: number): void {
+        this.native.drawPoint(x, y);
+    }
     // TODO: void 	drawPoints(const QPointF *points, int pointCount)
     // TODO: void 	drawPolygon(const QPointF *points, int pointCount, Qt::FillRule fillRule = Qt::OddEvenFill)
-    // TODO: void 	drawRect(int x, int y, int width, int height)
+    drawRect(x: number, y: number, width: number, height: number): void {
+        this.native.drawRect(x, y, width, height);
+    }
     // TODO: void 	drawRects(const QVector<QRectF> &rectangles)
     // TODO: void 	drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, Qt::SizeMode mode = Qt::AbsoluteSize)
     // TODO: void 	drawStaticText(int left, int top, const QStaticText &staticText)
@@ -138,7 +146,9 @@ export class QPainter extends Component {
     endNativePainting(): void {
         this.native.endNativePainting();
     }
-    // TODO: void 	eraseRect(int x, int y, int width, int height)
+    eraseRect(x: number, y: number, width: number, height: number): void {
+        this.native.eraseRect(x, y, width, height);
+    }
     fillRect(x: number, y: number, width: number, height: number, color: QColor): void {
         this.native.fillRect(x, y, width, height, color.native);
     }
@@ -146,6 +156,7 @@ export class QPainter extends Component {
     // TODO: QFontInfo 	fontInfo() const
     // TODO: QFontMetrics 	fontMetrics() const
     // TODO: bool 	hasClipping() const
+    // CLASS: QPainter
     // TODO: bool 	isActive() const
     // TODO: Qt::LayoutDirection 	layoutDirection() const
     opacity(): number {
@@ -172,7 +183,9 @@ export class QPainter extends Component {
     setBrush(color: QColor): void {
         this.native.setBrush(color.native);
     }
-    // TODO: void 	setBrushOrigin(int x, int y)
+    setBrushOrigin(x: number, y: number): void {
+        this.native.setBrushOrigin(x, y);
+    }
     setCompositionMode(mode: CompositionMode): void {
         this.native.setCompositionMode(mode);
     }

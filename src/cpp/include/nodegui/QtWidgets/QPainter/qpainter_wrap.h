@@ -48,4 +48,10 @@ class DLL_EXPORT QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   Napi::Value setCompositionMode(const Napi::CallbackInfo& info);
   Napi::Value opacity(const Napi::CallbackInfo& info);
   Napi::Value setOpacity(const Napi::CallbackInfo& info);
+  Napi::Value drawPoint(const Napi::CallbackInfo& info);
+  Napi::Value drawRect(const Napi::CallbackInfo& info);
+  Napi::Value eraseRect(const Napi::CallbackInfo& info);
+  Napi::Value boundingRect(const Napi::CallbackInfo& info);
+  Napi::Value drawChord(const Napi::CallbackInfo& info);
+  Napi::Value setBrushOrigin(const Napi::CallbackInfo& info);
 };
