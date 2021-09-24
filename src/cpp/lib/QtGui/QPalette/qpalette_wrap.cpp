@@ -10,7 +10,7 @@ Napi::FunctionReference QPaletteWrap::constructor;
 
 Napi::Object QPaletteWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
-  char CLASSNAME[] = "QPen";
+  char CLASSNAME[] = "QPalette";
   Napi::Function func =
       DefineClass(env, CLASSNAME,
                   {InstanceMethod("color", &QPaletteWrap::color),
