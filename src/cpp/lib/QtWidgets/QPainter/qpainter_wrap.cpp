@@ -3,6 +3,7 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
+#include "QtGui/QBrush/qbrush_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
 #include "QtGui/QImage/qimage_wrap.h"
@@ -304,11 +305,21 @@ Napi::Value QPainterWrap::setBrush(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  Napi::Object colorObject = info[0].As<Napi::Object>();
-  QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
-  QColor* color = colorWrap->getInternalInstance();
-  QBrush* brush = new QBrush(*color);
-  this->instance->setBrush(*brush);
+  Napi::String napiType = info[1].As<Napi::String>();
+  std::string type = napiType.Utf8Value();
+
+  if (type == "brush") {
+    Napi::Object brushObject = info[0].As<Napi::Object>();
+    QBrushWrap* brushWrap = Napi::ObjectWrap<QBrushWrap>::Unwrap(brushObject);
+    QBrush* brush = brushWrap->getInternalInstance();
+    this->instance->setBrush(*brush);
+  } else if (type == "color") {
+    Napi::Object colorObject = info[0].As<Napi::Object>();
+    QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
+    QColor* color = colorWrap->getInternalInstance();
+    QBrush* brush = new QBrush(*color);
+    this->instance->setBrush(*brush);
+  }
   return env.Null();
 }
 Napi::Value QPainterWrap::setRenderHint(const Napi::CallbackInfo& info) {
