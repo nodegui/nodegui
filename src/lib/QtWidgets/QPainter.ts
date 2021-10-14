@@ -2,6 +2,7 @@ import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
 import { QPainterPath } from '../QtWidgets/QPainterPath';
 import { PenStyle } from '../QtEnums';
+import { QBrush } from '../QtGui/QBrush';
 import { QColor } from '../QtGui/QColor';
 import { QPoint } from '../QtCore/QPoint';
 import { QPen } from '../QtGui/QPen';
@@ -180,8 +181,12 @@ export class QPainter extends Component {
     }
     // TODO: void 	setBackground(const QBrush &brush)
     // TODO: void 	setBackgroundMode(Qt::BGMode mode)
-    setBrush(color: QColor): void {
-        this.native.setBrush(color.native);
+    setBrush(colorOrBrush: QColor | QBrush): void {
+        if (colorOrBrush instanceof QColor) {
+	    this.native.setBrush(colorOrBrush.native, 'color');
+        } else {
+	    this.native.setBrush(colorOrBrush.native, 'brush');
+	}
     }
     setBrushOrigin(x: number, y: number): void {
         this.native.setBrushOrigin(x, y);
