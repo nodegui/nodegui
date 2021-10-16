@@ -54,13 +54,11 @@ Implement all native QWidget methods here so that all widgets get access to thos
  */
 export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWidget<Signals> {
     _layout?: NodeLayout<Signals>;
-    actions: Set<QAction>;
     _rawInlineStyle = '';
     type = 'widget';
     private _effect?: QGraphicsEffect<any> | null;
     constructor(native: NativeElement) {
         super(native);
-        this.actions = new Set<QAction>();
         this.setStyleSheet = memoizeOne(this.setStyleSheet);
         this.setInlineStyle = memoizeOne(this.setInlineStyle);
         this.setObjectName = memoizeOne(this.setObjectName);
@@ -86,11 +84,9 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
             const qaction = new QAction();
             qaction.setText(action);
             this.native.addAction(qaction.native);
-            this.actions.add(qaction);
             return qaction;
         }
         this.native.addAction(action.native);
-        this.actions.add(action);
         return action;
     }
     // TODO: void 	addActions(QList<QAction *> actions)
@@ -222,7 +218,6 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     // TODO: void 	releaseShortcut(int id)
     removeAction(action: QAction): void {
         this.native.removeAction(action.native);
-        this.actions.delete(action);
     }
     // TODO: void 	render(QPaintDevice *target, const QPoint &targetOffset = QPoint(), const QRegion &sourceRegion = QRegion(), QWidget::RenderFlags renderFlags = RenderFlags(DrawWindowBackground | DrawChildren))
     // TODO: void 	render(QPainter *painter, const QPoint &targetOffset = QPoint(), const QRegion &sourceRegion = QRegion(), QWidget::RenderFlags renderFlags = RenderFlags(DrawWindowBackground | DrawChildren))

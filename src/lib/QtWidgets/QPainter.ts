@@ -183,10 +183,10 @@ export class QPainter extends Component {
     // TODO: void 	setBackgroundMode(Qt::BGMode mode)
     setBrush(colorOrBrush: QColor | QBrush): void {
         if (colorOrBrush instanceof QColor) {
-	    this.native.setBrush(colorOrBrush.native, 'color');
+            this.native.setBrush(colorOrBrush.native, 'color');
         } else {
-	    this.native.setBrush(colorOrBrush.native, 'brush');
-	}
+            this.native.setBrush(colorOrBrush.native, 'brush');
+        }
     }
     setBrushOrigin(x: number, y: number): void {
         this.native.setBrushOrigin(x, y);

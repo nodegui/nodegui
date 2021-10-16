@@ -32,8 +32,6 @@ menu.addAction(menuAction);
  */
 export class QAction extends NodeObject<QActionSignals> {
     native: NativeElement;
-    icon?: QIcon;
-    menu?: QMenu;
     constructor();
     constructor(native: NativeElement);
     constructor(parent: NodeWidget<any>);
@@ -56,11 +54,9 @@ export class QAction extends NodeObject<QActionSignals> {
         this.native.setEnabled(enabled);
     }
     setIcon(icon: QIcon): void {
-        this.icon = icon;
         this.native.setIcon(icon.native);
     }
     setMenu(menu: QMenu): void {
-        this.menu = menu;
         this.native.setMenu(menu.native);
     }
     setShortcut(keysequence: QKeySequence): void {

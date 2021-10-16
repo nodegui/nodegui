@@ -20,7 +20,7 @@ DLL_EXPORT void* configureComponent(void* component);
 
 template <typename T>
 void safeDelete(QPointer<T>& component) {
-  if (!component.isNull()) {
+  if (!component.isNull() && component->QObject::parent() == nullptr) {
     delete component;
   }
 }
