@@ -135,8 +135,9 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     // TODO: int 	grabShortcut(const QKeySequence &key, Qt::ShortcutContext context = Qt::WindowShortcut)
     // TODO: QGraphicsEffect *	graphicsEffect() const
     // TODO: QGraphicsProxyWidget *	graphicsProxyWidget() const
-    // TODO: bool 	hasEditFocus() const
-    // TODO: bool 	hasFocus() const
+    hasFocus(): boolean {
+        return this.property('focus').toBool();
+    }
     // TODO: virtual bool 	hasHeightForWidth() const
     hasMouseTracking(): boolean {
         return this.native.hasMouseTracking();
@@ -158,17 +159,31 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         return this.native.isEnabled();
     }
     // TODO: bool 	isEnabledTo(const QWidget *ancestor) const
-    // TODO: bool 	isFullScreen() const
-    // TODO: bool 	isHidden() const
-    // TODO: bool 	isMaximized() const
-    // TODO: bool 	isMinimized() const
-    // TODO: bool 	isModal() const
+    isFullScreen(): boolean {
+        return this.property('fullScreen').toBool();
+    }
+    isHidden(): boolean {
+        return this.native.isHidden();
+    }
+    isMaximized(): boolean {
+        return this.property('maximized').toBool();
+    }
+    isMinimized(): boolean {
+        return this.property('minimized').toBool();
+    }
+    isModal(): boolean {
+        return this.property('modal').toBool();
+    }
     isVisible(): boolean {
         return this.native.isVisible();
     }
     // TODO: bool 	isVisibleTo(const QWidget *ancestor) const
-    // TODO: bool 	isWindow() const
-    // TODO: bool 	isWindowModified() const
+    isWindow(): boolean {
+        return this.native.isWindow();
+    }
+    isWindowModified(): boolean {
+        return this.native.isWindowModified();
+    }
     // TODO: QLayout *	layout() const
     // TODO: Qt::LayoutDirection 	layoutDirection() const
     // TODO: QLocale 	locale() const
@@ -354,7 +369,6 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     // TODO: void 	setWindowFlags(Qt::WindowFlags type)
     setWindowIcon(icon: QIcon): void {
-        //TODO:getter
         this.native.setWindowIcon(icon.native);
     }
     // TODO: void 	setWindowModality(Qt::WindowModality windowModality)
@@ -445,21 +459,29 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         // react:⛔️
         this.native.repaint();
     }
-    // TODO: void 	setDisabled(bool disable)
+    setDisabled(disable: boolean): void {
+        this.native.setDisabled(disable);
+    }
     setEnabled(enabled: boolean): void {
         this.native.setEnabled(enabled);
     }
     setFocus(reason = FocusReason.OtherFocusReason): void {
         this.native.setFocus(reason);
     }
-    // TODO: void 	setHidden(bool hidden)
+    setHidden(hidden: boolean): void {
+        this.native.setHidden(hidden);
+    }
     setStyleSheet(styleSheet: string): void {
         const preparedSheet = StyleSheet.create(styleSheet);
         this.native.setStyleSheet(preparedSheet);
     }
     // TODO: void 	setStyleSheet(const QString &styleSheet)
-    // TODO: virtual void 	setVisible(bool visible)
-    // TODO: void 	setWindowModified(bool)
+    setVisible(visible: boolean): void {
+        this.native.setVisible(visible);
+    }
+    setWindowModified(modified: boolean): void {
+        this.native.setWindowModified(modified);
+    }
     setWindowTitle(title: string): void {
         return this.native.setWindowTitle(title);
     }

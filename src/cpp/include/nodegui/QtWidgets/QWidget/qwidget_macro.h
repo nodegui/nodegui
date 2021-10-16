@@ -491,6 +491,52 @@
     QStyle* style = this->instance->style();                                  \
     return QStyleWrap::constructor.New(                                       \
         {Napi::External<QStyle>::New(env, style)});                           \
+  }                                                                           \
+  Napi::Value isWindow(const Napi::CallbackInfo& info) {                      \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool result = this->instance->isWindow();                                 \
+    return Napi::Boolean::New(env, result);                                   \
+  }                                                                           \
+  Napi::Value isWindowModified(const Napi::CallbackInfo& info) {              \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool result = this->instance->isWindowModified();                         \
+    return Napi::Boolean::New(env, result);                                   \
+  }                                                                           \
+  Napi::Value isHidden(const Napi::CallbackInfo& info) {                      \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool result = this->instance->isHidden();                                 \
+    return Napi::Boolean::New(env, result);                                   \
+  }                                                                           \
+  Napi::Value setDisabled(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool disable = info[0].As<Napi::Boolean>().Value();                       \
+    this->instance->setDisabled(disable);                                     \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setHidden(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool hidden = info[0].As<Napi::Boolean>().Value();                        \
+    this->instance->setHidden(hidden);                                        \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setVisible(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool visible = info[0].As<Napi::Boolean>().Value();                       \
+    this->instance->setVisible(visible);                                      \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setWindowModified(const Napi::CallbackInfo& info) {             \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool modified = info[0].As<Napi::Boolean>().Value();                      \
+    this->instance->setWindowModified(modified);                              \
+    return env.Null();                                                        \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -560,7 +606,14 @@
       InstanceMethod("setMinimumWidth", &WidgetWrapName::setMinimumWidth),     \
       InstanceMethod("setMaximumWidth", &WidgetWrapName::setMaximumWidth),     \
       InstanceMethod("setMinimumHeight", &WidgetWrapName::setMinimumHeight),   \
-      InstanceMethod("style", &WidgetWrapName::style),
+      InstanceMethod("style", &WidgetWrapName::style),                         \
+      InstanceMethod("isWindow", &WidgetWrapName::isWindow),                   \
+      InstanceMethod("isWindowModified", &WidgetWrapName::isWindowModified),   \
+      InstanceMethod("isHidden", &WidgetWrapName::isHidden),                   \
+      InstanceMethod("setDisabled", &WidgetWrapName::setDisabled),             \
+      InstanceMethod("setHidden", &WidgetWrapName::setHidden),                 \
+      InstanceMethod("setVisible", &WidgetWrapName::setVisible),               \
+      InstanceMethod("setWindowModified", &WidgetWrapName::setWindowModified),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 
