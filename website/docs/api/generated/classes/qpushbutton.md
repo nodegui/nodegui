@@ -33,13 +33,17 @@ button.setText("Hello");
 
 ### Properties
 
+* [_layout](qpushbutton.md#optional-_layout)
 * [_rawInlineStyle](qpushbutton.md#_rawinlinestyle)
 * [actions](qpushbutton.md#actions)
-* [layout](qpushbutton.md#optional-layout)
 * [native](qpushbutton.md#native)
 * [nodeChildren](qpushbutton.md#nodechildren)
 * [nodeParent](qpushbutton.md#optional-nodeparent)
 * [type](qpushbutton.md#type)
+
+### Accessors
+
+* [layout](qpushbutton.md#layout)
 
 ### Methods
 
@@ -54,6 +58,7 @@ button.setText("Hello");
 * [autoRepeat](qpushbutton.md#autorepeat)
 * [autoRepeatDelay](qpushbutton.md#autorepeatdelay)
 * [autoRepeatInterval](qpushbutton.md#autorepeatinterval)
+* [clearFocus](qpushbutton.md#clearfocus)
 * [click](qpushbutton.md#click)
 * [close](qpushbutton.md#close)
 * [font](qpushbutton.md#font)
@@ -64,6 +69,7 @@ button.setText("Hello");
 * [icon](qpushbutton.md#icon)
 * [iconSize](qpushbutton.md#iconsize)
 * [inherits](qpushbutton.md#inherits)
+* [isActiveWindow](qpushbutton.md#isactivewindow)
 * [isCheckable](qpushbutton.md#ischeckable)
 * [isChecked](qpushbutton.md#ischecked)
 * [isDefault](qpushbutton.md#isdefault)
@@ -107,6 +113,7 @@ button.setText("Hello");
 * [setFlat](qpushbutton.md#setflat)
 * [setFlexNodeSizeControlled](qpushbutton.md#setflexnodesizecontrolled)
 * [setFocus](qpushbutton.md#setfocus)
+* [setFocusPolicy](qpushbutton.md#setfocuspolicy)
 * [setFont](qpushbutton.md#setfont)
 * [setGeometry](qpushbutton.md#setgeometry)
 * [setGraphicsEffect](qpushbutton.md#setgraphicseffect)
@@ -196,6 +203,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QPushButtonSignals](../globals.md#qpushbuttonsignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -209,14 +224,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QPushButtonSignals](../globals.md#qpushbuttonsignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -249,6 +256,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QPushButtonSignals](../globals.md#qpushbuttonsignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QPushButtonSignals](../globals.md#qpushbuttonsignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QPushButtonSignals](../globals.md#qpushbuttonsignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QPushButtonSignals](../globals.md#qpushbuttonsignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -418,6 +447,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  click
 
 ▸ **click**(): *void*
@@ -519,6 +558,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -1131,9 +1180,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

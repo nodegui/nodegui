@@ -63,6 +63,8 @@ inline bool YGValueEqual(facebook::yoga::detail::CompactValue a,
 // difference between two floats is less than 0.0001f or both are undefined.
 bool YGFloatsEqual(const float a, const float b);
 
+bool YGDoubleEqual(const double a, const double b);
+
 float YGFloatMax(const float a, const float b);
 
 YGFloatOptional YGFloatOptionalMax(const YGFloatOptional op1,
@@ -133,3 +135,5 @@ inline YGFloatOptional YGResolveValueMargin(yoga::detail::CompactValue value,
                                             const float ownerSize) {
   return value.isAuto() ? YGFloatOptional{0} : YGResolveValue(value, ownerSize);
 }
+
+void throwLogicalErrorWithMessage(const char* message);

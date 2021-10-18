@@ -67,6 +67,7 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
         const centralWidget = this.centralWidget;
         this.centralWidget = null;
         if (centralWidget) {
+            centralWidget.setFlexNodeSizeControlled(false);
             this.native.takeCentralWidget();
             return centralWidget;
         }

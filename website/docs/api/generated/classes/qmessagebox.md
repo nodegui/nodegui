@@ -37,13 +37,17 @@ messageBox.exec();
 
 ### Properties
 
+* [_layout](qmessagebox.md#optional-_layout)
 * [_rawInlineStyle](qmessagebox.md#_rawinlinestyle)
 * [actions](qmessagebox.md#actions)
-* [layout](qmessagebox.md#optional-layout)
 * [native](qmessagebox.md#native)
 * [nodeChildren](qmessagebox.md#nodechildren)
 * [nodeParent](qmessagebox.md#optional-nodeparent)
 * [type](qmessagebox.md#type)
+
+### Accessors
+
+* [layout](qmessagebox.md#layout)
 
 ### Methods
 
@@ -54,6 +58,7 @@ messageBox.exec();
 * [addButton](qmessagebox.md#addbutton)
 * [addEventListener](qmessagebox.md#addeventlistener)
 * [adjustSize](qmessagebox.md#adjustsize)
+* [clearFocus](qmessagebox.md#clearfocus)
 * [close](qmessagebox.md#close)
 * [detailedText](qmessagebox.md#detailedtext)
 * [done](qmessagebox.md#done)
@@ -64,6 +69,7 @@ messageBox.exec();
 * [hasMouseTracking](qmessagebox.md#hasmousetracking)
 * [hide](qmessagebox.md#hide)
 * [inherits](qmessagebox.md#inherits)
+* [isActiveWindow](qmessagebox.md#isactivewindow)
 * [isEnabled](qmessagebox.md#isenabled)
 * [isSizeGripEnabled](qmessagebox.md#issizegripenabled)
 * [isVisible](qmessagebox.md#isvisible)
@@ -97,6 +103,7 @@ messageBox.exec();
 * [setFixedSize](qmessagebox.md#setfixedsize)
 * [setFlexNodeSizeControlled](qmessagebox.md#setflexnodesizecontrolled)
 * [setFocus](qmessagebox.md#setfocus)
+* [setFocusPolicy](qmessagebox.md#setfocuspolicy)
 * [setFont](qmessagebox.md#setfont)
 * [setGeometry](qmessagebox.md#setgeometry)
 * [setGraphicsEffect](qmessagebox.md#setgraphicseffect)
@@ -160,6 +167,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -173,14 +188,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -213,6 +220,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QMessageBoxSignals](../interfaces/qmessageboxsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -341,6 +370,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -444,6 +483,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -916,9 +965,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

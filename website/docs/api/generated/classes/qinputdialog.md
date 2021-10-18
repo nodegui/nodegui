@@ -34,13 +34,17 @@ dialog.exec();
 
 ### Properties
 
+* [_layout](qinputdialog.md#optional-_layout)
 * [_rawInlineStyle](qinputdialog.md#_rawinlinestyle)
 * [actions](qinputdialog.md#actions)
-* [layout](qinputdialog.md#optional-layout)
 * [native](qinputdialog.md#native)
 * [nodeChildren](qinputdialog.md#nodechildren)
 * [nodeParent](qinputdialog.md#optional-nodeparent)
 * [type](qinputdialog.md#type)
+
+### Accessors
+
+* [layout](qinputdialog.md#layout)
 
 ### Methods
 
@@ -50,6 +54,7 @@ dialog.exec();
 * [addEventListener](qinputdialog.md#addeventlistener)
 * [adjustSize](qinputdialog.md#adjustsize)
 * [cancelButtonText](qinputdialog.md#cancelbuttontext)
+* [clearFocus](qinputdialog.md#clearfocus)
 * [close](qinputdialog.md#close)
 * [doubleDecimals](qinputdialog.md#doubledecimals)
 * [doubleMaximum](qinputdialog.md#doublemaximum)
@@ -68,6 +73,7 @@ dialog.exec();
 * [intMinimum](qinputdialog.md#intminimum)
 * [intStep](qinputdialog.md#intstep)
 * [intValue](qinputdialog.md#intvalue)
+* [isActiveWindow](qinputdialog.md#isactivewindow)
 * [isComboBoxEditable](qinputdialog.md#iscomboboxeditable)
 * [isEnabled](qinputdialog.md#isenabled)
 * [isSizeGripEnabled](qinputdialog.md#issizegripenabled)
@@ -110,6 +116,7 @@ dialog.exec();
 * [setFixedSize](qinputdialog.md#setfixedsize)
 * [setFlexNodeSizeControlled](qinputdialog.md#setflexnodesizecontrolled)
 * [setFocus](qinputdialog.md#setfocus)
+* [setFocusPolicy](qinputdialog.md#setfocuspolicy)
 * [setFont](qinputdialog.md#setfont)
 * [setGeometry](qinputdialog.md#setgeometry)
 * [setGraphicsEffect](qinputdialog.md#setgraphicseffect)
@@ -180,6 +187,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -193,14 +208,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -233,6 +240,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QInputDialogSignals](../interfaces/qinputdialogsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -343,6 +372,16 @@ ___
 ▸ **cancelButtonText**(): *string*
 
 **Returns:** *string*
+
+___
+
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
 
 ___
 
@@ -509,6 +548,16 @@ ___
 ▸ **intValue**(): *number*
 
 **Returns:** *number*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
 
 ___
 
@@ -1081,9 +1130,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

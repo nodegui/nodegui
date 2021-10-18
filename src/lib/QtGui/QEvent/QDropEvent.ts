@@ -1,12 +1,12 @@
 import addon from '../../utils/addon';
-import { NativeElement, NativeRawPointer } from '../../core/Component';
+import { NativeRawPointer } from '../../core/Component';
 import { DropAction } from '../../QtEnums';
 import { QMimeData } from '../../QtCore/QMimeData';
+import { QEvent } from './QEvent';
 
-export class QDropEvent {
-    native: NativeElement;
+export class QDropEvent extends QEvent {
     constructor(event: NativeRawPointer<'QEvent'>) {
-        this.native = new addon.QDropEvent(event);
+        super(new addon.QDropEvent(event));
     }
 
     /** Sets the drop action to be the proposed action */
@@ -82,45 +82,4 @@ export class QDropEvent {
     //    source(): QObject {
     //        return this.native.source();
     //    }
-
-    //Methods from QEvent ---------------------------
-    /**
-     * Sets the accept flag of the event object, the equivalent of calling setAccepted(true).
-     * Setting the accept parameter indicates that the event receiver wants the event. Unwanted events might be propagated to the parent widget
-     */
-    accept(): void {
-        return this.native.accept();
-    }
-    /**
-     * Clears the accept flag parameter of the event object, the equivalent of calling setAccepted(false).
-     * Clearing the accept parameter indicates that the event receiver does not want the event.
-     * Unwanted events might be propagated to the parent widget.
-     */
-    ignore(): void {
-        return this.native.ignore();
-    }
-    isAccepted(): boolean {
-        return this.native.isAccepted();
-    }
-    /**
-     * Sets the accept flag of the event object
-     */
-    setAccepted(accepted: boolean): void {
-        return this.native.setAccepted(accepted);
-    }
-    /**
-     * Returns true if the event originated outside the application (a system event); otherwise returns false.
-     *
-     * The return value of this function is not defined for paint events.
-     */
-    spontaneous(): boolean {
-        return this.native.spontaneous();
-    }
-    /**
-     * Returns the event type
-     * @returns {Number} This is QEvent::Type
-     */
-    type(): number {
-        return this.native._type();
-    }
 }

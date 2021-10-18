@@ -56,13 +56,17 @@ win.show();
 
 ### Properties
 
+* [_layout](qstackedwidget.md#optional-_layout)
 * [_rawInlineStyle](qstackedwidget.md#_rawinlinestyle)
 * [actions](qstackedwidget.md#actions)
-* [layout](qstackedwidget.md#optional-layout)
 * [native](qstackedwidget.md#native)
 * [nodeChildren](qstackedwidget.md#nodechildren)
 * [nodeParent](qstackedwidget.md#optional-nodeparent)
 * [type](qstackedwidget.md#type)
+
+### Accessors
+
+* [layout](qstackedwidget.md#layout)
 
 ### Methods
 
@@ -72,6 +76,7 @@ win.show();
 * [addEventListener](qstackedwidget.md#addeventlistener)
 * [addWidget](qstackedwidget.md#addwidget)
 * [adjustSize](qstackedwidget.md#adjustsize)
+* [clearFocus](qstackedwidget.md#clearfocus)
 * [close](qstackedwidget.md#close)
 * [currentIndex](qstackedwidget.md#currentindex)
 * [font](qstackedwidget.md#font)
@@ -85,6 +90,7 @@ win.show();
 * [hasMouseTracking](qstackedwidget.md#hasmousetracking)
 * [hide](qstackedwidget.md#hide)
 * [inherits](qstackedwidget.md#inherits)
+* [isActiveWindow](qstackedwidget.md#isactivewindow)
 * [isEnabled](qstackedwidget.md#isenabled)
 * [isVisible](qstackedwidget.md#isvisible)
 * [lineWidth](qstackedwidget.md#linewidth)
@@ -117,6 +123,7 @@ win.show();
 * [setFixedSize](qstackedwidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qstackedwidget.md#setflexnodesizecontrolled)
 * [setFocus](qstackedwidget.md#setfocus)
+* [setFocusPolicy](qstackedwidget.md#setfocuspolicy)
 * [setFont](qstackedwidget.md#setfont)
 * [setFrameRect](qstackedwidget.md#setframerect)
 * [setFrameShadow](qstackedwidget.md#setframeshadow)
@@ -178,6 +185,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -191,14 +206,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -231,6 +238,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -345,6 +374,16 @@ ___
 ▸ **adjustSize**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[adjustSize](qmenu.md#adjustsize)*
+
+**Returns:** *void*
+
+___
+
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
 
 **Returns:** *void*
 
@@ -479,6 +518,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -945,9 +994,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

@@ -32,13 +32,17 @@ const dial = new QDial();
 
 ### Properties
 
+* [_layout](qdial.md#optional-_layout)
 * [_rawInlineStyle](qdial.md#_rawinlinestyle)
 * [actions](qdial.md#actions)
-* [layout](qdial.md#optional-layout)
 * [native](qdial.md#native)
 * [nodeChildren](qdial.md#nodechildren)
 * [nodeParent](qdial.md#optional-nodeparent)
 * [type](qdial.md#type)
+
+### Accessors
+
+* [layout](qdial.md#layout)
 
 ### Methods
 
@@ -47,6 +51,7 @@ const dial = new QDial();
 * [addAction](qdial.md#addaction)
 * [addEventListener](qdial.md#addeventlistener)
 * [adjustSize](qdial.md#adjustsize)
+* [clearFocus](qdial.md#clearfocus)
 * [close](qdial.md#close)
 * [font](qdial.md#font)
 * [geometry](qdial.md#geometry)
@@ -57,6 +62,7 @@ const dial = new QDial();
 * [inherits](qdial.md#inherits)
 * [invertedAppearance](qdial.md#invertedappearance)
 * [invertedControls](qdial.md#invertedcontrols)
+* [isActiveWindow](qdial.md#isactivewindow)
 * [isEnabled](qdial.md#isenabled)
 * [isSliderDown](qdial.md#issliderdown)
 * [isVisible](qdial.md#isvisible)
@@ -92,6 +98,7 @@ const dial = new QDial();
 * [setFixedSize](qdial.md#setfixedsize)
 * [setFlexNodeSizeControlled](qdial.md#setflexnodesizecontrolled)
 * [setFocus](qdial.md#setfocus)
+* [setFocusPolicy](qdial.md#setfocuspolicy)
 * [setFont](qdial.md#setfont)
 * [setGeometry](qdial.md#setgeometry)
 * [setGraphicsEffect](qdial.md#setgraphicseffect)
@@ -167,6 +174,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QDialSignals](../globals.md#qdialsignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -180,14 +195,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QDialSignals](../globals.md#qdialsignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -220,6 +227,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QDialSignals](../globals.md#qdialsignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QDialSignals](../globals.md#qdialsignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QDialSignals](../globals.md#qdialsignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QDialSignals](../globals.md#qdialsignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -320,6 +349,16 @@ ___
 ▸ **adjustSize**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[adjustSize](qmenu.md#adjustsize)*
+
+**Returns:** *void*
+
+___
+
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
 
 **Returns:** *void*
 
@@ -426,6 +465,16 @@ ___
 ▸ **invertedControls**(): *boolean*
 
 *Inherited from [QAbstractSlider](qabstractslider.md).[invertedControls](qabstractslider.md#invertedcontrols)*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -904,9 +953,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

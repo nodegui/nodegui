@@ -8,9 +8,10 @@ import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { checkIfNativeElement } from '../utils/helpers';
+import { QVariant } from '../QtCore/QVariant';
 
 /**
- 
+
 > The QAction class provides an abstract user interface action that can be inserted into widgets.
 
 * **This class is a JS wrapper around Qt's [QAction class](https://doc.qt.io/qt-5/qaction.html)**
@@ -31,8 +32,6 @@ menu.addAction(menuAction);
  */
 export class QAction extends NodeObject<QActionSignals> {
     native: NativeElement;
-    icon?: QIcon;
-    menu?: QMenu;
     constructor();
     constructor(native: NativeElement);
     constructor(parent: NodeWidget<any>);
@@ -55,11 +54,9 @@ export class QAction extends NodeObject<QActionSignals> {
         this.native.setEnabled(enabled);
     }
     setIcon(icon: QIcon): void {
-        this.icon = icon;
         this.native.setIcon(icon.native);
     }
     setMenu(menu: QMenu): void {
-        this.menu = menu;
         this.native.setMenu(menu.native);
     }
     setShortcut(keysequence: QKeySequence): void {
@@ -91,6 +88,12 @@ export class QAction extends NodeObject<QActionSignals> {
     }
     font(): QFont {
         return QFont.fromQVariant(this.property('font'));
+    }
+    setData(value: QVariant): void {
+        this.native.setData(value.native);
+    }
+    data(): QVariant {
+        return new QVariant(this.native.data());
     }
 }
 

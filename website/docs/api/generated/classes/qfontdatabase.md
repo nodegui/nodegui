@@ -26,8 +26,10 @@ sidebar_label: "QFontDatabase"
 
 * [bold](qfontdatabase.md#bold)
 * [families](qfontdatabase.md#families)
+* [isFixedPitch](qfontdatabase.md#isfixedpitch)
 * [italic](qfontdatabase.md#italic)
 * [setNodeParent](qfontdatabase.md#setnodeparent)
+* [styles](qfontdatabase.md#styles)
 * [weight](qfontdatabase.md#weight)
 * [addApplicationFont](qfontdatabase.md#static-addapplicationfont)
 * [removeApplicationFont](qfontdatabase.md#static-removeapplicationfont)
@@ -97,6 +99,21 @@ Name | Type | Default |
 
 ___
 
+###  isFixedPitch
+
+▸ **isFixedPitch**(`family`: string, `style`: string | null): *boolean*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`family` | string | - |
+`style` | string &#124; null | null |
+
+**Returns:** *boolean*
+
+___
+
 ###  italic
 
 ▸ **italic**(`family`: string, `style`: string): *boolean*
@@ -125,6 +142,20 @@ Name | Type |
 `parent?` | [Component](component.md) |
 
 **Returns:** *void*
+
+___
+
+###  styles
+
+▸ **styles**(`family`: string): *string[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`family` | string |
+
+**Returns:** *string[]*
 
 ___
 

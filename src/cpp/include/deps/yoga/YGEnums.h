@@ -90,7 +90,8 @@ YG_ENUM_SEQ_DECL(YGNodeType, YGNodeTypeDefault, YGNodeTypeText)
 YG_ENUM_SEQ_DECL(YGOverflow, YGOverflowVisible, YGOverflowHidden,
                  YGOverflowScroll)
 
-YG_ENUM_SEQ_DECL(YGPositionType, YGPositionTypeRelative, YGPositionTypeAbsolute)
+YG_ENUM_SEQ_DECL(YGPositionType, YGPositionTypeStatic, YGPositionTypeRelative,
+                 YGPositionTypeAbsolute)
 
 YG_ENUM_DECL(YGPrintOptions, YGPrintOptionsLayout = 1, YGPrintOptionsStyle = 2,
              YGPrintOptionsChildren = 4)

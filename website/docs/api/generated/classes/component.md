@@ -21,6 +21,16 @@ Its the root base class in NodeGui world.
 
   ↳ [QVariant](qvariant.md)
 
+  ↳ [QSize](qsize.md)
+
+  ↳ [QRect](qrect.md)
+
+  ↳ [QPoint](qpoint.md)
+
+  ↳ [QRect](qrect.md)
+
+  ↳ [QImage](qimage.md)
+
   ↳ [QPixmap](qpixmap.md)
 
   ↳ [QClipboard](qclipboard.md)
@@ -29,21 +39,13 @@ Its the root base class in NodeGui world.
 
   ↳ [EventWidget](eventwidget.md)
 
-  ↳ [QRect](qrect.md)
-
-  ↳ [QIcon](qicon.md)
+  ↳ [QKeySequence](qkeysequence.md)
 
   ↳ [QCursor](qcursor.md)
-
-  ↳ [QPoint](qpoint.md)
-
-  ↳ [QSize](qsize.md)
 
   ↳ [QFont](qfont.md)
 
   ↳ [QKeySequence](qkeysequence.md)
-
-  ↳ [QColor](qcolor.md)
 
   ↳ [QBrush](qbrush.md)
 
@@ -51,7 +53,9 @@ Its the root base class in NodeGui world.
 
   ↳ [QPicture](qpicture.md)
 
-  ↳ [QFontDatabase](qfontdatabase.md)
+  ↳ [QPicture](qpicture.md)
+
+  ↳ [QFontMetrics](qfontmetrics.md)
 
   ↳ [QUrl](qurl.md)
 

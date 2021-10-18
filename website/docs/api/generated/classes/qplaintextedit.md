@@ -32,15 +32,19 @@ const plainTextEdit = new QPlainTextEdit();
 
 ### Properties
 
+* [_layout](qplaintextedit.md#optional-_layout)
 * [_rawInlineStyle](qplaintextedit.md#_rawinlinestyle)
 * [actions](qplaintextedit.md#actions)
-* [layout](qplaintextedit.md#optional-layout)
 * [native](qplaintextedit.md#native)
 * [nodeChildren](qplaintextedit.md#nodechildren)
 * [nodeParent](qplaintextedit.md#optional-nodeparent)
 * [placeholderText](qplaintextedit.md#optional-placeholdertext)
 * [type](qplaintextedit.md#type)
 * [viewportWidget](qplaintextedit.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](qplaintextedit.md#layout)
 
 ### Methods
 
@@ -50,6 +54,7 @@ const plainTextEdit = new QPlainTextEdit();
 * [addEventListener](qplaintextedit.md#addeventlistener)
 * [adjustSize](qplaintextedit.md#adjustsize)
 * [clear](qplaintextedit.md#clear)
+* [clearFocus](qplaintextedit.md#clearfocus)
 * [close](qplaintextedit.md#close)
 * [font](qplaintextedit.md#font)
 * [frameRect](qplaintextedit.md#framerect)
@@ -63,6 +68,7 @@ const plainTextEdit = new QPlainTextEdit();
 * [hide](qplaintextedit.md#hide)
 * [inherits](qplaintextedit.md#inherits)
 * [insertPlainText](qplaintextedit.md#insertplaintext)
+* [isActiveWindow](qplaintextedit.md#isactivewindow)
 * [isEnabled](qplaintextedit.md#isenabled)
 * [isVisible](qplaintextedit.md#isvisible)
 * [lineWidth](qplaintextedit.md#linewidth)
@@ -73,6 +79,7 @@ const plainTextEdit = new QPlainTextEdit();
 * [mapToGlobal](qplaintextedit.md#maptoglobal)
 * [mapToParent](qplaintextedit.md#maptoparent)
 * [maximumSize](qplaintextedit.md#maximumsize)
+* [maximumViewportSize](qplaintextedit.md#maximumviewportsize)
 * [midLineWidth](qplaintextedit.md#midlinewidth)
 * [minimumSize](qplaintextedit.md#minimumsize)
 * [move](qplaintextedit.md#move)
@@ -93,6 +100,7 @@ const plainTextEdit = new QPlainTextEdit();
 * [setFixedSize](qplaintextedit.md#setfixedsize)
 * [setFlexNodeSizeControlled](qplaintextedit.md#setflexnodesizecontrolled)
 * [setFocus](qplaintextedit.md#setfocus)
+* [setFocusPolicy](qplaintextedit.md#setfocuspolicy)
 * [setFont](qplaintextedit.md#setfont)
 * [setFrameRect](qplaintextedit.md#setframerect)
 * [setFrameShadow](qplaintextedit.md#setframeshadow)
@@ -100,6 +108,7 @@ const plainTextEdit = new QPlainTextEdit();
 * [setFrameStyle](qplaintextedit.md#setframestyle)
 * [setGeometry](qplaintextedit.md#setgeometry)
 * [setGraphicsEffect](qplaintextedit.md#setgraphicseffect)
+* [setHorizontalScrollBar](qplaintextedit.md#sethorizontalscrollbar)
 * [setHorizontalScrollBarPolicy](qplaintextedit.md#sethorizontalscrollbarpolicy)
 * [setInlineStyle](qplaintextedit.md#setinlinestyle)
 * [setLayout](qplaintextedit.md#setlayout)
@@ -116,6 +125,7 @@ const plainTextEdit = new QPlainTextEdit();
 * [setProperty](qplaintextedit.md#setproperty)
 * [setReadOnly](qplaintextedit.md#setreadonly)
 * [setStyleSheet](qplaintextedit.md#setstylesheet)
+* [setVerticalScrollBar](qplaintextedit.md#setverticalscrollbar)
 * [setVerticalScrollBarPolicy](qplaintextedit.md#setverticalscrollbarpolicy)
 * [setViewport](qplaintextedit.md#setviewport)
 * [setWindowFlag](qplaintextedit.md#setwindowflag)
@@ -165,6 +175,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -178,14 +196,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -232,6 +242,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QPlainTextEditSignals](../interfaces/qplaintexteditsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -340,6 +372,16 @@ ___
 ###  clear
 
 ▸ **clear**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
 
 **Returns:** *void*
 
@@ -485,6 +527,16 @@ Name | Type |
 
 ___
 
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
@@ -602,6 +654,16 @@ ___
 ▸ **maximumSize**(): *[QSize](qsize.md)*
 
 *Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  maximumViewportSize
+
+▸ **maximumViewportSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[maximumViewportSize](qabstractscrollarea.md#maximumviewportsize)*
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -912,9 +974,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
@@ -1030,6 +1108,22 @@ ___
 Name | Type |
 ------ | ------ |
 `effect` | [QGraphicsEffect](qgraphicseffect.md)‹any› |
+
+**Returns:** *void*
+
+___
+
+###  setHorizontalScrollBar
+
+▸ **setHorizontalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setHorizontalScrollBar](qabstractscrollarea.md#sethorizontalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 
@@ -1283,6 +1377,22 @@ ___
 Name | Type |
 ------ | ------ |
 `styleSheet` | string |
+
+**Returns:** *void*
+
+___
+
+###  setVerticalScrollBar
+
+▸ **setVerticalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setVerticalScrollBar](qabstractscrollarea.md#setverticalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 

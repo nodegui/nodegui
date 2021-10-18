@@ -32,13 +32,17 @@ const frame = new QFrame();
 
 ### Properties
 
+* [_layout](qframe.md#optional-_layout)
 * [_rawInlineStyle](qframe.md#_rawinlinestyle)
 * [actions](qframe.md#actions)
-* [layout](qframe.md#optional-layout)
 * [native](qframe.md#native)
 * [nodeChildren](qframe.md#nodechildren)
 * [nodeParent](qframe.md#optional-nodeparent)
 * [type](qframe.md#type)
+
+### Accessors
+
+* [layout](qframe.md#layout)
 
 ### Methods
 
@@ -47,6 +51,7 @@ const frame = new QFrame();
 * [addAction](qframe.md#addaction)
 * [addEventListener](qframe.md#addeventlistener)
 * [adjustSize](qframe.md#adjustsize)
+* [clearFocus](qframe.md#clearfocus)
 * [close](qframe.md#close)
 * [font](qframe.md#font)
 * [frameRect](qframe.md#framerect)
@@ -59,6 +64,7 @@ const frame = new QFrame();
 * [hasMouseTracking](qframe.md#hasmousetracking)
 * [hide](qframe.md#hide)
 * [inherits](qframe.md#inherits)
+* [isActiveWindow](qframe.md#isactivewindow)
 * [isEnabled](qframe.md#isenabled)
 * [isVisible](qframe.md#isvisible)
 * [lineWidth](qframe.md#linewidth)
@@ -88,6 +94,7 @@ const frame = new QFrame();
 * [setFixedSize](qframe.md#setfixedsize)
 * [setFlexNodeSizeControlled](qframe.md#setflexnodesizecontrolled)
 * [setFocus](qframe.md#setfocus)
+* [setFocusPolicy](qframe.md#setfocuspolicy)
 * [setFont](qframe.md#setfont)
 * [setFrameRect](qframe.md#setframerect)
 * [setFrameShadow](qframe.md#setframeshadow)
@@ -143,6 +150,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QFrameSignals](../globals.md#qframesignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -156,14 +171,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QFrameSignals](../globals.md#qframesignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -196,6 +203,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QFrameSignals](../globals.md#qframesignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QFrameSignals](../globals.md#qframesignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QFrameSignals](../globals.md#qframesignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QFrameSignals](../globals.md#qframesignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -296,6 +325,16 @@ ___
 ▸ **adjustSize**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[adjustSize](qmenu.md#adjustsize)*
+
+**Returns:** *void*
+
+___
+
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
 
 **Returns:** *void*
 
@@ -422,6 +461,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -846,9 +895,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

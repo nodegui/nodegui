@@ -32,15 +32,19 @@ const progressBar = new QStatusBar();
 
 ### Properties
 
+* [_layout](qstatusbar.md#optional-_layout)
 * [_rawInlineStyle](qstatusbar.md#_rawinlinestyle)
 * [actions](qstatusbar.md#actions)
-* [layout](qstatusbar.md#optional-layout)
 * [native](qstatusbar.md#native)
 * [nodeChildren](qstatusbar.md#nodechildren)
 * [nodeParent](qstatusbar.md#optional-nodeparent)
 * [permanentWidgets](qstatusbar.md#permanentwidgets)
 * [type](qstatusbar.md#type)
 * [widgets](qstatusbar.md#widgets)
+
+### Accessors
+
+* [layout](qstatusbar.md#layout)
 
 ### Methods
 
@@ -51,6 +55,7 @@ const progressBar = new QStatusBar();
 * [addPermanentWidget](qstatusbar.md#addpermanentwidget)
 * [addWidget](qstatusbar.md#addwidget)
 * [adjustSize](qstatusbar.md#adjustsize)
+* [clearFocus](qstatusbar.md#clearfocus)
 * [clearMessage](qstatusbar.md#clearmessage)
 * [close](qstatusbar.md#close)
 * [currentMessage](qstatusbar.md#currentmessage)
@@ -62,6 +67,7 @@ const progressBar = new QStatusBar();
 * [inherits](qstatusbar.md#inherits)
 * [insertPermanentWidget](qstatusbar.md#insertpermanentwidget)
 * [insertWidget](qstatusbar.md#insertwidget)
+* [isActiveWindow](qstatusbar.md#isactivewindow)
 * [isEnabled](qstatusbar.md#isenabled)
 * [isSizeGripEnabled](qstatusbar.md#issizegripenabled)
 * [isVisible](qstatusbar.md#isvisible)
@@ -91,6 +97,7 @@ const progressBar = new QStatusBar();
 * [setFixedSize](qstatusbar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qstatusbar.md#setflexnodesizecontrolled)
 * [setFocus](qstatusbar.md#setfocus)
+* [setFocusPolicy](qstatusbar.md#setfocuspolicy)
 * [setFont](qstatusbar.md#setfont)
 * [setGeometry](qstatusbar.md#setgeometry)
 * [setGraphicsEffect](qstatusbar.md#setgraphicseffect)
@@ -148,6 +155,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -161,14 +176,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -213,6 +220,28 @@ ___
 ###  widgets
 
 • **widgets**: *Set‹[NativeElement](../globals.md#nativeelement)›*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QStatusBarSignals](../interfaces/qstatusbarsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -354,6 +383,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  clearMessage
 
 ▸ **clearMessage**(): *void*
@@ -487,6 +526,16 @@ Name | Type | Default | Description |
 `stretch` | number | 0 | Used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.  |
 
 **Returns:** *number*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
 
 ___
 
@@ -916,9 +965,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

@@ -18,13 +18,17 @@ sidebar_label: "QDesktopWidget"
 
 ### Properties
 
+* [_layout](qdesktopwidget.md#optional-_layout)
 * [_rawInlineStyle](qdesktopwidget.md#_rawinlinestyle)
 * [actions](qdesktopwidget.md#actions)
-* [layout](qdesktopwidget.md#optional-layout)
 * [native](qdesktopwidget.md#native)
 * [nodeChildren](qdesktopwidget.md#nodechildren)
 * [nodeParent](qdesktopwidget.md#optional-nodeparent)
 * [type](qdesktopwidget.md#type)
+
+### Accessors
+
+* [layout](qdesktopwidget.md#layout)
 
 ### Methods
 
@@ -34,6 +38,7 @@ sidebar_label: "QDesktopWidget"
 * [addEventListener](qdesktopwidget.md#addeventlistener)
 * [adjustSize](qdesktopwidget.md#adjustsize)
 * [availableGeometry](qdesktopwidget.md#availablegeometry)
+* [clearFocus](qdesktopwidget.md#clearfocus)
 * [close](qdesktopwidget.md#close)
 * [font](qdesktopwidget.md#font)
 * [geometry](qdesktopwidget.md#geometry)
@@ -41,6 +46,7 @@ sidebar_label: "QDesktopWidget"
 * [hasMouseTracking](qdesktopwidget.md#hasmousetracking)
 * [hide](qdesktopwidget.md#hide)
 * [inherits](qdesktopwidget.md#inherits)
+* [isActiveWindow](qdesktopwidget.md#isactivewindow)
 * [isEnabled](qdesktopwidget.md#isenabled)
 * [isVisible](qdesktopwidget.md#isvisible)
 * [lower](qdesktopwidget.md#lower)
@@ -70,6 +76,7 @@ sidebar_label: "QDesktopWidget"
 * [setFixedSize](qdesktopwidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qdesktopwidget.md#setflexnodesizecontrolled)
 * [setFocus](qdesktopwidget.md#setfocus)
+* [setFocusPolicy](qdesktopwidget.md#setfocuspolicy)
 * [setFont](qdesktopwidget.md#setfont)
 * [setGeometry](qdesktopwidget.md#setgeometry)
 * [setGraphicsEffect](qdesktopwidget.md#setgraphicseffect)
@@ -119,6 +126,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -132,14 +147,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -172,6 +179,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QDesktopWidgetSignals](../globals.md#qdesktopwidgetsignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -291,6 +320,16 @@ Name | Type | Default |
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -362,6 +401,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -788,9 +837,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

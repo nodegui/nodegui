@@ -8,7 +8,7 @@ function addDefaultErrorHandler(native: NativeElement, emitter: EventEmitter): v
 }
 
 /**
- 
+
 > Abstract class that adds event handling support to all widgets.
 
 **This class implements an event emitter and merges it with Qt's event and signal system. It allows us to register and unregister event and signal listener at will from javascript**
@@ -33,18 +33,72 @@ view.addEventListener(WidgetEventTypes.MouseMove, () => {
 });
 ```
  */
-export abstract class EventWidget<Signals extends {}> extends Component {
+export abstract class EventWidget<Signals extends unknown> extends Component {
     private emitter: EventEmitter;
+    private _isEventProcessed = false;
     constructor(native: NativeElement) {
         super();
-        if (native.initNodeEventEmitter) {
-            this.emitter = new EventEmitter();
-            this.emitter.emit = wrapWithActivateUvLoop(this.emitter.emit.bind(this.emitter));
-            native.initNodeEventEmitter(this.emitter.emit);
-        } else {
+        if (native.initNodeEventEmitter == null) {
             throw new Error('initNodeEventEmitter not implemented on native side');
         }
+
+        const preexistingEmitterFunc = native.getNodeEventEmitter();
+        if (preexistingEmitterFunc != null) {
+            this.emitter = preexistingEmitterFunc.emitter;
+            return;
+        }
+
+        this.emitter = new EventEmitter();
+        this.emitter.emit = wrapWithActivateUvLoop(this.emitter.emit.bind(this.emitter));
+        const logExceptions = (event: string | symbol, ...args: any[]): boolean => {
+            // Preserve the value of `_isQObjectEventProcessed` as we dispatch this event
+            // to JS land, and restore it afterwards. This lets us support recursive event
+            // dispatches on the same object.
+            const previousEventProcessed = this._isEventProcessed;
+            this._isEventProcessed = false;
+            try {
+                this.emitter.emit(event, ...args);
+            } catch (e) {
+                console.log(`An exception was thrown while dispatching an event of type '${event.toString()}':`);
+                console.log(e);
+            }
+
+            const returnCode = this._isEventProcessed;
+            this._isEventProcessed = previousEventProcessed;
+            return returnCode;
+        };
+        logExceptions.emitter = this.emitter;
+        native.initNodeEventEmitter(logExceptions);
         addDefaultErrorHandler(native, this.emitter);
+    }
+
+    /**
+     * Get the state of the event processed flag
+     *
+     * See `setEventProcessed()`.
+     *
+     * @returns boolean True if the current event is flagged as processed.
+     */
+    eventProcessed(): boolean {
+        return this._isEventProcessed;
+    }
+
+    /**
+     * Mark the current event as having been processed
+     *
+     * This method is used to indicate that the currently dispatched event
+     * has been processed and no further processing by superclasses is
+     * required. It only makes sense to call this method from an event
+     * handler.
+     *
+     * When set, this flag will cause NodeGui's `QObject::event()` method to
+     * return true and not call the superclass `event()`, effectively preventing
+     * any further processing on this event.
+     *
+     * @param isProcessed true if the event has been processed.
+     */
+    setEventProcessed(isProcessed: boolean): void {
+        this._isEventProcessed = isProcessed;
     }
 
     /**
@@ -52,7 +106,7 @@ export abstract class EventWidget<Signals extends {}> extends Component {
     @param signalType SignalType is a signal from the widgets signals interface.
     @param callback Corresponding callback for the signal as mentioned in the widget's signal interface
     @returns void
-         
+
     For example in the case of QPushButton:
     ```js
     const button = new QPushButton();
@@ -63,10 +117,10 @@ export abstract class EventWidget<Signals extends {}> extends Component {
     addEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;
 
     /**
-    
+
      @param eventType
      @param callback
-    
+
      For example in the case of QPushButton:
      ```js
      const button = new QPushButton();
@@ -75,8 +129,18 @@ export abstract class EventWidget<Signals extends {}> extends Component {
      */
     addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeRawPointer<'QEvent'>) => void): void;
     addEventListener(eventOrSignalType: string, callback: (...payloads: any[]) => void): void {
-        this.native.subscribeToQtEvent(eventOrSignalType);
-        this.emitter.addListener(eventOrSignalType, callback);
+        if (this.native.subscribeToQtEvent(eventOrSignalType)) {
+            this.emitter.addListener(eventOrSignalType, callback);
+        } else {
+            try {
+                throw new Error();
+            } catch (ex) {
+                console.log(
+                    `WARNING: Unable to add event listener '${eventOrSignalType}'. (Perhaps this instance was not created by NodeGui.)`,
+                );
+                console.log(ex);
+            }
+        }
     }
 
     removeEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;

@@ -32,13 +32,17 @@ const spinBox = new QSpinBox();
 
 ### Properties
 
+* [_layout](qspinbox.md#optional-_layout)
 * [_rawInlineStyle](qspinbox.md#_rawinlinestyle)
 * [actions](qspinbox.md#actions)
-* [layout](qspinbox.md#optional-layout)
 * [native](qspinbox.md#native)
 * [nodeChildren](qspinbox.md#nodechildren)
 * [nodeParent](qspinbox.md#optional-nodeparent)
 * [type](qspinbox.md#type)
+
+### Accessors
+
+* [layout](qspinbox.md#layout)
 
 ### Methods
 
@@ -50,6 +54,7 @@ const spinBox = new QSpinBox();
 * [alignment](qspinbox.md#alignment)
 * [buttonSymbols](qspinbox.md#buttonsymbols)
 * [cleanText](qspinbox.md#cleantext)
+* [clearFocus](qspinbox.md#clearfocus)
 * [close](qspinbox.md#close)
 * [correctionMode](qspinbox.md#correctionmode)
 * [displayIntegerBase](qspinbox.md#displayintegerbase)
@@ -62,6 +67,7 @@ const spinBox = new QSpinBox();
 * [hide](qspinbox.md#hide)
 * [inherits](qspinbox.md#inherits)
 * [isAccelerated](qspinbox.md#isaccelerated)
+* [isActiveWindow](qspinbox.md#isactivewindow)
 * [isEnabled](qspinbox.md#isenabled)
 * [isGroupSeparatorShown](qspinbox.md#isgroupseparatorshown)
 * [isReadOnly](qspinbox.md#isreadonly)
@@ -101,6 +107,7 @@ const spinBox = new QSpinBox();
 * [setFixedSize](qspinbox.md#setfixedsize)
 * [setFlexNodeSizeControlled](qspinbox.md#setflexnodesizecontrolled)
 * [setFocus](qspinbox.md#setfocus)
+* [setFocusPolicy](qspinbox.md#setfocuspolicy)
 * [setFont](qspinbox.md#setfont)
 * [setFrame](qspinbox.md#setframe)
 * [setGeometry](qspinbox.md#setgeometry)
@@ -179,6 +186,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QSpinBoxSignals](../interfaces/qspinboxsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -192,14 +207,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QSpinBoxSignals](../interfaces/qspinboxsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -232,6 +239,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QSpinBoxSignals](../interfaces/qspinboxsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QSpinBoxSignals](../interfaces/qspinboxsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QSpinBoxSignals](../interfaces/qspinboxsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QSpinBoxSignals](../interfaces/qspinboxsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -365,6 +394,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -484,6 +523,16 @@ ___
 ▸ **isAccelerated**(): *boolean*
 
 *Inherited from [QAbstractSpinBox](qabstractspinbox.md).[isAccelerated](qabstractspinbox.md#isaccelerated)*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -1030,9 +1079,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

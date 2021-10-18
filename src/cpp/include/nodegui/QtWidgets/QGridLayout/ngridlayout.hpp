@@ -10,5 +10,5 @@ class DLL_EXPORT NGridLayout : public QGridLayout, public EventWidget {
  public:
   EVENTWIDGET_IMPLEMENTATIONS(QGridLayout)
   using QGridLayout::QGridLayout;
-  void connectSignalsToEventEmitter() { QLAYOUT_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QLAYOUT_SIGNALS }
 };

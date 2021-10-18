@@ -27,12 +27,26 @@ title: Debugging in VSCode
         },
         "args": ["./dist/index.js"],
         "outputCapture": "std"
-      }
+      },
+      {
+        "command": "npx webpack --devtool source-map && npx qode --inspect ./dist/index.js",
+        "name": "Debug for Cmd",
+        "request": "launch",
+        "type": "node-terminal"
+      },
+      {
+        "command": "npx webpack --devtool source-map; npx qode --inspect ./dist/index.js",
+        "name": "Debug for PowerShell",
+        "request": "launch",
+        "type": "node-terminal"
+      },
     ]
   }
   ```
 
-  **Tip**: You could also configure a preLaunchTask for building typescript before launching the debugger everytime.
+  **Tip**: 
+    1. You could also configure a preLaunchTask for building typescript before launching the debugger everytime.
+    2. enable source-map feature for debugging.
 
 - **Debugging**
 

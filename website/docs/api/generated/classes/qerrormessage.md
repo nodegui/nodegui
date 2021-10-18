@@ -33,13 +33,17 @@ const errorMessage = new QErrorMessage();
 
 ### Properties
 
+* [_layout](qerrormessage.md#optional-_layout)
 * [_rawInlineStyle](qerrormessage.md#_rawinlinestyle)
 * [actions](qerrormessage.md#actions)
-* [layout](qerrormessage.md#optional-layout)
 * [native](qerrormessage.md#native)
 * [nodeChildren](qerrormessage.md#nodechildren)
 * [nodeParent](qerrormessage.md#optional-nodeparent)
 * [type](qerrormessage.md#type)
+
+### Accessors
+
+* [layout](qerrormessage.md#layout)
 
 ### Methods
 
@@ -48,6 +52,7 @@ const errorMessage = new QErrorMessage();
 * [addAction](qerrormessage.md#addaction)
 * [addEventListener](qerrormessage.md#addeventlistener)
 * [adjustSize](qerrormessage.md#adjustsize)
+* [clearFocus](qerrormessage.md#clearfocus)
 * [close](qerrormessage.md#close)
 * [exec](qerrormessage.md#exec)
 * [font](qerrormessage.md#font)
@@ -56,6 +61,7 @@ const errorMessage = new QErrorMessage();
 * [hasMouseTracking](qerrormessage.md#hasmousetracking)
 * [hide](qerrormessage.md#hide)
 * [inherits](qerrormessage.md#inherits)
+* [isActiveWindow](qerrormessage.md#isactivewindow)
 * [isEnabled](qerrormessage.md#isenabled)
 * [isSizeGripEnabled](qerrormessage.md#issizegripenabled)
 * [isVisible](qerrormessage.md#isvisible)
@@ -87,6 +93,7 @@ const errorMessage = new QErrorMessage();
 * [setFixedSize](qerrormessage.md#setfixedsize)
 * [setFlexNodeSizeControlled](qerrormessage.md#setflexnodesizecontrolled)
 * [setFocus](qerrormessage.md#setfocus)
+* [setFocusPolicy](qerrormessage.md#setfocuspolicy)
 * [setFont](qerrormessage.md#setfont)
 * [setGeometry](qerrormessage.md#setgeometry)
 * [setGraphicsEffect](qerrormessage.md#setgraphicseffect)
@@ -146,6 +153,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -159,14 +174,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -199,6 +206,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QErrorMessageSignals](../globals.md#qerrormessagesignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -304,6 +333,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -385,6 +424,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -829,9 +878,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

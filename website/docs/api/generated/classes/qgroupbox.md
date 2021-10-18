@@ -52,13 +52,17 @@ win.show();
 
 ### Properties
 
+* [_layout](qgroupbox.md#optional-_layout)
 * [_rawInlineStyle](qgroupbox.md#_rawinlinestyle)
 * [actions](qgroupbox.md#actions)
-* [layout](qgroupbox.md#optional-layout)
 * [native](qgroupbox.md#native)
 * [nodeChildren](qgroupbox.md#nodechildren)
 * [nodeParent](qgroupbox.md#optional-nodeparent)
 * [type](qgroupbox.md#type)
+
+### Accessors
+
+* [layout](qgroupbox.md#layout)
 
 ### Methods
 
@@ -68,6 +72,7 @@ win.show();
 * [addEventListener](qgroupbox.md#addeventlistener)
 * [adjustSize](qgroupbox.md#adjustsize)
 * [alignment](qgroupbox.md#alignment)
+* [clearFocus](qgroupbox.md#clearfocus)
 * [close](qgroupbox.md#close)
 * [font](qgroupbox.md#font)
 * [geometry](qgroupbox.md#geometry)
@@ -75,6 +80,7 @@ win.show();
 * [hasMouseTracking](qgroupbox.md#hasmousetracking)
 * [hide](qgroupbox.md#hide)
 * [inherits](qgroupbox.md#inherits)
+* [isActiveWindow](qgroupbox.md#isactivewindow)
 * [isCheckable](qgroupbox.md#ischeckable)
 * [isChecked](qgroupbox.md#ischecked)
 * [isEnabled](qgroupbox.md#isenabled)
@@ -109,6 +115,7 @@ win.show();
 * [setFlat](qgroupbox.md#setflat)
 * [setFlexNodeSizeControlled](qgroupbox.md#setflexnodesizecontrolled)
 * [setFocus](qgroupbox.md#setfocus)
+* [setFocusPolicy](qgroupbox.md#setfocuspolicy)
 * [setFont](qgroupbox.md#setfont)
 * [setGeometry](qgroupbox.md#setgeometry)
 * [setGraphicsEffect](qgroupbox.md#setgraphicseffect)
@@ -166,6 +173,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QGroupBoxSignals](../interfaces/qgroupboxsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -179,14 +194,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QGroupBoxSignals](../interfaces/qgroupboxsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -219,6 +226,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QGroupBoxSignals](../interfaces/qgroupboxsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QGroupBoxSignals](../interfaces/qgroupboxsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QGroupBoxSignals](../interfaces/qgroupboxsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QGroupBoxSignals](../interfaces/qgroupboxsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -332,6 +361,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -403,6 +442,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -887,9 +936,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

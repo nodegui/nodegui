@@ -22,6 +22,7 @@ class DLL_EXPORT QGridLayoutWrap : public Napi::ObjectWrap<QGridLayoutWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
+  Napi::Value addLayout(const Napi::CallbackInfo& info);
   Napi::Value addWidget(const Napi::CallbackInfo& info);
   Napi::Value removeWidget(const Napi::CallbackInfo& info);
   Napi::Value columnStretch(const Napi::CallbackInfo& info);

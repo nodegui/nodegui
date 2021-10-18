@@ -32,13 +32,17 @@ const lineEdit = new QLineEdit();
 
 ### Properties
 
+* [_layout](qlineedit.md#optional-_layout)
 * [_rawInlineStyle](qlineedit.md#_rawinlinestyle)
 * [actions](qlineedit.md#actions)
-* [layout](qlineedit.md#optional-layout)
 * [native](qlineedit.md#native)
 * [nodeChildren](qlineedit.md#nodechildren)
 * [nodeParent](qlineedit.md#optional-nodeparent)
 * [type](qlineedit.md#type)
+
+### Accessors
+
+* [layout](qlineedit.md#layout)
 
 ### Methods
 
@@ -48,6 +52,7 @@ const lineEdit = new QLineEdit();
 * [addEventListener](qlineedit.md#addeventlistener)
 * [adjustSize](qlineedit.md#adjustsize)
 * [clear](qlineedit.md#clear)
+* [clearFocus](qlineedit.md#clearfocus)
 * [close](qlineedit.md#close)
 * [font](qlineedit.md#font)
 * [geometry](qlineedit.md#geometry)
@@ -55,6 +60,7 @@ const lineEdit = new QLineEdit();
 * [hasMouseTracking](qlineedit.md#hasmousetracking)
 * [hide](qlineedit.md#hide)
 * [inherits](qlineedit.md#inherits)
+* [isActiveWindow](qlineedit.md#isactivewindow)
 * [isEnabled](qlineedit.md#isenabled)
 * [isReadOnly](qlineedit.md#isreadonly)
 * [isVisible](qlineedit.md#isvisible)
@@ -85,6 +91,7 @@ const lineEdit = new QLineEdit();
 * [setFixedSize](qlineedit.md#setfixedsize)
 * [setFlexNodeSizeControlled](qlineedit.md#setflexnodesizecontrolled)
 * [setFocus](qlineedit.md#setfocus)
+* [setFocusPolicy](qlineedit.md#setfocuspolicy)
 * [setFont](qlineedit.md#setfont)
 * [setGeometry](qlineedit.md#setgeometry)
 * [setGraphicsEffect](qlineedit.md#setgraphicseffect)
@@ -144,6 +151,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QLineEditSignals](../interfaces/qlineeditsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -157,14 +172,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QLineEditSignals](../interfaces/qlineeditsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -197,6 +204,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QLineEditSignals](../interfaces/qlineeditsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QLineEditSignals](../interfaces/qlineeditsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QLineEditSignals](../interfaces/qlineeditsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QLineEditSignals](../interfaces/qlineeditsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -310,6 +339,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -381,6 +420,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -815,9 +864,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

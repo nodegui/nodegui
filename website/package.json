@@ -3,10 +3,10 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "docusaurus start",
-        "build": "docusaurus build",
-        "swizzle": "docusaurus swizzle",
-        "deploy": "docusaurus deploy"
+        "start": "node --max_old_space_size=6656 node_modules/@docusaurus/core/bin/docusaurus start",
+        "build": "node --max_old_space_size=6656 node_modules/@docusaurus/core/bin/docusaurus build",
+        "swizzle": "node --max_old_space_size=6656 node_modules/@docusaurus/core/bin/docusaurus swizzle",
+        "deploy": "node --max_old_space_size=6656 node_modules/@docusaurus/core/bin/docusaurus deploy"
     },
     "dependencies": {
         "@docusaurus/core": "^2.0.0-alpha.64",

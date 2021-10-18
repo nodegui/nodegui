@@ -39,13 +39,17 @@ if (!err) svg.load(buffer);
 
 ### Properties
 
+* [_layout](qsvgwidget.md#optional-_layout)
 * [_rawInlineStyle](qsvgwidget.md#_rawinlinestyle)
 * [actions](qsvgwidget.md#actions)
-* [layout](qsvgwidget.md#optional-layout)
 * [native](qsvgwidget.md#native)
 * [nodeChildren](qsvgwidget.md#nodechildren)
 * [nodeParent](qsvgwidget.md#optional-nodeparent)
 * [type](qsvgwidget.md#type)
+
+### Accessors
+
+* [layout](qsvgwidget.md#layout)
 
 ### Methods
 
@@ -54,6 +58,7 @@ if (!err) svg.load(buffer);
 * [addAction](qsvgwidget.md#addaction)
 * [addEventListener](qsvgwidget.md#addeventlistener)
 * [adjustSize](qsvgwidget.md#adjustsize)
+* [clearFocus](qsvgwidget.md#clearfocus)
 * [close](qsvgwidget.md#close)
 * [font](qsvgwidget.md#font)
 * [geometry](qsvgwidget.md#geometry)
@@ -61,6 +66,7 @@ if (!err) svg.load(buffer);
 * [hasMouseTracking](qsvgwidget.md#hasmousetracking)
 * [hide](qsvgwidget.md#hide)
 * [inherits](qsvgwidget.md#inherits)
+* [isActiveWindow](qsvgwidget.md#isactivewindow)
 * [isEnabled](qsvgwidget.md#isenabled)
 * [isVisible](qsvgwidget.md#isvisible)
 * [load](qsvgwidget.md#load)
@@ -89,6 +95,7 @@ if (!err) svg.load(buffer);
 * [setFixedSize](qsvgwidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qsvgwidget.md#setflexnodesizecontrolled)
 * [setFocus](qsvgwidget.md#setfocus)
+* [setFocusPolicy](qsvgwidget.md#setfocuspolicy)
 * [setFont](qsvgwidget.md#setfont)
 * [setGeometry](qsvgwidget.md#setgeometry)
 * [setGraphicsEffect](qsvgwidget.md#setgraphicseffect)
@@ -144,6 +151,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -157,14 +172,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -197,6 +204,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -302,6 +331,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -373,6 +412,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -791,9 +840,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

@@ -27,13 +27,16 @@ sidebar_label: "QFont"
 * [capitalization](qfont.md#capitalization)
 * [family](qfont.md#family)
 * [italic](qfont.md#italic)
+* [pixelSize](qfont.md#pixelsize)
 * [pointSize](qfont.md#pointsize)
 * [setCapitalization](qfont.md#setcapitalization)
 * [setFamily](qfont.md#setfamily)
 * [setItalic](qfont.md#setitalic)
 * [setNodeParent](qfont.md#setnodeparent)
+* [setPixelSize](qfont.md#setpixelsize)
 * [setPointSize](qfont.md#setpointsize)
 * [setStretch](qfont.md#setstretch)
+* [setStyleName](qfont.md#setstylename)
 * [setWeight](qfont.md#setweight)
 * [stretch](qfont.md#stretch)
 * [toString](qfont.md#tostring)
@@ -139,6 +142,14 @@ ___
 
 ___
 
+###  pixelSize
+
+▸ **pixelSize**(): *number*
+
+**Returns:** *number*
+
+___
+
 ###  pointSize
 
 ▸ **pointSize**(): *number*
@@ -205,6 +216,20 @@ Name | Type |
 
 ___
 
+###  setPixelSize
+
+▸ **setPixelSize**(`value`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`value` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setPointSize
 
 ▸ **setPointSize**(`value`: number): *void*
@@ -228,6 +253,20 @@ ___
 Name | Type |
 ------ | ------ |
 `factor` | [QFontStretch](../enums/qfontstretch.md) |
+
+**Returns:** *void*
+
+___
+
+###  setStyleName
+
+▸ **setStyleName**(`style`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`style` | string |
 
 **Returns:** *void*
 

@@ -10,13 +10,17 @@ export { QKeySequence } from './lib/QtGui/QKeySequence';
 export { QPicture } from './lib/QtGui/QPicture';
 export { QPixmap, ImageFormats } from './lib/QtGui/QPixmap';
 export { QIcon, QIconMode, QIconState } from './lib/QtGui/QIcon';
+export { QImage, QImageFormat } from './lib/QtGui/QImage';
 export { QFont, QFontCapitalization, QFontStretch, QFontWeight } from './lib/QtGui/QFont';
 export { QMovie, CacheMode, MovieState } from './lib/QtGui/QMovie';
+export { QPalette, ColorGroup, ColorRole } from './lib/QtGui/QPalette';
 export { QCursor } from './lib/QtGui/QCursor';
 export { QTextOptionWrapMode } from './lib/QtGui/QTextOption';
 export { QClipboard, QClipboardMode } from './lib/QtGui/QClipboard';
 export { QStyle, QStylePixelMetric } from './lib/QtGui/QStyle';
 export { QFontDatabase, SystemFont, WritingSystem } from './lib/QtGui/QFontDatabase';
+export { QFontMetrics } from './lib/QtGui/QFontMetrics';
+export { QFontMetricsF } from './lib/QtGui/QFontMetricsF';
 // Events: Maybe a separate module ?
 export { QKeyEvent } from './lib/QtGui/QEvent/QKeyEvent';
 export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
@@ -27,14 +31,23 @@ export { QDrag } from './lib/QtGui/QDrag';
 export { QDropEvent } from './lib/QtGui/QEvent/QDropEvent';
 export { QDragMoveEvent } from './lib/QtGui/QEvent/QDragMoveEvent';
 export { QDragLeaveEvent } from './lib/QtGui/QEvent/QDragLeaveEvent';
+export { QPaintEvent } from './lib/QtGui/QEvent/QPaintEvent';
 export { WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
 export { NodeWidget, QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
 export { NodeLayout, QLayoutSignals, SizeConstraint } from './lib/QtWidgets/QLayout';
 export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
-export { QAbstractSlider, QAbstractSliderSignals } from './lib/QtWidgets/QAbstractSlider';
+export { QAbstractSlider, QAbstractSliderSignals, SliderAction } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';
-export { QAbstractItemView, QAbstractItemViewSignals } from './lib/QtWidgets/QAbstractItemView';
+export {
+    DragDropMode,
+    EditTrigger,
+    QAbstractItemView,
+    QAbstractItemViewSignals,
+    QAbstractItemViewSelectionBehavior,
+    ScrollMode,
+    SelectionMode,
+} from './lib/QtWidgets/QAbstractItemView';
 export {
     QAbstractSpinBox,
     QAbstractSpinBoxSignals,
@@ -48,6 +61,7 @@ export { QCheckBox, QCheckBoxSignals } from './lib/QtWidgets/QCheckBox';
 export { QColorDialog, QColorDialogSignals } from './lib/QtWidgets/QColorDialog';
 export { QDateEdit } from './lib/QtWidgets/QDateEdit';
 export { QDateTimeEdit, NodeDateTimeEdit, QDateTimeEditSignals } from './lib/QtWidgets/QDateTimeEdit';
+export { QDesktopWidget } from './lib/QtWidgets/QDesktopWidget';
 export { QLabel, QLabelSignals } from './lib/QtWidgets/QLabel';
 export { QLCDNumber, QLCDNumberSignals, Mode, SegmentStyle } from './lib/QtWidgets/QLCDNumber';
 export { QDial, QDialSignals } from './lib/QtWidgets/QDial';
@@ -69,6 +83,7 @@ export { QToolButton, QToolButtonSignals, ToolButtonPopupMode } from './lib/QtWi
 export { QSpinBox, QSpinBoxSignals } from './lib/QtWidgets/QSpinBox';
 export { QRadioButton, QRadioButtonSignals } from './lib/QtWidgets/QRadioButton';
 export { QStackedWidget, QStackedWidgetSignals } from './lib/QtWidgets/QStackedWidget';
+export { QHeaderView, QHeaderViewSignals, QHeaderViewResizeMode } from './lib/QtWidgets/QHeaderView';
 export {
     QListView,
     QListViewSignals,
@@ -94,7 +109,7 @@ export { QSlider, QSliderSignals, TickPosition } from './lib/QtWidgets/QSlider';
 export { QTimeEdit } from './lib/QtWidgets/QTimeEdit';
 export { QTreeWidget, QTreeWidgetSignals } from './lib/QtWidgets/QTreeWidget';
 export { QTreeWidgetItem } from './lib/QtWidgets/QTreeWidgetItem';
-export { QPainter, RenderHint } from './lib/QtWidgets/QPainter';
+export { CompositionMode, QPainter, RenderHint } from './lib/QtWidgets/QPainter';
 export { QPainterPath } from './lib/QtWidgets/QPainterPath';
 export { QDialog, QDialogSignals } from './lib/QtWidgets/QDialog';
 export { QMessageBox, QMessageBoxSignals, QMessageBoxIcon, ButtonRole } from './lib/QtWidgets/QMessageBox';
@@ -124,14 +139,21 @@ export {
 } from './lib/QtWidgets/QTextEdit';
 
 export { QTextToSpeech, State } from './lib/QtWidgets/QTextToSpeech';
+export { QStyleFactory } from './lib/QtWidgets/QStyleFactory';
+export { QSizePolicyPolicy, QSizePolicyPolicyFlag } from './lib/QtWidgets/QSizePolicy';
+
 // Core
+export { QAbstractItemModel } from './lib/QtCore/QAbstractItemModel';
+export { QAbstractTableModel } from './lib/QtCore/QAbstractTableModel';
 export { QDate } from './lib/QtCore/QDate';
 export { QDateTime } from './lib/QtCore/QDateTime';
+export { QItemSelectionModel, SelectionFlag } from './lib/QtCore/QItemSelectionModel';
 export { QModelIndex } from './lib/QtCore/QModelIndex';
 export { QMimeData } from './lib/QtCore/QMimeData';
 export { QObject, QObjectSignals, NodeObject } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';
+export { QSizeF } from './lib/QtCore/QSizeF';
 export { QRect } from './lib/QtCore/QRect';
 export { QRectF } from './lib/QtCore/QRectF';
 export { QPoint } from './lib/QtCore/QPoint';
@@ -148,3 +170,4 @@ export { FlexLayout, FlexLayoutSignals } from './lib/core/FlexLayout';
 export { StyleSheet } from './lib/core/Style/StyleSheet';
 export { NativeElement, Component } from './lib/core/Component';
 export { checkIfNativeElement, checkIfNapiExternal } from './lib/utils/helpers';
+export { Margins } from './lib/utils/Margins';

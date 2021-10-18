@@ -24,13 +24,17 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 
 ### Properties
 
+* [_layout](qdialog.md#optional-_layout)
 * [_rawInlineStyle](qdialog.md#_rawinlinestyle)
 * [actions](qdialog.md#actions)
-* [layout](qdialog.md#optional-layout)
 * [native](qdialog.md#native)
 * [nodeChildren](qdialog.md#nodechildren)
 * [nodeParent](qdialog.md#optional-nodeparent)
 * [type](qdialog.md#type)
+
+### Accessors
+
+* [layout](qdialog.md#layout)
 
 ### Methods
 
@@ -39,6 +43,7 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 * [addAction](qdialog.md#addaction)
 * [addEventListener](qdialog.md#addeventlistener)
 * [adjustSize](qdialog.md#adjustsize)
+* [clearFocus](qdialog.md#clearfocus)
 * [close](qdialog.md#close)
 * [exec](qdialog.md#exec)
 * [font](qdialog.md#font)
@@ -47,6 +52,7 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 * [hasMouseTracking](qdialog.md#hasmousetracking)
 * [hide](qdialog.md#hide)
 * [inherits](qdialog.md#inherits)
+* [isActiveWindow](qdialog.md#isactivewindow)
 * [isEnabled](qdialog.md#isenabled)
 * [isSizeGripEnabled](qdialog.md#issizegripenabled)
 * [isVisible](qdialog.md#isvisible)
@@ -78,6 +84,7 @@ It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage,
 * [setFixedSize](qdialog.md#setfixedsize)
 * [setFlexNodeSizeControlled](qdialog.md#setflexnodesizecontrolled)
 * [setFocus](qdialog.md#setfocus)
+* [setFocusPolicy](qdialog.md#setfocuspolicy)
 * [setFont](qdialog.md#setfont)
 * [setGeometry](qdialog.md#setgeometry)
 * [setGraphicsEffect](qdialog.md#setgraphicseffect)
@@ -130,6 +137,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -143,14 +158,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -183,6 +190,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QDialogSignals](../interfaces/qdialogsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -288,6 +317,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -369,6 +408,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -813,9 +862,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

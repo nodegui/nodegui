@@ -14,7 +14,7 @@ class DLL_EXPORT NMessageBox : public QMessageBox, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QMessageBox)
   using QMessageBox::QMessageBox;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QDIALOG_SIGNALS
     QObject::connect(
         this, &QMessageBox::buttonClicked, [=](QAbstractButton* button) {

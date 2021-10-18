@@ -1,3 +1,4 @@
+import { NodeWidget } from '../..';
 import { Component, NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 
@@ -14,6 +15,12 @@ export class QStyle extends Component {
 
     pixelMetric(metric: QStylePixelMetric): number {
         return this.native.pixelMetric(metric);
+    }
+    polish(widget: NodeWidget<any>): void {
+        this.native.polish(widget.native);
+    }
+    unpolish(widget: NodeWidget<any>): void {
+        this.native.unpolish(widget.native);
     }
 }
 

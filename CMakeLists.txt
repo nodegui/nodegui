@@ -48,25 +48,33 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QMouseEvent/qmouseevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QWheelEvent/qwheelevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QNativeGestureEvent/qnativegestureevent_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QPaintEvent/qpaintevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QTabletEvent/qtabletevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QDropEvent/qdropevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QDragMoveEvent/qdragmoveevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QDragLeaveEvent/qdragleaveevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QFontDatabase/qfontdatabase_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QFontMetrics/qfontmetrics_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QFontMetricsF/qfontmetricsf_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QPicture/qpicture_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QPixmap/qpixmap_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QIcon/qicon_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QImage/qimage_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QFont/qfont_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QCursor/qcursor_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QKeySequence/qkeysequence_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QMovie/qmovie_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QPalette/qpalette_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QStyle/qstyle_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QAbstractItemModel/qabstractitemmodel_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QDate/qdate_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QDateTime/qdatetime_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QItemSelectionModel/qitemselectionmodel_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QModelIndex/qmodelindex_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QObject/qobject_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QVariant/qvariant_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QSize/qsize_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QSizeF/qsizef_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QSettings/qsettings_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QRect/qrect_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QRectF/qrectf_wrap.cpp"
@@ -90,6 +98,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QFrame/qframe_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QGraphicsBlurEffect/qgraphicsblureffect_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QGraphicsDropShadowEffect/qgraphicsdropshadoweffect_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QHeaderView/qheaderview_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QListView/qlistview_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QListWidget/qlistwidget_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QListWidgetItem/qlistwidgetitem_wrap.cpp"
@@ -140,7 +149,10 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QSvgWidget/qsvgwidget_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QDesktopWidget/qdesktopwidget_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QTextToSpeech/qtexttospeech_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QStyleFactory/qstylefactory_wrap.cpp"
     # Custom widgets (include them for automoc since they contain Q_OBJECT)
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtCore/QAbstractItemModel/nabstractitemmodel.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtCore/QItemSelectionModel/nitemselectionmodel.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtCore/QObject/nobject.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/core/FlexLayout/flexlayout.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtGui/QMovie/nmovie.hpp"
@@ -204,6 +216,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QSvgWidget/nsvgwidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QDesktopWidget/nqdesktopwidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTextToSpeech/nqtexttospeech.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QHeaderView/nheaderview.hpp"
 )
 
 AddCommonConfig(${CORE_WIDGETS_ADDON})
@@ -221,12 +234,12 @@ target_include_directories(${CORE_WIDGETS_ADDON} PRIVATE
 )
 
 
-if (WIN32) 
+if (WIN32)
     add_definitions(/bigobj)
     target_compile_definitions(${CORE_WIDGETS_ADDON} PRIVATE
         ENABLE_DLL_EXPORT=1
     )
-    target_compile_options(${CORE_WIDGETS_ADDON} PRIVATE "/MP4")
+    target_compile_options(${CORE_WIDGETS_ADDON} PRIVATE "/MP")
 
 endif()
 
@@ -238,4 +251,3 @@ target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
     Qt5::Svg
     Qt5::TextToSpeech
 )
-

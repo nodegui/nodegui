@@ -39,14 +39,18 @@ const listview = new QListView();
 
 ### Properties
 
+* [_layout](nodelistview.md#optional-_layout)
 * [_rawInlineStyle](nodelistview.md#_rawinlinestyle)
 * [actions](nodelistview.md#actions)
-* [layout](nodelistview.md#optional-layout)
 * [native](nodelistview.md#abstract-native)
 * [nodeChildren](nodelistview.md#nodechildren)
 * [nodeParent](nodelistview.md#optional-nodeparent)
 * [type](nodelistview.md#type)
 * [viewportWidget](nodelistview.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](nodelistview.md#layout)
 
 ### Methods
 
@@ -58,6 +62,7 @@ const listview = new QListView();
 * [alternatingRowColors](nodelistview.md#alternatingrowcolors)
 * [autoScrollMargin](nodelistview.md#autoscrollmargin)
 * [batchSize](nodelistview.md#batchsize)
+* [clearFocus](nodelistview.md#clearfocus)
 * [clearPropertyFlags](nodelistview.md#clearpropertyflags)
 * [close](nodelistview.md#close)
 * [currentIndex](nodelistview.md#currentindex)
@@ -83,6 +88,7 @@ const listview = new QListView();
 * [iconSize](nodelistview.md#iconsize)
 * [indexWidget](nodelistview.md#indexwidget)
 * [inherits](nodelistview.md#inherits)
+* [isActiveWindow](nodelistview.md#isactivewindow)
 * [isEnabled](nodelistview.md#isenabled)
 * [isRowHidden](nodelistview.md#isrowhidden)
 * [isSelectionRectVisible](nodelistview.md#isselectionrectvisible)
@@ -97,6 +103,7 @@ const listview = new QListView();
 * [mapToGlobal](nodelistview.md#maptoglobal)
 * [mapToParent](nodelistview.md#maptoparent)
 * [maximumSize](nodelistview.md#maximumsize)
+* [maximumViewportSize](nodelistview.md#maximumviewportsize)
 * [midLineWidth](nodelistview.md#midlinewidth)
 * [minimumSize](nodelistview.md#minimumsize)
 * [modelColumn](nodelistview.md#modelcolumn)
@@ -138,6 +145,7 @@ const listview = new QListView();
 * [setFlexNodeSizeControlled](nodelistview.md#setflexnodesizecontrolled)
 * [setFlow](nodelistview.md#setflow)
 * [setFocus](nodelistview.md#setfocus)
+* [setFocusPolicy](nodelistview.md#setfocuspolicy)
 * [setFont](nodelistview.md#setfont)
 * [setFrameRect](nodelistview.md#setframerect)
 * [setFrameShadow](nodelistview.md#setframeshadow)
@@ -146,6 +154,7 @@ const listview = new QListView();
 * [setGeometry](nodelistview.md#setgeometry)
 * [setGraphicsEffect](nodelistview.md#setgraphicseffect)
 * [setGridSize](nodelistview.md#setgridsize)
+* [setHorizontalScrollBar](nodelistview.md#sethorizontalscrollbar)
 * [setHorizontalScrollBarPolicy](nodelistview.md#sethorizontalscrollbarpolicy)
 * [setHorizontalScrollMode](nodelistview.md#sethorizontalscrollmode)
 * [setIconSize](nodelistview.md#seticonsize)
@@ -174,6 +183,7 @@ const listview = new QListView();
 * [setTabKeyNavigation](nodelistview.md#settabkeynavigation)
 * [setTextElideMode](nodelistview.md#settextelidemode)
 * [setUniformItemSizes](nodelistview.md#setuniformitemsizes)
+* [setVerticalScrollBar](nodelistview.md#setverticalscrollbar)
 * [setVerticalScrollBarPolicy](nodelistview.md#setverticalscrollbarpolicy)
 * [setVerticalScrollMode](nodelistview.md#setverticalscrollmode)
 * [setViewMode](nodelistview.md#setviewmode)
@@ -228,6 +238,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -241,14 +259,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -289,6 +299,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹Signals› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹Signals› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -419,6 +451,16 @@ ___
 ▸ **batchSize**(): *number*
 
 **Returns:** *number*
+
+___
+
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
 
 ___
 
@@ -678,6 +720,16 @@ Name | Type |
 
 ___
 
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
@@ -833,6 +885,16 @@ ___
 ▸ **maximumSize**(): *[QSize](qsize.md)*
 
 *Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  maximumViewportSize
+
+▸ **maximumViewportSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[maximumViewportSize](qabstractscrollarea.md#maximumviewportsize)*
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -1415,9 +1477,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
@@ -1547,6 +1625,22 @@ ___
 Name | Type |
 ------ | ------ |
 `size` | [QSize](qsize.md) |
+
+**Returns:** *void*
+
+___
+
+###  setHorizontalScrollBar
+
+▸ **setHorizontalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setHorizontalScrollBar](qabstractscrollarea.md#sethorizontalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 
@@ -1984,6 +2078,22 @@ ___
 Name | Type |
 ------ | ------ |
 `enable` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setVerticalScrollBar
+
+▸ **setVerticalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setVerticalScrollBar](qabstractscrollarea.md#setverticalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 

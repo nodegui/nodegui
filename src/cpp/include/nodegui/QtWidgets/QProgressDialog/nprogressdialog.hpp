@@ -13,7 +13,7 @@ class DLL_EXPORT NProgressDialog : public QProgressDialog, public NodeWidget {
  public:
   using QProgressDialog::QProgressDialog;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QDIALOG_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QProgressDialog::canceled, [=]() {

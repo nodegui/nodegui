@@ -11,6 +11,7 @@
 class DLL_EXPORT QDragLeaveEventWrap
     : public Napi::ObjectWrap<QDragLeaveEventWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
+  QEVENT_WRAPPED_METHODS_DECLARATION
 
  private:
   QDragLeaveEvent* instance;
@@ -23,6 +24,4 @@ class DLL_EXPORT QDragLeaveEventWrap
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods (none)
-  // Methods from QEvent
-  QEVENT_WRAPPED_METHODS_DECLARATION
 };

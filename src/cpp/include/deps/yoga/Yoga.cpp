@@ -228,9 +228,6 @@ YOGA_EXPORT YGNodeRef YGNodeClone(YGNodeRef oldNode) {
 static YGConfigRef YGConfigClone(const YGConfig& oldConfig) {
   const YGConfigRef config = new YGConfig(oldConfig);
   YGAssert(config != nullptr, "Could not allocate memory for config");
-  if (config == nullptr) {
-    abort();
-  }
   gConfigInstanceCount++;
   return config;
 }
@@ -352,6 +349,12 @@ YOGA_EXPORT void YGNodeInsertChild(const YGNodeRef owner, const YGNodeRef child,
   owner->insertChild(child, index);
   child->setOwner(owner);
   owner->markDirtyAndPropogate();
+}
+
+YOGA_EXPORT void YGNodeSwapChild(const YGNodeRef owner, const YGNodeRef child,
+                                 const uint32_t index) {
+  owner->replaceChild(child, index);
+  child->setOwner(owner);
 }
 
 YOGA_EXPORT void YGNodeRemoveChild(const YGNodeRef owner,
@@ -1018,7 +1021,7 @@ static bool YGIsBaselineLayout(const YGNodeRef node) {
   const uint32_t childCount = YGNodeGetChildCount(node);
   for (uint32_t i = 0; i < childCount; i++) {
     const YGNodeRef child = YGNodeGetChild(node, i);
-    if (child->getStyle().positionType() == YGPositionTypeRelative &&
+    if (child->getStyle().positionType() != YGPositionTypeAbsolute &&
         child->getStyle().alignSelf() == YGAlignBaseline) {
       return true;
     }
@@ -1474,22 +1477,29 @@ static void YGNodeAbsoluteLayoutChild(
 }
 
 static void YGNodeWithMeasureFuncSetMeasuredDimensions(
-    const YGNodeRef node, const float availableWidth,
-    const float availableHeight, const YGMeasureMode widthMeasureMode,
-    const YGMeasureMode heightMeasureMode, const float ownerWidth,
-    const float ownerHeight, LayoutData& layoutMarkerData,
-    void* const layoutContext, const LayoutPassReason reason) {
+    const YGNodeRef node, float availableWidth, float availableHeight,
+    const YGMeasureMode widthMeasureMode, const YGMeasureMode heightMeasureMode,
+    const float ownerWidth, const float ownerHeight,
+    LayoutData& layoutMarkerData, void* const layoutContext,
+    const LayoutPassReason reason) {
   YGAssertWithNode(node, node->hasMeasureFunc(),
                    "Expected node to have custom measure function");
 
+  if (widthMeasureMode == YGMeasureModeUndefined) {
+    availableWidth = YGUndefined;
+  }
+  if (heightMeasureMode == YGMeasureModeUndefined) {
+    availableHeight = YGUndefined;
+  }
+
   const float paddingAndBorderAxisRow =
-      YGNodePaddingAndBorderForAxis(node, YGFlexDirectionRow, availableWidth);
-  const float paddingAndBorderAxisColumn = YGNodePaddingAndBorderForAxis(
-      node, YGFlexDirectionColumn, availableWidth);
+      YGNodePaddingAndBorderForAxis(node, YGFlexDirectionRow, ownerWidth);
+  const float paddingAndBorderAxisColumn =
+      YGNodePaddingAndBorderForAxis(node, YGFlexDirectionColumn, ownerWidth);
   const float marginAxisRow =
-      node->getMarginForAxis(YGFlexDirectionRow, availableWidth).unwrap();
+      node->getMarginForAxis(YGFlexDirectionRow, ownerWidth).unwrap();
   const float marginAxisColumn =
-      node->getMarginForAxis(YGFlexDirectionColumn, availableWidth).unwrap();
+      node->getMarginForAxis(YGFlexDirectionColumn, ownerWidth).unwrap();
 
   // We want to make sure we don't call measure with negative size
   const float innerWidth = YGFloatIsUndefined(availableWidth)
@@ -1641,15 +1651,17 @@ static void YGZeroOutLayoutRecursivly(const YGNodeRef node,
 static float YGNodeCalculateAvailableInnerDim(const YGNodeConstRef node,
                                               YGFlexDirection axis,
                                               float availableDim,
-                                              float ownerDim) {
+                                              float ownerDim,
+                                              float ownerDimForMarginPadding) {
   YGFlexDirection direction =
       YGFlexDirectionIsRow(axis) ? YGFlexDirectionRow : YGFlexDirectionColumn;
   YGDimension dimension =
       YGFlexDirectionIsRow(axis) ? YGDimensionWidth : YGDimensionHeight;
 
-  const float margin = node->getMarginForAxis(direction, ownerDim).unwrap();
+  const float margin =
+      node->getMarginForAxis(direction, ownerDimForMarginPadding).unwrap();
   const float paddingAndBorder =
-      YGNodePaddingAndBorderForAxis(node, direction, ownerDim);
+      YGNodePaddingAndBorderForAxis(node, direction, ownerDimForMarginPadding);
 
   float availableInnerDim = availableDim - margin - paddingAndBorder;
   // Max dimension overrides predefined dimension value; Min dimension in turn
@@ -2043,7 +2055,8 @@ static void YGDistributeFreeSpaceFirstPass(
           // first and second passes.
           deltaFreeSpace += boundMainSize - childFlexBasis;
           collectedFlexItemsValues.totalFlexShrinkScaledFactors -=
-              flexShrinkScaledFactor;
+              (-currentRelativeChild->resolveFlexShrink() *
+               currentRelativeChild->getLayout().computedFlexBasis.unwrap());
         }
       }
     } else if (!YGFloatIsUndefined(
@@ -2172,7 +2185,7 @@ static void YGJustifyMainAxis(
   for (uint32_t i = startOfLineIndex;
        i < collectedFlexItemsValues.endOfLineIndex; i++) {
     const YGNodeRef child = node->getChild(i);
-    if (child->getStyle().positionType() == YGPositionTypeRelative) {
+    if (child->getStyle().positionType() != YGPositionTypeAbsolute) {
       if (child->marginLeadingValue(mainAxis).unit == YGUnitAuto) {
         numberOfAutoMarginsOnCurrentLine++;
       }
@@ -2255,7 +2268,7 @@ static void YGJustifyMainAxis(
       // Now that we placed the element, we need to update the variables.
       // We need to do that only for relative elements. Absolute elements do not
       // take part in that phase.
-      if (childStyle.positionType() == YGPositionTypeRelative) {
+      if (childStyle.positionType() != YGPositionTypeAbsolute) {
         if (child->marginLeadingValue(mainAxis).unit == YGUnitAuto) {
           collectedFlexItemsValues.mainDim +=
               collectedFlexItemsValues.remainingFreeSpace /
@@ -2549,9 +2562,9 @@ static void YGNodelayoutImpl(
   // STEP 2: DETERMINE AVAILABLE SIZE IN MAIN AND CROSS DIRECTIONS
 
   float availableInnerWidth = YGNodeCalculateAvailableInnerDim(
-      node, YGFlexDirectionRow, availableWidth, ownerWidth);
+      node, YGFlexDirectionRow, availableWidth, ownerWidth, ownerWidth);
   float availableInnerHeight = YGNodeCalculateAvailableInnerDim(
-      node, YGFlexDirectionColumn, availableHeight, ownerHeight);
+      node, YGFlexDirectionColumn, availableHeight, ownerHeight, ownerWidth);
 
   float availableInnerMainDim =
       isMainAxisRow ? availableInnerWidth : availableInnerHeight;
@@ -2895,7 +2908,7 @@ static void YGNodelayoutImpl(
         if (child->getStyle().display() == YGDisplayNone) {
           continue;
         }
-        if (child->getStyle().positionType() == YGPositionTypeRelative) {
+        if (child->getStyle().positionType() != YGPositionTypeAbsolute) {
           if (child->getLineIndex() != i) {
             break;
           }
@@ -2937,7 +2950,7 @@ static void YGNodelayoutImpl(
           if (child->getStyle().display() == YGDisplayNone) {
             continue;
           }
-          if (child->getStyle().positionType() == YGPositionTypeRelative) {
+          if (child->getStyle().positionType() != YGPositionTypeAbsolute) {
             switch (YGNodeAlignItem(node, child)) {
               case YGAlignFlexStart: {
                 child->setLayoutPosition(
@@ -3108,7 +3121,7 @@ static void YGNodelayoutImpl(
   if (performLayout && node->getStyle().flexWrap() == YGWrapWrapReverse) {
     for (uint32_t i = 0; i < childCount; i++) {
       const YGNodeRef child = YGNodeGetChild(node, i);
-      if (child->getStyle().positionType() == YGPositionTypeRelative) {
+      if (child->getStyle().positionType() != YGPositionTypeAbsolute) {
         child->setLayoutPosition(
             node->getLayout().measuredDimensions[dim[crossAxis]] -
                 child->getLayout().position[pos[crossAxis]] -
@@ -3210,14 +3223,14 @@ static inline bool YGMeasureModeNewMeasureSizeIsStricterAndStillValid(
          (lastComputedSize <= size || YGFloatsEqual(size, lastComputedSize));
 }
 
-YOGA_EXPORT float YGRoundValueToPixelGrid(const float value,
-                                          const float pointScaleFactor,
+YOGA_EXPORT float YGRoundValueToPixelGrid(const double value,
+                                          const double pointScaleFactor,
                                           const bool forceCeil,
                                           const bool forceFloor) {
   double scaledValue = ((double)value) * pointScaleFactor;
   // We want to calculate `fractial` such that `floor(scaledValue) = scaledValue
   // - fractial`.
-  float fractial = fmodf(scaledValue, 1.0f);
+  double fractial = fmod(scaledValue, 1.0f);
   if (fractial < 0) {
     // This branch is for handling negative numbers for `value`.
     //
@@ -3236,10 +3249,10 @@ YOGA_EXPORT float YGRoundValueToPixelGrid(const float value,
     //   - Finding the `floor`: -2.2 - fractial2 = -2.2 - 0.8 = -3
     ++fractial;
   }
-  if (YGFloatsEqual(fractial, 0)) {
+  if (YGDoubleEqual(fractial, 0)) {
     // First we check if the value is already rounded
     scaledValue = scaledValue - fractial;
-  } else if (YGFloatsEqual(fractial, 1.0f)) {
+  } else if (YGDoubleEqual(fractial, 1.0f)) {
     scaledValue = scaledValue - fractial + 1.0f;
   } else if (forceCeil) {
     // Next we check if we need to use forced rounding
@@ -3250,7 +3263,7 @@ YOGA_EXPORT float YGRoundValueToPixelGrid(const float value,
     // Finally we just round the value
     scaledValue = scaledValue - fractial +
                   (!YGFloatIsUndefined(fractial) &&
-                           (fractial > 0.5f || YGFloatsEqual(fractial, 0.5f))
+                           (fractial > 0.5f || YGDoubleEqual(fractial, 0.5f))
                        ? 1.0f
                        : 0.0f);
   }
@@ -3350,8 +3363,10 @@ bool YGLayoutNodeInternal(
   if (needToVisitNode) {
     // Invalidate the cached results.
     layout->nextCachedMeasurementsIndex = 0;
-    layout->cachedLayout.widthMeasureMode = (YGMeasureMode)-1;
-    layout->cachedLayout.heightMeasureMode = (YGMeasureMode)-1;
+    layout->cachedLayout.availableWidth = -1;
+    layout->cachedLayout.availableHeight = -1;
+    layout->cachedLayout.widthMeasureMode = YGMeasureModeUndefined;
+    layout->cachedLayout.heightMeasureMode = YGMeasureModeUndefined;
     layout->cachedLayout.computedWidth = -1;
     layout->cachedLayout.computedHeight = -1;
   }
@@ -3552,24 +3567,24 @@ YOGA_EXPORT void YGConfigSetPointScaleFactor(const YGConfigRef config,
 }
 
 static void YGRoundToPixelGrid(const YGNodeRef node,
-                               const float pointScaleFactor,
-                               const float absoluteLeft,
-                               const float absoluteTop) {
+                               const double pointScaleFactor,
+                               const double absoluteLeft,
+                               const double absoluteTop) {
   if (pointScaleFactor == 0.0f) {
     return;
   }
 
-  const float nodeLeft = node->getLayout().position[YGEdgeLeft];
-  const float nodeTop = node->getLayout().position[YGEdgeTop];
+  const double nodeLeft = node->getLayout().position[YGEdgeLeft];
+  const double nodeTop = node->getLayout().position[YGEdgeTop];
 
-  const float nodeWidth = node->getLayout().dimensions[YGDimensionWidth];
-  const float nodeHeight = node->getLayout().dimensions[YGDimensionHeight];
+  const double nodeWidth = node->getLayout().dimensions[YGDimensionWidth];
+  const double nodeHeight = node->getLayout().dimensions[YGDimensionHeight];
 
-  const float absoluteNodeLeft = absoluteLeft + nodeLeft;
-  const float absoluteNodeTop = absoluteTop + nodeTop;
+  const double absoluteNodeLeft = absoluteLeft + nodeLeft;
+  const double absoluteNodeTop = absoluteTop + nodeTop;
 
-  const float absoluteNodeRight = absoluteNodeLeft + nodeWidth;
-  const float absoluteNodeBottom = absoluteNodeTop + nodeHeight;
+  const double absoluteNodeRight = absoluteNodeLeft + nodeWidth;
+  const double absoluteNodeBottom = absoluteNodeTop + nodeHeight;
 
   // If a node has a custom measure function we never want to round down its
   // size as this could lead to unwanted text truncation.
@@ -3587,11 +3602,11 @@ static void YGRoundToPixelGrid(const YGNodeRef node,
   // whole number, we don't have any fraction To verify if the result is close
   // to whole number we want to check both floor and ceil numbers
   const bool hasFractionalWidth =
-      !YGFloatsEqual(fmodf(nodeWidth * pointScaleFactor, 1.0), 0) &&
-      !YGFloatsEqual(fmodf(nodeWidth * pointScaleFactor, 1.0), 1.0);
+      !YGDoubleEqual(fmod(nodeWidth * pointScaleFactor, 1.0), 0) &&
+      !YGDoubleEqual(fmod(nodeWidth * pointScaleFactor, 1.0), 1.0);
   const bool hasFractionalHeight =
-      !YGFloatsEqual(fmodf(nodeHeight * pointScaleFactor, 1.0), 0) &&
-      !YGFloatsEqual(fmodf(nodeHeight * pointScaleFactor, 1.0), 1.0);
+      !YGDoubleEqual(fmod(nodeHeight * pointScaleFactor, 1.0), 0) &&
+      !YGDoubleEqual(fmod(nodeHeight * pointScaleFactor, 1.0), 1.0);
 
   node->setLayoutDimension(
       YGRoundValueToPixelGrid(absoluteNodeRight, pointScaleFactor,
@@ -3773,6 +3788,7 @@ YOGA_EXPORT void YGConfigSetShouldDiffLayoutWithoutLegacyStretchBehaviour(
 void YGAssert(const bool condition, const char* message) {
   if (!condition) {
     Log::log(YGNodeRef{nullptr}, YGLogLevelFatal, nullptr, "%s\n", message);
+    throwLogicalErrorWithMessage(message);
   }
 }
 
@@ -3780,6 +3796,7 @@ void YGAssertWithNode(const YGNodeRef node, const bool condition,
                       const char* message) {
   if (!condition) {
     Log::log(node, YGLogLevelFatal, nullptr, "%s\n", message);
+    throwLogicalErrorWithMessage(message);
   }
 }
 
@@ -3787,6 +3804,7 @@ void YGAssertWithConfig(const YGConfigRef config, const bool condition,
                         const char* message) {
   if (!condition) {
     Log::log(config, YGLogLevelFatal, nullptr, "%s\n", message);
+    throwLogicalErrorWithMessage(message);
   }
 }
 

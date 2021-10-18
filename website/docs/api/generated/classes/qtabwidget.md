@@ -36,14 +36,18 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 
 ### Properties
 
+* [_layout](qtabwidget.md#optional-_layout)
 * [_rawInlineStyle](qtabwidget.md#_rawinlinestyle)
 * [actions](qtabwidget.md#actions)
-* [layout](qtabwidget.md#optional-layout)
 * [native](qtabwidget.md#native)
 * [nodeChildren](qtabwidget.md#nodechildren)
 * [nodeParent](qtabwidget.md#optional-nodeparent)
 * [tabs](qtabwidget.md#tabs)
 * [type](qtabwidget.md#type)
+
+### Accessors
+
+* [layout](qtabwidget.md#layout)
 
 ### Methods
 
@@ -53,6 +57,7 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 * [addEventListener](qtabwidget.md#addeventlistener)
 * [addTab](qtabwidget.md#addtab)
 * [adjustSize](qtabwidget.md#adjustsize)
+* [clearFocus](qtabwidget.md#clearfocus)
 * [close](qtabwidget.md#close)
 * [currentIndex](qtabwidget.md#currentindex)
 * [font](qtabwidget.md#font)
@@ -63,6 +68,7 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 * [indexOf](qtabwidget.md#indexof)
 * [inherits](qtabwidget.md#inherits)
 * [insertTab](qtabwidget.md#inserttab)
+* [isActiveWindow](qtabwidget.md#isactivewindow)
 * [isEnabled](qtabwidget.md#isenabled)
 * [isVisible](qtabwidget.md#isvisible)
 * [lower](qtabwidget.md#lower)
@@ -92,6 +98,7 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 * [setFixedSize](qtabwidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtabwidget.md#setflexnodesizecontrolled)
 * [setFocus](qtabwidget.md#setfocus)
+* [setFocusPolicy](qtabwidget.md#setfocuspolicy)
 * [setFont](qtabwidget.md#setfont)
 * [setGeometry](qtabwidget.md#setgeometry)
 * [setGraphicsEffect](qtabwidget.md#setgraphicseffect)
@@ -151,6 +158,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QTabWidgetSignals](../interfaces/qtabwidgetsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -164,14 +179,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QTabWidgetSignals](../interfaces/qtabwidgetsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -210,6 +217,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QTabWidgetSignals](../interfaces/qtabwidgetsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QTabWidgetSignals](../interfaces/qtabwidgetsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QTabWidgetSignals](../interfaces/qtabwidgetsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QTabWidgetSignals](../interfaces/qtabwidgetsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -331,6 +360,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -443,6 +482,16 @@ Name | Type |
 `label` | string |
 
 **Returns:** *number*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
 
 ___
 
@@ -873,9 +922,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

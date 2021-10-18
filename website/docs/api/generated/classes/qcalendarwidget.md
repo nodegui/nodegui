@@ -33,13 +33,17 @@ const calendarWidget = new QCalendarWidget();
 
 ### Properties
 
+* [_layout](qcalendarwidget.md#optional-_layout)
 * [_rawInlineStyle](qcalendarwidget.md#_rawinlinestyle)
 * [actions](qcalendarwidget.md#actions)
-* [layout](qcalendarwidget.md#optional-layout)
 * [native](qcalendarwidget.md#native)
 * [nodeChildren](qcalendarwidget.md#nodechildren)
 * [nodeParent](qcalendarwidget.md#optional-nodeparent)
 * [type](qcalendarwidget.md#type)
+
+### Accessors
+
+* [layout](qcalendarwidget.md#layout)
 
 ### Methods
 
@@ -48,6 +52,7 @@ const calendarWidget = new QCalendarWidget();
 * [addAction](qcalendarwidget.md#addaction)
 * [addEventListener](qcalendarwidget.md#addeventlistener)
 * [adjustSize](qcalendarwidget.md#adjustsize)
+* [clearFocus](qcalendarwidget.md#clearfocus)
 * [close](qcalendarwidget.md#close)
 * [dateEditAcceptDelay](qcalendarwidget.md#dateeditacceptdelay)
 * [firstDayOfWeek](qcalendarwidget.md#firstdayofweek)
@@ -58,6 +63,7 @@ const calendarWidget = new QCalendarWidget();
 * [hide](qcalendarwidget.md#hide)
 * [horizontalHeaderFormat](qcalendarwidget.md#horizontalheaderformat)
 * [inherits](qcalendarwidget.md#inherits)
+* [isActiveWindow](qcalendarwidget.md#isactivewindow)
 * [isDateEditEnabled](qcalendarwidget.md#isdateeditenabled)
 * [isEnabled](qcalendarwidget.md#isenabled)
 * [isGridVisible](qcalendarwidget.md#isgridvisible)
@@ -92,6 +98,7 @@ const calendarWidget = new QCalendarWidget();
 * [setFixedSize](qcalendarwidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](qcalendarwidget.md#setflexnodesizecontrolled)
 * [setFocus](qcalendarwidget.md#setfocus)
+* [setFocusPolicy](qcalendarwidget.md#setfocuspolicy)
 * [setFont](qcalendarwidget.md#setfont)
 * [setGeometry](qcalendarwidget.md#setgeometry)
 * [setGraphicsEffect](qcalendarwidget.md#setgraphicseffect)
@@ -153,6 +160,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QCalendarWidgetSignals](../interfaces/qcalendarwidgetsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -166,14 +181,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QCalendarWidgetSignals](../interfaces/qcalendarwidgetsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -206,6 +213,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QCalendarWidgetSignals](../interfaces/qcalendarwidgetsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QCalendarWidgetSignals](../interfaces/qcalendarwidgetsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QCalendarWidgetSignals](../interfaces/qcalendarwidgetsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QCalendarWidgetSignals](../interfaces/qcalendarwidgetsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -311,6 +340,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -406,6 +445,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -884,9 +933,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

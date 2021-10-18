@@ -247,7 +247,7 @@ Napi::Value QPainterPathWrap::arcTo(const Napi::CallbackInfo& info) {
   qreal width = info[2].As<Napi::Number>().DoubleValue();
   qreal height = info[3].As<Napi::Number>().DoubleValue();
   qreal startAngle = info[4].As<Napi::Number>().DoubleValue();
-  qreal sweepLength = info[4].As<Napi::Number>().DoubleValue();
+  qreal sweepLength = info[5].As<Napi::Number>().DoubleValue();
   this->instance->arcTo(x, y, width, height, startAngle, sweepLength);
 
   return env.Null();

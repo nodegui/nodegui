@@ -5,9 +5,12 @@ import { QClipboard } from './QClipboard';
 import { QStyle } from './QStyle';
 import { QObjectSignals, NodeObject } from '../QtCore/QObject';
 import { QDesktopWidget } from '../QtWidgets/QDesktopWidget';
+import { QPalette } from './QPalette';
+import { StyleSheet } from '../core/Style/StyleSheet';
+import memoizeOne from 'memoize-one';
 
 /**
- 
+
 > QApplication is the root object for the entire application. It manages app level settings.
 
 * **This class is a JS wrapper around Qt's [QApplication class](https://doc.qt.io/qt-5/qapplication.html)**
@@ -36,6 +39,8 @@ export class QApplication extends NodeObject<QApplicationSignals> {
         }
         super(native);
         this.native = native;
+
+        this.setStyleSheet = memoizeOne(this.setStyleSheet);
     }
     static clipboard(): QClipboard {
         return new QClipboard(addon.QApplication.clipboard());
@@ -62,6 +67,16 @@ export class QApplication extends NodeObject<QApplicationSignals> {
     quitOnLastWindowClosed(): boolean {
         return this.native.quitOnLastWindowClosed();
     }
+    palette(): QPalette {
+        return new QPalette(this.native.palette());
+    }
+    setStyleSheet(styleSheet: string): void {
+        const preparedSheet = StyleSheet.create(styleSheet);
+        this.native.setStyleSheet(preparedSheet);
+    }
+    static setStyle(style: QStyle): void {
+        addon.QApplication.setStyle(style.native);
+    }
     static style(): QStyle {
         return new QStyle(addon.QApplication.style());
     }
@@ -70,4 +85,6 @@ export class QApplication extends NodeObject<QApplicationSignals> {
     }
 }
 
-export type QApplicationSignals = QObjectSignals;
+export interface QApplicationSignals extends QObjectSignals {
+    focusWindowChanged: () => void;
+}

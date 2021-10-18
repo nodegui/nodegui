@@ -3,9 +3,10 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { AlignmentFlag } from '../QtEnums';
+import { Margins } from '../utils/Margins';
 
 /**
- 
+
 > A `QScrollArea` provides a scrolling view onto another widget.
 
 * **This class is a JS wrapper around Qt's [QScrollArea class](https://doc.qt.io/qt-5/qscrollarea.html)**
@@ -42,7 +43,6 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
         super(native);
         this.native = native;
         this.setNodeParent(parent);
-        this.setWidgetResizable(true);
     }
     setAlignment(alignment: AlignmentFlag): void {
         this.setProperty('alignment', alignment);
@@ -52,9 +52,6 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     }
     setWidgetResizable(resizable: boolean): void {
         this.setProperty('widgetResizable', resizable);
-        if (this.contentWidget) {
-            this.contentWidget.setFlexNodeSizeControlled(resizable);
-        }
     }
     widgetResizable(): boolean {
         return this.property('widgetResizable').toBool();
@@ -68,7 +65,6 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     setWidget(widget: NodeWidget<any>): void {
         this.contentWidget = widget;
         this.native.setWidget(widget.native);
-        this.contentWidget.setFlexNodeSizeControlled(this.widgetResizable());
     }
     widget(): NodeWidget<any> | null {
         if (this.contentWidget) {
@@ -85,6 +81,21 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
             return contentWidget;
         }
         return null;
+    }
+    setViewportMargins(left: number, top: number, right: number, bottom: number): void {
+        // Technically part of QAbstractScrollArea, but the C++ side has subclass specific
+        // code needed, and setViewportMargins() isn't implemented yet for all of the
+        // subclasses.
+        this.native.setViewportMargins(left, top, right, bottom);
+    }
+    viewportMargins(): Margins {
+        const marginsArray = this.native.viewportMargins();
+        return {
+            left: marginsArray[0],
+            top: marginsArray[1],
+            right: marginsArray[2],
+            bottom: marginsArray[3],
+        };
     }
 }
 

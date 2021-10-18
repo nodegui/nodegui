@@ -34,14 +34,18 @@ global.win = win;
 
 ### Properties
 
+* [_layout](qmenubar.md#optional-_layout)
 * [_menus](qmenubar.md#_menus)
 * [_rawInlineStyle](qmenubar.md#_rawinlinestyle)
 * [actions](qmenubar.md#actions)
-* [layout](qmenubar.md#optional-layout)
 * [native](qmenubar.md#native)
 * [nodeChildren](qmenubar.md#nodechildren)
 * [nodeParent](qmenubar.md#optional-nodeparent)
 * [type](qmenubar.md#type)
+
+### Accessors
+
+* [layout](qmenubar.md#layout)
 
 ### Methods
 
@@ -52,6 +56,7 @@ global.win = win;
 * [addMenu](qmenubar.md#addmenu)
 * [addSeparator](qmenubar.md#addseparator)
 * [adjustSize](qmenubar.md#adjustsize)
+* [clearFocus](qmenubar.md#clearfocus)
 * [close](qmenubar.md#close)
 * [font](qmenubar.md#font)
 * [geometry](qmenubar.md#geometry)
@@ -59,6 +64,7 @@ global.win = win;
 * [hasMouseTracking](qmenubar.md#hasmousetracking)
 * [hide](qmenubar.md#hide)
 * [inherits](qmenubar.md#inherits)
+* [isActiveWindow](qmenubar.md#isactivewindow)
 * [isEnabled](qmenubar.md#isenabled)
 * [isVisible](qmenubar.md#isvisible)
 * [lower](qmenubar.md#lower)
@@ -86,6 +92,7 @@ global.win = win;
 * [setFixedSize](qmenubar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qmenubar.md#setflexnodesizecontrolled)
 * [setFocus](qmenubar.md#setfocus)
+* [setFocusPolicy](qmenubar.md#setfocuspolicy)
 * [setFont](qmenubar.md#setfont)
 * [setGeometry](qmenubar.md#setgeometry)
 * [setGraphicsEffect](qmenubar.md#setgraphicseffect)
@@ -154,6 +161,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _menus
 
 • **_menus**: *Set‹[QMenu](qmenu.md)›*
@@ -173,14 +188,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -213,6 +220,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QMenuBarSignals](../globals.md#qmenubarsignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -340,6 +369,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -411,6 +450,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -815,9 +864,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

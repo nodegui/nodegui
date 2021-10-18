@@ -32,13 +32,17 @@ const slider = new QSlider();
 
 ### Properties
 
+* [_layout](qslider.md#optional-_layout)
 * [_rawInlineStyle](qslider.md#_rawinlinestyle)
 * [actions](qslider.md#actions)
-* [layout](qslider.md#optional-layout)
 * [native](qslider.md#native)
 * [nodeChildren](qslider.md#nodechildren)
 * [nodeParent](qslider.md#optional-nodeparent)
 * [type](qslider.md#type)
+
+### Accessors
+
+* [layout](qslider.md#layout)
 
 ### Methods
 
@@ -47,6 +51,7 @@ const slider = new QSlider();
 * [addAction](qslider.md#addaction)
 * [addEventListener](qslider.md#addeventlistener)
 * [adjustSize](qslider.md#adjustsize)
+* [clearFocus](qslider.md#clearfocus)
 * [close](qslider.md#close)
 * [font](qslider.md#font)
 * [geometry](qslider.md#geometry)
@@ -57,6 +62,7 @@ const slider = new QSlider();
 * [inherits](qslider.md#inherits)
 * [invertedAppearance](qslider.md#invertedappearance)
 * [invertedControls](qslider.md#invertedcontrols)
+* [isActiveWindow](qslider.md#isactivewindow)
 * [isEnabled](qslider.md#isenabled)
 * [isSliderDown](qslider.md#issliderdown)
 * [isVisible](qslider.md#isvisible)
@@ -89,6 +95,7 @@ const slider = new QSlider();
 * [setFixedSize](qslider.md#setfixedsize)
 * [setFlexNodeSizeControlled](qslider.md#setflexnodesizecontrolled)
 * [setFocus](qslider.md#setfocus)
+* [setFocusPolicy](qslider.md#setfocuspolicy)
 * [setFont](qslider.md#setfont)
 * [setGeometry](qslider.md#setgeometry)
 * [setGraphicsEffect](qslider.md#setgraphicseffect)
@@ -164,6 +171,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QSliderSignals](../globals.md#qslidersignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -177,14 +192,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QSliderSignals](../globals.md#qslidersignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -217,6 +224,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QSliderSignals](../globals.md#qslidersignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QSliderSignals](../globals.md#qslidersignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QSliderSignals](../globals.md#qslidersignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QSliderSignals](../globals.md#qslidersignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -317,6 +346,16 @@ ___
 ▸ **adjustSize**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[adjustSize](qmenu.md#adjustsize)*
+
+**Returns:** *void*
+
+___
+
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
 
 **Returns:** *void*
 
@@ -423,6 +462,16 @@ ___
 ▸ **invertedControls**(): *boolean*
 
 *Inherited from [QAbstractSlider](qabstractslider.md).[invertedControls](qabstractslider.md#invertedcontrols)*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -877,9 +926,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

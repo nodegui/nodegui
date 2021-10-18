@@ -4,7 +4,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-// v1.18.0
+
 #pragma once
 
 #include <assert.h>
@@ -58,6 +58,9 @@ WIN_EXPORT void YGNodeReset(YGNodeRef node);
 
 WIN_EXPORT void YGNodeInsertChild(YGNodeRef node, YGNodeRef child,
                                   uint32_t index);
+
+WIN_EXPORT void YGNodeSwapChild(YGNodeRef node, YGNodeRef child,
+                                uint32_t index);
 
 WIN_EXPORT void YGNodeRemoveChild(YGNodeRef node, YGNodeRef child);
 WIN_EXPORT void YGNodeRemoveAllChildren(YGNodeRef node);
@@ -298,7 +301,7 @@ WIN_EXPORT YGConfigRef YGConfigGetDefault(void);
 WIN_EXPORT void YGConfigSetContext(YGConfigRef config, void* context);
 WIN_EXPORT void* YGConfigGetContext(YGConfigRef config);
 
-WIN_EXPORT float YGRoundValueToPixelGrid(float value, float pointScaleFactor,
+WIN_EXPORT float YGRoundValueToPixelGrid(double value, double pointScaleFactor,
                                          bool forceCeil, bool forceFloor);
 
 YG_EXTERN_C_END

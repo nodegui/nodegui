@@ -3,9 +3,10 @@ import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { SortOrder, PenStyle } from '../QtEnums';
 import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
+import { QHeaderView } from './QHeaderView';
 
 /**
- 
+
 > The QTableView class provides a default model/view implementation of a table view.
 
 * **This class is a JS wrapper around Qt's [QTableView class](https://doc.qt.io/qt-5/qtableview.html)**
@@ -20,84 +21,121 @@ const tableview = new QTableView();
 ```
  */
 export abstract class NodeTableView<Signals extends QTableViewSignals> extends QAbstractItemView<Signals> {
-    setCornerButtonEnabled(enable: boolean): void {
-        this.setProperty('cornerButtonEnabled', enable);
-    }
-    isCornerButtonEnabled(): boolean {
-        return this.property('cornerButtonEnabled').toBool();
-    }
-    setGridStyle(style: PenStyle): void {
-        this.setProperty('gridStyle', style);
-    }
-    gridStyle(): PenStyle {
-        return this.property('gridStyle').toInt();
-    }
-    setShowGrid(show: boolean): void {
-        this.setProperty('showGrid', show);
-    }
-    showGrid(): boolean {
-        return this.property('showGrid').toBool();
-    }
-    setSortingEnabled(enable: boolean): void {
-        this.setProperty('sortingEnabled', enable);
-    }
-    isSortingEnabled(): boolean {
-        return this.property('sortingEnabled').toBool();
-    }
-    setWordWrap(on: boolean): void {
-        this.setProperty('wordWrap', on);
-    }
-    wordWrap(): boolean {
-        return this.property('wordWrap').toBool();
-    }
+    // *** Public Functions ***
     clearSpans(): void {
         this.native.clearSpans();
     }
+
     columnAt(x: number): number {
         return this.native.columnAt(x);
     }
+
     columnSpan(row: number, column: number): number {
         return this.native.columnSpan(row, column);
     }
+
     columnViewportPosition(column: number): number {
         return this.native.columnViewportPosition(column);
     }
-    setColumnWidth(column: number, width: number): void {
-        this.native.setColumnWidth(column, width);
-    }
+
     columnWidth(column: number): number {
         return this.native.columnWidth(column);
     }
-    setColumnHidden(column: number, hide: boolean): void {
-        this.native.setColumnHidden(column, hide);
+
+    gridStyle(): PenStyle {
+        return this.property('gridStyle').toInt();
     }
+
+    horizontalHeader(): QHeaderView {
+        return new QHeaderView(this.native.horizontalHeader());
+    }
+
     isColumnHidden(column: number): boolean {
         return this.native.isColumnHidden(column);
     }
-    setRowHidden(row: number, hide: boolean): void {
-        this.native.setRowHidden(row, hide);
+
+    isCornerButtonEnabled(): boolean {
+        return this.property('cornerButtonEnabled').toBool();
     }
+
     isRowHidden(row: number): boolean {
         return this.native.isRowHidden(row);
     }
+
+    isSortingEnabled(): boolean {
+        return this.property('sortingEnabled').toBool();
+    }
+
     rowAt(y: number): number {
         return this.native.rowAt(y);
     }
-    setRowHeight(row: number, height: number): void {
-        this.native.setRowHeight(row, height);
-    }
+
     rowHeight(row: number): number {
         return this.native.rowHeight(row);
     }
+
     rowSpan(row: number, column: number): number {
         return this.native.rowSpan(row, column);
     }
+
     rowViewportPosition(row: number): number {
         return this.native.rowViewportPosition(row);
     }
+
+    setColumnHidden(column: number, hide: boolean): void {
+        this.native.setColumnHidden(column, hide);
+    }
+
+    setColumnWidth(column: number, width: number): void {
+        this.native.setColumnWidth(column, width);
+    }
+
+    setCornerButtonEnabled(enable: boolean): void {
+        this.setProperty('cornerButtonEnabled', enable);
+    }
+
+    setGridStyle(style: PenStyle): void {
+        this.setProperty('gridStyle', style);
+    }
+
+    // TODO: void 	setHorizontalHeader(QHeaderView *header)
+
+    setRowHeight(row: number, height: number): void {
+        this.native.setRowHeight(row, height);
+    }
+
+    setRowHidden(row: number, hide: boolean): void {
+        this.native.setRowHidden(row, hide);
+    }
+
+    setSortingEnabled(enable: boolean): void {
+        this.setProperty('sortingEnabled', enable);
+    }
+
     setSpan(row: number, column: number, rowSpanCount: number, columnSpanCount: number): void {
         this.native.setSpan(row, column, rowSpanCount, columnSpanCount);
     }
+
+    // TODO: void 	setVerticalHeader(QHeaderView *header)
+
+    setWordWrap(on: boolean): void {
+        this.setProperty('wordWrap', on);
+    }
+
+    showGrid(): boolean {
+        return this.property('showGrid').toBool();
+    }
+
+    verticalHeader(): QHeaderView {
+        return new QHeaderView(this.native.verticalHeader());
+    }
+
+    wordWrap(): boolean {
+        return this.property('wordWrap').toBool();
+    }
+
+    // *** Public Slots ***
+
     hideColumn(column: number): void {
         this.native.hideColumn(column);
     }
@@ -122,12 +160,19 @@ export abstract class NodeTableView<Signals extends QTableViewSignals> extends Q
     selectRow(row: number): void {
         this.native.selectRow(row);
     }
+
+    setShowGrid(show: boolean): void {
+        this.setProperty('showGrid', show);
+    }
+
     showColumn(column: number): void {
         this.native.showColumn(column);
     }
+
     showRow(row: number): void {
         this.native.showRow(row);
     }
+
     sortByColumn(column: number, order: SortOrder): void {
         this.native.sortByColumn(column, order);
     }

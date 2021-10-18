@@ -11,11 +11,15 @@ Napi::Object QFontWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QFont";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("setCapitalization", &QFontWrap::setCapitalization),
+      {InstanceMethod("setBold", &QFontWrap::setBold),
+       InstanceMethod("bold", &QFontWrap::bold),
+       InstanceMethod("setCapitalization", &QFontWrap::setCapitalization),
        InstanceMethod("capitalization", &QFontWrap::capitalization),
        InstanceMethod("setFamily", &QFontWrap::setFamily),
        InstanceMethod("family", &QFontWrap::family),
+       InstanceMethod("setPixelSize", &QFontWrap::setPixelSize),
        InstanceMethod("setPointSize", &QFontWrap::setPointSize),
+       InstanceMethod("pixelSize", &QFontWrap::pixelSize),
        InstanceMethod("pointSize", &QFontWrap::pointSize),
        InstanceMethod("setStretch", &QFontWrap::setStretch),
        InstanceMethod("stretch", &QFontWrap::stretch),
@@ -23,6 +27,7 @@ Napi::Object QFontWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("weight", &QFontWrap::weight),
        InstanceMethod("setItalic", &QFontWrap::setItalic),
        InstanceMethod("italic", &QFontWrap::italic),
+       InstanceMethod("setStyleName", &QFontWrap::setStyleName),
        InstanceMethod("toString", &QFontWrap::toString),
        StaticMethod("fromQVariant", &StaticQFontWrapMethods::fromQVariant),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QFontWrap)});
@@ -59,6 +64,20 @@ QFontWrap::~QFontWrap() { this->instance.reset(); }
 
 QFont* QFontWrap::getInternalInstance() { return this->instance.get(); }
 
+Napi::Value QFontWrap::setBold(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int enable = info[0].As<Napi::Boolean>().Value();
+  this->instance->setBold(enable);
+  return env.Null();
+}
+
+Napi::Value QFontWrap::bold(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return Napi::Value::From(env, this->instance->bold());
+}
+
 Napi::Value QFontWrap::setCapitalization(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -91,12 +110,26 @@ Napi::Value QFontWrap::family(const Napi::CallbackInfo& info) {
   return Napi::String::New(env, family.toStdString());
 }
 
+Napi::Value QFontWrap::setPixelSize(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int pointSize = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setPixelSize(pointSize);
+  return env.Null();
+}
+
 Napi::Value QFontWrap::setPointSize(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   int pointSize = info[0].As<Napi::Number>().Int32Value();
   this->instance->setPointSize(pointSize);
   return env.Null();
+}
+
+Napi::Value QFontWrap::pixelSize(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  return Napi::Value::From(env, this->instance->pixelSize());
 }
 
 Napi::Value QFontWrap::pointSize(const Napi::CallbackInfo& info) {
@@ -145,6 +178,14 @@ Napi::Value QFontWrap::italic(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->italic());
+}
+
+Napi::Value QFontWrap::setStyleName(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  std::string styleName = info[0].As<Napi::String>().Utf8Value();
+  this->instance->setStyleName(QString::fromStdString(styleName.c_str()));
+  return env.Null();
 }
 
 Napi::Value QFontWrap::toString(const Napi::CallbackInfo& info) {

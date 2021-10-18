@@ -44,13 +44,17 @@ console.log('currentIndexChanged: ' + index);
 
 ### Properties
 
+* [_layout](qcombobox.md#optional-_layout)
 * [_rawInlineStyle](qcombobox.md#_rawinlinestyle)
 * [actions](qcombobox.md#actions)
-* [layout](qcombobox.md#optional-layout)
 * [native](qcombobox.md#native)
 * [nodeChildren](qcombobox.md#nodechildren)
 * [nodeParent](qcombobox.md#optional-nodeparent)
 * [type](qcombobox.md#type)
+
+### Accessors
+
+* [layout](qcombobox.md#layout)
 
 ### Methods
 
@@ -62,6 +66,7 @@ console.log('currentIndexChanged: ' + index);
 * [addItems](qcombobox.md#additems)
 * [adjustSize](qcombobox.md#adjustsize)
 * [clear](qcombobox.md#clear)
+* [clearFocus](qcombobox.md#clearfocus)
 * [close](qcombobox.md#close)
 * [currentIndex](qcombobox.md#currentindex)
 * [currentText](qcombobox.md#currenttext)
@@ -74,6 +79,7 @@ console.log('currentIndexChanged: ' + index);
 * [insertItem](qcombobox.md#insertitem)
 * [insertItems](qcombobox.md#insertitems)
 * [insertSeparator](qcombobox.md#insertseparator)
+* [isActiveWindow](qcombobox.md#isactivewindow)
 * [isEditable](qcombobox.md#iseditable)
 * [isEnabled](qcombobox.md#isenabled)
 * [isVisible](qcombobox.md#isvisible)
@@ -110,6 +116,7 @@ console.log('currentIndexChanged: ' + index);
 * [setFixedSize](qcombobox.md#setfixedsize)
 * [setFlexNodeSizeControlled](qcombobox.md#setflexnodesizecontrolled)
 * [setFocus](qcombobox.md#setfocus)
+* [setFocusPolicy](qcombobox.md#setfocuspolicy)
 * [setFont](qcombobox.md#setfont)
 * [setGeometry](qcombobox.md#setgeometry)
 * [setGraphicsEffect](qcombobox.md#setgraphicseffect)
@@ -169,6 +176,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -182,14 +197,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -222,6 +229,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QComboBoxSignals](../interfaces/qcomboboxsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -365,6 +394,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -500,6 +539,16 @@ Name | Type |
 `index` | number |
 
 **Returns:** *void*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
 
 ___
 
@@ -1016,9 +1065,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

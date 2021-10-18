@@ -1,6 +1,7 @@
 #include "QtWidgets/QTableWidget/qtablewidget_wrap.h"
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QRect/qrect_wrap.h"
 #include "QtWidgets/QTableWidgetItem/qtablewidgetitem_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
@@ -60,6 +61,28 @@ Napi::Object QTableWidgetWrap::init(Napi::Env env, Napi::Object exports) {
                       &QTableWidgetWrap::setSortingEnabled),
        InstanceMethod("isSortingEnabled", &QTableWidgetWrap::isSortingEnabled),
 
+       InstanceMethod("column", &QTableWidgetWrap::column),
+       InstanceMethod("currentColumn", &QTableWidgetWrap::currentColumn),
+       InstanceMethod("currentItem", &QTableWidgetWrap::currentItem),
+       InstanceMethod("currentRow", &QTableWidgetWrap::currentRow),
+       InstanceMethod("findItems", &QTableWidgetWrap::findItems),
+       InstanceMethod("isPersistentEditorOpen",
+                      &QTableWidgetWrap::isPersistentEditorOpen),
+       InstanceMethod("item", &QTableWidgetWrap::item),
+       InstanceMethod("itemAt", &QTableWidgetWrap::itemAt),
+       InstanceMethod("openPersistentEditor",
+                      &QTableWidgetWrap::openPersistentEditor),
+       InstanceMethod("removeCellWidget", &QTableWidgetWrap::removeCellWidget),
+       InstanceMethod("row", &QTableWidgetWrap::row),
+       InstanceMethod("cellWidget", &QTableWidgetWrap::cellWidget),
+       InstanceMethod("setCurrentCell", &QTableWidgetWrap::setCurrentCell),
+       InstanceMethod("setCurrentItem", &QTableWidgetWrap::setCurrentItem),
+       InstanceMethod("sortItems", &QTableWidgetWrap::sortItems),
+       InstanceMethod("takeItem", &QTableWidgetWrap::takeItem),
+       InstanceMethod("visualColumn", &QTableWidgetWrap::visualColumn),
+       InstanceMethod("visualItemRect", &QTableWidgetWrap::visualItemRect),
+       InstanceMethod("visualRow", &QTableWidgetWrap::visualRow),
+
        QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QTableWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -105,6 +128,7 @@ QTableWidgetWrap::QTableWidgetWrap(const Napi::CallbackInfo& info)
       this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
       false);
 }
+
 Napi::Value QTableWidgetWrap::selectedRanges(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -131,6 +155,7 @@ Napi::Value QTableWidgetWrap::selectedRanges(const Napi::CallbackInfo& info) {
   return napiRange;
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::closePersistentEditor(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -169,6 +194,7 @@ Napi::Value QTableWidgetWrap::setCellWidget(const Napi::CallbackInfo& info) {
   this->instance->setCellWidget(row, column, widgetWrap->getInternalInstance());
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::setItem(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -182,6 +208,7 @@ Napi::Value QTableWidgetWrap::setItem(const Napi::CallbackInfo& info) {
   this->instance->setItem(row, column, itemWrap->getInternalInstance());
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::setHorizontalHeaderItem(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -213,6 +240,7 @@ Napi::Value QTableWidgetWrap::setHorizontalHeaderLabels(
   this->instance->setHorizontalHeaderLabels(labels);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::setVerticalHeaderItem(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -250,12 +278,14 @@ Napi::Value QTableWidgetWrap::clear(const Napi::CallbackInfo& info) {
   this->instance->clear();
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::clearContents(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   this->instance->clearContents();
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::insertColumn(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -264,6 +294,7 @@ Napi::Value QTableWidgetWrap::insertColumn(const Napi::CallbackInfo& info) {
   this->instance->insertColumn(column);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::removeColumn(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -272,6 +303,7 @@ Napi::Value QTableWidgetWrap::removeColumn(const Napi::CallbackInfo& info) {
   this->instance->removeColumn(column);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::insertRow(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -280,6 +312,7 @@ Napi::Value QTableWidgetWrap::insertRow(const Napi::CallbackInfo& info) {
   this->instance->insertRow(row);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::removeRow(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -288,6 +321,7 @@ Napi::Value QTableWidgetWrap::removeRow(const Napi::CallbackInfo& info) {
   this->instance->removeRow(row);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::scrollToItem(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -302,6 +336,225 @@ Napi::Value QTableWidgetWrap::scrollToItem(const Napi::CallbackInfo& info) {
   this->instance->scrollToItem(itemWrap->getInternalInstance(), hint);
   return env.Null();
 }
+
+Napi::Value QTableWidgetWrap::cellWidget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int row = info[0].As<Napi::Number>().Int32Value();
+  int column = info[1].As<Napi::Number>().Int32Value();
+
+  QWidget* widget = this->instance->cellWidget(row, column);
+  auto instance =
+      QWidgetWrap::constructor.New({Napi::External<QWidget>::New(env, widget),
+                                    Napi::Boolean::New(env, true)});
+  return instance;
+}
+
+Napi::Value QTableWidgetWrap::column(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object itemObject = info[0].As<Napi::Object>();
+  QTableWidgetItemWrap* itemWrap =
+      Napi::ObjectWrap<QTableWidgetItemWrap>::Unwrap(itemObject);
+  int column = this->instance->column(itemWrap->getInternalInstance());
+  return Napi::Number::New(env, column);
+}
+
+Napi::Value QTableWidgetWrap::currentColumn(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int column = this->instance->currentColumn();
+  return Napi::Number::New(env, column);
+}
+
+Napi::Value QTableWidgetWrap::currentItem(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QTableWidgetItem* item = this->instance->currentItem();
+  auto instance = QTableWidgetItemWrap::constructor.New(
+      {Napi::External<QTableWidgetItem>::New(env, item),
+       Napi::Boolean::New(env, true)});
+  return instance;
+}
+
+Napi::Value QTableWidgetWrap::currentRow(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int row = this->instance->currentRow();
+  return Napi::Number::New(env, row);
+}
+
+Napi::Value QTableWidgetWrap::findItems(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  std::string napiText = info[0].As<Napi::String>().Utf8Value();
+  QString text = QString::fromUtf8(napiText.c_str());
+  int flags = info[1].As<Napi::Number>().Int32Value();
+  QList<QTableWidgetItem*> items =
+      this->instance->findItems(text, static_cast<Qt::MatchFlags>(flags));
+  Napi::Array napiItems = Napi::Array::New(env, items.size());
+  for (int i = 0; i < items.size(); i++) {
+    QTableWidgetItem* item = items[i];
+    // disable deletion of the native instance for these by passing true
+    auto instance = QTableWidgetItemWrap::constructor.New(
+        {Napi::External<QTableWidgetItem>::New(env, item),
+         Napi::Boolean::New(env, true)});
+    napiItems[i] = instance;
+  }
+  return napiItems;
+}
+
+Napi::Value QTableWidgetWrap::isPersistentEditorOpen(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object itemObject = info[0].As<Napi::Object>();
+  QTableWidgetItemWrap* itemWrap =
+      Napi::ObjectWrap<QTableWidgetItemWrap>::Unwrap(itemObject);
+  bool open =
+      this->instance->isPersistentEditorOpen(itemWrap->getInternalInstance());
+  return Napi::Boolean::New(env, open);
+}
+
+Napi::Value QTableWidgetWrap::item(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int row = info[0].As<Napi::Number>().Int32Value();
+  int column = info[1].As<Napi::Number>().Int32Value();
+
+  QTableWidgetItem* item = this->instance->item(row, column);
+  auto instance = QTableWidgetItemWrap::constructor.New(
+      {Napi::External<QTableWidgetItem>::New(env, item),
+       Napi::Boolean::New(env, true)});
+  return instance;
+}
+
+Napi::Value QTableWidgetWrap::itemAt(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  QTableWidgetItem* item = this->instance->itemAt(x, y);
+  auto instance = QTableWidgetItemWrap::constructor.New(
+      {Napi::External<QTableWidgetItem>::New(env, item),
+       Napi::Boolean::New(env, true)});
+  return instance;
+}
+
+Napi::Value QTableWidgetWrap::openPersistentEditor(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object itemObject = info[0].As<Napi::Object>();
+  QTableWidgetItemWrap* itemWrap =
+      Napi::ObjectWrap<QTableWidgetItemWrap>::Unwrap(itemObject);
+  this->instance->openPersistentEditor(itemWrap->getInternalInstance());
+  return env.Null();
+}
+
+Napi::Value QTableWidgetWrap::removeCellWidget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int row = info[0].As<Napi::Number>().Int32Value();
+  int column = info[1].As<Napi::Number>().Int32Value();
+  this->instance->removeCellWidget(row, column);
+  return env.Null();
+}
+
+Napi::Value QTableWidgetWrap::row(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object itemObject = info[0].As<Napi::Object>();
+  QTableWidgetItemWrap* itemWrap =
+      Napi::ObjectWrap<QTableWidgetItemWrap>::Unwrap(itemObject);
+  int row = this->instance->row(itemWrap->getInternalInstance());
+  return Napi::Number::New(env, row);
+}
+
+Napi::Value QTableWidgetWrap::setCurrentCell(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int row = info[0].As<Napi::Number>().Int32Value();
+  int column = info[1].As<Napi::Number>().Int32Value();
+  this->instance->setCurrentCell(row, column);
+  return env.Null();
+}
+
+Napi::Value QTableWidgetWrap::setCurrentItem(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object itemObject = info[0].As<Napi::Object>();
+  QTableWidgetItemWrap* itemWrap =
+      Napi::ObjectWrap<QTableWidgetItemWrap>::Unwrap(itemObject);
+  this->instance->setCurrentItem(itemWrap->getInternalInstance());
+  return env.Null();
+}
+
+Napi::Value QTableWidgetWrap::sortItems(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int column = info[0].As<Napi::Number>().Int32Value();
+  int order = info[1].As<Napi::Number>().Int32Value();
+  this->instance->sortItems(column, static_cast<Qt::SortOrder>(order));
+  return env.Null();
+}
+
+Napi::Value QTableWidgetWrap::takeItem(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int row = info[0].As<Napi::Number>().Int32Value();
+  int column = info[1].As<Napi::Number>().Int32Value();
+  this->instance->takeItem(row, column);
+  return env.Null();
+}
+
+Napi::Value QTableWidgetWrap::visualColumn(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int logicalColumn = info[0].As<Napi::Number>().Int32Value();
+  int column = this->instance->visualColumn(logicalColumn);
+  return Napi::Number::New(env, column);
+}
+
+Napi::Value QTableWidgetWrap::visualItemRect(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object itemObject = info[0].As<Napi::Object>();
+  QTableWidgetItemWrap* itemWrap =
+      Napi::ObjectWrap<QTableWidgetItemWrap>::Unwrap(itemObject);
+  QRect rect = this->instance->visualItemRect(itemWrap->getInternalInstance());
+  auto instance = QRectWrap::constructor.New(
+      {Napi::External<QRect>::New(env, new QRect(rect))});
+  return instance;
+}
+
+Napi::Value QTableWidgetWrap::visualRow(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  int logicalRow = info[0].As<Napi::Number>().Int32Value();
+  int row = this->instance->visualRow(logicalRow);
+  return Napi::Number::New(env, row);
+}
+
 // FROM TABLEVIEW
 
 Napi::Value QTableWidgetWrap::hideColumn(const Napi::CallbackInfo& info) {
@@ -312,6 +565,7 @@ Napi::Value QTableWidgetWrap::hideColumn(const Napi::CallbackInfo& info) {
   this->instance->hideColumn(column);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::hideRow(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -330,6 +584,7 @@ Napi::Value QTableWidgetWrap::resizeColumnToContents(
   this->instance->resizeColumnToContents(column);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::resizeColumnsToContents(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -338,6 +593,7 @@ Napi::Value QTableWidgetWrap::resizeColumnsToContents(
   this->instance->resizeColumnsToContents();
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::resizeRowToContents(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -347,6 +603,7 @@ Napi::Value QTableWidgetWrap::resizeRowToContents(
   this->instance->resizeRowToContents(row);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::resizeRowsToContents(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -364,6 +621,7 @@ Napi::Value QTableWidgetWrap::selectColumn(const Napi::CallbackInfo& info) {
   this->instance->selectColumn(column);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::selectRow(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -381,6 +639,7 @@ Napi::Value QTableWidgetWrap::setShowGrid(const Napi::CallbackInfo& info) {
   this->instance->setShowGrid(show);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::showGrid(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -397,6 +656,7 @@ Napi::Value QTableWidgetWrap::showColumn(const Napi::CallbackInfo& info) {
   this->instance->showColumn(column);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::showRow(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -405,6 +665,7 @@ Napi::Value QTableWidgetWrap::showRow(const Napi::CallbackInfo& info) {
   this->instance->showRow(row);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::sortByColumn(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -415,6 +676,7 @@ Napi::Value QTableWidgetWrap::sortByColumn(const Napi::CallbackInfo& info) {
   this->instance->sortByColumn(column, order);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::setColumnWidth(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -424,6 +686,7 @@ Napi::Value QTableWidgetWrap::setColumnWidth(const Napi::CallbackInfo& info) {
   this->instance->setColumnWidth(column, width);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::setRowHeight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -433,6 +696,7 @@ Napi::Value QTableWidgetWrap::setRowHeight(const Napi::CallbackInfo& info) {
   this->instance->setRowHeight(row, height);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::columnCount(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -440,6 +704,7 @@ Napi::Value QTableWidgetWrap::columnCount(const Napi::CallbackInfo& info) {
   int count = static_cast<int>(this->instance->columnCount());
   return Napi::Number::New(env, count);
 }
+
 Napi::Value QTableWidgetWrap::rowCount(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -447,6 +712,7 @@ Napi::Value QTableWidgetWrap::rowCount(const Napi::CallbackInfo& info) {
   int count = static_cast<int>(this->instance->rowCount());
   return Napi::Number::New(env, count);
 }
+
 Napi::Value QTableWidgetWrap::setColumnCount(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -455,6 +721,7 @@ Napi::Value QTableWidgetWrap::setColumnCount(const Napi::CallbackInfo& info) {
   this->instance->setColumnCount(count);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::setRowCount(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
@@ -473,6 +740,7 @@ Napi::Value QTableWidgetWrap::setSortingEnabled(
   this->instance->setSortingEnabled(enable);
   return env.Null();
 }
+
 Napi::Value QTableWidgetWrap::isSortingEnabled(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);

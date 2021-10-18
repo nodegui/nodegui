@@ -14,7 +14,7 @@ class DLL_EXPORT NCalendarWidget : public QCalendarWidget, public NodeWidget {
   // inherit all constructors of QCalendarWidget
   using QCalendarWidget::QCalendarWidget;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QWIDGET_SIGNALS
     QObject::connect(this, &QCalendarWidget::activated, [=](const QDate &date) {

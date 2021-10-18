@@ -33,13 +33,17 @@ const progressDialog = new QProgressDialog();
 
 ### Properties
 
+* [_layout](qprogressdialog.md#optional-_layout)
 * [_rawInlineStyle](qprogressdialog.md#_rawinlinestyle)
 * [actions](qprogressdialog.md#actions)
-* [layout](qprogressdialog.md#optional-layout)
 * [native](qprogressdialog.md#native)
 * [nodeChildren](qprogressdialog.md#nodechildren)
 * [nodeParent](qprogressdialog.md#optional-nodeparent)
 * [type](qprogressdialog.md#type)
+
+### Accessors
+
+* [layout](qprogressdialog.md#layout)
 
 ### Methods
 
@@ -51,6 +55,7 @@ const progressDialog = new QProgressDialog();
 * [autoClose](qprogressdialog.md#autoclose)
 * [autoReset](qprogressdialog.md#autoreset)
 * [cancel](qprogressdialog.md#cancel)
+* [clearFocus](qprogressdialog.md#clearfocus)
 * [close](qprogressdialog.md#close)
 * [exec](qprogressdialog.md#exec)
 * [font](qprogressdialog.md#font)
@@ -59,6 +64,7 @@ const progressDialog = new QProgressDialog();
 * [hasMouseTracking](qprogressdialog.md#hasmousetracking)
 * [hide](qprogressdialog.md#hide)
 * [inherits](qprogressdialog.md#inherits)
+* [isActiveWindow](qprogressdialog.md#isactivewindow)
 * [isEnabled](qprogressdialog.md#isenabled)
 * [isSizeGripEnabled](qprogressdialog.md#issizegripenabled)
 * [isVisible](qprogressdialog.md#isvisible)
@@ -98,6 +104,7 @@ const progressDialog = new QProgressDialog();
 * [setFixedSize](qprogressdialog.md#setfixedsize)
 * [setFlexNodeSizeControlled](qprogressdialog.md#setflexnodesizecontrolled)
 * [setFocus](qprogressdialog.md#setfocus)
+* [setFocusPolicy](qprogressdialog.md#setfocuspolicy)
 * [setFont](qprogressdialog.md#setfont)
 * [setGeometry](qprogressdialog.md#setgeometry)
 * [setGraphicsEffect](qprogressdialog.md#setgraphicseffect)
@@ -164,6 +171,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -177,14 +192,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -217,6 +224,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QProgressDialogSignals](../interfaces/qprogressdialogsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -346,6 +375,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -427,6 +466,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -953,9 +1002,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

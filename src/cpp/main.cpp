@@ -1,8 +1,10 @@
 #include <napi.h>
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QAbstractItemModel/qabstractitemmodel_wrap.h"
 #include "QtCore/QDate/qdate_wrap.h"
 #include "QtCore/QDateTime/qdatetime_wrap.h"
+#include "QtCore/QItemSelectionModel/qitemselectionmodel_wrap.h"
 #include "QtCore/QMimeData/qmimedata_wrap.h"
 #include "QtCore/QModelIndex/qmodelindex_wrap.h"
 #include "QtCore/QObject/qobject_wrap.h"
@@ -12,6 +14,7 @@
 #include "QtCore/QRectF/qrectf_wrap.h"
 #include "QtCore/QSettings/qsettings_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
+#include "QtCore/QSizeF/qsizef_wrap.h"
 #include "QtCore/QTime/qtime_wrap.h"
 #include "QtCore/QUrl/qurl_wrap.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
@@ -27,13 +30,18 @@
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include "QtGui/QEvent/QMouseEvent/qmouseevent_wrap.h"
 #include "QtGui/QEvent/QNativeGestureEvent/qnativegestureevent_wrap.h"
+#include "QtGui/QEvent/QPaintEvent/qpaintevent_wrap.h"
 #include "QtGui/QEvent/QTabletEvent/qtabletevent_wrap.h"
 #include "QtGui/QEvent/QWheelEvent/qwheelevent_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
 #include "QtGui/QFontDatabase/qfontdatabase_wrap.h"
+#include "QtGui/QFontMetrics/qfontmetrics_wrap.h"
+#include "QtGui/QFontMetricsF/qfontmetricsf_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
+#include "QtGui/QImage/qimage_wrap.h"
 #include "QtGui/QKeySequence/qkeysequence_wrap.h"
 #include "QtGui/QMovie/qmovie_wrap.h"
+#include "QtGui/QPalette/qpalette_wrap.h"
 #include "QtGui/QPen/qpen_wrap.h"
 #include "QtGui/QPicture/qpicture_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
@@ -59,6 +67,7 @@
 #include "QtWidgets/QGraphicsDropShadowEffect/qgraphicsdropshadoweffect_wrap.h"
 #include "QtWidgets/QGridLayout/qgridlayout_wrap.h"
 #include "QtWidgets/QGroupBox/qgroupbox_wrap.h"
+#include "QtWidgets/QHeaderView/qheaderview_wrap.h"
 #include "QtWidgets/QInputDialog/qinputdialog_wrap.h"
 #include "QtWidgets/QLCDNumber/qlcdnumber_wrap.h"
 #include "QtWidgets/QLabel/qlabel_wrap.h"
@@ -87,6 +96,7 @@
 #include "QtWidgets/QStandardItem/qstandarditem_wrap.h"
 #include "QtWidgets/QStandardItemModel/qstandarditemmodel_wrap.h"
 #include "QtWidgets/QStatusBar/qstatusbar_wrap.h"
+#include "QtWidgets/QStyleFactory/qstylefactory_wrap.h"
 #include "QtWidgets/QSvgWidget/qsvgwidget_wrap.h"
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include "QtWidgets/QTabBar/qtabbar_wrap.h"
@@ -124,6 +134,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QRectWrap::init(env, exports);
   QRectFWrap::init(env, exports);
   QSizeWrap::init(env, exports);
+  QSizeFWrap::init(env, exports);
   QTimeWrap::init(env, exports);
   QUrlWrap::init(env, exports);
   QVariantWrap::init(env, exports);
@@ -137,7 +148,10 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QPixmapWrap::init(env, exports);
   QKeySequenceWrap::init(env, exports);
   QFontDatabaseWrap::init(env, exports);
+  QFontMetricsWrap::init(env, exports);
+  QFontMetricsFWrap::init(env, exports);
   QIconWrap::init(env, exports);
+  QImageWrap::init(env, exports);
   QFontWrap::init(env, exports);
   QMovieWrap::init(env, exports);
   QStyleWrap::init(env, exports);
@@ -214,6 +228,12 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QSvgWidgetWrap::init(env, exports);
   QDesktopWidgetWrap::init(env, exports);
   QTextToSpeechtWrap::init(env, exports);
+  QPaintEventWrap::init(env, exports);
+  QPaletteWrap::init(env, exports);
+  QAbstractItemModelWrap::init(env, exports);
+  QHeaderViewWrap::init(env, exports);
+  QItemSelectionModelWrap::init(env, exports);
+  QStyleFactoryWrap::init(env, exports);
   return exports;
 }
 

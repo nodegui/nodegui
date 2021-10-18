@@ -22,9 +22,10 @@ class DLL_EXPORT QVariantWrap : public Napi::ObjectWrap<QVariantWrap> {
   Napi::Value toInt(const Napi::CallbackInfo& info);
   Napi::Value toDouble(const Napi::CallbackInfo& info);
   Napi::Value toBool(const Napi::CallbackInfo& info);
+  Napi::Value toStringList(const Napi::CallbackInfo& info);
   // wrapped methods
 };
 
 namespace StaticQVariantWrapMethods {
-DLL_EXPORT Napi::Value converToQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value convertToQVariant(const Napi::CallbackInfo& info);
 }  // namespace StaticQVariantWrapMethods

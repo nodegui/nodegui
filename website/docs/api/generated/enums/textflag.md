@@ -8,6 +8,7 @@ sidebar_label: "TextFlag"
 
 ### Enumeration members
 
+* [None](textflag.md#none)
 * [TextDontClip](textflag.md#textdontclip)
 * [TextDontPrint](textflag.md#textdontprint)
 * [TextExpandTabs](textflag.md#textexpandtabs)
@@ -20,6 +21,12 @@ sidebar_label: "TextFlag"
 * [TextWrapAnywhere](textflag.md#textwrapanywhere)
 
 ## Enumeration members
+
+###  None
+
+• **None**: = 0
+
+___
 
 ###  TextDontClip
 

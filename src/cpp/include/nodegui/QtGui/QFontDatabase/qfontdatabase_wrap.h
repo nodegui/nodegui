@@ -22,11 +22,14 @@ class DLL_EXPORT QFontDatabaseWrap
   // Wrapped methods
   Napi::Value bold(const Napi::CallbackInfo& info);
   Napi::Value families(const Napi::CallbackInfo& info);
+  Napi::Value isFixedPitch(const Napi::CallbackInfo& info);
   Napi::Value italic(const Napi::CallbackInfo& info);
+  Napi::Value styles(const Napi::CallbackInfo& info);
   Napi::Value weight(const Napi::CallbackInfo& info);
 };
 
 namespace StaticQFontDatabaseWrapMethods {
 DLL_EXPORT Napi::Value addApplicationFont(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value applicationFontFamilies(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value removeApplicationFont(const Napi::CallbackInfo& info);
 }  // namespace StaticQFontDatabaseWrapMethods

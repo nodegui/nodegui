@@ -11,7 +11,7 @@ class DLL_EXPORT NSlider : public QSlider, public NodeWidget {
  public:
   using QSlider::QSlider;  // inherit all constructors of QSlider
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QABSTRACT_SLIDER_SIGNALS
   }

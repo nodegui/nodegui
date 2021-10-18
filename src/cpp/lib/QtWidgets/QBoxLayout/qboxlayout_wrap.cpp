@@ -99,8 +99,10 @@ Napi::Value QBoxLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   NodeWidgetWrap* widget =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   int stretch = info[1].As<Napi::Number>().Int32Value();
+  Qt::Alignment alignment =
+      static_cast<Qt::Alignment>(info[2].As<Napi::Number>().Int32Value());
 
-  this->instance->addWidget(widget->getInternalInstance(), stretch);
+  this->instance->addWidget(widget->getInternalInstance(), stretch, alignment);
   return env.Null();
 }
 

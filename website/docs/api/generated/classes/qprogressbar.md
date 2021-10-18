@@ -32,13 +32,17 @@ const progressBar = new QProgressBar();
 
 ### Properties
 
+* [_layout](qprogressbar.md#optional-_layout)
 * [_rawInlineStyle](qprogressbar.md#_rawinlinestyle)
 * [actions](qprogressbar.md#actions)
-* [layout](qprogressbar.md#optional-layout)
 * [native](qprogressbar.md#native)
 * [nodeChildren](qprogressbar.md#nodechildren)
 * [nodeParent](qprogressbar.md#optional-nodeparent)
 * [type](qprogressbar.md#type)
+
+### Accessors
+
+* [layout](qprogressbar.md#layout)
 
 ### Methods
 
@@ -48,6 +52,7 @@ const progressBar = new QProgressBar();
 * [addEventListener](qprogressbar.md#addeventlistener)
 * [adjustSize](qprogressbar.md#adjustsize)
 * [alignment](qprogressbar.md#alignment)
+* [clearFocus](qprogressbar.md#clearfocus)
 * [close](qprogressbar.md#close)
 * [font](qprogressbar.md#font)
 * [format](qprogressbar.md#format)
@@ -57,6 +62,7 @@ const progressBar = new QProgressBar();
 * [hide](qprogressbar.md#hide)
 * [inherits](qprogressbar.md#inherits)
 * [invertedAppearance](qprogressbar.md#invertedappearance)
+* [isActiveWindow](qprogressbar.md#isactivewindow)
 * [isEnabled](qprogressbar.md#isenabled)
 * [isTextVisible](qprogressbar.md#istextvisible)
 * [isVisible](qprogressbar.md#isvisible)
@@ -91,6 +97,7 @@ const progressBar = new QProgressBar();
 * [setFixedSize](qprogressbar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qprogressbar.md#setflexnodesizecontrolled)
 * [setFocus](qprogressbar.md#setfocus)
+* [setFocusPolicy](qprogressbar.md#setfocuspolicy)
 * [setFont](qprogressbar.md#setfont)
 * [setFormat](qprogressbar.md#setformat)
 * [setGeometry](qprogressbar.md#setgeometry)
@@ -158,6 +165,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -171,14 +186,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -211,6 +218,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QProgressBarSignals](../interfaces/qprogressbarsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -324,6 +353,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -411,6 +450,16 @@ ___
 ###  invertedAppearance
 
 ▸ **invertedAppearance**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -877,9 +926,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

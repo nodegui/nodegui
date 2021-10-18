@@ -1,0 +1,24 @@
+name: Build and Deploy to npm
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish-npm-package:
+    if: contains(github.event.release.tag_name, 'v0.0.0-latest-master') == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+      - name: Install ubuntu deps
+        run: sudo apt update
+      - run: sudo apt install mesa-common-dev libglu1-mesa-dev
+      - run: yarn install
+      - run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' >> .npmrc
+      - run: npm publish --access=public
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          CMAKE_BUILD_PARALLEL_LEVEL: 8

@@ -10,12 +10,12 @@ jobs:
                 os: [ubuntu-18.04]
         runs-on: ${{ matrix.os }}
         steps:
-            - uses: actions/checkout@master
-            - uses: actions/setup-node@master
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
               with:
-                  node-version: '13.x'
+                node-version: '16.x'
             - name: Install deps
-              run: npm install --ignore-scripts
+              run: yarn install --ignore-scripts
             - name: Build nodegui
               run: npx tsc
             - name: Archive using npm pack
@@ -32,9 +32,9 @@ jobs:
                   body: >
                       Latest auto release corresponding to commit ${{github.sha}} 🔥. 
                       To install do: 
-                      `npm install https://github.com/nodegui/nodegui/releases/download/v0.0.0-latest-master/nodegui-master.tgz`
+                      `yarn install https://github.com/nodegui/nodegui/releases/download/v0.0.0-latest-master/nodegui-master.tgz`
                       or 
-                      `npm install http://master-release.nodegui.org`
+                      `yarn install http://master-release.nodegui.org`
                   assets: >
                       nodegui-nodegui-0.0.0-latest-master.tgz:nodegui-master.tgz:application/tar+gzip
                   recreate: true

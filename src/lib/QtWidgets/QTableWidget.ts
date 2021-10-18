@@ -1,12 +1,13 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { NodeWidget, QWidget } from './QWidget';
 import { NativeElement, Component } from '../core/Component';
-import { ScrollHint, SortOrder } from '../QtEnums';
+import { MatchFlag, ScrollHint, SortOrder } from '../QtEnums';
 import { QTableWidgetItem } from './QTableWidgetItem';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
+import { QRect } from '../QtCore/QRect';
 
 /**
- 
+
 > Creates and item-based table view.
 
 * **This class is a JS wrapper around Qt's [QTableWidget class](https://doc.qt.io/qt-5/qtablewidget.html)**
@@ -39,8 +40,6 @@ win.show();
 export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     native: NativeElement;
     items: Set<NativeElement | Component>;
-    constructor(rows: number, columns: number);
-    constructor(rows: number, columns: number, parent: NodeWidget<any>);
     constructor(rows: number, columns: number, parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -107,6 +106,67 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     scrollToItem(item: QTableWidgetItem, hint: ScrollHint = ScrollHint.EnsureVisible): void {
         this.native.scrollToItem(item.native, hint);
     }
+    cellWidget(row = 0, column = 0): QWidget {
+        return new QWidget(this.native.cellWidget(row, column));
+    }
+    column(item: QTableWidgetItem): number {
+        return this.native.column(item.native);
+    }
+    row(item: QTableWidgetItem): number {
+        return this.native.row(item.native);
+    }
+    currentColumn(): number {
+        return this.native.currentColumn();
+    }
+    currentRow(): number {
+        return this.native.currentRow();
+    }
+    currentItem(): QTableWidgetItem {
+        return new QTableWidgetItem(this.native.currentItem());
+    }
+    findItems(text: string, flags: MatchFlag): QTableWidgetItem[] {
+        const nativeItems = this.native.findItems(text, flags);
+        return nativeItems.map(function (item: QTableWidgetItem) {
+            return new QTableWidgetItem(item);
+        });
+    }
+    isPersistentEditorOpen(item: QTableWidgetItem): void {
+        return this.native.isPersistentEditorOpen(item.native);
+    }
+    openPersistentEditor(item: QTableWidgetItem): void {
+        return this.native.openPersistentEditor(item.native);
+    }
+    item(row = 0, column = 0): QTableWidgetItem {
+        return new QTableWidgetItem(this.native.item(row, column));
+    }
+    itemAt(x = 0, y = 0): QTableWidgetItem {
+        return new QTableWidgetItem(this.native.itemAt(x, y));
+    }
+    removeCellWidget(row = 0, column = 0): void {
+        this.native.removeCellWidget(row, column);
+    }
+    setCurrentCell(row = 0, column = 0): void {
+        this.native.setCurrentCell(row, column);
+    }
+    setCurrentItem(item: QTableWidgetItem): void {
+        this.native.setCurrentItem(item.native);
+    }
+    sortItems(column = 0, order = SortOrder.AscendingOrder): void {
+        this.native.sortItems(column, order);
+    }
+    takeItem(row = 0, column = 0): void {
+        this.native.takeItem(row, column);
+    }
+    visualItemRect(item: QTableWidgetItem): QRect {
+        return new QRect(this.native.visualItemRect(item.native));
+    }
+    visualColumn(logicalColumn = 0): number {
+        return this.native.visualColumn(logicalColumn);
+    }
+    visualRow(logicalRow = 0): number {
+        return this.native.visualColumn(logicalRow);
+    }
+
     // FROM TABLEVIEW
     hideColumn(column: number): void {
         this.native.hideColumn(column);

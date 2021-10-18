@@ -46,6 +46,7 @@ const pixMap = new QPixmap(imageUrl);
 * [scaled](qpixmap.md#scaled)
 * [setNodeParent](qpixmap.md#setnodeparent)
 * [width](qpixmap.md#width)
+* [fromImage](qpixmap.md#static-fromimage)
 * [fromQVariant](qpixmap.md#static-fromqvariant)
 
 ## Constructors
@@ -198,6 +199,21 @@ ___
 ▸ **width**(): *number*
 
 **Returns:** *number*
+
+___
+
+### `Static` fromImage
+
+▸ **fromImage**(`image`: [QImage](qimage.md), `flags`: [ImageConversionFlag](../enums/imageconversionflag.md)): *[QPixmap](qpixmap.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`image` | [QImage](qimage.md) |
+`flags` | [ImageConversionFlag](../enums/imageconversionflag.md) |
+
+**Returns:** *[QPixmap](qpixmap.md)*
 
 ___
 

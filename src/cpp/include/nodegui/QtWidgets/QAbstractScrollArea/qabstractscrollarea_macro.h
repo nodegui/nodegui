@@ -1,6 +1,8 @@
 #pragma once
 
+#include "QtCore/QSize/qsize_wrap.h"
 #include "QtWidgets/QFrame/qframe_macro.h"
+#include "QtWidgets/QScrollBar/qscrollbar_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
 /*
@@ -11,39 +13,75 @@
  */
 
 #ifndef QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
-#define QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION            \
-                                                                   \
-  QFRAME_WRAPPED_METHODS_DECLARATION                               \
-                                                                   \
-  Napi::Value setViewport(const Napi::CallbackInfo& info) {        \
-    Napi::Env env = info.Env();                                    \
-    Napi::HandleScope scope(env);                                  \
-    Napi::Object viewPortObject = info[0].As<Napi::Object>();      \
-    NodeWidgetWrap* viewPortWidgetWrap =                           \
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(viewPortObject);  \
-    QWidget* viewPort = viewPortWidgetWrap->getInternalInstance(); \
-    this->instance->setViewport(viewPort);                         \
-    return env.Null();                                             \
-  }                                                                \
-                                                                   \
-  Napi::Value viewport(const Napi::CallbackInfo& info) {           \
-    Napi::Env env = info.Env();                                    \
-    Napi::HandleScope scope(env);                                  \
-    QWidget* viewPort = this->instance->viewport();                \
-    NWidget* nviewPort = reinterpret_cast<NWidget*>(viewPort);     \
-    auto instance = QWidgetWrap::constructor.New(                  \
-        {Napi::External<NWidget>::New(env, nviewPort)});           \
-    return instance;                                               \
+#define QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION                \
+                                                                       \
+  QFRAME_WRAPPED_METHODS_DECLARATION                                   \
+                                                                       \
+  Napi::Value maximumViewportSize(const Napi::CallbackInfo& info) {    \
+    Napi::Env env = info.Env();                                        \
+    Napi::HandleScope scope(env);                                      \
+    QSize size = this->instance->maximumViewportSize();                \
+    auto instance = QSizeWrap::constructor.New(                        \
+        {Napi::External<QSize>::New(env, new QSize(size))});           \
+    return instance;                                                   \
+  }                                                                    \
+                                                                       \
+  Napi::Value setHorizontalScrollBar(const Napi::CallbackInfo& info) { \
+    Napi::Env env = info.Env();                                        \
+    Napi::HandleScope scope(env);                                      \
+    Napi::Object scrollBarObject = info[0].As<Napi::Object>();         \
+    QScrollBarWrap* scrollBarWrap =                                    \
+        Napi::ObjectWrap<QScrollBarWrap>::Unwrap(scrollBarObject);     \
+    QScrollBar* scrollBar = scrollBarWrap->getInternalInstance();      \
+    this->instance->setHorizontalScrollBar(scrollBar);                 \
+    return env.Null();                                                 \
+  }                                                                    \
+                                                                       \
+  Napi::Value setVerticalScrollBar(const Napi::CallbackInfo& info) {   \
+    Napi::Env env = info.Env();                                        \
+    Napi::HandleScope scope(env);                                      \
+    Napi::Object scrollBarObject = info[0].As<Napi::Object>();         \
+    QScrollBarWrap* scrollBarWrap =                                    \
+        Napi::ObjectWrap<QScrollBarWrap>::Unwrap(scrollBarObject);     \
+    QScrollBar* scrollBar = scrollBarWrap->getInternalInstance();      \
+    this->instance->setVerticalScrollBar(scrollBar);                   \
+    return env.Null();                                                 \
+  }                                                                    \
+                                                                       \
+  Napi::Value setViewport(const Napi::CallbackInfo& info) {            \
+    Napi::Env env = info.Env();                                        \
+    Napi::HandleScope scope(env);                                      \
+    Napi::Object viewPortObject = info[0].As<Napi::Object>();          \
+    NodeWidgetWrap* viewPortWidgetWrap =                               \
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(viewPortObject);      \
+    QWidget* viewPort = viewPortWidgetWrap->getInternalInstance();     \
+    this->instance->setViewport(viewPort);                             \
+    return env.Null();                                                 \
+  }                                                                    \
+                                                                       \
+  Napi::Value viewport(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                        \
+    Napi::HandleScope scope(env);                                      \
+    QWidget* viewPort = this->instance->viewport();                    \
+    NWidget* nviewPort = reinterpret_cast<NWidget*>(viewPort);         \
+    auto instance = QWidgetWrap::constructor.New(                      \
+        {Napi::External<NWidget>::New(env, nviewPort)});               \
+    return instance;                                                   \
   }
 
 #endif  // QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
 
 #ifndef QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE
-#define QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
-                                                                          \
-  QFRAME_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)                    \
-                                                                          \
-  InstanceMethod("setViewport", &WidgetWrapName::setViewport),            \
+#define QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)      \
+                                                                               \
+  QFRAME_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)                         \
+                                                                               \
+  InstanceMethod("maximumViewportSize", &WidgetWrapName::maximumViewportSize), \
+      InstanceMethod("setHorizontalScrollBar",                                 \
+                     &WidgetWrapName::setVerticalScrollBar),                   \
+      InstanceMethod("setVerticalScrollBar",                                   \
+                     &WidgetWrapName::setVerticalScrollBar),                   \
+      InstanceMethod("setViewport", &WidgetWrapName::setViewport),             \
       InstanceMethod("viewport", &WidgetWrapName::viewport),
 
 #endif  // QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE

@@ -18,14 +18,18 @@ sidebar_label: "QListView"
 
 ### Properties
 
+* [_layout](qlistview.md#optional-_layout)
 * [_rawInlineStyle](qlistview.md#_rawinlinestyle)
 * [actions](qlistview.md#actions)
-* [layout](qlistview.md#optional-layout)
 * [native](qlistview.md#native)
 * [nodeChildren](qlistview.md#nodechildren)
 * [nodeParent](qlistview.md#optional-nodeparent)
 * [type](qlistview.md#type)
 * [viewportWidget](qlistview.md#optional-viewportwidget)
+
+### Accessors
+
+* [layout](qlistview.md#layout)
 
 ### Methods
 
@@ -37,6 +41,7 @@ sidebar_label: "QListView"
 * [alternatingRowColors](qlistview.md#alternatingrowcolors)
 * [autoScrollMargin](qlistview.md#autoscrollmargin)
 * [batchSize](qlistview.md#batchsize)
+* [clearFocus](qlistview.md#clearfocus)
 * [clearPropertyFlags](qlistview.md#clearpropertyflags)
 * [close](qlistview.md#close)
 * [currentIndex](qlistview.md#currentindex)
@@ -62,6 +67,7 @@ sidebar_label: "QListView"
 * [iconSize](qlistview.md#iconsize)
 * [indexWidget](qlistview.md#indexwidget)
 * [inherits](qlistview.md#inherits)
+* [isActiveWindow](qlistview.md#isactivewindow)
 * [isEnabled](qlistview.md#isenabled)
 * [isRowHidden](qlistview.md#isrowhidden)
 * [isSelectionRectVisible](qlistview.md#isselectionrectvisible)
@@ -76,6 +82,7 @@ sidebar_label: "QListView"
 * [mapToGlobal](qlistview.md#maptoglobal)
 * [mapToParent](qlistview.md#maptoparent)
 * [maximumSize](qlistview.md#maximumsize)
+* [maximumViewportSize](qlistview.md#maximumviewportsize)
 * [midLineWidth](qlistview.md#midlinewidth)
 * [minimumSize](qlistview.md#minimumsize)
 * [modelColumn](qlistview.md#modelcolumn)
@@ -117,6 +124,7 @@ sidebar_label: "QListView"
 * [setFlexNodeSizeControlled](qlistview.md#setflexnodesizecontrolled)
 * [setFlow](qlistview.md#setflow)
 * [setFocus](qlistview.md#setfocus)
+* [setFocusPolicy](qlistview.md#setfocuspolicy)
 * [setFont](qlistview.md#setfont)
 * [setFrameRect](qlistview.md#setframerect)
 * [setFrameShadow](qlistview.md#setframeshadow)
@@ -125,6 +133,7 @@ sidebar_label: "QListView"
 * [setGeometry](qlistview.md#setgeometry)
 * [setGraphicsEffect](qlistview.md#setgraphicseffect)
 * [setGridSize](qlistview.md#setgridsize)
+* [setHorizontalScrollBar](qlistview.md#sethorizontalscrollbar)
 * [setHorizontalScrollBarPolicy](qlistview.md#sethorizontalscrollbarpolicy)
 * [setHorizontalScrollMode](qlistview.md#sethorizontalscrollmode)
 * [setIconSize](qlistview.md#seticonsize)
@@ -153,6 +162,7 @@ sidebar_label: "QListView"
 * [setTabKeyNavigation](qlistview.md#settabkeynavigation)
 * [setTextElideMode](qlistview.md#settextelidemode)
 * [setUniformItemSizes](qlistview.md#setuniformitemsizes)
+* [setVerticalScrollBar](qlistview.md#setverticalscrollbar)
 * [setVerticalScrollBarPolicy](qlistview.md#setverticalscrollbarpolicy)
 * [setVerticalScrollMode](qlistview.md#setverticalscrollmode)
 * [setViewMode](qlistview.md#setviewmode)
@@ -211,6 +221,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -224,14 +242,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -272,6 +282,28 @@ ___
 • **viewportWidget**? : *[NodeWidget](nodewidget.md)‹any›*
 
 *Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[viewportWidget](qabstractscrollarea.md#optional-viewportwidget)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QListViewSignals](../globals.md#qlistviewsignals)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -404,6 +436,16 @@ ___
 *Inherited from [NodeListView](nodelistview.md).[batchSize](nodelistview.md#batchsize)*
 
 **Returns:** *number*
+
+___
+
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
 
 ___
 
@@ -669,6 +711,16 @@ Name | Type |
 
 ___
 
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isEnabled
 
 ▸ **isEnabled**(): *boolean*
@@ -834,6 +886,16 @@ ___
 ▸ **maximumSize**(): *[QSize](qsize.md)*
 
 *Inherited from [QMenu](qmenu.md).[maximumSize](qmenu.md#maximumsize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  maximumViewportSize
+
+▸ **maximumViewportSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[maximumViewportSize](qabstractscrollarea.md#maximumviewportsize)*
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -1426,9 +1488,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
@@ -1560,6 +1638,22 @@ ___
 Name | Type |
 ------ | ------ |
 `size` | [QSize](qsize.md) |
+
+**Returns:** *void*
+
+___
+
+###  setHorizontalScrollBar
+
+▸ **setHorizontalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setHorizontalScrollBar](qabstractscrollarea.md#sethorizontalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 
@@ -2015,6 +2109,22 @@ ___
 Name | Type |
 ------ | ------ |
 `enable` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setVerticalScrollBar
+
+▸ **setVerticalScrollBar**(`scrollBar`: [QScrollBar](qscrollbar.md)): *void*
+
+*Inherited from [QAbstractScrollArea](qabstractscrollarea.md).[setVerticalScrollBar](qabstractscrollarea.md#setverticalscrollbar)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`scrollBar` | [QScrollBar](qscrollbar.md) |
 
 **Returns:** *void*
 

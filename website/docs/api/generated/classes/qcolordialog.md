@@ -38,13 +38,17 @@ console.log(color.red(), color.green(), color.blue());
 
 ### Properties
 
+* [_layout](qcolordialog.md#optional-_layout)
 * [_rawInlineStyle](qcolordialog.md#_rawinlinestyle)
 * [actions](qcolordialog.md#actions)
-* [layout](qcolordialog.md#optional-layout)
 * [native](qcolordialog.md#native)
 * [nodeChildren](qcolordialog.md#nodechildren)
 * [nodeParent](qcolordialog.md#optional-nodeparent)
 * [type](qcolordialog.md#type)
+
+### Accessors
+
+* [layout](qcolordialog.md#layout)
 
 ### Methods
 
@@ -53,6 +57,7 @@ console.log(color.red(), color.green(), color.blue());
 * [addAction](qcolordialog.md#addaction)
 * [addEventListener](qcolordialog.md#addeventlistener)
 * [adjustSize](qcolordialog.md#adjustsize)
+* [clearFocus](qcolordialog.md#clearfocus)
 * [close](qcolordialog.md#close)
 * [currentColor](qcolordialog.md#currentcolor)
 * [exec](qcolordialog.md#exec)
@@ -62,6 +67,7 @@ console.log(color.red(), color.green(), color.blue());
 * [hasMouseTracking](qcolordialog.md#hasmousetracking)
 * [hide](qcolordialog.md#hide)
 * [inherits](qcolordialog.md#inherits)
+* [isActiveWindow](qcolordialog.md#isactivewindow)
 * [isEnabled](qcolordialog.md#isenabled)
 * [isSizeGripEnabled](qcolordialog.md#issizegripenabled)
 * [isVisible](qcolordialog.md#isvisible)
@@ -96,6 +102,7 @@ console.log(color.red(), color.green(), color.blue());
 * [setFixedSize](qcolordialog.md#setfixedsize)
 * [setFlexNodeSizeControlled](qcolordialog.md#setflexnodesizecontrolled)
 * [setFocus](qcolordialog.md#setfocus)
+* [setFocusPolicy](qcolordialog.md#setfocuspolicy)
 * [setFont](qcolordialog.md#setfont)
 * [setGeometry](qcolordialog.md#setgeometry)
 * [setGraphicsEffect](qcolordialog.md#setgraphicseffect)
@@ -162,6 +169,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QColorDialogSignals](../interfaces/qcolordialogsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -175,14 +190,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QColorDialogSignals](../interfaces/qcolordialogsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -215,6 +222,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QColorDialogSignals](../interfaces/qcolordialogsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QColorDialogSignals](../interfaces/qcolordialogsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QColorDialogSignals](../interfaces/qcolordialogsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QColorDialogSignals](../interfaces/qcolordialogsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -320,6 +349,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -409,6 +448,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -883,9 +932,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

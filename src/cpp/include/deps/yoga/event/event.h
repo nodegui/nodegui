@@ -7,10 +7,10 @@
 
 #pragma once
 
+#include <stdint.h>
 #include <yoga/YGEnums.h>
 
 #include <array>
-#include <cstdint>
 #include <functional>
 #include <vector>
 

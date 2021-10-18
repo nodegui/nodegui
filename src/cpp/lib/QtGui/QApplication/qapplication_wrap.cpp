@@ -2,6 +2,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
+#include "QtGui/QPalette/qpalette_wrap.h"
 #include "QtGui/QStyle/qstyle_wrap.h"
 #include "core/Integration/qode-api.h"
 
@@ -20,8 +21,11 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
                       &QApplicationWrap::setQuitOnLastWindowClosed),
        InstanceMethod("quitOnLastWindowClosed",
                       &QApplicationWrap::quitOnLastWindowClosed),
+       InstanceMethod("palette", &QApplicationWrap::palette),
+       InstanceMethod("setStyleSheet", &QApplicationWrap::setStyleSheet),
        StaticMethod("instance", &StaticQApplicationWrapMethods::instance),
        StaticMethod("clipboard", &StaticQApplicationWrapMethods::clipboard),
+       StaticMethod("setStyle", &StaticQApplicationWrapMethods::setStyle),
        StaticMethod("style", &StaticQApplicationWrapMethods::style),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QApplicationWrap)});
   constructor = Napi::Persistent(func);
@@ -81,6 +85,28 @@ Napi::Value QApplicationWrap::exit(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+Napi::Value QApplicationWrap::palette(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QPalette* palette = new QPalette(this->instance->palette());
+  return QPaletteWrap::constructor.New(
+      {Napi::External<QPalette>::New(env, palette)});
+}
+
+Napi::Value QApplicationWrap::setStyleSheet(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  Napi::String text = info[0].As<Napi::String>();
+  std::string style = text.Utf8Value();
+  QString newStyle = QString::fromStdString(style);
+  QString currentStyleSheet = this->instance->styleSheet();
+  if (newStyle != currentStyleSheet) {
+    this->instance->setStyleSheet(newStyle);
+  }
+  return env.Null();
+}
+
 Napi::Value StaticQApplicationWrapMethods::instance(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -98,6 +124,19 @@ Napi::Value StaticQApplicationWrapMethods::clipboard(
   QClipboard* clipboard = QApplication::clipboard();
   return QClipboardWrap::constructor.New(
       {Napi::External<QClipboard>::New(env, clipboard)});
+}
+
+Napi::Value StaticQApplicationWrapMethods::setStyle(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  QStyleWrap* styleWrap =
+      Napi::ObjectWrap<QStyleWrap>::Unwrap(info[0].As<Napi::Object>());
+  QStyle* style = styleWrap->getInternalInstance();
+  QApplication::setStyle(style);
+
+  return env.Null();
 }
 
 Napi::Value StaticQApplicationWrapMethods::style(

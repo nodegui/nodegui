@@ -20,4 +20,6 @@ class DLL_EXPORT QStyleWrap : public Napi::ObjectWrap<QStyleWrap> {
   QStyle* getInternalInstance();
   // Wrapped methods
   Napi::Value pixelMetric(const Napi::CallbackInfo& info);
+  Napi::Value polish(const Napi::CallbackInfo& info);
+  Napi::Value unpolish(const Napi::CallbackInfo& info);
 };

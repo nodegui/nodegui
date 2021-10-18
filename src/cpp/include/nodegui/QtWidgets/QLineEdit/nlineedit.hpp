@@ -11,7 +11,7 @@ class DLL_EXPORT NLineEdit : public QLineEdit, public NodeWidget {
  public:
   using QLineEdit::QLineEdit;  // inherit all constructors of QLineEdit
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QWIDGET_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QLineEdit::cursorPositionChanged,

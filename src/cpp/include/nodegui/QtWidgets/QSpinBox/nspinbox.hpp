@@ -13,7 +13,7 @@ class DLL_EXPORT NSpinBox : public QSpinBox, public NodeWidget {
  public:
   using QSpinBox::QSpinBox;  // inherit all constructors of QSpinBox
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QABSTRACTSPINBOX_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(

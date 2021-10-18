@@ -10,7 +10,8 @@ Napi::Object QGridLayoutWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QGridLayout";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("addWidget", &QGridLayoutWrap::addWidget),
+      {InstanceMethod("addLayout", &QGridLayoutWrap::addLayout),
+       InstanceMethod("addWidget", &QGridLayoutWrap::addWidget),
        InstanceMethod("removeWidget", &QGridLayoutWrap::removeWidget),
        InstanceMethod("columnStretch", &QGridLayoutWrap::columnStretch),
        InstanceMethod("rowStretch", &QGridLayoutWrap::rowStretch),
@@ -57,6 +58,23 @@ QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info)
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureQObject(this->getInternalInstance());
+}
+
+Napi::Value QGridLayoutWrap::addLayout(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  Napi::Object qlayoutObject = info[0].As<Napi::Object>();
+  QLayoutWrap* layout = Napi::ObjectWrap<QLayoutWrap>::Unwrap(qlayoutObject);
+  int row = info[1].As<Napi::Number>().Int32Value();
+  int column = info[2].As<Napi::Number>().Int32Value();
+  int rowSpan = info[3].As<Napi::Number>().Int32Value();
+  int columnSpan = info[4].As<Napi::Number>().Int32Value();
+  Qt::Alignment alignment =
+      static_cast<Qt::Alignment>(info[5].As<Napi::Number>().Int32Value());
+  this->instance->addLayout(layout->getInternalInstance(), row, column, rowSpan,
+                            columnSpan, alignment);
+  return env.Null();
 }
 
 Napi::Value QGridLayoutWrap::addWidget(const Napi::CallbackInfo& info) {

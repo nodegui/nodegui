@@ -24,7 +24,7 @@ Along with these, there are a few operating system dependent instructions that a
 - NodeGui supports macOS 10.10 (Yosemite) and up. NodeGui currently only supports 64bit OS.
 - CMake 3.1 and up (Installation instructions can be found here: https://cmake.org/install/)
 - Make, GCC v7
-- Currently supported Node.Js versions are 12.x and up.
+- Currently supported Node.Js versions are 14.x.
 
 We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
 
@@ -110,6 +110,45 @@ virtually all code editors and IDEs these days support JavaScript.
 [code]: https://code.visualstudio.com/
 [atom]: https://atom.io/
 
+#### Using your own custom Qt installation (Optional)
+
+**Compiling Qt from source**
+
+You will need to download and install Qt from source since there are no binaries from Qt for M1 yet. 
+
+(https://www.reddit.com/r/QtFramework/comments/ll58wg/how_to_build_qt_creator_for_macos_arm64_a_guide/)
+
+```
+git clone git://code.qt.io/qt/qt5.git
+cd qt5
+git checkout 5.15
+
+./init-repository --module-subset=essential -f
+git submodule init qtsvg
+git submodule update qtsvg
+
+cd ..
+mkdir qt5-5.15-macOS-release
+cd qt5-5.15-macOS-release
+
+../qt5/configure -release QMAKE_APPLE_DEVICE_ARCHS=arm64 -opensource -confirm-license -nomake examples -nomake tests -skip qt3d -skip webengine -skip qtactiveqt -skip qtcanvas3d  -skip qtdeclarative -skip qtdatavis3d -skip qtdoc -skip qtgamepad -skip qtcharts -skip qtgraphicaleffects -skip qtlocation  -skip qtpurchasing -skip qtquickcontrols -skip qtquickcontrols2 -skip qtremoteobjects -skip qtscxml -skip qtsensors -skip qtserialbus -skip qtserialport -skip qtspeech -skip qtvirtualkeyboard -skip qtscript
+
+make -j15
+
+make install
+```
+
+This should install Qt into something like this `/usr/local/Qt-5.15.3` (your directory can change. This will be displayed when running make)
+
+**Pointing nodegui to use your custom Qt installation**
+
+Now just set `export QT_INSTALL_DIR=<your qt path>` . In the above example it would look something like this `export QT_INSTALL_DIR=/usr/local/Qt-5.15.3`. Add this in your .zshrc or .bashrc so that you dont need to repeat this process again.
+
+Now just `rm -rf node_modules` and do `npm install` again.
+
+The logs should say something like `CustomQt detected at <your qt path>. Hence, skipping Mini Qt installation`.
+
+
 ### Hello World
 
 Clone and run the code in this tutorial by using the
@@ -128,6 +167,8 @@ npm install
 npm start
 
 ```
+
+**Note**: If you encounter errors installing `nodegui`, please check the [FAQs](../faq.md#why-does-installation-fail-at-minimal-qt-setup) for additional help.
 
 That's it!
 

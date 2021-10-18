@@ -21,6 +21,12 @@ export class QFont extends Component {
             this.native = new addon.QFont();
         }
     }
+    bold(): boolean {
+        return this.native.bold();
+    }
+    setBold(enable: boolean): void {
+        this.native.setBold(enable);
+    }
     setCapitalization(caps: QFontCapitalization): void {
         this.native.setCapitalization(caps);
     }
@@ -33,8 +39,14 @@ export class QFont extends Component {
     family(): string {
         return this.native.family();
     }
+    setPixelSize(value: number): void {
+        this.native.setPixelSize(value);
+    }
     setPointSize(value: number): void {
         this.native.setPointSize(value);
+    }
+    pixelSize(): number {
+        return this.native.pixelSize();
     }
     pointSize(): number {
         return this.native.pointSize();
@@ -56,6 +68,9 @@ export class QFont extends Component {
     }
     italic(): boolean {
         return this.native.italic();
+    }
+    setStyleName(style: string): void {
+        this.native.setStyleName(style);
     }
     toString(): string {
         return this.native.toString();

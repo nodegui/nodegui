@@ -33,13 +33,17 @@ tool.setText('Help');
 
 ### Properties
 
+* [_layout](qtoolbutton.md#optional-_layout)
 * [_rawInlineStyle](qtoolbutton.md#_rawinlinestyle)
 * [actions](qtoolbutton.md#actions)
-* [layout](qtoolbutton.md#optional-layout)
 * [native](qtoolbutton.md#native)
 * [nodeChildren](qtoolbutton.md#nodechildren)
 * [nodeParent](qtoolbutton.md#optional-nodeparent)
 * [type](qtoolbutton.md#type)
+
+### Accessors
+
+* [layout](qtoolbutton.md#layout)
 
 ### Methods
 
@@ -55,6 +59,7 @@ tool.setText('Help');
 * [autoRepeat](qtoolbutton.md#autorepeat)
 * [autoRepeatDelay](qtoolbutton.md#autorepeatdelay)
 * [autoRepeatInterval](qtoolbutton.md#autorepeatinterval)
+* [clearFocus](qtoolbutton.md#clearfocus)
 * [click](qtoolbutton.md#click)
 * [close](qtoolbutton.md#close)
 * [defaultAction](qtoolbutton.md#defaultaction)
@@ -66,6 +71,7 @@ tool.setText('Help');
 * [icon](qtoolbutton.md#icon)
 * [iconSize](qtoolbutton.md#iconsize)
 * [inherits](qtoolbutton.md#inherits)
+* [isActiveWindow](qtoolbutton.md#isactivewindow)
 * [isCheckable](qtoolbutton.md#ischeckable)
 * [isChecked](qtoolbutton.md#ischecked)
 * [isDown](qtoolbutton.md#isdown)
@@ -108,6 +114,7 @@ tool.setText('Help');
 * [setFixedSize](qtoolbutton.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtoolbutton.md#setflexnodesizecontrolled)
 * [setFocus](qtoolbutton.md#setfocus)
+* [setFocusPolicy](qtoolbutton.md#setfocuspolicy)
 * [setFont](qtoolbutton.md#setfont)
 * [setGeometry](qtoolbutton.md#setgeometry)
 * [setGraphicsEffect](qtoolbutton.md#setgraphicseffect)
@@ -188,6 +195,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QToolButtonSignals](../interfaces/qtoolbuttonsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -201,14 +216,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QToolButtonSignals](../interfaces/qtoolbuttonsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -241,6 +248,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QToolButtonSignals](../interfaces/qtoolbuttonsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QToolButtonSignals](../interfaces/qtoolbuttonsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QToolButtonSignals](../interfaces/qtoolbuttonsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QToolButtonSignals](../interfaces/qtoolbuttonsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -418,6 +447,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  click
 
 ▸ **click**(): *void*
@@ -527,6 +566,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -1131,9 +1180,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

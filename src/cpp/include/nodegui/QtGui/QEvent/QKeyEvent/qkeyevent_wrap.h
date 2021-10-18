@@ -5,10 +5,14 @@
 #include <QKeyEvent>
 
 #include "Extras/Export/export.h"
+#include "QtGui/QEvent/QEvent/qevent_macro.h"
+#include "QtGui/QEvent/QInputEvent/qinputevent_macro.h"
 #include "core/Component/component_macro.h"
 
 class DLL_EXPORT QKeyEventWrap : public Napi::ObjectWrap<QKeyEventWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
+  QEVENT_WRAPPED_METHODS_DECLARATION
+  QINPUTEVENT_WRAPPED_METHODS_DECLARATION
 
  private:
   QKeyEvent* instance;
@@ -23,7 +27,6 @@ class DLL_EXPORT QKeyEventWrap : public Napi::ObjectWrap<QKeyEventWrap> {
   // wrapped methods
   Napi::Value text(const Napi::CallbackInfo& info);
   Napi::Value key(const Napi::CallbackInfo& info);
-  Napi::Value modifiers(const Napi::CallbackInfo& info);
   Napi::Value count(const Napi::CallbackInfo& info);
   Napi::Value isAutoRepeat(const Napi::CallbackInfo& info);
 };

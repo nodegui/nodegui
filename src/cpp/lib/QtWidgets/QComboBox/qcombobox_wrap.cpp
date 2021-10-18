@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QModelIndex/qmodelindex_wrap.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
 #include "QtWidgets/QLineEdit/qlineedit_wrap.h"
@@ -37,6 +38,31 @@ Napi::Object QComboBoxWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("clear", &QComboBoxWrap::clear),
        InstanceMethod("setModel", &QComboBoxWrap::setModel),
        InstanceMethod("setEditText", &QComboBoxWrap::setEditText),
+       InstanceMethod("count", &QComboBoxWrap::count),
+       InstanceMethod("duplicatesEnabled", &QComboBoxWrap::duplicatesEnabled),
+       InstanceMethod("hasFrame", &QComboBoxWrap::hasFrame),
+       InstanceMethod("hidePopup", &QComboBoxWrap::hidePopup),
+       InstanceMethod("iconSize", &QComboBoxWrap::iconSize),
+       InstanceMethod("maxCount", &QComboBoxWrap::maxCount),
+       InstanceMethod("minimumContentsLength",
+                      &QComboBoxWrap::minimumContentsLength),
+       InstanceMethod("modelColumn", &QComboBoxWrap::modelColumn),
+       InstanceMethod("rootModelIndex", &QComboBoxWrap::rootModelIndex),
+       InstanceMethod("setDuplicatesEnabled",
+                      &QComboBoxWrap::setDuplicatesEnabled),
+       InstanceMethod("setMinimumContentsLength",
+                      &QComboBoxWrap::setMinimumContentsLength),
+       InstanceMethod("setModelColumn", &QComboBoxWrap::setModelColumn),
+       InstanceMethod("setRootModelIndex", &QComboBoxWrap::setRootModelIndex),
+       InstanceMethod("clearEditText", &QComboBoxWrap::clearEditText),
+       InstanceMethod("setFrame", &QComboBoxWrap::setFrame),
+       InstanceMethod("setItemText", &QComboBoxWrap::setItemText),
+       InstanceMethod("setMaxCount", &QComboBoxWrap::setMaxCount),
+       InstanceMethod("showPopup", &QComboBoxWrap::showPopup),
+       InstanceMethod("insertPolicy", &QComboBoxWrap::insertPolicy),
+       InstanceMethod("setInsertPolicy", &QComboBoxWrap::setInsertPolicy),
+       InstanceMethod("sizeAdjustPolicy", &QComboBoxWrap::sizeAdjustPolicy),
+       InstanceMethod("setIconSize", &QComboBoxWrap::setIconSize),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QComboBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -267,5 +293,156 @@ Napi::Value QComboBoxWrap::setEditText(const Napi::CallbackInfo& info) {
   Napi::String text = info[0].As<Napi::String>();
   this->instance->setEditText(text.Utf8Value().c_str());
 
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::count(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int result = this->instance->count();
+  return Napi::Number::New(env, result);
+}
+Napi::Value QComboBoxWrap::duplicatesEnabled(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  bool result = this->instance->duplicatesEnabled();
+  return Napi::Boolean::New(env, result);
+}
+Napi::Value QComboBoxWrap::hasFrame(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  bool result = this->instance->hasFrame();
+  return Napi::Boolean::New(env, result);
+}
+
+Napi::Value QComboBoxWrap::hidePopup(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->hidePopup();
+  return env.Null();
+}
+
+Napi::Value QComboBoxWrap::iconSize(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QSize result = this->instance->iconSize();
+  auto resultInstance = QSizeWrap::constructor.New(
+      {Napi::External<QSize>::New(env, new QSize(result))});
+  return resultInstance;
+}
+Napi::Value QComboBoxWrap::maxCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int result = this->instance->maxCount();
+  return Napi::Number::New(env, result);
+}
+Napi::Value QComboBoxWrap::minimumContentsLength(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int result = this->instance->minimumContentsLength();
+  return Napi::Number::New(env, result);
+}
+Napi::Value QComboBoxWrap::modelColumn(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int result = this->instance->modelColumn();
+  return Napi::Number::New(env, result);
+}
+Napi::Value QComboBoxWrap::rootModelIndex(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QModelIndex result = this->instance->rootModelIndex();
+  auto resultInstance = QModelIndexWrap::constructor.New(
+      {Napi::External<QModelIndex>::New(env, new QModelIndex(result))});
+  return resultInstance;
+}
+Napi::Value QComboBoxWrap::setDuplicatesEnabled(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  bool enable = info[0].As<Napi::Boolean>().Value();
+  this->instance->setDuplicatesEnabled(enable);
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::setMinimumContentsLength(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int characters = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setMinimumContentsLength(characters);
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::setModelColumn(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int visibleColumn = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setModelColumn(visibleColumn);
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::setRootModelIndex(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QModelIndexWrap* indexWrap =
+      Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
+  QModelIndex* index = indexWrap->getInternalInstance();
+  this->instance->setRootModelIndex(*index);
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::clearEditText(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->clearEditText();
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::setFrame(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  bool f = info[0].As<Napi::Boolean>().Value();
+  this->instance->setFrame(f);
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::setItemText(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int index = info[0].As<Napi::Number>().Int32Value();
+  std::string textNapiText = info[1].As<Napi::String>().Utf8Value();
+  QString text = QString::fromUtf8(textNapiText.c_str());
+  this->instance->setItemText(index, text);
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::setMaxCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  int max = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setMaxCount(max);
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::showPopup(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  this->instance->showPopup();
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::insertPolicy(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QComboBox::InsertPolicy result = this->instance->insertPolicy();
+  return Napi::Number::New(env, static_cast<uint>(result));
+}
+Napi::Value QComboBoxWrap::setInsertPolicy(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QComboBox::InsertPolicy policy = static_cast<QComboBox::InsertPolicy>(
+      info[0].As<Napi::Number>().Int32Value());
+  this->instance->setInsertPolicy(policy);
+  return env.Null();
+}
+Napi::Value QComboBoxWrap::setIconSize(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  QSizeWrap* sizeWrap =
+      Napi::ObjectWrap<QSizeWrap>::Unwrap(info[0].As<Napi::Object>());
+  QSize* size = sizeWrap->getInternalInstance();
+  this->instance->setIconSize(*size);
   return env.Null();
 }

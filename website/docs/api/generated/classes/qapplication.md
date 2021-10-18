@@ -21,7 +21,7 @@ qApp.quit();
 
 ## Hierarchy
 
-  ↳ [NodeObject](nodeobject.md)‹[QApplicationSignals](../globals.md#qapplicationsignals)›
+  ↳ [NodeObject](nodeobject.md)‹[QApplicationSignals](../interfaces/qapplicationsignals.md)›
 
   ↳ **QApplication**
 

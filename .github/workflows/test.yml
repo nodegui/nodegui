@@ -9,17 +9,19 @@ jobs:
                 os: [ubuntu-18.04, windows-latest, macos-latest]
         runs-on: ${{ matrix.os }}
         steps:
-            - uses: actions/checkout@master
-            - uses: actions/setup-node@master
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
               with:
-                  node-version: '13.x'
+                node-version: '16.x'
             - name: Install ubuntu deps
               if: contains(matrix.os, 'ubuntu')
               run: sudo apt install mesa-common-dev libglu1-mesa-dev
             - name: Install deps
-              run: npm install
+              run: yarn install
             - name: Build nodegui
               run: npm run build
+              env:
+                CMAKE_BUILD_PARALLEL_LEVEL: 8
             - name: Run tests
               run: npm run test
             - name: Run linters for cpp

@@ -15,7 +15,7 @@ class DLL_EXPORT NListWidget : public QListWidget, public NodeWidget {
  public:
   using QListWidget::QListWidget;
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QLISTVIEW_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(

@@ -15,9 +15,9 @@ class DLL_EXPORT EventWidget {
   void subscribeToQtEvent(std::string evtString);
   void unSubscribeToQtEvent(std::string evtString);
 
-  void event(QEvent* event);
+  bool event(QEvent* event);
 
-  void connectSignalsToEventEmitter();
+  virtual void connectSignalsToEventEmitter();
 
   ~EventWidget();
 };

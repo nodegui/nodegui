@@ -11,5 +11,5 @@ class DLL_EXPORT NDialog : public QDialog, public NodeWidget {
  public:
   using QDialog::QDialog;
 
-  void connectSignalsToEventEmitter() { QDIALOG_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QDIALOG_SIGNALS }
 };

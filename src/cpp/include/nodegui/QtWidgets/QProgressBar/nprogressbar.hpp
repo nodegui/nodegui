@@ -12,7 +12,7 @@ class DLL_EXPORT NProgressBar : public QProgressBar, public NodeWidget {
  public:
   using QProgressBar::QProgressBar;  // inherit all constructors of QProgressBar
 
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     QWIDGET_SIGNALS
     // Qt Connects: Implement all signal connects here
     QObject::connect(this, &QProgressBar::valueChanged, [=](int value) {

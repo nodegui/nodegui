@@ -9,6 +9,7 @@
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
+#include "QtGui/QStyle/qstyle_wrap.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 #include "core/YogaWidget/yogawidget_macro.h"
@@ -439,6 +440,103 @@
     int reason = info[0].As<Napi::Number>().Int32Value();                     \
     this->instance->setFocus(static_cast<Qt::FocusReason>(reason));           \
     return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value clearFocus(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    this->instance->clearFocus();                                             \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setSizePolicy(const Napi::CallbackInfo& info) {                 \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    QSizePolicy::Policy horizontal = static_cast<QSizePolicy::Policy>(        \
+        info[0].As<Napi::Number>().Int32Value());                             \
+    QSizePolicy::Policy vertical = static_cast<QSizePolicy::Policy>(          \
+        info[1].As<Napi::Number>().Int32Value());                             \
+    this->instance->setSizePolicy(horizontal, vertical);                      \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setMaximumHeight(const Napi::CallbackInfo& info) {              \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    int maxh = info[0].As<Napi::Number>().Int32Value();                       \
+    this->instance->setMaximumHeight(maxh);                                   \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setMinimumWidth(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    int minw = info[0].As<Napi::Number>().Int32Value();                       \
+    this->instance->setMinimumWidth(minw);                                    \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setMaximumWidth(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    int maxw = info[0].As<Napi::Number>().Int32Value();                       \
+    this->instance->setMaximumWidth(maxw);                                    \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setMinimumHeight(const Napi::CallbackInfo& info) {              \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    int minh = info[0].As<Napi::Number>().Int32Value();                       \
+    this->instance->setMinimumHeight(minh);                                   \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value style(const Napi::CallbackInfo& info) {                         \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    QStyle* style = this->instance->style();                                  \
+    return QStyleWrap::constructor.New(                                       \
+        {Napi::External<QStyle>::New(env, style)});                           \
+  }                                                                           \
+  Napi::Value isWindow(const Napi::CallbackInfo& info) {                      \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool result = this->instance->isWindow();                                 \
+    return Napi::Boolean::New(env, result);                                   \
+  }                                                                           \
+  Napi::Value isWindowModified(const Napi::CallbackInfo& info) {              \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool result = this->instance->isWindowModified();                         \
+    return Napi::Boolean::New(env, result);                                   \
+  }                                                                           \
+  Napi::Value isHidden(const Napi::CallbackInfo& info) {                      \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool result = this->instance->isHidden();                                 \
+    return Napi::Boolean::New(env, result);                                   \
+  }                                                                           \
+  Napi::Value setDisabled(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool disable = info[0].As<Napi::Boolean>().Value();                       \
+    this->instance->setDisabled(disable);                                     \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setHidden(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool hidden = info[0].As<Napi::Boolean>().Value();                        \
+    this->instance->setHidden(hidden);                                        \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setVisible(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool visible = info[0].As<Napi::Boolean>().Value();                       \
+    this->instance->setVisible(visible);                                      \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setWindowModified(const Napi::CallbackInfo& info) {             \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    bool modified = info[0].As<Napi::Boolean>().Value();                      \
+    this->instance->setWindowModified(modified);                              \
+    return env.Null();                                                        \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -501,7 +599,21 @@
       InstanceMethod("setGraphicsEffect", &WidgetWrapName::setGraphicsEffect), \
       InstanceMethod("acceptDrops", &WidgetWrapName::acceptDrops),             \
       InstanceMethod("setAcceptDrops", &WidgetWrapName::setAcceptDrops),       \
-      InstanceMethod("setFocus", &WidgetWrapName::setFocus),
+      InstanceMethod("setFocus", &WidgetWrapName::setFocus),                   \
+      InstanceMethod("clearFocus", &WidgetWrapName::clearFocus),               \
+      InstanceMethod("setSizePolicy", &WidgetWrapName::setSizePolicy),         \
+      InstanceMethod("setMaximumHeight", &WidgetWrapName::setMaximumHeight),   \
+      InstanceMethod("setMinimumWidth", &WidgetWrapName::setMinimumWidth),     \
+      InstanceMethod("setMaximumWidth", &WidgetWrapName::setMaximumWidth),     \
+      InstanceMethod("setMinimumHeight", &WidgetWrapName::setMinimumHeight),   \
+      InstanceMethod("style", &WidgetWrapName::style),                         \
+      InstanceMethod("isWindow", &WidgetWrapName::isWindow),                   \
+      InstanceMethod("isWindowModified", &WidgetWrapName::isWindowModified),   \
+      InstanceMethod("isHidden", &WidgetWrapName::isHidden),                   \
+      InstanceMethod("setDisabled", &WidgetWrapName::setDisabled),             \
+      InstanceMethod("setHidden", &WidgetWrapName::setHidden),                 \
+      InstanceMethod("setVisible", &WidgetWrapName::setVisible),               \
+      InstanceMethod("setWindowModified", &WidgetWrapName::setWindowModified),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

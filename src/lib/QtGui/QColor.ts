@@ -52,6 +52,13 @@ export class QColor extends Component {
     alpha(): number {
         return this.native.alpha();
     }
+    rgb(): number {
+        return this.native.rgb();
+    }
+    rgba(): number {
+        return this.native.rgba();
+    }
+
     static fromQVariant(variant: QVariant): QColor {
         return new QColor(addon.QColor.fromQVariant(variant.native));
     }

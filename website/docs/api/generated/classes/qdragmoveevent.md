@@ -6,7 +6,9 @@ sidebar_label: "QDragMoveEvent"
 
 ## Hierarchy
 
-* **QDragMoveEvent**
+* [QEvent](qevent.md)
+
+  ↳ **QDragMoveEvent**
 
 ## Index
 
@@ -44,6 +46,8 @@ sidebar_label: "QDragMoveEvent"
 
 \+ **new QDragMoveEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QDragMoveEvent](qdragmoveevent.md)*
 
+*Overrides [QEvent](qevent.md).[constructor](qevent.md#constructor)*
+
 **Parameters:**
 
 Name | Type |
@@ -58,11 +62,15 @@ Name | Type |
 
 • **native**: *[NativeElement](../globals.md#nativeelement)*
 
+*Inherited from [QEvent](qevent.md).[native](qevent.md#native)*
+
 ## Methods
 
 ###  accept
 
 ▸ **accept**(`x?`: undefined | number, `y?`: undefined | number, `width?`: undefined | number, `height?`: undefined | number): *void*
+
+*Overrides [QEvent](qevent.md).[accept](qevent.md#accept)*
 
 Sets the accept flag of the event object, the equivalent of calling setAccepted(true).
 Setting the accept parameter indicates that the event receiver wants the event. Unwanted events might be propagated to the parent widget
@@ -126,6 +134,8 @@ ___
 
 ▸ **ignore**(`x?`: undefined | number, `y?`: undefined | number, `width?`: undefined | number, `height?`: undefined | number): *void*
 
+*Overrides [QEvent](qevent.md).[ignore](qevent.md#ignore)*
+
 Clears the accept flag parameter of the event object, the equivalent of calling setAccepted(false).
 Clearing the accept parameter indicates that the event receiver does not want the event.
 Unwanted events might be propagated to the parent widget.
@@ -146,6 +156,8 @@ ___
 ###  isAccepted
 
 ▸ **isAccepted**(): *boolean*
+
+*Inherited from [QEvent](qevent.md).[isAccepted](qevent.md#isaccepted)*
 
 **Returns:** *boolean*
 
@@ -239,6 +251,8 @@ ___
 
 ▸ **setAccepted**(`accepted`: boolean): *void*
 
+*Inherited from [QEvent](qevent.md).[setAccepted](qevent.md#setaccepted)*
+
 Sets the accept flag of the event object
 
 **Parameters:**
@@ -269,6 +283,8 @@ ___
 
 ▸ **spontaneous**(): *boolean*
 
+*Inherited from [QEvent](qevent.md).[spontaneous](qevent.md#spontaneous)*
+
 Returns true if the event originated outside the application (a system event); otherwise returns false.
 
 The return value of this function is not defined for paint events.
@@ -280,6 +296,8 @@ ___
 ###  type
 
 ▸ **type**(): *number*
+
+*Inherited from [QEvent](qevent.md).[type](qevent.md#type)*
 
 Returns the event type
 

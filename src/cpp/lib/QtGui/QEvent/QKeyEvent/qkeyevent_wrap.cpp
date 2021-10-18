@@ -9,14 +9,16 @@ Napi::FunctionReference QKeyEventWrap::constructor;
 Napi::Object QKeyEventWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QKeyEvent";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {InstanceMethod("text", &QKeyEventWrap::text),
-                   InstanceMethod("key", &QKeyEventWrap::key),
-                   InstanceMethod("modifiers", &QKeyEventWrap::modifiers),
-                   InstanceMethod("count", &QKeyEventWrap::count),
-                   InstanceMethod("isAutoRepeat", &QKeyEventWrap::isAutoRepeat),
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QKeyEventWrap)});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("text", &QKeyEventWrap::text),
+       InstanceMethod("key", &QKeyEventWrap::key),
+       InstanceMethod("modifiers", &QKeyEventWrap::modifiers),
+       InstanceMethod("count", &QKeyEventWrap::count),
+       InstanceMethod("isAutoRepeat", &QKeyEventWrap::isAutoRepeat),
+       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QKeyEventWrap)
+           QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QKeyEventWrap)
+               QINPUTEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QKeyEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -53,12 +55,6 @@ Napi::Value QKeyEventWrap::text(const Napi::CallbackInfo& info) {
 Napi::Value QKeyEventWrap::key(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int key = static_cast<int>(this->instance->key());
-  return Napi::Number::From(env, key);
-}
-
-Napi::Value QKeyEventWrap::modifiers(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  int key = static_cast<int>(this->instance->modifiers());
   return Napi::Number::From(env, key);
 }
 

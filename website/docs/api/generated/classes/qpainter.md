@@ -57,19 +57,28 @@ https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpa
 ### Methods
 
 * [begin](qpainter.md#begin)
+* [beginNativePainting](qpainter.md#beginnativepainting)
+* [drawArc](qpainter.md#drawarc)
 * [drawConvexPolygon](qpainter.md#drawconvexpolygon)
+* [drawEllipse](qpainter.md#drawellipse)
+* [drawImage](qpainter.md#drawimage)
 * [drawLine](qpainter.md#drawline)
 * [drawPath](qpainter.md#drawpath)
+* [drawPie](qpainter.md#drawpie)
 * [drawText](qpainter.md#drawtext)
 * [end](qpainter.md#end)
+* [endNativePainting](qpainter.md#endnativepainting)
+* [fillRect](qpainter.md#fillrect)
 * [restore](qpainter.md#restore)
 * [rotate](qpainter.md#rotate)
 * [save](qpainter.md#save)
 * [scale](qpainter.md#scale)
 * [setBrush](qpainter.md#setbrush)
+* [setFont](qpainter.md#setfont)
 * [setNodeParent](qpainter.md#setnodeparent)
 * [setPen](qpainter.md#setpen)
 * [setRenderHint](qpainter.md#setrenderhint)
+* [setTransform](qpainter.md#settransform)
 * [strokePath](qpainter.md#strokepath)
 * [translate](qpainter.md#translate)
 
@@ -123,15 +132,42 @@ ___
 
 ###  begin
 
-▸ **begin**(`device`: [Component](component.md)): *boolean*
+▸ **begin**(`device`: [QWidget](qwidget.md) | [QImage](qimage.md)): *boolean*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`device` | [Component](component.md) |
+`device` | [QWidget](qwidget.md) &#124; [QImage](qimage.md) |
 
 **Returns:** *boolean*
+
+___
+
+###  beginNativePainting
+
+▸ **beginNativePainting**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  drawArc
+
+▸ **drawArc**(`x`: number, `y`: number, `width`: number, `height`: number, `startAngle`: number, `spanAngle`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+`startAngle` | number |
+`spanAngle` | number |
+
+**Returns:** *void*
 
 ___
 
@@ -144,6 +180,43 @@ ___
 Name | Type |
 ------ | ------ |
 `points` | [QPoint](qpoint.md)[] |
+
+**Returns:** *void*
+
+___
+
+###  drawEllipse
+
+▸ **drawEllipse**(`x`: number, `y`: number, `width`: number, `height`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawImage
+
+▸ **drawImage**(`x`: number, `y`: number, `image`: [QImage](qimage.md), `sx`: number, `sy`: number, `sw`: number, `sh`: number): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`x` | number | - |
+`y` | number | - |
+`image` | [QImage](qimage.md) | - |
+`sx` | number | 0 |
+`sy` | number | 0 |
+`sw` | number | -1 |
+`sh` | number | -1 |
 
 **Returns:** *void*
 
@@ -180,6 +253,25 @@ Name | Type |
 
 ___
 
+###  drawPie
+
+▸ **drawPie**(`x`: number, `y`: number, `width`: number, `height`: number, `startAngle`: number, `sweepLength`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+`startAngle` | number |
+`sweepLength` | number |
+
+**Returns:** *void*
+
+___
+
 ###  drawText
 
 ▸ **drawText**(`x`: number, `y`: number, `text`: string): *void*
@@ -201,6 +293,32 @@ ___
 ▸ **end**(): *boolean*
 
 **Returns:** *boolean*
+
+___
+
+###  endNativePainting
+
+▸ **endNativePainting**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  fillRect
+
+▸ **fillRect**(`x`: number, `y`: number, `width`: number, `height`: number, `color`: [QColor](qcolor.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+`color` | [QColor](qcolor.md) |
+
+**Returns:** *void*
 
 ___
 
@@ -263,6 +381,20 @@ Name | Type |
 
 ___
 
+###  setFont
+
+▸ **setFont**(`font`: [QFont](qfont.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`font` | [QFont](qfont.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setNodeParent
 
 ▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
@@ -303,6 +435,23 @@ Name | Type | Default |
 ------ | ------ | ------ |
 `hint` | [RenderHint](../enums/renderhint.md) | - |
 `on` | boolean | true |
+
+**Returns:** *void*
+
+___
+
+###  setTransform
+
+▸ **setTransform**(`matrix2x3`: number[] | Float32Array, `combine`: boolean): *void*
+
+Sets the world transformation matrix.
+
+**Parameters:**
+
+Name | Type | Default | Description |
+------ | ------ | ------ | ------ |
+`matrix2x3` | number[] &#124; Float32Array | - | An array of length 6 representing a 2x3 transformation                  matrix. The order of elements corresponds to the                  convention used in QTransform, i.e. m11, m12, m21, m22,                  dx, and dy. |
+`combine` | boolean | false | If set then this transform will be combining with the                  curent one. Otherwise it replaces it completely.  |
 
 **Returns:** *void*
 

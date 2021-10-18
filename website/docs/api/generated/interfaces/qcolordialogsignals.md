@@ -74,7 +74,7 @@ ___
 
 • **customContextMenuRequested**: *function*
 
-*Inherited from [QWidgetSignals](qwidgetsignals.md).[customContextMenuRequested](qwidgetsignals.md#customcontextmenurequested)*
+*Inherited from [QMenuSignals](qmenusignals.md).[customContextMenuRequested](qmenusignals.md#customcontextmenurequested)*
 
 #### Type declaration:
 
@@ -143,7 +143,7 @@ ___
 
 • **windowIconChanged**: *function*
 
-*Inherited from [QWidgetSignals](qwidgetsignals.md).[windowIconChanged](qwidgetsignals.md#windowiconchanged)*
+*Inherited from [QMenuSignals](qmenusignals.md).[windowIconChanged](qmenusignals.md#windowiconchanged)*
 
 #### Type declaration:
 
@@ -161,7 +161,7 @@ ___
 
 • **windowTitleChanged**: *function*
 
-*Inherited from [QWidgetSignals](qwidgetsignals.md).[windowTitleChanged](qwidgetsignals.md#windowtitlechanged)*
+*Inherited from [QMenuSignals](qmenusignals.md).[windowTitleChanged](qmenusignals.md#windowtitlechanged)*
 
 #### Type declaration:
 

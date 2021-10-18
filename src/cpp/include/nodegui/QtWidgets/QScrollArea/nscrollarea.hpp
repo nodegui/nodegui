@@ -12,5 +12,11 @@ class DLL_EXPORT NScrollArea : public QScrollArea, public NodeWidget {
  public:
   using QScrollArea::QScrollArea;  // inherit all constructors of QScrollArea
 
-  void connectSignalsToEventEmitter() { QABSTRACTSCROLLAREA_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QABSTRACTSCROLLAREA_SIGNALS }
+
+  // By-pass `protected` access and expose it.
+  void setViewportMargins(int left, int top, int right, int bottom) {
+    QScrollArea::setViewportMargins(left, top, right, bottom);
+  }
+  QMargins viewportMargins() const { return QScrollArea::viewportMargins(); }
 };

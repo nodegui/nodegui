@@ -42,6 +42,7 @@ Once a central widget is set you can add children/layout to the central widget.
 
 ### Properties
 
+* [_layout](qmainwindow.md#optional-_layout)
 * [_rawInlineStyle](qmainwindow.md#_rawinlinestyle)
 * [actions](qmainwindow.md#actions)
 * [centralWidget](qmainwindow.md#optional-centralwidget)
@@ -62,6 +63,7 @@ Once a central widget is set you can add children/layout to the central widget.
 * [addEventListener](qmainwindow.md#addeventlistener)
 * [adjustSize](qmainwindow.md#adjustsize)
 * [center](qmainwindow.md#center)
+* [clearFocus](qmainwindow.md#clearfocus)
 * [close](qmainwindow.md#close)
 * [font](qmainwindow.md#font)
 * [geometry](qmainwindow.md#geometry)
@@ -69,6 +71,7 @@ Once a central widget is set you can add children/layout to the central widget.
 * [hasMouseTracking](qmainwindow.md#hasmousetracking)
 * [hide](qmainwindow.md#hide)
 * [inherits](qmainwindow.md#inherits)
+* [isActiveWindow](qmainwindow.md#isactivewindow)
 * [isEnabled](qmainwindow.md#isenabled)
 * [isVisible](qmainwindow.md#isvisible)
 * [lower](qmainwindow.md#lower)
@@ -99,6 +102,7 @@ Once a central widget is set you can add children/layout to the central widget.
 * [setFixedSize](qmainwindow.md#setfixedsize)
 * [setFlexNodeSizeControlled](qmainwindow.md#setflexnodesizecontrolled)
 * [setFocus](qmainwindow.md#setfocus)
+* [setFocusPolicy](qmainwindow.md#setfocuspolicy)
 * [setFont](qmainwindow.md#setfont)
 * [setGeometry](qmainwindow.md#setgeometry)
 * [setGraphicsEffect](qmainwindow.md#setgraphicseffect)
@@ -159,6 +163,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QMainWindowSignals](../globals.md#qmainwindowsignals)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -217,7 +229,7 @@ ___
 
 • **get layout**(): *[NodeLayout](nodelayout.md)‹any› | undefined*
 
-*Overrides [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
+*Overrides [QMenu](qmenu.md).[layout](qmenu.md#layout)*
 
 **Returns:** *[NodeLayout](nodelayout.md)‹any› | undefined*
 
@@ -333,6 +345,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -404,6 +426,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -840,9 +872,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

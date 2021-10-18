@@ -11,7 +11,7 @@ class DLL_EXPORT NRadioButton : public QRadioButton, public NodeWidget {
   NODEWIDGET_IMPLEMENTATIONS(QRadioButton)
  public:
   using QRadioButton::QRadioButton;  // inherit all constructors of QRadioButton
-  void connectSignalsToEventEmitter() {
+  virtual void connectSignalsToEventEmitter() {
     // Qt Connects: Implement all signal connects here
     QABSTRACT_BUTTON_SIGNALS
   }

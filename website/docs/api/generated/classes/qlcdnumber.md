@@ -33,13 +33,17 @@ const lcd = new QLCDNumber();
 
 ### Properties
 
+* [_layout](qlcdnumber.md#optional-_layout)
 * [_rawInlineStyle](qlcdnumber.md#_rawinlinestyle)
 * [actions](qlcdnumber.md#actions)
-* [layout](qlcdnumber.md#optional-layout)
 * [native](qlcdnumber.md#native)
 * [nodeChildren](qlcdnumber.md#nodechildren)
 * [nodeParent](qlcdnumber.md#optional-nodeparent)
 * [type](qlcdnumber.md#type)
+
+### Accessors
+
+* [layout](qlcdnumber.md#layout)
 
 ### Methods
 
@@ -49,6 +53,7 @@ const lcd = new QLCDNumber();
 * [addEventListener](qlcdnumber.md#addeventlistener)
 * [adjustSize](qlcdnumber.md#adjustsize)
 * [checkOverflow](qlcdnumber.md#checkoverflow)
+* [clearFocus](qlcdnumber.md#clearfocus)
 * [close](qlcdnumber.md#close)
 * [digitCount](qlcdnumber.md#digitcount)
 * [display](qlcdnumber.md#display)
@@ -59,6 +64,7 @@ const lcd = new QLCDNumber();
 * [hide](qlcdnumber.md#hide)
 * [inherits](qlcdnumber.md#inherits)
 * [intValue](qlcdnumber.md#intvalue)
+* [isActiveWindow](qlcdnumber.md#isactivewindow)
 * [isEnabled](qlcdnumber.md#isenabled)
 * [isVisible](qlcdnumber.md#isvisible)
 * [lower](qlcdnumber.md#lower)
@@ -91,6 +97,7 @@ const lcd = new QLCDNumber();
 * [setFixedSize](qlcdnumber.md#setfixedsize)
 * [setFlexNodeSizeControlled](qlcdnumber.md#setflexnodesizecontrolled)
 * [setFocus](qlcdnumber.md#setfocus)
+* [setFocusPolicy](qlcdnumber.md#setfocuspolicy)
 * [setFont](qlcdnumber.md#setfont)
 * [setGeometry](qlcdnumber.md#setgeometry)
 * [setGraphicsEffect](qlcdnumber.md#setgraphicseffect)
@@ -153,6 +160,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QLCDNumberSignals](../interfaces/qlcdnumbersignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -166,14 +181,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QLCDNumberSignals](../interfaces/qlcdnumbersignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -206,6 +213,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QLCDNumberSignals](../interfaces/qlcdnumbersignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QLCDNumberSignals](../interfaces/qlcdnumbersignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QLCDNumberSignals](../interfaces/qlcdnumbersignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QLCDNumberSignals](../interfaces/qlcdnumbersignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -325,6 +354,16 @@ Name | Type |
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -428,6 +467,16 @@ ___
 ▸ **intValue**(): *number*
 
 **Returns:** *number*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
 
 ___
 
@@ -876,9 +925,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

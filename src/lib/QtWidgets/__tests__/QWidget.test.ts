@@ -3,7 +3,7 @@ import { CursorShape } from '../../QtEnums/CursorShape';
 import { QCursor } from '../../..';
 
 describe('QWidget', () => {
-    const view = new QWidget();
+    let view = new QWidget();
     afterAll(() => {
         if (view) {
             view.close();

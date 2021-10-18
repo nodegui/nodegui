@@ -54,5 +54,5 @@ class DLL_EXPORT FlexLayout : public QLayout, public EventWidget {
   bool hasHeightForWidth() const override;
 
   EVENTWIDGET_IMPLEMENTATIONS(QLayout)
-  void connectSignalsToEventEmitter();
+  virtual void connectSignalsToEventEmitter();
 };

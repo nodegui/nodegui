@@ -33,13 +33,17 @@ const tabBar = new QTabBar();
 
 ### Properties
 
+* [_layout](qtabbar.md#optional-_layout)
 * [_rawInlineStyle](qtabbar.md#_rawinlinestyle)
 * [actions](qtabbar.md#actions)
-* [layout](qtabbar.md#optional-layout)
 * [native](qtabbar.md#native)
 * [nodeChildren](qtabbar.md#nodechildren)
 * [nodeParent](qtabbar.md#optional-nodeparent)
 * [type](qtabbar.md#type)
+
+### Accessors
+
+* [layout](qtabbar.md#layout)
 
 ### Methods
 
@@ -52,6 +56,7 @@ const tabBar = new QTabBar();
 * [adjustSize](qtabbar.md#adjustsize)
 * [autoHide](qtabbar.md#autohide)
 * [changeCurrentOnDrag](qtabbar.md#changecurrentondrag)
+* [clearFocus](qtabbar.md#clearfocus)
 * [close](qtabbar.md#close)
 * [count](qtabbar.md#count)
 * [currentIndex](qtabbar.md#currentindex)
@@ -67,6 +72,7 @@ const tabBar = new QTabBar();
 * [iconSize](qtabbar.md#iconsize)
 * [inherits](qtabbar.md#inherits)
 * [insertTab](qtabbar.md#inserttab)
+* [isActiveWindow](qtabbar.md#isactivewindow)
 * [isEnabled](qtabbar.md#isenabled)
 * [isMovable](qtabbar.md#ismovable)
 * [isTabEnabled](qtabbar.md#istabenabled)
@@ -107,6 +113,7 @@ const tabBar = new QTabBar();
 * [setFixedSize](qtabbar.md#setfixedsize)
 * [setFlexNodeSizeControlled](qtabbar.md#setflexnodesizecontrolled)
 * [setFocus](qtabbar.md#setfocus)
+* [setFocusPolicy](qtabbar.md#setfocuspolicy)
 * [setFont](qtabbar.md#setfont)
 * [setGeometry](qtabbar.md#setgeometry)
 * [setGraphicsEffect](qtabbar.md#setgraphicseffect)
@@ -187,6 +194,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -200,14 +215,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -240,6 +247,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QTabBarSignals](../interfaces/qtabbarsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -390,6 +419,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -535,6 +574,16 @@ Name | Type |
 `text` | string |
 
 **Returns:** *number*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
 
 ___
 
@@ -1109,9 +1158,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

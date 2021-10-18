@@ -33,13 +33,17 @@ checkbox.setText("Hello");
 
 ### Properties
 
+* [_layout](qcheckbox.md#optional-_layout)
 * [_rawInlineStyle](qcheckbox.md#_rawinlinestyle)
 * [actions](qcheckbox.md#actions)
-* [layout](qcheckbox.md#optional-layout)
 * [native](qcheckbox.md#native)
 * [nodeChildren](qcheckbox.md#nodechildren)
 * [nodeParent](qcheckbox.md#optional-nodeparent)
 * [type](qcheckbox.md#type)
+
+### Accessors
+
+* [layout](qcheckbox.md#layout)
 
 ### Methods
 
@@ -54,6 +58,7 @@ checkbox.setText("Hello");
 * [autoRepeatDelay](qcheckbox.md#autorepeatdelay)
 * [autoRepeatInterval](qcheckbox.md#autorepeatinterval)
 * [checkState](qcheckbox.md#checkstate)
+* [clearFocus](qcheckbox.md#clearfocus)
 * [click](qcheckbox.md#click)
 * [close](qcheckbox.md#close)
 * [font](qcheckbox.md#font)
@@ -64,6 +69,7 @@ checkbox.setText("Hello");
 * [icon](qcheckbox.md#icon)
 * [iconSize](qcheckbox.md#iconsize)
 * [inherits](qcheckbox.md#inherits)
+* [isActiveWindow](qcheckbox.md#isactivewindow)
 * [isCheckable](qcheckbox.md#ischeckable)
 * [isChecked](qcheckbox.md#ischecked)
 * [isDown](qcheckbox.md#isdown)
@@ -103,6 +109,7 @@ checkbox.setText("Hello");
 * [setFixedSize](qcheckbox.md#setfixedsize)
 * [setFlexNodeSizeControlled](qcheckbox.md#setflexnodesizecontrolled)
 * [setFocus](qcheckbox.md#setfocus)
+* [setFocusPolicy](qcheckbox.md#setfocuspolicy)
 * [setFont](qcheckbox.md#setfont)
 * [setGeometry](qcheckbox.md#setgeometry)
 * [setGraphicsEffect](qcheckbox.md#setgraphicseffect)
@@ -179,6 +186,14 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)›*
+
+*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -192,14 +207,6 @@ ___
 • **actions**: *Set‹[QAction](qaction.md)›*
 
 *Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#optional-layout)*
 
 ___
 
@@ -232,6 +239,28 @@ ___
 • **type**: *string* = "widget"
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)› | undefined*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)› | undefined): *void*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹[QCheckBoxSignals](../interfaces/qcheckboxsignals.md)› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -401,6 +430,16 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
 ###  click
 
 ▸ **click**(): *void*
@@ -502,6 +541,16 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
 
 **Returns:** *boolean*
 
@@ -1070,9 +1119,25 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusPolicy](qmenu.md#setfocuspolicy)*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 

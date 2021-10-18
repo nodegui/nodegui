@@ -35,4 +35,6 @@ class DLL_EXPORT QActionWrap : public Napi::ObjectWrap<QActionWrap> {
   Napi::Value isSeparator(const Napi::CallbackInfo& info);
   Napi::Value setSeparator(const Napi::CallbackInfo& info);
   Napi::Value setFont(const Napi::CallbackInfo& info);
+  Napi::Value data(const Napi::CallbackInfo& info);
+  Napi::Value setData(const Napi::CallbackInfo& info);
 };

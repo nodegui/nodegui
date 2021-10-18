@@ -9,10 +9,10 @@ jobs:
     gh-release:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v1
-            - uses: actions/setup-node@v1
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
               with:
-                  node-version: '14.x'
+                node-version: '16.x'
             - name: Add key to allow access to repository
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
@@ -33,7 +33,7 @@ jobs:
               run: |
                   git config --global user.email "actions@gihub.com"
                   git config --global user.name "gh-actions"
-                  npm install --ignore-scripts
+                  yarn install --ignore-scripts
                   npm run docs
                   cd website
                   if [ -e yarn.lock ]; then

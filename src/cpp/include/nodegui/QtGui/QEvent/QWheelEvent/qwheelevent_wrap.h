@@ -5,10 +5,14 @@
 #include <QWheelEvent>
 
 #include "Extras/Export/export.h"
+#include "QtGui/QEvent/QEvent/qevent_macro.h"
+#include "QtGui/QEvent/QInputEvent/qinputevent_macro.h"
 #include "core/Component/component_macro.h"
 
 class DLL_EXPORT QWheelEventWrap : public Napi::ObjectWrap<QWheelEventWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
+  QEVENT_WRAPPED_METHODS_DECLARATION
+  QINPUTEVENT_WRAPPED_METHODS_DECLARATION
 
  private:
   QWheelEvent* instance;

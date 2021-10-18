@@ -10,5 +10,5 @@ class DLL_EXPORT NBoxLayout : public QBoxLayout, public EventWidget {
  public:
   EVENTWIDGET_IMPLEMENTATIONS(QBoxLayout)
   using QBoxLayout::QBoxLayout;
-  void connectSignalsToEventEmitter() { QLAYOUT_SIGNALS }
+  virtual void connectSignalsToEventEmitter() { QLAYOUT_SIGNALS }
 };

@@ -7,7 +7,7 @@ import { QColor } from './QColor';
 import { QPixmap } from './QPixmap';
 
 /**
- 
+
 > The QBrush class defines the fill pattern of shapes drawn by QPainter.
 
 * **This class is a JS wrapper around Qt's [QBrush class](https://doc.qt.io/qt-5/qbrush.html)**
@@ -22,22 +22,16 @@ const brush = new QBrush();
  */
 export class QBrush extends Component {
     native: NativeElement;
-    constructor();
-    constructor(nativeElement: NativeElement);
-    constructor(color: GlobalColor, style: BrushStyle);
-    constructor(color: QColor, style: BrushStyle);
     constructor(arg?: NativeElement | GlobalColor | QColor, style = BrushStyle.SolidPattern) {
         super();
-        if (arguments.length === 2) {
-            if (typeof arg === 'number') {
-                this.native = new addon.QBrush(arg, style);
-            } else {
-                this.native = new addon.QBrush(arg?.native, style);
-            }
-        } else if (checkIfNativeElement(arg)) {
+        if (checkIfNativeElement(arg)) {
             this.native = arg as NativeElement;
-        } else {
+        } else if (typeof arg === 'number') {
+            this.native = new addon.QBrush(arg, style);
+        } else if (arg == null) {
             this.native = new addon.QBrush();
+        } else {
+            this.native = new addon.QBrush(arg?.native, style);
         }
     }
     isOpaque(): boolean {

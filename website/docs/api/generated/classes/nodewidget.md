@@ -92,13 +92,17 @@ Implement all native QWidget methods here so that all widgets get access to thos
 
 ### Properties
 
+* [_layout](nodewidget.md#optional-_layout)
 * [_rawInlineStyle](nodewidget.md#_rawinlinestyle)
 * [actions](nodewidget.md#actions)
-* [layout](nodewidget.md#optional-layout)
 * [native](nodewidget.md#abstract-native)
 * [nodeChildren](nodewidget.md#nodechildren)
 * [nodeParent](nodewidget.md#optional-nodeparent)
 * [type](nodewidget.md#type)
+
+### Accessors
+
+* [layout](nodewidget.md#layout)
 
 ### Methods
 
@@ -107,6 +111,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 * [addAction](nodewidget.md#addaction)
 * [addEventListener](nodewidget.md#addeventlistener)
 * [adjustSize](nodewidget.md#adjustsize)
+* [clearFocus](nodewidget.md#clearfocus)
 * [close](nodewidget.md#close)
 * [font](nodewidget.md#font)
 * [geometry](nodewidget.md#geometry)
@@ -114,6 +119,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 * [hasMouseTracking](nodewidget.md#hasmousetracking)
 * [hide](nodewidget.md#hide)
 * [inherits](nodewidget.md#inherits)
+* [isActiveWindow](nodewidget.md#isactivewindow)
 * [isEnabled](nodewidget.md#isenabled)
 * [isVisible](nodewidget.md#isvisible)
 * [lower](nodewidget.md#lower)
@@ -141,6 +147,7 @@ Implement all native QWidget methods here so that all widgets get access to thos
 * [setFixedSize](nodewidget.md#setfixedsize)
 * [setFlexNodeSizeControlled](nodewidget.md#setflexnodesizecontrolled)
 * [setFocus](nodewidget.md#setfocus)
+* [setFocusPolicy](nodewidget.md#setfocuspolicy)
 * [setFont](nodewidget.md#setfont)
 * [setGeometry](nodewidget.md#setgeometry)
 * [setGraphicsEffect](nodewidget.md#setgraphicseffect)
@@ -190,6 +197,12 @@ Name | Type |
 
 ## Properties
 
+### `Optional` _layout
+
+• **_layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
+
+___
+
 ###  _rawInlineStyle
 
 • **_rawInlineStyle**: *string* = ""
@@ -199,12 +212,6 @@ ___
 ###  actions
 
 • **actions**: *Set‹[QAction](qaction.md)›*
-
-___
-
-### `Optional` layout
-
-• **layout**? : *[NodeLayout](nodelayout.md)‹Signals›*
 
 ___
 
@@ -235,6 +242,24 @@ ___
 ###  type
 
 • **type**: *string* = "widget"
+
+## Accessors
+
+###  layout
+
+• **get layout**(): *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+**Returns:** *[NodeLayout](nodelayout.md)‹Signals› | undefined*
+
+• **set layout**(`l`: [NodeLayout](nodelayout.md)‹Signals› | undefined): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`l` | [NodeLayout](nodelayout.md)‹Signals› &#124; undefined |
+
+**Returns:** *void*
 
 ## Methods
 
@@ -332,6 +357,14 @@ ___
 
 ___
 
+###  clearFocus
+
+▸ **clearFocus**(): *void*
+
+**Returns:** *void*
+
+___
+
 ###  close
 
 ▸ **close**(): *boolean*
@@ -393,6 +426,14 @@ ___
 Name | Type |
 ------ | ------ |
 `className` | string |
+
+**Returns:** *boolean*
+
+___
+
+###  isActiveWindow
+
+▸ **isActiveWindow**(): *boolean*
 
 **Returns:** *boolean*
 
@@ -751,9 +792,23 @@ ___
 
 **Parameters:**
 
+Name | Type | Default |
+------ | ------ | ------ |
+`reason` | [FocusReason](../enums/focusreason.md) | FocusReason.OtherFocusReason |
+
+**Returns:** *void*
+
+___
+
+###  setFocusPolicy
+
+▸ **setFocusPolicy**(`policy`: [FocusPolicy](../enums/focuspolicy.md)): *void*
+
+**Parameters:**
+
 Name | Type |
 ------ | ------ |
-`reason` | [FocusReason](../enums/focusreason.md) |
+`policy` | [FocusPolicy](../enums/focuspolicy.md) |
 
 **Returns:** *void*
 
