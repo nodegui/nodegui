@@ -32,6 +32,8 @@ export { QDropEvent } from './lib/QtGui/QEvent/QDropEvent';
 export { QDragMoveEvent } from './lib/QtGui/QEvent/QDragMoveEvent';
 export { QDragLeaveEvent } from './lib/QtGui/QEvent/QDragLeaveEvent';
 export { QPaintEvent } from './lib/QtGui/QEvent/QPaintEvent';
+export { QScreen } from './lib/QtGui/QScreen';
+export { QWindow } from './lib/QtGui/QWindow';
 export { WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
 export { NodeWidget, QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
@@ -61,7 +63,6 @@ export { QCheckBox, QCheckBoxSignals } from './lib/QtWidgets/QCheckBox';
 export { QColorDialog, QColorDialogSignals } from './lib/QtWidgets/QColorDialog';
 export { QDateEdit } from './lib/QtWidgets/QDateEdit';
 export { QDateTimeEdit, NodeDateTimeEdit, QDateTimeEditSignals } from './lib/QtWidgets/QDateTimeEdit';
-export { QDesktopWidget } from './lib/QtWidgets/QDesktopWidget';
 export { QLabel, QLabelSignals } from './lib/QtWidgets/QLabel';
 export { QLCDNumber, QLCDNumberSignals, Mode, SegmentStyle } from './lib/QtWidgets/QLCDNumber';
 export { QDial, QDialSignals } from './lib/QtWidgets/QDial';

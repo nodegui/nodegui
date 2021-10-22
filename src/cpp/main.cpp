@@ -45,7 +45,9 @@
 #include "QtGui/QPen/qpen_wrap.h"
 #include "QtGui/QPicture/qpicture_wrap.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
+#include "QtGui/QScreen/qscreen_wrap.h"
 #include "QtGui/QStyle/qstyle_wrap.h"
+#include "QtGui/QWindow/qwindow_wrap.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QBoxLayout/qboxlayout_wrap.h"
 #include "QtWidgets/QButtonGroup/qbuttongroup_wrap.h"
@@ -55,7 +57,6 @@
 #include "QtWidgets/QComboBox/qcombobox_wrap.h"
 #include "QtWidgets/QDateEdit/qdateedit_wrap.h"
 #include "QtWidgets/QDateTimeEdit/qdatetimeedit_wrap.h"
-#include "QtWidgets/QDesktopWidget/qdesktopwidget_wrap.h"
 #include "QtWidgets/QDial/qdial_wrap.h"
 #include "QtWidgets/QDialog/qdialog_wrap.h"
 #include "QtWidgets/QDoubleSpinBox/qdoublespinbox_wrap.h"
@@ -225,13 +226,14 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QStandardItemModelWrap::init(env, exports);
   QStandardItemWrap::init(env, exports);
   QSvgWidgetWrap::init(env, exports);
-  QDesktopWidgetWrap::init(env, exports);
   QPaintEventWrap::init(env, exports);
   QPaletteWrap::init(env, exports);
   QAbstractItemModelWrap::init(env, exports);
   QHeaderViewWrap::init(env, exports);
   QItemSelectionModelWrap::init(env, exports);
   QStyleFactoryWrap::init(env, exports);
+  QScreenWrap::init(env, exports);
+  QWindowWrap::init(env, exports);
   return exports;
 }
 

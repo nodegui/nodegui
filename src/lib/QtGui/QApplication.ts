@@ -4,7 +4,6 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { QClipboard } from './QClipboard';
 import { QStyle } from './QStyle';
 import { QObjectSignals, NodeObject } from '../QtCore/QObject';
-import { QDesktopWidget } from '../QtWidgets/QDesktopWidget';
 import { QPalette } from './QPalette';
 import { StyleSheet } from '../core/Style/StyleSheet';
 import memoizeOne from 'memoize-one';
@@ -79,9 +78,6 @@ export class QApplication extends NodeObject<QApplicationSignals> {
     }
     static style(): QStyle {
         return new QStyle(addon.QApplication.style());
-    }
-    static desktop(): QDesktopWidget {
-        return new QDesktopWidget();
     }
 }
 
