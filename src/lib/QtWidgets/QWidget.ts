@@ -15,9 +15,10 @@ import { QRect } from '../QtCore/QRect';
 import { QObjectSignals } from '../QtCore/QObject';
 import { QFont } from '../QtGui/QFont';
 import { QAction } from './QAction';
+import { QScreen } from '../QtGui/QScreen';
 import memoizeOne from 'memoize-one';
 import { QGraphicsEffect } from './QGraphicsEffect';
-import { QSizePolicyPolicy, QStyle } from '../..';
+import { QSizePolicyPolicy, QStyle, QWindow } from '../..';
 
 /**
 
@@ -246,6 +247,7 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     resize(width: number, height: number): void {
         this.native.resize(width, height);
     }
+    // TODO: QScreen *QWidget::screen() const
     setAcceptDrops(on: boolean): void {
         this.native.setAcceptDrops(on);
     }
@@ -421,7 +423,13 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     // TODO: QWidget *	window() const
     // TODO: QString 	windowFilePath() const
     // TODO: Qt::WindowFlags 	windowFlags() const
-    // TODO: QWindow *	windowHandle() const
+    windowHandle(): QWindow | null {
+        const handle = this.native.windowHandle();
+        if (handle != null) {
+            return new QWindow(handle);
+        }
+        return null;
+    }
     // TODO: QIcon 	windowIcon() const
     // TODO: Qt::WindowModality 	windowModality() const
     windowOpacity(): number {

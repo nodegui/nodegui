@@ -10,6 +10,7 @@
 #include "QtGui/QCursor/qcursor_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
 #include "QtGui/QStyle/qstyle_wrap.h"
+#include "QtGui/QWindow/qwindow_wrap.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
 #include "core/YogaWidget/yogawidget_macro.h"
@@ -537,6 +538,17 @@
     bool modified = info[0].As<Napi::Boolean>().Value();                      \
     this->instance->setWindowModified(modified);                              \
     return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value windowHandle(const Napi::CallbackInfo& info) {                  \
+    Napi::Env env = info.Env();                                               \
+    Napi::HandleScope scope(env);                                             \
+    QWindow* window = this->instance->windowHandle();                         \
+    if (window) {                                                             \
+      return QWindowWrap::constructor.New(                                    \
+          {Napi::External<QWindow>::New(env, window)});                       \
+    } else {                                                                  \
+      return env.Null();                                                      \
+    }                                                                         \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -613,7 +625,8 @@
       InstanceMethod("setDisabled", &WidgetWrapName::setDisabled),             \
       InstanceMethod("setHidden", &WidgetWrapName::setHidden),                 \
       InstanceMethod("setVisible", &WidgetWrapName::setVisible),               \
-      InstanceMethod("setWindowModified", &WidgetWrapName::setWindowModified),
+      InstanceMethod("setWindowModified", &WidgetWrapName::setWindowModified), \
+      InstanceMethod("windowHandle", &WidgetWrapName::windowHandle),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

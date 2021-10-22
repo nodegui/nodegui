@@ -90,9 +90,9 @@
 
 #endif  // QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
 
-#ifndef QOBJECT_SIGNALS
-#define QOBJECT_SIGNALS                                                       \
-  QObject::connect(this, &QObject::objectNameChanged,                         \
+#ifndef QOBJECT_SIGNALS_ON_TARGET
+#define QOBJECT_SIGNALS_ON_TARGET(target)                                     \
+  QObject::connect(target, &QObject::objectNameChanged,                       \
                    [=](const QString& objectName) {                           \
                      Napi::Env env = this->emitOnNode.Env();                  \
                      Napi::HandleScope scope(env);                            \
@@ -100,5 +100,8 @@
                          {Napi::String::New(env, "objectNameChanged"),        \
                           Napi::Value::From(env, objectName.toStdString())}); \
                    });
+#endif  // QOBJECT_SIGNALS_ON_TARGET
 
+#ifndef QOBJECT_SIGNALS
+#define QOBJECT_SIGNALS QOBJECT_SIGNALS_ON_TARGET(this)
 #endif  // QOBJECT_SIGNALS
