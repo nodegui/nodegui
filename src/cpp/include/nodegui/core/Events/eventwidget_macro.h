@@ -33,54 +33,55 @@ struct InitHelper {
   }
 };
 
-#ifndef EVENTWIDGET_WRAPPED_METHODS_DECLARATION
-#define EVENTWIDGET_WRAPPED_METHODS_DECLARATION                              \
-  COMPONENT_WRAPPED_METHODS_DECLARATION                                      \
-  Napi::Value initNodeEventEmitter(const Napi::CallbackInfo& info) {         \
-    Napi::Env env = info.Env();                                              \
-    EventWidget* eventWidget =                                               \
-        dynamic_cast<EventWidget*>(this->instance.data());                   \
-    if (eventWidget) {                                                       \
-      eventWidget->emitOnNode =                                              \
-          Napi::Persistent(info[0].As<Napi::Function>());                    \
-    }                                                                        \
-    InitHelper<std::remove_pointer<decltype(this->instance.data())>::type>:: \
-        connectSignalsToEventEmitter(this->instance.data());                 \
-    return env.Null();                                                       \
-  }                                                                          \
-  Napi::Value getNodeEventEmitter(const Napi::CallbackInfo& info) {          \
-    Napi::Env env = info.Env();                                              \
-    EventWidget* eventWidget =                                               \
-        dynamic_cast<EventWidget*>(this->instance.data());                   \
-    if (eventWidget && eventWidget->emitOnNode) {                            \
-      return eventWidget->emitOnNode.Value();                                \
-    } else {                                                                 \
-      return env.Null();                                                     \
-    }                                                                        \
-  }                                                                          \
-  Napi::Value subscribeToQtEvent(const Napi::CallbackInfo& info) {           \
-    Napi::Env env = info.Env();                                              \
-    Napi::String eventString = info[0].As<Napi::String>();                   \
-    EventWidget* eventWidget =                                               \
-        dynamic_cast<EventWidget*>(this->instance.data());                   \
-    bool success = false;                                                    \
-    if (eventWidget) {                                                       \
-      eventWidget->subscribeToQtEvent(eventString.Utf8Value());              \
-      success = true;                                                        \
-    }                                                                        \
-    return Napi::Boolean::New(env, success);                                 \
-  }                                                                          \
-  Napi::Value unSubscribeToQtEvent(const Napi::CallbackInfo& info) {         \
-    Napi::Env env = info.Env();                                              \
-    Napi::String eventString = info[0].As<Napi::String>();                   \
-    EventWidget* eventWidget =                                               \
-        dynamic_cast<EventWidget*>(this->instance.data());                   \
-    if (eventWidget) {                                                       \
-      eventWidget->unSubscribeToQtEvent(eventString.Utf8Value());            \
-    }                                                                        \
-    return env.Null();                                                       \
+#ifndef EVENTWIDGET_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE
+#define EVENTWIDGET_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(source) \
+  COMPONENT_WRAPPED_METHODS_DECLARATION                                   \
+  Napi::Value initNodeEventEmitter(const Napi::CallbackInfo& info) {      \
+    Napi::Env env = info.Env();                                           \
+    EventWidget* eventWidget = dynamic_cast<EventWidget*>(source);        \
+    if (eventWidget) {                                                    \
+      eventWidget->emitOnNode =                                           \
+          Napi::Persistent(info[0].As<Napi::Function>());                 \
+    }                                                                     \
+    InitHelper<std::remove_pointer<decltype(source)>::type>::             \
+        connectSignalsToEventEmitter(source);                             \
+    return env.Null();                                                    \
+  }                                                                       \
+  Napi::Value getNodeEventEmitter(const Napi::CallbackInfo& info) {       \
+    Napi::Env env = info.Env();                                           \
+    EventWidget* eventWidget = dynamic_cast<EventWidget*>(source);        \
+    if (eventWidget && eventWidget->emitOnNode) {                         \
+      return eventWidget->emitOnNode.Value();                             \
+    } else {                                                              \
+      return env.Null();                                                  \
+    }                                                                     \
+  }                                                                       \
+  Napi::Value subscribeToQtEvent(const Napi::CallbackInfo& info) {        \
+    Napi::Env env = info.Env();                                           \
+    Napi::String eventString = info[0].As<Napi::String>();                \
+    EventWidget* eventWidget = dynamic_cast<EventWidget*>(source);        \
+    bool success = false;                                                 \
+    if (eventWidget) {                                                    \
+      eventWidget->subscribeToQtEvent(eventString.Utf8Value());           \
+      success = true;                                                     \
+    }                                                                     \
+    return Napi::Boolean::New(env, success);                              \
+  }                                                                       \
+  Napi::Value unSubscribeToQtEvent(const Napi::CallbackInfo& info) {      \
+    Napi::Env env = info.Env();                                           \
+    Napi::String eventString = info[0].As<Napi::String>();                \
+    EventWidget* eventWidget = dynamic_cast<EventWidget*>(source);        \
+    if (eventWidget) {                                                    \
+      eventWidget->unSubscribeToQtEvent(eventString.Utf8Value());         \
+    }                                                                     \
+    return env.Null();                                                    \
   }
+#endif  // EVENTWIDGET_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE
 
+#ifndef EVENTWIDGET_WRAPPED_METHODS_DECLARATION
+#define EVENTWIDGET_WRAPPED_METHODS_DECLARATION              \
+  EVENTWIDGET_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE( \
+      this->instance.data())
 #endif  // EVENTWIDGET_WRAPPED_METHODS_DECLARATION
 
 #ifndef EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE

@@ -12,10 +12,10 @@
    and every widget we export.
  */
 
-#ifndef QOBJECT_WRAPPED_METHODS_DECLARATION
-#define QOBJECT_WRAPPED_METHODS_DECLARATION                                  \
+#ifndef QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE
+#define QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(source)        \
                                                                              \
-  EVENTWIDGET_WRAPPED_METHODS_DECLARATION                                    \
+  EVENTWIDGET_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(source)          \
                                                                              \
   Napi::Value inherits(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                              \
@@ -73,6 +73,11 @@
     return env.Null();                                                       \
   }
 
+#endif  // QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE
+
+#ifndef QOBJECT_WRAPPED_METHODS_DECLARATION
+#define QOBJECT_WRAPPED_METHODS_DECLARATION \
+  QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(this->instance.data())
 #endif  // QOBJECT_WRAPPED_METHODS_DECLARATION
 
 #ifndef QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE

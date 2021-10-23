@@ -10,7 +10,7 @@
 
 class DLL_EXPORT QScreenWrap : public Napi::ObjectWrap<QScreenWrap>,
                                public EventWidget {
-  QOBJECT_WRAPPED_METHODS_DECLARATION
+  QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(this)
   // Note: We don't use EVENTWIDGET_IMPLEMENTATIONS() here because this class
   // doesn't handle any QEvents.
 
