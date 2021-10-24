@@ -7,6 +7,7 @@ import { QObjectSignals, NodeObject } from '../QtCore/QObject';
 import { QPalette } from './QPalette';
 import { StyleSheet } from '../core/Style/StyleSheet';
 import memoizeOne from 'memoize-one';
+import { QScreen } from './QScreen';
 
 /**
 
@@ -41,37 +42,51 @@ export class QApplication extends NodeObject<QApplicationSignals> {
 
         this.setStyleSheet = memoizeOne(this.setStyleSheet);
     }
-    static clipboard(): QClipboard {
-        return new QClipboard(addon.QApplication.clipboard());
+    devicePixelRatio(): number {
+        return this.native.devicePixelRatio();
+    }
+    exec(): number {
+        return this.native.exec();
+    }
+    exit(exitCode: number): number {
+        return this.native.exit(exitCode);
+    }
+    palette(): QPalette {
+        return new QPalette(this.native.palette());
     }
     processEvents(): void {
         this.native.processEvents();
     }
-    exec(): number {
-        return this.native.exec();
+    quit(): number {
+        return this.native.quit();
+    }
+    quitOnLastWindowClosed(): boolean {
+        return this.native.quitOnLastWindowClosed();
+    }
+    setQuitOnLastWindowClosed(quit: boolean): void {
+        this.native.setQuitOnLastWindowClosed(quit);
+    }
+    setStyleSheet(styleSheet: string): void {
+        const preparedSheet = StyleSheet.create(styleSheet);
+        this.native.setStyleSheet(preparedSheet);
+    }
+    static clipboard(): QClipboard {
+        return new QClipboard(addon.QApplication.clipboard());
     }
     static instance(): QApplication {
         const nativeQApp = addon.QApplication.instance();
         return new QApplication(nativeQApp);
     }
-    quit(): number {
-        return this.native.quit();
+    static primaryScreen(): QScreen | null {
+        const screenNative = addon.QApplication.primaryScreen();
+        if (screenNative == null) {
+            return null;
+        }
+        return new QScreen(screenNative);
     }
-    exit(exitCode: number): number {
-        return this.native.exit(exitCode);
-    }
-    setQuitOnLastWindowClosed(quit: boolean): void {
-        this.native.setQuitOnLastWindowClosed(quit);
-    }
-    quitOnLastWindowClosed(): boolean {
-        return this.native.quitOnLastWindowClosed();
-    }
-    palette(): QPalette {
-        return new QPalette(this.native.palette());
-    }
-    setStyleSheet(styleSheet: string): void {
-        const preparedSheet = StyleSheet.create(styleSheet);
-        this.native.setStyleSheet(preparedSheet);
+    static screens(): QScreen[] {
+        const screenNativeList = addon.QApplication.screens();
+        return screenNativeList.map((screenNative: any) => new QScreen(screenNative));
     }
     static setStyle(style: QStyle): void {
         addon.QApplication.setStyle(style.native);
@@ -83,4 +98,7 @@ export class QApplication extends NodeObject<QApplicationSignals> {
 
 export interface QApplicationSignals extends QObjectSignals {
     focusWindowChanged: () => void;
+    primaryScreenChanged: (screen: QScreen) => void;
+    screenAdded: (screen: QScreen) => void;
+    screenRemoved: (screen: QScreen) => void;
 }

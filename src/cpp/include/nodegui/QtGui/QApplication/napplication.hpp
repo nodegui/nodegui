@@ -5,6 +5,7 @@
 
 #include "Extras/Export/export.h"
 #include "QtCore/QObject/qobject_macro.h"
+#include "QtGui/QScreen/qscreen_wrap.h"
 #include "napi.h"
 
 class DLL_EXPORT NApplication : public QApplication, public EventWidget {
@@ -22,5 +23,33 @@ class DLL_EXPORT NApplication : public QApplication, public EventWidget {
           Napi::HandleScope scope(env);
           this->emitOnNode.Call({Napi::String::New(env, "focusWindowChanged")});
         });
+
+    QObject::connect(
+        this, &QGuiApplication::primaryScreenChanged, [=](QScreen* screen) {
+          Napi::Env env = this->emitOnNode.Env();
+          Napi::HandleScope scope(env);
+          auto instance = QScreenWrap::constructor.New(
+              {Napi::External<QScreen>::New(env, screen)});
+          this->emitOnNode.Call(
+              {Napi::String::New(env, "primaryScreenChanged"), instance});
+        });
+
+    QObject::connect(this, &QGuiApplication::screenAdded, [=](QScreen* screen) {
+      Napi::Env env = this->emitOnNode.Env();
+      Napi::HandleScope scope(env);
+      auto instance = QScreenWrap::constructor.New(
+          {Napi::External<QScreen>::New(env, screen)});
+      this->emitOnNode.Call({Napi::String::New(env, "screenAdded"), instance});
+    });
+
+    QObject::connect(this, &QGuiApplication::screenRemoved,
+                     [=](QScreen* screen) {
+                       Napi::Env env = this->emitOnNode.Env();
+                       Napi::HandleScope scope(env);
+                       auto instance = QScreenWrap::constructor.New(
+                           {Napi::External<QScreen>::New(env, screen)});
+                       this->emitOnNode.Call(
+                           {Napi::String::New(env, "screenRemoved"), instance});
+                     });
   }
 };
