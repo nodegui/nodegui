@@ -56,15 +56,16 @@ void WrapperCache::handleDestroyed(const QObject* object) {
     return;
   }
 
-  uint32_t result = 0;
-  Napi::Env env = this->cache[object].env;
-  napi_reference_unref(env, this->cache[object].ref, &result);
-  this->cache.remove(object);
-
   // Callback to JS with the address/ID of the destroyed object. So that it
   // can clear it out of the cache.
   if (destroyedCallback) {
+    Napi::Env env = destroyedCallback.Env();
+    Napi::HandleScope scope(env);
     destroyedCallback.Call(
         {Napi::Value::From(env, extrautils::hashPointerTo53bit(object))});
   }
+
+  uint32_t result = 0;
+  napi_reference_unref(this->cache[object].env, this->cache[object].ref, &result);
+  this->cache.remove(object);
 }

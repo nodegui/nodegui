@@ -19,7 +19,6 @@ export class WrapperCache {
     }
 
     private _objectDestroyedCallback(objectId: number): void {
-        console.log(`_objectDestroyedCallback() id: ${objectId}`);
         if (!this._cache.has(objectId)) {
             return;
         }
@@ -30,9 +29,6 @@ export class WrapperCache {
 
     get<T>(wrapperConstructor: { new (native: any): T }, native: any): T {
         const id = native.__id__();
-
-        console.log(`WrapperCache.get() id: ${id}`);
-
         if (this._cache.has(id)) {
             return this._cache.get(id) as T;
         }
