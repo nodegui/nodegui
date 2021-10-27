@@ -110,6 +110,20 @@ void* extrautils::configureQWidget(QWidget* widget, YGNodeRef node,
   return configureQObject(widget);
 }
 
+uint64_t extrautils::hashPointerTo53bit(const void* input) {
+  // Hash the address of the object down to something which will
+  // fit into the JS 53bit safe integer space.
+  uint64_t address = reinterpret_cast<uint64_t>(input);
+  uint64_t top8Bits = address & 0xff00000000000000u;
+  uint64_t foldedBits = (top8Bits >> 11) ^ address;
+
+  // Clear the top 8bits which we folded, now shift out the last 3 bits
+  // Pointers are aligned on 64bit architectures to at least 8bytes
+  // boundaries.
+  uint64_t result = (foldedBits & ~0xff00000000000000u) >> 3;
+  return result;
+}
+
 Napi::FunctionReference NUtilsWrap::constructor;
 
 Napi::Object NUtilsWrap::init(Napi::Env env, Napi::Object exports) {

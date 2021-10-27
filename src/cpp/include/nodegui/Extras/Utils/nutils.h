@@ -17,6 +17,7 @@ DLL_EXPORT void* configureQWidget(QWidget* widget, YGNodeRef node,
                                   bool isLeafNode = false);
 DLL_EXPORT void* configureQObject(QObject* object);
 DLL_EXPORT void* configureComponent(void* component);
+DLL_EXPORT uint64_t hashPointerTo53bit(const void* input);
 
 template <typename T>
 void safeDelete(QPointer<T>& component) {

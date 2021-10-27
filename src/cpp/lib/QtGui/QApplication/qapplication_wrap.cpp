@@ -5,6 +5,7 @@
 #include "QtGui/QPalette/qpalette_wrap.h"
 #include "QtGui/QStyle/qstyle_wrap.h"
 #include "core/Integration/qode-api.h"
+#include "core/WrapperCache/wrappercache.h"
 
 Napi::FunctionReference QApplicationWrap::constructor;
 
@@ -175,8 +176,7 @@ Napi::Value StaticQApplicationWrapMethods::primaryScreen(
   Napi::HandleScope scope(env);
   auto screen = QApplication::primaryScreen();
   if (screen) {
-    return QScreenWrap::constructor.New(
-        {Napi::External<QScreen>::New(env, screen)});
+    return WrapperCache::instance.get(info, screen);
   } else {
     return env.Null();
   }
@@ -191,8 +191,7 @@ Napi::Value StaticQApplicationWrapMethods::screens(
   Napi::Array jsArray = Napi::Array::New(env, screens.size());
   for (int i = 0; i < screens.size(); i++) {
     QScreen* screen = screens[i];
-    auto instance = QScreenWrap::constructor.New(
-        {Napi::External<QScreen>::New(env, screen)});
+    auto instance = WrapperCache::instance.get(info, screen);
     jsArray[i] = instance;
   }
   return jsArray;

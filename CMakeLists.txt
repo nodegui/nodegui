@@ -11,6 +11,9 @@ set(CORE_WIDGETS_ADDON "nodegui_core")
 
 project(${CORE_WIDGETS_ADDON})
 
+
+# Note: CMake+moc also use this list when finding files which `moc` applied.
+
 add_library(${CORE_WIDGETS_ADDON} SHARED
     "${CMAKE_JS_SRC}"
     "${PROJECT_SOURCE_DIR}/src/cpp/main.cpp"
@@ -24,6 +27,8 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/Events/eventsmap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/Events/eventwidget.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/YogaWidget/yogawidget.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/core/WrapperCache/wrappercache.h"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/WrapperCache/wrappercache.cpp"
     # core deps
     "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/log.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/Utils.cpp"

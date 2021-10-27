@@ -2,6 +2,7 @@ import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { QScreen } from './QScreen';
+import { wrapperCache } from '../core/WrapperCache';
 
 export class QWindow extends NodeObject<QWindowSignals> {
     native: NativeElement;
@@ -16,8 +17,7 @@ export class QWindow extends NodeObject<QWindowSignals> {
     }
 
     screen(): QScreen {
-        const screenNative = this.native.screen();
-        return new QScreen(screenNative);
+        return wrapperCache.get<QScreen>(QScreen, this.native.screen());
     }
 }
 

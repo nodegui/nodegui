@@ -8,6 +8,7 @@ import { QPalette } from './QPalette';
 import { StyleSheet } from '../core/Style/StyleSheet';
 import memoizeOne from 'memoize-one';
 import { QScreen } from './QScreen';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -82,11 +83,11 @@ export class QApplication extends NodeObject<QApplicationSignals> {
         if (screenNative == null) {
             return null;
         }
-        return new QScreen(screenNative);
+        return wrapperCache.get<QScreen>(QScreen, screenNative);
     }
     static screens(): QScreen[] {
         const screenNativeList = addon.QApplication.screens();
-        return screenNativeList.map((screenNative: any) => new QScreen(screenNative));
+        return screenNativeList.map((screenNative: any) => wrapperCache.get<QScreen>(QScreen, screenNative));
     }
     static setStyle(style: QStyle): void {
         addon.QApplication.setStyle(style.native);

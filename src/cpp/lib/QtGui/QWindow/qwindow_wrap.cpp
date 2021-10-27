@@ -2,6 +2,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QScreen/qscreen_wrap.h"
+#include "core/WrapperCache/wrappercache.h"
 
 Napi::FunctionReference QWindowWrap::constructor;
 
@@ -49,9 +50,7 @@ Napi::Value QWindowWrap::screen(const Napi::CallbackInfo& info) {
 
   QScreen* screen = this->instance->screen();
   if (screen) {
-    auto instance = QScreenWrap::constructor.New(
-        {Napi::External<QScreen>::New(env, screen)});
-    return instance;
+    return WrapperCache::instance.get(info, screen);
   } else {
     return env.Null();
   }

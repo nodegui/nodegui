@@ -17,6 +17,12 @@
                                                                              \
   EVENTWIDGET_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(source)          \
                                                                              \
+  Napi::Value __id__(const Napi::CallbackInfo& info) {                       \
+    Napi::Env env = info.Env();                                              \
+    Napi::HandleScope scope(env);                                            \
+    return Napi::Value::From(                                                \
+        env, extrautils::hashPointerTo53bit(this->instance.data()));         \
+  }                                                                          \
   Napi::Value inherits(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                              \
     Napi::HandleScope scope(env);                                            \
@@ -85,7 +91,8 @@
                                                                             \
   EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(ComponentWrapName)              \
                                                                             \
-  InstanceMethod("inherits", &ComponentWrapName::inherits),                 \
+  InstanceMethod("__id__", &ComponentWrapName::__id__),                     \
+      InstanceMethod("inherits", &ComponentWrapName::inherits),             \
       InstanceMethod("setProperty", &ComponentWrapName::setProperty),       \
       InstanceMethod("property", &ComponentWrapName::property),             \
       InstanceMethod("setObjectName", &ComponentWrapName::setObjectName),   \

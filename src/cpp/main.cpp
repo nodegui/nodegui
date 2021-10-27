@@ -114,6 +114,8 @@
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
 #include "core/Integration/integration.h"
+#include "core/WrapperCache/wrappercache.h"
+
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env) {
   qodeIntegration::integrate();
@@ -123,6 +125,7 @@ void InitPrivateHelpers(Napi::Env env) {
 Napi::Object Main(Napi::Env env, Napi::Object exports) {
   InitPrivateHelpers(env);
   NUtilsWrap::init(env, exports);
+  WrapperCache::init(env, exports);
   QApplicationWrap::init(env, exports);
   QDateWrap::init(env, exports);
   QDateTimeWrap::init(env, exports);
