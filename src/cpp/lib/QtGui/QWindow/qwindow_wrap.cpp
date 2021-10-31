@@ -40,7 +40,10 @@ void QWindowWrap::connectSignalsToEventEmitter() {
       this->instance.data(), &QWindow::screenChanged, [=](QScreen* screen) {
         Napi::Env env = this->emitOnNode.Env();
         Napi::HandleScope scope(env);
-        this->emitOnNode.Call({Napi::String::New(env, "screenChanged")});
+        auto instance =
+            WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
+        this->emitOnNode.Call(
+            {Napi::String::New(env, "screenChanged"), instance});
       });
 }
 
@@ -50,7 +53,7 @@ Napi::Value QWindowWrap::screen(const Napi::CallbackInfo& info) {
 
   QScreen* screen = this->instance->screen();
   if (screen) {
-    return WrapperCache::instance.get<QScreen, QScreenWrap>(info, screen);
+    return WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
   } else {
     return env.Null();
   }

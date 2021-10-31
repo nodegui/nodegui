@@ -39,13 +39,12 @@ class DLL_EXPORT WrapperCache : public QObject {
    * e.g. `QScreen`.
    * @param W - (template argument) The wrapper type which matches the object
    * `QScreenWrap`.
+   * @param env = Napi environment
    * @param object - Pointer to the QObject for which a wrapper is required.
    * @return The JS wrapper object.
    */
   template <class T, class W>
-  Napi::Object get(const Napi::CallbackInfo& info, T* object) {
-    Napi::Env env = info.Env();
-
+  Napi::Object get(Napi::Env env, T* object) {
     if (this->cache.contains(object)) {
       napi_value result = nullptr;
       napi_get_reference_value(this->cache[object].env, this->cache[object].ref,

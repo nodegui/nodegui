@@ -176,7 +176,7 @@ Napi::Value StaticQApplicationWrapMethods::primaryScreen(
   Napi::HandleScope scope(env);
   auto screen = QApplication::primaryScreen();
   if (screen) {
-    return WrapperCache::instance.get<QScreen, QScreenWrap>(info, screen);
+    return WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
   } else {
     return env.Null();
   }
@@ -192,7 +192,7 @@ Napi::Value StaticQApplicationWrapMethods::screens(
   for (int i = 0; i < screens.size(); i++) {
     QScreen* screen = screens[i];
     auto instance =
-        WrapperCache::instance.get<QScreen, QScreenWrap>(info, screen);
+        WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
     jsArray[i] = instance;
   }
   return jsArray;

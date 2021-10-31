@@ -22,5 +22,5 @@ export class QWindow extends NodeObject<QWindowSignals> {
 }
 
 export interface QWindowSignals extends QObjectSignals {
-    screenChanged: () => void;
+    screenChanged: (screen: QScreen) => void;
 }

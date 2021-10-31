@@ -545,7 +545,7 @@
     Napi::HandleScope scope(env);                                             \
     QWindow* window = this->instance->windowHandle();                         \
     if (window) {                                                             \
-      return WrapperCache::instance.get<QWindow, QWindowWrap>(info, window);  \
+      return WrapperCache::instance.get<QWindow, QWindowWrap>(env, window);   \
     } else {                                                                  \
       return env.Null();                                                      \
     }                                                                         \
