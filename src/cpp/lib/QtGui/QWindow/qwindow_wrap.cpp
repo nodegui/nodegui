@@ -50,7 +50,7 @@ Napi::Value QWindowWrap::screen(const Napi::CallbackInfo& info) {
 
   QScreen* screen = this->instance->screen();
   if (screen) {
-    return WrapperCache::instance.get(info, screen);
+    return WrapperCache::instance.get<QScreen, QScreenWrap>(info, screen);
   } else {
     return env.Null();
   }

@@ -13,6 +13,13 @@ struct CachedObject {
   napi_env env;
 };
 
+/**
+ * C++ side cache for wrapper objects.
+ *
+ * This can cache wrappers for QObjects and uses the Qt "destroyed" signal to
+ * track lifetime and remove objects from the cache. It has a JS side component
+ * `WrapperCache.ts` which can cache the JS side wrapper object.
+ */
 class DLL_EXPORT WrapperCache : public QObject {
   Q_OBJECT
 
@@ -20,15 +27,81 @@ class DLL_EXPORT WrapperCache : public QObject {
   QMap<const QObject*, CachedObject> cache;
 
  public:
-  WrapperCache();
-  Napi::Object get(const Napi::CallbackInfo& info, QScreen* screen);
-
+  /**
+   * Singleton instance. Use this to access the cache.
+   */
   static WrapperCache instance;
-  static Napi::Object init(Napi::Env env, Napi::Object exports);
-  static Napi::Value injectDestroyCallback(const Napi::CallbackInfo& info);
+
+  /**
+   * Get a wrapper for a given Qt object.
+   *
+   * @param T - (template argument) The Qt class of the object being cached,
+   * e.g. `QScreen`.
+   * @param W - (template argument) The wrapper type which matches the object
+   * `QScreenWrap`.
+   * @param object - Pointer to the QObject for which a wrapper is required.
+   * @return The JS wrapper object.
+   */
+  template <class T, class W>
+  Napi::Object get(const Napi::CallbackInfo& info, T* object) {
+    Napi::Env env = info.Env();
+
+    if (this->cache.contains(object)) {
+      napi_value result = nullptr;
+      napi_get_reference_value(this->cache[object].env, this->cache[object].ref,
+                               &result);
+      return Napi::Object(env, result);
+    }
+
+    Napi::HandleScope scope(env);
+    Napi::Object wrapper =
+        W::constructor.New({Napi::External<T>::New(env, object)});
+
+    napi_ref ref = nullptr;
+    napi_create_reference(env, wrapper, 1, &ref);
+    this->cache[object].env = napi_env(env);
+    this->cache[object].ref = ref;
+
+    QObject::connect(object, &QObject::destroyed, this,
+                     &WrapperCache::handleDestroyed);
+    return wrapper;
+  }
+
+  static Napi::Object init(Napi::Env env, Napi::Object exports) {
+    Napi::HandleScope scope(env);
+    exports.Set("WrapperCache_injectCallback",
+                Napi::Function::New<injectDestroyCallback>(env));
+    return exports;
+  }
+
+  static Napi::Value injectDestroyCallback(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    Napi::HandleScope scope(env);
+
+    destroyedCallback = Napi::Persistent(info[0].As<Napi::Function>());
+    return env.Null();
+  }
 
   static Napi::FunctionReference destroyedCallback;
 
  public Q_SLOTS:
-  void handleDestroyed(const QObject* object);
+  void handleDestroyed(const QObject* object) {
+    if (!this->cache.contains(object)) {
+      return;
+    }
+
+    // Callback to JS with the address/ID of the destroyed object. So that it
+    // can clear it out of the cache.
+    if (destroyedCallback) {
+      Napi::Env env = destroyedCallback.Env();
+      Napi::HandleScope scope(env);
+      destroyedCallback.Call(
+          {Napi::Value::From(env, extrautils::hashPointerTo53bit(object))});
+    }
+
+    uint32_t result = 0;
+    napi_reference_unref(this->cache[object].env, this->cache[object].ref,
+                         &result);
+    this->cache.remove(object);
+  }
 };

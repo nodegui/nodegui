@@ -13,6 +13,7 @@
 #include "QtGui/QWindow/qwindow_wrap.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QLayout/qlayout_wrap.h"
+#include "core/WrapperCache/wrappercache.h"
 #include "core/YogaWidget/yogawidget_macro.h"
 /*
 
@@ -544,8 +545,7 @@
     Napi::HandleScope scope(env);                                             \
     QWindow* window = this->instance->windowHandle();                         \
     if (window) {                                                             \
-      return QWindowWrap::constructor.New(                                    \
-          {Napi::External<QWindow>::New(env, window)});                       \
+      return WrapperCache::instance.get<QWindow, QWindowWrap>(info, window);  \
     } else {                                                                  \
       return env.Null();                                                      \
     }                                                                         \

@@ -91,7 +91,7 @@ Steps:
 
 Inherit from both QPushButton and NodeWidget. Make sure you have added NODEWIDGET_IMPLEMENTATIONS macro. This adds a crucial method for events support. It will override `event(QEvent *)` method of QPushbutton so that nodejs can listen to the events of this widget. This makes sure we convert all the QEvent's of this widget to an event for the nodejs event emitter.
 
-Also make sure to connect all the signals of the widgets to the event emitter instance from NodeJS. This way we kindof convert the signal to a simple nodejs event.
+Also make sure to connect all the signals of the widgets to the event emitter instance from NodeJS. This way we kind of convert the signal to a simple nodejs event.
 
 ```cpp
 #pragma once

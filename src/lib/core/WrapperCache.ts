@@ -1,4 +1,5 @@
 import addon from '../utils/addon';
+import { NativeElement } from './Component';
 
 /**
  * JS side cache for wrapper objects.
@@ -27,7 +28,7 @@ export class WrapperCache {
         this._cache.delete(objectId);
     }
 
-    get<T>(wrapperConstructor: { new (native: any): T }, native: any): T {
+    get<T>(wrapperConstructor: { new (native: any): T }, native: NativeElement): T {
         const id = native.__id__();
         if (this._cache.has(id)) {
             return this._cache.get(id) as T;
