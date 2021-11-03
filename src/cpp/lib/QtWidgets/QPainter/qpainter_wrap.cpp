@@ -159,7 +159,7 @@ Napi::Value QPainterWrap::end(const Napi::CallbackInfo& info) {
 Napi::Value QPainterWrap::rotate(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  int angle = info[0].As<Napi::Number>().Int32Value();
+  qreal angle = info[0].As<Napi::Number>().DoubleValue();
   this->instance->rotate(angle);
   return env.Null();
 }
@@ -262,16 +262,16 @@ Napi::Value QPainterWrap::drawLine(const Napi::CallbackInfo& info) {
 Napi::Value QPainterWrap::scale(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  int sx = info[0].As<Napi::Number>().Int32Value();
-  int sy = info[1].As<Napi::Number>().Int32Value();
+  qreal sx = info[0].As<Napi::Number>().DoubleValue();
+  qreal sy = info[1].As<Napi::Number>().DoubleValue();
   this->instance->scale(sx, sy);
   return env.Null();
 }
 Napi::Value QPainterWrap::translate(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
-  int dx = info[0].As<Napi::Number>().Int32Value();
-  int dy = info[1].As<Napi::Number>().Int32Value();
+  qreal dx = info[0].As<Napi::Number>().DoubleValue();
+  qreal dy = info[1].As<Napi::Number>().DoubleValue();
   this->instance->translate(dx, dy);
   return env.Null();
 }
