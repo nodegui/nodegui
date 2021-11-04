@@ -15,6 +15,7 @@ import { QRect } from '../QtCore/QRect';
 import { QObjectSignals } from '../QtCore/QObject';
 import { QFont } from '../QtGui/QFont';
 import { QAction } from './QAction';
+import { QScreen } from '../QtGui/QScreen';
 import memoizeOne from 'memoize-one';
 import { QGraphicsEffect } from './QGraphicsEffect';
 import { QSizePolicyPolicy, QStyle, QWindow } from '../..';
