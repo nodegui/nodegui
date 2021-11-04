@@ -17,7 +17,8 @@ import { QFont } from '../QtGui/QFont';
 import { QAction } from './QAction';
 import memoizeOne from 'memoize-one';
 import { QGraphicsEffect } from './QGraphicsEffect';
-import { QSizePolicyPolicy, QStyle } from '../..';
+import { QSizePolicyPolicy } from './QSizePolicy';
+import { QStyle } from '../QtGui/QStyle';
 
 /**
 
