@@ -98,6 +98,7 @@
 #include "QtWidgets/QStatusBar/qstatusbar_wrap.h"
 #include "QtWidgets/QStyleFactory/qstylefactory_wrap.h"
 #include "QtWidgets/QSvgWidget/qsvgwidget_wrap.h"
+#include "QtWidgets/QSplitter/qsplitter_wrap.h"
 #include "QtWidgets/QSystemTrayIcon/qsystemtrayicon_wrap.h"
 #include "QtWidgets/QTabBar/qtabbar_wrap.h"
 #include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
@@ -225,6 +226,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QStandardItemModelWrap::init(env, exports);
   QStandardItemWrap::init(env, exports);
   QSvgWidgetWrap::init(env, exports);
+  QSplitterWrap::init(env, exports);
   QDesktopWidgetWrap::init(env, exports);
   QPaintEventWrap::init(env, exports);
   QPaletteWrap::init(env, exports);

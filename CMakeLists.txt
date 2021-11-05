@@ -149,6 +149,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QSvgWidget/qsvgwidget_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QDesktopWidget/qdesktopwidget_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QStyleFactory/qstylefactory_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QSplitter/qsplitter_wrap.cpp"
     # Custom widgets (include them for automoc since they contain Q_OBJECT)
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtCore/QAbstractItemModel/nabstractitemmodel.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtCore/QItemSelectionModel/nitemselectionmodel.hpp"
@@ -215,6 +216,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QSvgWidget/nsvgwidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QDesktopWidget/nqdesktopwidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QHeaderView/nheaderview.hpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QSplitter/nsplitter.hpp"
 )
 
 AddCommonConfig(${CORE_WIDGETS_ADDON})
