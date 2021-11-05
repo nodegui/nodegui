@@ -170,3 +170,6 @@ export { StyleSheet } from './lib/core/Style/StyleSheet';
 export { NativeElement, Component } from './lib/core/Component';
 export { checkIfNativeElement, checkIfNapiExternal } from './lib/utils/helpers';
 export { Margins } from './lib/utils/Margins';
+
+// Test:
+export { CacheTestQObject } from './lib/core/__test__/CacheTestQObject';

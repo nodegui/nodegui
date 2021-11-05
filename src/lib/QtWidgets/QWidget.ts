@@ -15,11 +15,12 @@ import { QRect } from '../QtCore/QRect';
 import { QObjectSignals } from '../QtCore/QObject';
 import { QFont } from '../QtGui/QFont';
 import { QAction } from './QAction';
-import { QScreen } from '../QtGui/QScreen';
 import memoizeOne from 'memoize-one';
 import { QGraphicsEffect } from './QGraphicsEffect';
-import { QSizePolicyPolicy, QStyle, QWindow } from '../..';
 import { wrapperCache } from '../core/WrapperCache';
+import { QSizePolicyPolicy } from './QSizePolicy';
+import { QStyle } from '../QtGui/QStyle';
+import { QWindow } from '../QtGui/QWindow';
 
 /**
 

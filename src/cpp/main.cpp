@@ -115,6 +115,7 @@
 #include "core/FlexLayout/flexlayout_wrap.h"
 #include "core/Integration/integration.h"
 #include "core/WrapperCache/wrappercache.h"
+#include "test/cachetestqobject_wrap.h"
 
 // These cant be instantiated in JS Side
 void InitPrivateHelpers(Napi::Env env) {
@@ -237,6 +238,10 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QStyleFactoryWrap::init(env, exports);
   QScreenWrap::init(env, exports);
   QWindowWrap::init(env, exports);
+
+  // Test
+  CacheTestQObjectWrap::init(env, exports);
+
   return exports;
 }
 

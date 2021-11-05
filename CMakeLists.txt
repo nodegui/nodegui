@@ -220,6 +220,10 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTextEdit/ntextedit.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QSvgWidget/nsvgwidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QHeaderView/nheaderview.hpp"
+    # Test
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/test/CacheTestQObject.h"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/test/CacheTestQObject.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/test/cachetestqobject_wrap.cpp"
 )
 
 AddCommonConfig(${CORE_WIDGETS_ADDON})
