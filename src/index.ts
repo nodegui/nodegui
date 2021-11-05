@@ -115,6 +115,7 @@ export { QDialog, QDialogSignals } from './lib/QtWidgets/QDialog';
 export { QMessageBox, QMessageBoxSignals, QMessageBoxIcon, ButtonRole } from './lib/QtWidgets/QMessageBox';
 export { QInputDialog, QInputDialogSignals, InputDialogOptions, InputMode } from './lib/QtWidgets/QInputDialog';
 export { QSvgWidget } from './lib/QtWidgets/QSvgWidget';
+export { QSplitter, QSplitterSignals } from './lib/QtWidgets/QSplitter';
 
 export { QButtonGroup, QButtonGroupSignals } from './lib/QtWidgets/QButtonGroup';
 
