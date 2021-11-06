@@ -1,5 +1,5 @@
 import { NativeElement } from '../core/Component';
-import { checkIfNativeElement } from '../utils/helpers';
+import { checkIfNativeElement, registerNativeWrapFunction } from '../utils/helpers';
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { QScreen } from './QScreen';
 import { wrapperCache } from '../core/WrapperCache';
@@ -24,3 +24,7 @@ export class QWindow extends NodeObject<QWindowSignals> {
 export interface QWindowSignals extends QObjectSignals {
     screenChanged: (screen: QScreen) => void;
 }
+
+registerNativeWrapFunction('QWindowWrap', (native: any) => {
+    return wrapperCache.get<QWindow>(QWindow, native);
+});

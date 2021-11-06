@@ -47,12 +47,10 @@ class DLL_EXPORT WrapperCache : public QObject {
   Napi::Object get(Napi::Env env, T* object) {
     if (this->cache.contains(object)) {
       napi_value result = nullptr;
-      napi_get_reference_value(this->cache[object].env, this->cache[object].ref,
-                               &result);
+      napi_get_reference_value(env, this->cache[object].ref, &result);
       return Napi::Object(env, result);
     }
 
-    Napi::HandleScope scope(env);
     Napi::Object wrapper =
         W::constructor.New({Napi::External<T>::New(env, object)});
 
@@ -67,7 +65,6 @@ class DLL_EXPORT WrapperCache : public QObject {
   }
 
   static Napi::Object init(Napi::Env env, Napi::Object exports) {
-    Napi::HandleScope scope(env);
     exports.Set("WrapperCache_injectCallback",
                 Napi::Function::New<injectDestroyCallback>(env));
     return exports;
@@ -75,7 +72,6 @@ class DLL_EXPORT WrapperCache : public QObject {
 
   static Napi::Value injectDestroyCallback(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
-    Napi::HandleScope scope(env);
 
     destroyedCallback = Napi::Persistent(info[0].As<Napi::Function>());
     return env.Null();
@@ -95,6 +91,7 @@ class DLL_EXPORT WrapperCache : public QObject {
       Napi::Env env = destroyedCallback.Env();
       Napi::HandleScope scope(env);
       destroyedCallback.Call(
+          env.Global(),
           {Napi::Value::From(env, extrautils::hashPointerTo53bit(object))});
     }
 

@@ -1,9 +1,10 @@
 import { NativeElement } from '../core/Component';
-import { checkIfNativeElement } from '../utils/helpers';
+import { checkIfNativeElement, registerNativeWrapFunction } from '../utils/helpers';
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { QRect } from '../QtCore/QRect';
 import { QSizeF } from '../QtCore/QSizeF';
 import { QSize } from '../QtCore/QSize';
+import { wrapperCache } from '../core/WrapperCache';
 
 export class QScreen extends NodeObject<QScreenSignals> {
     native: NativeElement;
@@ -104,3 +105,7 @@ export interface QScreenSignals extends QObjectSignals {
     refreshRateChanged: (refreshRate: number) => void;
     virtualGeometryChanged: (rect: QRect) => void;
 }
+
+registerNativeWrapFunction('QScreenWrap', (native: any) => {
+    return wrapperCache.get<QScreen>(QScreen, native);
+});

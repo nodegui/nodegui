@@ -168,7 +168,13 @@ export { FlexLayout, FlexLayoutSignals } from './lib/core/FlexLayout';
 // Others:
 export { StyleSheet } from './lib/core/Style/StyleSheet';
 export { NativeElement, Component } from './lib/core/Component';
-export { checkIfNativeElement, checkIfNapiExternal } from './lib/utils/helpers';
+export {
+    checkIfNativeElement,
+    checkIfNapiExternal,
+    JsWrapFunction,
+    registerNativeWrapFunction as registerNativeWrapper,
+    wrapNative,
+} from './lib/utils/helpers';
 export { Margins } from './lib/utils/Margins';
 
 // Test:
