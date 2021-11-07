@@ -35,49 +35,49 @@ splitterHorizontal.addWidget(right);
 
  */
 export class QSplitter extends NodeFrame<QSplitterSignals> {
-  native: NativeElement;
-  constructor();
-  constructor(parent: NodeWidget<any>);
-  constructor(parent?: NodeWidget<any>) {
-    let native;
-    if (parent) {
-      native = new addon.QSplitter(parent.native);
-    } else {
-      native = new addon.QSplitter();
+    native: NativeElement;
+    constructor();
+    constructor(parent: NodeWidget<any>);
+    constructor(parent?: NodeWidget<any>) {
+        let native;
+        if (parent) {
+            native = new addon.QSplitter(parent.native);
+        } else {
+            native = new addon.QSplitter();
+        }
+        super(native);
+        this.native = native;
+        this.setNodeParent(parent);
     }
-    super(native);
-    this.native = native;
-    this.setNodeParent(parent);
-  }
-  addWidget(widget: NodeWidget<any>) {
-    this.native.addWidget(widget.native);
-  }
-  childrenCollapsible(): boolean {
-    return this.native.childrenCollapsible();
-  }
-  count(): number {
-    return this.native.count();
-  }
-  indexOf(widget: NodeWidget<any>): number {
-    return this.native.indexOf(widget.native);
-  }
-  insertWidget(index: number, widget: NodeWidget<any>) {
-    this.native.insertWidget(index, widget.native);
-  }
-  isCollapsible(index: number): boolean {
-    return this.native.isCollapsible(index);
-  }
-  orientation(): Orientation {
-    return this.native.orientation();
-  }
-  setCollapsible(index: number, collapse: boolean) {
-    this.native.setCollapsible(index, collapse);
-  }
-  setOrientation(orientation: Orientation) {
-    this.native.setOrientation(orientation);
-  }
+    addWidget(widget: NodeWidget<any>): void {
+        this.native.addWidget(widget.native);
+    }
+    childrenCollapsible(): boolean {
+        return this.native.childrenCollapsible();
+    }
+    count(): number {
+        return this.native.count();
+    }
+    indexOf(widget: NodeWidget<any>): number {
+        return this.native.indexOf(widget.native);
+    }
+    insertWidget(index: number, widget: NodeWidget<any>): void {
+        this.native.insertWidget(index, widget.native);
+    }
+    isCollapsible(index: number): boolean {
+        return this.native.isCollapsible(index);
+    }
+    orientation(): Orientation {
+        return this.native.orientation();
+    }
+    setCollapsible(index: number, collapse: boolean): void {
+        this.native.setCollapsible(index, collapse);
+    }
+    setOrientation(orientation: Orientation): void {
+        this.native.setOrientation(orientation);
+    }
 }
 
 export interface QSplitterSignals extends QFrameSignals {
-  splitterMoved: (pos: number, index: number) => void;
+    splitterMoved: (pos: number, index: number) => void;
 }

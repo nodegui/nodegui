@@ -10,7 +10,8 @@ Napi::Object QSplitterWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("addWidget", &QSplitterWrap::addWidget),
-       InstanceMethod("childrenCollapsible", &QSplitterWrap::childrenCollapsible),
+       InstanceMethod("childrenCollapsible",
+                      &QSplitterWrap::childrenCollapsible),
        InstanceMethod("count", &QSplitterWrap::count),
        InstanceMethod("indexOf", &QSplitterWrap::indexOf),
        InstanceMethod("insertWidget", &QSplitterWrap::insertWidget),
@@ -26,9 +27,7 @@ Napi::Object QSplitterWrap::init(Napi::Env env, Napi::Object exports) {
 
 NSplitter* QSplitterWrap::getInternalInstance() { return this->instance; }
 
-QSplitterWrap::~QSplitterWrap() {
-  extrautils::safeDelete(this->instance);
-}
+QSplitterWrap::~QSplitterWrap() { extrautils::safeDelete(this->instance); }
 
 QSplitterWrap::QSplitterWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QSplitterWrap>(info) {
@@ -112,7 +111,8 @@ Napi::Value QSplitterWrap::orientation(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  return Napi::Number::New(env, static_cast<int>(this->instance->orientation()));
+  return Napi::Number::New(env,
+                           static_cast<int>(this->instance->orientation()));
 }
 
 Napi::Value QSplitterWrap::setCollapsible(const Napi::CallbackInfo& info) {
