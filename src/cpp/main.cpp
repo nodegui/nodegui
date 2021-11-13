@@ -93,6 +93,7 @@
 #include "QtWidgets/QShortcut/qshortcut_wrap.h"
 #include "QtWidgets/QSlider/qslider_wrap.h"
 #include "QtWidgets/QSpinBox/qspinbox_wrap.h"
+#include "QtWidgets/QSplitter/qsplitter_wrap.h"
 #include "QtWidgets/QStackedWidget/qstackedwidget_wrap.h"
 #include "QtWidgets/QStandardItem/qstandarditem_wrap.h"
 #include "QtWidgets/QStandardItemModel/qstandarditemmodel_wrap.h"
@@ -230,6 +231,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QStandardItemModelWrap::init(env, exports);
   QStandardItemWrap::init(env, exports);
   QSvgWidgetWrap::init(env, exports);
+  QSplitterWrap::init(env, exports);
   QPaintEventWrap::init(env, exports);
   QPaletteWrap::init(env, exports);
   QAbstractItemModelWrap::init(env, exports);

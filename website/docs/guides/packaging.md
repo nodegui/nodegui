@@ -11,7 +11,7 @@ In order to distribute your finished app, you can use [@nodegui/packer](https://
   npx nodegui-packer --init MyAppName
   ```
 
-  This will produce the deploy directory containing the template. You can modify this to suite your needs. Like add icons, change the name, description and add other native features or dependencies. Make sure you commit this directory.
+  This will produce the deploy directory containing the template. You can modify this to suit your needs. Like add icons, change the name, description and add other native features or dependencies. Make sure you commit this directory.
 
 - **Step 2: (Run this command every time you want to build a new distributable)**
 
