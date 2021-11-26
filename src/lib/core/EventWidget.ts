@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
 import { NativeElement, Component, NativeRawPointer } from './Component';
-import { wrapWithActivateUvLoop } from '../utils/helpers';
+import { wrapNative, wrapWithActivateUvLoop } from '../utils/helpers';
 
 function addDefaultErrorHandler(native: NativeElement, emitter: EventEmitter): void {
     native.subscribeToQtEvent('error');
@@ -54,10 +54,11 @@ export abstract class EventWidget<Signals extends unknown> extends Component {
             // Preserve the value of `_isQObjectEventProcessed` as we dispatch this event
             // to JS land, and restore it afterwards. This lets us support recursive event
             // dispatches on the same object.
+            const wrappedArgs = args.map(wrapNative);
             const previousEventProcessed = this._isEventProcessed;
             this._isEventProcessed = false;
             try {
-                this.emitter.emit(event, ...args);
+                this.emitter.emit(event, ...wrappedArgs);
             } catch (e) {
                 console.log(`An exception was thrown while dispatching an event of type '${event.toString()}':`);
                 console.log(e);

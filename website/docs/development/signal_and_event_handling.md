@@ -91,7 +91,7 @@ Steps:
 
 Inherit from both QPushButton and NodeWidget. Make sure you have added NODEWIDGET_IMPLEMENTATIONS macro. This adds a crucial method for events support. It will override `event(QEvent *)` method of QPushbutton so that nodejs can listen to the events of this widget. This makes sure we convert all the QEvent's of this widget to an event for the nodejs event emitter.
 
-Also make sure to connect all the signals of the widgets to the event emitter instance from NodeJS. This way we kindof convert the signal to a simple nodejs event.
+Also make sure to connect all the signals of the widgets to the event emitter instance from NodeJS. This way we kind of convert the signal to a simple nodejs event.
 
 ```cpp
 #pragma once
@@ -144,5 +144,5 @@ We need to run Qt's MOC (Meta Object Compiler) on the file whenever we use Q_OBJ
 # How does it work ?
 
 1. On JS side for each widget instance we create an instance of NodeJS's Event Emitter. This is done by the class `EventWidget` from which `NodeWidget` inherits
-2. We send this event emiiter's `emit` function to the C++ side by calling `initNodeEventEmitter` method and store a pointer to the event emitter's emit function using `emitOnNode`. initNodeEventEmitter function is added by a macro from EventWidget (c++). You can find the initNodeEventEmitter method with the event widget macros.
+2. We send this event emitter's `emit` function to the C++ side by calling `initNodeEventEmitter` method and store a pointer to the event emitter's emit function using `emitOnNode`. initNodeEventEmitter function is added by a macro from EventWidget (c++). You can find the initNodeEventEmitter method with the event widget macros.
 3. We setup Qt's connect method for all the signals that we want to listen to and call the emitOnNode (which is actually emit from Event emitter) whenever a signal arrives. This is done manually on every widget by overriding the method `connectSignalsToEventEmitter`. Check `npushbutton.h` for details. This takes care of all the signals of the widgets. Now to export all qt events of the widget, we had overriden the widgets `event(Event*)` method to listen to events received by the widget and send it to the event emitter. This is done inside the EVENTWIDGET_IMPLEMENTATIONS macro

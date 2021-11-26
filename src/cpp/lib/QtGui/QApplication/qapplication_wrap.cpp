@@ -5,6 +5,7 @@
 #include "QtGui/QPalette/qpalette_wrap.h"
 #include "QtGui/QStyle/qstyle_wrap.h"
 #include "core/Integration/qode-api.h"
+#include "core/WrapperCache/wrappercache.h"
 
 Napi::FunctionReference QApplicationWrap::constructor;
 
@@ -23,10 +24,14 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
                       &QApplicationWrap::quitOnLastWindowClosed),
        InstanceMethod("palette", &QApplicationWrap::palette),
        InstanceMethod("setStyleSheet", &QApplicationWrap::setStyleSheet),
+       InstanceMethod("devicePixelRatio", &QApplicationWrap::devicePixelRatio),
        StaticMethod("instance", &StaticQApplicationWrapMethods::instance),
        StaticMethod("clipboard", &StaticQApplicationWrapMethods::clipboard),
        StaticMethod("setStyle", &StaticQApplicationWrapMethods::setStyle),
        StaticMethod("style", &StaticQApplicationWrapMethods::style),
+       StaticMethod("primaryScreen",
+                    &StaticQApplicationWrapMethods::primaryScreen),
+       StaticMethod("screens", &StaticQApplicationWrapMethods::screens),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QApplicationWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -163,4 +168,40 @@ Napi::Value QApplicationWrap::quitOnLastWindowClosed(
   Napi::HandleScope scope(env);
   bool quit = this->instance->quitOnLastWindowClosed();
   return Napi::Value::From(env, quit);
+}
+
+Napi::Value StaticQApplicationWrapMethods::primaryScreen(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+  auto screen = QApplication::primaryScreen();
+  if (screen) {
+    return WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
+  } else {
+    return env.Null();
+  }
+}
+
+Napi::Value StaticQApplicationWrapMethods::screens(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  auto screens = QApplication::screens();
+  Napi::Array jsArray = Napi::Array::New(env, screens.size());
+  for (int i = 0; i < screens.size(); i++) {
+    QScreen* screen = screens[i];
+    auto instance =
+        WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
+    jsArray[i] = instance;
+  }
+  return jsArray;
+}
+
+Napi::Value QApplicationWrap::devicePixelRatio(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::HandleScope scope(env);
+
+  qreal result = this->instance->devicePixelRatio();
+  return Napi::Value::From(env, result);
 }

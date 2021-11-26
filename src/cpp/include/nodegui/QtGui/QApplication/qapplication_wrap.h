@@ -30,11 +30,14 @@ class DLL_EXPORT QApplicationWrap : public Napi::ObjectWrap<QApplicationWrap> {
   Napi::Value quitOnLastWindowClosed(const Napi::CallbackInfo& info);
   Napi::Value palette(const Napi::CallbackInfo& info);
   Napi::Value setStyleSheet(const Napi::CallbackInfo& info);
+  Napi::Value devicePixelRatio(const Napi::CallbackInfo& info);
 };
 
 namespace StaticQApplicationWrapMethods {
-DLL_EXPORT Napi::Value instance(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value clipboard(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value instance(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value primaryScreen(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value screens(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value setStyle(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value style(const Napi::CallbackInfo& info);
 }  // namespace StaticQApplicationWrapMethods

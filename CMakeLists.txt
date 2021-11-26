@@ -11,6 +11,9 @@ set(CORE_WIDGETS_ADDON "nodegui_core")
 
 project(${CORE_WIDGETS_ADDON})
 
+
+# Note: CMake+moc also use this list when finding files which `moc` applied.
+
 add_library(${CORE_WIDGETS_ADDON} SHARED
     "${CMAKE_JS_SRC}"
     "${PROJECT_SOURCE_DIR}/src/cpp/main.cpp"
@@ -24,6 +27,8 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/Events/eventsmap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/Events/eventwidget.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/YogaWidget/yogawidget.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/core/WrapperCache/wrappercache.h"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/WrapperCache/wrappercache.cpp"
     # core deps
     "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/log.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/deps/yoga/Utils.cpp"
@@ -65,7 +70,9 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QKeySequence/qkeysequence_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QMovie/qmovie_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QPalette/qpalette_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QScreen/qscreen_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QStyle/qstyle_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QWindow/qwindow_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QAbstractItemModel/qabstractitemmodel_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QDate/qdate_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QDateTime/qdatetime_wrap.cpp"
@@ -147,7 +154,6 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QStandardItemModel/qstandarditemmodel_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QStandardItem/qstandarditem_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QSvgWidget/qsvgwidget_wrap.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QDesktopWidget/qdesktopwidget_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QStyleFactory/qstylefactory_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QSplitter/qsplitter_wrap.cpp"
     # Custom widgets (include them for automoc since they contain Q_OBJECT)
@@ -214,9 +220,13 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTextBrowser/ntextbrowser.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QTextEdit/ntextedit.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QSvgWidget/nsvgwidget.hpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QDesktopWidget/nqdesktopwidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QHeaderView/nheaderview.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QSplitter/nsplitter.hpp"
+
+    # Test
+    "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/test/CacheTestQObject.h"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/test/CacheTestQObject.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/test/cachetestqobject_wrap.cpp"
 )
 
 AddCommonConfig(${CORE_WIDGETS_ADDON})

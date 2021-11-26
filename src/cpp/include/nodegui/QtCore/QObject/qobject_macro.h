@@ -12,11 +12,17 @@
    and every widget we export.
  */
 
-#ifndef QOBJECT_WRAPPED_METHODS_DECLARATION
-#define QOBJECT_WRAPPED_METHODS_DECLARATION                                  \
+#ifndef QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE
+#define QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(source)        \
                                                                              \
-  EVENTWIDGET_WRAPPED_METHODS_DECLARATION                                    \
+  EVENTWIDGET_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(source)          \
                                                                              \
+  Napi::Value __id__(const Napi::CallbackInfo& info) {                       \
+    Napi::Env env = info.Env();                                              \
+    Napi::HandleScope scope(env);                                            \
+    return Napi::Value::From(                                                \
+        env, extrautils::hashPointerTo53bit(this->instance.data()));         \
+  }                                                                          \
   Napi::Value inherits(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                              \
     Napi::HandleScope scope(env);                                            \
@@ -73,6 +79,11 @@
     return env.Null();                                                       \
   }
 
+#endif  // QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE
+
+#ifndef QOBJECT_WRAPPED_METHODS_DECLARATION
+#define QOBJECT_WRAPPED_METHODS_DECLARATION \
+  QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(this->instance.data())
 #endif  // QOBJECT_WRAPPED_METHODS_DECLARATION
 
 #ifndef QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
@@ -80,7 +91,8 @@
                                                                             \
   EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(ComponentWrapName)              \
                                                                             \
-  InstanceMethod("inherits", &ComponentWrapName::inherits),                 \
+  InstanceMethod("__id__", &ComponentWrapName::__id__),                     \
+      InstanceMethod("inherits", &ComponentWrapName::inherits),             \
       InstanceMethod("setProperty", &ComponentWrapName::setProperty),       \
       InstanceMethod("property", &ComponentWrapName::property),             \
       InstanceMethod("setObjectName", &ComponentWrapName::setObjectName),   \
@@ -90,9 +102,9 @@
 
 #endif  // QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
 
-#ifndef QOBJECT_SIGNALS
-#define QOBJECT_SIGNALS                                                       \
-  QObject::connect(this, &QObject::objectNameChanged,                         \
+#ifndef QOBJECT_SIGNALS_ON_TARGET
+#define QOBJECT_SIGNALS_ON_TARGET(target)                                     \
+  QObject::connect(target, &QObject::objectNameChanged,                       \
                    [=](const QString& objectName) {                           \
                      Napi::Env env = this->emitOnNode.Env();                  \
                      Napi::HandleScope scope(env);                            \
@@ -100,5 +112,8 @@
                          {Napi::String::New(env, "objectNameChanged"),        \
                           Napi::Value::From(env, objectName.toStdString())}); \
                    });
+#endif  // QOBJECT_SIGNALS_ON_TARGET
 
+#ifndef QOBJECT_SIGNALS
+#define QOBJECT_SIGNALS QOBJECT_SIGNALS_ON_TARGET(this)
 #endif  // QOBJECT_SIGNALS
