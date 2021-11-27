@@ -125,10 +125,13 @@ Napi::Value StaticQApplicationWrapMethods::instance(
 Napi::Value StaticQApplicationWrapMethods::clipboard(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QClipboard* clipboard = QApplication::clipboard();
-  return QClipboardWrap::constructor.New(
-      {Napi::External<QClipboard>::New(env, clipboard)});
+  if (clipboard) {
+    return WrapperCache::instance.get<QClipboard, QClipboardWrap>(env,
+                                                                  clipboard);
+  } else {
+    return env.Null();
+  }
 }
 
 Napi::Value StaticQApplicationWrapMethods::setStyle(

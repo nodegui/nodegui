@@ -3,21 +3,29 @@
 #include <napi.h>
 
 #include <QClipboard>
+#include <QPointer>
 
 #include "Extras/Export/export.h"
-#include "core/Component/component_macro.h"
+#include "QtCore/QObject/qobject_macro.h"
 
-class DLL_EXPORT QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap> {
-  COMPONENT_WRAPPED_METHODS_DECLARATION
+class DLL_EXPORT QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap>,
+                                  public EventWidget {
+  QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(this)
+  // Note: We don't use EVENTWIDGET_IMPLEMENTATIONS() here because this class
+  // doesn't handle any QEvents.
 
  private:
-  QClipboard* instance;
+  QPointer<QClipboard> instance;
 
  public:
   static Napi::FunctionReference constructor;
+
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QClipboardWrap(const Napi::CallbackInfo& info);
   QClipboard* getInternalInstance();
+
+  virtual void connectSignalsToEventEmitter();
+
   // Wrapped methods
   Napi::Value clear(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);

@@ -37,6 +37,34 @@ QClipboardWrap::QClipboardWrap(const Napi::CallbackInfo& info)
 
 QClipboard* QClipboardWrap::getInternalInstance() { return this->instance; }
 
+void QClipboardWrap::connectSignalsToEventEmitter() {
+  QOBJECT_SIGNALS_ON_TARGET(this->instance.data());
+
+  QObject::connect(this->instance.data(), &QClipboard::changed,
+                   [=](const QClipboard::Mode mode) {
+                     Napi::Env env = this->emitOnNode.Env();
+                     this->emitOnNode.Call(
+                         {Napi::String::New(env, "changed"),
+                          Napi::Value::From(env, static_cast<uint>(mode))});
+                   });
+
+  QObject::connect(this->instance.data(), &QClipboard::dataChanged, [=]() {
+    Napi::Env env = this->emitOnNode.Env();
+    this->emitOnNode.Call({Napi::String::New(env, "dataChanged")});
+  });
+
+  QObject::connect(
+      this->instance.data(), &QClipboard::findBufferChanged, [=]() {
+        Napi::Env env = this->emitOnNode.Env();
+        this->emitOnNode.Call({Napi::String::New(env, "findBufferChanged")});
+      });
+
+  QObject::connect(this->instance.data(), &QClipboard::selectionChanged, [=]() {
+    Napi::Env env = this->emitOnNode.Env();
+    this->emitOnNode.Call({Napi::String::New(env, "selectionChanged")});
+  });
+}
+
 Napi::Value QClipboardWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);

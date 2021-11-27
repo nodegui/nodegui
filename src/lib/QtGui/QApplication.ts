@@ -71,8 +71,12 @@ export class QApplication extends NodeObject<QApplicationSignals> {
         const preparedSheet = StyleSheet.create(styleSheet);
         this.native.setStyleSheet(preparedSheet);
     }
-    static clipboard(): QClipboard {
-        return new QClipboard(addon.QApplication.clipboard());
+    static clipboard(): QClipboard | null {
+        const clipboardNative = addon.QApplication.clipboard();
+        if (clipboardNative == null) {
+            return null;
+        }
+        return wrapperCache.get<QClipboard>(QClipboard, clipboardNative);
     }
     static instance(): QApplication {
         const nativeQApp = addon.QApplication.instance();
