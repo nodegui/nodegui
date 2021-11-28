@@ -32,7 +32,6 @@ QMessageBoxWrap::~QMessageBoxWrap() { extrautils::safeDelete(this->instance); }
 QMessageBoxWrap::QMessageBoxWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMessageBoxWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -52,7 +51,6 @@ QMessageBoxWrap::QMessageBoxWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QMessageBoxWrap::setDefaultButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object buttonObject = info[0].As<Napi::Object>();
   QPushButtonWrap* buttonWrap =
       Napi::ObjectWrap<QPushButtonWrap>::Unwrap(buttonObject);
@@ -61,7 +59,6 @@ Napi::Value QMessageBoxWrap::setDefaultButton(const Napi::CallbackInfo& info) {
 }
 Napi::Value QMessageBoxWrap::addButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object buttonObject = info[0].As<Napi::Object>();
   QObjectWrap* qobjWrap = Napi::ObjectWrap<QObjectWrap>::Unwrap(buttonObject);
   QAbstractButton* btn =
@@ -73,13 +70,11 @@ Napi::Value QMessageBoxWrap::addButton(const Napi::CallbackInfo& info) {
 }
 Napi::Value QMessageBoxWrap::accept(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->accept();
   return env.Null();
 }
 Napi::Value QMessageBoxWrap::done(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number r = info[0].As<Napi::Number>();
   this->instance->done(r.Int32Value());
   return env.Null();
@@ -88,8 +83,6 @@ Napi::Value QMessageBoxWrap::done(const Napi::CallbackInfo& info) {
 Napi::Value StaticQMessageBoxWrapMethods::about(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object parentObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* parentWidgetWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
@@ -107,8 +100,6 @@ Napi::Value StaticQMessageBoxWrapMethods::about(
 Napi::Value StaticQMessageBoxWrapMethods::aboutQt(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object parentObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* parentWidgetWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);

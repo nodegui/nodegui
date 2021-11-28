@@ -34,8 +34,6 @@ QScrollAreaWrap::~QScrollAreaWrap() {
 QScrollAreaWrap::QScrollAreaWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QScrollAreaWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -59,8 +57,6 @@ QScrollAreaWrap::QScrollAreaWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QScrollAreaWrap::ensureVisible(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int x = info[0].As<Napi::Number>().Int32Value();
   int y = info[1].As<Napi::Number>().Int32Value();
   int xmargin = info[2].As<Napi::Number>().Int32Value();
@@ -72,8 +68,6 @@ Napi::Value QScrollAreaWrap::ensureVisible(const Napi::CallbackInfo& info) {
 Napi::Value QScrollAreaWrap::ensureWidgetVisible(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object childWidgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* childWidgetWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(childWidgetObject);
@@ -86,8 +80,6 @@ Napi::Value QScrollAreaWrap::ensureWidgetVisible(
 
 Napi::Value QScrollAreaWrap::setWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object contentWidgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* contentWidgetWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(contentWidgetObject);
@@ -97,8 +89,6 @@ Napi::Value QScrollAreaWrap::setWidget(const Napi::CallbackInfo& info) {
 
 Napi::Value QScrollAreaWrap::takeWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->takeWidget();
   // We will not return the value here since we are doing it in js side anyway
   return env.Null();
@@ -107,8 +97,6 @@ Napi::Value QScrollAreaWrap::takeWidget(const Napi::CallbackInfo& info) {
 Napi::Value QScrollAreaWrap::setViewportMargins(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   NScrollArea* nScrollArea = qobject_cast<NScrollArea*>(this->instance);
   if (nScrollArea != nullptr) {
     int left = info[0].As<Napi::Number>().Int32Value();
@@ -122,8 +110,6 @@ Napi::Value QScrollAreaWrap::setViewportMargins(
 
 Napi::Value QScrollAreaWrap::viewportMargins(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   NScrollArea* nScrollArea = qobject_cast<NScrollArea*>(this->instance);
 
   QMargins margins;

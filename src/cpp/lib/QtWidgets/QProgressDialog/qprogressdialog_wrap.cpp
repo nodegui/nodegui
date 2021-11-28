@@ -34,8 +34,6 @@ QProgressDialogWrap::~QProgressDialogWrap() {
 QProgressDialogWrap::QProgressDialogWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QProgressDialogWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -55,16 +53,12 @@ QProgressDialogWrap::QProgressDialogWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QProgressDialogWrap::cancel(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->cancel();
   return env.Null();
 }
 
 Napi::Value QProgressDialogWrap::reset(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->reset();
   return env.Null();
 }
@@ -72,8 +66,6 @@ Napi::Value QProgressDialogWrap::reset(const Napi::CallbackInfo& info) {
 Napi::Value QProgressDialogWrap::setCancelButtonText(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string napiText = info[0].As<Napi::String>().Utf8Value();
   QString text = QString::fromUtf8(napiText.c_str());
   this->instance->setCancelButtonText(text);
@@ -82,8 +74,6 @@ Napi::Value QProgressDialogWrap::setCancelButtonText(
 
 Napi::Value QProgressDialogWrap::setRange(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int minimum = info[0].As<Napi::Number>().Int32Value();
   int maximum = info[1].As<Napi::Number>().Int32Value();
   this->instance->setRange(minimum, maximum);

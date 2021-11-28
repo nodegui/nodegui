@@ -42,7 +42,6 @@ NAction* QActionWrap::getInternalInstance() { return this->instance; }
 QActionWrap::QActionWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QActionWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<NAction>>().Data();
@@ -74,7 +73,6 @@ QActionWrap::~QActionWrap() {
 
 Napi::Value QActionWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::String text = info[0].As<Napi::String>();
   this->instance->setText(QString::fromStdString(text.Utf8Value()));
   return env.Null();
@@ -82,7 +80,6 @@ Napi::Value QActionWrap::setText(const Napi::CallbackInfo& info) {
 
 Napi::Value QActionWrap::setEnabled(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Boolean enabled = info[0].As<Napi::Boolean>();
   this->instance->setEnabled(enabled.Value());
   return env.Null();
@@ -90,8 +87,6 @@ Napi::Value QActionWrap::setEnabled(const Napi::CallbackInfo& info) {
 
 Napi::Value QActionWrap::setIcon(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object iconObject = info[0].As<Napi::Object>();
   QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
   this->instance->setIcon(*iconWrap->getInternalInstance());
@@ -100,8 +95,6 @@ Napi::Value QActionWrap::setIcon(const Napi::CallbackInfo& info) {
 
 Napi::Value QActionWrap::setMenu(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object menuObject = info[0].As<Napi::Object>();
   QMenuWrap* menuWrap = Napi::ObjectWrap<QMenuWrap>::Unwrap(menuObject);
   this->instance->setMenu(menuWrap->getInternalInstance());
@@ -110,8 +103,6 @@ Napi::Value QActionWrap::setMenu(const Napi::CallbackInfo& info) {
 
 Napi::Value QActionWrap::setShortcut(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object shortcutSequence = info[0].As<Napi::Object>();
   QKeySequenceWrap* keysequence =
       Napi::ObjectWrap<QKeySequenceWrap>::Unwrap(shortcutSequence);
@@ -121,8 +112,6 @@ Napi::Value QActionWrap::setShortcut(const Napi::CallbackInfo& info) {
 
 Napi::Value QActionWrap::setShortcutContext(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Number shortcutContextEnum = info[0].As<Napi::Number>();
   int shortCutContext = shortcutContextEnum.Int32Value();
   this->instance->setShortcutContext(
@@ -132,15 +121,11 @@ Napi::Value QActionWrap::setShortcutContext(const Napi::CallbackInfo& info) {
 
 Napi::Value QActionWrap::isCheckable(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isCheckable());
 }
 
 Napi::Value QActionWrap::setCheckable(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Boolean isCheckable = info[0].As<Napi::Boolean>();
     this->instance->setCheckable(isCheckable);
@@ -154,15 +139,11 @@ Napi::Value QActionWrap::setCheckable(const Napi::CallbackInfo& info) {
 
 Napi::Value QActionWrap::isChecked(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isChecked());
 }
 
 Napi::Value QActionWrap::setChecked(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Boolean isChecked = info[0].As<Napi::Boolean>();
     this->instance->setChecked(isChecked);
@@ -176,15 +157,11 @@ Napi::Value QActionWrap::setChecked(const Napi::CallbackInfo& info) {
 
 Napi::Value QActionWrap::isSeparator(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isSeparator());
 }
 
 Napi::Value QActionWrap::setSeparator(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Boolean isSeparator = info[0].As<Napi::Boolean>();
     this->instance->setSeparator(isSeparator);
@@ -198,8 +175,6 @@ Napi::Value QActionWrap::setSeparator(const Napi::CallbackInfo& info) {
 
 Napi::Value QActionWrap::setFont(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object fontObject = info[0].As<Napi::Object>();
   QFontWrap* fontWrap = Napi::ObjectWrap<QFontWrap>::Unwrap(fontObject);
   QFont* font = fontWrap->getInternalInstance();
@@ -210,8 +185,6 @@ Napi::Value QActionWrap::setFont(const Napi::CallbackInfo& info) {
 
 Napi::Value QActionWrap::setData(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
@@ -224,8 +197,6 @@ Napi::Value QActionWrap::setData(const Napi::CallbackInfo& info) {
 
 Napi::Value QActionWrap::data(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QVariant variant = this->instance->data();
   if (variant.isNull()) {
     return env.Null();

@@ -53,8 +53,6 @@ QItemSelectionModelWrap::~QItemSelectionModelWrap() {
 QItemSelectionModelWrap::QItemSelectionModelWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QItemSelectionModelWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 0) {
     this->instance = new NItemSelectionModel();
     this->disableDeletion = false;
@@ -66,7 +64,6 @@ QItemSelectionModelWrap::QItemSelectionModelWrap(const Napi::CallbackInfo& info)
 Napi::Value QItemSelectionModelWrap::columnIntersectsSelection(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int column = info[0].As<Napi::Number>().Int32Value();
   QModelIndexWrap* parentWrap =
       Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[1].As<Napi::Object>());
@@ -78,7 +75,6 @@ Napi::Value QItemSelectionModelWrap::columnIntersectsSelection(
 Napi::Value QItemSelectionModelWrap::currentIndex(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QModelIndex result = this->instance->currentIndex();
   auto resultInstance = QModelIndexWrap::constructor.New(
       {Napi::External<QModelIndex>::New(env, new QModelIndex(result))});
@@ -88,7 +84,6 @@ Napi::Value QItemSelectionModelWrap::currentIndex(
 Napi::Value QItemSelectionModelWrap::hasSelection(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   bool result = this->instance->hasSelection();
   return Napi::Boolean::New(env, result);
 }
@@ -96,7 +91,6 @@ Napi::Value QItemSelectionModelWrap::hasSelection(
 Napi::Value QItemSelectionModelWrap::isColumnSelected(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int column = info[0].As<Napi::Number>().Int32Value();
   QModelIndexWrap* parentWrap =
       Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[1].As<Napi::Object>());
@@ -108,7 +102,6 @@ Napi::Value QItemSelectionModelWrap::isColumnSelected(
 Napi::Value QItemSelectionModelWrap::isRowSelected(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int row = info[0].As<Napi::Number>().Int32Value();
   QModelIndexWrap* parentWrap =
       Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[1].As<Napi::Object>());
@@ -120,7 +113,6 @@ Napi::Value QItemSelectionModelWrap::isRowSelected(
 Napi::Value QItemSelectionModelWrap::isSelected(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QModelIndexWrap* indexWrap =
       Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
   QModelIndex* index = indexWrap->getInternalInstance();
@@ -131,7 +123,6 @@ Napi::Value QItemSelectionModelWrap::isSelected(
 Napi::Value QItemSelectionModelWrap::rowIntersectsSelection(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int row = info[0].As<Napi::Number>().Int32Value();
   QModelIndexWrap* parentWrap =
       Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[1].As<Napi::Object>());
@@ -142,7 +133,6 @@ Napi::Value QItemSelectionModelWrap::rowIntersectsSelection(
 
 Napi::Value QItemSelectionModelWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->clear();
   return env.Null();
 }
@@ -150,7 +140,6 @@ Napi::Value QItemSelectionModelWrap::clear(const Napi::CallbackInfo& info) {
 Napi::Value QItemSelectionModelWrap::clearCurrentIndex(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->clearCurrentIndex();
   return env.Null();
 }
@@ -158,21 +147,18 @@ Napi::Value QItemSelectionModelWrap::clearCurrentIndex(
 Napi::Value QItemSelectionModelWrap::clearSelection(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->clearSelection();
   return env.Null();
 }
 
 Napi::Value QItemSelectionModelWrap::reset(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->reset();
   return env.Null();
 }
 
 Napi::Value QItemSelectionModelWrap::select(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QModelIndexWrap* indexWrap =
       Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
   QModelIndex* index = indexWrap->getInternalInstance();
@@ -186,7 +172,6 @@ Napi::Value QItemSelectionModelWrap::select(const Napi::CallbackInfo& info) {
 Napi::Value QItemSelectionModelWrap::setCurrentIndex(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QModelIndexWrap* indexWrap =
       Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
   QModelIndex* index = indexWrap->getInternalInstance();
@@ -199,7 +184,6 @@ Napi::Value QItemSelectionModelWrap::setCurrentIndex(
 Napi::Value QItemSelectionModelWrap::selectedColumns(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int row = info[0].As<Napi::Number>().Int32Value();
   QModelIndexList result = this->instance->selectedColumns(row);
   Napi::Array resultArrayNapi = Napi::Array::New(env, result.size());
@@ -213,7 +197,6 @@ Napi::Value QItemSelectionModelWrap::selectedColumns(
 Napi::Value QItemSelectionModelWrap::selectedIndexes(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QModelIndexList result = this->instance->selectedIndexes();
   Napi::Array resultArrayNapi = Napi::Array::New(env, result.size());
   for (int i = 0; i < result.size(); i++) {
@@ -226,7 +209,6 @@ Napi::Value QItemSelectionModelWrap::selectedIndexes(
 Napi::Value QItemSelectionModelWrap::selectedRows(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int column = info[0].As<Napi::Number>().Int32Value();
   QModelIndexList result = this->instance->selectedRows(column);
   Napi::Array resultArrayNapi = Napi::Array::New(env, result.size());

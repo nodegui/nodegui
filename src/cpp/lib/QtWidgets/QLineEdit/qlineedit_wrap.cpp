@@ -30,8 +30,6 @@ NLineEdit* QLineEditWrap::getInternalInstance() { return this->instance; }
 QLineEditWrap::QLineEditWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QLineEditWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -52,7 +50,6 @@ QLineEditWrap::~QLineEditWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QLineEditWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::String text = info[0].As<Napi::String>();
   this->instance->setText(text.Utf8Value().c_str());
   return env.Null();
@@ -60,7 +57,6 @@ Napi::Value QLineEditWrap::setText(const Napi::CallbackInfo& info) {
 
 Napi::Value QLineEditWrap::setReadOnly(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Boolean isReadOnly = info[0].As<Napi::Boolean>();
   this->instance->setReadOnly(isReadOnly.Value());
   return env.Null();
@@ -68,14 +64,12 @@ Napi::Value QLineEditWrap::setReadOnly(const Napi::CallbackInfo& info) {
 
 Napi::Value QLineEditWrap::text(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QString text = this->instance->text();
   return Napi::String::New(env, text.toStdString().c_str());
 }
 
 Napi::Value QLineEditWrap::setPlaceholderText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::String text = info[0].As<Napi::String>();
   this->instance->setPlaceholderText(text.Utf8Value().c_str());
   return env.Null();
@@ -83,14 +77,12 @@ Napi::Value QLineEditWrap::setPlaceholderText(const Napi::CallbackInfo& info) {
 
 Napi::Value QLineEditWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->clear();
   return env.Null();
 }
 
 Napi::Value QLineEditWrap::setEchoMode(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number mode = info[0].As<Napi::Number>();
   this->instance->setEchoMode(
       static_cast<QLineEdit::EchoMode>(mode.Int32Value()));

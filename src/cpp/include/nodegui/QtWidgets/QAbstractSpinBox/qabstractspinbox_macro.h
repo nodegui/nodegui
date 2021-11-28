@@ -15,19 +15,16 @@
   QWIDGET_WRAPPED_METHODS_DECLARATION                     \
   Napi::Value selectAll(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env();                           \
-    Napi::HandleScope scope(env);                         \
     this->instance->selectAll();                          \
     return env.Null();                                    \
   }                                                       \
   Napi::Value stepDown(const Napi::CallbackInfo& info) {  \
     Napi::Env env = info.Env();                           \
-    Napi::HandleScope scope(env);                         \
     this->instance->stepDown();                           \
     return env.Null();                                    \
   }                                                       \
   Napi::Value stepUp(const Napi::CallbackInfo& info) {    \
     Napi::Env env = info.Env();                           \
-    Napi::HandleScope scope(env);                         \
     this->instance->stepUp();                             \
     return env.Null();                                    \
   }

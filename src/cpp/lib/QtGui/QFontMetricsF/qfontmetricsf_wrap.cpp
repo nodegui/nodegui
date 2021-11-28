@@ -49,7 +49,6 @@ Napi::Object QFontMetricsFWrap::init(Napi::Env env, Napi::Object exports) {
 QFontMetricsFWrap::QFontMetricsFWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QFontMetricsFWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   if (info.Length() == 1) {
     if (info[0].IsExternal()) {
@@ -74,7 +73,6 @@ QFontMetricsF* QFontMetricsFWrap::getInternalInstance() {
 
 Napi::Value QFontMetricsFWrap::ascent(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->ascent());
 }
@@ -82,35 +80,30 @@ Napi::Value QFontMetricsFWrap::ascent(const Napi::CallbackInfo& info) {
 Napi::Value QFontMetricsFWrap::averageCharWidth(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->averageCharWidth());
 }
 
 Napi::Value QFontMetricsFWrap::capHeight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->capHeight());
 }
 
 Napi::Value QFontMetricsFWrap::descent(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->descent());
 }
 
 Napi::Value QFontMetricsFWrap::fontDpi(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->fontDpi());
 }
 
 Napi::Value QFontMetricsFWrap::height(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->height());
 }
@@ -118,7 +111,6 @@ Napi::Value QFontMetricsFWrap::height(const Napi::CallbackInfo& info) {
 Napi::Value QFontMetricsFWrap::horizontalAdvance(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   std::string format = info[0].As<Napi::String>().Utf8Value();
   QString text = QString::fromUtf8(format.c_str());
@@ -137,7 +129,6 @@ Napi::Value QFontMetricsFWrap::horizontalAdvance(
 
 Napi::Value QFontMetricsFWrap::inFont(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   char ch = info[0].As<Napi::String>().Utf8Value()[0];
   return Napi::Boolean::New(env, this->instance->inFont(ch));
@@ -145,14 +136,12 @@ Napi::Value QFontMetricsFWrap::inFont(const Napi::CallbackInfo& info) {
 
 Napi::Value QFontMetricsFWrap::leading(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->leading());
 }
 
 Napi::Value QFontMetricsFWrap::leftBearing(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   char ch = info[0].As<Napi::String>().Utf8Value()[0];
   return Napi::Boolean::New(env, this->instance->leftBearing(ch));
@@ -160,28 +149,24 @@ Napi::Value QFontMetricsFWrap::leftBearing(const Napi::CallbackInfo& info) {
 
 Napi::Value QFontMetricsFWrap::lineSpacing(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->lineSpacing());
 }
 
 Napi::Value QFontMetricsFWrap::lineWidth(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->lineWidth());
 }
 
 Napi::Value QFontMetricsFWrap::overlinePos(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->overlinePos());
 }
 
 Napi::Value QFontMetricsFWrap::rightBearing(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   char ch = info[0].As<Napi::String>().Utf8Value()[0];
   return Napi::Boolean::New(env, this->instance->rightBearing(ch));
@@ -189,7 +174,6 @@ Napi::Value QFontMetricsFWrap::rightBearing(const Napi::CallbackInfo& info) {
 
 Napi::Value QFontMetricsFWrap::size(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   if (info.Length() != 2 && info.Length() != 3) {
     Napi::TypeError::New(env, "Invalid number of arguments to size")
@@ -208,14 +192,12 @@ Napi::Value QFontMetricsFWrap::size(const Napi::CallbackInfo& info) {
 
 Napi::Value QFontMetricsFWrap::strikeOutPos(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->strikeOutPos());
 }
 
 Napi::Value QFontMetricsFWrap::swap(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QFontMetricsFWrap* wrap0_1 =
@@ -226,42 +208,36 @@ Napi::Value QFontMetricsFWrap::swap(const Napi::CallbackInfo& info) {
 
 Napi::Value QFontMetricsFWrap::underlinePos(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->underlinePos());
 }
 
 Napi::Value QFontMetricsFWrap::xHeight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   return Napi::Value::From(env, this->instance->xHeight());
 }
 
 Napi::Value QFontMetricsFWrap::maxWidth(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int result = this->instance->maxWidth();
   return Napi::Number::New(env, result);
 }
 
 Napi::Value QFontMetricsFWrap::minLeftBearing(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int result = this->instance->minLeftBearing();
   return Napi::Number::New(env, result);
 }
 
 Napi::Value QFontMetricsFWrap::minRightBearing(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int result = this->instance->minRightBearing();
   return Napi::Number::New(env, result);
 }
 
 Napi::Value QFontMetricsFWrap::inFontUcs4(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   uint ucs4 = info[0].As<Napi::Number>().Uint32Value();
   bool result = this->instance->inFontUcs4(ucs4);
   return Napi::Boolean::New(env, result);
@@ -269,7 +245,6 @@ Napi::Value QFontMetricsFWrap::inFontUcs4(const Napi::CallbackInfo& info) {
 
 Napi::Value QFontMetricsFWrap::boundingRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   std::string textNapiText = info[0].As<Napi::String>().Utf8Value();
   QString text = QString::fromUtf8(textNapiText.c_str());
   QRectF result = this->instance->boundingRect(text);
@@ -281,7 +256,6 @@ Napi::Value QFontMetricsFWrap::boundingRect(const Napi::CallbackInfo& info) {
 Napi::Value QFontMetricsFWrap::tightBoundingRect(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   std::string textNapiText = info[0].As<Napi::String>().Utf8Value();
   QString text = QString::fromUtf8(textNapiText.c_str());
   QRectF result = this->instance->tightBoundingRect(text);
@@ -292,7 +266,6 @@ Napi::Value QFontMetricsFWrap::tightBoundingRect(
 
 Napi::Value QFontMetricsFWrap::elidedText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   std::string textNapiText = info[0].As<Napi::String>().Utf8Value();
   QString text = QString::fromUtf8(textNapiText.c_str());
   Qt::TextElideMode mode =

@@ -8,8 +8,6 @@ namespace QStyleFactoryWrap {
 
 Napi::Value create(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::String key = info[0].As<Napi::String>();
 
   QStyle* style =
@@ -22,8 +20,6 @@ Napi::Value create(const Napi::CallbackInfo& info) {
 
 Napi::Value keys(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QStringList keys = QStyleFactory::keys();
   Napi::Array keysNapi = Napi::Array::New(env, keys.size());
   for (int i = 0; i < keys.size(); i++) {

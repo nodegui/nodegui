@@ -39,8 +39,6 @@ QColorDialogWrap::~QColorDialogWrap() {
 QColorDialogWrap::QColorDialogWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QColorDialogWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -60,8 +58,6 @@ QColorDialogWrap::QColorDialogWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QColorDialogWrap::selectedColor(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QColor color = this->instance->selectedColor();
   auto instance = QColorWrap::constructor.New(
       {Napi::External<QColor>::New(env, new QColor(color))});
@@ -70,8 +66,6 @@ Napi::Value QColorDialogWrap::selectedColor(const Napi::CallbackInfo& info) {
 
 Napi::Value QColorDialogWrap::setOption(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int option = info[0].As<Napi::Number>().Int32Value();
   bool on = info[1].As<Napi::Boolean>().Value();
   this->instance->setOption(
@@ -81,8 +75,6 @@ Napi::Value QColorDialogWrap::setOption(const Napi::CallbackInfo& info) {
 
 Napi::Value QColorDialogWrap::testOption(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int option = info[0].As<Napi::Number>().Int32Value();
   bool on = this->instance->testOption(
       static_cast<QColorDialog::ColorDialogOption>(option));
@@ -92,8 +84,6 @@ Napi::Value QColorDialogWrap::testOption(const Napi::CallbackInfo& info) {
 Napi::Value StaticQColorDialogWrapMethods::customColor(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   QColor color = QColorDialog::customColor(index);
   auto instance = QColorWrap::constructor.New(
@@ -104,8 +94,6 @@ Napi::Value StaticQColorDialogWrapMethods::customColor(
 Napi::Value StaticQColorDialogWrapMethods::customCount(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int count = QColorDialog::customCount();
   return Napi::Number::New(env, count);
 }
@@ -113,8 +101,6 @@ Napi::Value StaticQColorDialogWrapMethods::customCount(
 Napi::Value StaticQColorDialogWrapMethods::setCustomColor(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   Napi::Object colorObject = info[1].As<Napi::Object>();
   QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
@@ -125,8 +111,6 @@ Napi::Value StaticQColorDialogWrapMethods::setCustomColor(
 Napi::Value StaticQColorDialogWrapMethods::setStandardColor(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   Napi::Object colorObject = info[1].As<Napi::Object>();
   QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
@@ -137,8 +121,6 @@ Napi::Value StaticQColorDialogWrapMethods::setStandardColor(
 Napi::Value StaticQColorDialogWrapMethods::standardColor(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   QColor color = QColorDialog::standardColor(index);
   auto instance = QColorWrap::constructor.New(

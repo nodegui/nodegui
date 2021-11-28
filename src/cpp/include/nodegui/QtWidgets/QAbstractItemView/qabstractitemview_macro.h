@@ -22,7 +22,6 @@
   QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION                              \
   Napi::Value setCurrentIndex(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     Napi::Object indexObject = info[0].As<Napi::Object>();                     \
     QModelIndexWrap* indexWrap =                                               \
         Napi::ObjectWrap<QModelIndexWrap>::Unwrap(indexObject);                \
@@ -31,7 +30,6 @@
   }                                                                            \
   Napi::Value currentIndex(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QModelIndex current = this->instance->currentIndex();                      \
     auto instance = QModelIndexWrap::constructor.New(                          \
         {Napi::External<QModelIndex>::New(env, new QModelIndex(current))});    \
@@ -39,7 +37,6 @@
   }                                                                            \
   Napi::Value setIndexWidget(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     Napi::Object indexObject = info[0].As<Napi::Object>();                     \
     Napi::Object widgetObject = info[1].As<Napi::Object>();                    \
     QModelIndexWrap* indexWrap =                                               \
@@ -52,7 +49,6 @@
   }                                                                            \
   Napi::Value indexWidget(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     Napi::Object indexObject = info[0].As<Napi::Object>();                     \
     QModelIndexWrap* indexWrap =                                               \
         Napi::ObjectWrap<QModelIndexWrap>::Unwrap(indexObject);                \
@@ -65,19 +61,16 @@
   }                                                                            \
   Napi::Value resetHorizontalScrollMode(const Napi::CallbackInfo& info) {      \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->resetHorizontalScrollMode();                               \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value resetVerticalScrollMode(const Napi::CallbackInfo& info) {        \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->resetVerticalScrollMode();                                 \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value rootIndex(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QModelIndex root = this->instance->rootIndex();                            \
     auto instance = QModelIndexWrap::constructor.New(                          \
         {Napi::External<QModelIndex>::New(env, new QModelIndex(root))});       \
@@ -85,19 +78,16 @@
   }                                                                            \
   Napi::Value scrollToBottom(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->scrollToBottom();                                          \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value scrollToTop(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->scrollToTop();                                             \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value setModel(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     Napi::Object modelObject = info[0].As<Napi::Object>();                     \
     QAbstractItemModelWrap* modelWrap =                                        \
         Napi::ObjectWrap<QAbstractItemModelWrap>::Unwrap(modelObject);         \
@@ -107,7 +97,6 @@
   }                                                                            \
   Napi::Value closePersistentEditor(const Napi::CallbackInfo& info) {          \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QModelIndexWrap* indexWrap =                                               \
         Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>()); \
     QModelIndex* index = indexWrap->getInternalInstance();                     \
@@ -116,13 +105,11 @@
   }                                                                            \
   Napi::Value clearSelection(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->clearSelection();                                          \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value edit(const Napi::CallbackInfo& info) {                           \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QModelIndexWrap* indexWrap =                                               \
         Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>()); \
     QModelIndex* index = indexWrap->getInternalInstance();                     \
@@ -131,19 +118,16 @@
   }                                                                            \
   Napi::Value reset(const Napi::CallbackInfo& info) {                          \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->reset();                                                   \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value selectAll(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->selectAll();                                               \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value setRootIndex(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QModelIndexWrap* indexWrap =                                               \
         Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>()); \
     QModelIndex* index = indexWrap->getInternalInstance();                     \
@@ -152,7 +136,6 @@
   }                                                                            \
   Napi::Value update_QModelIndex(const Napi::CallbackInfo& info) {             \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QModelIndexWrap* indexWrap =                                               \
         Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>()); \
     QModelIndex* index = indexWrap->getInternalInstance();                     \
@@ -161,7 +144,6 @@
   }                                                                            \
   Napi::Value selectionModel(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QItemSelectionModel* model = this->instance->selectionModel();             \
     auto modelExt = Napi::External<QItemSelectionModel>::New(env, model);      \
     auto instance = QItemSelectionModelWrap::constructor.New({modelExt});      \
@@ -169,7 +151,6 @@
   }                                                                            \
   Napi::Value isPersistentEditorOpen(const Napi::CallbackInfo& info) {         \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QModelIndexWrap* indexWrap =                                               \
         Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>()); \
     QModelIndex* index = indexWrap->getInternalInstance();                     \
@@ -178,7 +159,6 @@
   }                                                                            \
   Napi::Value openPersistentEditor(const Napi::CallbackInfo& info) {           \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QModelIndexWrap* indexWrap =                                               \
         Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>()); \
     QModelIndex* index = indexWrap->getInternalInstance();                     \
@@ -187,7 +167,6 @@
   }                                                                            \
   Napi::Value keyboardSearch(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     std::string searchNapiText = info[0].As<Napi::String>().Utf8Value();       \
     QString search = QString::fromUtf8(searchNapiText.c_str());                \
     this->instance->keyboardSearch(search);                                    \
@@ -198,7 +177,6 @@
   QABSTRACTITEMVIEW_WRAPPED_METHODS_DECLARATION_NO_QHEADERVIEW_PROTECTED       \
   Napi::Value indexAt(const Napi::CallbackInfo& info) {                        \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QPointWrap* pointWrap =                                                    \
         Napi::ObjectWrap<QPointWrap>::Unwrap(info[0].As<Napi::Object>());      \
     QPoint* point = pointWrap->getInternalInstance();                          \
@@ -209,7 +187,6 @@
   }                                                                            \
   Napi::Value scrollTo(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QModelIndexWrap* indexWrap =                                               \
         Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>()); \
     QModelIndex* index = indexWrap->getInternalInstance();                     \

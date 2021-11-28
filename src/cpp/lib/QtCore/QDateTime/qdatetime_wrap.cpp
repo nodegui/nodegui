@@ -59,8 +59,6 @@ Napi::Object QDateTimeWrap::init(Napi::Env env, Napi::Object exports) {
 QDateTimeWrap::QDateTimeWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QDateTimeWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 2) {
     Napi::Object dateObject = info[0].As<Napi::Object>();
     Napi::Object timeObject = info[1].As<Napi::Object>();
@@ -86,8 +84,6 @@ QDateTime* QDateTimeWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QDateTimeWrap::addDays(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qint64 ndays = info[0].As<Napi::Number>().Int64Value();
   QDateTime result = this->instance->addDays(ndays);
   auto instance = QDateTimeWrap::constructor.New(
@@ -97,8 +93,6 @@ Napi::Value QDateTimeWrap::addDays(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::addMSecs(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qint64 msecs = info[0].As<Napi::Number>().Int64Value();
   QDateTime result = this->instance->addMSecs(msecs);
   auto instance = QDateTimeWrap::constructor.New(
@@ -108,8 +102,6 @@ Napi::Value QDateTimeWrap::addMSecs(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::addMonths(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int nmonths = info[0].As<Napi::Number>().Int32Value();
   QDateTime result = this->instance->addMonths(nmonths);
   auto instance = QDateTimeWrap::constructor.New(
@@ -119,8 +111,6 @@ Napi::Value QDateTimeWrap::addMonths(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::addSecs(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qint64 s = info[0].As<Napi::Number>().Int64Value();
   QDateTime result = this->instance->addSecs(s);
   auto instance = QDateTimeWrap::constructor.New(
@@ -130,8 +120,6 @@ Napi::Value QDateTimeWrap::addSecs(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::addYears(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int nyears = info[0].As<Napi::Number>().Int32Value();
   QDateTime result = this->instance->addYears(nyears);
   auto instance = QDateTimeWrap::constructor.New(
@@ -141,8 +129,6 @@ Napi::Value QDateTimeWrap::addYears(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::date(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QDate date = this->instance->date();
   auto instance = QDateWrap::constructor.New({Napi::External<QDate>::New(
       env, new QDate(date.year(), date.month(), date.day()))});
@@ -151,8 +137,6 @@ Napi::Value QDateTimeWrap::date(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::daysTo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object otherObject = info[0].As<Napi::Object>();
   QDateTimeWrap* otherWrap =
       Napi::ObjectWrap<QDateTimeWrap>::Unwrap(otherObject);
@@ -162,26 +146,21 @@ Napi::Value QDateTimeWrap::daysTo(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::isDaylightTime(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  return Napi::Value::From(env, this->instance->isDaylightTime());
+ return Napi::Value::From(env, this->instance->isDaylightTime());
 }
 
 Napi::Value QDateTimeWrap::isNull(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  return Napi::Value::From(env, this->instance->isNull());
+ return Napi::Value::From(env, this->instance->isNull());
 }
 
 Napi::Value QDateTimeWrap::isValid(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  return Napi::Value::From(env, this->instance->isValid());
+ return Napi::Value::From(env, this->instance->isValid());
 }
 
 Napi::Value QDateTimeWrap::msecsTo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object otherObject = info[0].As<Napi::Object>();
   QDateTimeWrap* otherWrap =
       Napi::ObjectWrap<QDateTimeWrap>::Unwrap(otherObject);
@@ -191,14 +170,11 @@ Napi::Value QDateTimeWrap::msecsTo(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::offsetFromUtc(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  return Napi::Value::From(env, this->instance->offsetFromUtc());
+ return Napi::Value::From(env, this->instance->offsetFromUtc());
 }
 
 Napi::Value QDateTimeWrap::secsTo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object otherObject = info[0].As<Napi::Object>();
   QDateTimeWrap* otherWrap =
       Napi::ObjectWrap<QDateTimeWrap>::Unwrap(otherObject);
@@ -208,8 +184,6 @@ Napi::Value QDateTimeWrap::secsTo(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::setDate(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object dateObject = info[0].As<Napi::Object>();
   QDateWrap* dateWrap = Napi::ObjectWrap<QDateWrap>::Unwrap(dateObject);
   this->instance->setDate(*dateWrap->getInternalInstance());
@@ -218,8 +192,6 @@ Napi::Value QDateTimeWrap::setDate(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::setMSecsSinceEpoch(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qint64 msecs = info[0].As<Napi::Number>().Int64Value();
   this->instance->setMSecsSinceEpoch(msecs);
   return env.Null();
@@ -227,8 +199,6 @@ Napi::Value QDateTimeWrap::setMSecsSinceEpoch(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::setOffsetFromUtc(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int offsetSeconds = info[0].As<Napi::Number>().Int32Value();
   this->instance->setOffsetFromUtc(offsetSeconds);
   return env.Null();
@@ -236,8 +206,6 @@ Napi::Value QDateTimeWrap::setOffsetFromUtc(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::setSecsSinceEpoch(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qint64 secs = info[0].As<Napi::Number>().Int64Value();
   this->instance->setSecsSinceEpoch(secs);
   return env.Null();
@@ -245,8 +213,6 @@ Napi::Value QDateTimeWrap::setSecsSinceEpoch(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::setTime(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object timeObject = info[0].As<Napi::Object>();
   QTimeWrap* timeWrap = Napi::ObjectWrap<QTimeWrap>::Unwrap(timeObject);
   this->instance->setTime(*timeWrap->getInternalInstance());
@@ -255,8 +221,6 @@ Napi::Value QDateTimeWrap::setTime(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::setTimeSpec(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int spec = info[0].As<Napi::Number>().Int32Value();
   this->instance->setTimeSpec(static_cast<Qt::TimeSpec>(spec));
   return env.Null();
@@ -264,8 +228,6 @@ Napi::Value QDateTimeWrap::setTimeSpec(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::time(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QTime time = this->instance->time();
   auto instance = QTimeWrap::constructor.New({Napi::External<QTime>::New(
       env, new QTime(time.hour(), time.minute(), time.second(), time.msec()))});
@@ -274,16 +236,12 @@ Napi::Value QDateTimeWrap::time(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::timeSpec(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Qt::TimeSpec spec = this->instance->timeSpec();
   return Napi::Value::From(env, static_cast<int>(spec));
 }
 
 Napi::Value QDateTimeWrap::toLocalTime(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QDateTime local = this->instance->toLocalTime();
   auto instance = QDateTimeWrap::constructor.New(
       {Napi::External<QDateTime>::New(env, new QDateTime(local))});
@@ -292,14 +250,11 @@ Napi::Value QDateTimeWrap::toLocalTime(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::toMSecsSinceEpoch(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->toMSecsSinceEpoch());
 }
 
 Napi::Value QDateTimeWrap::toOffsetFromUtc(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int offsetSeconds = info[0].As<Napi::Number>().Int32Value();
   QDateTime result = this->instance->toOffsetFromUtc(offsetSeconds);
   auto instance = QDateTimeWrap::constructor.New(
@@ -309,14 +264,11 @@ Napi::Value QDateTimeWrap::toOffsetFromUtc(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::toSecsSinceEpoch(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->toSecsSinceEpoch());
 }
 
 Napi::Value QDateTimeWrap::toString(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString result;
   if (info[0].IsString()) {
     std::string format = info[0].As<Napi::String>().Utf8Value();
@@ -331,8 +283,6 @@ Napi::Value QDateTimeWrap::toString(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::toTimeSpec(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int spec = info[0].As<Napi::Number>().Int32Value();
   QDateTime result =
       this->instance->toTimeSpec(static_cast<Qt::TimeSpec>(spec));
@@ -343,8 +293,6 @@ Napi::Value QDateTimeWrap::toTimeSpec(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::toUTC(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QDateTime result = this->instance->toUTC();
   auto instance = QDateTimeWrap::constructor.New(
       {Napi::External<QDateTime>::New(env, new QDateTime(result))});
@@ -354,8 +302,6 @@ Napi::Value QDateTimeWrap::toUTC(const Napi::CallbackInfo& info) {
 Napi::Value StaticDateTimeWrapMethods::currentDateTime(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QDateTime result = QDateTime::currentDateTime();
   auto instance = QDateTimeWrap::constructor.New(
       {Napi::External<QDateTime>::New(env, new QDateTime(result))});
@@ -365,8 +311,6 @@ Napi::Value StaticDateTimeWrapMethods::currentDateTime(
 Napi::Value StaticDateTimeWrapMethods::currentDateTimeUtc(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QDateTime result = QDateTime::currentDateTimeUtc();
   auto instance = QDateTimeWrap::constructor.New(
       {Napi::External<QDateTime>::New(env, new QDateTime(result))});
@@ -376,22 +320,18 @@ Napi::Value StaticDateTimeWrapMethods::currentDateTimeUtc(
 Napi::Value StaticDateTimeWrapMethods::currentMSecsSinceEpoch(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, QDateTime::currentMSecsSinceEpoch());
 }
 
 Napi::Value StaticDateTimeWrapMethods::currentSecsSinceEpoch(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, QDateTime::currentSecsSinceEpoch());
 }
 
 Napi::Value StaticDateTimeWrapMethods::fromString(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string dateTimeString = info[0].As<Napi::String>().Utf8Value();
 
   QDateTime dateTime;
@@ -412,7 +352,6 @@ Napi::Value StaticDateTimeWrapMethods::fromString(
 Napi::Value StaticDateTimeWrapMethods::fromQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);

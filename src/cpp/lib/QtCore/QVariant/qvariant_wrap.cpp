@@ -27,7 +27,6 @@ QVariant* QVariantWrap::getInternalInstance() { return this->instance.data(); }
 QVariantWrap::QVariantWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QVariantWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     this->instance =
         QSharedPointer<QVariant>(info[0].As<Napi::External<QVariant>>().Data());
@@ -39,31 +38,26 @@ QVariantWrap::QVariantWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QVariantWrap::toString(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QString value = this->instance->value<QString>();
   return Napi::Value::From(env, value.toStdString());
 }
 Napi::Value QVariantWrap::toInt(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int value = this->instance->value<int>();
   return Napi::Value::From(env, value);
 }
 Napi::Value QVariantWrap::toDouble(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   double value = this->instance->value<double>();
   return Napi::Value::From(env, value);
 }
 Napi::Value QVariantWrap::toBool(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   bool value = this->instance->value<bool>();
   return Napi::Value::From(env, value);
 }
 Napi::Value QVariantWrap::toStringList(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QStringList value = this->instance->toStringList();
   Napi::Array result = Napi::Array::New(env, value.size());
   for (int i = 0; i < value.size(); i++) {
@@ -75,7 +69,6 @@ Napi::Value QVariantWrap::toStringList(const Napi::CallbackInfo& info) {
 Napi::Value StaticQVariantWrapMethods::convertToQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Value value = info[0];
   QVariant* variant = extrautils::convertToQVariant(env, value);
   // Use the variant from extrautils::convertToQVariant function as is and do

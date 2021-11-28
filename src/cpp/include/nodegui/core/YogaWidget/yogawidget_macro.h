@@ -23,7 +23,6 @@
   }                                                                            \
   Napi::Value setFlexNodeSizeControlled(const Napi::CallbackInfo& info) {      \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     FlexItem* item = dynamic_cast<FlexItem*>(this->instance.data());           \
     if (item) {                                                                \
       Napi::Boolean isSizeControlled = info[0].As<Napi::Boolean>();            \

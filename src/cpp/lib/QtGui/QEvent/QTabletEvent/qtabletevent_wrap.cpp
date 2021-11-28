@@ -47,7 +47,6 @@ QTabletEvent* QTabletEventWrap::getInternalInstance() { return this->instance; }
 QTabletEventWrap::QTabletEventWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QTabletEventWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::External<QTabletEvent> eventObject =
         info[0].As<Napi::External<QTabletEvent>>();

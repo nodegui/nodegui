@@ -41,7 +41,6 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
 QApplicationWrap::QApplicationWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QApplicationWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     this->instance = info[0].As<Napi::External<NApplication>>().Data();
   } else if (info.Length() == 0) {
@@ -63,28 +62,24 @@ NApplication* QApplicationWrap::getInternalInstance() { return this->instance; }
 
 Napi::Value QApplicationWrap::processEvents(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->processEvents();
   return env.Null();
 }
 
 Napi::Value QApplicationWrap::exec(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int exitCode = this->instance->exec();
   return Napi::Number::New(env, exitCode);
 }
 
 Napi::Value QApplicationWrap::quit(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->quit();
   return env.Null();
 }
 
 Napi::Value QApplicationWrap::exit(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number exitCode = info[0].As<Napi::Number>();
   this->instance->exit(exitCode.Int32Value());
   return env.Null();
@@ -92,8 +87,6 @@ Napi::Value QApplicationWrap::exit(const Napi::CallbackInfo& info) {
 
 Napi::Value QApplicationWrap::palette(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QPalette* palette = new QPalette(this->instance->palette());
   return QPaletteWrap::constructor.New(
       {Napi::External<QPalette>::New(env, palette)});
@@ -101,7 +94,6 @@ Napi::Value QApplicationWrap::palette(const Napi::CallbackInfo& info) {
 
 Napi::Value QApplicationWrap::setStyleSheet(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::String text = info[0].As<Napi::String>();
   std::string style = text.Utf8Value();
   QString newStyle = QString::fromStdString(style);
@@ -115,7 +107,6 @@ Napi::Value QApplicationWrap::setStyleSheet(const Napi::CallbackInfo& info) {
 Napi::Value StaticQApplicationWrapMethods::instance(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   NApplication* app = static_cast<NApplication*>(QCoreApplication::instance());
   Napi::Object instance = QApplicationWrap::constructor.New(
       {Napi::External<NApplication>::New(env, app)});
@@ -137,8 +128,6 @@ Napi::Value StaticQApplicationWrapMethods::clipboard(
 Napi::Value StaticQApplicationWrapMethods::setStyle(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QStyleWrap* styleWrap =
       Napi::ObjectWrap<QStyleWrap>::Unwrap(info[0].As<Napi::Object>());
   QStyle* style = styleWrap->getInternalInstance();
@@ -150,7 +139,6 @@ Napi::Value StaticQApplicationWrapMethods::setStyle(
 Napi::Value StaticQApplicationWrapMethods::style(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QStyle* style = QApplication::style();
   return QStyleWrap::constructor.New({Napi::External<QStyle>::New(env, style)});
 }
@@ -158,8 +146,6 @@ Napi::Value StaticQApplicationWrapMethods::style(
 Napi::Value QApplicationWrap::setQuitOnLastWindowClosed(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Boolean quit = info[0].As<Napi::Boolean>();
   this->instance->setQuitOnLastWindowClosed(quit.Value());
   return env.Null();
@@ -168,7 +154,6 @@ Napi::Value QApplicationWrap::setQuitOnLastWindowClosed(
 Napi::Value QApplicationWrap::quitOnLastWindowClosed(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   bool quit = this->instance->quitOnLastWindowClosed();
   return Napi::Value::From(env, quit);
 }
@@ -176,7 +161,6 @@ Napi::Value QApplicationWrap::quitOnLastWindowClosed(
 Napi::Value StaticQApplicationWrapMethods::primaryScreen(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   auto screen = QApplication::primaryScreen();
   if (screen) {
     return WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
@@ -188,8 +172,6 @@ Napi::Value StaticQApplicationWrapMethods::primaryScreen(
 Napi::Value StaticQApplicationWrapMethods::screens(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   auto screens = QApplication::screens();
   Napi::Array jsArray = Napi::Array::New(env, screens.size());
   for (int i = 0; i < screens.size(); i++) {
@@ -203,8 +185,6 @@ Napi::Value StaticQApplicationWrapMethods::screens(
 
 Napi::Value QApplicationWrap::devicePixelRatio(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal result = this->instance->devicePixelRatio();
   return Napi::Value::From(env, result);
 }

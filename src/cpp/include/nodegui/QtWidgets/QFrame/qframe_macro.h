@@ -17,12 +17,10 @@
                                                                  \
   Napi::Value frameStyle(const Napi::CallbackInfo& info) {       \
     Napi::Env env = info.Env();                                  \
-    Napi::HandleScope scope(env);                                \
     return Napi::Number::New(env, this->instance->frameStyle()); \
   }                                                              \
   Napi::Value setFrameStyle(const Napi::CallbackInfo& info) {    \
     Napi::Env env = info.Env();                                  \
-    Napi::HandleScope scope(env);                                \
     int style = info[0].As<Napi::Number>().Int32Value();         \
     this->instance->setFrameStyle(style);                        \
     return env.Null();                                           \

@@ -23,8 +23,6 @@ NSlider* QSliderWrap::getInternalInstance() { return this->instance; }
 QSliderWrap::QSliderWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QSliderWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =

@@ -21,7 +21,6 @@ QDialogWrap::~QDialogWrap() { extrautils::safeDelete(this->instance); }
 QDialogWrap::QDialogWrap(const Napi::CallbackInfo &info)
     : Napi::ObjectWrap<QDialogWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     if (info[0].IsExternal()) {
       this->instance =

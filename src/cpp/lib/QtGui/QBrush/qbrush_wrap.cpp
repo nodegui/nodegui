@@ -29,8 +29,6 @@ Napi::Object QBrushWrap::init(Napi::Env env, Napi::Object exports) {
 QBrushWrap::QBrushWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QBrushWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 2) {
     if (info[0].IsNumber()) {
       Qt::GlobalColor color =
@@ -64,15 +62,11 @@ QBrush* QBrushWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QBrushWrap::isOpaque(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isOpaque());
 }
 
 Napi::Value QBrushWrap::setColor(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info[0].IsNumber()) {
     Qt::GlobalColor color =
         (Qt::GlobalColor)info[0].As<Napi::Number>().Int32Value();
@@ -87,8 +81,6 @@ Napi::Value QBrushWrap::setColor(const Napi::CallbackInfo& info) {
 
 Napi::Value QBrushWrap::color(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QColor color = this->instance->color();
   auto instance = QColorWrap::constructor.New(
       {Napi::External<QColor>::New(env, new QColor(color))});
@@ -97,8 +89,6 @@ Napi::Value QBrushWrap::color(const Napi::CallbackInfo& info) {
 
 Napi::Value QBrushWrap::setStyle(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Qt::BrushStyle style =
       (Qt::BrushStyle)info[0].As<Napi::Number>().Int32Value();
   this->instance->setStyle(style);
@@ -107,16 +97,12 @@ Napi::Value QBrushWrap::setStyle(const Napi::CallbackInfo& info) {
 
 Napi::Value QBrushWrap::style(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Qt::BrushStyle style = this->instance->style();
   return Napi::Number::New(env, static_cast<int>(style));
 }
 
 Napi::Value QBrushWrap::setTexture(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object pixmapObject = info[0].As<Napi::Object>();
   QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(pixmapObject);
   this->instance->setTexture(*pixmapWrap->getInternalInstance());
@@ -125,8 +111,6 @@ Napi::Value QBrushWrap::setTexture(const Napi::CallbackInfo& info) {
 
 Napi::Value QBrushWrap::texture(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QPixmap pixmap = this->instance->texture();
   auto instance = QPixmapWrap::constructor.New(
       {Napi::External<QPixmap>::New(env, new QPixmap(pixmap))});
@@ -136,8 +120,6 @@ Napi::Value QBrushWrap::texture(const Napi::CallbackInfo& info) {
 Napi::Value StaticQBrushWrapMethods::fromQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);

@@ -23,7 +23,6 @@ QWindow* QWindowWrap::getInternalInstance() { return this->instance; }
 QWindowWrap::QWindowWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QWindowWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1 && info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<QWindow>>().Data();
   } else {
@@ -49,8 +48,6 @@ void QWindowWrap::connectSignalsToEventEmitter() {
 
 Napi::Value QWindowWrap::screen(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QScreen* screen = this->instance->screen();
   if (screen) {
     return WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);

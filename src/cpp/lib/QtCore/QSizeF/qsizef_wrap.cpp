@@ -24,8 +24,6 @@ Napi::Object QSizeFWrap::init(Napi::Env env, Napi::Object exports) {
 QSizeFWrap::QSizeFWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QSizeFWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 2) {
     int width = info[0].As<Napi::Number>().Int32Value();
     int height = info[1].As<Napi::Number>().Int32Value();
@@ -48,33 +46,28 @@ QSizeF* QSizeFWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QSizeFWrap::setHeight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   qreal height = info[0].As<Napi::Number>().FloatValue();
   this->instance->setHeight(height);
   return env.Null();
 }
 Napi::Value QSizeFWrap::setWidth(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   qreal width = info[0].As<Napi::Number>().FloatValue();
   this->instance->setWidth(width);
   return env.Null();
 }
 Napi::Value QSizeFWrap::height(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->height());
 }
 Napi::Value QSizeFWrap::width(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->width());
 }
 
 Napi::Value StaticQSizeFWrapMethods::fromQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);

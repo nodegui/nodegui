@@ -21,7 +21,6 @@ Napi::Object QScreenWrap::init(Napi::Env env, Napi::Object exports) {
 QScreenWrap::QScreenWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QScreenWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<QScreen>>().Data();
   } else {

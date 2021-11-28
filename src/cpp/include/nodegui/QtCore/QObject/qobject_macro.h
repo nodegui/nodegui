@@ -19,20 +19,17 @@
                                                                              \
   Napi::Value __id__(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                              \
-    Napi::HandleScope scope(env);                                            \
     return Napi::Value::From(                                                \
         env, extrautils::hashPointerTo53bit(this->instance.data()));         \
   }                                                                          \
   Napi::Value inherits(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                              \
-    Napi::HandleScope scope(env);                                            \
     Napi::String className = info[0].As<Napi::String>();                     \
     bool doesIt = this->instance->inherits(className.Utf8Value().c_str());   \
     return Napi::Value::From(env, doesIt);                                   \
   }                                                                          \
   Napi::Value setProperty(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                              \
-    Napi::HandleScope scope(env);                                            \
     Napi::String name = info[0].As<Napi::String>();                          \
     Napi::Value value = info[1];                                             \
     auto variant =                                                           \
@@ -43,7 +40,6 @@
   }                                                                          \
   Napi::Value property(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                              \
-    Napi::HandleScope scope(env);                                            \
     Napi::String name = info[0].As<Napi::String>();                          \
     Napi::Value value = info[1];                                             \
     QVariant* variant =                                                      \
@@ -54,7 +50,6 @@
   }                                                                          \
   Napi::Value setObjectName(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                              \
-    Napi::HandleScope scope(env);                                            \
     Napi::String objectName = info[0].As<Napi::String>();                    \
     this->instance->setObjectName(                                           \
         QString::fromStdString(objectName.Utf8Value()));                     \
@@ -62,19 +57,16 @@
   }                                                                          \
   Napi::Value objectName(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                              \
-    Napi::HandleScope scope(env);                                            \
     QString objectName = this->instance->objectName();                       \
     return Napi::String::New(env, objectName.toStdString());                 \
   }                                                                          \
   Napi::Value dumpObjectTree(const Napi::CallbackInfo& info) {               \
     Napi::Env env = info.Env();                                              \
-    Napi::HandleScope scope(env);                                            \
     this->instance->dumpObjectTree();                                        \
     return env.Null();                                                       \
   }                                                                          \
   Napi::Value dumpObjectInfo(const Napi::CallbackInfo& info) {               \
     Napi::Env env = info.Env();                                              \
-    Napi::HandleScope scope(env);                                            \
     this->instance->dumpObjectInfo();                                        \
     return env.Null();                                                       \
   }

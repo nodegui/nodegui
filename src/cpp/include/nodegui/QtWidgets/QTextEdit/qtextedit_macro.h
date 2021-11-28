@@ -20,156 +20,131 @@
                                                                                \
   Napi::Value setAlignment(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     int alignment = info[0].As<Napi::Number>().Int32Value();                   \
     this->instance->setAlignment(static_cast<Qt::Alignment>(alignment));       \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value alignment(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     Qt::Alignment alignment = this->instance->alignment();                     \
     return Napi::Number::New(env, static_cast<int>(alignment));                \
   }                                                                            \
   Napi::Value canPaste(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     return Napi::Boolean::New(env, this->instance->canPaste());                \
   }                                                                            \
   Napi::Value ensureCursorVisible(const Napi::CallbackInfo& info) {            \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->ensureCursorVisible();                                     \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value setFontFamily(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     std::string family = info[0].As<Napi::String>().Utf8Value();               \
     this->instance->setFontFamily(QString::fromUtf8(family.c_str()));          \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value fontFamily(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QString family = this->instance->fontFamily();                             \
     return Napi::String::New(env, family.toStdString());                       \
   }                                                                            \
   Napi::Value setFontItalic(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     bool italic = info[0].As<Napi::Boolean>().Value();                         \
     this->instance->setFontItalic(italic);                                     \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value fontItalic(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     return Napi::Boolean::New(env, this->instance->fontItalic());              \
   }                                                                            \
   Napi::Value setFontPointSize(const Napi::CallbackInfo& info) {               \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     double s = info[0].As<Napi::Number>().DoubleValue();                       \
     this->instance->setFontPointSize(s);                                       \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value fontPointSize(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     return Napi::Number::New(env, this->instance->fontPointSize());            \
   }                                                                            \
   Napi::Value setFontUnderline(const Napi::CallbackInfo& info) {               \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     bool underline = info[0].As<Napi::Boolean>().Value();                      \
     this->instance->setFontUnderline(underline);                               \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value fontUnderline(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     return Napi::Boolean::New(env, this->instance->fontUnderline());           \
   }                                                                            \
   Napi::Value setFontWeight(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     int weight = info[0].As<Napi::Number>().Int32Value();                      \
     this->instance->setFontWeight(weight);                                     \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value fontWeight(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     return Napi::Number::New(env, this->instance->fontWeight());               \
   }                                                                            \
   Napi::Value append(const Napi::CallbackInfo& info) {                         \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     std::string text = info[0].As<Napi::String>().Utf8Value();                 \
     this->instance->append(QString::fromUtf8(text.c_str()));                   \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value clear(const Napi::CallbackInfo& info) {                          \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->clear();                                                   \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value copy(const Napi::CallbackInfo& info) {                           \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->copy();                                                    \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value cut(const Napi::CallbackInfo& info) {                            \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->cut();                                                     \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value insertHtml(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     std::string text = info[0].As<Napi::String>().Utf8Value();                 \
     this->instance->insertHtml(QString::fromUtf8(text.c_str()));               \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value insertPlainText(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     std::string text = info[0].As<Napi::String>().Utf8Value();                 \
     this->instance->insertPlainText(QString::fromUtf8(text.c_str()));          \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value paste(const Napi::CallbackInfo& info) {                          \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->paste();                                                   \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value redo(const Napi::CallbackInfo& info) {                           \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->redo();                                                    \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value scrollToAnchor(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     std::string name = info[0].As<Napi::String>().Utf8Value();                 \
     this->instance->scrollToAnchor(QString::fromUtf8(name.c_str()));           \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value selectAll(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->selectAll();                                               \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value setCurrentFont(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     Napi::Object fontObject = info[0].As<Napi::Object>();                      \
     QFontWrap* fontWrap = Napi::ObjectWrap<QFontWrap>::Unwrap(fontObject);     \
     this->instance->setCurrentFont(*fontWrap->getInternalInstance());          \
@@ -177,7 +152,6 @@
   }                                                                            \
   Napi::Value currentFont(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     QFont font = this->instance->currentFont();                                \
     auto instance = QFontWrap::constructor.New(                                \
         {Napi::External<QFont>::New(env, new QFont(font))});                   \
@@ -185,14 +159,12 @@
   }                                                                            \
   Napi::Value setText(const Napi::CallbackInfo& info) {                        \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     std::string text = info[0].As<Napi::String>().Utf8Value();                 \
     this->instance->setText(QString::fromUtf8(text.c_str()));                  \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value setTextBackgroundColor(const Napi::CallbackInfo& info) {         \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     Napi::Object colorObject = info[0].As<Napi::Object>();                     \
     QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject); \
     this->instance->setTextBackgroundColor(*colorWrap->getInternalInstance()); \
@@ -200,7 +172,6 @@
   }                                                                            \
   Napi::Value setTextColor(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     Napi::Object colorObject = info[0].As<Napi::Object>();                     \
     QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject); \
     this->instance->setTextColor(*colorWrap->getInternalInstance());           \
@@ -208,20 +179,17 @@
   }                                                                            \
   Napi::Value undo(const Napi::CallbackInfo& info) {                           \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     this->instance->undo();                                                    \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value zoomIn(const Napi::CallbackInfo& info) {                         \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     int range = info[0].As<Napi::Number>().Int32Value();                       \
     this->instance->zoomIn(range);                                             \
     return env.Null();                                                         \
   }                                                                            \
   Napi::Value zoomOut(const Napi::CallbackInfo& info) {                        \
     Napi::Env env = info.Env();                                                \
-    Napi::HandleScope scope(env);                                              \
     int range = info[0].As<Napi::Number>().Int32Value();                       \
     this->instance->zoomOut(range);                                            \
     return env.Null();                                                         \

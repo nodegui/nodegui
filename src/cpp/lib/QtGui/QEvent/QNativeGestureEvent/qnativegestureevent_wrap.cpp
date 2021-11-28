@@ -37,7 +37,6 @@ QNativeGestureEvent* QNativeGestureEventWrap::getInternalInstance() {
 QNativeGestureEventWrap::QNativeGestureEventWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QNativeGestureEventWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::External<QNativeGestureEvent> eventObject =
         info[0].As<Napi::External<QNativeGestureEvent>>();

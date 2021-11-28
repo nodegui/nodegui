@@ -24,7 +24,6 @@ QPaintEvent* QPaintEventWrap::getInternalInstance() { return this->instance; }
 QPaintEventWrap::QPaintEventWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QPaintEventWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::External<QPaintEvent> eventObject =
         info[0].As<Napi::External<QPaintEvent>>();

@@ -16,20 +16,17 @@
   QWIDGET_WRAPPED_METHODS_DECLARATION                        \
   Napi::Value animateClick(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env();                              \
-    Napi::HandleScope scope(env);                            \
     int msec = info[0].As<Napi::Number>().Int32Value();      \
     this->instance->animateClick(msec);                      \
     return env.Null();                                       \
   }                                                          \
   Napi::Value click(const Napi::CallbackInfo& info) {        \
     Napi::Env env = info.Env();                              \
-    Napi::HandleScope scope(env);                            \
     this->instance->click();                                 \
     return env.Null();                                       \
   }                                                          \
   Napi::Value toggle(const Napi::CallbackInfo& info) {       \
     Napi::Env env = info.Env();                              \
-    Napi::HandleScope scope(env);                            \
     this->instance->toggle();                                \
     return env.Null();                                       \
   }

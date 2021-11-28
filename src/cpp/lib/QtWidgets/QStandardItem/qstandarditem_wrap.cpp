@@ -36,8 +36,6 @@ QStandardItemWrap::~QStandardItemWrap() {
 QStandardItemWrap::QStandardItemWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QStandardItemWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() > 0 && info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<QStandardItem>>().Data();
     if (info.Length() == 2) {
@@ -60,7 +58,6 @@ QStandardItemWrap::QStandardItemWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QStandardItemWrap::setCheckState(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int state = info[0].As<Napi::Number>().Int32Value();
 
   this->instance->setCheckState(Qt::CheckState(state));
@@ -68,7 +65,6 @@ Napi::Value QStandardItemWrap::setCheckState(const Napi::CallbackInfo& info) {
 }
 Napi::Value QStandardItemWrap::setData(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int value = info[0].As<Napi::Number>().Int32Value();
   int role = info[1].As<Napi::Number>().Int32Value();
 
@@ -77,7 +73,6 @@ Napi::Value QStandardItemWrap::setData(const Napi::CallbackInfo& info) {
 }
 Napi::Value QStandardItemWrap::setFlags(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int flags = info[0].As<Napi::Number>().Int32Value();
 
   this->instance->setFlags(Qt::ItemFlag(flags));
@@ -85,7 +80,6 @@ Napi::Value QStandardItemWrap::setFlags(const Napi::CallbackInfo& info) {
 }
 Napi::Value QStandardItemWrap::checkState(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int state = static_cast<int>(this->instance->checkState());
   return Napi::Number::From(env, state);
 }

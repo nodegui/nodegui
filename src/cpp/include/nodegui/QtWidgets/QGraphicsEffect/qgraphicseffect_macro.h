@@ -16,7 +16,6 @@
                                                        \
   Napi::Value update(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env();                        \
-    Napi::HandleScope scope(env);                      \
     this->instance->update();                          \
     return env.Null();                                 \
   }

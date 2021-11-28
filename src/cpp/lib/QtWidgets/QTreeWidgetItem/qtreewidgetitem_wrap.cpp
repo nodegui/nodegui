@@ -137,8 +137,6 @@ QTreeWidgetItemWrap::QTreeWidgetItemWrap(const Napi::CallbackInfo &info)
 
 Napi::Value QTreeWidgetItemWrap::setIcon(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int const column = info[0].As<Napi::Number>().Int32Value();
   Napi::Object const iconObject = info[1].As<Napi::Object>();
   QIconWrap *iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
@@ -147,8 +145,6 @@ Napi::Value QTreeWidgetItemWrap::setIcon(const Napi::CallbackInfo &info) {
 }
 Napi::Value QTreeWidgetItemWrap::icon(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Number const column = info[0].As<Napi::Number>();
   QIcon icon = this->instance->icon(column);
   auto instance = QIconWrap::constructor.New(
@@ -157,8 +153,6 @@ Napi::Value QTreeWidgetItemWrap::icon(const Napi::CallbackInfo &info) {
 }
 Napi::Value QTreeWidgetItemWrap::setText(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int column = info[0].As<Napi::Number>().Int32Value();
   Napi::String napiText = info[1].As<Napi::String>();
   std::string text = napiText.Utf8Value();
@@ -167,8 +161,6 @@ Napi::Value QTreeWidgetItemWrap::setText(const Napi::CallbackInfo &info) {
 }
 Napi::Value QTreeWidgetItemWrap::parent(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (this->instance->parent() == nullptr) {
     return env.Null();
   } else {
@@ -182,14 +174,12 @@ Napi::Value QTreeWidgetItemWrap::parent(const Napi::CallbackInfo &info) {
 }
 Napi::Value QTreeWidgetItemWrap::childCount(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int value = static_cast<int>(this->instance->childCount());
   return Napi::Number::From(env, value);
 }
 
 Napi::Value QTreeWidgetItemWrap::child(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number index = info[0].As<Napi::Number>();
 
   if (this->instance->child(index) == nullptr) {
@@ -205,7 +195,6 @@ Napi::Value QTreeWidgetItemWrap::child(const Napi::CallbackInfo &info) {
 }
 Napi::Value QTreeWidgetItemWrap::text(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number column = info[0].As<Napi::Number>();
 
   if (this->instance->text(column) == nullptr) {
@@ -216,14 +205,12 @@ Napi::Value QTreeWidgetItemWrap::text(const Napi::CallbackInfo &info) {
 }
 Napi::Value QTreeWidgetItemWrap::setSelected(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Boolean selected = info[0].As<Napi::Boolean>();
   this->instance->setSelected(selected.Value());
   return env.Null();
 }
 Napi::Value QTreeWidgetItemWrap::setExpanded(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Boolean expanded = info[0].As<Napi::Boolean>();
   this->instance->setExpanded(expanded.Value());
   return env.Null();
@@ -231,8 +218,6 @@ Napi::Value QTreeWidgetItemWrap::setExpanded(const Napi::CallbackInfo &info) {
 
 Napi::Value QTreeWidgetItemWrap::addChild(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object itemObject = info[0].As<Napi::Object>();
   QTreeWidgetItemWrap *itemWidgetWrap =
       Napi::ObjectWrap<QTreeWidgetItemWrap>::Unwrap(itemObject);
@@ -245,8 +230,6 @@ Napi::Value QTreeWidgetItemWrap::addChild(const Napi::CallbackInfo &info) {
 
 Napi::Value QTreeWidgetItemWrap::setFlags(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int flags = info[0].As<Napi::Number>().Int32Value();
   this->instance->setFlags(static_cast<Qt::ItemFlags>(flags));
 
@@ -255,8 +238,6 @@ Napi::Value QTreeWidgetItemWrap::setFlags(const Napi::CallbackInfo &info) {
 
 Napi::Value QTreeWidgetItemWrap::setCheckState(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int column = info[0].As<Napi::Number>().Int32Value();
   int checkState = info[1].As<Napi::Number>().Int32Value();
 
@@ -268,8 +249,6 @@ Napi::Value QTreeWidgetItemWrap::setCheckState(const Napi::CallbackInfo &info) {
 
 Napi::Value QTreeWidgetItemWrap::flags(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Qt::ItemFlags flags = this->instance->flags();
 
   return Napi::Value::From(env, static_cast<int>(flags));
@@ -277,8 +256,6 @@ Napi::Value QTreeWidgetItemWrap::flags(const Napi::CallbackInfo &info) {
 
 Napi::Value QTreeWidgetItemWrap::setData(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int column = info[0].As<Napi::Number>().Int32Value();
   int role = info[1].As<Napi::Number>().Int32Value();
 
@@ -294,8 +271,6 @@ Napi::Value QTreeWidgetItemWrap::setData(const Napi::CallbackInfo &info) {
 
 Napi::Value QTreeWidgetItemWrap::data(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int column = info[0].As<Napi::Number>().Int32Value();
   int role = info[1].As<Napi::Number>().Int32Value();
 
@@ -308,7 +283,6 @@ Napi::Value QTreeWidgetItemWrap::data(const Napi::CallbackInfo &info) {
 
 Napi::Value QTreeWidgetItemWrap::setHidden(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Boolean hide = info[0].As<Napi::Boolean>();
   this->instance->setHidden(hide.Value());
   return env.Null();
@@ -316,8 +290,6 @@ Napi::Value QTreeWidgetItemWrap::setHidden(const Napi::CallbackInfo &info) {
 
 Napi::Value QTreeWidgetItemWrap::isHidden(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   bool hide = this->instance->isHidden();
   return Napi::Boolean::New(env, hide);
 }

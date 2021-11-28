@@ -31,8 +31,6 @@ QLCDNumberWrap::~QLCDNumberWrap() { extrautils::safeDelete(this->instance); }
 QLCDNumberWrap::QLCDNumberWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QLCDNumberWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -51,8 +49,6 @@ QLCDNumberWrap::QLCDNumberWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QLCDNumberWrap::checkOverflow(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Value value = info[0];
   bool result;
   if (extrautils::isNapiValueInt(env, value)) {
@@ -67,8 +63,6 @@ Napi::Value QLCDNumberWrap::checkOverflow(const Napi::CallbackInfo& info) {
 
 Napi::Value QLCDNumberWrap::display(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Value value = info[0];
   if (value.IsString()) {
     std::string napis = value.As<Napi::String>().Utf8Value();
@@ -86,32 +80,24 @@ Napi::Value QLCDNumberWrap::display(const Napi::CallbackInfo& info) {
 
 Napi::Value QLCDNumberWrap::setBinMode(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->setBinMode();
   return env.Null();
 }
 
 Napi::Value QLCDNumberWrap::setDecMode(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->setDecMode();
   return env.Null();
 }
 
 Napi::Value QLCDNumberWrap::setHexMode(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->setHexMode();
   return env.Null();
 }
 
 Napi::Value QLCDNumberWrap::setOctMode(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->setOctMode();
   return env.Null();
 }

@@ -83,7 +83,6 @@ QRectFWrap::~QRectFWrap() { this->instance.reset(); }
 QRectFWrap::QRectFWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QRectFWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 4) {
     qreal x = info[0].As<Napi::Number>().DoubleValue();
     qreal y = info[1].As<Napi::Number>().DoubleValue();
@@ -106,8 +105,6 @@ QRectFWrap::QRectFWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QRectFWrap::adjust(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   qreal input1 = info[1].As<Napi::Number>().DoubleValue();
   qreal input2 = info[2].As<Napi::Number>().DoubleValue();
@@ -118,8 +115,6 @@ Napi::Value QRectFWrap::adjust(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::adjusted(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   qreal input1 = info[1].As<Napi::Number>().DoubleValue();
   qreal input2 = info[2].As<Napi::Number>().DoubleValue();
@@ -133,15 +128,11 @@ Napi::Value QRectFWrap::adjusted(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::bottom(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->bottom());
 }
 
 Napi::Value QRectFWrap::bottomLeft(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QPointF ret = this->instance->bottomLeft();
   auto instance = QPointFWrap::constructor.New(
       {Napi::External<QPointF>::New(env, new QPointF(ret))});
@@ -150,8 +141,6 @@ Napi::Value QRectFWrap::bottomLeft(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::bottomRight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QPointF ret = this->instance->bottomRight();
   auto instance = QPointFWrap::constructor.New(
       {Napi::External<QPointF>::New(env, new QPointF(ret))});
@@ -160,8 +149,6 @@ Napi::Value QRectFWrap::bottomRight(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::center(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QPointF ret = this->instance->center();
   auto instance = QPointFWrap::constructor.New(
       {Napi::External<QPointF>::New(env, new QPointF(ret))});
@@ -170,8 +157,6 @@ Napi::Value QRectFWrap::center(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::contains_QPoint(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -180,8 +165,6 @@ Napi::Value QRectFWrap::contains_QPoint(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::contains_QRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QRectFWrap* wrap0_1 = Napi::ObjectWrap<QRectFWrap>::Unwrap(wrap0_0);
   QRectF* input0 = wrap0_1->getInternalInstance();
@@ -190,8 +173,6 @@ Napi::Value QRectFWrap::contains_QRect(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::contains(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   qreal input1 = info[1].As<Napi::Number>().DoubleValue();
   return Napi::Boolean::New(env, this->instance->contains(input0, input1));
@@ -199,15 +180,11 @@ Napi::Value QRectFWrap::contains(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::height(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->height());
 }
 
 Napi::Value QRectFWrap::intersected(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QRectFWrap* wrap0_1 = Napi::ObjectWrap<QRectFWrap>::Unwrap(wrap0_0);
   QRectF* input0 = wrap0_1->getInternalInstance();
@@ -220,8 +197,6 @@ Napi::Value QRectFWrap::intersected(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::intersects(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QRectFWrap* wrap0_1 = Napi::ObjectWrap<QRectFWrap>::Unwrap(wrap0_0);
   QRectF* input0 = wrap0_1->getInternalInstance();
@@ -230,36 +205,26 @@ Napi::Value QRectFWrap::intersects(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::isEmpty(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isEmpty());
 }
 
 Napi::Value QRectFWrap::isNull(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isNull());
 }
 
 Napi::Value QRectFWrap::isValid(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isValid());
 }
 
 Napi::Value QRectFWrap::left(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->left());
 }
 
 Napi::Value QRectFWrap::moveBottom(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->moveBottom(input0);
   return env.Null();
@@ -267,8 +232,6 @@ Napi::Value QRectFWrap::moveBottom(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::moveBottomLeft(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -278,8 +241,6 @@ Napi::Value QRectFWrap::moveBottomLeft(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::moveBottomRight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -289,8 +250,6 @@ Napi::Value QRectFWrap::moveBottomRight(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::moveCenter(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -300,8 +259,6 @@ Napi::Value QRectFWrap::moveCenter(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::moveLeft(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->moveLeft(input0);
   return env.Null();
@@ -309,8 +266,6 @@ Napi::Value QRectFWrap::moveLeft(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::moveRight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->moveRight(input0);
   return env.Null();
@@ -318,8 +273,6 @@ Napi::Value QRectFWrap::moveRight(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::moveTo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   qreal input1 = info[1].As<Napi::Number>().DoubleValue();
   this->instance->moveTo(input0, input1);
@@ -328,8 +281,6 @@ Napi::Value QRectFWrap::moveTo(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::moveTo_QPoint(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -339,8 +290,6 @@ Napi::Value QRectFWrap::moveTo_QPoint(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::moveTop(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->moveTop(input0);
   return env.Null();
@@ -348,8 +297,6 @@ Napi::Value QRectFWrap::moveTop(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::moveTopLeft(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -359,8 +306,6 @@ Napi::Value QRectFWrap::moveTopLeft(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::moveTopRight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -370,8 +315,6 @@ Napi::Value QRectFWrap::moveTopRight(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::normalized(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QRectF ret = this->instance->normalized();
   auto instance = QRectFWrap::constructor.New(
       {Napi::External<QRectF>::New(env, new QRectF(ret))});
@@ -380,15 +323,11 @@ Napi::Value QRectFWrap::normalized(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::right(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->right());
 }
 
 Napi::Value QRectFWrap::setBottom(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setBottom(input0);
   return env.Null();
@@ -396,8 +335,6 @@ Napi::Value QRectFWrap::setBottom(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setBottomLeft(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -407,8 +344,6 @@ Napi::Value QRectFWrap::setBottomLeft(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setBottomRight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -418,8 +353,6 @@ Napi::Value QRectFWrap::setBottomRight(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setCoords(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   qreal input1 = info[1].As<Napi::Number>().DoubleValue();
   qreal input2 = info[2].As<Napi::Number>().DoubleValue();
@@ -430,8 +363,6 @@ Napi::Value QRectFWrap::setCoords(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setHeight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setHeight(input0);
   return env.Null();
@@ -439,8 +370,6 @@ Napi::Value QRectFWrap::setHeight(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setLeft(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setLeft(input0);
   return env.Null();
@@ -448,8 +377,6 @@ Napi::Value QRectFWrap::setLeft(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   qreal input1 = info[1].As<Napi::Number>().DoubleValue();
   qreal input2 = info[2].As<Napi::Number>().DoubleValue();
@@ -460,8 +387,6 @@ Napi::Value QRectFWrap::setRect(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setRight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setRight(input0);
   return env.Null();
@@ -469,8 +394,6 @@ Napi::Value QRectFWrap::setRight(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setTop(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setTop(input0);
   return env.Null();
@@ -478,8 +401,6 @@ Napi::Value QRectFWrap::setTop(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setTopLeft(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -489,8 +410,6 @@ Napi::Value QRectFWrap::setTopLeft(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setTopRight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -500,8 +419,6 @@ Napi::Value QRectFWrap::setTopRight(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setWidth(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setWidth(input0);
   return env.Null();
@@ -509,8 +426,6 @@ Napi::Value QRectFWrap::setWidth(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setX(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setX(input0);
   return env.Null();
@@ -518,8 +433,6 @@ Napi::Value QRectFWrap::setX(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::setY(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setY(input0);
   return env.Null();
@@ -527,8 +440,6 @@ Napi::Value QRectFWrap::setY(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::toAlignedRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QRect ret = this->instance->toAlignedRect();
   auto instance = QRectWrap::constructor.New(
       {Napi::External<QRect>::New(env, new QRect(ret))});
@@ -537,8 +448,6 @@ Napi::Value QRectFWrap::toAlignedRect(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::toRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QRect ret = this->instance->toRect();
   auto instance = QRectWrap::constructor.New(
       {Napi::External<QRect>::New(env, new QRect(ret))});
@@ -547,15 +456,11 @@ Napi::Value QRectFWrap::toRect(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::top(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->top());
 }
 
 Napi::Value QRectFWrap::topLeft(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QPointF ret = this->instance->topLeft();
   auto instance = QPointFWrap::constructor.New(
       {Napi::External<QPointF>::New(env, new QPointF(ret))});
@@ -564,8 +469,6 @@ Napi::Value QRectFWrap::topLeft(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::topRight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QPointF ret = this->instance->topRight();
   auto instance = QPointFWrap::constructor.New(
       {Napi::External<QPointF>::New(env, new QPointF(ret))});
@@ -574,8 +477,6 @@ Napi::Value QRectFWrap::topRight(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::translate(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   qreal input1 = info[1].As<Napi::Number>().DoubleValue();
   this->instance->translate(input0, input1);
@@ -584,8 +485,6 @@ Napi::Value QRectFWrap::translate(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::translate_QPoint(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -595,8 +494,6 @@ Napi::Value QRectFWrap::translate_QPoint(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::translated(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   qreal input1 = info[1].As<Napi::Number>().DoubleValue();
 
@@ -608,8 +505,6 @@ Napi::Value QRectFWrap::translated(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::translated_QPoint(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -622,8 +517,6 @@ Napi::Value QRectFWrap::translated_QPoint(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::transposed(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QRectF ret = this->instance->transposed();
   auto instance = QRectFWrap::constructor.New(
       {Napi::External<QRectF>::New(env, new QRectF(ret))});
@@ -632,8 +525,6 @@ Napi::Value QRectFWrap::transposed(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::united(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QRectFWrap* wrap0_1 = Napi::ObjectWrap<QRectFWrap>::Unwrap(wrap0_0);
   QRectF* input0 = wrap0_1->getInternalInstance();
@@ -646,21 +537,15 @@ Napi::Value QRectFWrap::united(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectFWrap::width(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->width());
 }
 
 Napi::Value QRectFWrap::x(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->x());
 }
 
 Napi::Value QRectFWrap::y(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->y());
 }

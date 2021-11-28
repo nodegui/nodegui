@@ -38,8 +38,6 @@ NTextBrowser* QTextBrowserWrap::getInternalInstance() { return this->instance; }
 QTextBrowserWrap::QTextBrowserWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QTextBrowserWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -63,15 +61,11 @@ QTextBrowserWrap::~QTextBrowserWrap() {
 Napi::Value QTextBrowserWrap::backwardHistoryCount(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->backwardHistoryCount());
 }
 
 Napi::Value QTextBrowserWrap::clearHistory(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->clearHistory();
   return env.Null();
 }
@@ -79,15 +73,11 @@ Napi::Value QTextBrowserWrap::clearHistory(const Napi::CallbackInfo& info) {
 Napi::Value QTextBrowserWrap::forwardHistoryCount(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->forwardHistoryCount());
 }
 
 Napi::Value QTextBrowserWrap::historyTitle(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int i = info[0].As<Napi::Number>().Int32Value();
   QString title = this->instance->historyTitle(i);
   return Napi::String::New(env, title.toStdString());
@@ -95,8 +85,6 @@ Napi::Value QTextBrowserWrap::historyTitle(const Napi::CallbackInfo& info) {
 
 Napi::Value QTextBrowserWrap::historyUrl(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int i = info[0].As<Napi::Number>().Int32Value();
   QUrl url = this->instance->historyUrl(i);
   auto instance = QUrlWrap::constructor.New(
@@ -107,47 +95,35 @@ Napi::Value QTextBrowserWrap::historyUrl(const Napi::CallbackInfo& info) {
 Napi::Value QTextBrowserWrap::isBackwardAvailable(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isBackwardAvailable());
 }
 
 Napi::Value QTextBrowserWrap::isForwardAvailable(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isForwardAvailable());
 }
 
 Napi::Value QTextBrowserWrap::backward(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->backward();
   return env.Null();
 }
 
 Napi::Value QTextBrowserWrap::forward(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->forward();
   return env.Null();
 }
 
 Napi::Value QTextBrowserWrap::home(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->home();
   return env.Null();
 }
 
 Napi::Value QTextBrowserWrap::reload(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->reload();
   return env.Null();
 }

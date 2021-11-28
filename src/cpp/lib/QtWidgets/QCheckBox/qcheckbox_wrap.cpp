@@ -25,8 +25,6 @@ NCheckBox* QCheckBoxWrap::getInternalInstance() { return this->instance; }
 QCheckBoxWrap::QCheckBoxWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QCheckBoxWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<NCheckBox>>().Data();
@@ -59,16 +57,12 @@ QCheckBoxWrap::~QCheckBoxWrap() {
 
 Napi::Value QCheckBoxWrap::checkState(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Qt::CheckState state = this->instance->checkState();
   return Napi::Value::From(env, static_cast<int>(state));
 }
 
 Napi::Value QCheckBoxWrap::setCheckState(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int state = info[0].As<Napi::Number>().Int32Value();
   this->instance->setCheckState(static_cast<Qt::CheckState>(state));
   return env.Null();

@@ -53,7 +53,6 @@ QDragMoveEvent* QDragMoveEventWrap::getInternalInstance() {
 QDragMoveEventWrap::QDragMoveEventWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QDragMoveEventWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::External<QDragMoveEvent> eventObject =
         info[0].As<Napi::External<QDragMoveEvent>>();

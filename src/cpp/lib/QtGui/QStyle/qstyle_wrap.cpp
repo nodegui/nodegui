@@ -22,7 +22,6 @@ Napi::Object QStyleWrap::init(Napi::Env env, Napi::Object exports) {
 QStyleWrap::QStyleWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QStyleWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<QStyle>>().Data();
   } else {
@@ -36,7 +35,6 @@ QStyle* QStyleWrap::getInternalInstance() { return this->instance; }
 
 Napi::Value QStyleWrap::pixelMetric(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int metricInt = info[0].As<Napi::Number>().Int32Value();
   QStyle::PixelMetric metric = static_cast<QStyle::PixelMetric>(metricInt);
 
@@ -45,7 +43,6 @@ Napi::Value QStyleWrap::pixelMetric(const Napi::CallbackInfo& info) {
 
 Napi::Value QStyleWrap::polish(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* qwidgetWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
@@ -56,7 +53,6 @@ Napi::Value QStyleWrap::polish(const Napi::CallbackInfo& info) {
 
 Napi::Value QStyleWrap::unpolish(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* qwidgetWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);

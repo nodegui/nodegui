@@ -26,7 +26,6 @@ QDragLeaveEvent* QDragLeaveEventWrap::getInternalInstance() {
 QDragLeaveEventWrap::QDragLeaveEventWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QDragLeaveEventWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::External<QDragLeaveEvent> eventObject =
         info[0].As<Napi::External<QDragLeaveEvent>>();

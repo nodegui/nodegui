@@ -32,8 +32,6 @@ QSplitterWrap::~QSplitterWrap() { extrautils::safeDelete(this->instance); }
 QSplitterWrap::QSplitterWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QSplitterWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -52,8 +50,6 @@ QSplitterWrap::QSplitterWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QSplitterWrap::addWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object widgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* widgetWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
@@ -64,20 +60,16 @@ Napi::Value QSplitterWrap::addWidget(const Napi::CallbackInfo& info) {
 
 Napi::Value QSplitterWrap::childrenCollapsible(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Boolean::New(env, this->instance->childrenCollapsible());
 }
 
 Napi::Value QSplitterWrap::count(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Number::New(env, this->instance->count());
 }
 
 Napi::Value QSplitterWrap::indexOf(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object widgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* widgetWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
@@ -88,8 +80,6 @@ Napi::Value QSplitterWrap::indexOf(const Napi::CallbackInfo& info) {
 
 Napi::Value QSplitterWrap::insertWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   Napi::Object widgetObject = info[1].As<Napi::Object>();
   NodeWidgetWrap* widgetWrap =
@@ -101,24 +91,18 @@ Napi::Value QSplitterWrap::insertWidget(const Napi::CallbackInfo& info) {
 
 Napi::Value QSplitterWrap::isCollapsible(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   return Napi::Boolean::New(env, this->instance->isCollapsible(index));
 }
 
 Napi::Value QSplitterWrap::orientation(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env,
                            static_cast<int>(this->instance->orientation()));
 }
 
 Napi::Value QSplitterWrap::setCollapsible(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   bool collapse = info[1].As<Napi::Boolean>().Value();
   this->instance->setCollapsible(index, collapse);
@@ -127,8 +111,6 @@ Napi::Value QSplitterWrap::setCollapsible(const Napi::CallbackInfo& info) {
 
 Napi::Value QSplitterWrap::setOrientation(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int orientation = info[0].As<Napi::Number>().Int32Value();
   this->instance->setOrientation(static_cast<Qt::Orientation>(orientation));
 

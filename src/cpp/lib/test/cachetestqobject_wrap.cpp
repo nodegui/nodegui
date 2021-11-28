@@ -26,7 +26,6 @@ CacheTestQObject* CacheTestQObjectWrap::getInternalInstance() {
 CacheTestQObjectWrap::CacheTestQObjectWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<CacheTestQObjectWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1 && info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<CacheTestQObject>>().Data();
   } else {
@@ -47,8 +46,6 @@ void CacheTestQObjectWrap::connectSignalsToEventEmitter() {
 
 Napi::Value CacheTestQObjectWrap::foo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   CacheTestQObject* foo = this->instance->foo();
   return WrapperCache::instance.get<CacheTestQObject, CacheTestQObjectWrap>(
       env, foo);
@@ -56,15 +53,12 @@ Napi::Value CacheTestQObjectWrap::foo(const Napi::CallbackInfo& info) {
 
 Napi::Value CacheTestQObjectWrap::clearFoo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->clearFoo();
   return env.Null();
 }
 
 Napi::Value CacheTestQObjectWrap::bar(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   CacheTestQObject* bar = this->instance->bar();
   return WrapperCache::instance.get<CacheTestQObject, CacheTestQObjectWrap>(
       env, bar);

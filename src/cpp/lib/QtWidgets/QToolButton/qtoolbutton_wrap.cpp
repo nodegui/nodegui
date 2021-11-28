@@ -32,8 +32,6 @@ QToolButtonWrap::~QToolButtonWrap() {
 QToolButtonWrap::QToolButtonWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QToolButtonWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<NToolButton>>().Data();
@@ -60,8 +58,6 @@ QToolButtonWrap::QToolButtonWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QToolButtonWrap::setMenu(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object menuObject = info[0].As<Napi::Object>();
   QMenuWrap* menuWrap = Napi::ObjectWrap<QMenuWrap>::Unwrap(menuObject);
   this->instance->setMenu(menuWrap->getInternalInstance());
@@ -70,8 +66,6 @@ Napi::Value QToolButtonWrap::setMenu(const Napi::CallbackInfo& info) {
 
 Napi::Value QToolButtonWrap::setDefaultAction(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object actionObject = info[0].As<Napi::Object>();
   QActionWrap* actionWrap = Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);
   this->instance->setDefaultAction(actionWrap->getInternalInstance());
@@ -80,8 +74,6 @@ Napi::Value QToolButtonWrap::setDefaultAction(const Napi::CallbackInfo& info) {
 
 Napi::Value QToolButtonWrap::showMenu(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->showMenu();
   return env.Null();
 }

@@ -28,8 +28,6 @@ Napi::Object QRectWrap::init(Napi::Env env, Napi::Object exports) {
 QRectWrap::QRectWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QRectWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 4) {
     int x = info[0].As<Napi::Number>().Int32Value();
     int y = info[1].As<Napi::Number>().Int32Value();
@@ -54,14 +52,12 @@ QRect* QRectWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QRectWrap::setHeight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int height = info[0].As<Napi::Number>().Int32Value();
   this->instance->setHeight(height);
   return env.Null();
 }
 Napi::Value QRectWrap::setWidth(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int width = info[0].As<Napi::Number>().Int32Value();
   this->instance->setWidth(width);
   return env.Null();
@@ -69,43 +65,36 @@ Napi::Value QRectWrap::setWidth(const Napi::CallbackInfo& info) {
 
 Napi::Value QRectWrap::setLeft(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int value = info[0].As<Napi::Number>().Int32Value();
   this->instance->setLeft(value);
   return env.Null();
 }
 Napi::Value QRectWrap::setTop(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int value = info[0].As<Napi::Number>().Int32Value();
   this->instance->setTop(value);
   return env.Null();
 }
 Napi::Value QRectWrap::height(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->height());
 }
 Napi::Value QRectWrap::width(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->width());
 }
 Napi::Value QRectWrap::left(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->left());
 }
 Napi::Value QRectWrap::top(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->top());
 }
 
 Napi::Value StaticQRectWrapMethods::fromQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);

@@ -35,8 +35,6 @@ NButtonGroup* QButtonGroupWrap::getInternalInstance() { return this->instance; }
 QButtonGroupWrap::QButtonGroupWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QButtonGroupWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -59,7 +57,6 @@ QButtonGroupWrap::~QButtonGroupWrap() {
 
 Napi::Value QButtonGroupWrap::addButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object buttonObject = info[0].As<Napi::Object>();
   QObjectWrap* objectWrap = Napi::ObjectWrap<QObjectWrap>::Unwrap(buttonObject);
   QAbstractButton* button =
@@ -71,7 +68,6 @@ Napi::Value QButtonGroupWrap::addButton(const Napi::CallbackInfo& info) {
 }
 Napi::Value QButtonGroupWrap::removeButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object buttonObject = info[0].As<Napi::Object>();
   QObjectWrap* objectWrap = Napi::ObjectWrap<QObjectWrap>::Unwrap(buttonObject);
   QAbstractButton* button =
@@ -81,20 +77,17 @@ Napi::Value QButtonGroupWrap::removeButton(const Napi::CallbackInfo& info) {
 }
 Napi::Value QButtonGroupWrap::checkedId(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int value = static_cast<int>(this->instance->checkedId());
   return Napi::Number::From(env, value);
 }
 Napi::Value QButtonGroupWrap::checkedButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   auto value = Napi::External<QAbstractButton>::New(
       env, this->instance->checkedButton());
   return Napi::Value::From(env, value);
 }
 Napi::Value QButtonGroupWrap::id(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object buttonObject = info[0].As<Napi::Object>();
   QObjectWrap* objectWrap = Napi::ObjectWrap<QObjectWrap>::Unwrap(buttonObject);
   QAbstractButton* button =
@@ -104,7 +97,6 @@ Napi::Value QButtonGroupWrap::id(const Napi::CallbackInfo& info) {
 }
 Napi::Value QButtonGroupWrap::setId(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object buttonObject = info[0].As<Napi::Object>();
   QObjectWrap* objectWrap = Napi::ObjectWrap<QObjectWrap>::Unwrap(buttonObject);
   QAbstractButton* button =
@@ -116,7 +108,6 @@ Napi::Value QButtonGroupWrap::setId(const Napi::CallbackInfo& info) {
 }
 Napi::Value QButtonGroupWrap::buttons(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   QList<QAbstractButton*> items = this->instance->buttons();
   Napi::Array napiItems = Napi::Array::New(env, items.size());
@@ -130,7 +121,6 @@ Napi::Value QButtonGroupWrap::buttons(const Napi::CallbackInfo& info) {
 }
 Napi::Value QButtonGroupWrap::button(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number id = info[0].As<Napi::Number>();
 
   auto value =

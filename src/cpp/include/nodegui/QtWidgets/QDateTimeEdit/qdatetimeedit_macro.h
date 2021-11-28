@@ -18,7 +18,6 @@
   QABSTRACTSPINBOX_WRAPPED_METHODS_DECLARATION                               \
   Napi::Value setCalendarWidget(const Napi::CallbackInfo &info) {            \
     Napi::Env env = info.Env();                                              \
-    Napi::HandleScope scope(env);                                            \
     Napi::Object calendarWidgetObject = info[0].As<Napi::Object>();          \
     QCalendarWidgetWrap *calendarWidgetWrap =                                \
         Napi::ObjectWrap<QCalendarWidgetWrap>::Unwrap(calendarWidgetObject); \

@@ -31,8 +31,6 @@ Napi::Object QModelIndexWrap::init(Napi::Env env, Napi::Object exports) {
 QModelIndexWrap::QModelIndexWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QModelIndexWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = std::unique_ptr<QModelIndex>(
@@ -56,13 +54,11 @@ QModelIndex* QModelIndexWrap::getInternalInstance() {
 
 Napi::Value QModelIndexWrap::column(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->column());
 }
 
 Napi::Value QModelIndexWrap::data(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int role = info[0].As<Napi::Number>().Int32Value();
   QVariant data = this->instance->data(role);
   auto instance = QVariantWrap::constructor.New(
@@ -72,20 +68,17 @@ Napi::Value QModelIndexWrap::data(const Napi::CallbackInfo& info) {
 
 Napi::Value QModelIndexWrap::flags(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Qt::ItemFlags flags = this->instance->flags();
   return Napi::Value::From(env, static_cast<int>(flags));
 }
 
 Napi::Value QModelIndexWrap::isValid(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->isValid());
 }
 
 Napi::Value QModelIndexWrap::parent(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QModelIndex parent = this->instance->parent();
   auto instance = QModelIndexWrap::constructor.New(
       {Napi::External<QModelIndex>::New(env, new QModelIndex(parent))});
@@ -94,13 +87,11 @@ Napi::Value QModelIndexWrap::parent(const Napi::CallbackInfo& info) {
 
 Napi::Value QModelIndexWrap::row(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->row());
 }
 
 Napi::Value QModelIndexWrap::sibling(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int row = info[0].As<Napi::Number>().Int32Value();
   int column = info[1].As<Napi::Number>().Int32Value();
   QModelIndex sibling = this->instance->sibling(row, column);
@@ -111,7 +102,6 @@ Napi::Value QModelIndexWrap::sibling(const Napi::CallbackInfo& info) {
 
 Napi::Value QModelIndexWrap::siblingAtColumn(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int column = info[0].As<Napi::Number>().Int32Value();
   QModelIndex index = this->instance->siblingAtColumn(column);
   auto instance = QModelIndexWrap::constructor.New(
@@ -121,7 +111,6 @@ Napi::Value QModelIndexWrap::siblingAtColumn(const Napi::CallbackInfo& info) {
 
 Napi::Value QModelIndexWrap::siblingAtRow(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int row = info[0].As<Napi::Number>().Int32Value();
   QModelIndex index = this->instance->siblingAtRow(row);
   auto instance = QModelIndexWrap::constructor.New(
@@ -132,7 +121,6 @@ Napi::Value QModelIndexWrap::siblingAtRow(const Napi::CallbackInfo& info) {
 Napi::Value StaticQModelIndexWrapMethods::fromQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);

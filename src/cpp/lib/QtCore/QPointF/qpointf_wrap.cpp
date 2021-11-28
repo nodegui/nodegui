@@ -34,8 +34,6 @@ QPointF* QPointFWrap::getInternalInstance() { return this->instance.get(); }
 QPointFWrap::QPointFWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QPointFWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 2) {
     qreal xpos = info[0].As<Napi::Number>().DoubleValue();
     qreal ypos = info[1].As<Napi::Number>().DoubleValue();
@@ -57,8 +55,6 @@ QPointFWrap::QPointFWrap(const Napi::CallbackInfo& info)
 Napi::Value StaticQPointFWrapMethods::dotProduct(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QPointFWrap* wrap0_1 = Napi::ObjectWrap<QPointFWrap>::Unwrap(wrap0_0);
   QPointF* input0 = wrap0_1->getInternalInstance();
@@ -70,22 +66,16 @@ Napi::Value StaticQPointFWrapMethods::dotProduct(
 
 Napi::Value QPointFWrap::isNull(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isNull());
 }
 
 Napi::Value QPointFWrap::manhattanLength(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->manhattanLength());
 }
 
 Napi::Value QPointFWrap::setX(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setX(input0);
   return env.Null();
@@ -93,8 +83,6 @@ Napi::Value QPointFWrap::setX(const Napi::CallbackInfo& info) {
 
 Napi::Value QPointFWrap::setY(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qreal input0 = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setY(input0);
   return env.Null();
@@ -120,8 +108,6 @@ Napi::Value QPointFWrap::transposed(const Napi::CallbackInfo& info) {
 
 Napi::Value QPointFWrap::x(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->x());
 }
 

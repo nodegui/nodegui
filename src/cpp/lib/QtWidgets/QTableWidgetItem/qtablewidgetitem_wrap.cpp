@@ -65,8 +65,6 @@ QTableWidgetItemWrap::~QTableWidgetItemWrap() {
 QTableWidgetItemWrap::QTableWidgetItemWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QTableWidgetItemWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<QTableWidgetItem>>().Data();
@@ -91,16 +89,12 @@ QTableWidgetItemWrap::QTableWidgetItemWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QTableWidgetItemWrap::row(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int state = static_cast<int>(this->instance->row());
   return Napi::Number::New(env, state);
 }
 
 Napi::Value QTableWidgetItemWrap::column(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int state = static_cast<int>(this->instance->column());
   return Napi::Number::New(env, state);
 }
@@ -108,8 +102,6 @@ Napi::Value QTableWidgetItemWrap::column(const Napi::CallbackInfo& info) {
 Napi::Value QTableWidgetItemWrap::setBackground(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object brushObject = info[0].As<Napi::Object>();
   QBrushWrap* brushWrap = Napi::ObjectWrap<QBrushWrap>::Unwrap(brushObject);
   this->instance->setBackground(*brushWrap->getInternalInstance());
@@ -118,8 +110,6 @@ Napi::Value QTableWidgetItemWrap::setBackground(
 
 Napi::Value QTableWidgetItemWrap::background(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QBrush brush = this->instance->background();
   auto instance = QBrushWrap::constructor.New(
       {Napi::External<QBrush>::New(env, new QBrush(brush))});
@@ -129,8 +119,6 @@ Napi::Value QTableWidgetItemWrap::background(const Napi::CallbackInfo& info) {
 Napi::Value QTableWidgetItemWrap::setCheckState(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int state = info[0].As<Napi::Number>().Int32Value();
   this->instance->setCheckState(static_cast<Qt::CheckState>(state));
   return env.Null();
@@ -138,16 +126,12 @@ Napi::Value QTableWidgetItemWrap::setCheckState(
 
 Napi::Value QTableWidgetItemWrap::checkState(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int state = static_cast<int>(this->instance->checkState());
   return Napi::Number::New(env, state);
 }
 
 Napi::Value QTableWidgetItemWrap::setData(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int role = info[0].As<Napi::Number>().Int32Value();
   Napi::Object variantObject = info[1].As<Napi::Object>();
   QVariantWrap* variantWrap =
@@ -158,8 +142,6 @@ Napi::Value QTableWidgetItemWrap::setData(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::data(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int role = info[0].As<Napi::Number>().Int32Value();
   QVariant data = this->instance->data(role);
   auto instance = QVariantWrap::constructor.New(
@@ -169,8 +151,6 @@ Napi::Value QTableWidgetItemWrap::data(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::setFlags(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int flags = info[0].As<Napi::Number>().Int32Value();
   this->instance->setFlags(static_cast<Qt::ItemFlags>(flags));
   return env.Null();
@@ -178,16 +158,12 @@ Napi::Value QTableWidgetItemWrap::setFlags(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::flags(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int flags = static_cast<int>(this->instance->flags());
   return Napi::Number::New(env, flags);
 }
 
 Napi::Value QTableWidgetItemWrap::setFont(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object fontObject = info[0].As<Napi::Object>();
   QFontWrap* fontWrap = Napi::ObjectWrap<QFontWrap>::Unwrap(fontObject);
   this->instance->setFont(*fontWrap->getInternalInstance());
@@ -196,8 +172,6 @@ Napi::Value QTableWidgetItemWrap::setFont(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::font(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QFont font = this->instance->font();
   auto instance = QFontWrap::constructor.New(
       {Napi::External<QFont>::New(env, new QFont(font))});
@@ -207,8 +181,6 @@ Napi::Value QTableWidgetItemWrap::font(const Napi::CallbackInfo& info) {
 Napi::Value QTableWidgetItemWrap::setForeground(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object brushObject = info[0].As<Napi::Object>();
   QBrushWrap* brushWrap = Napi::ObjectWrap<QBrushWrap>::Unwrap(brushObject);
   this->instance->setForeground(*brushWrap->getInternalInstance());
@@ -217,8 +189,6 @@ Napi::Value QTableWidgetItemWrap::setForeground(
 
 Napi::Value QTableWidgetItemWrap::foreground(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QBrush brush = this->instance->foreground();
   auto instance = QBrushWrap::constructor.New(
       {Napi::External<QBrush>::New(env, new QBrush(brush))});
@@ -227,8 +197,6 @@ Napi::Value QTableWidgetItemWrap::foreground(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::setIcon(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object iconObject = info[0].As<Napi::Object>();
   QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
   this->instance->setIcon(*iconWrap->getInternalInstance());
@@ -237,8 +205,6 @@ Napi::Value QTableWidgetItemWrap::setIcon(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::icon(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QIcon icon = this->instance->icon();
   auto instance = QIconWrap::constructor.New(
       {Napi::External<QIcon>::New(env, new QIcon(icon))});
@@ -247,8 +213,6 @@ Napi::Value QTableWidgetItemWrap::icon(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::setSelected(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   bool select = info[0].As<Napi::Boolean>().Value();
   this->instance->setSelected(select);
   return env.Null();
@@ -256,15 +220,11 @@ Napi::Value QTableWidgetItemWrap::setSelected(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::isSelected(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isSelected());
 }
 
 Napi::Value QTableWidgetItemWrap::setSizeHint(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object sizeObject = info[0].As<Napi::Object>();
   QSizeWrap* sizeWrap = Napi::ObjectWrap<QSizeWrap>::Unwrap(sizeObject);
   this->instance->setSizeHint(*sizeWrap->getInternalInstance());
@@ -273,8 +233,6 @@ Napi::Value QTableWidgetItemWrap::setSizeHint(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::sizeHint(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QSize size = this->instance->sizeHint();
   auto instance = QSizeWrap::constructor.New({Napi::External<QSize>::New(
       env, new QSize(size.width(), size.height()))});
@@ -283,8 +241,6 @@ Napi::Value QTableWidgetItemWrap::sizeHint(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::setStatusTip(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string statusTip = info[0].As<Napi::String>().Utf8Value();
   this->instance->setStatusTip(QString::fromUtf8(statusTip.c_str()));
   return env.Null();
@@ -292,16 +248,12 @@ Napi::Value QTableWidgetItemWrap::setStatusTip(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::statusTip(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string statusTip = this->instance->text().toStdString();
   return Napi::String::New(env, statusTip);
 }
 
 Napi::Value QTableWidgetItemWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string text = info[0].As<Napi::String>().Utf8Value();
   this->instance->setText(QString::fromUtf8(text.c_str()));
   return env.Null();
@@ -309,8 +261,6 @@ Napi::Value QTableWidgetItemWrap::setText(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::text(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string text = this->instance->text().toStdString();
   return Napi::String::New(env, text);
 }
@@ -318,8 +268,6 @@ Napi::Value QTableWidgetItemWrap::text(const Napi::CallbackInfo& info) {
 Napi::Value QTableWidgetItemWrap::setTextAlignment(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int alignment = info[0].As<Napi::Number>().Int32Value();
   this->instance->setTextAlignment(alignment);
   return env.Null();
@@ -328,16 +276,12 @@ Napi::Value QTableWidgetItemWrap::setTextAlignment(
 Napi::Value QTableWidgetItemWrap::textAlignment(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int alignment = this->instance->textAlignment();
   return Napi::Number::New(env, alignment);
 }
 
 Napi::Value QTableWidgetItemWrap::setToolTip(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string toolTip = info[0].As<Napi::String>().Utf8Value();
   this->instance->setToolTip(QString::fromUtf8(toolTip.c_str()));
   return env.Null();
@@ -345,16 +289,12 @@ Napi::Value QTableWidgetItemWrap::setToolTip(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::toolTip(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string toolTip = this->instance->toolTip().toStdString();
   return Napi::String::New(env, toolTip);
 }
 
 Napi::Value QTableWidgetItemWrap::setWhatsThis(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string whatsThis = info[0].As<Napi::String>().Utf8Value();
   this->instance->setWhatsThis(QString::fromUtf8(whatsThis.c_str()));
   return env.Null();
@@ -362,15 +302,11 @@ Napi::Value QTableWidgetItemWrap::setWhatsThis(const Napi::CallbackInfo& info) {
 
 Napi::Value QTableWidgetItemWrap::whatsThis(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string whatsThis = this->instance->whatsThis().toStdString();
   return Napi::String::New(env, whatsThis);
 }
 
 Napi::Value QTableWidgetItemWrap::type(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->type());
 }

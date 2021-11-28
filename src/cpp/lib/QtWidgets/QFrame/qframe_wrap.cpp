@@ -21,8 +21,6 @@ QFrameWrap::~QFrameWrap() { extrautils::safeDelete(this->instance); }
 QFrameWrap::QFrameWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QFrameWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =

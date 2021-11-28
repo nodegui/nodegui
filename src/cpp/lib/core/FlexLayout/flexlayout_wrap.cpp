@@ -28,7 +28,6 @@ FlexLayoutWrap::~FlexLayoutWrap() { extrautils::safeDelete(this->instance); }
 FlexLayoutWrap::FlexLayoutWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<FlexLayoutWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
@@ -46,8 +45,6 @@ FlexLayoutWrap::FlexLayoutWrap(const Napi::CallbackInfo& info)
 
 Napi::Value FlexLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   Napi::External<YGNode> childFlexNodeObject =
       info[1].As<Napi::External<YGNode>>();
@@ -61,8 +58,6 @@ Napi::Value FlexLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
 
 Napi::Value FlexLayoutWrap::insertChildBefore(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   Napi::External<YGNode> beforeChildFlexNodeObject =
       info[1].As<Napi::External<YGNode>>();
@@ -81,8 +76,6 @@ Napi::Value FlexLayoutWrap::insertChildBefore(const Napi::CallbackInfo& info) {
 
 Napi::Value FlexLayoutWrap::removeWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   Napi::External<YGNode> childFlexNodeObject =
       info[1].As<Napi::External<YGNode>>();
@@ -96,8 +89,6 @@ Napi::Value FlexLayoutWrap::removeWidget(const Napi::CallbackInfo& info) {
 
 Napi::Value FlexLayoutWrap::setFlexNode(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::External<YGNode> flexNodeObject = info[0].As<Napi::External<YGNode>>();
   YGNodeRef flexNodeRef = flexNodeObject.Data();
 

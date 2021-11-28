@@ -13,7 +13,6 @@ class DLL_EXPORT QHeaderViewWrap : public Napi::ObjectWrap<QHeaderViewWrap> {
 
   Napi::Value indexAt(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
-    Napi::HandleScope scope(env);
     QPointWrap* pointWrap =
         Napi::ObjectWrap<QPointWrap>::Unwrap(info[0].As<Napi::Object>());
     QPoint* point = pointWrap->getInternalInstance();
@@ -31,8 +30,6 @@ class DLL_EXPORT QHeaderViewWrap : public Napi::ObjectWrap<QHeaderViewWrap> {
 
   Napi::Value scrollTo(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
-    Napi::HandleScope scope(env);
-
     NHeaderView* wrapper = dynamic_cast<NHeaderView*>(this->instance.data());
     if (wrapper) {
       QModelIndexWrap* indexWrap =

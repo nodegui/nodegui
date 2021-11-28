@@ -14,7 +14,6 @@
   QWIDGET_WRAPPED_METHODS_DECLARATION                         \
   Napi::Value triggerAction(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env();                               \
-    Napi::HandleScope scope(env);                             \
     int action = info[0].As<Napi::Number>().Int32Value();     \
     this->instance->triggerAction(                            \
         static_cast<QAbstractSlider::SliderAction>(action));  \
@@ -22,7 +21,6 @@
   }                                                           \
   Napi::Value setRange(const Napi::CallbackInfo& info) {      \
     Napi::Env env = info.Env();                               \
-    Napi::HandleScope scope(env);                             \
     int min = info[0].As<Napi::Number>().Int32Value();        \
     int max = info[1].As<Napi::Number>().Int32Value();        \
     this->instance->setRange(min, max);                       \

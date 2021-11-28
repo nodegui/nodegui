@@ -30,8 +30,6 @@ QProgressBarWrap::~QProgressBarWrap() {
 QProgressBarWrap::QProgressBarWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QProgressBarWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -50,24 +48,18 @@ QProgressBarWrap::QProgressBarWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QProgressBarWrap::resetFormat(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->resetFormat();
   return env.Null();
 }
 
 Napi::Value QProgressBarWrap::reset(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->reset();
   return env.Null();
 }
 
 Napi::Value QProgressBarWrap::setRange(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int minimum = info[0].As<Napi::Number>().Int32Value();
   int maximum = info[1].As<Napi::Number>().Int32Value();
   this->instance->setRange(minimum, maximum);

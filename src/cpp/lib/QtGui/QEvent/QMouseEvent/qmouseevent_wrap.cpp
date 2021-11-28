@@ -31,7 +31,6 @@ QMouseEvent* QMouseEventWrap::getInternalInstance() { return this->instance; }
 QMouseEventWrap::QMouseEventWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMouseEventWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::External<QMouseEvent> eventObject =
         info[0].As<Napi::External<QMouseEvent>>();

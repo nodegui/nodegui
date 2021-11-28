@@ -35,8 +35,6 @@ QStackedWidgetWrap::~QStackedWidgetWrap() {
 QStackedWidgetWrap::QStackedWidgetWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QStackedWidgetWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -57,8 +55,6 @@ QStackedWidgetWrap::QStackedWidgetWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QStackedWidgetWrap::addWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* widget =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
@@ -69,8 +65,6 @@ Napi::Value QStackedWidgetWrap::addWidget(const Napi::CallbackInfo& info) {
 
 Napi::Value QStackedWidgetWrap::removeWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* widget =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
@@ -81,7 +75,6 @@ Napi::Value QStackedWidgetWrap::removeWidget(const Napi::CallbackInfo& info) {
 Napi::Value QStackedWidgetWrap::setCurrentIndex(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number index = info[0].As<Napi::Number>();
   this->instance->setCurrentIndex(index.Int32Value());
   return env.Null();
@@ -89,7 +82,6 @@ Napi::Value QStackedWidgetWrap::setCurrentIndex(
 
 Napi::Value QStackedWidgetWrap::currentIndex(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int value = this->instance->currentIndex();
   return Napi::Number::New(env, value);
 }
@@ -97,8 +89,6 @@ Napi::Value QStackedWidgetWrap::currentIndex(const Napi::CallbackInfo& info) {
 Napi::Value QStackedWidgetWrap::setCurrentWidget(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* widget =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);

@@ -29,8 +29,6 @@ NShortcut* QShortcutWrap::getInternalInstance() { return this->instance; }
 QShortcutWrap::QShortcutWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QShortcutWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -47,7 +45,6 @@ QShortcutWrap::~QShortcutWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QShortcutWrap::setEnabled(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Boolean enabled = info[0].As<Napi::Boolean>();
   this->instance->setEnabled(enabled.Value());
   return env.Null();
@@ -55,7 +52,6 @@ Napi::Value QShortcutWrap::setEnabled(const Napi::CallbackInfo& info) {
 
 Napi::Value QShortcutWrap::setAutoRepeat(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Boolean enabled = info[0].As<Napi::Boolean>();
   this->instance->setAutoRepeat(enabled.Value());
   return env.Null();
@@ -63,8 +59,6 @@ Napi::Value QShortcutWrap::setAutoRepeat(const Napi::CallbackInfo& info) {
 
 Napi::Value QShortcutWrap::setKey(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object shortcutSequence = info[0].As<Napi::Object>();
   QKeySequenceWrap* keysequence =
       Napi::ObjectWrap<QKeySequenceWrap>::Unwrap(shortcutSequence);
@@ -74,8 +68,6 @@ Napi::Value QShortcutWrap::setKey(const Napi::CallbackInfo& info) {
 
 Napi::Value QShortcutWrap::setContext(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Number shortcutContextEnum = info[0].As<Napi::Number>();
   int shortCutContext = shortcutContextEnum.Int32Value();
   this->instance->setContext(static_cast<Qt::ShortcutContext>(shortCutContext));

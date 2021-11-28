@@ -32,8 +32,6 @@ NStandardItemModel* QStandardItemModelWrap::getInternalInstance() {
 QStandardItemModelWrap::QStandardItemModelWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QStandardItemModelWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -54,7 +52,6 @@ QStandardItemModelWrap::~QStandardItemModelWrap() {}
 
 Napi::Value QStandardItemModelWrap::item(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   int row = info[0].As<Napi::Number>().Int32Value();
   int column = info[1].As<Napi::Number>().Int32Value();
 
