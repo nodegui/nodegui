@@ -1,6 +1,8 @@
-import { Component, NativeElement } from '../core/Component';
-import { checkIfNativeElement } from '../utils/helpers';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement, registerNativeWrapFunction } from '../utils/helpers';
+import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { QPixmap } from './QPixmap';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -21,10 +23,10 @@ const clipboard = QApplication.clipboard();
 const text = clipboard.text(QClipboardMode.Clipboard);
 ```
  */
-export class QClipboard extends Component {
+export class QClipboard extends NodeObject<QClipboardSignals> {
     native: NativeElement;
     constructor(native: NativeElement) {
-        super();
+        super(native);
         if (checkIfNativeElement(native)) {
             this.native = native;
         } else {
@@ -49,7 +51,18 @@ export class QClipboard extends Component {
 }
 
 export enum QClipboardMode {
-    Clipboard,
-    Selection,
-    FindBuffer,
+    Clipboard = 0,
+    Selection = 1,
+    FindBuffer = 2,
 }
+
+export interface QClipboardSignals extends QObjectSignals {
+    changed: (mode: QClipboardMode) => void;
+    dataChanged: () => void;
+    findBufferChanged: () => void;
+    selectionChanged: () => void;
+}
+
+registerNativeWrapFunction('QClipboardWrap', (native: any) => {
+    return wrapperCache.get<QClipboard>(QClipboard, native);
+});

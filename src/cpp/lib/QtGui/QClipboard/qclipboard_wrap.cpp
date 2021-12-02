@@ -16,7 +16,7 @@ Napi::Object QClipboardWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("pixmap", &QClipboardWrap::pixmap),
                    InstanceMethod("setText", &QClipboardWrap::setText),
                    InstanceMethod("text", &QClipboardWrap::text),
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QClipboardWrap)});
+                   QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QClipboardWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -36,6 +36,39 @@ QClipboardWrap::QClipboardWrap(const Napi::CallbackInfo& info)
 }
 
 QClipboard* QClipboardWrap::getInternalInstance() { return this->instance; }
+
+void QClipboardWrap::connectSignalsToEventEmitter() {
+  QOBJECT_SIGNALS_ON_TARGET(this->instance.data());
+
+  QObject::connect(this->instance.data(), &QClipboard::changed,
+                   [=](const QClipboard::Mode mode) {
+
+                     Napi::Env env = this->emitOnNode.Env();
+                     Napi::HandleScope scope(env);
+                     this->emitOnNode.Call(
+                         {Napi::String::New(env, "changed"),
+                          Napi::Value::From(env, static_cast<uint>(mode))});
+                   });
+
+  QObject::connect(this->instance.data(), &QClipboard::dataChanged, [=]() {
+    Napi::Env env = this->emitOnNode.Env();
+    Napi::HandleScope scope(env);
+    this->emitOnNode.Call({Napi::String::New(env, "dataChanged")});
+  });
+
+  QObject::connect(
+      this->instance.data(), &QClipboard::findBufferChanged, [=]() {
+        Napi::Env env = this->emitOnNode.Env();
+        Napi::HandleScope scope(env);
+        this->emitOnNode.Call({Napi::String::New(env, "findBufferChanged")});
+      });
+
+  QObject::connect(this->instance.data(), &QClipboard::selectionChanged, [=]() {
+    Napi::Env env = this->emitOnNode.Env();
+    Napi::HandleScope scope(env);
+    this->emitOnNode.Call({Napi::String::New(env, "selectionChanged")});
+  });
+}
 
 Napi::Value QClipboardWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
