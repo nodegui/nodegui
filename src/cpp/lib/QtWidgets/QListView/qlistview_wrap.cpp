@@ -25,8 +25,6 @@ QListViewWrap::~QListViewWrap() {
 QListViewWrap::QListViewWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QListViewWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<NListView>>().Data();

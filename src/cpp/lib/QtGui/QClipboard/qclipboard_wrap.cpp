@@ -25,7 +25,6 @@ Napi::Object QClipboardWrap::init(Napi::Env env, Napi::Object exports) {
 QClipboardWrap::QClipboardWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QClipboardWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<QClipboard>>().Data();
   } else {
@@ -72,7 +71,6 @@ void QClipboardWrap::connectSignalsToEventEmitter() {
 
 Napi::Value QClipboardWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number mode = info[0].As<Napi::Number>();
   this->instance->clear(static_cast<QClipboard::Mode>(mode.Int32Value()));
   return env.Null();
@@ -80,7 +78,6 @@ Napi::Value QClipboardWrap::clear(const Napi::CallbackInfo& info) {
 
 Napi::Value QClipboardWrap::setPixmap(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   Napi::Object pixmapObject = info[0].As<Napi::Object>();
   QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(pixmapObject);
@@ -92,7 +89,6 @@ Napi::Value QClipboardWrap::setPixmap(const Napi::CallbackInfo& info) {
 
 Napi::Value QClipboardWrap::pixmap(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number mode = info[0].As<Napi::Number>();
   QPixmap pixmap =
       this->instance->pixmap(static_cast<QClipboard::Mode>(mode.Int32Value()));
@@ -103,7 +99,6 @@ Napi::Value QClipboardWrap::pixmap(const Napi::CallbackInfo& info) {
 
 Napi::Value QClipboardWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::String text = info[0].As<Napi::String>();
   Napi::Number mode = info[1].As<Napi::Number>();
   QString clipboardText = text.Utf8Value().c_str();
@@ -114,7 +109,6 @@ Napi::Value QClipboardWrap::setText(const Napi::CallbackInfo& info) {
 
 Napi::Value QClipboardWrap::text(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number mode = info[0].As<Napi::Number>();
   QString text =
       this->instance->text(static_cast<QClipboard::Mode>(mode.Int32Value()));

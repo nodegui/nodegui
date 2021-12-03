@@ -39,7 +39,6 @@ QMimeDataWrap::~QMimeDataWrap() { this->instance.reset(); }
 QMimeDataWrap::QMimeDataWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMimeDataWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::External<QMimeData> eventObject =
         info[0].As<Napi::External<QMimeData>>();
@@ -102,23 +101,17 @@ void QMimeDataWrap::cloneFromMimeData(QMimeData* mimeReference) {
 
 Napi::Value QMimeDataWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->clear();
   return env.Null();
 }
 
 Napi::Value QMimeDataWrap::hasColor(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->hasColor());
 }
 
 Napi::Value QMimeDataWrap::hasHtml(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->hasHtml());
 }
 
@@ -130,29 +123,21 @@ Napi::Value QMimeDataWrap::hasImage(const Napi::CallbackInfo& info) {
 
 Napi::Value QMimeDataWrap::hasText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->hasText());
 }
 
 Napi::Value QMimeDataWrap::hasUrls(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->hasUrls());
 }
 
 Napi::Value QMimeDataWrap::html(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::String::New(env, this->instance->html().toStdString());
 }
 
 Napi::Value QMimeDataWrap::removeFormat(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   this->instance->removeFormat(input0);
@@ -162,9 +147,7 @@ Napi::Value QMimeDataWrap::removeFormat(const Napi::CallbackInfo& info) {
 // TODO: Maybe implement a Buffer or UInt8Array
 // Napi::Value QMimeDataWrap::setData(const Napi::CallbackInfo& info) {
 //   Napi::Env env = info.Env();
-//   Napi::HandleScope scope(env);
-
-//   QString input0 =
+// //   QString input0 =
 //   QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
 //   Napi::Object wrap1_0 = info[1].As<Napi::Object>();
 //   constWrap* wrap1_1 = Napi::ObjectWrap<constWrap>::Unwrap(wrap1_0);
@@ -175,8 +158,6 @@ Napi::Value QMimeDataWrap::removeFormat(const Napi::CallbackInfo& info) {
 
 Napi::Value QMimeDataWrap::setHtml(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   this->instance->setHtml(input0);
@@ -185,8 +166,6 @@ Napi::Value QMimeDataWrap::setHtml(const Napi::CallbackInfo& info) {
 
 Napi::Value QMimeDataWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   this->instance->setText(input0);
@@ -195,8 +174,6 @@ Napi::Value QMimeDataWrap::setText(const Napi::CallbackInfo& info) {
 
 Napi::Value QMimeDataWrap::setUrls(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Array urls = info[0].As<Napi::Array>();
   QList<QUrl> list;
   for (int i = 0; i < urls.Length(); i++) {
@@ -211,15 +188,11 @@ Napi::Value QMimeDataWrap::setUrls(const Napi::CallbackInfo& info) {
 
 Napi::Value QMimeDataWrap::text(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::String::New(env, this->instance->text().toStdString());
 }
 
 Napi::Value QMimeDataWrap::urls(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QList<QUrl> urls = this->instance->urls();
   int length = urls.length();
   Napi::Array retval = Napi::Array::New(env, length);

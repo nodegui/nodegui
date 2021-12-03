@@ -37,7 +37,6 @@ QDropEvent* QDropEventWrap::getInternalInstance() { return this->instance; }
 QDropEventWrap::QDropEventWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QDropEventWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::External<QDropEvent> eventObject =
         info[0].As<Napi::External<QDropEvent>>();

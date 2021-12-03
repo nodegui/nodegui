@@ -26,7 +26,6 @@ Napi::Object QKeySequenceWrap::init(Napi::Env env, Napi::Object exports) {
 QKeySequenceWrap::QKeySequenceWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QKeySequenceWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     if (info[0].IsExternal()) {
       this->instance = std::unique_ptr<QKeySequence>(
@@ -53,22 +52,17 @@ QKeySequence* QKeySequenceWrap::getInternalInstance() {
 
 Napi::Value QKeySequenceWrap::count(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int count = this->instance->count();
   return Napi::Value::From(env, count);
 }
 
 Napi::Value QKeySequenceWrap::isEmpty(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->isEmpty());
 }
 
 Napi::Value QKeySequenceWrap::matches(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object keyObject = info[0].As<Napi::Object>();
   QKeySequenceWrap* keyWrap =
       Napi::ObjectWrap<QKeySequenceWrap>::Unwrap(keyObject);
@@ -79,8 +73,6 @@ Napi::Value QKeySequenceWrap::matches(const Napi::CallbackInfo& info) {
 
 Napi::Value QKeySequenceWrap::toString(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int format = info[0].As<Napi::Number>().Int32Value();
   QString result = this->instance->toString(
       static_cast<QKeySequence::SequenceFormat>(format));
@@ -90,7 +82,6 @@ Napi::Value QKeySequenceWrap::toString(const Napi::CallbackInfo& info) {
 Napi::Value StaticQKeySequenceWrapMethods::fromQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);

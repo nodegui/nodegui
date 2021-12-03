@@ -31,8 +31,6 @@ NMenu* QMenuWrap::getInternalInstance() { return this->instance; }
 QMenuWrap::QMenuWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMenuWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -53,16 +51,12 @@ QMenuWrap::~QMenuWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QMenuWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->clear();
   return env.Null();
 }
 
 Napi::Value QMenuWrap::setTitle(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::String message = info[0].As<Napi::String>();
   this->instance->setTitle(QString::fromStdString(message.Utf8Value()));
 
@@ -71,8 +65,6 @@ Napi::Value QMenuWrap::setTitle(const Napi::CallbackInfo& info) {
 
 Napi::Value QMenuWrap::addSeparator(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   auto value =
       Napi::External<QAction>::New(env, this->instance->addSeparator());
   return Napi::Value::From(env, value);
@@ -80,8 +72,6 @@ Napi::Value QMenuWrap::addSeparator(const Napi::CallbackInfo& info) {
 
 Napi::Value QMenuWrap::exec(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() > 0) {
     Napi::Object pointObject = info[0].As<Napi::Object>();
     QPointWrap* pointWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(pointObject);
@@ -105,8 +95,6 @@ Napi::Value QMenuWrap::exec(const Napi::CallbackInfo& info) {
 
 Napi::Value QMenuWrap::popup(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object pointObject = info[0].As<Napi::Object>();
   QPointWrap* pointWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(pointObject);
   QPoint* qpoint = pointWrap->getInternalInstance();

@@ -28,8 +28,6 @@ QFontDialogWrap::~QFontDialogWrap() { extrautils::safeDelete(this->instance); }
 QFontDialogWrap::QFontDialogWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QFontDialogWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -49,8 +47,6 @@ QFontDialogWrap::QFontDialogWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QFontDialogWrap::selectedFont(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QFont font = this->instance->selectedFont();
   auto instance = QFontWrap::constructor.New(
       {Napi::External<QFont>::New(env, new QFont(font))});
@@ -59,8 +55,6 @@ Napi::Value QFontDialogWrap::selectedFont(const Napi::CallbackInfo& info) {
 
 Napi::Value QFontDialogWrap::setOption(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int option = info[0].As<Napi::Number>().Int32Value();
   bool on = info[1].As<Napi::Boolean>().Value();
   this->instance->setOption(static_cast<QFontDialog::FontDialogOption>(option),
@@ -70,8 +64,6 @@ Napi::Value QFontDialogWrap::setOption(const Napi::CallbackInfo& info) {
 
 Napi::Value QFontDialogWrap::testOption(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int option = info[0].As<Napi::Number>().Int32Value();
   bool on = this->instance->testOption(
       static_cast<QFontDialog::FontDialogOption>(option));

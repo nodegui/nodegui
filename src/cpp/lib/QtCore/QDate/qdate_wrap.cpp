@@ -43,8 +43,6 @@ Napi::Object QDateWrap::init(Napi::Env env, Napi::Object exports) {
 QDateWrap::QDateWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QDateWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 3) {
     int y = info[0].As<Napi::Number>().Int32Value();
     int m = info[1].As<Napi::Number>().Int32Value();
@@ -68,8 +66,6 @@ QDate* QDateWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QDateWrap::addDays(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qint64 ndays = info[0].As<Napi::Number>().Int64Value();
   QDate date = this->instance->addDays(ndays);
   auto instance = QDateWrap::constructor.New({Napi::External<QDate>::New(
@@ -79,7 +75,6 @@ Napi::Value QDateWrap::addDays(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateWrap::addMonths(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   int nmonths = info[0].As<Napi::Number>().Int32Value();
   QDate date = this->instance->addMonths(nmonths);
@@ -90,8 +85,6 @@ Napi::Value QDateWrap::addMonths(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateWrap::addYears(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int nyears = info[0].As<Napi::Number>().Int32Value();
   QDate date = this->instance->addYears(nyears);
   auto instance = QDateWrap::constructor.New({Napi::External<QDate>::New(
@@ -101,37 +94,31 @@ Napi::Value QDateWrap::addYears(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateWrap::day(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->day());
 }
 
 Napi::Value QDateWrap::dayOfWeek(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->dayOfWeek());
 }
 
 Napi::Value QDateWrap::dayOfYear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->dayOfYear());
 }
 
 Napi::Value QDateWrap::daysInMonth(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->daysInMonth());
 }
 
 Napi::Value QDateWrap::daysInYear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->daysInYear());
 }
 
 Napi::Value QDateWrap::daysTo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   Napi::Object dObject = info[0].As<Napi::Object>();
   QDateWrap* dWrap = Napi::ObjectWrap<QDateWrap>::Unwrap(dObject);
@@ -141,26 +128,21 @@ Napi::Value QDateWrap::daysTo(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateWrap::isNull(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->isNull());
 }
 
 Napi::Value QDateWrap::isValid(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->isValid());
 }
 
 Napi::Value QDateWrap::month(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->month());
 }
 
 Napi::Value QDateWrap::setDate(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int year = info[0].As<Napi::Number>().Int32Value();
   int month = info[1].As<Napi::Number>().Int32Value();
   int day = info[2].As<Napi::Number>().Int32Value();
@@ -170,14 +152,11 @@ Napi::Value QDateWrap::setDate(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateWrap::toJulianDay(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->toJulianDay());
 }
 
 Napi::Value QDateWrap::toString(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString result;
   if (info[0].IsString()) {
     std::string format = info[0].As<Napi::String>().Utf8Value();
@@ -192,14 +171,11 @@ Napi::Value QDateWrap::toString(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateWrap::year(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->year());
 }
 
 Napi::Value StaticDateWrapMethods::currentDate(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QDate date = QDate::currentDate();
   auto instance = QDateWrap::constructor.New({Napi::External<QDate>::New(
       env, new QDate(date.year(), date.month(), date.day()))});
@@ -209,8 +185,6 @@ Napi::Value StaticDateWrapMethods::currentDate(const Napi::CallbackInfo& info) {
 Napi::Value StaticDateWrapMethods::fromJulianDay(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   qint64 jd = info[0].As<Napi::Number>().Int64Value();
   QDate date = QDate::fromJulianDay(jd);
   auto instance = QDateWrap::constructor.New({Napi::External<QDate>::New(
@@ -220,16 +194,12 @@ Napi::Value StaticDateWrapMethods::fromJulianDay(
 
 Napi::Value StaticDateWrapMethods::isLeapYear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int year = info[0].As<Napi::Number>().Int32Value();
   return Napi::Value::From(env, QDate::isLeapYear(year));
 }
 
 Napi::Value StaticDateWrapMethods::isValid(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int year = info[0].As<Napi::Number>().Int32Value();
   int month = info[1].As<Napi::Number>().Int32Value();
   int day = info[2].As<Napi::Number>().Int32Value();
@@ -238,8 +208,6 @@ Napi::Value StaticDateWrapMethods::isValid(const Napi::CallbackInfo& info) {
 }
 Napi::Value StaticDateWrapMethods::fromString(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string dateString = info[0].As<Napi::String>().Utf8Value();
 
   QDate date;
@@ -260,7 +228,6 @@ Napi::Value StaticDateWrapMethods::fromString(const Napi::CallbackInfo& info) {
 Napi::Value StaticDateWrapMethods::fromQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);

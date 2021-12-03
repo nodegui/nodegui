@@ -42,8 +42,6 @@ QCalendarWidgetWrap::~QCalendarWidgetWrap() {
 QCalendarWidgetWrap::QCalendarWidgetWrap(const Napi::CallbackInfo &info)
     : Napi::ObjectWrap<QCalendarWidgetWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap *parentWidgetWrap =
@@ -64,20 +62,17 @@ QCalendarWidgetWrap::QCalendarWidgetWrap(const Napi::CallbackInfo &info)
 
 Napi::Value QCalendarWidgetWrap::monthShown(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->monthShown());
 }
 
 Napi::Value QCalendarWidgetWrap::yearShown(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->yearShown());
 }
 
 Napi::Value QCalendarWidgetWrap::setCurrentPage(
     const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   int year = info[0].As<Napi::Number>().Int32Value();
   int month = info[1].As<Napi::Number>().Int32Value();
@@ -87,14 +82,12 @@ Napi::Value QCalendarWidgetWrap::setCurrentPage(
 
 Napi::Value QCalendarWidgetWrap::showNextMonth(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->showNextMonth();
   return env.Null();
 }
 
 Napi::Value QCalendarWidgetWrap::showNextYear(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->showNextYear();
   return env.Null();
 }
@@ -102,7 +95,6 @@ Napi::Value QCalendarWidgetWrap::showNextYear(const Napi::CallbackInfo &info) {
 Napi::Value QCalendarWidgetWrap::showPreviousMonth(
     const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->showPreviousMonth();
   return env.Null();
 }
@@ -110,7 +102,6 @@ Napi::Value QCalendarWidgetWrap::showPreviousMonth(
 Napi::Value QCalendarWidgetWrap::showPreviousYear(
     const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->showPreviousYear();
   return env.Null();
 }
@@ -118,14 +109,12 @@ Napi::Value QCalendarWidgetWrap::showPreviousYear(
 Napi::Value QCalendarWidgetWrap::showSelectedDate(
     const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->showSelectedDate();
   return env.Null();
 }
 
 Napi::Value QCalendarWidgetWrap::showToday(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->showToday();
   return env.Null();
 }

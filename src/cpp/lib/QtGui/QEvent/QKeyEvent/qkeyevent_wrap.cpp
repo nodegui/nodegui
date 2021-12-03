@@ -29,7 +29,6 @@ QKeyEvent* QKeyEventWrap::getInternalInstance() { return this->instance; }
 QKeyEventWrap::QKeyEventWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QKeyEventWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::External<QKeyEvent> eventObject =
         info[0].As<Napi::External<QKeyEvent>>();

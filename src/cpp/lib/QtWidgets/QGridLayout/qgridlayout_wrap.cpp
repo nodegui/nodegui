@@ -44,8 +44,6 @@ QGridLayoutWrap::~QGridLayoutWrap() { extrautils::safeDelete(this->instance); }
 QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QGridLayoutWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -62,8 +60,6 @@ QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QGridLayoutWrap::addLayout(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object qlayoutObject = info[0].As<Napi::Object>();
   QLayoutWrap* layout = Napi::ObjectWrap<QLayoutWrap>::Unwrap(qlayoutObject);
   int row = info[1].As<Napi::Number>().Int32Value();
@@ -79,8 +75,6 @@ Napi::Value QGridLayoutWrap::addLayout(const Napi::CallbackInfo& info) {
 
 Napi::Value QGridLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   Napi::Number qrow = info[1].As<Napi::Number>();
   Napi::Number qcol = info[2].As<Napi::Number>();
@@ -96,8 +90,6 @@ Napi::Value QGridLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
 
 Napi::Value QGridLayoutWrap::removeWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* widget =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
@@ -107,8 +99,6 @@ Napi::Value QGridLayoutWrap::removeWidget(const Napi::CallbackInfo& info) {
 
 Napi::Value QGridLayoutWrap::columnStretch(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int column = info[0].As<Napi::Number>().Int32Value();
   int value = static_cast<int>(this->instance->columnStretch(column));
   return Napi::Number::From(env, value);
@@ -116,8 +106,6 @@ Napi::Value QGridLayoutWrap::columnStretch(const Napi::CallbackInfo& info) {
 
 Napi::Value QGridLayoutWrap::rowStretch(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int row = info[0].As<Napi::Number>().Int32Value();
   int value = static_cast<int>(this->instance->rowStretch(row));
   return Napi::Number::From(env, value);
@@ -125,8 +113,6 @@ Napi::Value QGridLayoutWrap::rowStretch(const Napi::CallbackInfo& info) {
 
 Napi::Value QGridLayoutWrap::setColumnStretch(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int column = info[0].As<Napi::Number>().Int32Value();
   int stretch = info[1].As<Napi::Number>().Int32Value();
   this->instance->setColumnStretch(column, stretch);
@@ -135,8 +121,6 @@ Napi::Value QGridLayoutWrap::setColumnStretch(const Napi::CallbackInfo& info) {
 
 Napi::Value QGridLayoutWrap::setRowStretch(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int row = info[0].As<Napi::Number>().Int32Value();
   int stretch = info[1].As<Napi::Number>().Int32Value();
   this->instance->setRowStretch(row, stretch);
@@ -146,8 +130,6 @@ Napi::Value QGridLayoutWrap::setRowStretch(const Napi::CallbackInfo& info) {
 Napi::Value QGridLayoutWrap::columnMinimumWidth(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int column = info[0].As<Napi::Number>().Int32Value();
   int value = static_cast<int>(this->instance->columnMinimumWidth(column));
   return Napi::Number::From(env, value);
@@ -155,8 +137,6 @@ Napi::Value QGridLayoutWrap::columnMinimumWidth(
 
 Napi::Value QGridLayoutWrap::rowMinimumHeight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int row = info[0].As<Napi::Number>().Int32Value();
   int value = static_cast<int>(this->instance->rowMinimumHeight(row));
   return Napi::Number::From(env, value);
@@ -165,8 +145,6 @@ Napi::Value QGridLayoutWrap::rowMinimumHeight(const Napi::CallbackInfo& info) {
 Napi::Value QGridLayoutWrap::setColumnMinimumWidth(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int column = info[0].As<Napi::Number>().Int32Value();
   int minSize = info[1].As<Napi::Number>().Int32Value();
   this->instance->setColumnMinimumWidth(column, minSize);
@@ -176,8 +154,6 @@ Napi::Value QGridLayoutWrap::setColumnMinimumWidth(
 Napi::Value QGridLayoutWrap::setRowMinimumHeight(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int row = info[0].As<Napi::Number>().Int32Value();
   int minSize = info[1].As<Napi::Number>().Int32Value();
   this->instance->setRowMinimumHeight(row, minSize);
@@ -186,16 +162,12 @@ Napi::Value QGridLayoutWrap::setRowMinimumHeight(
 
 Napi::Value QGridLayoutWrap::horizontalSpacing(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int value = static_cast<int>(this->instance->horizontalSpacing());
   return Napi::Number::From(env, value);
 }
 
 Napi::Value QGridLayoutWrap::verticalSpacing(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int value = static_cast<int>(this->instance->verticalSpacing());
   return Napi::Number::From(env, value);
 }
@@ -203,8 +175,6 @@ Napi::Value QGridLayoutWrap::verticalSpacing(const Napi::CallbackInfo& info) {
 Napi::Value QGridLayoutWrap::setHorizontalSpacing(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int spacing = info[0].As<Napi::Number>().Int32Value();
   this->instance->setHorizontalSpacing(spacing);
   return env.Null();
@@ -213,8 +183,6 @@ Napi::Value QGridLayoutWrap::setHorizontalSpacing(
 Napi::Value QGridLayoutWrap::setVerticalSpacing(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int spacing = info[0].As<Napi::Number>().Int32Value();
   this->instance->setVerticalSpacing(spacing);
   return env.Null();
@@ -222,16 +190,12 @@ Napi::Value QGridLayoutWrap::setVerticalSpacing(
 
 Napi::Value QGridLayoutWrap::columnCount(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int value = static_cast<int>(this->instance->columnCount());
   return Napi::Number::From(env, value);
 }
 
 Napi::Value QGridLayoutWrap::rowCount(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int value = static_cast<int>(this->instance->rowCount());
   return Napi::Number::From(env, value);
 }

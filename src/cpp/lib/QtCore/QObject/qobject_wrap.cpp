@@ -21,7 +21,6 @@ QObjectWrap::~QObjectWrap() { extrautils::safeDelete(this->instance); }
 QObjectWrap::QObjectWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QObjectWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     if (info[0].IsExternal()) {
       this->instance = info[0].As<Napi::External<NObject>>().Data();

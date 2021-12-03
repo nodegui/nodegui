@@ -65,7 +65,6 @@ Napi::Object QUrlWrap::init(Napi::Env env, Napi::Object exports) {
 QUrlWrap::QUrlWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QUrlWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   if (info.Length() == 2) {
     std::string url = info[0].As<Napi::String>().Utf8Value();
@@ -95,7 +94,6 @@ QUrl* QUrlWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QUrlWrap::toString(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QString url = this->instance->toString();
   return Napi::Value::From(env, url.toStdString());
 }
@@ -103,7 +101,6 @@ Napi::Value QUrlWrap::toString(const Napi::CallbackInfo& info) {
 Napi::Value StaticQUrlWrapMethods::fromQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
@@ -118,8 +115,6 @@ Napi::Value StaticQUrlWrapMethods::fromQVariant(
 
 Napi::Value QUrlWrap::adjusted(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::FormattingOptions input0 =
       (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
 
@@ -131,7 +126,6 @@ Napi::Value QUrlWrap::adjusted(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::authority(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   QUrl::ComponentFormattingOptions input0 =
       (QUrl::ComponentFormattingOptions)info[0].As<Napi::Number>().Int32Value();
@@ -141,23 +135,17 @@ Napi::Value QUrlWrap::authority(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->clear();
   return env.Null();
 }
 
 Napi::Value QUrlWrap::errorString(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::String::New(env, this->instance->errorString().toStdString());
 }
 
 Napi::Value QUrlWrap::fileName(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::ComponentFormattingOptions input0 =
       (QUrl::ComponentFormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->fileName(input0).toStdString());
@@ -165,8 +153,6 @@ Napi::Value QUrlWrap::fileName(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::fragment(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::ComponentFormattingOptions input0 =
       (QUrl::ComponentFormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->fragment(input0).toStdString());
@@ -174,22 +160,16 @@ Napi::Value QUrlWrap::fragment(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::hasFragment(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->hasFragment());
 }
 
 Napi::Value QUrlWrap::hasQuery(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->hasQuery());
 }
 
 Napi::Value QUrlWrap::host(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::ComponentFormattingOptions input0 =
       (QUrl::ComponentFormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->host(input0).toStdString());
@@ -197,21 +177,16 @@ Napi::Value QUrlWrap::host(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::isEmpty(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isEmpty());
 }
 
 Napi::Value QUrlWrap::isLocalFile(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isLocalFile());
 }
 
 Napi::Value QUrlWrap::isParentOf(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QUrlWrap* wrap0_1 = Napi::ObjectWrap<QUrlWrap>::Unwrap(wrap0_0);
@@ -221,22 +196,16 @@ Napi::Value QUrlWrap::isParentOf(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::isRelative(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isRelative());
 }
 
 Napi::Value QUrlWrap::isValid(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isValid());
 }
 
 Napi::Value QUrlWrap::matches(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QUrlWrap* wrap0_1 = Napi::ObjectWrap<QUrlWrap>::Unwrap(wrap0_0);
   QUrl* input0 = wrap0_1->getInternalInstance();
@@ -247,8 +216,6 @@ Napi::Value QUrlWrap::matches(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::password(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::ComponentFormattingOptions input0 =
       (QUrl::ComponentFormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->password(input0).toStdString());
@@ -256,8 +223,6 @@ Napi::Value QUrlWrap::password(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::path(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::ComponentFormattingOptions input0 =
       (QUrl::ComponentFormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->path(input0).toStdString());
@@ -265,16 +230,12 @@ Napi::Value QUrlWrap::path(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::port(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int input0 = info[0].As<Napi::Number>().Int32Value();
   return Napi::Number::New(env, this->instance->port(input0));
 }
 
 Napi::Value QUrlWrap::query(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::ComponentFormattingOptions input0 =
       (QUrl::ComponentFormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->query(input0).toStdString());
@@ -282,8 +243,6 @@ Napi::Value QUrlWrap::query(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::resolved(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QUrlWrap* wrap0_1 = Napi::ObjectWrap<QUrlWrap>::Unwrap(wrap0_0);
   QUrl* input0 = wrap0_1->getInternalInstance();
@@ -296,15 +255,11 @@ Napi::Value QUrlWrap::resolved(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::scheme(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::String::New(env, this->instance->scheme().toStdString());
 }
 
 Napi::Value QUrlWrap::setAuthority(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   QUrl::ParsingMode input1 =
@@ -315,8 +270,6 @@ Napi::Value QUrlWrap::setAuthority(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::setFragment(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   QUrl::ParsingMode input1 =
@@ -327,8 +280,6 @@ Napi::Value QUrlWrap::setFragment(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::setHost(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   QUrl::ParsingMode input1 =
@@ -339,8 +290,6 @@ Napi::Value QUrlWrap::setHost(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::setPassword(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   QUrl::ParsingMode input1 =
@@ -351,8 +300,6 @@ Napi::Value QUrlWrap::setPassword(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::setPath(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   QUrl::ParsingMode input1 =
@@ -363,8 +310,6 @@ Napi::Value QUrlWrap::setPath(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::setPort(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int input0 = info[0].As<Napi::Number>().Int32Value();
   this->instance->setPort(input0);
   return env.Null();
@@ -372,8 +317,6 @@ Napi::Value QUrlWrap::setPort(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::setQuery(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   QUrl::ParsingMode input1 =
@@ -384,8 +327,6 @@ Napi::Value QUrlWrap::setQuery(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::setScheme(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   this->instance->setScheme(input0);
@@ -394,8 +335,6 @@ Napi::Value QUrlWrap::setScheme(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::setUrl(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   QUrl::ParsingMode input1 =
@@ -406,8 +345,6 @@ Napi::Value QUrlWrap::setUrl(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::setUserInfo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   QUrl::ParsingMode input1 =
@@ -418,8 +355,6 @@ Napi::Value QUrlWrap::setUserInfo(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::setUserName(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
   QUrl::ParsingMode input1 =
@@ -430,8 +365,6 @@ Napi::Value QUrlWrap::setUserName(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::swap(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object wrap0_0 = info[0].As<Napi::Object>();
   QUrlWrap* wrap0_1 = Napi::ObjectWrap<QUrlWrap>::Unwrap(wrap0_0);
   QUrl* input0 = wrap0_1->getInternalInstance();
@@ -441,8 +374,6 @@ Napi::Value QUrlWrap::swap(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::toDisplayString(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::FormattingOptions input0 =
       (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(
@@ -451,15 +382,11 @@ Napi::Value QUrlWrap::toDisplayString(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::toLocalFile(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::String::New(env, this->instance->toLocalFile().toStdString());
 }
 
 Napi::Value QUrlWrap::toString_withOpts(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::FormattingOptions input0 =
       (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->toString(input0).toStdString());
@@ -467,8 +394,6 @@ Napi::Value QUrlWrap::toString_withOpts(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::url(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::FormattingOptions input0 =
       (QUrl::FormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->url(input0).toStdString());
@@ -476,8 +401,6 @@ Napi::Value QUrlWrap::url(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::userInfo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::ComponentFormattingOptions input0 =
       (QUrl::ComponentFormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->userInfo(input0).toStdString());
@@ -485,8 +408,6 @@ Napi::Value QUrlWrap::userInfo(const Napi::CallbackInfo& info) {
 
 Napi::Value QUrlWrap::userName(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QUrl::ComponentFormattingOptions input0 =
       (QUrl::ComponentFormattingOptions)info[0].As<Napi::Number>().Int32Value();
   return Napi::String::New(env, this->instance->userName(input0).toStdString());
@@ -496,7 +417,6 @@ Napi::Value QUrlWrap::userName(const Napi::CallbackInfo& info) {
 Napi::Value StaticQUrlWrapMethods::fromLocalFile(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QString input0 =
       QString::fromStdString(info[0].As<Napi::String>().Utf8Value());
 
@@ -509,7 +429,6 @@ Napi::Value StaticQUrlWrapMethods::fromLocalFile(
 Napi::Value StaticQUrlWrapMethods::fromUserInput(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     QString input0 =
         QString::fromStdString(info[0].As<Napi::String>().Utf8Value());

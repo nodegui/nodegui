@@ -37,8 +37,6 @@ QLabelWrap::~QLabelWrap() { extrautils::safeDelete(this->instance); }
 QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QLabelWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -58,8 +56,6 @@ QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QLabelWrap::setSelection(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int start = info[0].As<Napi::Number>().Int32Value();
   int length = info[1].As<Napi::Number>().Int32Value();
   this->instance->setSelection(start, length);
@@ -68,15 +64,11 @@ Napi::Value QLabelWrap::setSelection(const Napi::CallbackInfo& info) {
 
 Napi::Value QLabelWrap::selectionStart(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Number::New(env, this->instance->selectionStart());
 }
 
 Napi::Value QLabelWrap::setBuddy(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object buddyObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* buddyWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(buddyObject);
@@ -86,16 +78,12 @@ Napi::Value QLabelWrap::setBuddy(const Napi::CallbackInfo& info) {
 
 Napi::Value QLabelWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->clear();
   return env.Null();
 }
 
 Napi::Value QLabelWrap::setMovie(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object movieObject = info[0].As<Napi::Object>();
   QMovieWrap* movieWrap = Napi::ObjectWrap<QMovieWrap>::Unwrap(movieObject);
   this->instance->setMovie(movieWrap->getInternalInstance());
@@ -104,8 +92,6 @@ Napi::Value QLabelWrap::setMovie(const Napi::CallbackInfo& info) {
 
 Napi::Value QLabelWrap::setNumDouble(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   double num = info[0].As<Napi::Number>().DoubleValue();
   this->instance->setNum(num);
   return env.Null();
@@ -113,8 +99,6 @@ Napi::Value QLabelWrap::setNumDouble(const Napi::CallbackInfo& info) {
 
 Napi::Value QLabelWrap::setNumInt(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int num = info[0].As<Napi::Number>().Int32Value();
   this->instance->setNum(num);
   return env.Null();
@@ -122,8 +106,6 @@ Napi::Value QLabelWrap::setNumInt(const Napi::CallbackInfo& info) {
 
 Napi::Value QLabelWrap::setPicture(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object pictureObject = info[0].As<Napi::Object>();
   QPictureWrap* pictureWrap =
       Napi::ObjectWrap<QPictureWrap>::Unwrap(pictureObject);
@@ -133,8 +115,6 @@ Napi::Value QLabelWrap::setPicture(const Napi::CallbackInfo& info) {
 
 Napi::Value QLabelWrap::setPixmap(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object pixmapObject = info[0].As<Napi::Object>();
   QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(pixmapObject);
   this->instance->setPixmap(*pixmapWrap->getInternalInstance());

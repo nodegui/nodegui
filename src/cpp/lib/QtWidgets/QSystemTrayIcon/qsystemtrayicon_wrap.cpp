@@ -35,8 +35,6 @@ NSystemTrayIcon* QSystemTrayIconWrap::getInternalInstance() {
 QSystemTrayIconWrap::QSystemTrayIconWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QSystemTrayIconWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -59,24 +57,18 @@ QSystemTrayIconWrap::~QSystemTrayIconWrap() {
 
 Napi::Value QSystemTrayIconWrap::show(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->show();
   return env.Null();
 }
 
 Napi::Value QSystemTrayIconWrap::hide(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->hide();
   return env.Null();
 }
 
 Napi::Value QSystemTrayIconWrap::setIcon(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object iconObject = info[0].As<Napi::Object>();
   QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
   this->instance->setIcon(*iconWrap->getInternalInstance());
@@ -85,16 +77,12 @@ Napi::Value QSystemTrayIconWrap::setIcon(const Napi::CallbackInfo& info) {
 
 Napi::Value QSystemTrayIconWrap::isVisible(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   bool visibility = this->instance->isVisible();
   return Napi::Boolean::New(env, visibility);
 }
 
 Napi::Value QSystemTrayIconWrap::setToolTip(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::String toolTip = info[0].As<Napi::String>();
   this->instance->setToolTip(QString::fromStdString(toolTip.Utf8Value()));
   return env.Null();
@@ -103,8 +91,6 @@ Napi::Value QSystemTrayIconWrap::setToolTip(const Napi::CallbackInfo& info) {
 Napi::Value QSystemTrayIconWrap::setContextMenu(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object menuObject = info[0].As<Napi::Object>();
   QMenuWrap* menuWrap = Napi::ObjectWrap<QMenuWrap>::Unwrap(menuObject);
   this->instance->setContextMenu(menuWrap->getInternalInstance());
@@ -113,7 +99,6 @@ Napi::Value QSystemTrayIconWrap::setContextMenu(
 
 Napi::Value QSystemTrayIconWrap::showMessage(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::String title = info[0].As<Napi::String>();
   Napi::String message = info[1].As<Napi::String>();
   Napi::Object iconObject = info[2].As<Napi::Object>();

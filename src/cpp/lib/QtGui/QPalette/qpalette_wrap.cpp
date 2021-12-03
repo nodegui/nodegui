@@ -23,8 +23,6 @@ Napi::Object QPaletteWrap::init(Napi::Env env, Napi::Object exports) {
 QPaletteWrap::QPaletteWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QPaletteWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 0) {
     this->instance = std::make_unique<QPalette>();
   } else if (info.Length() == 1) {
@@ -43,8 +41,6 @@ QPalette* QPaletteWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QPaletteWrap::color(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QPalette::ColorGroup colorGroup = static_cast<QPalette::ColorGroup>(
       info[0].As<Napi::Number>().Int32Value());
   QPalette::ColorRole colorRole =

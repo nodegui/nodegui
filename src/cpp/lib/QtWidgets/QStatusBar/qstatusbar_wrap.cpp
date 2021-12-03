@@ -50,8 +50,6 @@ QStatusBarWrap::~QStatusBarWrap() { extrautils::safeDelete(this->instance); }
 QStatusBarWrap::QStatusBarWrap(const Napi::CallbackInfo &info)
     : Napi::ObjectWrap<QStatusBarWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap *parentWidgetWrap =
@@ -72,8 +70,6 @@ QStatusBarWrap::QStatusBarWrap(const Napi::CallbackInfo &info)
 
 Napi::Value QStatusBarWrap::addPermanentWidget(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object widgetArg = info[0].As<Napi::Object>();
   Napi::Number stretchArg = info[1].As<Napi::Number>();
 
@@ -89,8 +85,6 @@ Napi::Value QStatusBarWrap::addPermanentWidget(const Napi::CallbackInfo &info) {
 
 Napi::Value QStatusBarWrap::addWidget(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object widgetArg = info[0].As<Napi::Object>();
   Napi::Number stretchArg = info[1].As<Napi::Number>();
 
@@ -106,8 +100,6 @@ Napi::Value QStatusBarWrap::addWidget(const Napi::CallbackInfo &info) {
 
 Napi::Value QStatusBarWrap::clearMessage(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   this->instance->clearMessage();
 
   return env.Null();
@@ -115,8 +107,6 @@ Napi::Value QStatusBarWrap::clearMessage(const Napi::CallbackInfo &info) {
 
 Napi::Value QStatusBarWrap::currentMessage(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string currentMessage = this->instance->currentMessage().toStdString();
 
   return Napi::String::New(env, currentMessage);
@@ -125,8 +115,6 @@ Napi::Value QStatusBarWrap::currentMessage(const Napi::CallbackInfo &info) {
 Napi::Value QStatusBarWrap::insertPermanentWidget(
     const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Number indexArg = info[0].As<Napi::Number>();
   Napi::Object widgetArg = info[1].As<Napi::Object>();
   Napi::Number stretchArg = info[2].As<Napi::Number>();
@@ -145,8 +133,6 @@ Napi::Value QStatusBarWrap::insertPermanentWidget(
 
 Napi::Value QStatusBarWrap::insertWidget(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Number indexArg = info[0].As<Napi::Number>();
   Napi::Object widgetArg = info[1].As<Napi::Object>();
   Napi::Number stretchArg = info[2].As<Napi::Number>();
@@ -156,58 +142,41 @@ Napi::Value QStatusBarWrap::insertWidget(const Napi::CallbackInfo &info) {
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetArg);
   QWidget *widget = widgetWrap->getInternalInstance();
   int stretch = stretchArg.Int32Value();
-
   int targetIndex = this->instance->insertWidget(index, widget, stretch);
-
   return Napi::Value::From(env, targetIndex);
 }
 
 Napi::Value QStatusBarWrap::isSizeGripEnabled(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   bool isEnabled = this->instance->isSizeGripEnabled();
-
   return Napi::Value::From(env, isEnabled);
 }
 
 Napi::Value QStatusBarWrap::removeWidget(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object widgetArg = info[0].As<Napi::Object>();
 
   NodeWidgetWrap *widgetWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetArg);
   QWidget *widget = widgetWrap->getInternalInstance();
-
   this->instance->removeWidget(widget);
-
   return env.Null();
 }
 
 Napi::Value QStatusBarWrap::showMessage(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::String message = info[0].As<Napi::String>();
   Napi::Number timeout = info[1].As<Napi::Number>();
 
   this->instance->showMessage(QString::fromStdString(message.Utf8Value()),
                               timeout.Int32Value());
-
   return env.Null();
 }
 
 Napi::Value QStatusBarWrap::setSizeGripEnabled(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Boolean enableArg = info[0].As<Napi::Boolean>();
-
   bool enable = enableArg.ToBoolean();
-
   this->instance->setSizeGripEnabled(enable);
-
   return env.Null();
 }

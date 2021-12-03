@@ -30,13 +30,11 @@
                                                                               \
   Napi::Value show(const Napi::CallbackInfo& info) {                          \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->show();                                                   \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value resize(const Napi::CallbackInfo& info) {                        \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Number width = info[0].As<Napi::Number>();                          \
     Napi::Number height = info[1].As<Napi::Number>();                         \
     this->instance->resize(width.Int32Value(), height.Int32Value());          \
@@ -44,13 +42,11 @@
   }                                                                           \
   Napi::Value close(const Napi::CallbackInfo& info) {                         \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool hasClosed = this->instance->close();                                 \
     return Napi::Boolean::New(env, hasClosed);                                \
   }                                                                           \
   Napi::Value mapFromGlobal(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Object posObject = info[0].As<Napi::Object>();                      \
     QPointWrap* posWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(posObject);    \
     QPoint pt =                                                               \
@@ -61,7 +57,6 @@
   }                                                                           \
   Napi::Value mapFromParent(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Object posObject = info[0].As<Napi::Object>();                      \
     QPointWrap* posWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(posObject);    \
     QPoint pt =                                                               \
@@ -72,7 +67,6 @@
   }                                                                           \
   Napi::Value mapToGlobal(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Object posObject = info[0].As<Napi::Object>();                      \
     QPointWrap* posWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(posObject);    \
     QPoint pt = this->instance->mapToGlobal(*posWrap->getInternalInstance()); \
@@ -82,7 +76,6 @@
   }                                                                           \
   Napi::Value mapToParent(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Object posObject = info[0].As<Napi::Object>();                      \
     QPointWrap* posWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(posObject);    \
     QPoint pt = this->instance->mapToParent(*posWrap->getInternalInstance()); \
@@ -92,14 +85,12 @@
   }                                                                           \
   Napi::Value isVisible(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool isVisible = this->instance->isVisible();                             \
     return Napi::Boolean::New(env, isVisible);                                \
   }                                                                           \
                                                                               \
   Napi::Value setLayout(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Object layoutObject = info[0].As<Napi::Object>();                   \
     QLayoutWrap* layoutWrap =                                                 \
         Napi::ObjectWrap<QLayoutWrap>::Unwrap(layoutObject);                  \
@@ -109,7 +100,6 @@
                                                                               \
   Napi::Value setStyleSheet(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::String text = info[0].As<Napi::String>();                           \
     std::string style = text.Utf8Value();                                     \
     QString newStyle = QString::fromStdString(style);                         \
@@ -121,7 +111,6 @@
   }                                                                           \
   Napi::Value setCursor(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     if (info[0].IsNumber()) {                                                 \
       Napi::Number cursor = info[0].As<Napi::Number>();                       \
       this->instance->setCursor(                                              \
@@ -135,7 +124,6 @@
   }                                                                           \
   Napi::Value setWindowIcon(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Object iconObject = info[0].As<Napi::Object>();                     \
     QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);    \
     this->instance->setWindowIcon(*iconWrap->getInternalInstance());          \
@@ -143,7 +131,6 @@
   }                                                                           \
   Napi::Value setWindowState(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Number state = info[0].As<Napi::Number>();                          \
     this->instance->setWindowState(                                           \
         static_cast<Qt::WindowState>(state.Int32Value()));                    \
@@ -151,13 +138,11 @@
   }                                                                           \
   Napi::Value windowState(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int state = static_cast<int>(this->instance->windowState());              \
     return Napi::Value::From(env, state);                                     \
   }                                                                           \
   Napi::Value setWindowTitle(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::String napiTitle = info[0].As<Napi::String>();                      \
     std::string title = napiTitle.Utf8Value();                                \
     this->instance->setWindowTitle(title.c_str());                            \
@@ -165,25 +150,21 @@
   }                                                                           \
   Napi::Value windowTitle(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     QString title = this->instance->windowTitle();                            \
     return Napi::String::New(env, title.toStdString());                       \
   }                                                                           \
   Napi::Value styleSheet(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     QString stylesheet = this->instance->styleSheet();                        \
     return Napi::String::New(env, stylesheet.toStdString());                  \
   }                                                                           \
   Napi::Value hide(const Napi::CallbackInfo& info) {                          \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->hide();                                                   \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value move(const Napi::CallbackInfo& info) {                          \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int x = info[0].As<Napi::Number>().Int32Value();                          \
     int y = info[1].As<Napi::Number>().Int32Value();                          \
     this->instance->move(x, y);                                               \
@@ -192,33 +173,28 @@
                                                                               \
   Napi::Value setMouseTracking(const Napi::CallbackInfo& info) {              \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Boolean isMouseTracked = info[0].As<Napi::Boolean>();               \
     this->instance->setMouseTracking(isMouseTracked.Value());                 \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value hasMouseTracking(const Napi::CallbackInfo& info) {              \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool isMouseTracked = this->instance->hasMouseTracking();                 \
     return Napi::Value::From(env, isMouseTracked);                            \
   }                                                                           \
   Napi::Value setEnabled(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Boolean enabled = info[0].As<Napi::Boolean>();                      \
     this->instance->setEnabled(enabled.Value());                              \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value isEnabled(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool enabled = this->instance->isEnabled();                               \
     return Napi::Value::From(env, enabled);                                   \
   }                                                                           \
   Napi::Value setFixedSize(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int width = info[0].As<Napi::Number>().Int32Value();                      \
     int height = info[1].As<Napi::Number>().Int32Value();                     \
     this->instance->setFixedSize(width, height);                              \
@@ -226,7 +202,6 @@
   }                                                                           \
   Napi::Value setGeometry(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int x = info[0].As<Napi::Number>().Int32Value();                          \
     int y = info[1].As<Napi::Number>().Int32Value();                          \
     int width = info[2].As<Napi::Number>().Int32Value();                      \
@@ -236,7 +211,6 @@
   }                                                                           \
   Napi::Value setMaximumSize(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int width = info[0].As<Napi::Number>().Int32Value();                      \
     int height = info[1].As<Napi::Number>().Int32Value();                     \
     this->instance->setMaximumSize(width, height);                            \
@@ -244,7 +218,6 @@
   }                                                                           \
   Napi::Value maximumSize(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     QSize size = this->instance->maximumSize();                               \
     auto sizeWrap = QSizeWrap::constructor.New({Napi::External<QSize>::New(   \
         env, new QSize(size.width(), size.height()))});                       \
@@ -252,7 +225,6 @@
   }                                                                           \
   Napi::Value setMinimumSize(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int width = info[0].As<Napi::Number>().Int32Value();                      \
     int height = info[1].As<Napi::Number>().Int32Value();                     \
     this->instance->setMinimumSize(width, height);                            \
@@ -260,7 +232,6 @@
   }                                                                           \
   Napi::Value minimumSize(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     QSize size = this->instance->minimumSize();                               \
     auto sizeWrap = QSizeWrap::constructor.New({Napi::External<QSize>::New(   \
         env, new QSize(size.width(), size.height()))});                       \
@@ -268,25 +239,21 @@
   }                                                                           \
   Napi::Value repaint(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->repaint();                                                \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value update(const Napi::CallbackInfo& info) {                        \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->update();                                                 \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value updateGeometry(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->updateGeometry();                                         \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value pos(const Napi::CallbackInfo& info) {                           \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     QPoint pos = this->instance->pos();                                       \
     Napi::Object posObj = Napi::Object::New(env);                             \
     posObj.Set("x", pos.x());                                                 \
@@ -295,7 +262,6 @@
   }                                                                           \
   Napi::Value size(const Napi::CallbackInfo& info) {                          \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     QSize size = this->instance->size();                                      \
     auto sizeWrap = QSizeWrap::constructor.New({Napi::External<QSize>::New(   \
         env, new QSize(size.width(), size.height()))});                       \
@@ -303,7 +269,6 @@
   }                                                                           \
   Napi::Value setAttribute(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int attributeId = info[0].As<Napi::Number>().Int32Value();                \
     bool switchOn = info[1].As<Napi::Boolean>().Value();                      \
     this->instance->setAttribute(                                             \
@@ -312,7 +277,6 @@
   }                                                                           \
   Napi::Value testAttribute(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int attributeId = info[0].As<Napi::Number>().Int32Value();                \
     bool isOn = this->instance->testAttribute(                                \
         static_cast<Qt::WidgetAttribute>(attributeId));                       \
@@ -320,20 +284,17 @@
   }                                                                           \
   Napi::Value setWindowOpacity(const Napi::CallbackInfo& info) {              \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     float opacity = info[0].As<Napi::Number>().FloatValue();                  \
     this->instance->setWindowOpacity(opacity);                                \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value windowOpacity(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     float opacity = this->instance->windowOpacity();                          \
     return Napi::Value::From(env, opacity);                                   \
   }                                                                           \
   Napi::Value setWindowFlag(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int windowType = info[0].As<Napi::Number>().Int32Value();                 \
     bool switchOn = info[1].As<Napi::Boolean>().Value();                      \
     this->instance->setWindowFlag(static_cast<Qt::WindowType>(windowType),    \
@@ -342,55 +303,46 @@
   }                                                                           \
   Napi::Value adjustSize(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->adjustSize();                                             \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value activateWindow(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->activateWindow();                                         \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value raise(const Napi::CallbackInfo& info) {                         \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->raise();                                                  \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value lower(const Napi::CallbackInfo& info) {                         \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->lower();                                                  \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value showFullScreen(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->showFullScreen();                                         \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value showMaximized(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->showMaximized();                                          \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value showMinimized(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->showMinimized();                                          \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value showNormal(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->showNormal();                                             \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value addAction(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Object actionObject = info[0].As<Napi::Object>();                   \
     QActionWrap* actionWrap =                                                 \
         Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);                  \
@@ -399,7 +351,6 @@
   }                                                                           \
   Napi::Value removeAction(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Object actionObject = info[0].As<Napi::Object>();                   \
     QActionWrap* actionWrap =                                                 \
         Napi::ObjectWrap<QActionWrap>::Unwrap(actionObject);                  \
@@ -408,14 +359,12 @@
   }                                                                           \
   Napi::Value repolish(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->style()->unpolish(this->instance);                        \
     this->instance->style()->polish(this->instance);                          \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value setGraphicsEffect(const Napi::CallbackInfo& info) {             \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     Napi::Object effectObject = info[0].As<Napi::Object>();                   \
     QObjectWrap* effectWrap =                                                 \
         Napi::ObjectWrap<QObjectWrap>::Unwrap(effectObject);                  \
@@ -426,32 +375,27 @@
   }                                                                           \
   Napi::Value acceptDrops(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     return Napi::Boolean::From(env, this->instance->acceptDrops());           \
   }                                                                           \
   Napi::Value setAcceptDrops(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool v = info[0].As<Napi::Boolean>().Value();                             \
     this->instance->setAcceptDrops(v);                                        \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value setFocus(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int reason = info[0].As<Napi::Number>().Int32Value();                     \
     this->instance->setFocus(static_cast<Qt::FocusReason>(reason));           \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value clearFocus(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->clearFocus();                                             \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value setSizePolicy(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     QSizePolicy::Policy horizontal = static_cast<QSizePolicy::Policy>(        \
         info[0].As<Napi::Number>().Int32Value());                             \
     QSizePolicy::Policy vertical = static_cast<QSizePolicy::Policy>(          \
@@ -461,88 +405,75 @@
   }                                                                           \
   Napi::Value setMaximumHeight(const Napi::CallbackInfo& info) {              \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int maxh = info[0].As<Napi::Number>().Int32Value();                       \
     this->instance->setMaximumHeight(maxh);                                   \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value setMinimumWidth(const Napi::CallbackInfo& info) {               \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int minw = info[0].As<Napi::Number>().Int32Value();                       \
     this->instance->setMinimumWidth(minw);                                    \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value setMaximumWidth(const Napi::CallbackInfo& info) {               \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int maxw = info[0].As<Napi::Number>().Int32Value();                       \
     this->instance->setMaximumWidth(maxw);                                    \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value setMinimumHeight(const Napi::CallbackInfo& info) {              \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int minh = info[0].As<Napi::Number>().Int32Value();                       \
     this->instance->setMinimumHeight(minh);                                   \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value style(const Napi::CallbackInfo& info) {                         \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     QStyle* style = this->instance->style();                                  \
     return QStyleWrap::constructor.New(                                       \
         {Napi::External<QStyle>::New(env, style)});                           \
   }                                                                           \
   Napi::Value isWindow(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool result = this->instance->isWindow();                                 \
     return Napi::Boolean::New(env, result);                                   \
   }                                                                           \
   Napi::Value isWindowModified(const Napi::CallbackInfo& info) {              \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool result = this->instance->isWindowModified();                         \
     return Napi::Boolean::New(env, result);                                   \
   }                                                                           \
   Napi::Value isHidden(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool result = this->instance->isHidden();                                 \
     return Napi::Boolean::New(env, result);                                   \
   }                                                                           \
   Napi::Value setDisabled(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool disable = info[0].As<Napi::Boolean>().Value();                       \
     this->instance->setDisabled(disable);                                     \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value setHidden(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool hidden = info[0].As<Napi::Boolean>().Value();                        \
     this->instance->setHidden(hidden);                                        \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value setVisible(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool visible = info[0].As<Napi::Boolean>().Value();                       \
     this->instance->setVisible(visible);                                      \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value setWindowModified(const Napi::CallbackInfo& info) {             \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     bool modified = info[0].As<Napi::Boolean>().Value();                      \
     this->instance->setWindowModified(modified);                              \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value windowHandle(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     QWindow* window = this->instance->windowHandle();                         \
     if (window) {                                                             \
       return WrapperCache::instance.get<QWindow, QWindowWrap>(env, window);   \

@@ -21,7 +21,6 @@ Napi::Object QCursorWrap::init(Napi::Env env, Napi::Object exports) {
 QCursorWrap::QCursorWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QCursorWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::Number cursor = info[0].As<Napi::Number>();
     this->instance = std::make_unique<QCursor>(
@@ -41,7 +40,6 @@ QCursor* QCursorWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QCursorWrap::pos(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   QPoint pos = this->instance->pos();
   Napi::Object posObj = Napi::Object::New(env);
   posObj.Set("x", pos.x());
@@ -51,7 +49,6 @@ Napi::Value QCursorWrap::pos(const Napi::CallbackInfo& info) {
 
 Napi::Value QCursorWrap::setPos(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number x = info[0].As<Napi::Number>();
   Napi::Number y = info[1].As<Napi::Number>();
   this->instance->setPos(x.Int32Value(), y.Int32Value());

@@ -23,8 +23,6 @@ NSpinBox* QSpinBoxWrap::getInternalInstance() { return this->instance; }
 QSpinBoxWrap::QSpinBoxWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QSpinBoxWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -45,8 +43,6 @@ QSpinBoxWrap::~QSpinBoxWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QSpinBoxWrap::setRange(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Number minimum = info[0].As<Napi::Number>();
   Napi::Number maximum = info[1].As<Napi::Number>();
   this->instance->setRange(minimum.Int32Value(), maximum.Int32Value());

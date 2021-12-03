@@ -34,7 +34,6 @@ QWheelEvent* QWheelEventWrap::getInternalInstance() { return this->instance; }
 QWheelEventWrap::QWheelEventWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QWheelEventWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     Napi::External<QWheelEvent> eventObject =
         info[0].As<Napi::External<QWheelEvent>>();

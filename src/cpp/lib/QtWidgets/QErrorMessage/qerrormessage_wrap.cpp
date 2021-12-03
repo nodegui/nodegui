@@ -30,8 +30,6 @@ QErrorMessageWrap::~QErrorMessageWrap() {
 QErrorMessageWrap::QErrorMessageWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QErrorMessageWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -51,8 +49,6 @@ QErrorMessageWrap::QErrorMessageWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QErrorMessageWrap::showMessage(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   std::string napiMessage = info[0].As<Napi::String>().Utf8Value();
   QString message = QString::fromUtf8(napiMessage.c_str());
   this->instance->showMessage(message);

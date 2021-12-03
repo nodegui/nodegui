@@ -20,8 +20,6 @@ NTimeEdit* QTimeEditWrap::getInternalInstance() { return this->instance; }
 QTimeEditWrap::QTimeEditWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QTimeEditWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =

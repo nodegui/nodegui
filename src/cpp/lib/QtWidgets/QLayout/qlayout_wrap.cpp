@@ -14,8 +14,6 @@ NLayout* QLayoutWrap::getInternalInstance() { return this->instance; }
 
 QLayoutWrap::QLayoutWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QLayoutWrap>(info) {
-  Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 }
 
 QLayoutWrap::~QLayoutWrap() { extrautils::safeDelete(this->instance); }

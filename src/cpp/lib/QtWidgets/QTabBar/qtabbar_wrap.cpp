@@ -57,8 +57,6 @@ QTabBarWrap::~QTabBarWrap() {
 QTabBarWrap::QTabBarWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QTabBarWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<NTabBar>>().Data();
@@ -86,8 +84,6 @@ QTabBarWrap::QTabBarWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QTabBarWrap::setAccessibleTabName(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   std::string napiName = info[1].As<Napi::String>().Utf8Value();
   QString name = QString::fromUtf8(napiName.c_str());
@@ -97,8 +93,6 @@ Napi::Value QTabBarWrap::setAccessibleTabName(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::accessibleTabName(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   QString tabName = this->instance->accessibleTabName(index);
   return Napi::String::New(env, tabName.toStdString());
@@ -106,8 +100,6 @@ Napi::Value QTabBarWrap::accessibleTabName(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::addTab(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = 0;
   if (info.Length() == 2) {
     Napi::Object iconObject = info[0].As<Napi::Object>();
@@ -125,8 +117,6 @@ Napi::Value QTabBarWrap::addTab(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::insertTab(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int result = 0;
   if (info.Length() == 3) {
     int index = info[0].As<Napi::Number>().Int32Value();
@@ -147,8 +137,6 @@ Napi::Value QTabBarWrap::insertTab(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::setTabEnabled(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   bool enabled = info[1].As<Napi::Boolean>().Value();
   this->instance->setTabEnabled(index, enabled);
@@ -157,8 +145,6 @@ Napi::Value QTabBarWrap::setTabEnabled(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::isTabEnabled(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   bool enabled = this->instance->isTabEnabled(index);
   return Napi::Boolean::New(env, enabled);
@@ -166,8 +152,6 @@ Napi::Value QTabBarWrap::isTabEnabled(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::moveTab(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int from = info[0].As<Napi::Number>().Int32Value();
   int to = info[1].As<Napi::Number>().Int32Value();
   this->instance->moveTab(from, to);
@@ -176,8 +160,6 @@ Napi::Value QTabBarWrap::moveTab(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::removeTab(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   this->instance->removeTab(index);
   return env.Null();
@@ -185,8 +167,6 @@ Napi::Value QTabBarWrap::removeTab(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::setTabButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   int position = info[1].As<Napi::Number>().Int32Value();
   Napi::Object widgetObject = info[2].As<Napi::Object>();
@@ -200,8 +180,6 @@ Napi::Value QTabBarWrap::setTabButton(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::setTabData(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   Napi::Object variantObject = info[1].As<Napi::Object>();
   QVariantWrap* variantWrap =
@@ -212,8 +190,6 @@ Napi::Value QTabBarWrap::setTabData(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::tabData(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   QVariant variant = this->instance->tabData(index);
   auto instance = QVariantWrap::constructor.New(
@@ -223,8 +199,6 @@ Napi::Value QTabBarWrap::tabData(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::setTabIcon(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   Napi::Object iconObject = info[1].As<Napi::Object>();
   QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
@@ -234,8 +208,6 @@ Napi::Value QTabBarWrap::setTabIcon(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::tabIcon(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   QIcon icon = this->instance->tabIcon(index);
   auto instance = QIconWrap::constructor.New(
@@ -245,8 +217,6 @@ Napi::Value QTabBarWrap::tabIcon(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::setTabText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   std::string napiText = info[1].As<Napi::String>().Utf8Value();
   QString text = QString::fromUtf8(napiText.c_str());
@@ -256,8 +226,6 @@ Napi::Value QTabBarWrap::setTabText(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::tabText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   QString text = this->instance->tabText(index);
   return Napi::String::New(env, text.toStdString());
@@ -265,8 +233,6 @@ Napi::Value QTabBarWrap::tabText(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::setTabTextColor(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   Napi::Object colorObject = info[1].As<Napi::Object>();
   QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
@@ -276,8 +242,6 @@ Napi::Value QTabBarWrap::setTabTextColor(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::tabTextColor(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   QColor color = this->instance->tabTextColor(index);
   auto instance = QColorWrap::constructor.New(
@@ -287,8 +251,6 @@ Napi::Value QTabBarWrap::tabTextColor(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::setTabToolTip(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   std::string napiTip = info[1].As<Napi::String>().Utf8Value();
   QString tip = QString::fromUtf8(napiTip.c_str());
@@ -298,8 +260,6 @@ Napi::Value QTabBarWrap::setTabToolTip(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::tabToolTip(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   QString tip = this->instance->tabToolTip(index);
   return Napi::String::New(env, tip.toStdString());
@@ -307,8 +267,6 @@ Napi::Value QTabBarWrap::tabToolTip(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::setTabWhatsThis(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   std::string napiText = info[1].As<Napi::String>().Utf8Value();
   QString text = QString::fromUtf8(napiText.c_str());
@@ -318,8 +276,6 @@ Napi::Value QTabBarWrap::setTabWhatsThis(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::tabWhatsThis(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   QString text = this->instance->tabWhatsThis(index);
   return Napi::String::New(env, text.toStdString());
@@ -327,8 +283,6 @@ Napi::Value QTabBarWrap::tabWhatsThis(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::tabAt(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object pointObject = info[0].As<Napi::Object>();
   QPointWrap* pointWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(pointObject);
   int index = this->instance->tabAt(*pointWrap->getInternalInstance());
@@ -337,8 +291,6 @@ Napi::Value QTabBarWrap::tabAt(const Napi::CallbackInfo& info) {
 
 Napi::Value QTabBarWrap::tabRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   int index = info[0].As<Napi::Number>().Int32Value();
   QRect rect = this->instance->tabRect(index);
   auto instance = QRectWrap::constructor.New({Napi::External<QRect>::New(

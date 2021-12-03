@@ -19,76 +19,64 @@
                                                                               \
   Napi::Value clearSpans(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->clearSpans();                                             \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value columnAt(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int x = info[0].As<Napi::Number>().Int32Value();                          \
     return Napi::Number::New(env, this->instance->columnAt(x));               \
   }                                                                           \
   Napi::Value columnSpan(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     return Napi::Number::New(env, this->instance->columnSpan(row, column));   \
   }                                                                           \
   Napi::Value columnViewportPosition(const Napi::CallbackInfo& info) {        \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     return Napi::Number::New(env,                                             \
                              this->instance->columnViewportPosition(column)); \
   }                                                                           \
   Napi::Value columnWidth(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     return Napi::Number::New(env, this->instance->columnWidth(column));       \
   }                                                                           \
   Napi::Value isColumnHidden(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     return Napi::Boolean::New(env, this->instance->isColumnHidden(column));   \
   }                                                                           \
   Napi::Value isRowHidden(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     return Napi::Boolean::New(env, this->instance->isRowHidden(row));         \
   }                                                                           \
   Napi::Value rowAt(const Napi::CallbackInfo& info) {                         \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int y = info[0].As<Napi::Number>().Int32Value();                          \
     return Napi::Number::New(env, this->instance->rowAt(y));                  \
   }                                                                           \
   Napi::Value rowHeight(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     return Napi::Number::New(env, this->instance->rowHeight(row));            \
   }                                                                           \
   Napi::Value rowSpan(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     return Napi::Number::New(env, this->instance->rowSpan(row, column));      \
   }                                                                           \
   Napi::Value rowViewportPosition(const Napi::CallbackInfo& info) {           \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     return Napi::Number::New(env, this->instance->rowViewportPosition(row));  \
   }                                                                           \
   Napi::Value setColumnHidden(const Napi::CallbackInfo& info) {               \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     bool hide = info[1].As<Napi::Boolean>().Value();                          \
     this->instance->setColumnHidden(column, hide);                            \
@@ -96,7 +84,6 @@
   }                                                                           \
   Napi::Value setColumnWidth(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     int width = info[1].As<Napi::Number>().Int32Value();                      \
     this->instance->setColumnWidth(column, width);                            \
@@ -104,7 +91,6 @@
   }                                                                           \
   Napi::Value setRowHeight(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     int height = info[1].As<Napi::Number>().Int32Value();                     \
     this->instance->setRowHeight(row, height);                                \
@@ -112,7 +98,6 @@
   }                                                                           \
   Napi::Value setRowHidden(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     bool hide = info[1].As<Napi::Boolean>().Value();                          \
     this->instance->setRowHidden(row, hide);                                  \
@@ -120,7 +105,6 @@
   }                                                                           \
   Napi::Value setSpan(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     int column = info[1].As<Napi::Number>().Int32Value();                     \
     int rowSpanCount = info[2].As<Napi::Number>().Int32Value();               \
@@ -130,75 +114,64 @@
   }                                                                           \
   Napi::Value hideColumn(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     this->instance->hideColumn(column);                                       \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value hideRow(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     this->instance->hideRow(row);                                             \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value resizeColumnToContents(const Napi::CallbackInfo& info) {        \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     this->instance->resizeColumnToContents(column);                           \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value resizeColumnsToContents(const Napi::CallbackInfo& info) {       \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->resizeColumnsToContents();                                \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value resizeRowToContents(const Napi::CallbackInfo& info) {           \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     this->instance->resizeRowToContents(row);                                 \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value resizeRowsToContents(const Napi::CallbackInfo& info) {          \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     this->instance->resizeRowsToContents();                                   \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value selectColumn(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     this->instance->selectColumn(column);                                     \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value selectRow(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     this->instance->selectRow(row);                                           \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value showColumn(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     this->instance->showColumn(column);                                       \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value showRow(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int row = info[0].As<Napi::Number>().Int32Value();                        \
     this->instance->showRow(row);                                             \
     return env.Null();                                                        \
   }                                                                           \
   Napi::Value sortByColumn(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     int column = info[0].As<Napi::Number>().Int32Value();                     \
     int orderInt = info[1].As<Napi::Number>().Int32Value();                   \
     Qt::SortOrder order = static_cast<Qt::SortOrder>(orderInt);               \
@@ -207,7 +180,6 @@
   }                                                                           \
   Napi::Value horizontalHeader(const Napi::CallbackInfo& info) {              \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     auto header = this->instance->horizontalHeader();                         \
     auto instance = QHeaderViewWrap::constructor.New(                         \
         {Napi::External<QHeaderView>::New(env, header)});                     \
@@ -215,7 +187,6 @@
   }                                                                           \
   Napi::Value verticalHeader(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
-    Napi::HandleScope scope(env);                                             \
     auto header = this->instance->verticalHeader();                           \
     auto instance = QHeaderViewWrap::constructor.New(                         \
         {Napi::External<QHeaderView>::New(env, header)});                     \

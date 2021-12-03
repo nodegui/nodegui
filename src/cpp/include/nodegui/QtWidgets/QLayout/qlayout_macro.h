@@ -17,26 +17,22 @@
                                                                    \
   Napi::Value activate(const Napi::CallbackInfo& info) {           \
     Napi::Env env = info.Env();                                    \
-    Napi::HandleScope scope(env);                                  \
     bool wasRedone = this->instance->activate();                   \
     return Napi::Boolean::New(env, wasRedone);                     \
   }                                                                \
   Napi::Value setEnabled(const Napi::CallbackInfo& info) {         \
     Napi::Env env = info.Env();                                    \
-    Napi::HandleScope scope(env);                                  \
     bool enable = info[0].As<Napi::Boolean>().Value();             \
     this->instance->setEnabled(enable);                            \
     return env.Null();                                             \
   }                                                                \
   Napi::Value isEnabled(const Napi::CallbackInfo& info) {          \
     Napi::Env env = info.Env();                                    \
-    Napi::HandleScope scope(env);                                  \
     bool enabled = this->instance->isEnabled();                    \
     return Napi::Boolean::New(env, enabled);                       \
   }                                                                \
   Napi::Value setContentsMargins(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env();                                    \
-    Napi::HandleScope scope(env);                                  \
     int left = info[0].As<Napi::Number>().Int32Value();            \
     int top = info[1].As<Napi::Number>().Int32Value();             \
     int right = info[2].As<Napi::Number>().Int32Value();           \
@@ -46,13 +42,11 @@
   }                                                                \
   Napi::Value invalidate(const Napi::CallbackInfo& info) {         \
     Napi::Env env = info.Env();                                    \
-    Napi::HandleScope scope(env);                                  \
     this->instance->invalidate();                                  \
     return env.Null();                                             \
   }                                                                \
   Napi::Value update(const Napi::CallbackInfo& info) {             \
     Napi::Env env = info.Env();                                    \
-    Napi::HandleScope scope(env);                                  \
     this->instance->update();                                      \
     return env.Null();                                             \
   }

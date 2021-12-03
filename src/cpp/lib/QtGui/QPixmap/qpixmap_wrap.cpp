@@ -28,7 +28,6 @@ Napi::Object QPixmapWrap::init(Napi::Env env, Napi::Object exports) {
 QPixmapWrap::QPixmapWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QPixmapWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     if (info[0].IsExternal()) {
       this->instance = std::unique_ptr<QPixmap>(
@@ -53,7 +52,6 @@ QPixmap* QPixmapWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QPixmapWrap::load(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   bool loadSuccess = false;
   if (info.Length() == 1) {
     Napi::String url = info[0].As<Napi::String>();
@@ -68,7 +66,6 @@ Napi::Value QPixmapWrap::load(const Napi::CallbackInfo& info) {
 
 Napi::Value QPixmapWrap::loadFromData(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   bool loadSuccess = false;
 
   if (info.Length() > 0 && info.Length() < 3) {
@@ -91,7 +88,6 @@ Napi::Value QPixmapWrap::loadFromData(const Napi::CallbackInfo& info) {
 
 Napi::Value QPixmapWrap::save(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   bool loadSuccess = false;
   if (info.Length() >= 1 && info.Length() <= 3) {
     QString fileName =
@@ -111,7 +107,6 @@ Napi::Value QPixmapWrap::save(const Napi::CallbackInfo& info) {
 
 Napi::Value QPixmapWrap::scaled(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Number widthValue = info[0].As<Napi::Number>();
   Napi::Number heightValue = info[1].As<Napi::Number>();
   int width = widthValue.Int32Value();
@@ -136,18 +131,15 @@ Napi::Value QPixmapWrap::scaled(const Napi::CallbackInfo& info) {
 
 Napi::Value QPixmapWrap::height(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->height());
 }
 Napi::Value QPixmapWrap::width(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   return Napi::Value::From(env, this->instance->width());
 }
 
 Napi::Value QPixmapWrap::fromImage(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
 
   QImage* img = Napi::ObjectWrap<QImageWrap>::Unwrap(info[0].As<Napi::Object>())
                     ->getInternalInstance();
@@ -162,7 +154,6 @@ Napi::Value QPixmapWrap::fromImage(const Napi::CallbackInfo& info) {
 Napi::Value StaticQPixmapWrapMethods::fromQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);

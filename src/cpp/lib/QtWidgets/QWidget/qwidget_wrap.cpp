@@ -22,7 +22,6 @@ QWidgetWrap::~QWidgetWrap() { extrautils::safeDelete(this->instance); }
 QWidgetWrap::QWidgetWrap(const Napi::CallbackInfo &info)
     : Napi::ObjectWrap<QWidgetWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     if (info[0].IsExternal()) {
       this->instance =

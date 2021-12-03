@@ -24,8 +24,6 @@ NDial* QDialWrap::getInternalInstance() { return this->instance; }
 QDialWrap::QDialWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QDialWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =

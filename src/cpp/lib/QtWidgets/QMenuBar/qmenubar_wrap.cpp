@@ -29,8 +29,6 @@ NMenuBar* QMenuBarWrap::getInternalInstance() { return this->instance; }
 QMenuBarWrap::QMenuBarWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMenuBarWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     if (info[0].IsExternal()) {
       this->instance =
@@ -55,8 +53,6 @@ QMenuBarWrap::~QMenuBarWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QMenuBarWrap::addMenu(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object menuObject = info[0].As<Napi::Object>();
   QMenuWrap* menuWrap = Napi::ObjectWrap<QMenuWrap>::Unwrap(menuObject);
 
@@ -67,8 +63,6 @@ Napi::Value QMenuBarWrap::addMenu(const Napi::CallbackInfo& info) {
 
 Napi::Value QMenuBarWrap::addSeparator(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   auto value =
       Napi::External<QAction>::New(env, this->instance->addSeparator());
   return Napi::Value::From(env, value);

@@ -19,7 +19,6 @@
                                                                        \
   Napi::Value maximumViewportSize(const Napi::CallbackInfo& info) {    \
     Napi::Env env = info.Env();                                        \
-    Napi::HandleScope scope(env);                                      \
     QSize size = this->instance->maximumViewportSize();                \
     auto instance = QSizeWrap::constructor.New(                        \
         {Napi::External<QSize>::New(env, new QSize(size))});           \
@@ -28,7 +27,6 @@
                                                                        \
   Napi::Value setHorizontalScrollBar(const Napi::CallbackInfo& info) { \
     Napi::Env env = info.Env();                                        \
-    Napi::HandleScope scope(env);                                      \
     Napi::Object scrollBarObject = info[0].As<Napi::Object>();         \
     QScrollBarWrap* scrollBarWrap =                                    \
         Napi::ObjectWrap<QScrollBarWrap>::Unwrap(scrollBarObject);     \
@@ -39,7 +37,6 @@
                                                                        \
   Napi::Value setVerticalScrollBar(const Napi::CallbackInfo& info) {   \
     Napi::Env env = info.Env();                                        \
-    Napi::HandleScope scope(env);                                      \
     Napi::Object scrollBarObject = info[0].As<Napi::Object>();         \
     QScrollBarWrap* scrollBarWrap =                                    \
         Napi::ObjectWrap<QScrollBarWrap>::Unwrap(scrollBarObject);     \
@@ -50,7 +47,6 @@
                                                                        \
   Napi::Value setViewport(const Napi::CallbackInfo& info) {            \
     Napi::Env env = info.Env();                                        \
-    Napi::HandleScope scope(env);                                      \
     Napi::Object viewPortObject = info[0].As<Napi::Object>();          \
     NodeWidgetWrap* viewPortWidgetWrap =                               \
         Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(viewPortObject);      \
@@ -61,7 +57,6 @@
                                                                        \
   Napi::Value viewport(const Napi::CallbackInfo& info) {               \
     Napi::Env env = info.Env();                                        \
-    Napi::HandleScope scope(env);                                      \
     QWidget* viewPort = this->instance->viewport();                    \
     NWidget* nviewPort = reinterpret_cast<NWidget*>(viewPort);         \
     auto instance = QWidgetWrap::constructor.New(                      \

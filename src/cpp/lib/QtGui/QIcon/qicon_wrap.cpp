@@ -25,7 +25,6 @@ Napi::Object QIconWrap::init(Napi::Env env, Napi::Object exports) {
 QIconWrap::QIconWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QIconWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   if (info.Length() == 1) {
     if (info[0].IsExternal()) {
       this->instance =
@@ -50,8 +49,6 @@ QIcon* QIconWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QIconWrap::pixmap(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Number widthValue = info[0].As<Napi::Number>();
   Napi::Number heightValue = info[1].As<Napi::Number>();
   int width = widthValue.Int32Value();
@@ -78,15 +75,11 @@ Napi::Value QIconWrap::pixmap(const Napi::CallbackInfo& info) {
 
 Napi::Value QIconWrap::isMask(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Boolean::New(env, this->instance->isMask());
 }
 
 Napi::Value QIconWrap::setIsMask(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Boolean isMask = info[0].As<Napi::Boolean>();
     this->instance->setIsMask(isMask.Value());
@@ -99,15 +92,12 @@ Napi::Value QIconWrap::setIsMask(const Napi::CallbackInfo& info) {
 }
 Napi::Value QIconWrap::cacheKey(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   return Napi::Value::From(env, this->instance->cacheKey());
 }
 
 Napi::Value StaticQIconWrapMethods::fromQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);

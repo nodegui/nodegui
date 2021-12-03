@@ -37,8 +37,6 @@ QMainWindowWrap::~QMainWindowWrap() { extrautils::safeDelete(this->instance); }
 QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMainWindowWrap>(info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   if (info.Length() == 1) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
@@ -56,8 +54,6 @@ QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info)
 
 Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object widgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* centralWidget =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
@@ -67,7 +63,6 @@ Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {
 
 Napi::Value QMainWindowWrap::takeCentralWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
   this->instance->takeCentralWidget();
   // We will not return the value here since we are doing it in js side anyway
   return env.Null();
@@ -75,8 +70,6 @@ Napi::Value QMainWindowWrap::takeCentralWidget(const Napi::CallbackInfo& info) {
 
 Napi::Value QMainWindowWrap::setMenuBar(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object menuObject = info[0].As<Napi::Object>();
   QMenuBarWrap* menuBar = Napi::ObjectWrap<QMenuBarWrap>::Unwrap(menuObject);
 
@@ -87,8 +80,6 @@ Napi::Value QMainWindowWrap::setMenuBar(const Napi::CallbackInfo& info) {
 
 Napi::Value QMainWindowWrap::setMenuWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object menuObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* menuWidget =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(menuObject);
@@ -100,8 +91,6 @@ Napi::Value QMainWindowWrap::setMenuWidget(const Napi::CallbackInfo& info) {
 
 Napi::Value QMainWindowWrap::center(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   auto window = this->getInternalInstance();
   // https://wiki.qt.io/How_to_Center_a_Window_on_the_Screen
   window->setGeometry(
@@ -113,8 +102,6 @@ Napi::Value QMainWindowWrap::center(const Napi::CallbackInfo& info) {
 
 Napi::Value QMainWindowWrap::setStatusBar(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   Napi::Object statusBarArg = info[0].As<Napi::Object>();
 
   QStatusBar* statusBar = nullptr;
@@ -131,8 +118,6 @@ Napi::Value QMainWindowWrap::setStatusBar(const Napi::CallbackInfo& info) {
 
 Napi::Value QMainWindowWrap::statusBar(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-
   QStatusBar* statusBar = this->instance->statusBar();
 
   return QStatusBarWrap::fromQStatusBar(env, statusBar);

@@ -17,13 +17,11 @@
   QABSTRACTITEMVIEW_WRAPPED_METHODS_DECLARATION                       \
   Napi::Value clearPropertyFlags(const Napi::CallbackInfo& info) {    \
     Napi::Env env = info.Env();                                       \
-    Napi::HandleScope scope(env);                                     \
     this->instance->clearPropertyFlags();                             \
     return env.Null();                                                \
   }                                                                   \
   Napi::Value setRowHidden(const Napi::CallbackInfo& info) {          \
     Napi::Env env = info.Env();                                       \
-    Napi::HandleScope scope(env);                                     \
     int row = info[0].As<Napi::Number>().Int32Value();                \
     int hide = info[1].As<Napi::Boolean>().Value();                   \
     this->instance->setRowHidden(row, hide);                          \
@@ -31,7 +29,6 @@
   }                                                                   \
   Napi::Value isRowHidden(const Napi::CallbackInfo& info) {           \
     Napi::Env env = info.Env();                                       \
-    Napi::HandleScope scope(env);                                     \
     int row = info[0].As<Napi::Number>().Int32Value();                \
     return Napi::Boolean::New(env, this->instance->isRowHidden(row)); \
   }
