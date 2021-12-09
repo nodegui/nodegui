@@ -32,6 +32,7 @@ export { QDropEvent } from './lib/QtGui/QEvent/QDropEvent';
 export { QDragMoveEvent } from './lib/QtGui/QEvent/QDragMoveEvent';
 export { QDragLeaveEvent } from './lib/QtGui/QEvent/QDragLeaveEvent';
 export { QPaintEvent } from './lib/QtGui/QEvent/QPaintEvent';
+export { QResizeEvent } from './lib/QtGui/QEvent/QResizeEvent';
 export { QScreen } from './lib/QtGui/QScreen';
 export { QWindow } from './lib/QtGui/QWindow';
 export { WidgetEventTypes } from './lib/core/EventWidget';

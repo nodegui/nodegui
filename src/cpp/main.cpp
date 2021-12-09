@@ -31,6 +31,7 @@
 #include "QtGui/QEvent/QMouseEvent/qmouseevent_wrap.h"
 #include "QtGui/QEvent/QNativeGestureEvent/qnativegestureevent_wrap.h"
 #include "QtGui/QEvent/QPaintEvent/qpaintevent_wrap.h"
+#include "QtGui/QEvent/QResizeEvent/qresizeevent_wrap.h"
 #include "QtGui/QEvent/QTabletEvent/qtabletevent_wrap.h"
 #include "QtGui/QEvent/QWheelEvent/qwheelevent_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
@@ -240,6 +241,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QStyleFactoryWrap::init(env, exports);
   QScreenWrap::init(env, exports);
   QWindowWrap::init(env, exports);
+  QResizeEventWrap::init(env, exports);
 
   // Test
   CacheTestQObjectWrap::init(env, exports);
