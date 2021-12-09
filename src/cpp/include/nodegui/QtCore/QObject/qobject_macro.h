@@ -69,13 +69,34 @@
     Napi::Env env = info.Env();                                              \
     this->instance->dumpObjectInfo();                                        \
     return env.Null();                                                       \
+  }                                                                          \
+  Napi::Value __external_qobject__(const Napi::CallbackInfo& info) {         \
+    Napi::Env env = info.Env();                                              \
+    return Napi::External<QObject>::New(env, static_cast<QObject *>(this->instance)); \
+  }
+
+// Ideally this macro below should go in
+// QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE but some wrappers
+// need their own setParent()` implementation which handles different
+// arguments.
+#define QOBJECT_SET_PARENT_IMPL                                              \
+  Napi::Value setParent(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                              \
+    if (info[0].IsNull()) {                                                  \
+      this->instance->setParent(nullptr);                                    \
+    } else {                                                                 \
+      QObject* parentObject = info[0].As<Napi::External<QObject>>().Data();  \
+      this->instance->setParent(parentObject);                               \
+    }                                                                        \
+    return env.Null();                                                       \
   }
 
 #endif  // QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE
 
 #ifndef QOBJECT_WRAPPED_METHODS_DECLARATION
 #define QOBJECT_WRAPPED_METHODS_DECLARATION \
-  QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(this->instance.data())
+  QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(this->instance.data()) \
+  QOBJECT_SET_PARENT_IMPL
 #endif  // QOBJECT_WRAPPED_METHODS_DECLARATION
 
 #ifndef QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
@@ -84,13 +105,15 @@
   EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(ComponentWrapName)              \
                                                                             \
   InstanceMethod("__id__", &ComponentWrapName::__id__),                     \
+      InstanceMethod("__external_qobject__", &ComponentWrapName::__external_qobject__),   \
       InstanceMethod("inherits", &ComponentWrapName::inherits),             \
       InstanceMethod("setProperty", &ComponentWrapName::setProperty),       \
       InstanceMethod("property", &ComponentWrapName::property),             \
       InstanceMethod("setObjectName", &ComponentWrapName::setObjectName),   \
       InstanceMethod("objectName", &ComponentWrapName::objectName),         \
       InstanceMethod("dumpObjectTree", &ComponentWrapName::dumpObjectTree), \
-      InstanceMethod("dumpObjectInfo", &ComponentWrapName::dumpObjectInfo),
+      InstanceMethod("dumpObjectInfo", &ComponentWrapName::dumpObjectInfo), \
+      InstanceMethod("setParent", &ComponentWrapName::setParent),
 
 #endif  // QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
 
@@ -109,3 +132,5 @@
 #ifndef QOBJECT_SIGNALS
 #define QOBJECT_SIGNALS QOBJECT_SIGNALS_ON_TARGET(this)
 #endif  // QOBJECT_SIGNALS
+
+#include "QtCore/QObject/qobject_wrap.h"

@@ -25,9 +25,22 @@
 #ifndef QWIDGET_WRAPPED_METHODS_DECLARATION
 #define QWIDGET_WRAPPED_METHODS_DECLARATION                                   \
                                                                               \
-  QOBJECT_WRAPPED_METHODS_DECLARATION                                         \
+  QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(this->instance.data()) \
   YOGAWIDGET_WRAPPED_METHODS_DECLARATION                                      \
                                                                               \
+  Napi::Value setParent(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                               \
+    if (info[0].IsNull()) {                                                   \
+      this->instance->setParent(nullptr);                                     \
+    } else {                                                                  \
+      QObject* parentObject = info[0].As<Napi::External<QObject>>().Data();   \
+      QWidget* parentWidget = qobject_cast<QWidget*>(parentObject);           \
+      if (parentWidget) {                                                     \
+        this->instance->setParent(parentWidget);                              \
+      }                                                                       \
+    }                                                                         \
+    return env.Null();                                                        \
+  }                                                                           \
   Napi::Value show(const Napi::CallbackInfo& info) {                          \
     Napi::Env env = info.Env();                                               \
     this->instance->show();                                                   \

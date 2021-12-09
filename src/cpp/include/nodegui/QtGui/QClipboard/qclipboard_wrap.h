@@ -13,6 +13,7 @@ class DLL_EXPORT QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap>,
   QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(this)
   // Note: We don't use EVENTWIDGET_IMPLEMENTATIONS() here because this class
   // doesn't handle any QEvents.
+  QOBJECT_SET_PARENT_IMPL
 
  private:
   QPointer<QClipboard> instance;

@@ -27,6 +27,14 @@ export abstract class NodeObject<Signals extends QObjectSignals> extends EventWi
     dumpObjectInfo(): void {
         this.native.dumpObjectInfo();
     }
+    setParent(parent: NodeObject<QObjectSignals>): void {
+        if (parent != null) {
+            const extern = parent.native.__external_qobject__();
+            this.native.setParent(extern);
+        } else {
+            this.native.setParent(null);
+        }
+    }
 }
 
 export interface QObjectSignals {
