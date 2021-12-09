@@ -12,6 +12,7 @@ class DLL_EXPORT CacheTestQObjectWrap
     : public Napi::ObjectWrap<CacheTestQObjectWrap>,
       public EventWidget {
   QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(this)
+  QOBJECT_SET_PARENT_IMPL
 
  private:
   QPointer<CacheTestQObject> instance;

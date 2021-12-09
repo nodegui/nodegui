@@ -14,6 +14,17 @@ class DLL_EXPORT QWindowWrap : public Napi::ObjectWrap<QWindowWrap>,
   // Note: We don't use EVENTWIDGET_IMPLEMENTATIONS() here because this class
   // doesn't handle any QEvents.
 
+  // `QWindow` has a special setParent() which only accepts `QWindow`s
+  Napi::Value setParent(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    QObject* parentObject = info[0].As<Napi::External<QObject>>().Data();
+    QWindow* parentWindow = qobject_cast<QWindow*>(parentObject);
+    if (parentWindow) {
+      this->instance->setParent(parentWindow);
+    }
+    return env.Null();
+  }
+
  private:
   QPointer<QWindow> instance;
 
