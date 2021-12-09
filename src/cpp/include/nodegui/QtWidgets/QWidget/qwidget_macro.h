@@ -493,6 +493,18 @@
     } else {                                                                  \
       return env.Null();                                                      \
     }                                                                         \
+  }                                                                           \
+  Napi::Value setFixedHeight(const Napi::CallbackInfo& info) {                \
+    Napi::Env env = info.Env();                                               \
+    int h = info[0].As<Napi::Number>().Int32Value();                          \
+    this->instance->setFixedHeight(h);                                        \
+    return env.Null();                                                        \
+  }                                                                           \
+  Napi::Value setFixedWidth(const Napi::CallbackInfo& info) {                 \
+    Napi::Env env = info.Env();                                               \
+    int w = info[0].As<Napi::Number>().Int32Value();                          \
+    this->instance->setFixedWidth(w);                                         \
+    return env.Null();                                                        \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -570,7 +582,9 @@
       InstanceMethod("setHidden", &WidgetWrapName::setHidden),                 \
       InstanceMethod("setVisible", &WidgetWrapName::setVisible),               \
       InstanceMethod("setWindowModified", &WidgetWrapName::setWindowModified), \
-      InstanceMethod("windowHandle", &WidgetWrapName::windowHandle),
+      InstanceMethod("windowHandle", &WidgetWrapName::windowHandle),           \
+      InstanceMethod("setFixedHeight", &WidgetWrapName::setFixedHeight),       \
+      InstanceMethod("setFixedWidth", &WidgetWrapName::setFixedWidth),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

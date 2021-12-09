@@ -277,12 +277,16 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         }
     }
     // TODO: void 	setEditFocus(bool enable)
-    // TODO: void 	setFixedHeight(int h)
+    setFixedHeight(h: number): void {
+        this.native.setFixedHeight(h);
+    }
     // TODO: void 	setFixedSize(const QSize &s)
     setFixedSize(width: number, height: number): void {
         this.native.setFixedSize(width, height);
     }
-    // TODO: void 	setFixedWidth(int w)
+    setFixedWidth(w: number): void {
+        this.native.setFixedWidth(w);
+    }
     setFocusPolicy(policy: FocusPolicy): void {
         this.setProperty('focusPolicy', policy);
     }
@@ -386,7 +390,9 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     size(): QSize {
         return new QSize(this.native.size());
     }
-    // TODO: virtual QSize 	sizeHint() const
+    sizeHint(): QSize {
+        return QSize.fromQVariant(this.property('sizeHint'));
+    }
     // TODO: QSize 	sizeIncrement() const
     // TODO: QSizePolicy 	sizePolicy() const
     // TODO: void 	stackUnder(QWidget *w)
