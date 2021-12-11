@@ -1,19 +1,19 @@
-#include "QtCore/QSize/qsize_wrap.h"
 #include "QtGui/QEvent/QResizeEvent/qresizeevent_wrap.h"
 
 #include "Extras/Utils/nutils.h"
+#include "QtCore/QSize/qsize_wrap.h"
 
 Napi::FunctionReference QResizeEventWrap::constructor;
 
 Napi::Object QResizeEventWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QResizeEvent";
-  Napi::Function func = DefineClass(
-      env, CLASSNAME,
-      {InstanceMethod("oldSize", &QResizeEventWrap::oldSize),
-       InstanceMethod("size", &QResizeEventWrap::size),
-       COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QResizeEventWrap)
-           QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QResizeEventWrap)});
+  Napi::Function func =
+      DefineClass(env, CLASSNAME,
+                  {InstanceMethod("oldSize", &QResizeEventWrap::oldSize),
+                   InstanceMethod("size", &QResizeEventWrap::size),
+                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QResizeEventWrap)
+                       QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QResizeEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;

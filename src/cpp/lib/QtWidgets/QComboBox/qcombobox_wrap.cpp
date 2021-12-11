@@ -202,7 +202,7 @@ Napi::Value QComboBoxWrap::sizeAdjustPolicy(const Napi::CallbackInfo& info) {
 }
 Napi::Value QComboBoxWrap::setSizeAdjustPolicy(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- QComboBox::SizeAdjustPolicy policy = static_cast<QComboBox::SizeAdjustPolicy>(
+  QComboBox::SizeAdjustPolicy policy = static_cast<QComboBox::SizeAdjustPolicy>(
       info[0].As<Napi::Number>().Int32Value());
   this->instance->setSizeAdjustPolicy(policy);
   return env.Null();

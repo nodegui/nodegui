@@ -146,17 +146,17 @@ Napi::Value QDateTimeWrap::daysTo(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::isDaylightTime(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- return Napi::Value::From(env, this->instance->isDaylightTime());
+  return Napi::Value::From(env, this->instance->isDaylightTime());
 }
 
 Napi::Value QDateTimeWrap::isNull(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- return Napi::Value::From(env, this->instance->isNull());
+  return Napi::Value::From(env, this->instance->isNull());
 }
 
 Napi::Value QDateTimeWrap::isValid(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- return Napi::Value::From(env, this->instance->isValid());
+  return Napi::Value::From(env, this->instance->isValid());
 }
 
 Napi::Value QDateTimeWrap::msecsTo(const Napi::CallbackInfo& info) {
@@ -170,7 +170,7 @@ Napi::Value QDateTimeWrap::msecsTo(const Napi::CallbackInfo& info) {
 
 Napi::Value QDateTimeWrap::offsetFromUtc(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- return Napi::Value::From(env, this->instance->offsetFromUtc());
+  return Napi::Value::From(env, this->instance->offsetFromUtc());
 }
 
 Napi::Value QDateTimeWrap::secsTo(const Napi::CallbackInfo& info) {
