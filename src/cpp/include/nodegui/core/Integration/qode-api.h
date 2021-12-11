@@ -1,4 +1,5 @@
-// Temporary fix till we figure out how to get this working without exe symbol exports
+// Temporary fix till we figure out how to get this working without exe symbol
+// exports
 #ifdef _WIN32
 #define QODE_FIX static
 #else
@@ -11,6 +12,5 @@ namespace qode {
 QODE_FIX int qode_argc;
 QODE_FIX char **qode_argv;
 typedef int (*QodeCustomRunLoopFunc)();
-extern void InjectCustomRunLoop(
-    QodeCustomRunLoopFunc customRunLoop);
+extern void InjectCustomRunLoop(QodeCustomRunLoopFunc customRunLoop);
 }  // namespace qode

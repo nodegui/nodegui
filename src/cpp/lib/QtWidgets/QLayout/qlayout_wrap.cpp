@@ -13,7 +13,6 @@ void QLayoutWrap::init(Napi::Env env) {
 NLayout* QLayoutWrap::getInternalInstance() { return this->instance; }
 
 QLayoutWrap::QLayoutWrap(const Napi::CallbackInfo& info)
-    : Napi::ObjectWrap<QLayoutWrap>(info) {
-}
+    : Napi::ObjectWrap<QLayoutWrap>(info) {}
 
 QLayoutWrap::~QLayoutWrap() { extrautils::safeDelete(this->instance); }

@@ -254,13 +254,13 @@ Napi::Value QTableWidgetWrap::setVerticalHeaderLabels(
 
 Napi::Value QTableWidgetWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- this->instance->clear();
+  this->instance->clear();
   return env.Null();
 }
 
 Napi::Value QTableWidgetWrap::clearContents(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- this->instance->clearContents();
+  this->instance->clearContents();
   return env.Null();
 }
 

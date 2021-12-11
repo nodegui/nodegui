@@ -49,29 +49,29 @@ QPoint* QPointWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QPointWrap::setX(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- int x = info[0].As<Napi::Number>().Int32Value();
+  int x = info[0].As<Napi::Number>().Int32Value();
   this->instance->setX(x);
   return env.Null();
 }
 Napi::Value QPointWrap::setY(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- int y = info[0].As<Napi::Number>().Int32Value();
+  int y = info[0].As<Napi::Number>().Int32Value();
   this->instance->setY(y);
   return env.Null();
 }
 Napi::Value QPointWrap::x(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- return Napi::Value::From(env, this->instance->x());
+  return Napi::Value::From(env, this->instance->x());
 }
 Napi::Value QPointWrap::y(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- return Napi::Value::From(env, this->instance->y());
+  return Napi::Value::From(env, this->instance->y());
 }
 
 Napi::Value StaticQPointWrapMethods::fromQVariant(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- Napi::Object variantObject = info[0].As<Napi::Object>();
+  Napi::Object variantObject = info[0].As<Napi::Object>();
   QVariantWrap* variantWrap =
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
   QVariant* variant = variantWrap->getInternalInstance();
@@ -93,7 +93,7 @@ Napi::Value QPointWrap::manhattanLength(const Napi::CallbackInfo& info) {
 
 Napi::Value QPointWrap::transposed(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
- QPoint ret = this->instance->transposed();
+  QPoint ret = this->instance->transposed();
   auto instance = QPointWrap::constructor.New(
       {Napi::External<QPoint>::New(env, new QPoint(ret))});
   return instance;

@@ -41,7 +41,6 @@ void QClipboardWrap::connectSignalsToEventEmitter() {
 
   QObject::connect(this->instance.data(), &QClipboard::changed,
                    [=](const QClipboard::Mode mode) {
-
                      Napi::Env env = this->emitOnNode.Env();
                      Napi::HandleScope scope(env);
                      this->emitOnNode.Call(
