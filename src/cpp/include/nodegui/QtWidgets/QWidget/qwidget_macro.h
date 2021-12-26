@@ -96,12 +96,6 @@
         {Napi::External<QPoint>::New(env, new QPoint(pt.x(), pt.y()))});       \
     return instance;                                                           \
   }                                                                            \
-  Napi::Value isVisible(const Napi::CallbackInfo& info) {                      \
-    Napi::Env env = info.Env();                                                \
-    bool isVisible = this->instance->isVisible();                              \
-    return Napi::Boolean::New(env, isVisible);                                 \
-  }                                                                            \
-                                                                               \
   Napi::Value setLayout(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                                \
     Napi::Object layoutObject = info[0].As<Napi::Object>();                    \
@@ -183,29 +177,6 @@
     this->instance->move(x, y);                                                \
     return env.Null();                                                         \
   }                                                                            \
-                                                                               \
-  Napi::Value setMouseTracking(const Napi::CallbackInfo& info) {               \
-    Napi::Env env = info.Env();                                                \
-    Napi::Boolean isMouseTracked = info[0].As<Napi::Boolean>();                \
-    this->instance->setMouseTracking(isMouseTracked.Value());                  \
-    return env.Null();                                                         \
-  }                                                                            \
-  Napi::Value hasMouseTracking(const Napi::CallbackInfo& info) {               \
-    Napi::Env env = info.Env();                                                \
-    bool isMouseTracked = this->instance->hasMouseTracking();                  \
-    return Napi::Value::From(env, isMouseTracked);                             \
-  }                                                                            \
-  Napi::Value setEnabled(const Napi::CallbackInfo& info) {                     \
-    Napi::Env env = info.Env();                                                \
-    Napi::Boolean enabled = info[0].As<Napi::Boolean>();                       \
-    this->instance->setEnabled(enabled.Value());                               \
-    return env.Null();                                                         \
-  }                                                                            \
-  Napi::Value isEnabled(const Napi::CallbackInfo& info) {                      \
-    Napi::Env env = info.Env();                                                \
-    bool enabled = this->instance->isEnabled();                                \
-    return Napi::Value::From(env, enabled);                                    \
-  }                                                                            \
   Napi::Value setFixedSize(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                                \
     int width = info[0].As<Napi::Number>().Int32Value();                       \
@@ -229,26 +200,12 @@
     this->instance->setMaximumSize(width, height);                             \
     return env.Null();                                                         \
   }                                                                            \
-  Napi::Value maximumSize(const Napi::CallbackInfo& info) {                    \
-    Napi::Env env = info.Env();                                                \
-    QSize size = this->instance->maximumSize();                                \
-    auto sizeWrap = QSizeWrap::constructor.New({Napi::External<QSize>::New(    \
-        env, new QSize(size.width(), size.height()))});                        \
-    return sizeWrap;                                                           \
-  }                                                                            \
   Napi::Value setMinimumSize(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                                \
     int width = info[0].As<Napi::Number>().Int32Value();                       \
     int height = info[1].As<Napi::Number>().Int32Value();                      \
     this->instance->setMinimumSize(width, height);                             \
     return env.Null();                                                         \
-  }                                                                            \
-  Napi::Value minimumSize(const Napi::CallbackInfo& info) {                    \
-    Napi::Env env = info.Env();                                                \
-    QSize size = this->instance->minimumSize();                                \
-    auto sizeWrap = QSizeWrap::constructor.New({Napi::External<QSize>::New(    \
-        env, new QSize(size.width(), size.height()))});                        \
-    return sizeWrap;                                                           \
   }                                                                            \
   Napi::Value repaint(const Napi::CallbackInfo& info) {                        \
     Napi::Env env = info.Env();                                                \
@@ -386,16 +343,6 @@
     this->instance->setGraphicsEffect(effect);                                 \
     return env.Null();                                                         \
   }                                                                            \
-  Napi::Value acceptDrops(const Napi::CallbackInfo& info) {                    \
-    Napi::Env env = info.Env();                                                \
-    return Napi::Boolean::From(env, this->instance->acceptDrops());            \
-  }                                                                            \
-  Napi::Value setAcceptDrops(const Napi::CallbackInfo& info) {                 \
-    Napi::Env env = info.Env();                                                \
-    bool v = info[0].As<Napi::Boolean>().Value();                              \
-    this->instance->setAcceptDrops(v);                                         \
-    return env.Null();                                                         \
-  }                                                                            \
   Napi::Value setFocus(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                                \
     int reason = info[0].As<Napi::Number>().Int32Value();                      \
@@ -416,30 +363,6 @@
     this->instance->setSizePolicy(horizontal, vertical);                       \
     return env.Null();                                                         \
   }                                                                            \
-  Napi::Value setMaximumHeight(const Napi::CallbackInfo& info) {               \
-    Napi::Env env = info.Env();                                                \
-    int maxh = info[0].As<Napi::Number>().Int32Value();                        \
-    this->instance->setMaximumHeight(maxh);                                    \
-    return env.Null();                                                         \
-  }                                                                            \
-  Napi::Value setMinimumWidth(const Napi::CallbackInfo& info) {                \
-    Napi::Env env = info.Env();                                                \
-    int minw = info[0].As<Napi::Number>().Int32Value();                        \
-    this->instance->setMinimumWidth(minw);                                     \
-    return env.Null();                                                         \
-  }                                                                            \
-  Napi::Value setMaximumWidth(const Napi::CallbackInfo& info) {                \
-    Napi::Env env = info.Env();                                                \
-    int maxw = info[0].As<Napi::Number>().Int32Value();                        \
-    this->instance->setMaximumWidth(maxw);                                     \
-    return env.Null();                                                         \
-  }                                                                            \
-  Napi::Value setMinimumHeight(const Napi::CallbackInfo& info) {               \
-    Napi::Env env = info.Env();                                                \
-    int minh = info[0].As<Napi::Number>().Int32Value();                        \
-    this->instance->setMinimumHeight(minh);                                    \
-    return env.Null();                                                         \
-  }                                                                            \
   Napi::Value style(const Napi::CallbackInfo& info) {                          \
     Napi::Env env = info.Env();                                                \
     QStyle* style = this->instance->style();                                   \
@@ -454,11 +377,6 @@
   Napi::Value isWindowModified(const Napi::CallbackInfo& info) {               \
     Napi::Env env = info.Env();                                                \
     bool result = this->instance->isWindowModified();                          \
-    return Napi::Boolean::New(env, result);                                    \
-  }                                                                            \
-  Napi::Value isHidden(const Napi::CallbackInfo& info) {                       \
-    Napi::Env env = info.Env();                                                \
-    bool result = this->instance->isHidden();                                  \
     return Napi::Boolean::New(env, result);                                    \
   }                                                                            \
   Napi::Value setDisabled(const Napi::CallbackInfo& info) {                    \
@@ -505,6 +423,122 @@
     int w = info[0].As<Napi::Number>().Int32Value();                           \
     this->instance->setFixedWidth(w);                                          \
     return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value ensurePolished(const Napi::CallbackInfo& info) {                 \
+    Napi::Env env = info.Env();                                                \
+    this->instance->ensurePolished();                                          \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value clearMask(const Napi::CallbackInfo& info) {                      \
+    Napi::Env env = info.Env();                                                \
+    this->instance->clearMask();                                               \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value grabKeyboard(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                                \
+    this->instance->grabKeyboard();                                            \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value grabMouse(const Napi::CallbackInfo& info) {                      \
+    Napi::Env env = info.Env();                                                \
+    this->instance->grabMouse();                                               \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value hasHeightForWidth(const Napi::CallbackInfo& info) {              \
+    Napi::Env env = info.Env();                                                \
+    bool result = this->instance->hasHeightForWidth();                         \
+    return Napi::Boolean::New(env, result);                                    \
+  }                                                                            \
+  Napi::Value minimumSizeHint(const Napi::CallbackInfo& info) {                \
+    Napi::Env env = info.Env();                                                \
+    QSize result = this->instance->minimumSizeHint();                          \
+    auto resultInstance = QSizeWrap::constructor.New(                          \
+        {Napi::External<QSize>::New(env, new QSize(result))});                 \
+    return resultInstance;                                                     \
+  }                                                                            \
+  Napi::Value releaseKeyboard(const Napi::CallbackInfo& info) {                \
+    Napi::Env env = info.Env();                                                \
+    this->instance->releaseKeyboard();                                         \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value releaseMouse(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                                \
+    this->instance->releaseMouse();                                            \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value releaseShortcut(const Napi::CallbackInfo& info) {                \
+    Napi::Env env = info.Env();                                                \
+    int id = info[0].As<Napi::Number>().Int32Value();                          \
+    this->instance->releaseShortcut(id);                                       \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value setContentsMargins(const Napi::CallbackInfo& info) {             \
+    Napi::Env env = info.Env();                                                \
+    int left = info[0].As<Napi::Number>().Int32Value();                        \
+    int top = info[1].As<Napi::Number>().Int32Value();                         \
+    int right = info[2].As<Napi::Number>().Int32Value();                       \
+    int bottom = info[3].As<Napi::Number>().Int32Value();                      \
+    this->instance->setContentsMargins(left, top, right, bottom);              \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value setShortcutAutoRepeat(const Napi::CallbackInfo& info) {          \
+    Napi::Env env = info.Env();                                                \
+    int id = info[0].As<Napi::Number>().Int32Value();                          \
+    bool enable = info[1].As<Napi::Boolean>().Value();                         \
+    this->instance->setShortcutAutoRepeat(id, enable);                         \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value setShortcutEnabled(const Napi::CallbackInfo& info) {             \
+    Napi::Env env = info.Env();                                                \
+    int id = info[0].As<Napi::Number>().Int32Value();                          \
+    bool enable = info[1].As<Napi::Boolean>().Value();                         \
+    this->instance->setShortcutEnabled(id, enable);                            \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value setSizeIncrement(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                                \
+    int w = info[0].As<Napi::Number>().Int32Value();                           \
+    int h = info[1].As<Napi::Number>().Int32Value();                           \
+    this->instance->setSizeIncrement(w, h);                                    \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value setWindowRole(const Napi::CallbackInfo& info) {                  \
+    Napi::Env env = info.Env();                                                \
+    std::string roleNapiText = info[0].As<Napi::String>().Utf8Value();         \
+    QString role = QString::fromUtf8(roleNapiText.c_str());                    \
+    this->instance->setWindowRole(role);                                       \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value underMouse(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                                \
+    bool result = this->instance->underMouse();                                \
+    return Napi::Boolean::New(env, result);                                    \
+  }                                                                            \
+  Napi::Value unsetCursor(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                                \
+    this->instance->unsetCursor();                                             \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value unsetLayoutDirection(const Napi::CallbackInfo& info) {           \
+    Napi::Env env = info.Env();                                                \
+    this->instance->unsetLayoutDirection();                                    \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value unsetLocale(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                                \
+    this->instance->unsetLocale();                                             \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value windowRole(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                                \
+    QString result = this->instance->windowRole();                             \
+    return Napi::String::New(env, result.toStdString());                       \
+  }                                                                            \
+  Napi::Value heightForWidth(const Napi::CallbackInfo& info) {                 \
+    Napi::Env env = info.Env();                                                \
+    int w = info[0].As<Napi::Number>().Int32Value();                           \
+    int result = this->instance->heightForWidth(w);                            \
+    return Napi::Number::New(env, result);                                     \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -516,7 +550,6 @@
   QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)                        \
   InstanceMethod("show", &WidgetWrapName::show),                               \
       InstanceMethod("resize", &WidgetWrapName::resize),                       \
-      InstanceMethod("isVisible", &WidgetWrapName::isVisible),                 \
       InstanceMethod("close", &WidgetWrapName::close),                         \
       InstanceMethod("mapFromGlobal", &WidgetWrapName::mapFromGlobal),         \
       InstanceMethod("mapFromParent", &WidgetWrapName::mapFromParent),         \
@@ -533,10 +566,6 @@
       InstanceMethod("styleSheet", &WidgetWrapName::styleSheet),               \
       InstanceMethod("hide", &WidgetWrapName::hide),                           \
       InstanceMethod("move", &WidgetWrapName::move),                           \
-      InstanceMethod("setMouseTracking", &WidgetWrapName::setMouseTracking),   \
-      InstanceMethod("hasMouseTracking", &WidgetWrapName::hasMouseTracking),   \
-      InstanceMethod("setEnabled", &WidgetWrapName::setEnabled),               \
-      InstanceMethod("isEnabled", &WidgetWrapName::isEnabled),                 \
       InstanceMethod("setFixedSize", &WidgetWrapName::setFixedSize),           \
       InstanceMethod("setGeometry", &WidgetWrapName::setGeometry),             \
       InstanceMethod("setMaximumSize", &WidgetWrapName::setMaximumSize),       \
@@ -544,8 +573,6 @@
       InstanceMethod("repaint", &WidgetWrapName::repaint),                     \
       InstanceMethod("update", &WidgetWrapName::update),                       \
       InstanceMethod("updateGeometry", &WidgetWrapName::updateGeometry),       \
-      InstanceMethod("maximumSize", &WidgetWrapName::maximumSize),             \
-      InstanceMethod("minimumSize", &WidgetWrapName::minimumSize),             \
       InstanceMethod("pos", &WidgetWrapName::pos),                             \
       InstanceMethod("size", &WidgetWrapName::size),                           \
       InstanceMethod("setAttribute", &WidgetWrapName::setAttribute),           \
@@ -565,26 +592,43 @@
       InstanceMethod("removeAction", &WidgetWrapName::removeAction),           \
       InstanceMethod("repolish", &WidgetWrapName::repolish),                   \
       InstanceMethod("setGraphicsEffect", &WidgetWrapName::setGraphicsEffect), \
-      InstanceMethod("acceptDrops", &WidgetWrapName::acceptDrops),             \
-      InstanceMethod("setAcceptDrops", &WidgetWrapName::setAcceptDrops),       \
       InstanceMethod("setFocus", &WidgetWrapName::setFocus),                   \
       InstanceMethod("clearFocus", &WidgetWrapName::clearFocus),               \
       InstanceMethod("setSizePolicy", &WidgetWrapName::setSizePolicy),         \
-      InstanceMethod("setMaximumHeight", &WidgetWrapName::setMaximumHeight),   \
-      InstanceMethod("setMinimumWidth", &WidgetWrapName::setMinimumWidth),     \
-      InstanceMethod("setMaximumWidth", &WidgetWrapName::setMaximumWidth),     \
-      InstanceMethod("setMinimumHeight", &WidgetWrapName::setMinimumHeight),   \
       InstanceMethod("style", &WidgetWrapName::style),                         \
       InstanceMethod("isWindow", &WidgetWrapName::isWindow),                   \
       InstanceMethod("isWindowModified", &WidgetWrapName::isWindowModified),   \
-      InstanceMethod("isHidden", &WidgetWrapName::isHidden),                   \
       InstanceMethod("setDisabled", &WidgetWrapName::setDisabled),             \
       InstanceMethod("setHidden", &WidgetWrapName::setHidden),                 \
       InstanceMethod("setVisible", &WidgetWrapName::setVisible),               \
       InstanceMethod("setWindowModified", &WidgetWrapName::setWindowModified), \
       InstanceMethod("windowHandle", &WidgetWrapName::windowHandle),           \
       InstanceMethod("setFixedHeight", &WidgetWrapName::setFixedHeight),       \
-      InstanceMethod("setFixedWidth", &WidgetWrapName::setFixedWidth),
+      InstanceMethod("setFixedWidth", &WidgetWrapName::setFixedWidth),         \
+      InstanceMethod("ensurePolished", &WidgetWrapName::ensurePolished),       \
+      InstanceMethod("clearMask", &WidgetWrapName::clearMask),                 \
+      InstanceMethod("grabKeyboard", &WidgetWrapName::grabKeyboard),           \
+      InstanceMethod("grabMouse", &WidgetWrapName::grabMouse),                 \
+      InstanceMethod("hasHeightForWidth", &WidgetWrapName::hasHeightForWidth), \
+      InstanceMethod("minimumSizeHint", &WidgetWrapName::minimumSizeHint),     \
+      InstanceMethod("releaseKeyboard", &WidgetWrapName::releaseKeyboard),     \
+      InstanceMethod("releaseMouse", &WidgetWrapName::releaseMouse),           \
+      InstanceMethod("releaseShortcut", &WidgetWrapName::releaseShortcut),     \
+      InstanceMethod("setContentsMargins",                                     \
+                     &WidgetWrapName::setContentsMargins),                     \
+      InstanceMethod("setShortcutAutoRepeat",                                  \
+                     &WidgetWrapName::setShortcutAutoRepeat),                  \
+      InstanceMethod("setShortcutEnabled",                                     \
+                     &WidgetWrapName::setShortcutEnabled),                     \
+      InstanceMethod("setSizeIncrement", &WidgetWrapName::setSizeIncrement),   \
+      InstanceMethod("setWindowRole", &WidgetWrapName::setWindowRole),         \
+      InstanceMethod("underMouse", &WidgetWrapName::underMouse),               \
+      InstanceMethod("unsetCursor", &WidgetWrapName::unsetCursor),             \
+      InstanceMethod("unsetLayoutDirection",                                   \
+                     &WidgetWrapName::unsetLayoutDirection),                   \
+      InstanceMethod("unsetLocale", &WidgetWrapName::unsetLocale),             \
+      InstanceMethod("windowRole", &WidgetWrapName::windowRole),               \
+      InstanceMethod("heightForWidth", &WidgetWrapName::heightForWidth),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

@@ -74,10 +74,14 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     // *** Public Functions ***
     acceptDrops(): boolean {
-        return this.native.acceptDrops();
+        return this.property('acceptDrops').toBool();
     }
-    // TODO: QString 	accessibleDescription() const
-    // TODO: QString 	accessibleName() const
+    accessibleDescription(): string {
+        return this.property('accessibleDescription').toString();
+    }
+    accessibleName(): string {
+        return this.property('accessibleName').toString();
+    }
     // TODO: QList<QAction *> 	actions() const
     activateWindow(): void {
         this.native.activateWindow();
@@ -96,24 +100,37 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     adjustSize(): void {
         this.native.adjustSize();
     }
-    // TODO: bool 	autoFillBackground() const
+    autoFillBackground(): boolean {
+        return this.property('autoFillBackground').toBool();
+    }
+    // CLASS: QWidget
     // TODO: QPalette::ColorRole 	backgroundRole() const
     // TODO: QBackingStore *	backingStore() const
-    // TODO: QSize 	baseSize() const
+    baseSize(): QSize {
+        return QSize.fromQVariant(this.property('baseSize'));
+    }
     // TODO: QWidget *	childAt(int x, int y) const
     // TODO: QWidget *	childAt(const QPoint &p) const
-    // TODO: QRect 	childrenRect() const
+    childrenRect(): QRect {
+        return QRect.fromQVariant(this.property('childrenRect'));
+    }
     // TODO: QRegion 	childrenRegion() const
     clearFocus(): void {
         this.native.clearFocus();
     }
-    // TODO: void 	clearMask()
+    clearMask(): void {
+        this.native.clearMask();
+    }
     // TODO: QMargins 	contentsMargins() const
     // TODO: QRect 	contentsRect() const
-    // TODO: Qt::ContextMenuPolicy 	contextMenuPolicy() const
+    contextMenuPolicy(): ContextMenuPolicy {
+        return this.property('contextMenuPolicy').toInt();
+    }
     // TODO: QCursor 	cursor() const
     // TODO: WId 	effectiveWinId() const
-    // TODO: void 	ensurePolished() const
+    ensurePolished(): void {
+        this.native.ensurePolished();
+    }
     // TODO: Qt::FocusPolicy 	focusPolicy() const
     // TODO: QWidget *	focusProxy() const
     // TODO: QWidget *	focusWidget() const
@@ -126,14 +143,20 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     frameGeometry(): QRect {
         return QRect.fromQVariant(this.property('frameGeometry'));
     }
-    // TODO: QSize 	frameSize() const
+    frameSize(): QSize {
+        return QSize.fromQVariant(this.property('frameSize'));
+    }
     geometry(): QRect {
         return QRect.fromQVariant(this.property('geometry'));
     }
     // TODO: QPixmap 	grab(const QRect &rectangle = QRect(QPoint(0, 0), QSize(-1, -1)))
     // TODO: void 	grabGesture(Qt::GestureType gesture, Qt::GestureFlags flags = Qt::GestureFlags())
-    // TODO: void 	grabKeyboard()
-    // TODO: void 	grabMouse()
+    grabKeyboard(): void {
+        this.native.grabKeyboard();
+    }
+    grabMouse(): void {
+        this.native.grabMouse();
+    }
     // TODO: void 	grabMouse(const QCursor &cursor)
     // TODO: int 	grabShortcut(const QKeySequence &key, Qt::ShortcutContext context = Qt::WindowShortcut)
     // TODO: QGraphicsEffect *	graphicsEffect() const
@@ -141,15 +164,21 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     hasFocus(): boolean {
         return this.property('focus').toBool();
     }
-    // TODO: virtual bool 	hasHeightForWidth() const
-    hasMouseTracking(): boolean {
-        return this.native.hasMouseTracking();
+    hasHeightForWidth(): boolean {
+        return this.native.hasHeightForWidth();
     }
-    // TODO: bool 	hasTabletTracking() const
+    hasMouseTracking(): boolean {
+        return this.property('mouseTracking').toBool();
+    }
+    hasTabletTracking(): boolean {
+        return this.property('tabletTracking').toBool();
+    }
     height(): number {
         return this.property('height').toInt();
     }
-    // TODO: virtual int 	heightForWidth(int w) const
+    heightForWidth(w: number): number {
+        return this.native.heightForWidth(w);
+    }
     // TODO: Qt::InputMethodHints 	inputMethodHints() const
     // TODO: virtual QVariant 	inputMethodQuery(Qt::InputMethodQuery query) const
     // TODO: void 	insertAction(QAction *before, QAction *action)
@@ -159,14 +188,14 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     // TODO: bool 	isAncestorOf(const QWidget *child) const
     isEnabled(): boolean {
-        return this.native.isEnabled();
+        return this.property('enabled').toBool();
     }
     // TODO: bool 	isEnabledTo(const QWidget *ancestor) const
     isFullScreen(): boolean {
         return this.property('fullScreen').toBool();
     }
     isHidden(): boolean {
-        return this.native.isHidden();
+        return !this.property('visible').toBool();
     }
     isMaximized(): boolean {
         return this.property('maximized').toBool();
@@ -178,7 +207,7 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         return this.property('modal').toBool();
     }
     isVisible(): boolean {
-        return this.native.isVisible();
+        return this.property('visible').toBool();
     }
     // TODO: bool 	isVisibleTo(const QWidget *ancestor) const
     isWindow(): boolean {
@@ -205,35 +234,57 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         return new QPoint(this.native.mapToParent(pos.native));
     }
     // TODO: QRegion 	mask() const
-    // TODO: int 	maximumHeight() const
+    maximumHeight(): number {
+        return this.property('maximumHeight').toInt();
+    }
     maximumSize(): QSize {
-        return new QSize(this.native.maximumSize());
+        return QSize.fromQVariant(this.property('maximumSize'));
     }
-    // TODO: int 	maximumWidth() const
-    // TODO: int 	minimumHeight() const
+    maximumWidth(): number {
+        return this.property('maximumWidth').toInt();
+    }
+    minimumHeight(): number {
+        return this.property('minimumHeight').toInt();
+    }
     minimumSize(): QSize {
-        return new QSize(this.native.minimumSize());
+        return QSize.fromQVariant(this.property('minimumSize'));
     }
-    // TODO: virtual QSize 	minimumSizeHint() const
-    // TODO: int 	minimumWidth() const
+    minimumSizeHint(): QSize {
+        return new QSize(this.native.minimumSizeHint());
+    }
+    minimumWidth(): number {
+        return this.property('minimumWidth').toInt();
+    }
     // TODO: void 	move(const QPoint &)
     move(x: number, y: number): void {
         this.native.move(x, y);
     }
     // TODO: QWidget *	nativeParentWidget() const
     // TODO: QWidget *	nextInFocusChain() const
-    // TODO: QRect 	normalGeometry() const
+    normalGeometry(): QRect {
+        return QRect.fromQVariant(this.property('normalGeometry'));
+    }
     // TODO: void 	overrideWindowFlags(Qt::WindowFlags flags)
     // TODO: const QPalette &	palette() const
     // TODO: QWidget *	parentWidget() const
+
+    // PROP: QWidget
     pos(): { x: number; y: number } {
         return this.native.pos();
     }
     // TODO: QWidget *	previousInFocusChain() const
-    // TODO: QRect 	rect() const
-    // TODO: void 	releaseKeyboard()
-    // TODO: void 	releaseMouse()
-    // TODO: void 	releaseShortcut(int id)
+    rect(): QRect {
+        return QRect.fromQVariant(this.property('rect'));
+    }
+    releaseKeyboard(): void {
+        this.native.releaseKeyboard();
+    }
+    releaseMouse(): void {
+        this.native.releaseMouse();
+    }
+    releaseShortcut(id: number): void {
+        this.native.releaseShortcut(id);
+    }
     removeAction(action: QAction): void {
         this.native.removeAction(action.native);
     }
@@ -251,24 +302,34 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     }
     // TODO: QScreen *QWidget::screen() const
     setAcceptDrops(on: boolean): void {
-        this.native.setAcceptDrops(on);
+        this.setProperty('acceptDrops', on);
     }
-    // TODO: void 	setAcceptDrops(bool on)
-    // TODO: void 	setAccessibleDescription(const QString &description)
-    // TODO: void 	setAccessibleName(const QString &name)
+    setAccessibleDescription(description: string): void {
+        this.setProperty('accessibleDescription', description);
+    }
+    setAccessibleName(name: string): void {
+        this.setProperty('accessibleName', name);
+    }
     setAttribute(attribute: WidgetAttribute, switchOn: boolean): void {
         // react:⛔️
         return this.native.setAttribute(attribute, switchOn);
     }
-    // TODO: void 	setAutoFillBackground(bool enabled)
+    setAutoFillBackground(enabled: boolean): void {
+        this.setProperty('autoFillBackground', enabled);
+    }
     // TODO: void 	setBackgroundRole(QPalette::ColorRole role)
-    // TODO: void 	setBaseSize(const QSize &)
+    setBaseSize(size: QSize): void {
+        this.setProperty('baseSize', size.native);
+    }
     // TODO: void 	setBaseSize(int basew, int baseh)
-    // TODO: void 	setContentsMargins(int left, int top, int right, int bottom)
+    setContentsMargins(left: number, top: number, right: number, bottom: number): void {
+        this.native.setContentsMargins(left, top, right, bottom);
+    }
     // TODO: void 	setContentsMargins(const QMargins &margins)
     setContextMenuPolicy(contextMenuPolicy: ContextMenuPolicy): void {
         this.setProperty('contextMenuPolicy', contextMenuPolicy);
     }
+    // PROP: QWidget
     setCursor(cursor: CursorShape | QCursor): void {
         if (typeof cursor === 'number') {
             this.native.setCursor(cursor);
@@ -276,7 +337,7 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
             this.native.setCursor(cursor.native);
         }
     }
-    // TODO: void 	setEditFocus(bool enable)
+    // Embedded only: void setEditFocus(bool enable)
     setFixedHeight(h: number): void {
         this.native.setFixedHeight(h);
     }
@@ -323,27 +384,29 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     // TODO: void 	setMask(const QBitmap &bitmap)
     // TODO: void 	setMask(const QRegion &region)
     setMaximumHeight(maxh: number): void {
-        this.native.setMaximumHeight(maxh);
+        this.setProperty('maximumHeight', maxh);
     }
+    // PROP: QWidget
     // TODO: void 	setMaximumSize(const QSize &)
     setMaximumSize(maxw: number, maxh: number): void {
         this.native.setMaximumSize(maxw, maxh);
     }
     setMaximumWidth(maxw: number): void {
-        this.native.setMaximumWidth(maxw);
+        this.setProperty('maximumWidth', maxw);
     }
-    // TODO: void 	setMinimumSize(const QSize &)
+    // PROP: QWidget
+    // TODO: void 	setMinimumSize(const QSize &size)
     setMinimumHeight(minh: number): void {
-        this.native.setMinimumHeight(minh);
+        this.setProperty('minimumHeight', minh);
     }
     setMinimumSize(minw: number, minh: number): void {
         this.native.setMinimumSize(minw, minh);
     }
     setMinimumWidth(minw: number): void {
-        this.native.setMinimumWidth(minw);
+        this.setProperty('minimumWidth', minw);
     }
     setMouseTracking(isMouseTracked: boolean): void {
-        this.native.setMouseTracking(isMouseTracked);
+        this.setProperty('mouseTracking', isMouseTracked);
     }
     setObjectName(objectName: string): void {
         super.setObjectName(objectName);
@@ -355,35 +418,62 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     // TODO: void 	setPalette(const QPalette &)
     // TODO: void 	setParent(QWidget *parent)
     // TODO: void 	setParent(QWidget *parent, Qt::WindowFlags f)
-    // TODO: void 	setShortcutAutoRepeat(int id, bool enable = true)
-    // TODO: void 	setShortcutEnabled(int id, bool enable = true)
-    // TODO: void 	setSizeIncrement(const QSize &)
-    // TODO: void 	setSizeIncrement(int w, int h)
+    setShortcutAutoRepeat(id: number, enable = true): void {
+        this.native.setShortcutAutoRepeat(id, enable);
+    }
+    setShortcutEnabled(id: number, enable = true): void {
+        this.native.setShortcutEnabled(id, enable);
+    }
+    setSizeIncrement(w_or_size: QSize | number, h = 0): void {
+        if (typeof w_or_size === 'number') {
+            this.native.setSizeIncrement(w_or_size, h);
+        } else {
+            this.setProperty('sizeIncrement', w_or_size.native);
+        }
+    }
     // TODO: void 	setSizePolicy(QSizePolicy)
     setSizePolicy(horizontal: QSizePolicyPolicy, vertical: QSizePolicyPolicy): void {
         this.native.setSizePolicy(horizontal, vertical);
     }
-    // TODO: void 	setStatusTip(const QString &)
+    setStatusTip(statusTip: string): void {
+        this.setProperty('statusTip', statusTip);
+    }
     // TODO: void 	setStyle(QStyle *style)
-    // TODO: void 	setTabletTracking(bool enable)
-    // TODO: void 	setToolTip(const QString &)
-    // TODO: void 	setToolTipDuration(int msec)
-    // TODO: void 	setUpdatesEnabled(bool enable)
-    // TODO: void 	setWhatsThis(const QString &)
-    // TODO: void 	setWindowFilePath(const QString &filePath)
+    setTabletTracking(enable: boolean): void {
+        this.setProperty('tabletTracking', enable);
+    }
+    setToolTip(text: string): void {
+        this.native.setProperty('toolTip', text);
+    }
+    setToolTipDuration(msec: number): void {
+        this.setProperty('toolTipDuration', msec);
+    }
+    setUpdatesEnabled(enable: boolean): void {
+        this.native.setProperty('updatesEnabled', enable);
+    }
+    setWhatsThis(whatsThis: string): void {
+        this.setProperty('whatsThis', whatsThis);
+    }
+    setWindowFilePath(filePath: string): void {
+        this.setProperty('windowFilePath', filePath);
+    }
     setWindowFlag(windowType: WindowType, switchOn: boolean): void {
         // react:⛔️
         return this.native.setWindowFlag(windowType, switchOn);
     }
+    // PROP: QWidget
     // TODO: void 	setWindowFlags(Qt::WindowFlags type)
     setWindowIcon(icon: QIcon): void {
         this.native.setWindowIcon(icon.native);
     }
+    // PROP: QWidget
     // TODO: void 	setWindowModality(Qt::WindowModality windowModality)
     setWindowOpacity(opacity: number): void {
         this.native.setWindowOpacity(opacity);
     }
-    // TODO: void 	setWindowRole(const QString &role)
+    setWindowRole(role: string): void {
+        this.native.setWindowRole(role);
+    }
     setWindowState(state: WindowState): void {
         return this.native.setWindowState(state);
     }
@@ -393,10 +483,15 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     sizeHint(): QSize {
         return QSize.fromQVariant(this.property('sizeHint'));
     }
-    // TODO: QSize 	sizeIncrement() const
+    sizeIncrement(): QSize {
+        return QSize.fromQVariant(this.property('sizeIncrement'));
+    }
+    // PROP: QWidget
     // TODO: QSizePolicy 	sizePolicy() const
     // TODO: void 	stackUnder(QWidget *w)
-    // TODO: QString 	statusTip() const
+    statusTip(): string {
+        return this.property('statusTip').toString();
+    }
     style(): QStyle {
         return new QStyle(this.native.style());
     }
@@ -407,13 +502,25 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         // react:⛔️
         return this.native.testAttribute(attribute);
     }
-    // TODO: QString 	toolTip() const
-    // TODO: int 	toolTipDuration() const
-    // TODO: bool 	underMouse() const
+    toolTip(): string {
+        return this.property('toolTip').toString();
+    }
+    toolTipDuration(): number {
+        return this.property('toolTipDuration').toInt();
+    }
     // TODO: void 	ungrabGesture(Qt::GestureType gesture)
-    // TODO: void 	unsetCursor()
-    // TODO: void 	unsetLayoutDirection()
-    // TODO: void 	unsetLocale()
+    underMouse(): boolean {
+        return this.native.underMouse();
+    }
+    unsetCursor(): void {
+        this.native.unsetCursor();
+    }
+    unsetLayoutDirection(): void {
+        this.native.unsetLayoutDirection();
+    }
+    unsetLocale(): void {
+        this.native.unsetLocale();
+    }
     // TODO: void 	update(int x, int y, int w, int h)
     // TODO: void 	update(const QRect &rect)
     // TODO: void 	update(const QRegion &rgn)
@@ -421,15 +528,22 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         // react:⛔️
         this.native.updateGeometry();
     }
-    // TODO:     bool 	updatesEnabled() const
+    updatesEnabled(): boolean {
+        return this.property('updatesEnabled').toBool();
+    }
     // TODO: QRegion 	visibleRegion() const
-    // TODO: QString 	whatsThis() const
+    whatsThis(): string {
+        return this.property('whatsThis').toString();
+    }
     width(): number {
         return this.property('width').toInt();
     }
     // TODO: WId 	winId() const
     // TODO: QWidget *	window() const
-    // TODO: QString 	windowFilePath() const
+    windowFilePath(): string {
+        return this.property('windowFilePath').toString();
+    }
+    // PROP: QWidget
     // TODO: Qt::WindowFlags 	windowFlags() const
     windowHandle(): QWindow | null {
         const handle = this.native.windowHandle();
@@ -438,12 +552,17 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         }
         return null;
     }
-    // TODO: QIcon 	windowIcon() const
+    windowIcon(): QIcon {
+        return QIcon.fromQVariant(this.property('windowIcon'));
+    }
+    // PROP: QWidget
     // TODO: Qt::WindowModality 	windowModality() const
     windowOpacity(): number {
         return this.native.windowOpacity();
     }
-    // TODO: QString 	windowRole() const
+    windowRole(): string {
+        return this.native.windowRole();
+    }
     windowState(): number {
         return this.native.windowState();
     }
@@ -491,7 +610,6 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         const preparedSheet = StyleSheet.create(styleSheet);
         this.native.setStyleSheet(preparedSheet);
     }
-    // TODO: void 	setStyleSheet(const QString &styleSheet)
     setVisible(visible: boolean): void {
         this.native.setVisible(visible);
     }
