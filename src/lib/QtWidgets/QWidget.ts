@@ -595,10 +595,10 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         this.native.repaint();
     }
     setDisabled(disable: boolean): void {
-        this.native.setDisabled(disable);
+        this.setEnabled(!disable);
     }
     setEnabled(enabled: boolean): void {
-        this.native.setEnabled(enabled);
+        this.setProperty('enabled', enabled);
     }
     setFocus(reason = FocusReason.OtherFocusReason): void {
         this.native.setFocus(reason);

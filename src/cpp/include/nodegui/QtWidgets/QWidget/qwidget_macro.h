@@ -379,12 +379,6 @@
     bool result = this->instance->isWindowModified();                          \
     return Napi::Boolean::New(env, result);                                    \
   }                                                                            \
-  Napi::Value setDisabled(const Napi::CallbackInfo& info) {                    \
-    Napi::Env env = info.Env();                                                \
-    bool disable = info[0].As<Napi::Boolean>().Value();                        \
-    this->instance->setDisabled(disable);                                      \
-    return env.Null();                                                         \
-  }                                                                            \
   Napi::Value setHidden(const Napi::CallbackInfo& info) {                      \
     Napi::Env env = info.Env();                                                \
     bool hidden = info[0].As<Napi::Boolean>().Value();                         \
@@ -598,7 +592,6 @@
       InstanceMethod("style", &WidgetWrapName::style),                         \
       InstanceMethod("isWindow", &WidgetWrapName::isWindow),                   \
       InstanceMethod("isWindowModified", &WidgetWrapName::isWindowModified),   \
-      InstanceMethod("setDisabled", &WidgetWrapName::setDisabled),             \
       InstanceMethod("setHidden", &WidgetWrapName::setHidden),                 \
       InstanceMethod("setVisible", &WidgetWrapName::setVisible),               \
       InstanceMethod("setWindowModified", &WidgetWrapName::setWindowModified), \
