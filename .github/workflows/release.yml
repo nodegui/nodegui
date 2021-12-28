@@ -49,19 +49,19 @@ jobs:
           cwd: ./build/Release
           files: |
             ./nodegui_core.node
-          outPath: ${{ ARCHIVE_FILENAME }}
+          outPath: ${{ env.ARCHIVE_FILENAME }}
 
       - uses: actions/upload-artifact@v1
         with:
-          name: ${{ ARCHIVE_FILENAME }}
-          path: ${{ ARCHIVE_FILENAME }}
+          name: ${{ env.ARCHIVE_FILENAME }}
+          path: ${{ env.ARCHIVE_FILENAME }}
 
       - name: Upload release binaries
         uses: alexellis/upload-assets@0.2.2
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          asset_paths: '["${{ ARCHIVE_FILENAME }}"]'
+          asset_paths: '["${{ env.ARCHIVE_FILENAME }}"]'
 
   publish-npm-package:
     needs: precompile
