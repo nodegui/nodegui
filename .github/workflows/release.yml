@@ -14,14 +14,14 @@ jobs:
             platform: linux
             arch: x64
           - os: windows-latest
-            platfrom: win32
+            platform: win32
             arch: x64
           - os: macos-latest
             platform: darwin
             arch: x64
     runs-on: ${{ matrix.os }}
     env:
-      ARCHIVE_FILENAME: ${{github.event.release.tag_name}}-${{ matrix.platform }}-${{ matrix.arch }}.tar.gz
+      ARCHIVE_FILENAME: nodegui-binary-${{github.event.release.tag_name}}-${{ matrix.platform }}-${{ matrix.arch }}.tar.gz
     steps:
       - uses: actions/checkout@v2
 
