@@ -254,7 +254,7 @@ if (WIN32)
 
 endif()
 
-if (UNIX)
+if (LINUX)
     # Set the RPATH in the binary to a relative one to allow it to find our Qt
     # libraries regardless of where the base installation directory is.
     file(RELATIVE_PATH QT_LIBRARY_REL_PATH "${CMAKE_BINARY_DIR}/Release" "${QT_CMAKE_HOME_DIR}/../..")
