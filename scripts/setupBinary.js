@@ -29,7 +29,11 @@ async function setupBinary() {
     fs.unlinkSync(tarPath);
 }
 
-setupBinary().catch((err) => {
-    console.error(err);
-    process.exit(1);
-});
+setupBinary()
+    .catch((err) => {
+        console.error(err);
+        process.exit(1);
+    })
+    .then(() => {
+        process.exit(0);
+    });
