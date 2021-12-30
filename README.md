@@ -57,48 +57,16 @@ https://github.com/nodegui/examples
 -   Checkout the examples: https://github.com/nodegui/examples .
 -   [Tutorial: Build a native Meme Search Desktop app with Javascript (NodeGui) and Giphy API](https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/)
 
+
 ## Installation
 
-NodeGui requires CMake and Compilation Tools as it is a wrapper for a native C++ widget toolkit QT.
-Detailed instructions here: https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/
-
-TL;DR:
-MacOS
-
-```
-brew install cmake
-brew install make
-```
-
-
-Windows
-https://cmake.org/download/
-
-Linux (Debian/Ubuntu)
-
-```
-sudo apt-get install pkg-config build-essential
-sudo apt-get install cmake make
-sudo apt-get install mesa-common-dev libglu1-mesa-dev
-```
-
-Linux (Fedora/RHEL/CentOS)
-
-```
-sudo dnf groupinstall "Development Tools" "Development Libraries"
-sudo dnf groupinstall "C Development Tools and Libraries"
-sudo dnf install mesa-libGL mesa-libGL-devel
-```
-
-Then install NodeGui from your command line:
-
-#### To install latest stable release:
+To install latest stable release:
 
 ```
 npm install @nodegui/nodegui
 ```
 
-#### To install the latest version available on master branch:
+To install the latest version available on master branch:
 
 ```
 npm install https://github.com/nodegui/nodegui/releases/download/v0.0.0-latest-master/nodegui-master.tgz
@@ -121,7 +89,82 @@ npm install @nodegui/nodegui
 See [FAQs](https://github.com/nodegui/nodegui/tree/master/website/docs/faq.md#why-does-installation-fail-at-minimal-qt-setup) for more details.
 
 
-#### Using your own custom Qt installation (Optional)
+
+## Community guides
+
+-   [Tutorial: Build a native Meme Search Desktop app with Javascript (NodeGui) and Giphy API](https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/)
+-   https://blog.logrocket.com/electron-alternatives-exploring-nodegui-and-react-nodegui/ - Electron alternatives: Exploring NodeGUI and React NodeGUI by [Siegfried Grimbeek](https://blog.logrocket.com/author/siegfriedgrimbeek/).
+-   https://hibbard.eu/node-gui/ - Excellent guide from [James Hibbard](https://github.com/jameshibbard).
+
+## Talks/Podcasts
+
+-   [NodeGui and React NodeGui at KarmaJS Nov 2019 meetup: https://www.youtube.com/watch?v=8jH5gaEEDv4](https://www.youtube.com/watch?v=8jH5gaEEDv4)
+
+-   <audio data-theme="night" data-src="https://changelog.com/jsparty/96/embed" src="https://cdn.changelog.com/uploads/jsparty/96/js-party-96.mp3" preload="none" class="changelog-episode" controls></audio><p><a href="https://changelog.com/jsparty/96">JS Party 96: Performant Node desktop apps with NodeGUI</a> – Listen on <a href="https://changelog.com/">Changelog.com</a></p>
+
+## Docs for contributing
+
+```
+It is easier than you think, try it
+```
+
+Looking to contribute? If you wish to implement a new widget/add more features and need help understanding the codebase, you can start here: [Contributing developer docs](https://github.com/nodegui/nodegui/tree/master/website/docs/development).
+
+Please read https://github.com/nodegui/.github/blob/master/CONTRIBUTING.md
+
+
+## Building from source
+
+This section is useful for those wanting to work on NodeGui itself.
+
+### Required tooling
+
+NodeGui requires CMake and Compilation Tools as it is a wrapper for a native C++ widget toolkit QT.
+Detailed instructions here: https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/
+
+TL;DR:
+
+**MacOS**
+
+```
+brew install cmake
+brew install make
+```
+
+
+**Windows**
+
+https://cmake.org/download/
+
+**Linux (Debian/Ubuntu)**
+
+```
+sudo apt-get install pkg-config build-essential
+sudo apt-get install cmake make
+sudo apt-get install mesa-common-dev libglu1-mesa-dev
+```
+
+**Linux (Fedora/RHEL/CentOS)**
+
+```
+sudo dnf groupinstall "Development Tools" "Development Libraries"
+sudo dnf groupinstall "C Development Tools and Libraries"
+sudo dnf install mesa-libGL mesa-libGL-devel
+```
+
+### Building
+
+Once you have cloned this git repository, run this to build:
+
+```
+npm install
+npm run build
+```
+
+The last step will takes some time to run as it builds the C++ binaries at the core of NodeGui.
+
+
+### Using your own custom Qt installation (Optional)
 
 **Compiling Qt from source**
 
@@ -160,41 +203,13 @@ Now just `rm -rf node_modules` and do `npm install` again.
 The logs should say something like `CustomQt detected at <your qt path>. Hence, skipping Mini Qt installation`.
 
 
-**Running example programs**
+### Running example programs
 
 A number of small programs to show different parts of the Qt API are in `src/examples`. They can be run directly with:
 
 ```
 npm run qode dist/examples/modelview_1_readonly.js
 ```
-
-**Community guides**
-
--   [Tutorial: Build a native Meme Search Desktop app with Javascript (NodeGui) and Giphy API](https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/)
--   https://blog.logrocket.com/electron-alternatives-exploring-nodegui-and-react-nodegui/ - Electron alternatives: Exploring NodeGUI and React NodeGUI by [Siegfried Grimbeek](https://blog.logrocket.com/author/siegfriedgrimbeek/).
--   https://hibbard.eu/node-gui/ - Excellent guide from [James Hibbard](https://github.com/jameshibbard).
-
-**Talks/Podcasts**
-
--   [NodeGui and React NodeGui at KarmaJS Nov 2019 meetup: https://www.youtube.com/watch?v=8jH5gaEEDv4](https://www.youtube.com/watch?v=8jH5gaEEDv4)
-
--   <audio data-theme="night" data-src="https://changelog.com/jsparty/96/embed" src="https://cdn.changelog.com/uploads/jsparty/96/js-party-96.mp3" preload="none" class="changelog-episode" controls></audio><p><a href="https://changelog.com/jsparty/96">JS Party 96: Performant Node desktop apps with NodeGUI</a> – Listen on <a href="https://changelog.com/">Changelog.com</a></p>
-
-## Docs for contributing
-
-```
-It is easier than you think, try it
-```
-
-Looking to contribute? If you wish to implement a new widget/add more features and need help understanding the codebase, you can start here: [Contributing developer docs](https://github.com/nodegui/nodegui/tree/master/website/docs/development).
-
-Please read https://github.com/nodegui/.github/blob/master/CONTRIBUTING.md
-
-## Building
-
-`npm run build`
-
-Optionally set `QT_INSTALL_DIR='/path/to/qt'` environment variable to build using your own version of Qt.
 
 ## Updating docs
 
