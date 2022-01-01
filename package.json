@@ -16,8 +16,9 @@
     "scripts": {
         "dev": "cross-env npm run build && node ./scripts/qode.js dist/demo.js",
         "build": "cross-env tsc && npm run build:addon",
-        "install": "cross-env npm run setupqt && (node ./scripts/skip.js || npm run build:addon)",
+        "install": "cross-env npm run setupqt && (node ./scripts/skip.js || npm run setupbinary || npm run build:addon)",
         "setupqt": "cross-env node ./scripts/setupMiniQt.js",
+        "setupbinary": "cross-env node ./scripts/setupBinary.js",
         "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
         "test": "node ./scripts/qode.js ./node_modules/jest/bin/jest -i",
         "lint:cpp": "cross-env clang-format -i --glob=src/cpp/**/*.[h,c]*",
@@ -40,7 +41,8 @@
         "memoize-one": "^5.2.1",
         "node-addon-api": "^4.0.0",
         "postcss": "^7.0.17",
-        "postcss-nodegui-autoprefixer": "0.0.7"
+        "postcss-nodegui-autoprefixer": "0.0.7",
+        "tar": "^6.0.1"
     },
     "devDependencies": {
         "@types/bindings": "^1.5.1",
