@@ -55,7 +55,7 @@ jobs:
       - name: Compress files (Windows)
         if: contains(matrix.os, 'windows-latest')
         uses: a7ul/tar-action@v1.0.2
-        id: compress
+        id: compress-windows
         with:
           command: c
           cwd: ./build/Release
