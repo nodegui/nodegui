@@ -42,6 +42,7 @@ jobs:
           CMAKE_BUILD_PARALLEL_LEVEL: 8
 
       - name: Compress files
+        if: ! contains(matrix.os, 'windows-latest')
         uses: a7ul/tar-action@v1.0.2
         id: compress
         with:
@@ -49,6 +50,19 @@ jobs:
           cwd: ./build/Release
           files: |
             ./nodegui_core.node
+          outPath: ${{ env.ARCHIVE_FILENAME }}
+
+      - name: Compress files (Windows)
+        if: contains(matrix.os, 'windows-latest')
+        uses: a7ul/tar-action@v1.0.2
+        id: compress
+        with:
+          command: c
+          cwd: ./build/Release
+          files: |
+            ./nodegui_core.node
+            ./nodegui_core.lib
+            ./nodegui_core.exp
           outPath: ${{ env.ARCHIVE_FILENAME }}
 
       - uses: actions/upload-artifact@v1
@@ -75,7 +89,7 @@ jobs:
       - name: Install ubuntu deps
         run: sudo apt update
       - run: sudo apt install mesa-common-dev libglu1-mesa-dev
-      - run: yarn install
+      - run: npm install
       - run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' >> .npmrc
       - run: npm publish --access=public
         env:
