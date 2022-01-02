@@ -42,7 +42,7 @@ jobs:
           CMAKE_BUILD_PARALLEL_LEVEL: 8
 
       - name: Compress files
-        if: ! contains(matrix.os, 'windows-latest')
+        if: ${{!contains(matrix.os, 'windows-latest')}}
         uses: a7ul/tar-action@v1.0.2
         id: compress
         with:
