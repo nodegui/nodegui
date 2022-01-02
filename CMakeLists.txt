@@ -251,10 +251,9 @@ if (WIN32)
         ENABLE_DLL_EXPORT=1
     )
     target_compile_options(${CORE_WIDGETS_ADDON} PRIVATE "/MP")
-
 endif()
 
-if (LINUX)
+if (UNIX AND NOT APPLE)
     # Set the RPATH in the binary to a relative one to allow it to find our Qt
     # libraries regardless of where the base installation directory is.
     file(RELATIVE_PATH QT_LIBRARY_REL_PATH "${CMAKE_BINARY_DIR}/Release" "${QT_CMAKE_HOME_DIR}/../..")
