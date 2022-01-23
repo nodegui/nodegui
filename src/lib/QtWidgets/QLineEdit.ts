@@ -3,7 +3,7 @@ import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 
 /**
- 
+
 > Create and control editable text field.
 
 * **This class is a JS wrapper around Qt's [QLineEdit class](https://doc.qt.io/qt-5/qlineedit.html)**
@@ -35,7 +35,10 @@ export class QLineEdit extends NodeWidget<QLineEditSignals> {
         this.setNodeParent(parent);
     }
     setText(text: string): void {
-        text && this.native.setText(text);
+        if (text == null) {
+            return;
+        }
+        this.native.setText(text);
     }
     text(): string {
         return this.native.text();
