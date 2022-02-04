@@ -67,7 +67,7 @@ Napi::Value QGridLayoutWrap::addLayout(const Napi::CallbackInfo& info) {
   int rowSpan = info[3].As<Napi::Number>().Int32Value();
   int columnSpan = info[4].As<Napi::Number>().Int32Value();
   Qt::Alignment alignment =
-      static_cast<Qt::Alignment>(info[5].As<Napi::Number>().Int32Value());
+      static_cast<Qt::Alignment>(info[5].As<Napi::Number>().Uint32Value());
   this->instance->addLayout(layout->getInternalInstance(), row, column, rowSpan,
                             columnSpan, alignment);
   return env.Null();
@@ -80,10 +80,12 @@ Napi::Value QGridLayoutWrap::addWidget(const Napi::CallbackInfo& info) {
   Napi::Number qcol = info[2].As<Napi::Number>();
   Napi::Number qrowSpan = info[3].As<Napi::Number>();
   Napi::Number qcolSpan = info[4].As<Napi::Number>();
+  Qt::Alignment alignment =
+      static_cast<Qt::Alignment>(info[5].As<Napi::Number>().Uint32Value());
   NodeWidgetWrap* widget =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(qwidgetObject);
   this->instance->addWidget(widget->getInternalInstance(), qrow, qcol, qrowSpan,
-                            qcolSpan);
+                            qcolSpan, alignment);
 
   return env.Null();
 }

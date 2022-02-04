@@ -56,8 +56,15 @@ export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
         this.native.addLayout(layout.native, row, column, rowSpan, columnSpan, alignment);
     }
 
-    addWidget(widget: NodeWidget<any>, row = 0, col = 0, rowSpan = 1, colSpan = 1): void {
-        this.native.addWidget(widget.native, row, col, rowSpan, colSpan);
+    addWidget(
+        widget: NodeWidget<any>,
+        row = 0,
+        col = 0,
+        rowSpan = 1,
+        colSpan = 1,
+        alignment = AlignmentFlag.AlignLeft,
+    ): void {
+        this.native.addWidget(widget.native, row, col, rowSpan, colSpan, alignment);
         this.nodeChildren.add(widget);
     }
     removeWidget(widget: NodeWidget<any>): void {
