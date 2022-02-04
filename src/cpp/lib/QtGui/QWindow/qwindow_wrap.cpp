@@ -9,10 +9,16 @@ Napi::FunctionReference QWindowWrap::constructor;
 Napi::Object QWindowWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::HandleScope scope(env);
   char CLASSNAME[] = "QWindow";
-  Napi::Function func =
-      DefineClass(env, CLASSNAME,
-                  {InstanceMethod("screen", &QWindowWrap::screen),
-                   QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QWindowWrap)});
+  Napi::Function func = DefineClass(
+      env, CLASSNAME,
+      {InstanceMethod("screen", &QWindowWrap::screen),
+       InstanceMethod("showFullScreen", &QWindowWrap::showFullScreen),
+       InstanceMethod("showMaximized", &QWindowWrap::showMaximized),
+       InstanceMethod("showMinimized", &QWindowWrap::showMinimized),
+       InstanceMethod("showNormal", &QWindowWrap::showNormal),
+       InstanceMethod("startSystemMove", &QWindowWrap::startSystemMove),
+       InstanceMethod("startSystemResize", &QWindowWrap::startSystemResize),
+       QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QWindowWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -54,4 +60,41 @@ Napi::Value QWindowWrap::screen(const Napi::CallbackInfo& info) {
   } else {
     return env.Null();
   }
+}
+
+Napi::Value QWindowWrap::showFullScreen(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->showFullScreen();
+  return env.Null();
+}
+
+Napi::Value QWindowWrap::showMaximized(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->showMaximized();
+  return env.Null();
+}
+
+Napi::Value QWindowWrap::showMinimized(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->showMinimized();
+  return env.Null();
+}
+
+Napi::Value QWindowWrap::showNormal(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->showNormal();
+  return env.Null();
+}
+
+Napi::Value QWindowWrap::startSystemMove(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool result = this->instance->startSystemMove();
+  return Napi::Boolean::New(env, result);
+}
+
+Napi::Value QWindowWrap::startSystemResize(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  uint edge = info[0].As<Napi::Number>().Uint32Value();
+  bool result = this->instance->startSystemResize(static_cast<Qt::Edges>(edge));
+  return Napi::Boolean::New(env, result);
 }

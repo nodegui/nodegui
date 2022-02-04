@@ -40,4 +40,10 @@ class DLL_EXPORT QWindowWrap : public Napi::ObjectWrap<QWindowWrap>,
 
   // wrapped methods
   Napi::Value screen(const Napi::CallbackInfo& info);
+  Napi::Value showFullScreen(const Napi::CallbackInfo& info);
+  Napi::Value showMaximized(const Napi::CallbackInfo& info);
+  Napi::Value showMinimized(const Napi::CallbackInfo& info);
+  Napi::Value showNormal(const Napi::CallbackInfo& info);
+  Napi::Value startSystemMove(const Napi::CallbackInfo& info);
+  Napi::Value startSystemResize(const Napi::CallbackInfo& info);
 };
