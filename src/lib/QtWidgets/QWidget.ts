@@ -538,7 +538,9 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     width(): number {
         return this.property('width').toInt();
     }
-    // TODO: WId 	winId() const
+    winId(): number {
+        return this.native.winId();
+    }
     // TODO: QWidget *	window() const
     windowFilePath(): string {
         return this.property('windowFilePath').toString();

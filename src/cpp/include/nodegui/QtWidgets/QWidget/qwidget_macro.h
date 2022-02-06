@@ -533,6 +533,11 @@
     int w = info[0].As<Napi::Number>().Int32Value();                           \
     int result = this->instance->heightForWidth(w);                            \
     return Napi::Number::New(env, result);                                     \
+  }                                                                            \
+  Napi::Value winId(const Napi::CallbackInfo& info) {                          \
+    Napi::Env env = info.Env();                                                \
+    int result = this->instance->winId();                                      \
+    return Napi::Number::New(env, result);                                     \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -621,7 +626,8 @@
                      &WidgetWrapName::unsetLayoutDirection),                   \
       InstanceMethod("unsetLocale", &WidgetWrapName::unsetLocale),             \
       InstanceMethod("windowRole", &WidgetWrapName::windowRole),               \
-      InstanceMethod("heightForWidth", &WidgetWrapName::heightForWidth),
+      InstanceMethod("heightForWidth", &WidgetWrapName::heightForWidth),       \
+      InstanceMethod("winId", &WidgetWrapName::winId),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 
