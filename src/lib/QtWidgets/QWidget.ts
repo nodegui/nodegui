@@ -565,7 +565,7 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     windowRole(): string {
         return this.native.windowRole();
     }
-    windowState(): number {
+    windowState(): WindowState {
         return this.native.windowState();
     }
     windowTitle(): string {

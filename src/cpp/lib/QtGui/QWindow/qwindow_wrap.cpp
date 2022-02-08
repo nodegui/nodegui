@@ -18,6 +18,8 @@ Napi::Object QWindowWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("showNormal", &QWindowWrap::showNormal),
        InstanceMethod("startSystemMove", &QWindowWrap::startSystemMove),
        InstanceMethod("startSystemResize", &QWindowWrap::startSystemResize),
+       InstanceMethod("setWindowState", &QWindowWrap::setWindowState),
+       InstanceMethod("windowState", &QWindowWrap::windowState),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QWindowWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -38,6 +40,12 @@ QWindowWrap::QWindowWrap(const Napi::CallbackInfo& info)
   this->rawData = extrautils::configureQObject(this->getInternalInstance());
 }
 
+QWindowWrap::~QWindowWrap() {
+  if (!this->instance.isNull()) {
+    this->instance->removeEventFilter(this);
+  }
+}
+
 void QWindowWrap::connectSignalsToEventEmitter() {
   QOBJECT_SIGNALS_ON_TARGET(this->instance.data());
 
@@ -50,6 +58,12 @@ void QWindowWrap::connectSignalsToEventEmitter() {
         this->emitOnNode.Call(
             {Napi::String::New(env, "screenChanged"), instance});
       });
+
+  this->instance->installEventFilter(this);
+}
+
+bool QWindowWrap::eventFilter(QObject* watched, QEvent* event) {
+  return this->EventWidget::event(event);
 }
 
 Napi::Value QWindowWrap::screen(const Napi::CallbackInfo& info) {
@@ -97,4 +111,18 @@ Napi::Value QWindowWrap::startSystemResize(const Napi::CallbackInfo& info) {
   uint edge = info[0].As<Napi::Number>().Uint32Value();
   bool result = this->instance->startSystemResize(static_cast<Qt::Edges>(edge));
   return Napi::Boolean::New(env, result);
+}
+
+Napi::Value QWindowWrap::setWindowState(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::Number state = info[0].As<Napi::Number>();
+  this->instance->setWindowState(
+      static_cast<Qt::WindowState>(state.Int32Value()));
+  return env.Null();
+}
+
+Napi::Value QWindowWrap::windowState(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int state = static_cast<int>(this->instance->windowState());
+  return Napi::Value::From(env, state);
 }

@@ -3,7 +3,7 @@ import { checkIfNativeElement, registerNativeWrapFunction } from '../utils/helpe
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { QScreen } from './QScreen';
 import { wrapperCache } from '../core/WrapperCache';
-import { Edge } from '../QtEnums';
+import { Edge, WindowState } from '../QtEnums';
 
 export class QWindow extends NodeObject<QWindowSignals> {
     native: NativeElement;
@@ -42,7 +42,9 @@ export class QWindow extends NodeObject<QWindowSignals> {
     // TODO:    void 	setX(int arg)
     // TODO:    void 	setY(int arg)
     // TODO:    void 	show()
-
+    setWindowState(state: WindowState): void {
+        return this.native.setWindowState(state);
+    }
     showFullScreen(): void {
         this.native.showFullScreen();
     }
@@ -60,6 +62,9 @@ export class QWindow extends NodeObject<QWindowSignals> {
     }
     startSystemResize(edges: Edge): boolean {
         return this.native.startSystemResize(edges);
+    }
+    windowState(): WindowState {
+        return this.native.windowState();
     }
 }
 

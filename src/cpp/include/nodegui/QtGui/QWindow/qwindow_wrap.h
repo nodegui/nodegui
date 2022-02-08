@@ -9,7 +9,8 @@
 #include "QtCore/QObject/qobject_macro.h"
 
 class DLL_EXPORT QWindowWrap : public Napi::ObjectWrap<QWindowWrap>,
-                               public EventWidget {
+                               public EventWidget,
+                               public QObject {
   QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE(this)
   // Note: We don't use EVENTWIDGET_IMPLEMENTATIONS() here because this class
   // doesn't handle any QEvents.
@@ -34,6 +35,7 @@ class DLL_EXPORT QWindowWrap : public Napi::ObjectWrap<QWindowWrap>,
 
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QWindowWrap(const Napi::CallbackInfo& info);
+  ~QWindowWrap();
   QWindow* getInternalInstance();
 
   virtual void connectSignalsToEventEmitter();
@@ -46,4 +48,9 @@ class DLL_EXPORT QWindowWrap : public Napi::ObjectWrap<QWindowWrap>,
   Napi::Value showNormal(const Napi::CallbackInfo& info);
   Napi::Value startSystemMove(const Napi::CallbackInfo& info);
   Napi::Value startSystemResize(const Napi::CallbackInfo& info);
+  Napi::Value setWindowState(const Napi::CallbackInfo& info);
+  Napi::Value windowState(const Napi::CallbackInfo& info);
+
+ protected:
+  bool eventFilter(QObject* watched, QEvent* event) override;
 };
