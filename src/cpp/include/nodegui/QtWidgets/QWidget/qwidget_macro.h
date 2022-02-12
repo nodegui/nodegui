@@ -58,6 +58,19 @@
     bool hasClosed = this->instance->close();                                  \
     return Napi::Boolean::New(env, hasClosed);                                 \
   }                                                                            \
+  Napi::Value mapFrom(const Napi::CallbackInfo& info) {                        \
+    Napi::Env env = info.Env();                                                \
+    Napi::Object widgetObject = info[0].As<Napi::Object>();                    \
+    NodeWidgetWrap* widgetWrap =                                               \
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);                \
+    Napi::Object posObject = info[1].As<Napi::Object>();                       \
+    QPointWrap* posWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(posObject);     \
+    QPoint pt = this->instance->mapFrom(widgetWrap->getInternalInstance(),     \
+                                        *posWrap->getInternalInstance());      \
+    auto instance = QPointWrap::constructor.New(                               \
+        {Napi::External<QPoint>::New(env, new QPoint(pt.x(), pt.y()))});       \
+    return instance;                                                           \
+  }                                                                            \
   Napi::Value mapFromGlobal(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                                \
     Napi::Object posObject = info[0].As<Napi::Object>();                       \
@@ -92,6 +105,19 @@
     Napi::Object posObject = info[0].As<Napi::Object>();                       \
     QPointWrap* posWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(posObject);     \
     QPoint pt = this->instance->mapToParent(*posWrap->getInternalInstance());  \
+    auto instance = QPointWrap::constructor.New(                               \
+        {Napi::External<QPoint>::New(env, new QPoint(pt.x(), pt.y()))});       \
+    return instance;                                                           \
+  }                                                                            \
+  Napi::Value mapTo(const Napi::CallbackInfo& info) {                          \
+    Napi::Env env = info.Env();                                                \
+    Napi::Object widgetObject = info[0].As<Napi::Object>();                    \
+    NodeWidgetWrap* widgetWrap =                                               \
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);                \
+    Napi::Object posObject = info[1].As<Napi::Object>();                       \
+    QPointWrap* posWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(posObject);     \
+    QPoint pt = this->instance->mapTo(widgetWrap->getInternalInstance(),       \
+                                      *posWrap->getInternalInstance());        \
     auto instance = QPointWrap::constructor.New(                               \
         {Napi::External<QPoint>::New(env, new QPoint(pt.x(), pt.y()))});       \
     return instance;                                                           \
@@ -550,10 +576,12 @@
   InstanceMethod("show", &WidgetWrapName::show),                               \
       InstanceMethod("resize", &WidgetWrapName::resize),                       \
       InstanceMethod("close", &WidgetWrapName::close),                         \
+      InstanceMethod("mapFrom", &WidgetWrapName::mapFrom),                     \
       InstanceMethod("mapFromGlobal", &WidgetWrapName::mapFromGlobal),         \
       InstanceMethod("mapFromParent", &WidgetWrapName::mapFromParent),         \
       InstanceMethod("mapToGlobal", &WidgetWrapName::mapToGlobal),             \
       InstanceMethod("mapToParent", &WidgetWrapName::mapToParent),             \
+      InstanceMethod("mapTo", &WidgetWrapName::mapTo),                         \
       InstanceMethod("setLayout", &WidgetWrapName::setLayout),                 \
       InstanceMethod("setStyleSheet", &WidgetWrapName::setStyleSheet),         \
       InstanceMethod("setCursor", &WidgetWrapName::setCursor),                 \
@@ -661,3 +689,8 @@
       });
 
 #endif  // QWIDGET_SIGNALS
+
+#include "QtWidgets/QWidget/qwidget_wrap.h"
+// ^ Yes, this is weird due to the mutual dependency between the methods macro
+// and `NodeWidgetWrap`. Having this here makes everything work regardless if
+// `qwidget_wrap.h` is included first or `qwidget_macro.h`.

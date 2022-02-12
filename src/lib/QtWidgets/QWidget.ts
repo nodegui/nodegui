@@ -219,19 +219,23 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     // TODO: QLayout *	layout() const
     // TODO: Qt::LayoutDirection 	layoutDirection() const
     // TODO: QLocale 	locale() const
-    // TODO: QPoint 	mapFrom(const QWidget *parent, const QPoint &pos) const
+    mapFrom(parent: QWidget, pos: QPoint): QPoint {
+        return new QPoint(this.native.mapFrom(parent.native, pos.native));
+    }
     mapFromGlobal(pos: QPoint): QPoint {
         return new QPoint(this.native.mapFromGlobal(pos.native));
     }
     mapFromParent(pos: QPoint): QPoint {
         return new QPoint(this.native.mapFromParent(pos.native));
     }
-    // TODO: QPoint 	mapTo(const QWidget *parent, const QPoint &pos) const
     mapToGlobal(pos: QPoint): QPoint {
         return new QPoint(this.native.mapToGlobal(pos.native));
     }
     mapToParent(pos: QPoint): QPoint {
         return new QPoint(this.native.mapToParent(pos.native));
+    }
+    mapTo(parent: QWidget, pos: QPoint): QPoint {
+        return new QPoint(this.native.mapTo(parent.native, pos.native));
     }
     // TODO: QRegion 	mask() const
     maximumHeight(): number {
