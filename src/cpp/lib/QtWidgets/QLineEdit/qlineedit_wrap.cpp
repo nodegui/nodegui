@@ -13,12 +13,30 @@ Napi::Object QLineEditWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QLineEdit";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("setPlaceholderText", &QLineEditWrap::setPlaceholderText),
-       InstanceMethod("setText", &QLineEditWrap::setText),
-       InstanceMethod("text", &QLineEditWrap::text),
-       InstanceMethod("setReadOnly", &QLineEditWrap::setReadOnly),
+      {InstanceMethod("backspace", &QLineEditWrap::backspace),
+       InstanceMethod("cursorBackward", &QLineEditWrap::cursorBackward),
+       InstanceMethod("cursorForward", &QLineEditWrap::cursorForward),
+       InstanceMethod("cursorPositionAt", &QLineEditWrap::cursorPositionAt),
+       InstanceMethod("cursorWordBackward", &QLineEditWrap::cursorWordBackward),
+       InstanceMethod("cursorWordForward", &QLineEditWrap::cursorWordForward),
+       InstanceMethod("del", &QLineEditWrap::del),
+       InstanceMethod("deselect", &QLineEditWrap::deselect),
+       InstanceMethod("end", &QLineEditWrap::end),
+       InstanceMethod("home", &QLineEditWrap::home),
+       InstanceMethod("insert", &QLineEditWrap::insert),
+       InstanceMethod("selectionEnd", &QLineEditWrap::selectionEnd),
+       InstanceMethod("selectionLength", &QLineEditWrap::selectionLength),
+       InstanceMethod("selectionStart", &QLineEditWrap::selectionStart),
+       InstanceMethod("setSelection", &QLineEditWrap::setSelection),
+       InstanceMethod("setTextMargins", &QLineEditWrap::setTextMargins),
        InstanceMethod("clear", &QLineEditWrap::clear),
-       InstanceMethod("setEchoMode", &QLineEditWrap::setEchoMode),
+       InstanceMethod("copy", &QLineEditWrap::copy),
+       InstanceMethod("cut", &QLineEditWrap::cut),
+       InstanceMethod("paste", &QLineEditWrap::paste),
+       InstanceMethod("redo", &QLineEditWrap::redo),
+       InstanceMethod("selectAll", &QLineEditWrap::selectAll),
+       InstanceMethod("undo", &QLineEditWrap::undo),
+
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLineEditWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -48,43 +66,153 @@ QLineEditWrap::QLineEditWrap(const Napi::CallbackInfo& info)
 
 QLineEditWrap::~QLineEditWrap() { extrautils::safeDelete(this->instance); }
 
-Napi::Value QLineEditWrap::setText(const Napi::CallbackInfo& info) {
+Napi::Value QLineEditWrap::backspace(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::String text = info[0].As<Napi::String>();
-  this->instance->setText(text.Utf8Value().c_str());
+  this->instance->backspace();
   return env.Null();
 }
 
-Napi::Value QLineEditWrap::setReadOnly(const Napi::CallbackInfo& info) {
+Napi::Value QLineEditWrap::cursorBackward(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::Boolean isReadOnly = info[0].As<Napi::Boolean>();
-  this->instance->setReadOnly(isReadOnly.Value());
+  bool mark = info[0].As<Napi::Boolean>().Value();
+  int steps = info[1].As<Napi::Number>().Int32Value();
+  this->instance->cursorBackward(mark, steps);
   return env.Null();
 }
 
-Napi::Value QLineEditWrap::text(const Napi::CallbackInfo& info) {
+Napi::Value QLineEditWrap::cursorForward(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  QString text = this->instance->text();
-  return Napi::String::New(env, text.toStdString().c_str());
-}
-
-Napi::Value QLineEditWrap::setPlaceholderText(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::String text = info[0].As<Napi::String>();
-  this->instance->setPlaceholderText(text.Utf8Value().c_str());
+  bool mark = info[0].As<Napi::Boolean>().Value();
+  int steps = info[1].As<Napi::Number>().Int32Value();
+  this->instance->cursorForward(mark, steps);
   return env.Null();
 }
 
+Napi::Value QLineEditWrap::cursorPositionAt(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QPointWrap* posWrap =
+      Napi::ObjectWrap<QPointWrap>::Unwrap(info[0].As<Napi::Object>());
+  QPoint* pos = posWrap->getInternalInstance();
+  int result = this->instance->cursorPositionAt(*pos);
+  return Napi::Number::New(env, result);
+}
+
+Napi::Value QLineEditWrap::cursorWordBackward(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool mark = info[0].As<Napi::Boolean>().Value();
+  this->instance->cursorWordBackward(mark);
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::cursorWordForward(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool mark = info[0].As<Napi::Boolean>().Value();
+  this->instance->cursorWordForward(mark);
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::del(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->del();
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::deselect(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->deselect();
+  return env.Null();
+}
+Napi::Value QLineEditWrap::end(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool mark = info[0].As<Napi::Boolean>().Value();
+  this->instance->end(mark);
+  return env.Null();
+}
+Napi::Value QLineEditWrap::home(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool mark = info[0].As<Napi::Boolean>().Value();
+  this->instance->home(mark);
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::insert(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  std::string newTextNapiText = info[0].As<Napi::String>().Utf8Value();
+  QString newText = QString::fromUtf8(newTextNapiText.c_str());
+  this->instance->insert(newText);
+  return env.Null();
+}
+Napi::Value QLineEditWrap::selectionEnd(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int result = this->instance->selectionEnd();
+  return Napi::Number::New(env, result);
+}
+
+Napi::Value QLineEditWrap::selectionLength(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int result = this->instance->selectionLength();
+  return Napi::Number::New(env, result);
+}
+
+Napi::Value QLineEditWrap::selectionStart(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int result = this->instance->selectionStart();
+  return Napi::Number::New(env, result);
+}
+Napi::Value QLineEditWrap::setSelection(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int start = info[0].As<Napi::Number>().Int32Value();
+  int length = info[1].As<Napi::Number>().Int32Value();
+  this->instance->setSelection(start, length);
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::setTextMargins(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int left = info[0].As<Napi::Number>().Int32Value();
+  int top = info[1].As<Napi::Number>().Int32Value();
+  int right = info[2].As<Napi::Number>().Int32Value();
+  int bottom = info[3].As<Napi::Number>().Int32Value();
+  this->instance->setTextMargins(left, top, right, bottom);
+  return env.Null();
+}
 Napi::Value QLineEditWrap::clear(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   this->instance->clear();
   return env.Null();
 }
 
-Napi::Value QLineEditWrap::setEchoMode(const Napi::CallbackInfo& info) {
+Napi::Value QLineEditWrap::copy(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::Number mode = info[0].As<Napi::Number>();
-  this->instance->setEchoMode(
-      static_cast<QLineEdit::EchoMode>(mode.Int32Value()));
+  this->instance->copy();
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::cut(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->cut();
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::paste(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->paste();
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::redo(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->redo();
+  return env.Null();
+}
+
+Napi::Value QLineEditWrap::selectAll(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->selectAll();
+  return env.Null();
+}
+Napi::Value QLineEditWrap::undo(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->undo();
   return env.Null();
 }
