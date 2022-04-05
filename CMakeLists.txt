@@ -51,6 +51,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QDrag/qdrag_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QKeyEvent/qkeyevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QMouseEvent/qmouseevent_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QMoveEvent/qmoveevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QWheelEvent/qwheelevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QNativeGestureEvent/qnativegestureevent_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtGui/QEvent/QPaintEvent/qpaintevent_wrap.cpp"

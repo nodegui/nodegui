@@ -24,6 +24,7 @@ export { QFontMetricsF } from './lib/QtGui/QFontMetricsF';
 // Events: Maybe a separate module ?
 export { QKeyEvent } from './lib/QtGui/QEvent/QKeyEvent';
 export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
+export { QMoveEvent } from './lib/QtGui/QEvent/QMoveEvent';
 export { QWheelEvent } from './lib/QtGui/QEvent/QWheelEvent';
 export { QNativeGestureEvent } from './lib/QtGui/QEvent/QNativeGestureEvent';
 export { QTabletEvent } from './lib/QtGui/QEvent/QTabletEvent';
