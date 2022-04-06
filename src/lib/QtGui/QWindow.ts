@@ -3,7 +3,7 @@ import { checkIfNativeElement, registerNativeWrapFunction } from '../utils/helpe
 import { NodeObject, QObjectSignals } from '../QtCore/QObject';
 import { QScreen } from './QScreen';
 import { wrapperCache } from '../core/WrapperCache';
-import { Edge, WindowState } from '../QtEnums';
+import { Edge, Visibility, WindowState } from '../QtEnums';
 
 export class QWindow extends NodeObject<QWindowSignals> {
     native: NativeElement;
@@ -66,10 +66,17 @@ export class QWindow extends NodeObject<QWindowSignals> {
     windowState(): WindowState {
         return this.native.windowState();
     }
+    visibility(): Visibility {
+        return this.native.visibility();
+    }
+    setVisibility(visibility: Visibility): void {
+        return this.native.setVisibility(visibility);
+    }
 }
 
 export interface QWindowSignals extends QObjectSignals {
     screenChanged: (screen: QScreen) => void;
+    visibilityChanged: (visibility: Visibility) => void;
 }
 
 registerNativeWrapFunction('QWindowWrap', (native: any) => {

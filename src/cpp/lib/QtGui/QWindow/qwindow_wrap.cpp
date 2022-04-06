@@ -20,6 +20,8 @@ Napi::Object QWindowWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("startSystemResize", &QWindowWrap::startSystemResize),
        InstanceMethod("setWindowState", &QWindowWrap::setWindowState),
        InstanceMethod("windowState", &QWindowWrap::windowState),
+       InstanceMethod("visibility", &QWindowWrap::visibility),
+       InstanceMethod("setVisibility", &QWindowWrap::setVisibility),
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QWindowWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -57,6 +59,15 @@ void QWindowWrap::connectSignalsToEventEmitter() {
             WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
         this->emitOnNode.Call(
             {Napi::String::New(env, "screenChanged"), instance});
+      });
+
+  QObject::connect(
+      this->instance.data(), &QWindow::visibilityChanged,
+      [=](QWindow::Visibility visibility) {
+        Napi::Env env = this->emitOnNode.Env();
+        Napi::HandleScope scope(env);
+        this->emitOnNode.Call({Napi::String::New(env, "visibilityChanged"),
+                               Napi::Number::New(env, visibility)});
       });
 
   this->instance->installEventFilter(this);
@@ -117,12 +128,26 @@ Napi::Value QWindowWrap::setWindowState(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::Number state = info[0].As<Napi::Number>();
   this->instance->setWindowState(
-      static_cast<Qt::WindowState>(state.Int32Value()));
+      static_cast<Qt::WindowState>(state.Uint32Value()));
   return env.Null();
 }
 
 Napi::Value QWindowWrap::windowState(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  int state = static_cast<int>(this->instance->windowState());
+  uint state = static_cast<uint>(this->instance->windowState());
   return Napi::Value::From(env, state);
+}
+
+Napi::Value QWindowWrap::visibility(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  uint state = static_cast<uint>(this->instance->visibility());
+  return Napi::Value::From(env, state);
+}
+
+Napi::Value QWindowWrap::setVisibility(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::Number state = info[0].As<Napi::Number>();
+  this->instance->setVisibility(
+      static_cast<QWindow::Visibility>(state.Uint32Value()));
+  return env.Null();
 }

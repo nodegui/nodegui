@@ -50,6 +50,8 @@ class DLL_EXPORT QWindowWrap : public Napi::ObjectWrap<QWindowWrap>,
   Napi::Value startSystemResize(const Napi::CallbackInfo& info);
   Napi::Value setWindowState(const Napi::CallbackInfo& info);
   Napi::Value windowState(const Napi::CallbackInfo& info);
+  Napi::Value visibility(const Napi::CallbackInfo& info);
+  Napi::Value setVisibility(const Napi::CallbackInfo& info);
 
  protected:
   bool eventFilter(QObject* watched, QEvent* event) override;

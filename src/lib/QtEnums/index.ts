@@ -90,3 +90,4 @@ export { WindowType } from './WindowType';
 export { PenStyle } from './PenStyle';
 export { PenCapStyle } from './PenCapStyle';
 export { DialogCode } from './DialogCode';
+export { Visibility } from './Visibility';
