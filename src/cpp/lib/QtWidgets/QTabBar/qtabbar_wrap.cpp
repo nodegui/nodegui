@@ -169,12 +169,18 @@ Napi::Value QTabBarWrap::setTabButton(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int index = info[0].As<Napi::Number>().Int32Value();
   int position = info[1].As<Napi::Number>().Int32Value();
-  Napi::Object widgetObject = info[2].As<Napi::Object>();
-  NodeWidgetWrap* widgetWrap =
-      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
-  this->instance->setTabButton(index,
-                               static_cast<QTabBar::ButtonPosition>(position),
-                               widgetWrap->getInternalInstance());
+
+  if (info[2].IsNull()) {
+    this->instance->setTabButton(
+        index, static_cast<QTabBar::ButtonPosition>(position), nullptr);
+  } else {
+    Napi::Object widgetObject = info[2].As<Napi::Object>();
+    NodeWidgetWrap* widgetWrap =
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
+    this->instance->setTabButton(index,
+                                 static_cast<QTabBar::ButtonPosition>(position),
+                                 widgetWrap->getInternalInstance());
+  }
   return env.Null();
 }
 

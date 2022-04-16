@@ -10,7 +10,7 @@ import { QPoint } from '../QtCore/QPoint';
 import { QRect } from '../QtCore/QRect';
 
 /**
- 
+
 > Create and control tabbar.
 
 * **This class is a JS wrapper around Qt's [QTabBar class](https://doc.qt.io/qt-5/qtabbar.html)**
@@ -155,8 +155,8 @@ export class QTabBar extends NodeWidget<QTabBarSignals> {
     removeTab(index: number): void {
         this.native.removeTab(index);
     }
-    setTabButton(index: number, position: ButtonPosition, widget: NodeWidget<any>): void {
-        this.native.setTabButton(index, position, widget.native);
+    setTabButton(index: number, position: ButtonPosition, widget: NodeWidget<any> | undefined | null): void {
+        this.native.setTabButton(index, position, widget == null ? null : widget?.native);
     }
     setTabData(index: number, data: QVariant): void {
         this.native.setTabData(index, data.native);
