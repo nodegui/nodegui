@@ -67,9 +67,13 @@ export class QApplication extends NodeObject<QApplicationSignals> {
     setQuitOnLastWindowClosed(quit: boolean): void {
         this.native.setQuitOnLastWindowClosed(quit);
     }
-    setStyleSheet(styleSheet: string): void {
-        const preparedSheet = StyleSheet.create(styleSheet);
-        this.native.setStyleSheet(preparedSheet);
+    setStyleSheet(styleSheet: string, postprocess = true): void {
+        if (postprocess) {
+            const preparedSheet = StyleSheet.create(styleSheet);
+            this.native.setStyleSheet(preparedSheet);
+        } else {
+            this.native.setStyleSheet(styleSheet);
+        }
     }
     static clipboard(): QClipboard | null {
         const clipboardNative = addon.QApplication.clipboard();

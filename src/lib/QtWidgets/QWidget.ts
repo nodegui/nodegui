@@ -369,10 +369,14 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         this.native.setGraphicsEffect(effect.native);
     }
     // TODO: void 	setInputMethodHints(Qt::InputMethodHints hints)
-    setInlineStyle(style: string): void {
-        this._rawInlineStyle = style;
-        const preparedSheet = prepareInlineStyleSheet(this, style);
-        this.native.setStyleSheet(preparedSheet);
+    setInlineStyle(style: string, postprocess = true): void {
+        if (postprocess) {
+            this._rawInlineStyle = style;
+            const preparedSheet = prepareInlineStyleSheet(this, style);
+            this.native.setStyleSheet(preparedSheet);
+        } else {
+            this.native.setStyleSheet(style);
+        }
     }
     setLayout(parentLayout: NodeLayout<Signals>): void {
         const flexLayout = parentLayout as FlexLayout;
@@ -612,9 +616,13 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     setHidden(hidden: boolean): void {
         this.native.setHidden(hidden);
     }
-    setStyleSheet(styleSheet: string): void {
-        const preparedSheet = StyleSheet.create(styleSheet);
-        this.native.setStyleSheet(preparedSheet);
+    setStyleSheet(styleSheet: string, postprocess = true): void {
+        if (postprocess) {
+            const preparedSheet = StyleSheet.create(styleSheet);
+            this.native.setStyleSheet(preparedSheet);
+        } else {
+            this.native.setStyleSheet(styleSheet);
+        }
     }
     setVisible(visible: boolean): void {
         this.native.setVisible(visible);
