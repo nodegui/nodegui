@@ -5,6 +5,7 @@ import { QRect } from '../QtCore/QRect';
 import { QSizeF } from '../QtCore/QSizeF';
 import { QSize } from '../QtCore/QSize';
 import { wrapperCache } from '../core/WrapperCache';
+import { QPixmap } from './QPixmap';
 
 export class QScreen extends NodeObject<QScreenSignals> {
     native: NativeElement;
@@ -37,6 +38,9 @@ export class QScreen extends NodeObject<QScreenSignals> {
     }
     geometry(): QRect {
         return QRect.fromQVariant(this.property('geometry'));
+    }
+    grabWindow(window: number, x = 0, y = 0, width = -1, height = -1): QPixmap {
+        return new QPixmap(this.native.grabWindow(window, x, y, width, height));
     }
     logicalDotsPerInch(): number {
         return this.property('logicalDotsPerInch').toDouble();

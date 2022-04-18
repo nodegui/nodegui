@@ -30,4 +30,5 @@ class DLL_EXPORT QScreenWrap : public Napi::ObjectWrap<QScreenWrap>,
   virtual void connectSignalsToEventEmitter();
 
   // Wrapped methods
+  Napi::Value grabWindow(const Napi::CallbackInfo& info);
 };

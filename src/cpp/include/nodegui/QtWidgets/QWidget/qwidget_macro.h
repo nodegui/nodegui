@@ -562,8 +562,8 @@
   }                                                                            \
   Napi::Value winId(const Napi::CallbackInfo& info) {                          \
     Napi::Env env = info.Env();                                                \
-    int result = this->instance->winId();                                      \
-    return Napi::Number::New(env, result);                                     \
+    WId result = this->instance->winId();                                      \
+    return Napi::BigInt::New(env, static_cast<uint64_t>(result));              \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION

@@ -3,6 +3,7 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QSizeF/qsizef_wrap.h"
+#include "QtGui/QPixmap/qpixmap_wrap.h"
 
 Napi::FunctionReference QScreenWrap::constructor;
 
@@ -11,7 +12,7 @@ Napi::Object QScreenWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QScreen";
   Napi::Function func =
       DefineClass(env, CLASSNAME,
-                  {// InstanceMethod("clear", &QScreenWrap::clear),
+                  {InstanceMethod("grabWindow", &QScreenWrap::grabWindow),
                    QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QScreenWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -127,4 +128,19 @@ void QScreenWrap::connectSignalsToEventEmitter() {
         this->emitOnNode.Call(
             {Napi::String::New(env, "virtualGeometryChanged"), instance});
       });
+}
+
+Napi::Value QScreenWrap::grabWindow(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool lossless = false;
+  WId winId =
+      static_cast<WId>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+  int x = info[1].As<Napi::Number>().Int32Value();
+  int y = info[2].As<Napi::Number>().Int32Value();
+  int width = info[3].As<Napi::Number>().Int32Value();
+  int height = info[4].As<Napi::Number>().Int32Value();
+  QPixmap pixmap = this->instance->grabWindow(winId, x, y, width, height);
+  auto instance = QPixmapWrap::constructor.New(
+      {Napi::External<QPixmap>::New(env, new QPixmap(pixmap))});
+  return instance;
 }
