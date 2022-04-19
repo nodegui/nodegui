@@ -3,6 +3,7 @@ import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import addon from '../utils/addon';
 import { QVariant, QVariantType } from './QVariant';
+import { TimerType } from '../QtEnums/TimerType';
 
 export abstract class NodeObject<Signals extends QObjectSignals> extends EventWidget<Signals> {
     inherits(className: string): boolean {
@@ -34,6 +35,12 @@ export abstract class NodeObject<Signals extends QObjectSignals> extends EventWi
         } else {
             this.native.setParent(null);
         }
+    }
+    startTimer(intervalMS: number, timerType = TimerType.CoarseTimer): number {
+        return this.native.startTimer(intervalMS, timerType);
+    }
+    killTimer(timerId: number): void {
+        this.native.killTimer(timerId);
     }
 }
 

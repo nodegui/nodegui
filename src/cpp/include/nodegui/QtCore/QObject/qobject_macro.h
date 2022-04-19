@@ -74,6 +74,20 @@
     Napi::Env env = info.Env();                                              \
     return Napi::External<QObject>::New(                                     \
         env, static_cast<QObject*>(this->instance));                         \
+  }                                                                          \
+  Napi::Value startTimer(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                              \
+    int interval = info[0].As<Napi::Number>().Int32Value();                  \
+    Qt::TimerType timerType =                                                \
+        static_cast<Qt::TimerType>(info[1].As<Napi::Number>().Int32Value()); \
+    int result = this->instance->startTimer(interval, timerType);            \
+    return Napi::Value::From(env, result);                                   \
+  }                                                                          \
+  Napi::Value killTimer(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                              \
+    int id = info[0].As<Napi::Number>().Int32Value();                        \
+    this->instance->killTimer(id);                                           \
+    return env.Null();                                                       \
   }
 
 // Ideally this macro below should go in
@@ -115,7 +129,9 @@
       InstanceMethod("objectName", &ComponentWrapName::objectName),         \
       InstanceMethod("dumpObjectTree", &ComponentWrapName::dumpObjectTree), \
       InstanceMethod("dumpObjectInfo", &ComponentWrapName::dumpObjectInfo), \
-      InstanceMethod("setParent", &ComponentWrapName::setParent),
+      InstanceMethod("setParent", &ComponentWrapName::setParent),           \
+      InstanceMethod("startTimer", &ComponentWrapName::startTimer),         \
+      InstanceMethod("killTimer", &ComponentWrapName::killTimer),
 
 #endif  // QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
 
