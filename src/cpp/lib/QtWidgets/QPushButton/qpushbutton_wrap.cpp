@@ -30,6 +30,7 @@ QPushButtonWrap::~QPushButtonWrap() {
 QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QPushButtonWrap>(info) {
   Napi::Env env = info.Env();
+  this->disableDeletion = false;
   if (info.Length() > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<NPushButton>>().Data();

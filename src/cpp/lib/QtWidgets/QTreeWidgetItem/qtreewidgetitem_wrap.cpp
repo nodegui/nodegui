@@ -64,6 +64,7 @@ QTreeWidgetItemWrap::QTreeWidgetItemWrap(const Napi::CallbackInfo &info)
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
+  this->disableDeletion = false;
   if (info.Length() > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<QTreeWidgetItem>>().Data();

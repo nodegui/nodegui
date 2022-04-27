@@ -44,6 +44,7 @@ Napi::Object QItemSelectionModelWrap::init(Napi::Env env,
 QItemSelectionModel* QItemSelectionModelWrap::getInternalInstance() {
   return this->instance;
 }
+
 QItemSelectionModelWrap::~QItemSelectionModelWrap() {
   if (!this->disableDeletion) {
     extrautils::safeDelete(this->instance);

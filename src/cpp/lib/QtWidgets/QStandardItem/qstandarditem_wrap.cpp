@@ -36,6 +36,7 @@ QStandardItemWrap::~QStandardItemWrap() {
 QStandardItemWrap::QStandardItemWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QStandardItemWrap>(info) {
   Napi::Env env = info.Env();
+  this->disableDeletion = false;
   if (info.Length() > 0 && info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<QStandardItem>>().Data();
     if (info.Length() == 2) {

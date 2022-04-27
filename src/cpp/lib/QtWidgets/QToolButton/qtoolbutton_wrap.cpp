@@ -32,6 +32,7 @@ QToolButtonWrap::~QToolButtonWrap() {
 QToolButtonWrap::QToolButtonWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QToolButtonWrap>(info) {
   Napi::Env env = info.Env();
+  this->disableDeletion = false;
   if (info.Length() > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<NToolButton>>().Data();
