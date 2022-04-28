@@ -1,0 +1,94 @@
+@startuml
+
+skinparam object {
+  backgroundColor White
+  borderColor Black
+  arrowColor Black
+}
+
+skinparam note {
+  backgroundColor LightYellow
+  borderColor Black
+}
+
+hide footbox
+
+title Lifecycle of a Wrapper
+
+participant App as app << ts >> #E3C800
+participant "QWindow.ts" as qwindowts << ts>> #E3C800
+participant "QScreen.ts" as qscreents << ts>> #E3C800
+participant "WrapperCache" as wrappercachets << ts>> #E3C800
+participant "QWindowWrap" as qwindowwrap << cpp >>
+participant "QScreenWrap" as qscreenwrap << cpp >>
+participant "WrapperCache" as wrappercachecpp << cpp >>
+participant "QWindow" as qwindow << cpp >> #D5E8D4
+participant "QScreen" as qscreen << cpp >> #D5E8D4
+
+
+== Wrapper construction ==
+
+activate qscreen
+app --> qwindowts: QWindow.screen()
+qwindowts --> qwindowwrap: screen()
+qwindowwrap --> qwindow: screen()
+qwindow --> qwindowwrap: QScreen instance
+qwindowwrap --> wrappercachecpp: get<QScreen, QScreenWrap>()
+wrappercachecpp --> qscreenwrap: new()
+activate qscreenwrap
+qscreenwrap --> wrappercachecpp: QScreenWrap instance
+wrappercachecpp --> qscreen: connect to destroy signal
+wrappercachecpp --> qwindowwrap: QScreenWrap instance
+qwindowwrap --> qwindowts: QScreenWrap instance
+qwindowts --> wrappercachets: get<QScreen>(QScreenWrap instance)
+wrappercachets --> qscreents: new(QScreenWrap instance)
+activate qscreents
+qscreents --> wrappercachets: QScreen.ts instance
+wrappercachets --> qwindowts: QScreen.ts instance
+qwindowts --> app: QScreen.ts instance
+
+note across: The app can use the QScreen wrap and run.
+
+== Qt object destruction ==
+note over qscreen
+  Qt decides to destroy
+  the QScreen instance
+end note
+qscreen --> wrappercachecpp: destroy signal
+destroy qscreen
+wrappercachecpp --> wrappercachets: destroy callback
+
+note over wrappercachecpp
+  WrapperCache removes
+  references to the wrapper
+  and Qt object from cache.
+end note
+
+wrappercachets --> qscreents: null the ref to QScreenWrap
+note over wrappercachets
+  WrapperCache.ts removes
+  references to the QScreen.ts
+  instance and QScreenWrap
+end note
+
+destroy qscreenwrap
+note over qscreenwrap
+  V8's GC will destroy
+  this automatically
+end note
+
+app --> qscreents
+note over app
+  Any use of QScreen.ts
+  will hit the null reference
+  and throw a JS exception.
+end note
+app --> qscreents
+
+destroy qscreents
+note over qscreents
+  V8's GC will destroy
+  this automatically
+end note
+
+@enduml
