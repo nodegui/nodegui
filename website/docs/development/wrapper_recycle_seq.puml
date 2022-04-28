@@ -1,0 +1,46 @@
+@startuml
+
+skinparam object {
+  backgroundColor White
+  borderColor Black
+  arrowColor Black
+}
+
+skinparam note {
+  backgroundColor LightYellow
+  borderColor Black
+}
+
+hide footbox
+
+title Wrapper Recycle
+
+participant App as app << ts >> #E3C800
+participant "QObject.ts" as qobjectts << ts>> #E3C800
+
+participant "WrapperCache" as wrappercachets << ts>> #E3C800
+participant "QObjectWrap" as qobjectwrap << cpp >>
+participant "WrapperCache" as wrappercachecpp << cpp >>
+participant "QObject" as qobject << cpp >> #D5E8D4
+
+== Wrapper construction ==
+
+app --> qobjectts: new()
+activate qobjectts
+qobjectts --> qobjectwrap: new()
+activate qobjectwrap
+qobjectwrap --> qobject: new()
+activate qobject
+qobject --> qobjectwrap: QObject instance
+
+qobjectwrap --> wrappercachecpp: store(QObject, QObjectWrap)
+wrappercachecpp --> qobject: connect to destroy signal
+
+qobjectwrap --> qobjectts: QOjectWrap instance
+qobjectts --> wrappercachets: store(QObject.ts)
+qobjectts --> app: QObject instance
+
+
+note across: The app can use the QObject and run.
+
+@enduml

@@ -34,6 +34,9 @@ qwindowts --> qwindowwrap: screen()
 qwindowwrap --> qwindow: screen()
 qwindow --> qwindowwrap: QScreen instance
 qwindowwrap --> wrappercachecpp: get<QScreen, QScreenWrap>()
+note over wrappercachecpp
+  Checks wrapper cache
+end note
 wrappercachecpp --> qscreenwrap: new()
 activate qscreenwrap
 qscreenwrap --> wrappercachecpp: QScreenWrap instance

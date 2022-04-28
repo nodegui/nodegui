@@ -23,3 +23,8 @@ A related use case is where we want to "recycle" wrappers and ensure that for a 
 
 Another goal of this use case is to ensure that the unexpected destruction of the underlying QObject is handled in a more graceful and helpful way than just segfaulting the whole application. This requires the tracking of the QObject via its "destroy" signal and using that to communicate back to JS what has happened.
 
+The object creation sequence runs quite differently than in the "Wrapper Keep Alive" case because the application initiates the creation of the object and NodeGui then creates the different wrappers on the JS and C++ sides.
+
+![Wrapper recycle sequence diagram](wrapper_recycle_seq.png)
+
+The destruction sequence in the case of the C++ object being destroyed is basically the same as the "Wrapper Keep Alive" case.
