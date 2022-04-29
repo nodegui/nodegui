@@ -5,7 +5,22 @@ import addon from '../utils/addon';
 import { QVariant, QVariantType } from './QVariant';
 import { TimerType } from '../QtEnums/TimerType';
 
-export abstract class NodeObject<Signals extends QObjectSignals> extends EventWidget<Signals> {
+export class QObject<Signals extends QObjectSignals = QObjectSignals> extends EventWidget<Signals> {
+    constructor(nativeElementOrParent?: NativeElement | QObject) {
+        let native;
+        let parent;
+        if (checkIfNativeElement(nativeElementOrParent)) {
+            native = nativeElementOrParent as NativeElement;
+        } else if (nativeElementOrParent) {
+            parent = nativeElementOrParent as QObject<any>;
+            native = new addon.QObject(parent.native);
+        } else {
+            native = new addon.QObject();
+        }
+        super(native);
+        this.setNodeParent(parent);
+    }
+
     inherits(className: string): boolean {
         return this.native.inherits(className);
     }
@@ -28,7 +43,7 @@ export abstract class NodeObject<Signals extends QObjectSignals> extends EventWi
     dumpObjectInfo(): void {
         this.native.dumpObjectInfo();
     }
-    setParent(parent: NodeObject<QObjectSignals>): void {
+    setParent(parent: QObject): void {
         if (parent != null) {
             const extern = parent.native.__external_qobject__();
             this.native.setParent(extern);
@@ -46,26 +61,4 @@ export abstract class NodeObject<Signals extends QObjectSignals> extends EventWi
 
 export interface QObjectSignals {
     objectNameChanged: (objectName: string) => void;
-}
-
-export class QObject extends NodeObject<QObjectSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(nativeElement: NativeElement);
-    constructor(parent: NodeObject<any>);
-    constructor(arg?: NodeObject<any> | NativeElement) {
-        let native;
-        let parent;
-        if (checkIfNativeElement(arg)) {
-            native = arg as NativeElement;
-        } else if (arg) {
-            parent = arg as NodeObject<any>;
-            native = new addon.QObject(parent.native);
-        } else {
-            native = new addon.QObject();
-        }
-        super(native);
-        this.setNodeParent(parent);
-        this.native = native;
-    }
 }

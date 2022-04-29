@@ -46,18 +46,14 @@ win.show();
 https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpainter
 */
 export class QPainter extends Component {
-    native: NativeElement;
-    constructor();
-    constructor(device: Component);
     constructor(device?: Component) {
-        let native;
+        let native: NativeElement;
         if (device) {
             native = new addon.QPainter(device.native);
         } else {
             native = new addon.QPainter();
         }
-        super();
-        this.native = native;
+        super(native);
     }
 
     // *** Public Functions ***

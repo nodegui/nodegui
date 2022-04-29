@@ -1,12 +1,12 @@
 import addon from '../utils/addon';
 import { NodeWidget, QWidgetSignals } from './QWidget';
-import { NativeElement } from '../core/Component';
 import { NodeLayout } from './QLayout';
 import { QMenuBar } from './QMenuBar';
 import { QStatusBar } from './QStatusBar';
+import { NativeElement } from '../core/Component';
 
 /**
- 
+
 > Create and control windows.
 
 * **This class is a JS wrapper around Qt's [QMainWindow class](https://doc.qt.io/qt-5/qmainwindow.html)**
@@ -32,21 +32,20 @@ QMainWindow needs to have a central widget set before other widgets can be added
 Once a central widget is set you can add children/layout to the central widget.
  */
 export class QMainWindow extends NodeWidget<QMainWindowSignals> {
-    native: NativeElement;
     public centralWidget?: NodeWidget<any> | null;
     private _menuBar?: QMenuBar;
     private _statusBar?: QStatusBar | null;
+
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QMainWindow(parent.native);
         } else {
             native = new addon.QMainWindow();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
 
         this.setLayout = (parentLayout: NodeLayout<any>): void => {
@@ -115,7 +114,7 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
      * Returns the status bar for the main window.
      */
     statusBar(): QStatusBar {
-        return this.native.statusBar();
+        return new QStatusBar(this.native.statusBar());
     }
 }
 

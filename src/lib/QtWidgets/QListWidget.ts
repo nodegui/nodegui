@@ -33,10 +33,8 @@ for (let i = 0; i < 30; i++) {
 ```
  */
 export class QListWidget extends NodeListView<QListWidgetSignals> {
-    native: NativeElement;
     items: Set<NativeElement | Component>;
-    constructor();
-    constructor(parent: NodeWidget<any>);
+
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -45,7 +43,6 @@ export class QListWidget extends NodeListView<QListWidgetSignals> {
             native = new addon.QListWidget();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
         this.items = new Set();
     }

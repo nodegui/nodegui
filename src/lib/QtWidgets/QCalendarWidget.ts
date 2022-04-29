@@ -5,7 +5,7 @@ import { QDate } from '../QtCore/QDate';
 import { DayOfWeek } from '../QtEnums';
 
 /**
- 
+
 > Create and control a selectable monthly calendar.
 
 * **This class is a JS wrapper around Qt's [QCalendarWidget class](https://doc.qt.io/qt-5/qcalendarwidget.html)**
@@ -22,18 +22,16 @@ const calendarWidget = new QCalendarWidget();
 ```
  */
 export class QCalendarWidget extends NodeWidget<QCalendarWidgetSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QCalendarWidget(parent.native);
         } else {
             native = new addon.QCalendarWidget();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     setDateEditAcceptDelay(delay: number): void {

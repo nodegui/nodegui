@@ -22,18 +22,16 @@ const textBrowser = new QTextBrowser();
 
  */
 export class QTextBrowser extends NodeTextEdit<QTextBrowserSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QTextBrowser(parent.native);
         } else {
             native = new addon.QTextBrowser();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     setOpenExternalLinks(open: boolean): void {

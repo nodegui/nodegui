@@ -1,7 +1,6 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NodeFrame, QFrameSignals } from './QFrame';
-import { NativeElement } from '../core/Component';
 import { QPixmap } from '../QtGui/QPixmap';
 import { QMovie } from '../QtGui/QMovie';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
@@ -10,7 +9,7 @@ import { TextInteractionFlag } from '../QtEnums';
 import { QPicture } from '../QtGui/QPicture';
 
 /**
- 
+
 > Create and control text.
 
 * **This class is a JS wrapper around Qt's [QLabel class](https://doc.qt.io/qt-5/qlabel.html)**
@@ -28,13 +27,11 @@ label.setText("Hello");
 
  */
 export class QLabel extends NodeFrame<QLabelSignals> {
-    native: NativeElement;
     private _picture?: QPicture;
     private _pixmap?: QPixmap;
     private _movie?: QMovie;
     private _buddy?: NodeWidget<any> | null;
-    constructor();
-    constructor(parent: NodeWidget<any>);
+
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -43,7 +40,6 @@ export class QLabel extends NodeFrame<QLabelSignals> {
             native = new addon.QLabel();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {

@@ -19,9 +19,6 @@ const menu = new QMenu();
 ```
  */
 export class QMenu extends NodeWidget<QMenuSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -30,7 +27,6 @@ export class QMenu extends NodeWidget<QMenuSignals> {
             native = new addon.QMenu();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     clear(): void {

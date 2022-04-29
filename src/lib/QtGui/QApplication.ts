@@ -3,7 +3,7 @@ import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QClipboard } from './QClipboard';
 import { QStyle } from './QStyle';
-import { QObjectSignals, NodeObject } from '../QtCore/QObject';
+import { QObjectSignals, QObject } from '../QtCore/QObject';
 import { QPalette } from './QPalette';
 import { StyleSheet } from '../core/Style/StyleSheet';
 import memoizeOne from 'memoize-one';
@@ -27,8 +27,7 @@ const qApp = QApplication.instance();
 qApp.quit();
 ```
  */
-export class QApplication extends NodeObject<QApplicationSignals> {
-    native: NativeElement;
+export class QApplication extends QObject<QApplicationSignals> {
     constructor();
     constructor(native: NativeElement);
     constructor(arg?: NativeElement) {
@@ -39,7 +38,6 @@ export class QApplication extends NodeObject<QApplicationSignals> {
             native = new addon.QApplication();
         }
         super(native);
-        this.native = native;
 
         this.setStyleSheet = memoizeOne(this.setStyleSheet);
     }

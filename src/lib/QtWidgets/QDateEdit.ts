@@ -21,18 +21,16 @@ const dateEdit = new QDateEdit();
 ```
  */
 export class QDateEdit extends NodeDateTimeEdit {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QDateEdit(parent.native);
         } else {
             native = new addon.QDateEdit();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
 }

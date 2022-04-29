@@ -24,19 +24,13 @@ const image = new QImage();
 ```
  */
 export class QImage extends Component {
-    native!: NativeElement;
-
     /** Constructs a null image */
     constructor();
-
     constructor(native: NativeElement);
-
     /** Constructs an image and tries to load the image from the file with the given fileName */
     constructor(filename: string);
-
     /** Constructs an image with the given width, height and format */
     constructor(width: number, height: number, format: QImageFormat);
-
     /** Constructs an image with the given size and format */
     constructor(size: QSize, format: QImageFormat);
     constructor(
@@ -44,19 +38,19 @@ export class QImage extends Component {
         formatOrHeight?: QImageFormat | string | number,
         format?: QImageFormat,
     ) {
-        super();
-
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else if (typeof arg === 'string') {
-            this.native = new addon.QImage(arg);
+            native = new addon.QImage(arg);
         } else if (typeof arg === 'number') {
-            this.native = new addon.QImage(arg, formatOrHeight, format);
+            native = new addon.QImage(arg, formatOrHeight, format);
         } else if (arg instanceof QSize) {
-            this.native = new addon.QImage(arg.native, formatOrHeight);
+            native = new addon.QImage(arg.native, formatOrHeight);
         } else {
-            this.native = new addon.QImage();
+            native = new addon.QImage();
         }
+        super(native);
     }
 
     /**

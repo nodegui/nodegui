@@ -23,20 +23,20 @@ const pixMap = new QPixmap(imageUrl);
 ```
  */
 export class QPixmap extends Component {
-    native: NativeElement;
     constructor();
     constructor(native: NativeElement);
     constructor(filePath: string);
     constructor(arg?: string | NativeElement) {
-        super();
+        let native: NativeElement;
         if (typeof arg === 'string') {
             const imagePath = arg;
-            this.native = new addon.QPixmap(imagePath);
+            native = new addon.QPixmap(imagePath);
         } else if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else {
-            this.native = new addon.QPixmap();
+            native = new addon.QPixmap();
         }
+        super(native);
     }
     load(imagePath: string): boolean {
         return this.native.load(imagePath);

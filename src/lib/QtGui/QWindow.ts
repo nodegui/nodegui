@@ -1,20 +1,16 @@
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement, registerNativeWrapFunction } from '../utils/helpers';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QScreen } from './QScreen';
 import { wrapperCache } from '../core/WrapperCache';
 import { Edge, Visibility, WindowState } from '../QtEnums';
 
-export class QWindow extends NodeObject<QWindowSignals> {
-    native: NativeElement;
+export class QWindow extends QObject<QWindowSignals> {
     constructor(native: NativeElement) {
-        super(native);
-
-        if (checkIfNativeElement(native)) {
-            this.native = native;
-        } else {
+        if (!checkIfNativeElement(native)) {
             throw new Error('QWindow cannot be initialised this way.');
         }
+        super(native);
     }
 
     screen(): QScreen {

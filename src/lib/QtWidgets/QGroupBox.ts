@@ -40,18 +40,16 @@ win.show();
 ```
  */
 export class QGroupBox extends NodeWidget<QGroupBoxSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QGroupBox(parent.native);
         } else {
             native = new addon.QGroupBox();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {

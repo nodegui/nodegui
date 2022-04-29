@@ -11,22 +11,18 @@ import { QPoint } from './QPoint';
  * In addition, the QPointF class provides a constructor converting a QPoint object into a QPointF object, and a corresponding toPoint() function which returns a QPoint copy of this point.
  */
 export class QPointF extends Component {
-    native: NativeElement;
-    constructor();
-    constructor(nativeElement: NativeElement);
-    constructor(x?: number, y?: number);
-    constructor(point: QPoint);
-    constructor(arg?: NativeElement | number | QPoint, y = 0) {
-        super();
-        if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
-        } else if (typeof arg === 'number') {
-            this.native = new addon.QPointF(arg, y);
-        } else if (arg instanceof QPoint) {
-            this.native = new addon.QPointF(arg.x(), arg.y());
+    constructor(nativeOrXOrQPoint?: NativeElement | number | QPoint, y = 0) {
+        let native: NativeElement;
+        if (checkIfNativeElement(nativeOrXOrQPoint)) {
+            native = nativeOrXOrQPoint as NativeElement;
+        } else if (typeof nativeOrXOrQPoint === 'number') {
+            native = new addon.QPointF(nativeOrXOrQPoint, y);
+        } else if (nativeOrXOrQPoint instanceof QPoint) {
+            native = new addon.QPointF(nativeOrXOrQPoint.x(), nativeOrXOrQPoint.y());
         } else {
-            this.native = new addon.QPointF();
+            native = new addon.QPointF();
         }
+        super(native);
     }
     /**
      * Sets the x coordinate of this point to the given x coordinate.

@@ -1,6 +1,5 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
 import { QAbstractSpinBox, QAbstractSpinBoxSignals } from './QAbstractSpinBox';
 import { QCalendarWidget } from './QCalendarWidget';
 import { QDate } from '../QtCore/QDate';
@@ -86,7 +85,6 @@ dateTimeEdit.setTime(time);
 ```
  */
 export class QDateTimeEdit extends NodeDateTimeEdit {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
@@ -97,7 +95,6 @@ export class QDateTimeEdit extends NodeDateTimeEdit {
             native = new addon.QDateTimeEdit();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
 }

@@ -1,9 +1,8 @@
 import addon from '../utils/addon';
 import { NodeWidget, QWidgetSignals } from './QWidget';
-import { NativeElement } from '../core/Component';
 
 /**
- 
+
 > Create and control number.
 
 * **This class is a JS wrapper around Qt's [QLCDNumber class](https://doc.qt.io/qt-5/qlcdnumber.html)**
@@ -21,9 +20,6 @@ const lcd = new QLCDNumber();
 
  */
 export class QLCDNumber extends NodeWidget<QLCDNumberSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -32,7 +28,6 @@ export class QLCDNumber extends NodeWidget<QLCDNumberSignals> {
             native = new addon.QLCDNumber();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     setDigitCount(numDigits: number): void {

@@ -1,10 +1,10 @@
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { NativeRawPointer } from './Component';
 
 export type FlexNode = NativeRawPointer<'YGNodeRef'>;
 
 /**
- 
+
 > Abstract class to add common functionality related to Flex layout to all Widgets.
 
 **This class implements methods related to flex layout required to be present in all widgets**
@@ -22,7 +22,7 @@ const flexNode = view.getFlexNode();
 
 YogaWidget helps in storing all flex properties of a widget.
  */
-export abstract class YogaWidget<Signals extends QObjectSignals> extends NodeObject<Signals> {
+export abstract class YogaWidget<Signals extends QObjectSignals> extends QObject<Signals> {
     getFlexNode(): FlexNode {
         return this.native.getFlexNode();
     }

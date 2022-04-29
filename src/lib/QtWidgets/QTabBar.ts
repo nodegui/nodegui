@@ -1,6 +1,5 @@
 import addon from '../utils/addon';
 import { NodeWidget, QWidgetSignals } from './QWidget';
-import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
 import { TextElideMode } from '../QtEnums';
 import { QSize } from '../QtCore/QSize';
@@ -27,9 +26,6 @@ const tabBar = new QTabBar();
 ```
  */
 export class QTabBar extends NodeWidget<QTabBarSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -38,7 +34,6 @@ export class QTabBar extends NodeWidget<QTabBarSignals> {
             native = new addon.QTabBar();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     setAutoHide(hide: boolean): void {

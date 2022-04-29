@@ -30,7 +30,6 @@ layout.addWidget(label2);
 
  */
 export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
@@ -42,7 +41,6 @@ export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
         }
         super(native);
         this.setNodeParent(parent);
-        this.native = native;
     }
 
     addLayout(

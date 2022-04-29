@@ -1,16 +1,15 @@
 import addon from '../utils/addon';
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QSize } from '../QtCore/QSize';
 import { QPixmap } from './QPixmap';
 
-export class QMovie extends NodeObject<QMovieSignals> {
-    native: NativeElement;
+export class QMovie extends QObject<QMovieSignals> {
     constructor();
     constructor(native: NativeElement);
-    constructor(parent: NodeObject<any>);
-    constructor(arg?: NodeObject<any> | NativeElement) {
+    constructor(parent: QObject);
+    constructor(arg?: QObject | NativeElement) {
         let native: NativeElement;
         if (arg) {
             if (checkIfNativeElement(arg)) {
@@ -22,7 +21,6 @@ export class QMovie extends NodeObject<QMovieSignals> {
             native = new addon.QMovie();
         }
         super(native);
-        this.native = native;
     }
     //Methods
     setFileName(fileName: string): void {

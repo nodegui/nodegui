@@ -46,7 +46,6 @@ win.show();
 ```
  */
 export class QTreeWidgetItem extends Component {
-    native: NativeElement;
     items: Set<NativeElement | Component>;
     constructor();
     constructor(parent: QTreeWidgetItem, strings?: string[]);
@@ -54,25 +53,30 @@ export class QTreeWidgetItem extends Component {
     constructor(native: NativeElement);
     constructor(strings: string[]);
     constructor(parent?: NativeElement | QTreeWidgetItem | QTreeWidget | string[], strings?: string[]) {
-        super();
-        this.items = new Set();
+        let native: NativeElement;
+        let parentTreeWidgetItem: QTreeWidgetItem | QTreeWidget = null;
         if (checkIfNativeElement(parent)) {
-            this.native = parent as NativeElement;
+            native = parent as NativeElement;
         } else {
             if (parent instanceof QTreeWidgetItem || parent instanceof QTreeWidget) {
-                this.setNodeParent(parent);
                 const type = parent instanceof QTreeWidgetItem ? 'item' : 'tree';
+                parentTreeWidgetItem = parent;
                 if (strings) {
-                    this.native = new addon.QTreeWidgetItem(parent.native, strings, type);
+                    native = new addon.QTreeWidgetItem(parent.native, strings, type);
                 } else {
-                    this.native = new addon.QTreeWidgetItem(parent.native, type);
+                    native = new addon.QTreeWidgetItem(parent.native, type);
                 }
             } else if (Array.isArray(parent)) {
                 const strings = parent;
-                this.native = new addon.QTreeWidgetItem(strings);
+                native = new addon.QTreeWidgetItem(strings);
             } else {
-                this.native = new addon.QTreeWidgetItem();
+                native = new addon.QTreeWidgetItem();
             }
+        }
+        super(native);
+        this.items = new Set();
+        if (parentTreeWidgetItem != null) {
+            this.setNodeParent(parentTreeWidgetItem);
         }
     }
     setText(column: number, text: string): void {

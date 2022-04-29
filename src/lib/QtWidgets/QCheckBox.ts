@@ -23,7 +23,6 @@ checkbox.setText("Hello");
 ```
  */
 export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(rawPointer: NativeRawPointer<any>, disableNativeDeletion?: boolean);
@@ -42,7 +41,6 @@ export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
             native = new addon.QCheckBox();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     setTristate(y = true): void {

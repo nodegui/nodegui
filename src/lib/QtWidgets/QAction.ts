@@ -6,7 +6,7 @@ import { QIcon } from '../QtGui/QIcon';
 import { QFont } from '../QtGui/QFont';
 import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from '../QtCore/QVariant';
 
@@ -30,13 +30,12 @@ menuAction.addEventListener("triggered", () => {
 menu.addAction(menuAction);
 ```
  */
-export class QAction extends NodeObject<QActionSignals> {
-    native: NativeElement;
+export class QAction extends QObject<QActionSignals> {
     constructor();
     constructor(native: NativeElement);
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NativeElement | NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (checkIfNativeElement(parent)) {
             native = parent as NativeElement;
         } else if (parent) {
@@ -45,7 +44,6 @@ export class QAction extends NodeObject<QActionSignals> {
             native = new addon.QAction();
         }
         super(native);
-        this.native = native;
     }
     setText(text: string): void {
         this.native.setText(text);

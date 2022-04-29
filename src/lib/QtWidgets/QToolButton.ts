@@ -9,7 +9,7 @@ import { QMenu } from './QMenu';
 import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
 
 /**
- 
+
 > Create and control buttons to use inside a QToolBar.
 
 * **This class is a JS wrapper around Qt's [QToolButton class](https://doc.qt.io/qt-5/qtoolbutton.html)**
@@ -26,12 +26,9 @@ tool.setText('Help');
 ```
  */
 export class QToolButton extends QAbstractButton<QToolButtonSignals> {
-    native: NativeElement;
     private _defaultAction?: QAction | null;
     private _menu?: QMenu | null;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(rawPointer: NativeRawPointer<any>, disableNativeDeletion?: boolean);
+
     constructor(arg?: NodeWidget<any> | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
         let native;
         let parent: Component | undefined;
@@ -47,7 +44,6 @@ export class QToolButton extends QAbstractButton<QToolButtonSignals> {
             native = new addon.QToolButton();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     setArrowType(type: ArrowType): void {

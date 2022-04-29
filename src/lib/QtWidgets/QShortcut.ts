@@ -1,9 +1,8 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
 import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 
 /**
  
@@ -29,12 +28,9 @@ global.win = win;
 global.shortcut = shortcut;
 ```
  */
-export class QShortcut extends NodeObject<QShortcutSignals> {
-    native: NativeElement;
+export class QShortcut extends QObject<QShortcutSignals> {
     constructor(parent: NodeWidget<any>) {
-        const native = new addon.QShortcut(parent.native);
-        super(native);
-        this.native = native;
+        super(new addon.QShortcut(parent.native));
     }
     setEnabled(enabled: boolean): void {
         this.native.setEnabled(enabled);

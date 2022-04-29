@@ -1,13 +1,12 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { AlignmentFlag, TextInteractionFlag } from '../QtEnums';
 import { QFont } from '../QtGui/QFont';
 import { QColor } from '../QtGui/QColor';
 
 /**
- 
+
 > Create and control editable text field.
 
 * **This class is a JS wrapper around Qt's [QTextEdit class](https://doc.qt.io/qt-5/qtextedit.html)**
@@ -240,9 +239,6 @@ export enum WrapMode {
 }
 
 export class QTextEdit extends NodeTextEdit<QTextEditSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -251,7 +247,6 @@ export class QTextEdit extends NodeTextEdit<QTextEditSignals> {
             native = new addon.QTextEdit();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
 }

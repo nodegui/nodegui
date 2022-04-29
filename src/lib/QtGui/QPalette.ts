@@ -1,4 +1,4 @@
-import { Component, NativeElement } from '../core/Component';
+import { Component } from '../core/Component';
 import { QColor } from './QColor';
 
 export enum ColorGroup {
@@ -33,12 +33,6 @@ export enum ColorRole {
 }
 
 export class QPalette extends Component {
-    native: NativeElement;
-    constructor(native: NativeElement) {
-        super();
-        this.native = native;
-    }
-
     color(group: ColorGroup, role: ColorRole): QColor {
         return new QColor(this.native.color(group, role));
     }

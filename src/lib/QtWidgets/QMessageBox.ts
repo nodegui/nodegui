@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement, NativeRawPointer } from '../core/Component';
+import { NativeRawPointer } from '../core/Component';
 import { NodeDialog, QDialogSignals } from './QDialog';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { QPushButton } from './QPushButton';
@@ -19,7 +19,7 @@ export enum ButtonRole {
 }
 
 /**
- 
+
 > Create and control classic modal dialogs.
 
 * **This class is a JS wrapper around Qt's [QMessageBox class](https://doc.qt.io/qt-5/qmessagebox.html)**
@@ -40,9 +40,6 @@ messageBox.exec();
 ```
  */
 export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -51,7 +48,6 @@ export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
             native = new addon.QMessageBox();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     accept(): void {

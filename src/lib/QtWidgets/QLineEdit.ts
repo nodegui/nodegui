@@ -1,6 +1,5 @@
 import addon from '../utils/addon';
 import { NodeWidget, QWidgetSignals } from './QWidget';
-import { NativeElement } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 import { CursorMoveStyle } from '../QtEnums/CursorMoveStyle';
 import { QPoint } from '../QtCore/QPoint';
@@ -23,9 +22,6 @@ const lineEdit = new QLineEdit();
 
  */
 export class QLineEdit extends NodeWidget<QLineEditSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -34,7 +30,6 @@ export class QLineEdit extends NodeWidget<QLineEditSignals> {
             native = new addon.QLineEdit();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     // TODO: void 	addAction(QAction *action, QLineEdit::ActionPosition position)

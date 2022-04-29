@@ -27,18 +27,16 @@ fs.readFile("icon.svg", (err, buffer) => {
 
  */
 export class QSvgWidget extends NodeWidget<QWidgetSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QSvgWidget(parent.native);
         } else {
             native = new addon.QSvgWidget();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     load(file: string | Buffer): void {

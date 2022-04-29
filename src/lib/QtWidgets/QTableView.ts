@@ -1,6 +1,5 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
 import { SortOrder, PenStyle } from '../QtEnums';
 import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
 import { QHeaderView } from './QHeaderView';
@@ -179,9 +178,6 @@ export abstract class NodeTableView<Signals extends QTableViewSignals> extends Q
 }
 
 export class QTableView extends NodeTableView<QTableViewSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -190,7 +186,6 @@ export class QTableView extends NodeTableView<QTableViewSignals> {
             native = new addon.QTableView();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
 }

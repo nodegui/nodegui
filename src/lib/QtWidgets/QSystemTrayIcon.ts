@@ -1,12 +1,11 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
 import { QMenu } from './QMenu';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 
 /**
- 
+
 > Create and control system tray icon.
 
 * **This class is a JS wrapper around Qt's [QSystemTrayIcon class](https://doc.qt.io/qt-5/qsystemtrayicon.html)**
@@ -28,11 +27,9 @@ tray.show();
 global.tray = tray; // prevents garbage collection of tray
 ```
  */
-export class QSystemTrayIcon extends NodeObject<QSystemTrayIconSignals> {
-    native: NativeElement;
+export class QSystemTrayIcon extends QObject<QSystemTrayIconSignals> {
     contextMenu?: QMenu;
-    constructor();
-    constructor(parent: NodeWidget<any>);
+
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -41,7 +38,6 @@ export class QSystemTrayIcon extends NodeObject<QSystemTrayIconSignals> {
             native = new addon.QSystemTrayIcon();
         }
         super(native);
-        this.native = native;
     }
     show(): void {
         this.native.show();

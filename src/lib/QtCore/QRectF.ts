@@ -8,20 +8,17 @@ import { QRect } from './QRect';
  * description
  */
 export class QRectF extends Component {
-    native: NativeElement;
-    constructor();
-    constructor(nativeElement: NativeElement);
-    constructor(x?: number, y?: number, width?: number, height?: number);
-    constructor(arg?: NativeElement | number, y = 0, width = 0, height = 0) {
-        super();
+    constructor(nativeOrX?: NativeElement | number, y = 0, width = 0, height = 0) {
         const count = arguments.length;
+        let native: NativeElement;
         if (count > 1) {
-            this.native = new addon.QRectF(arg, y, width, height);
-        } else if (count == 1 && checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = new addon.QRectF(nativeOrX, y, width, height);
+        } else if (count == 1 && checkIfNativeElement(nativeOrX)) {
+            native = nativeOrX as NativeElement;
         } else {
-            this.native = new addon.QRectF();
+            native = new addon.QRectF();
         }
+        super(native);
     }
 
     /**

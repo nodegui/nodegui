@@ -1,11 +1,10 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
 import { NodeDialog, QDialogSignals } from './QDialog';
 import { EchoMode } from './QLineEdit';
 
 /**
- 
+
 > Create and control input modal dialogs.
 
 * **This class is a JS wrapper around Qt's [QInputDialog class](https://doc.qt.io/qt-5/qinputdialog.html)**
@@ -23,9 +22,6 @@ dialog.exec();
 ```
  */
 export class QInputDialog extends NodeDialog<QInputDialogSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -34,7 +30,6 @@ export class QInputDialog extends NodeDialog<QInputDialogSignals> {
             native = new addon.QInputDialog();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     setCancelButtonText(text: string): void {

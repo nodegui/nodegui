@@ -20,18 +20,16 @@ const doublespinBox = new QDoubleSpinBox();
 ```
  */
 export class QDoubleSpinBox extends QAbstractSpinBox<QDoubleSpinBoxSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QDoubleSpinBox(parent.native);
         } else {
             native = new addon.QDoubleSpinBox();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     cleanText(): string {

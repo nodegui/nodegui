@@ -41,13 +41,12 @@ win.show();
 
  */
 export class QTableWidgetItem extends Component {
-    native: NativeElement;
     constructor();
     constructor(other: QTableWidgetItem);
     constructor(native: NativeElement);
     constructor(text: string);
     constructor(arg?: QTableWidgetItem | NativeElement | string) {
-        let native;
+        let native: NativeElement;
         if (typeof arg === 'string') {
             native = new addon.QTableWidgetItem(arg);
         } else if (checkIfNativeElement(arg)) {
@@ -55,8 +54,7 @@ export class QTableWidgetItem extends Component {
         } else {
             native = new addon.QTableWidgetItem();
         }
-        super();
-        this.native = native;
+        super(native);
     }
     setBackground(brush: QBrush): void {
         this.native.setBackground(brush.native);

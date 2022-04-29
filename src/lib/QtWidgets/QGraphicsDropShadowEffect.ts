@@ -1,7 +1,7 @@
 import addon from '../utils/addon';
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
-import { NodeObject } from '../QtCore/QObject';
+import { QObject } from '../QtCore/QObject';
 import { QGraphicsEffect, QGraphicsEffectSignals } from './QGraphicsEffect';
 import { QColor } from '../QtGui/QColor';
 
@@ -23,11 +23,10 @@ shadow.setBlurRadius(8);
 ```
  */
 export class QGraphicsDropShadowEffect extends QGraphicsEffect<QGraphicsDropShadowEffectSignals> {
-    native: NativeElement;
     constructor();
     constructor(native: NativeElement);
-    constructor(parent: NodeObject<any>);
-    constructor(arg?: NodeObject<any> | NativeElement) {
+    constructor(parent: QObject<any>);
+    constructor(arg?: QObject<any> | NativeElement) {
         let native: NativeElement;
         if (arg) {
             if (checkIfNativeElement(arg)) {
@@ -39,7 +38,6 @@ export class QGraphicsDropShadowEffect extends QGraphicsEffect<QGraphicsDropShad
             native = new addon.QGraphicsDropShadowEffect();
         }
         super(native);
-        this.native = native;
     }
     setBlurRadius(blurRadius: number): void {
         this.setProperty('blurRadius', blurRadius);

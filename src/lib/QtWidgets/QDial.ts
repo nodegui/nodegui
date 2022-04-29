@@ -20,18 +20,16 @@ const dial = new QDial();
 ```
  */
 export class QDial extends QAbstractSlider<QDialSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QDial(parent.native);
         } else {
             native = new addon.QDial();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     notchSize(): number {

@@ -1,7 +1,7 @@
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 
 /**
- 
+
 > This is the abstract base class of graphicseffect, providing their functionality.
 
 * **This class is a JS wrapper around Qt's [QGraphicsEffect class](https://doc.qt.io/qt-5/qgraphicseffect.html)**
@@ -10,7 +10,7 @@ The QGraphicsEffect class is an abstract class and therefore, technically, no fu
 It is inherited by QGraphicsBlurEffect, QGraphicsColorizeEffect, QGraphicsDropShadowEffect, and QGraphicsOpacityEffect.
 
  */
-export abstract class QGraphicsEffect<Signals extends QGraphicsEffectSignals> extends NodeObject<Signals> {
+export abstract class QGraphicsEffect<Signals extends QGraphicsEffectSignals> extends QObject<Signals> {
     setEnabled(enable: boolean): void {
         this.setProperty('enabled', enable);
     }

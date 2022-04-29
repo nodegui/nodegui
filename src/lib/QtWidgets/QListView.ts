@@ -144,18 +144,16 @@ export enum ListViewMode {
 }
 
 export class QListView extends NodeListView<QListViewSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QListView(parent.native);
         } else {
             native = new addon.QListView();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
 }

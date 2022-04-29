@@ -7,7 +7,7 @@ export interface QStatusBarSignals extends QWidgetSignals {
 }
 
 /**
- 
+
 > Create and control progress bar widgets.
 
 * **This class is a JS wrapper around Qt's [QStatusBar class](https://doc.qt.io/qt-5/qstatusbar.html)**
@@ -23,11 +23,9 @@ const progressBar = new QStatusBar();
 ```
  */
 export class QStatusBar extends NodeWidget<QStatusBarSignals> {
-    native: NativeElement;
     permanentWidgets: Set<NativeElement>;
     widgets: Set<NativeElement>;
-    constructor();
-    constructor(parent: NodeWidget<any>);
+
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -37,7 +35,6 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
         }
 
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
 
         this.permanentWidgets = new Set();

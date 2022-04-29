@@ -4,19 +4,16 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from './QVariant';
 
 export class QSizeF extends Component {
-    native: NativeElement;
-    constructor();
-    constructor(nativeElement: NativeElement);
-    constructor(width?: number, height?: number);
-    constructor(arg?: number | NativeElement, height?: number) {
-        super();
-        if (!arg) {
-            this.native = new addon.QSizeF();
-        } else if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+    constructor(nativeOrWidth?: number | NativeElement, height?: number) {
+        let native: NativeElement;
+        if (!nativeOrWidth) {
+            native = new addon.QSizeF();
+        } else if (checkIfNativeElement(nativeOrWidth)) {
+            native = nativeOrWidth as NativeElement;
         } else {
-            this.native = new addon.QSizeF(arg, height);
+            native = new addon.QSizeF(nativeOrWidth, height);
         }
+        super(native);
     }
     setWidth(width: number): void {
         return this.native.setWidth(width);

@@ -5,21 +5,21 @@ import { ItemFlag } from '../QtEnums/ItemFlag';
 import { CheckState } from '../QtEnums';
 
 export class QStandardItem extends Component {
-    native: NativeElement;
     constructor();
     constructor(parent: QStandardItem, text?: string);
     constructor(native: NativeElement);
     constructor(parent?: NativeElement | QStandardItem, text?: string) {
-        super();
+        let native: NativeElement;
         if (checkIfNativeElement(parent)) {
-            this.native = parent as NativeElement;
+            native = parent as NativeElement;
         } else {
             if (text) {
-                this.native = new addon.QStandardItem(text);
+                native = new addon.QStandardItem(text);
             } else {
-                this.native = new addon.QStandardItem();
+                native = new addon.QStandardItem();
             }
         }
+        super(native);
     }
     setCheckState(state: CheckState): void {
         this.native.setCheckState(state);

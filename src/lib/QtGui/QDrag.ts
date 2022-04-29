@@ -11,21 +11,18 @@ import { QMimeData } from '../QtCore/QMimeData';
  * description
  */
 export class QDrag extends Component {
-    native: NativeElement;
     constructor(arg?: NativeElement | QObject) {
-        super();
+        let native: NativeElement;
         if (!arg) {
-            this.native = new addon.QDrag();
+            native = new addon.QDrag();
+        } else if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg.native) {
+            native = new addon.QDrag(arg.native);
         } else {
-            const isNative = checkIfNativeElement(arg);
-            if (isNative) {
-                this.native = arg as NativeElement;
-            } else if (arg.native) {
-                this.native = new addon.QDrag(arg.native);
-            } else {
-                this.native = new addon.QDrag();
-            }
+            native = new addon.QDrag();
         }
+        super(native);
     }
 
     /**

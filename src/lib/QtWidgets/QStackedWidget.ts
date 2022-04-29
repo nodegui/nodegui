@@ -1,7 +1,6 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
 import { NodeFrame, QFrameSignals } from './QFrame';
-import { NativeElement } from '../core/Component';
 
 /**
 
@@ -45,9 +44,6 @@ win.show();
 ```
  */
 export class QStackedWidget extends NodeFrame<QStackedWidgetSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -57,7 +53,6 @@ export class QStackedWidget extends NodeFrame<QStackedWidgetSignals> {
         }
         super(native);
         this.setNodeParent(parent);
-        this.native = native;
     }
 
     // *** Public Function ***

@@ -80,9 +80,8 @@ const frame = new QFrame();
 ```
  */
 export class QFrame extends NodeFrame<QFrameSignals> {
-    native: NativeElement;
     constructor(arg?: NodeWidget<QWidgetSignals> | NativeElement) {
-        let native;
+        let native: NativeElement;
         let parent;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
@@ -94,6 +93,5 @@ export class QFrame extends NodeFrame<QFrameSignals> {
         }
         super(native);
         this.setNodeParent(parent);
-        this.native = native;
     }
 }

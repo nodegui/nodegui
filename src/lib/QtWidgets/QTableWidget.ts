@@ -38,7 +38,6 @@ win.show();
 ```
  */
 export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
-    native: NativeElement;
     items: Set<NativeElement | Component>;
     constructor(rows: number, columns: number, parent?: NodeWidget<any>) {
         let native;
@@ -48,7 +47,6 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
             native = new addon.QTableWidget(rows, columns);
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
         this.items = new Set();
     }

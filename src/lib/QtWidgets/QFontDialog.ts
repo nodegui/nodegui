@@ -25,18 +25,16 @@ console.log(font);
 ```
  */
 export class QFontDialog extends NodeDialog<QFontDialogSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QFontDialog(parent.native);
         } else {
             native = new addon.QFontDialog();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     setCurrentFont(font: QFont): void {

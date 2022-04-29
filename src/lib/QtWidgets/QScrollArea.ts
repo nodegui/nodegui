@@ -29,19 +29,15 @@ scrollArea.setWidget(imageLabel);
 ```
  */
 export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
-    native: NativeElement;
     contentWidget?: NodeWidget<any> | null;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QScrollArea(parent.native);
         } else {
             native = new addon.QScrollArea();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {

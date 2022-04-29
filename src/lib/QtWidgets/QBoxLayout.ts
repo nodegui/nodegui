@@ -26,7 +26,6 @@ centralWidget.setLayout(boxLayout);
 ```
  */
 export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
-    native: NativeElement;
     childLayouts: Set<NodeLayout<any>>;
     constructor(dir: Direction);
     constructor(dir: Direction, parent: NodeWidget<any>);
@@ -39,7 +38,6 @@ export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
         }
         super(native);
         this.setNodeParent(parent);
-        this.native = native;
         this.childLayouts = new Set();
     }
     addLayout(layout: NodeLayout<any>, stretch = 0): void {

@@ -20,18 +20,14 @@ const progressBar = new QProgressBar();
 ```
  */
 export class QProgressBar extends NodeWidget<QProgressBarSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QProgressBar(parent.native);
         } else {
             native = new addon.QProgressBar();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {

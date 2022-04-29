@@ -20,20 +20,20 @@ const icon = new QIcon(imageUrl);
 ```
  */
 export class QIcon extends Component {
-    native: NativeElement;
     constructor();
     constructor(native: NativeElement);
     constructor(filePath: string);
     constructor(arg?: string | NativeElement) {
-        super();
+        let native: NativeElement;
         if (typeof arg === 'string') {
             const imagePath = arg;
-            this.native = new addon.QIcon(imagePath);
+            native = new addon.QIcon(imagePath);
         } else if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else {
-            this.native = new addon.QIcon();
+            native = new addon.QIcon();
         }
+        super(native);
     }
     pixmap(width: number, height: number, mode?: QIconMode, state?: QIconState): QPixmap {
         let nativePixmap;

@@ -1,18 +1,14 @@
 import addon from '../utils/addon';
-import { NativeElement } from '../core/Component';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QModelIndex } from './QModelIndex';
 import { QVariant } from './QVariant';
 import { ItemDataRole, ItemFlag, Orientation } from '../QtEnums';
 
 export type QAbstractItemSignals = QObjectSignals;
 
-export class QAbstractItemModel extends NodeObject<any> {
-    native: NativeElement;
+export class QAbstractItemModel extends QObject<any> {
     constructor() {
-        const native = new addon.QAbstractItemModel();
-        super(native);
-        this.native = native;
+        super(new addon.QAbstractItemModel());
         const dispatcher = (methodName: string, ...args: any[]): any => {
             switch (methodName) {
                 case 'index':

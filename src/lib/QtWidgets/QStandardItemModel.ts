@@ -1,17 +1,13 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QStandardItem } from './QStandardItem';
 
 export interface QStandardItemModelSignals extends QObjectSignals {
     itemChanged: (item: QStandardItem) => void;
 }
 
-export class QStandardItemModel extends NodeObject<any> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
+export class QStandardItemModel extends QObject {
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -20,7 +16,6 @@ export class QStandardItemModel extends NodeObject<any> {
             native = new addon.QStandardItemModel();
         }
         super(native);
-        this.native = native;
         parent && parent.nodeChildren.add(this);
     }
     item(row: number, column = 0): QStandardItem | void {

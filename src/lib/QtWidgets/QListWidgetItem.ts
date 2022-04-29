@@ -10,7 +10,7 @@ import { CheckState } from '../QtEnums';
 import { ItemFlag } from '../QtEnums/ItemFlag';
 
 /**
- 
+
 > Creates an item for QListWidget.
 
 * **This class is a JS wrapper around Qt's [QListWidgetItem class](https://doc.qt.io/qt-5/qlistwidgetitem.html)**
@@ -35,11 +35,6 @@ for (let i = 0; i < 30; i++) {
 ```
  */
 export class QListWidgetItem extends Component {
-    native: NativeElement;
-    constructor();
-    constructor(other: QListWidgetItem);
-    constructor(native: NativeElement);
-    constructor(text: string);
     constructor(arg?: QListWidgetItem | NativeElement | string) {
         let native;
         if (typeof arg === 'string') {
@@ -49,8 +44,7 @@ export class QListWidgetItem extends Component {
         } else {
             native = new addon.QListWidgetItem();
         }
-        super();
-        this.native = native;
+        super(native);
     }
     setBackground(brush: QBrush): void {
         this.native.setBackground(brush.native);

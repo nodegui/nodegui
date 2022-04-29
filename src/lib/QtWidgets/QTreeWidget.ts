@@ -6,8 +6,8 @@ import { QTreeWidgetItem } from './QTreeWidgetItem';
 import { MatchFlag } from '../..';
 
 /**
- 
-> Creates a tree view that uses a predefined tree model. 
+
+> Creates a tree view that uses a predefined tree model.
 
 * **This class is a JS wrapper around Qt's [QTreeWidget class](https://doc.qt.io/qt-5/qtreewidget.html)**
 
@@ -49,11 +49,9 @@ win.show();
 (global as any).win = win;```
  */
 export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
-    native: NativeElement;
     topLevelItems: Set<QTreeWidgetItem>;
     itemWidgets: Map<QTreeWidgetItem, QWidget>;
-    constructor();
-    constructor(parent: NodeWidget<any>);
+
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -62,7 +60,6 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
             native = new addon.QTreeWidget();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
         this.topLevelItems = new Set<QTreeWidgetItem>();
         this.itemWidgets = new Map<QTreeWidgetItem, QWidget>();

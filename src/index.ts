@@ -153,7 +153,7 @@ export { QDateTime } from './lib/QtCore/QDateTime';
 export { QItemSelectionModel, SelectionFlag } from './lib/QtCore/QItemSelectionModel';
 export { QModelIndex } from './lib/QtCore/QModelIndex';
 export { QMimeData } from './lib/QtCore/QMimeData';
-export { QObject, QObjectSignals, NodeObject } from './lib/QtCore/QObject';
+export { QObject, QObjectSignals } from './lib/QtCore/QObject';
 export { QVariant } from './lib/QtCore/QVariant';
 export { QSize } from './lib/QtCore/QSize';
 export { QSizeF } from './lib/QtCore/QSizeF';
@@ -163,7 +163,13 @@ export { QPoint } from './lib/QtCore/QPoint';
 export { QPointF } from './lib/QtCore/QPointF';
 export { QColor } from './lib/QtGui/QColor';
 export { QTime } from './lib/QtCore/QTime';
-export { QUrl, ParsingMode } from './lib/QtCore/QUrl';
+export {
+    QUrl,
+    ParsingMode,
+    UserInputResolutionOption,
+    UrlFormattingOption,
+    ComponentFormattingOption,
+} from './lib/QtCore/QUrl';
 export { QSettings, QSettingsFormat, QSettingsScope } from './lib/QtCore/QSettings';
 // Layouts:
 export { QBoxLayout, QBoxLayoutSignals } from './lib/QtWidgets/QBoxLayout';

@@ -4,7 +4,7 @@ import { NativeElement } from '../core/Component';
 import { QAbstractSlider, QAbstractSliderSignals } from './QAbstractSlider';
 
 /**
- 
+
 > Create and control scollbar widgets.
 
 * **This class is a JS wrapper around Qt's [QScrollBar class](https://doc.qt.io/qt-5/qscrollbar.html)**
@@ -20,18 +20,14 @@ const scrollbar = new QScrollBar();
 ```
  */
 export class QScrollBar extends QAbstractSlider<QScrollBarSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QScrollBar(parent.native);
         } else {
             native = new addon.QScrollBar();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
 }

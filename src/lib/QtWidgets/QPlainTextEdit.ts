@@ -32,19 +32,15 @@ const plainTextEdit = new QPlainTextEdit();
 ```
  */
 export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
-    native: NativeElement;
     placeholderText?: string;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QPlainTextEdit(parent.native);
         } else {
             native = new addon.QPlainTextEdit();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     setPlainText(text: string | number): void {

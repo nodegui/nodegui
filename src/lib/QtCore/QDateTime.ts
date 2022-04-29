@@ -7,17 +7,17 @@ import { QTime } from './QTime';
 import { TimeSpec, DateFormat } from '../QtEnums';
 
 export class QDateTime extends Component {
-    native: NativeElement;
     constructor(arg?: NativeElement, time?: NativeElement) {
-        super();
         const count = arguments.length;
+        let native: NativeElement;
         if (arg && time) {
-            this.native = new addon.QDateTime(arg.native, time.native);
+            native = new addon.QDateTime(arg.native, time.native);
         } else if (count == 1 && checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else {
-            this.native = new addon.QDateTime();
+            native = new addon.QDateTime();
         }
+        super(native);
     }
     addDays(ndays: number): QDateTime {
         return new QDateTime(this.native.addDays(ndays));

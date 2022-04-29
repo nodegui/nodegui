@@ -205,9 +205,8 @@ export abstract class NodeHeaderView<Signals extends QHeaderViewSignals> extends
 }
 
 export class QHeaderView extends NodeHeaderView<QHeaderViewSignals> {
-    native: NativeElement;
     constructor(orientationOrNative: Orientation | NativeElement, parent: NodeWidget<any> | null = null) {
-        let native;
+        let native: NativeElement;
         if (checkIfNativeElement(orientationOrNative)) {
             native = orientationOrNative as NativeElement;
         } else {
@@ -218,7 +217,6 @@ export class QHeaderView extends NodeHeaderView<QHeaderViewSignals> {
             }
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
 }

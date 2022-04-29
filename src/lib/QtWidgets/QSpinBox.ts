@@ -1,10 +1,9 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
 import { QAbstractSpinBox, QAbstractSpinBoxSignals, StepType } from './QAbstractSpinBox';
 
 /**
- 
+
 > Create and control spin box widgets.
 
 * **This class is a JS wrapper around Qt's [QSpinBox class](https://doc.qt.io/qt-5/qspinbox.html)**
@@ -20,9 +19,6 @@ const spinBox = new QSpinBox();
 ```
  */
 export class QSpinBox extends QAbstractSpinBox<QSpinBoxSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -32,7 +28,6 @@ export class QSpinBox extends QAbstractSpinBox<QSpinBoxSignals> {
         }
         super(native);
         this.setNodeParent(parent);
-        this.native = native;
     }
     cleanText(): string {
         return this.property('cleanText').toString();

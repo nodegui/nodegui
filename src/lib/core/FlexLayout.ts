@@ -2,12 +2,11 @@ import addon from '../utils/addon';
 import { NodeWidget } from '../QtWidgets/QWidget';
 import { NodeLayout, QLayoutSignals } from '../QtWidgets/QLayout';
 import { FlexNode } from './YogaWidget';
-import { NativeElement } from './Component';
 
 export type FlexLayoutSignals = QLayoutSignals;
 
 /**
- 
+
 > Custom layout to help layout child widgets using flex layout.
 
 * **This class is a JS wrapper around custom Qt layout implemented using [Yoga](https://github.com/facebook/yoga)**
@@ -33,11 +32,8 @@ layout.addWidget(label2);
 ```
  */
 export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
-    native: NativeElement;
     protected flexNode?: FlexNode;
 
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -46,7 +42,6 @@ export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
             native = new addon.FlexLayout();
         }
         super(native);
-        this.native = native;
         if (parent) {
             this.setFlexNode(parent.getFlexNode());
         }

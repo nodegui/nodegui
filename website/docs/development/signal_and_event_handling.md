@@ -64,9 +64,8 @@ export const QPushButtonEvents = Object.freeze({
 });
 
 export class QPushButton extends NodeWidget {
-    native: NativeElement;
     constructor(parent?: NodeWidget) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QPushButton(parent.native);
         } else {
@@ -74,7 +73,6 @@ export class QPushButton extends NodeWidget {
         }
         super(native);
         this.parent = parent;
-        this.native = native;
     }
 
     setText(text: string | number) {

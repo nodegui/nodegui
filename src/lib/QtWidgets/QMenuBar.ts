@@ -6,7 +6,7 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { QAction } from './QAction';
 
 /**
- 
+
 > The QMenuBar class provides a menu widget for use in menu bars, context menus, and other popup menus.
 
 * **This class is a JS wrapper around Qt's [QMenuBar class](https://doc.qt.io/qt-5/qmenu.html)**
@@ -24,11 +24,8 @@ global.win = win;
 ```
  */
 export class QMenuBar extends NodeWidget<QMenuBarSignals> {
-    native: NativeElement;
     _menus: Set<QMenu>;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(native: NativeElement);
+
     constructor(arg?: NodeWidget<any> | NativeElement) {
         let native;
         let parent;
@@ -41,7 +38,6 @@ export class QMenuBar extends NodeWidget<QMenuBarSignals> {
             native = new addon.QMenuBar();
         }
         super(native);
-        this.native = native;
         this._menus = new Set<QMenu>();
         this.setNodeParent(parent);
     }

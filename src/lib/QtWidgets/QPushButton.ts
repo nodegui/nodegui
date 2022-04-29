@@ -6,7 +6,7 @@ import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
 import { QMenu } from './QMenu';
 
 /**
- 
+
 > Create and control buttons.
 
 * **This class is a JS wrapper around Qt's [QPushButton class](https://doc.qt.io/qt-5/qpushbutton.html)**
@@ -23,12 +23,8 @@ button.setText("Hello");
 ```
  */
 export class QPushButton extends QAbstractButton<QPushButtonSignals> {
-    native: NativeElement;
     private _menu?: QMenu | null;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(native: NativeElement);
-    constructor(rawPointer: NativeRawPointer<any>, disableNativeDeletion?: boolean);
+
     constructor(arg?: NodeWidget<any> | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
         let native;
         let parent: Component | undefined;
@@ -44,7 +40,6 @@ export class QPushButton extends QAbstractButton<QPushButtonSignals> {
             native = new addon.QPushButton();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     setAutoDefault(auto: boolean): void {

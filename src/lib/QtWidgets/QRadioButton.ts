@@ -5,7 +5,7 @@ import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
 
 /**
- 
+
 > Create and control radio button.
 
 * **This class is a JS wrapper around Qt's [QRadioButton class](https://doc.qt.io/qt-5/qradiobutton.html)**
@@ -23,10 +23,6 @@ radioButton.setText("Hello");
 
  */
 export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(rawPointer: NativeRawPointer<any>, disableNativeDeletion?: boolean);
     constructor(arg?: NodeWidget<any> | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
         let native;
         let parent: Component | undefined;
@@ -42,7 +38,6 @@ export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
             native = new addon.QRadioButton();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
 }

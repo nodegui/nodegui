@@ -1,10 +1,9 @@
 import addon from '../utils/addon';
 import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
 import { NodeDialog, QDialogSignals } from './QDialog';
 
 /**
- 
+
 > Create and control progress dialogs.
 
 * **This class is a JS wrapper around Qt's [QProgressDialog class](https://doc.qt.io/qt-5/qprogressdialog.html)**
@@ -21,9 +20,6 @@ const progressDialog = new QProgressDialog();
 ```
  */
 export class QProgressDialog extends NodeDialog<QProgressDialogSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
         let native;
         if (parent) {
@@ -32,7 +28,6 @@ export class QProgressDialog extends NodeDialog<QProgressDialogSignals> {
             native = new addon.QProgressDialog();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     setAutoClose(close: boolean): void {

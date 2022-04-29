@@ -5,7 +5,7 @@ import { AcceptMode, DialogLabel, FileMode, Option, ViewMode } from '../QtEnums'
 import { NodeDialog, QDialogSignals } from './QDialog';
 
 /**
- 
+
 > Create and control file dialogs.
 
 * **This class is a JS wrapper around Qt's [QFileDialog class](https://doc.qt.io/qt-5/qfiledialog.html)**
@@ -28,18 +28,16 @@ console.log(selectedFiles);
 ```
  */
 export class QFileDialog extends NodeDialog<QFileDialogSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>, caption?: string, directory?: string, filter?: string);
     constructor(parent?: NodeWidget<any>, caption = 'Select File', directory = '', filter = '') {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QFileDialog(parent.native, caption, directory, filter);
         } else {
             native = new addon.QFileDialog();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     supportedSchemes(): string[] {

@@ -18,20 +18,20 @@ const keySequence = new QKeySequence(`Ctrl+L`);
 ```
  */
 export class QKeySequence extends Component {
-    native: NativeElement;
     constructor();
     constructor(native: NativeElement);
     constructor(keySequence: string);
     constructor(arg?: string | NativeElement) {
-        super();
+        let native: NativeElement;
         if (typeof arg === 'string') {
             const keySequence = arg;
-            this.native = new addon.QKeySequence(keySequence);
+            native = new addon.QKeySequence(keySequence);
         } else if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else {
-            this.native = new addon.QKeySequence();
+            native = new addon.QKeySequence();
         }
+        super(native);
     }
     count(): number {
         return this.native.count();

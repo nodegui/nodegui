@@ -679,7 +679,6 @@ view.setLayout(new FlexLayout());
 ```
  */
 export class QWidget extends NodeWidget<QWidgetSignals> {
-    native: NativeElement;
     constructor(arg?: NodeWidget<QWidgetSignals> | NativeElement) {
         let native;
         let parent;
@@ -693,6 +692,5 @@ export class QWidget extends NodeWidget<QWidgetSignals> {
         }
         super(native);
         this.setNodeParent(parent);
-        this.native = native;
     }
 }

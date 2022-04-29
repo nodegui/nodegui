@@ -21,18 +21,16 @@ const errorMessage = new QErrorMessage();
 ```
  */
 export class QErrorMessage extends NodeDialog<QErrorMessageSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QErrorMessage(parent.native);
         } else {
             native = new addon.QErrorMessage();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     showMessage(message: string): void {

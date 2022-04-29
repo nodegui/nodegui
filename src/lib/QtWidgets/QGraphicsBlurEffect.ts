@@ -1,7 +1,7 @@
 import addon from '../utils/addon';
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
-import { NodeObject } from '../QtCore/QObject';
+import { QObject } from '../QtCore/QObject';
 import { QGraphicsEffect, QGraphicsEffectSignals } from './QGraphicsEffect';
 
 /**
@@ -22,11 +22,10 @@ blur.setBlurRadius(8);
 ```
  */
 export class QGraphicsBlurEffect extends QGraphicsEffect<QGraphicsBlurEffectSignals> {
-    native: NativeElement;
     constructor();
     constructor(native: NativeElement);
-    constructor(parent: NodeObject<any>);
-    constructor(arg?: NodeObject<any> | NativeElement) {
+    constructor(parent: QObject<any>);
+    constructor(arg?: QObject<any> | NativeElement) {
         let native: NativeElement;
         if (arg) {
             if (checkIfNativeElement(arg)) {
@@ -38,7 +37,6 @@ export class QGraphicsBlurEffect extends QGraphicsEffect<QGraphicsBlurEffectSign
             native = new addon.QGraphicsBlurEffect();
         }
         super(native);
-        this.native = native;
     }
     setBlurHints(hints: BlurHint): void {
         this.setProperty('blurHints', hints);

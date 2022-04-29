@@ -37,18 +37,16 @@ comboBox.addEventListener('currentIndexChanged', (index) => {
 ```
  */
 export class QComboBox extends NodeWidget<QComboBoxSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QComboBox(parent.native);
         } else {
             native = new addon.QComboBox();
         }
         super(native);
-        this.native = native;
         this.setNodeParent(parent);
     }
     // *** Public Functions ***

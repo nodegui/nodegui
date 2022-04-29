@@ -5,7 +5,7 @@ import { NodeDialog, QDialogSignals } from './QDialog';
 import { QColor } from '../QtGui/QColor';
 
 /**
- 
+
 > Create and control color dialogs.
 
 * **This class is a JS wrapper around Qt's [QColorDialog class](https://doc.qt.io/qt-5/qcolordialog.html)**
@@ -27,18 +27,16 @@ console.log(color.red(), color.green(), color.blue());
 ```
  */
 export class QColorDialog extends NodeDialog<QColorDialogSignals> {
-    native: NativeElement;
     constructor();
     constructor(parent: NodeWidget<any>);
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QColorDialog(parent.native);
         } else {
             native = new addon.QColorDialog();
         }
         super(native);
-        this.native = native;
         parent && this.setNodeParent(parent);
     }
     setCurrentColor(color: QColor): void {

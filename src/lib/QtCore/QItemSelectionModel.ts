@@ -1,13 +1,12 @@
 import addon from '../utils/addon';
 import { NativeElement } from '../core/Component';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QModelIndex } from './QModelIndex';
 import { checkIfNativeElement } from '../utils/helpers';
 
 export type QItemSelectionModelSignals = QObjectSignals;
 
-export class QItemSelectionModel extends NodeObject<QItemSelectionModelSignals> {
-    native: NativeElement;
+export class QItemSelectionModel extends QObject<QItemSelectionModelSignals> {
     constructor(arg?: NativeElement) {
         let native = null;
         if (arg == null) {
@@ -18,7 +17,6 @@ export class QItemSelectionModel extends NodeObject<QItemSelectionModelSignals> 
             throw new Error('QItemSelectionModel cannot be initialised this way.');
         }
         super(native);
-        this.native = native;
     }
 
     // *** Public Functions ***

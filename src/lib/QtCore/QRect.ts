@@ -4,20 +4,17 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from './QVariant';
 
 export class QRect extends Component {
-    native: NativeElement;
-    constructor();
-    constructor(nativeElement: NativeElement);
-    constructor(x?: number, y?: number, width?: number, height?: number);
-    constructor(arg?: NativeElement | number, y = 0, width = 0, height = 0) {
-        super();
+    constructor(nativeOrX?: NativeElement | number, y = 0, width = 0, height = 0) {
         const count = arguments.length;
+        let native: NativeElement;
         if (count > 1) {
-            this.native = new addon.QRect(arg, y, width, height);
-        } else if (count == 1 && checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = new addon.QRect(nativeOrX, y, width, height);
+        } else if (checkIfNativeElement(nativeOrX)) {
+            native = nativeOrX as NativeElement;
         } else {
-            this.native = new addon.QRect();
+            native = new addon.QRect();
         }
+        super(native);
     }
     setWidth(width: number): void {
         return this.native.setWidth(width);

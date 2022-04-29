@@ -1,10 +1,9 @@
 import addon from '../../utils/addon';
 import { NativeElement } from '../Component';
-import { NodeObject, QObjectSignals } from '../../QtCore/QObject';
+import { QObject, QObjectSignals } from '../../QtCore/QObject';
 import { wrapperCache } from '../../core/WrapperCache';
 
-export class CacheTestQObject extends NodeObject<QObjectSignals> {
-    native: NativeElement;
+export class CacheTestQObject extends QObject<QObjectSignals> {
     constructor(arg?: NativeElement) {
         let native;
         if (native == null) {

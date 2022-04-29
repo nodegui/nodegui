@@ -5,12 +5,12 @@ import { QIcon } from '../QtGui/QIcon';
 import { TabPosition } from '../QtEnums';
 
 /**
- 
+
 > Create and control a stack of tabbed widgets.
 
 * **This class is a JS wrapper around Qt's [QTabWidget class](https://doc.qt.io/qt-5/qtabwidget.html)**
 
-A 'QTabWidget' provides a tab bar and a "page area" that is used to display pages related to each tab. 
+A 'QTabWidget' provides a tab bar and a "page area" that is used to display pages related to each tab.
 
 ### Example
 
@@ -25,12 +25,10 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 ```
  */
 export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
-    native: NativeElement;
     tabs: NodeWidget<any>[];
-    constructor();
-    constructor(parent: NodeWidget<any>);
+
     constructor(parent?: NodeWidget<any>) {
-        let native;
+        let native: NativeElement;
         if (parent) {
             native = new addon.QTabWidget(parent.native);
         } else {
@@ -39,7 +37,6 @@ export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
         super(native);
         this.setNodeParent(parent);
         this.tabs = [];
-        this.native = native;
     }
 
     addTab(page: NodeWidget<any>, icon: QIcon, label: string): number {

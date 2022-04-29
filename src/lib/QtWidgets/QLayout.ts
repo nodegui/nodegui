@@ -1,10 +1,10 @@
 import { NodeWidget } from './QWidget';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 
 // All Layouts should extend this abstract class.
 
 /**
- 
+
 > Abstract class to add functionalities common to all Layout.
 
 **This class implements all methods, properties of Qt's [QLayout class](https://doc.qt.io/qt-5/qlayout.html) so that it can be inherited by all layouts**
@@ -32,7 +32,7 @@ addChildToLayout(new FlexLayout(), new QPushButton());
 addChildToLayout(new GridLayout(), new QWidget());
 ```
  */
-export abstract class NodeLayout<Signals extends QLayoutSignals> extends NodeObject<Signals> {
+export abstract class NodeLayout<Signals extends QLayoutSignals> extends QObject<Signals> {
     type = 'layout';
     abstract addWidget(childWidget: NodeWidget<any>, ...args: any[]): void;
     abstract removeWidget(childWidget: NodeWidget<any>): void;
