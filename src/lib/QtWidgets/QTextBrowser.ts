@@ -2,7 +2,7 @@ import addon from '../utils/addon';
 import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QUrl } from '../QtCore/QUrl';
-import { NodeTextEdit, QTextEditSignals } from './QTextEdit';
+import { QTextEdit, QTextEditSignals } from './QTextEdit';
 
 /**
 
@@ -21,7 +21,7 @@ const textBrowser = new QTextBrowser();
 ```
 
  */
-export class QTextBrowser extends NodeTextEdit<QTextBrowserSignals> {
+export class QTextBrowser extends QTextEdit<QTextBrowserSignals> {
     constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {

@@ -4,6 +4,8 @@ import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScro
 import { AlignmentFlag, TextInteractionFlag } from '../QtEnums';
 import { QFont } from '../QtGui/QFont';
 import { QColor } from '../QtGui/QColor';
+import { checkIfNativeElement } from '../utils/helpers';
+import { NativeElement } from '../core/Component';
 
 /**
 
@@ -22,7 +24,22 @@ const textEdit = new QTextEdit();
 ```
 
  */
-export abstract class NodeTextEdit<Signals extends QTextEditSignals> extends QAbstractScrollArea<Signals> {
+export class QTextEdit<Signals extends QTextEditSignals = QTextEditSignals> extends QAbstractScrollArea<Signals> {
+    constructor(arg?: QWidget | NativeElement) {
+        let native: NativeElement;
+        let parent: QWidget = null;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg) {
+            parent = arg as QWidget;
+            native = new addon.QTextEdit(parent.native);
+        } else {
+            native = new addon.QTextEdit();
+        }
+        super(native);
+        parent && this.setNodeParent(parent);
+    }
+
     setAcceptRichText(accept: boolean): void {
         this.setProperty('acceptRichText', accept);
     }
@@ -236,19 +253,6 @@ export enum WrapMode {
     ManualWrap,
     WrapAnywhere,
     WrapAtWordBoundaryOrAnywhere,
-}
-
-export class QTextEdit extends NodeTextEdit<QTextEditSignals> {
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
-            native = new addon.QTextEdit(parent.native);
-        } else {
-            native = new addon.QTextEdit();
-        }
-        super(native);
-        parent && this.setNodeParent(parent);
-    }
 }
 
 export interface QTextEditSignals extends QAbstractScrollAreaSignals {
