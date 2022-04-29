@@ -19,7 +19,17 @@ const tableview = new QTableView();
 
 ```
  */
-export abstract class NodeTableView<Signals extends QTableViewSignals> extends QAbstractItemView<Signals> {
+export class QTableView<Signals extends QTableViewSignals = QTableViewSignals> extends QAbstractItemView<Signals> {
+    constructor(parent?: QWidget) {
+        let native;
+        if (parent) {
+            native = new addon.QTableView(parent.native);
+        } else {
+            native = new addon.QTableView();
+        }
+        super(native);
+        parent && this.setNodeParent(parent);
+    }
     // *** Public Functions ***
     clearSpans(): void {
         this.native.clearSpans();
@@ -174,19 +184,6 @@ export abstract class NodeTableView<Signals extends QTableViewSignals> extends Q
 
     sortByColumn(column: number, order: SortOrder): void {
         this.native.sortByColumn(column, order);
-    }
-}
-
-export class QTableView extends NodeTableView<QTableViewSignals> {
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
-            native = new addon.QTableView(parent.native);
-        } else {
-            native = new addon.QTableView();
-        }
-        super(native);
-        parent && this.setNodeParent(parent);
     }
 }
 
