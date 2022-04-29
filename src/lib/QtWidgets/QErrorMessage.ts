@@ -1,7 +1,7 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { NodeDialog, QDialogSignals } from './QDialog';
+import { QDialog, QDialogSignals } from './QDialog';
 
 /**
 
@@ -20,7 +20,7 @@ const errorMessage = new QErrorMessage();
 
 ```
  */
-export class QErrorMessage extends NodeDialog<QErrorMessageSignals> {
+export class QErrorMessage extends QDialog<QErrorMessageSignals> {
     constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {

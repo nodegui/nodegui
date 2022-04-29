@@ -1,7 +1,7 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { NodeDialog, QDialogSignals } from './QDialog';
+import { QDialog, QDialogSignals } from './QDialog';
 import { QFont } from '../QtGui/QFont';
 
 /**
@@ -24,7 +24,7 @@ console.log(font);
 
 ```
  */
-export class QFontDialog extends NodeDialog<QFontDialogSignals> {
+export class QFontDialog extends QDialog<QFontDialogSignals> {
     constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {

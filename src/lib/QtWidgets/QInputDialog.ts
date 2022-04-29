@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
-import { NodeDialog, QDialogSignals } from './QDialog';
+import { QDialog, QDialogSignals } from './QDialog';
 import { EchoMode } from './QLineEdit';
 
 /**
@@ -21,7 +21,7 @@ dialog.exec();
 
 ```
  */
-export class QInputDialog extends NodeDialog<QInputDialogSignals> {
+export class QInputDialog extends QDialog<QInputDialogSignals> {
     constructor(parent?: QWidget) {
         let native;
         if (parent) {

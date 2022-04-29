@@ -5,9 +5,30 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { QWidget, QWidgetSignals } from './QWidget';
 import { DialogCode } from '../QtEnums';
 
-// All Dialogs should extend from NodeDialog
-// Implement all native QDialog methods here so that all dialogs get access to those aswell
-export abstract class NodeDialog<Signals extends QDialogSignals> extends QWidget<Signals> {
+/**
+
+> This is the base class of dialog windows.
+
+* **This class is a JS wrapper around Qt's [QDialog class](https://doc.qt.io/qt-5/qdialog.html)**
+
+It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage, QFontDialog, QInputDialog, QMessageBox, QProgressDialog, and QWizard)
+ */
+export class QDialog<Signals extends QDialogSignals = QDialogSignals> extends QWidget<Signals> {
+    constructor(arg?: QDialog | NativeElement) {
+        let native;
+        let parent;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg as QDialog) {
+            parent = arg as QDialog;
+            native = new addon.QDialog(parent.native);
+        } else {
+            native = new addon.QDialog();
+        }
+        super(native);
+        this.setNodeParent(parent);
+    }
+
     setResult(i: number): void {
         this.native.setResult(i);
     }
@@ -31,31 +52,6 @@ export abstract class NodeDialog<Signals extends QDialogSignals> extends QWidget
     }
     reject(): void {
         this.native.reject();
-    }
-}
-
-/**
-
-> This is the base class of dialog windows.
-
-* **This class is a JS wrapper around Qt's [QDialog class](https://doc.qt.io/qt-5/qdialog.html)**
-
-It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage, QFontDialog, QInputDialog, QMessageBox, QProgressDialog, and QWizard)
- */
-export class QDialog extends NodeDialog<QDialogSignals> {
-    constructor(arg?: NodeDialog<QDialogSignals> | NativeElement) {
-        let native;
-        let parent;
-        if (checkIfNativeElement(arg)) {
-            native = arg as NativeElement;
-        } else if (arg as NodeDialog<QDialogSignals>) {
-            parent = arg as NodeDialog<QDialogSignals>;
-            native = new addon.QDialog(parent.native);
-        } else {
-            native = new addon.QDialog();
-        }
-        super(native);
-        this.setNodeParent(parent);
     }
 }
 

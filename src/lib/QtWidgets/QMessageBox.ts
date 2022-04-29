@@ -1,7 +1,7 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
 import { NativeRawPointer } from '../core/Component';
-import { NodeDialog, QDialogSignals } from './QDialog';
+import { QDialog, QDialogSignals } from './QDialog';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { QPushButton } from './QPushButton';
 
@@ -39,7 +39,7 @@ messageBox.exec();
 
 ```
  */
-export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
+export class QMessageBox extends QDialog<QMessageBoxSignals> {
     constructor(parent?: QWidget) {
         let native;
         if (parent) {
