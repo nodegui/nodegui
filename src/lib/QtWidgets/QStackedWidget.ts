@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
-import { NodeFrame, QFrameSignals } from './QFrame';
+import { QFrame, QFrameSignals } from './QFrame';
 
 /**
 
@@ -43,7 +43,7 @@ win.show();
 
 ```
  */
-export class QStackedWidget extends NodeFrame<QStackedWidgetSignals> {
+export class QStackedWidget extends QFrame<QStackedWidgetSignals> {
     constructor(parent?: QWidget) {
         let native;
         if (parent) {

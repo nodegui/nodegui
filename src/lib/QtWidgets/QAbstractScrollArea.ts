@@ -1,5 +1,5 @@
 import { QWidget } from './QWidget';
-import { NodeFrame, QFrameSignals } from './QFrame';
+import { QFrame, QFrameSignals } from './QFrame';
 import { ScrollBarPolicy } from '../QtEnums/ScrollBarPolicy';
 import { QSize } from '../QtCore/QSize';
 import { QScrollBar } from './QScrollBar';
@@ -17,7 +17,7 @@ import { QScrollBar } from './QScrollBar';
 QAbstractScrollArea will list all methods and properties that are common to all scrollable widgets in the NodeGui world.
 
  */
-export abstract class QAbstractScrollArea<Signals extends QAbstractScrollAreaSignals> extends NodeFrame<Signals> {
+export abstract class QAbstractScrollArea<Signals extends QAbstractScrollAreaSignals> extends QFrame<Signals> {
     viewportWidget?: QWidget;
     setViewport(widget: QWidget): void {
         this.viewportWidget = widget;

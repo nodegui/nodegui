@@ -4,7 +4,37 @@ import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QRect } from '../QtCore/QRect';
 
-export abstract class NodeFrame<Signals extends QFrameSignals> extends QWidget<Signals> {
+/**
+ > Create and control frame.
+
+* **This class is a JS wrapper around Qt's [QFrame class](https://doc.qt.io/qt-5/qframe.html)**
+
+The QFrame class is the base class of widgets that can have a frame. It can be used directly for creating simple placeholder frames without any contents.
+
+### Example
+
+```javascript
+const { QFrame } = require("@nodegui/nodegui");
+
+const frame = new QFrame();
+```
+ */
+export class QFrame<Signals extends QFrameSignals = QFrameSignals> extends QWidget<Signals> {
+    constructor(arg?: QWidget | NativeElement) {
+        let native: NativeElement;
+        let parent;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg as QWidget) {
+            parent = arg as QWidget;
+            native = new addon.QFrame(parent.native);
+        } else {
+            native = new addon.QFrame();
+        }
+        super(native);
+        this.setNodeParent(parent);
+    }
+
     setFrameRect(r: QRect): void {
         this.setProperty('frameRect', r.native);
     }
@@ -63,35 +93,3 @@ export enum Shape {
 }
 
 export type QFrameSignals = QWidgetSignals;
-
-/**
- > Create and control frame.
-
-* **This class is a JS wrapper around Qt's [QFrame class](https://doc.qt.io/qt-5/qframe.html)**
-
-The QFrame class is the base class of widgets that can have a frame. It can be used directly for creating simple placeholder frames without any contents.
-
-### Example
-
-```javascript
-const { QFrame } = require("@nodegui/nodegui");
-
-const frame = new QFrame();
-```
- */
-export class QFrame extends NodeFrame<QFrameSignals> {
-    constructor(arg?: QWidget | NativeElement) {
-        let native: NativeElement;
-        let parent;
-        if (checkIfNativeElement(arg)) {
-            native = arg as NativeElement;
-        } else if (arg as QWidget) {
-            parent = arg as QWidget;
-            native = new addon.QFrame(parent.native);
-        } else {
-            native = new addon.QFrame();
-        }
-        super(native);
-        this.setNodeParent(parent);
-    }
-}

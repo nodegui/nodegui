@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
-import { NodeFrame, QFrameSignals } from './QFrame';
+import { QFrame, QFrameSignals } from './QFrame';
 import { NativeElement } from '../core/Component';
 import { Orientation } from '../QtEnums';
 
@@ -34,7 +34,7 @@ splitterHorizontal.addWidget(right);
 ```
 
  */
-export class QSplitter extends NodeFrame<QSplitterSignals> {
+export class QSplitter extends QFrame<QSplitterSignals> {
     constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {

@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
-import { NodeFrame, QFrameSignals } from './QFrame';
+import { QFrame, QFrameSignals } from './QFrame';
 import { QPixmap } from '../QtGui/QPixmap';
 import { QMovie } from '../QtGui/QMovie';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
@@ -26,7 +26,7 @@ label.setText("Hello");
 ```
 
  */
-export class QLabel extends NodeFrame<QLabelSignals> {
+export class QLabel extends QFrame<QLabelSignals> {
     private _picture?: QPicture;
     private _pixmap?: QPixmap;
     private _movie?: QMovie;
