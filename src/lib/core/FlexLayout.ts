@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { QWidget } from '../QtWidgets/QWidget';
-import { NodeLayout, QLayoutSignals } from '../QtWidgets/QLayout';
+import { QLayout, QLayoutSignals } from '../QtWidgets/QLayout';
 import { FlexNode } from './YogaWidget';
 
 export type FlexLayoutSignals = QLayoutSignals;
@@ -31,7 +31,7 @@ layout.addWidget(label);
 layout.addWidget(label2);
 ```
  */
-export class FlexLayout extends NodeLayout<FlexLayoutSignals> {
+export class FlexLayout extends QLayout<FlexLayoutSignals> {
     protected flexNode?: FlexNode;
 
     constructor(parent?: QWidget) {

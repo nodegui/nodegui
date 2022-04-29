@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
-import { NodeLayout, QLayoutSignals } from './QLayout';
+import { QLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums';
 
@@ -29,7 +29,7 @@ layout.addWidget(label2);
 ```
 
  */
-export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
+export class QGridLayout extends QLayout<QGridLayoutSignals> {
     constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
@@ -42,7 +42,7 @@ export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
     }
 
     addLayout(
-        layout: NodeLayout<any>,
+        layout: QLayout,
         row: number,
         column: number,
         rowSpan = 1,

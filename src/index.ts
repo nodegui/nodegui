@@ -40,7 +40,7 @@ export { QWindow } from './lib/QtGui/QWindow';
 export { WidgetEventTypes } from './lib/core/EventWidget';
 // Abstract:
 export { QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
-export { NodeLayout, QLayoutSignals, SizeConstraint } from './lib/QtWidgets/QLayout';
+export { QLayout, QLayoutSignals, SizeConstraint } from './lib/QtWidgets/QLayout';
 export { QAbstractScrollArea } from './lib/QtWidgets/QAbstractScrollArea';
 export { QAbstractSlider, QAbstractSliderSignals, SliderAction } from './lib/QtWidgets/QAbstractSlider';
 export { QAbstractButton, QAbstractButtonSignals } from './lib/QtWidgets/QAbstractButton';

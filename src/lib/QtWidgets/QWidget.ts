@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeLayout } from './QLayout';
+import { QLayout } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { FlexLayout } from '../core/FlexLayout';
 import { WidgetAttribute, WindowType, ContextMenuPolicy, FocusReason, FocusPolicy } from '../QtEnums';
@@ -41,7 +41,7 @@ view.setLayout(new FlexLayout());
 ```
  */
 export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends YogaWidget<Signals> {
-    _layout?: NodeLayout<Signals>;
+    _layout?: QLayout;
     _rawInlineStyle: string;
     type: string;
     private _effect?: QGraphicsEffect<any> | null;
@@ -68,10 +68,10 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
         this.setObjectName = memoizeOne(this.setObjectName);
     }
 
-    get layout(): NodeLayout<Signals> | undefined {
+    get layout(): QLayout | undefined {
         return this._layout;
     }
-    set layout(l: NodeLayout<Signals> | undefined) {
+    set layout(l: QLayout | undefined) {
         this._layout = l;
     }
     // *** Public Functions ***
@@ -380,7 +380,7 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
             this.native.setStyleSheet(style);
         }
     }
-    setLayout(parentLayout: NodeLayout<Signals>): void {
+    setLayout(parentLayout: QLayout): void {
         const flexLayout = parentLayout as FlexLayout;
         this.native.setLayout(parentLayout.native);
         if (flexLayout.setFlexNode) {

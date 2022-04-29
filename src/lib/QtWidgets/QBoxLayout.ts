@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
-import { NodeLayout, QLayoutSignals } from './QLayout';
+import { QLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag, Direction } from '../QtEnums';
 
@@ -25,8 +25,8 @@ boxLayout.addWidget(new QCalendarWidget());
 centralWidget.setLayout(boxLayout);
 ```
  */
-export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
-    childLayouts: Set<NodeLayout<any>>;
+export class QBoxLayout extends QLayout<QBoxLayoutSignals> {
+    childLayouts: Set<QLayout>;
     constructor(dir: Direction, parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
@@ -38,7 +38,7 @@ export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
         this.setNodeParent(parent);
         this.childLayouts = new Set();
     }
-    addLayout(layout: NodeLayout<any>, stretch = 0): void {
+    addLayout(layout: QLayout<any>, stretch = 0): void {
         this.native.addLayout(layout.native, stretch);
         this.childLayouts.add(layout);
     }
@@ -62,7 +62,7 @@ export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     direction(): Direction {
         return this.native.direction();
     }
-    insertLayout(index: number, layout: NodeLayout<any>, stretch = 0): void {
+    insertLayout(index: number, layout: QLayout, stretch = 0): void {
         this.native.insertLayout(index, layout.native, stretch);
         this.childLayouts.add(layout);
     }

@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { QWidget, QWidgetSignals } from './QWidget';
-import { NodeLayout } from './QLayout';
+import { QLayout } from './QLayout';
 import { QMenuBar } from './QMenuBar';
 import { QStatusBar } from './QStatusBar';
 import { NativeElement } from '../core/Component';
@@ -46,7 +46,7 @@ export class QMainWindow extends QWidget<QMainWindowSignals> {
         super(native);
         this.setNodeParent(parent);
 
-        this.setLayout = (parentLayout: NodeLayout<any>): void => {
+        this.setLayout = (parentLayout: QLayout): void => {
             if (this.centralWidget) {
                 this.centralWidget.setLayout(parentLayout);
             } else {
@@ -80,7 +80,7 @@ export class QMainWindow extends QWidget<QMainWindowSignals> {
     setMenuWidget(menuWidget: QWidget): void {
         this.native.setMenuWidget(menuWidget.native);
     }
-    get layout(): NodeLayout<any> | undefined {
+    get layout(): QLayout | undefined {
         if (this.centralWidget) {
             return this.centralWidget.layout;
         }
