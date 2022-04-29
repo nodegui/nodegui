@@ -1,4 +1,4 @@
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { QObject, QObjectSignals } from '../QtCore/QObject';
 
 // All Layouts should extend this abstract class.
@@ -16,7 +16,6 @@ import { QObject, QObjectSignals } from '../QtCore/QObject';
 ```javascript
 const {
   NodeLayout,
-  NodeWidget,
   FlexLayout,
   GridLayout,
   QPushButton,
@@ -24,7 +23,7 @@ const {
 } = require("@nodegui/nodegui");
 
 // addChildToLayout can accept any layout since it expects NodeLayout
-const addChildToLayout = (layout: NodeLayout, widget: NodeWidget) => {
+const addChildToLayout = (layout: NodeLayout, widget: QWidget) => {
   layout.addWidget(widget);
 };
 
@@ -34,8 +33,8 @@ addChildToLayout(new GridLayout(), new QWidget());
  */
 export abstract class NodeLayout<Signals extends QLayoutSignals> extends QObject<Signals> {
     type = 'layout';
-    abstract addWidget(childWidget: NodeWidget<any>, ...args: any[]): void;
-    abstract removeWidget(childWidget: NodeWidget<any>): void;
+    abstract addWidget(childWidget: QWidget, ...args: any[]): void;
+    abstract removeWidget(childWidget: QWidget): void;
     setSizeConstraint(constraint: SizeConstraint): void {
         this.setProperty('sizeConstraint', constraint);
     }

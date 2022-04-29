@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSlider, QAbstractSliderSignals } from './QAbstractSlider';
 
@@ -20,7 +20,7 @@ const scrollbar = new QScrollBar();
 ```
  */
 export class QScrollBar extends QAbstractSlider<QScrollBarSignals> {
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QScrollBar(parent.native);

@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
 import { TabPosition } from '../QtEnums';
@@ -24,10 +24,10 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 1');
 tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 ```
  */
-export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
-    tabs: NodeWidget<any>[];
+export class QTabWidget extends QWidget<QTabWidgetSignals> {
+    tabs: QWidget[];
 
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QTabWidget(parent.native);
@@ -39,20 +39,20 @@ export class QTabWidget extends NodeWidget<QTabWidgetSignals> {
         this.tabs = [];
     }
 
-    addTab(page: NodeWidget<any>, icon: QIcon, label: string): number {
+    addTab(page: QWidget, icon: QIcon, label: string): number {
         const index = this.native.addTab(page.native, icon.native, label);
         this.tabs.push(page);
         page.setFlexNodeSizeControlled(true);
         return index;
     }
 
-    insertTab(index: number, page: NodeWidget<any>, icon: QIcon, label: string): number {
+    insertTab(index: number, page: QWidget, icon: QIcon, label: string): number {
         const newIndex = this.native.insertTab(index, page.native, icon.native, label);
         this.tabs.splice(index, 0, page);
         return newIndex;
     }
 
-    indexOf(widget: NodeWidget<any>): number {
+    indexOf(widget: QWidget): number {
         return this.native.indexOf(widget.native);
     }
 

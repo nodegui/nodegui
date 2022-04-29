@@ -1,12 +1,12 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
 import { QSize } from '../QtCore/QSize';
 import { AlignmentFlag } from '../..';
 
 /**
- 
+
 > The QListView class provides a list or icon view onto a model.
 
 * **This class is a JS wrapper around Qt's [QListView class](https://doc.qt.io/qt-5/qlistview.html)**
@@ -144,9 +144,7 @@ export enum ListViewMode {
 }
 
 export class QListView extends NodeListView<QListViewSignals> {
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QListView(parent.native);

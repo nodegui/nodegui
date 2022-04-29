@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { NodeDialog, QDialogSignals } from './QDialog';
 import { QColor } from '../QtGui/QColor';
@@ -27,9 +27,7 @@ console.log(color.red(), color.green(), color.blue());
 ```
  */
 export class QColorDialog extends NodeDialog<QColorDialogSignals> {
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QColorDialog(parent.native);

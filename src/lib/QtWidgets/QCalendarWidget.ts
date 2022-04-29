@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QDate } from '../QtCore/QDate';
 import { DayOfWeek } from '../QtEnums';
@@ -21,10 +21,8 @@ const calendarWidget = new QCalendarWidget();
 // more will follow when .selectedDate() et cetera are implemented
 ```
  */
-export class QCalendarWidget extends NodeWidget<QCalendarWidgetSignals> {
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+export class QCalendarWidget extends QWidget<QCalendarWidgetSignals> {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QCalendarWidget(parent.native);

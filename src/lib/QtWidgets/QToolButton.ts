@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement, NativeRawPointer, Component } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { ToolButtonStyle } from '../QtEnums/ToolButtonStyle';
@@ -29,7 +29,7 @@ export class QToolButton extends QAbstractButton<QToolButtonSignals> {
     private _defaultAction?: QAction | null;
     private _menu?: QMenu | null;
 
-    constructor(arg?: NodeWidget<any> | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
+    constructor(arg?: QWidget | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
         let native;
         let parent: Component | undefined;
         if (checkIfNativeElement(arg)) {
@@ -37,7 +37,7 @@ export class QToolButton extends QAbstractButton<QToolButtonSignals> {
         } else if (checkIfNapiExternal(arg)) {
             native = new addon.QToolButton(arg, disableNativeDeletion);
         } else if (arg) {
-            const parentWidget = arg as NodeWidget<any>;
+            const parentWidget = arg as QWidget;
             native = new addon.QToolButton(parentWidget.native);
             parent = parentWidget;
         } else {

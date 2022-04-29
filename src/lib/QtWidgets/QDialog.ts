@@ -2,12 +2,12 @@ import addon from '../utils/addon';
 import { NativeElement } from '../core/Component';
 
 import { checkIfNativeElement } from '../utils/helpers';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { DialogCode } from '../QtEnums';
 
 // All Dialogs should extend from NodeDialog
 // Implement all native QDialog methods here so that all dialogs get access to those aswell
-export abstract class NodeDialog<Signals extends QDialogSignals> extends NodeWidget<Signals> {
+export abstract class NodeDialog<Signals extends QDialogSignals> extends QWidget<Signals> {
     setResult(i: number): void {
         this.native.setResult(i);
     }
@@ -35,7 +35,7 @@ export abstract class NodeDialog<Signals extends QDialogSignals> extends NodeWid
 }
 
 /**
- 
+
 > This is the base class of dialog windows.
 
 * **This class is a JS wrapper around Qt's [QDialog class](https://doc.qt.io/qt-5/qdialog.html)**

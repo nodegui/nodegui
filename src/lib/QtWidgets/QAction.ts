@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QMenu } from './QMenu';
 import { QIcon } from '../QtGui/QIcon';
@@ -33,8 +33,8 @@ menu.addAction(menuAction);
 export class QAction extends QObject<QActionSignals> {
     constructor();
     constructor(native: NativeElement);
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NativeElement | NodeWidget<any>) {
+    constructor(parent: QWidget);
+    constructor(parent?: NativeElement | QWidget) {
         let native: NativeElement;
         if (checkIfNativeElement(parent)) {
             native = parent as NativeElement;

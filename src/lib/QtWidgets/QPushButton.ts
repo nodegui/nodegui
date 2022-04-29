@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement, NativeRawPointer, Component } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
@@ -25,7 +25,7 @@ button.setText("Hello");
 export class QPushButton extends QAbstractButton<QPushButtonSignals> {
     private _menu?: QMenu | null;
 
-    constructor(arg?: NodeWidget<any> | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
+    constructor(arg?: QWidget | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
         let native;
         let parent: Component | undefined;
         if (checkIfNativeElement(arg)) {
@@ -33,7 +33,7 @@ export class QPushButton extends QAbstractButton<QPushButtonSignals> {
         } else if (checkIfNapiExternal(arg)) {
             native = new addon.QPushButton(arg, disableNativeDeletion);
         } else if (arg) {
-            const parentWidget = arg as NodeWidget<any>;
+            const parentWidget = arg as QWidget;
             native = new addon.QPushButton(parentWidget.native);
             parent = parentWidget;
         } else {

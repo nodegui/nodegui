@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 
 /**
- 
+
 > Create and control a group of checkboxes including a title.
 
 * **This class is a JS wrapper around Qt's [QGroupBox class](https://doc.qt.io/qt-5/qgroupbox.html)**
@@ -39,10 +39,8 @@ win.show();
 (global as any).win = win;
 ```
  */
-export class QGroupBox extends NodeWidget<QGroupBoxSignals> {
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+export class QGroupBox extends QWidget<QGroupBoxSignals> {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QGroupBox(parent.native);

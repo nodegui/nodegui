@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSlider, QAbstractSliderSignals } from './QAbstractSlider';
 
 /**
- 
+
 > Create and control dial slider widgets.
 
 * **This class is a JS wrapper around Qt's [QDial class](https://doc.qt.io/qt-5/qdial.html)**
@@ -21,8 +21,8 @@ const dial = new QDial();
  */
 export class QDial extends QAbstractSlider<QDialSignals> {
     constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent: QWidget);
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QDial(parent.native);

@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QStandardItem } from './QStandardItem';
 
@@ -8,7 +8,7 @@ export interface QStandardItemModelSignals extends QObjectSignals {
 }
 
 export class QStandardItemModel extends QObject {
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QStandardItemModel(parent.native);

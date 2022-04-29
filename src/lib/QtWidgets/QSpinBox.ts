@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { QAbstractSpinBox, QAbstractSpinBoxSignals, StepType } from './QAbstractSpinBox';
 
 /**
@@ -19,7 +19,7 @@ const spinBox = new QSpinBox();
 ```
  */
 export class QSpinBox extends QAbstractSpinBox<QSpinBoxSignals> {
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QSpinBox(parent.native);

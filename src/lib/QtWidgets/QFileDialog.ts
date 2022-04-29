@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { AcceptMode, DialogLabel, FileMode, Option, ViewMode } from '../QtEnums';
 import { NodeDialog, QDialogSignals } from './QDialog';
@@ -29,8 +29,8 @@ console.log(selectedFiles);
  */
 export class QFileDialog extends NodeDialog<QFileDialogSignals> {
     constructor();
-    constructor(parent: NodeWidget<any>, caption?: string, directory?: string, filter?: string);
-    constructor(parent?: NodeWidget<any>, caption = 'Select File', directory = '', filter = '') {
+    constructor(parent: QWidget, caption?: string, directory?: string, filter?: string);
+    constructor(parent?: QWidget, caption = 'Select File', directory = '', filter = '') {
         let native: NativeElement;
         if (parent) {
             native = new addon.QFileDialog(parent.native, caption, directory, filter);

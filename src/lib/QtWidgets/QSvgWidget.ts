@@ -1,9 +1,9 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 
 /**
- 
+
 > Display SVG files in a widget.
 
 * **This class is a JS wrapper around Qt's [QSvgWidget class](https://doc.qt.io/qt-5/qsvgwidget.html)**
@@ -26,10 +26,8 @@ fs.readFile("icon.svg", (err, buffer) => {
 ```
 
  */
-export class QSvgWidget extends NodeWidget<QWidgetSignals> {
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+export class QSvgWidget extends QWidget<QWidgetSignals> {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QSvgWidget(parent.native);

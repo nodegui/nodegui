@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QRect } from '../QtCore/QRect';
 
-export abstract class NodeFrame<Signals extends QFrameSignals> extends NodeWidget<Signals> {
+export abstract class NodeFrame<Signals extends QFrameSignals> extends QWidget<Signals> {
     setFrameRect(r: QRect): void {
         this.setProperty('frameRect', r.native);
     }
@@ -80,13 +80,13 @@ const frame = new QFrame();
 ```
  */
 export class QFrame extends NodeFrame<QFrameSignals> {
-    constructor(arg?: NodeWidget<QWidgetSignals> | NativeElement) {
+    constructor(arg?: QWidget | NativeElement) {
         let native: NativeElement;
         let parent;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (arg as NodeWidget<QWidgetSignals>) {
-            parent = arg as NodeWidget<QWidgetSignals>;
+        } else if (arg as QWidget) {
+            parent = arg as QWidget;
             native = new addon.QFrame(parent.native);
         } else {
             native = new addon.QFrame();

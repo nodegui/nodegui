@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeRawPointer } from '../core/Component';
 import { NodeDialog, QDialogSignals } from './QDialog';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
@@ -40,7 +40,7 @@ messageBox.exec();
 ```
  */
 export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QMessageBox(parent.native);
@@ -86,11 +86,11 @@ export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
         this.nodeChildren.add(button);
     }
 
-    static about(parent: NodeWidget<any>, title: string, text: string): void {
+    static about(parent: QWidget, title: string, text: string): void {
         addon.QMessageBox.about(parent.native, title, text);
     }
 
-    static aboutQt(parent: NodeWidget<any>, title: string): void {
+    static aboutQt(parent: QWidget, title: string): void {
         addon.QMessageBox.aboutQt(parent.native, title);
     }
 }

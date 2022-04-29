@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { QIcon } from '../QtGui/QIcon';
 import { QMenu } from './QMenu';
 import { QObject, QObjectSignals } from '../QtCore/QObject';
@@ -30,7 +30,7 @@ global.tray = tray; // prevents garbage collection of tray
 export class QSystemTrayIcon extends QObject<QSystemTrayIconSignals> {
     contextMenu?: QMenu;
 
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QSystemTrayIcon(parent.native);

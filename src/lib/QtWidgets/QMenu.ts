@@ -1,5 +1,5 @@
 import { NativeElement } from '../core/Component';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { QAction } from './QAction';
 import { QPoint } from '../QtCore/QPoint';
@@ -18,8 +18,8 @@ const { QMenu } = require("@nodegui/nodegui");
 const menu = new QMenu();
 ```
  */
-export class QMenu extends NodeWidget<QMenuSignals> {
-    constructor(parent?: NodeWidget<any>) {
+export class QMenu extends QWidget<QMenuSignals> {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QMenu(parent.native);

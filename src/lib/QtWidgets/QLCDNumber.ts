@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 
 /**
 
@@ -19,8 +19,8 @@ const lcd = new QLCDNumber();
 ```
 
  */
-export class QLCDNumber extends NodeWidget<QLCDNumberSignals> {
-    constructor(parent?: NodeWidget<any>) {
+export class QLCDNumber extends QWidget<QLCDNumberSignals> {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QLCDNumber(parent.native);

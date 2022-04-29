@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { QTreeWidgetItem } from './QTreeWidgetItem';
@@ -52,7 +52,7 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
     topLevelItems: Set<QTreeWidgetItem>;
     itemWidgets: Map<QTreeWidgetItem, QWidget>;
 
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QTreeWidget(parent.native);

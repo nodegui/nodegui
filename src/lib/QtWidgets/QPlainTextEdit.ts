@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { QTextOptionWrapMode } from '../QtGui/QTextOption';
@@ -16,7 +16,7 @@ export interface QPlainTextEditSignals extends QAbstractScrollAreaSignals {
 }
 
 /**
- 
+
 > Used to edit and display plain text.
 
 * **This class is a JS wrapper around Qt's [QPlainTextEdit class](https://doc.qt.io/qt-5/qplaintextedit.html)**
@@ -33,7 +33,7 @@ const plainTextEdit = new QPlainTextEdit();
  */
 export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
     placeholderText?: string;
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QPlainTextEdit(parent.native);

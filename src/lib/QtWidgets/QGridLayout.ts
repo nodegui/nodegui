@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NodeLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums';
@@ -30,9 +30,7 @@ layout.addWidget(label2);
 
  */
 export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QGridLayout(parent.native);
@@ -54,11 +52,11 @@ export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
         this.native.addLayout(layout.native, row, column, rowSpan, columnSpan, alignment);
     }
 
-    addWidget(widget: NodeWidget<any>, row = 0, col = 0, rowSpan = 1, colSpan = 1, alignment: AlignmentFlag = 0): void {
+    addWidget(widget: QWidget, row = 0, col = 0, rowSpan = 1, colSpan = 1, alignment: AlignmentFlag = 0): void {
         this.native.addWidget(widget.native, row, col, rowSpan, colSpan, alignment);
         this.nodeChildren.add(widget);
     }
-    removeWidget(widget: NodeWidget<any>): void {
+    removeWidget(widget: QWidget): void {
         this.native.removeWidget(widget.native);
         this.nodeChildren.delete(widget);
     }

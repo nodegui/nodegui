@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { NodeDialog, QDialogSignals } from './QDialog';
 
 /**
- 
+
 > Create and control error message dialogs.
 
 * **This class is a JS wrapper around Qt's [QErrorMessage class](https://doc.qt.io/qt-5/qerrormessage.html)**
@@ -21,9 +21,7 @@ const errorMessage = new QErrorMessage();
 ```
  */
 export class QErrorMessage extends NodeDialog<QErrorMessageSignals> {
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QErrorMessage(parent.native);

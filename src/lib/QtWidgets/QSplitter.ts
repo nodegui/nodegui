@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NodeFrame, QFrameSignals } from './QFrame';
 import { NativeElement } from '../core/Component';
 import { Orientation } from '../QtEnums';
@@ -35,7 +35,7 @@ splitterHorizontal.addWidget(right);
 
  */
 export class QSplitter extends NodeFrame<QSplitterSignals> {
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QSplitter(parent.native);
@@ -45,7 +45,7 @@ export class QSplitter extends NodeFrame<QSplitterSignals> {
         super(native);
         this.setNodeParent(parent);
     }
-    addWidget(widget: NodeWidget<any>): void {
+    addWidget(widget: QWidget): void {
         this.native.addWidget(widget.native);
     }
     childrenCollapsible(): boolean {
@@ -54,10 +54,10 @@ export class QSplitter extends NodeFrame<QSplitterSignals> {
     count(): number {
         return this.native.count();
     }
-    indexOf(widget: NodeWidget<any>): number {
+    indexOf(widget: QWidget): number {
         return this.native.indexOf(widget.native);
     }
-    insertWidget(index: number, widget: NodeWidget<any>): void {
+    insertWidget(index: number, widget: QWidget): void {
         this.native.insertWidget(index, widget.native);
     }
     isCollapsible(index: number): boolean {

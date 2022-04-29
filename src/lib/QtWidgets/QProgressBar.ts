@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { Orientation, AlignmentFlag } from '../QtEnums';
 
 /**
- 
+
 > Create and control progress bar widgets.
 
 * **This class is a JS wrapper around Qt's [QProgressBar class](https://doc.qt.io/qt-5/qprogressbar.html)**
@@ -19,8 +19,8 @@ const { QProgressBar } = require("@nodegui/nodegui");
 const progressBar = new QProgressBar();
 ```
  */
-export class QProgressBar extends NodeWidget<QProgressBarSignals> {
-    constructor(parent?: NodeWidget<any>) {
+export class QProgressBar extends QWidget<QProgressBarSignals> {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QProgressBar(parent.native);

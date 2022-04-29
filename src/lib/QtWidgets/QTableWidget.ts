@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement, Component } from '../core/Component';
 import { MatchFlag, ScrollHint, SortOrder } from '../QtEnums';
 import { QTableWidgetItem } from './QTableWidgetItem';
@@ -39,7 +39,7 @@ win.show();
  */
 export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     items: Set<NativeElement | Component>;
-    constructor(rows: number, columns: number, parent?: NodeWidget<any>) {
+    constructor(rows: number, columns: number, parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QTableWidget(rows, columns, parent.native);
@@ -59,7 +59,7 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     editItem(item: Component): void {
         this.native.editItem(item.native);
     }
-    setCellWidget(row: number, column: number, widget: NodeWidget<any>): void {
+    setCellWidget(row: number, column: number, widget: QWidget): void {
         this.native.setCellWidget(row, column, widget.native);
         this.items.add(widget);
     }

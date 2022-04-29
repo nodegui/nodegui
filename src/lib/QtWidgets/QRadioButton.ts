@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement, NativeRawPointer, Component } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
@@ -23,7 +23,7 @@ radioButton.setText("Hello");
 
  */
 export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
-    constructor(arg?: NodeWidget<any> | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
+    constructor(arg?: QWidget | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
         let native;
         let parent: Component | undefined;
         if (checkIfNativeElement(arg)) {
@@ -31,7 +31,7 @@ export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
         } else if (checkIfNapiExternal(arg)) {
             native = new addon.QRadioButton(arg, disableNativeDeletion);
         } else if (arg) {
-            const parentWidget = arg as NodeWidget<any>;
+            const parentWidget = arg as QWidget;
             native = new addon.QRadioButton(parentWidget.native);
             parent = parentWidget;
         } else {

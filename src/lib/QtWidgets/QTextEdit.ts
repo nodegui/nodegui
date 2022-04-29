@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { AlignmentFlag, TextInteractionFlag } from '../QtEnums';
 import { QFont } from '../QtGui/QFont';
@@ -239,7 +239,7 @@ export enum WrapMode {
 }
 
 export class QTextEdit extends NodeTextEdit<QTextEditSignals> {
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QTextEdit(parent.native);

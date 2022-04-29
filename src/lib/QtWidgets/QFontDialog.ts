@@ -1,11 +1,11 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { NodeDialog, QDialogSignals } from './QDialog';
 import { QFont } from '../QtGui/QFont';
 
 /**
- 
+
 > Create and control font dialogs.
 
 * **This class is a JS wrapper around Qt's [QFontDialog class](https://doc.qt.io/qt-5/qfontdialog.html)**
@@ -25,9 +25,7 @@ console.log(font);
 ```
  */
 export class QFontDialog extends NodeDialog<QFontDialogSignals> {
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QFontDialog(parent.native);

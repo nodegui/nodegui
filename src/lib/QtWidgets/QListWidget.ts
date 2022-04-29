@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement, Component } from '../core/Component';
 import { QListWidgetItem } from './QListWidgetItem';
 import { NodeListView, QListViewSignals } from './QListView';
@@ -35,7 +35,7 @@ for (let i = 0; i < 30; i++) {
 export class QListWidget extends NodeListView<QListWidgetSignals> {
     items: Set<NativeElement | Component>;
 
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QListWidget(parent.native);
@@ -132,7 +132,7 @@ export class QListWidget extends NodeListView<QListWidgetSignals> {
     setCurrentItem(item: QListWidgetItem): void {
         this.native.setCurrentItem(item.native);
     }
-    setItemWidget(item: QListWidgetItem, widget: NodeWidget<any>): void {
+    setItemWidget(item: QListWidgetItem, widget: QWidget): void {
         this.native.setItemWidget(item.native, widget.native);
     }
     sortItems(order = SortOrder.AscendingOrder): void {

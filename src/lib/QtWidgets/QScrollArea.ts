@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { AlignmentFlag } from '../QtEnums';
@@ -29,8 +29,8 @@ scrollArea.setWidget(imageLabel);
 ```
  */
 export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
-    contentWidget?: NodeWidget<any> | null;
-    constructor(parent?: NodeWidget<any>) {
+    contentWidget?: QWidget | null;
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QScrollArea(parent.native);
@@ -55,20 +55,20 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     ensureVisible(x: number, y: number, xmargin = 50, ymargin = 50): void {
         this.native.ensureVisible(x, y, xmargin, ymargin);
     }
-    ensureWidgetVisible(childWidget: NodeWidget<any>, xmargin = 50, ymargin = 50): void {
+    ensureWidgetVisible(childWidget: QWidget, xmargin = 50, ymargin = 50): void {
         this.native.ensureWidgetVisible(childWidget.native, xmargin, ymargin);
     }
-    setWidget(widget: NodeWidget<any>): void {
+    setWidget(widget: QWidget): void {
         this.contentWidget = widget;
         this.native.setWidget(widget.native);
     }
-    widget(): NodeWidget<any> | null {
+    widget(): QWidget | null {
         if (this.contentWidget) {
             return this.contentWidget;
         }
         return null;
     }
-    takeWidget(): NodeWidget<any> | null {
+    takeWidget(): QWidget | null {
         // react:✓
         const contentWidget = this.contentWidget;
         this.contentWidget = null;

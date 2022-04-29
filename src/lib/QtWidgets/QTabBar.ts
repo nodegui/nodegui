@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QIcon } from '../QtGui/QIcon';
 import { TextElideMode } from '../QtEnums';
 import { QSize } from '../QtCore/QSize';
@@ -25,8 +25,8 @@ const tabBar = new QTabBar();
 
 ```
  */
-export class QTabBar extends NodeWidget<QTabBarSignals> {
-    constructor(parent?: NodeWidget<any>) {
+export class QTabBar extends QWidget<QTabBarSignals> {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QTabBar(parent.native);
@@ -150,7 +150,7 @@ export class QTabBar extends NodeWidget<QTabBarSignals> {
     removeTab(index: number): void {
         this.native.removeTab(index);
     }
-    setTabButton(index: number, position: ButtonPosition, widget: NodeWidget<any> | undefined | null): void {
+    setTabButton(index: number, position: ButtonPosition, widget: QWidget | undefined | null): void {
         this.native.setTabButton(index, position, widget == null ? null : widget?.native);
     }
     setTabData(index: number, data: QVariant): void {

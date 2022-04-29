@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NodeFrame, QFrameSignals } from './QFrame';
 import { QPixmap } from '../QtGui/QPixmap';
 import { QMovie } from '../QtGui/QMovie';
@@ -30,9 +30,9 @@ export class QLabel extends NodeFrame<QLabelSignals> {
     private _picture?: QPicture;
     private _pixmap?: QPixmap;
     private _movie?: QMovie;
-    private _buddy?: NodeWidget<any> | null;
+    private _buddy?: QWidget | null;
 
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QLabel(parent.native);
@@ -108,11 +108,11 @@ export class QLabel extends NodeFrame<QLabelSignals> {
     selectionStart(): number {
         return this.native.selectionStart();
     }
-    setBuddy(buddy: NodeWidget<any>): void {
+    setBuddy(buddy: QWidget): void {
         this.native.setBuddy(buddy.native);
         this._buddy = buddy;
     }
-    buddy(): NodeWidget<any> | null {
+    buddy(): QWidget | null {
         if (this._buddy) {
             return this._buddy;
         }

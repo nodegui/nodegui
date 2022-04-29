@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NodeDialog, QDialogSignals } from './QDialog';
 
 /**
@@ -20,7 +20,7 @@ const progressDialog = new QProgressDialog();
 ```
  */
 export class QProgressDialog extends NodeDialog<QProgressDialogSignals> {
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QProgressDialog(parent.native);

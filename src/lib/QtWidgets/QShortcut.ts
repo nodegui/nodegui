@@ -1,11 +1,11 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
 import { QObject, QObjectSignals } from '../QtCore/QObject';
 
 /**
- 
+
 > The QShortcut class is used to create keyboard shortcuts.
 
 * **This class is a JS wrapper around Qt's [QShortcut class](https://doc.qt.io/qt-5/qshortcut.html)**
@@ -29,7 +29,7 @@ global.shortcut = shortcut;
 ```
  */
 export class QShortcut extends QObject<QShortcutSignals> {
-    constructor(parent: NodeWidget<any>) {
+    constructor(parent: QWidget) {
         super(new addon.QShortcut(parent.native));
     }
     setEnabled(enabled: boolean): void {

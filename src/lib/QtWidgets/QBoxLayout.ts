@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NodeLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag, Direction } from '../QtEnums';
@@ -27,9 +27,7 @@ centralWidget.setLayout(boxLayout);
  */
 export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     childLayouts: Set<NodeLayout<any>>;
-    constructor(dir: Direction);
-    constructor(dir: Direction, parent: NodeWidget<any>);
-    constructor(dir: Direction, parent?: NodeWidget<any>) {
+    constructor(dir: Direction, parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QBoxLayout(dir, parent.native);
@@ -53,11 +51,11 @@ export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     addStrut(size: number): void {
         this.native.addStrut(size);
     }
-    addWidget(widget: NodeWidget<any>, stretch = 0, alignment: AlignmentFlag = 0): void {
+    addWidget(widget: QWidget, stretch = 0, alignment: AlignmentFlag = 0): void {
         this.native.addWidget(widget.native, stretch, alignment);
         this.nodeChildren.add(widget);
     }
-    insertWidget(index: number, widget: NodeWidget<any>, stretch = 0): void {
+    insertWidget(index: number, widget: QWidget, stretch = 0): void {
         this.native.insertWidget(index, widget.native, stretch);
         this.nodeChildren.add(widget);
     }
@@ -74,7 +72,7 @@ export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     insertStretch(index: number, stretch = 0): void {
         this.native.insertStretch(index, stretch);
     }
-    removeWidget(widget: NodeWidget<any>): void {
+    removeWidget(widget: QWidget): void {
         this.native.removeWidget(widget.native);
         this.nodeChildren.delete(widget);
     }

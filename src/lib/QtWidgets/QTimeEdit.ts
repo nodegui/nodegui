@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NodeDateTimeEdit } from './QDateTimeEdit';
 
 /**
@@ -20,7 +20,7 @@ const timeEdit = new QTimeEdit();
 ```
  */
 export class QTimeEdit extends NodeDateTimeEdit {
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QTimeEdit(parent.native);

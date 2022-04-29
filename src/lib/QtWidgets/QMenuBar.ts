@@ -1,6 +1,6 @@
 import { QMenu } from './QMenu';
 import { NativeElement } from '../core/Component';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QAction } from './QAction';
@@ -23,17 +23,17 @@ win.show();
 global.win = win;
 ```
  */
-export class QMenuBar extends NodeWidget<QMenuBarSignals> {
+export class QMenuBar extends QWidget<QMenuBarSignals> {
     _menus: Set<QMenu>;
 
-    constructor(arg?: NodeWidget<any> | NativeElement) {
+    constructor(arg?: QWidget | NativeElement) {
         let native;
         let parent;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
         } else if (typeof arg === 'object') {
             native = new addon.QMenuBar(arg.native);
-            parent = arg as NodeWidget<any>;
+            parent = arg as QWidget;
         } else {
             native = new addon.QMenuBar();
         }

@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NodeFrame, QFrameSignals } from './QFrame';
 
 /**
@@ -44,7 +44,7 @@ win.show();
 ```
  */
 export class QStackedWidget extends NodeFrame<QStackedWidgetSignals> {
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QStackedWidget(parent.native);
@@ -56,7 +56,7 @@ export class QStackedWidget extends NodeFrame<QStackedWidgetSignals> {
     }
 
     // *** Public Function ***
-    addWidget(widget: NodeWidget<any>): void {
+    addWidget(widget: QWidget): void {
         this.native.addWidget(widget.native);
         this.nodeChildren.add(widget);
         widget.setFlexNodeSizeControlled(true);
@@ -70,7 +70,7 @@ export class QStackedWidget extends NodeFrame<QStackedWidgetSignals> {
     // TODO: QWidget *	currentWidget() const
     // TODO: int 	indexOf(QWidget *widget) const
     // TODO: int 	insertWidget(int index, QWidget *widget)
-    removeWidget(widget: NodeWidget<any>): void {
+    removeWidget(widget: QWidget): void {
         this.native.removeWidget(widget.native);
         this.nodeChildren.delete(widget);
     }
@@ -80,7 +80,7 @@ export class QStackedWidget extends NodeFrame<QStackedWidgetSignals> {
     setCurrentIndex(index: number): void {
         this.native.setCurrentIndex(index);
     }
-    setCurrentWidget(widget: NodeWidget<any>): void {
+    setCurrentWidget(widget: QWidget): void {
         this.native.setCurrentWidget(widget.native);
     }
 }

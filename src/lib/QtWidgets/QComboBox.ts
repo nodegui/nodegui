@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { SizeAdjustPolicy } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
@@ -36,10 +36,8 @@ comboBox.addEventListener('currentIndexChanged', (index) => {
 });
 ```
  */
-export class QComboBox extends NodeWidget<QComboBoxSignals> {
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+export class QComboBox extends QWidget<QComboBoxSignals> {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QComboBox(parent.native);

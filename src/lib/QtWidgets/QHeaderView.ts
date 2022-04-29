@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
 import { AlignmentFlag, checkIfNativeElement, Orientation, QPoint, SortOrder } from '../..';
@@ -205,7 +205,7 @@ export abstract class NodeHeaderView<Signals extends QHeaderViewSignals> extends
 }
 
 export class QHeaderView extends NodeHeaderView<QHeaderViewSignals> {
-    constructor(orientationOrNative: Orientation | NativeElement, parent: NodeWidget<any> | null = null) {
+    constructor(orientationOrNative: Orientation | NativeElement, parent: QWidget | null = null) {
         let native: NativeElement;
         if (checkIfNativeElement(orientationOrNative)) {
             native = orientationOrNative as NativeElement;

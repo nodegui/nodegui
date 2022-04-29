@@ -1,11 +1,11 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QUrl } from '../QtCore/QUrl';
 import { NodeTextEdit, QTextEditSignals } from './QTextEdit';
 
 /**
- 
+
 > Create and control text browser.
 
 * **This class is a JS wrapper around Qt's [QTextBrowser class](https://doc.qt.io/qt-5/qtextbrowser.html)**
@@ -22,9 +22,7 @@ const textBrowser = new QTextBrowser();
 
  */
 export class QTextBrowser extends NodeTextEdit<QTextBrowserSignals> {
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QTextBrowser(parent.native);

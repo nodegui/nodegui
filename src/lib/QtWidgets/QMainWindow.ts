@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NodeLayout } from './QLayout';
 import { QMenuBar } from './QMenuBar';
 import { QStatusBar } from './QStatusBar';
@@ -31,14 +31,12 @@ global.win = win; // prevent's gc of win
 QMainWindow needs to have a central widget set before other widgets can be added as a children/nested children.
 Once a central widget is set you can add children/layout to the central widget.
  */
-export class QMainWindow extends NodeWidget<QMainWindowSignals> {
-    public centralWidget?: NodeWidget<any> | null;
+export class QMainWindow extends QWidget<QMainWindowSignals> {
+    public centralWidget?: QWidget | null;
     private _menuBar?: QMenuBar;
     private _statusBar?: QStatusBar | null;
 
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QMainWindow(parent.native);
@@ -57,12 +55,12 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
             }
         };
     }
-    setCentralWidget(widget: NodeWidget<any>): void {
+    setCentralWidget(widget: QWidget): void {
         this.native.setCentralWidget(widget.native);
         this.centralWidget = widget;
         this.centralWidget.setFlexNodeSizeControlled(true);
     }
-    takeCentralWidget(): NodeWidget<any> | null {
+    takeCentralWidget(): QWidget | null {
         const centralWidget = this.centralWidget;
         this.centralWidget = null;
         if (centralWidget) {
@@ -79,7 +77,7 @@ export class QMainWindow extends NodeWidget<QMainWindowSignals> {
     menuBar(): QMenuBar | undefined {
         return this._menuBar;
     }
-    setMenuWidget(menuWidget: NodeWidget<any>): void {
+    setMenuWidget(menuWidget: QWidget): void {
         this.native.setMenuWidget(menuWidget.native);
     }
     get layout(): NodeLayout<any> | undefined {

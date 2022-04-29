@@ -1,10 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSpinBox, QAbstractSpinBoxSignals, StepType } from './QAbstractSpinBox';
 
 /**
- 
+
 > Create and control double spin box widgets.
 
 * **This class is a JS wrapper around Qt's [QDoubleSpinBox class](https://doc.qt.io/qt-5/qdoublespinbox.html)**
@@ -20,9 +20,7 @@ const doublespinBox = new QDoubleSpinBox();
 ```
  */
 export class QDoubleSpinBox extends QAbstractSpinBox<QDoubleSpinBoxSignals> {
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QDoubleSpinBox(parent.native);

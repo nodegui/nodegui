@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals, QWidget } from './QWidget';
+import { QWidgetSignals, QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 
 export interface QStatusBarSignals extends QWidgetSignals {
@@ -22,11 +22,11 @@ const { QStatusBar } = require("@nodegui/nodegui");
 const progressBar = new QStatusBar();
 ```
  */
-export class QStatusBar extends NodeWidget<QStatusBarSignals> {
+export class QStatusBar extends QWidget<QStatusBarSignals> {
     permanentWidgets: Set<NativeElement>;
     widgets: Set<NativeElement>;
 
-    constructor(parent?: NodeWidget<any>) {
+    constructor(parent?: QWidget) {
         let native;
         if (parent) {
             native = new addon.QStatusBar(parent.native);
