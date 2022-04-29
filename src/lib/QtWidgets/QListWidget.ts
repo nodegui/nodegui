@@ -2,7 +2,7 @@ import addon from '../utils/addon';
 import { QWidget } from './QWidget';
 import { NativeElement, Component } from '../core/Component';
 import { QListWidgetItem } from './QListWidgetItem';
-import { NodeListView, QListViewSignals } from './QListView';
+import { QListView, QListViewSignals } from './QListView';
 import { QRect } from '../QtCore/QRect';
 import { SortOrder, ScrollHint, MatchFlag } from '../QtEnums';
 import { QModelIndex } from '../QtCore/QModelIndex';
@@ -32,7 +32,7 @@ for (let i = 0; i < 30; i++) {
 }
 ```
  */
-export class QListWidget extends NodeListView<QListWidgetSignals> {
+export class QListWidget extends QListView<QListWidgetSignals> {
     items: Set<NativeElement | Component>;
 
     constructor(parent?: QWidget) {

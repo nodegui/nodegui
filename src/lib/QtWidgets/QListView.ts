@@ -20,7 +20,17 @@ const listview = new QListView();
 
 ```
  */
-export abstract class NodeListView<Signals extends QListViewSignals> extends QAbstractItemView<Signals> {
+export class QListView<Signals extends QListViewSignals = QListViewSignals> extends QAbstractItemView<Signals> {
+    constructor(parent?: QWidget) {
+        let native: NativeElement;
+        if (parent) {
+            native = new addon.QListView(parent.native);
+        } else {
+            native = new addon.QListView();
+        }
+        super(native);
+        parent && this.setNodeParent(parent);
+    }
     setBatchSize(batchSize: number): void {
         this.setProperty('batchSize', batchSize);
     }
@@ -141,19 +151,6 @@ export enum ResizeMode {
 export enum ListViewMode {
     ListMode,
     IconMode,
-}
-
-export class QListView extends NodeListView<QListViewSignals> {
-    constructor(parent?: QWidget) {
-        let native: NativeElement;
-        if (parent) {
-            native = new addon.QListView(parent.native);
-        } else {
-            native = new addon.QListView();
-        }
-        super(native);
-        parent && this.setNodeParent(parent);
-    }
 }
 
 export type QListViewSignals = QAbstractItemViewSignals;
