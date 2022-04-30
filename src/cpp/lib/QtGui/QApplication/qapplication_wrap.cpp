@@ -119,7 +119,7 @@ Napi::Value StaticQApplicationWrapMethods::clipboard(
   QClipboard* clipboard = QApplication::clipboard();
   if (clipboard) {
     return WrapperCache::instance.get<QClipboard, QClipboardWrap>(env,
-                                                                  clipboard);
+                                                                  clipboard, false);
   } else {
     return env.Null();
   }
@@ -163,7 +163,7 @@ Napi::Value StaticQApplicationWrapMethods::primaryScreen(
   Napi::Env env = info.Env();
   auto screen = QApplication::primaryScreen();
   if (screen) {
-    return WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
+    return WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen, false);
   } else {
     return env.Null();
   }
@@ -177,7 +177,7 @@ Napi::Value StaticQApplicationWrapMethods::screens(
   for (int i = 0; i < screens.size(); i++) {
     QScreen* screen = screens[i];
     auto instance =
-        WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
+        WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen, false);
     jsArray[i] = instance;
   }
   return jsArray;

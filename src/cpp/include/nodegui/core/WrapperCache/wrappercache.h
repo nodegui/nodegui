@@ -6,7 +6,8 @@
 #include <QtCore/QObject>
 
 #include "Extras/Export/export.h"
-#include "QtGui/QScreen/qscreen_wrap.h"
+#include "Extras/Utils/nutils.h"
+
 
 struct CachedObject {
   napi_ref ref;
@@ -24,7 +25,7 @@ class DLL_EXPORT WrapperCache : public QObject {
   Q_OBJECT
 
  private:
-  QMap<const QObject*, CachedObject> cache;
+  QMap<uint64_t, CachedObject> cache;
 
  public:
   /**
@@ -44,29 +45,53 @@ class DLL_EXPORT WrapperCache : public QObject {
    * @return The JS wrapper object.
    */
   template <class T, class W>
-  Napi::Object get(Napi::Env env, T* object) {
-    if (this->cache.contains(object)) {
+  Napi::Object get(Napi::Env env, T* object, bool isCreatedByNodeGui) {
+    uint64_t ptrHash = extrautils::hashPointerTo53bit(object);
+    if (this->cache.contains(ptrHash)) {
       napi_value result = nullptr;
-      napi_get_reference_value(env, this->cache[object].ref, &result);
-      return Napi::Object(env, result);
+      napi_get_reference_value(env, this->cache[ptrHash].ref, &result);
+
+      napi_valuetype valuetype;
+      napi_typeof(env, result, &valuetype);
+      if (valuetype != napi_null) {
+        return Napi::Object(env, result);
+      }
     }
 
     Napi::Object wrapper =
         W::constructor.New({Napi::External<T>::New(env, object)});
 
-    napi_ref ref = nullptr;
-    napi_create_reference(env, wrapper, 1, &ref);
-    this->cache[object].env = napi_env(env);
-    this->cache[object].ref = ref;
-
-    QObject::connect(object, &QObject::destroyed, this,
-                     &WrapperCache::handleDestroyed);
+    store(env, extrautils::hashPointerTo53bit(object), object, wrapper, isCreatedByNodeGui);
     return wrapper;
+  }
+
+  /**
+   * Store a mapping from Qt Object to wrapper
+   *
+   * @param T - (template argument) The Qt class of the object being cached,
+   * e.g. `QScreen`.
+   * @param W - (template argument) The wrapper type which matches the object
+   * `QScreenWrap`.
+   * @param env = Napi environment
+   * @param object - Pointer to the QObject for which a wrapper is required.
+   * @param wrapper - The wrapper object matching `object`.
+   */
+  void store(Napi::Env env, uint64_t ptrHash, QObject *qobject, Napi::Object wrapper, bool isWeak) {
+    napi_ref ref = nullptr;
+
+    napi_create_reference(env, wrapper, isWeak ? 0 : 1, &ref);
+    this->cache[ptrHash].env = napi_env(env);
+    this->cache[ptrHash].ref = ref;
+
+    QObject::connect(qobject, &QObject::destroyed, this,
+                     &WrapperCache::handleDestroyed);
   }
 
   static Napi::Object init(Napi::Env env, Napi::Object exports) {
     exports.Set("WrapperCache_injectCallback",
                 Napi::Function::New<injectDestroyCallback>(env));
+    // exports.Set("WrapperCache_storeJS",
+    //             Napi::Function::New<storeJS>(env));
     return exports;
   }
 
@@ -81,7 +106,8 @@ class DLL_EXPORT WrapperCache : public QObject {
 
  public Q_SLOTS:
   void handleDestroyed(const QObject* object) {
-    if (!this->cache.contains(object)) {
+    uint64_t ptrHash = extrautils::hashPointerTo53bit(object);
+    if (!this->cache.contains(ptrHash)) {
       return;
     }
 
@@ -92,12 +118,14 @@ class DLL_EXPORT WrapperCache : public QObject {
       Napi::HandleScope scope(env);
       destroyedCallback.Call(
           env.Global(),
-          {Napi::Value::From(env, extrautils::hashPointerTo53bit(object))});
+          {Napi::Value::From(env, ptrHash)});
     }
 
     uint32_t result = 0;
-    napi_reference_unref(this->cache[object].env, this->cache[object].ref,
+// TODO: Grab the wrapper C++ object and null out its ref to the Qt object.
+
+    napi_reference_unref(this->cache[ptrHash].env, this->cache[ptrHash].ref,
                          &result);
-    this->cache.remove(object);
+    this->cache.remove(ptrHash);
   }
 };

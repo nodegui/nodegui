@@ -48,7 +48,7 @@ Napi::Value CacheTestQObjectWrap::foo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   CacheTestQObject* foo = this->instance->foo();
   return WrapperCache::instance.get<CacheTestQObject, CacheTestQObjectWrap>(
-      env, foo);
+      env, foo, false);
 }
 
 Napi::Value CacheTestQObjectWrap::clearFoo(const Napi::CallbackInfo& info) {
@@ -61,5 +61,5 @@ Napi::Value CacheTestQObjectWrap::bar(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   CacheTestQObject* bar = this->instance->bar();
   return WrapperCache::instance.get<CacheTestQObject, CacheTestQObjectWrap>(
-      env, bar);
+      env, bar, false);
 }

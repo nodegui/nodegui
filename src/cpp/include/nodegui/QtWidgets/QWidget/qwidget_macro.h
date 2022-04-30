@@ -427,7 +427,7 @@
     Napi::Env env = info.Env();                                                \
     QWindow* window = this->instance->windowHandle();                          \
     if (window) {                                                              \
-      return WrapperCache::instance.get<QWindow, QWindowWrap>(env, window);    \
+      return WrapperCache::instance.get<QWindow, QWindowWrap>(env, window, false);    \
     } else {                                                                   \
       return env.Null();                                                       \
     }                                                                          \
