@@ -44,8 +44,8 @@ class DLL_EXPORT WrapperCache : public QObject {
    * @param object - Pointer to the QObject for which a wrapper is required.
    * @return The JS wrapper object.
    */
-  template <class T, class W>
-  Napi::Object get(Napi::Env env, T* object, bool isCreatedByNodeGui) {
+  template <class T>
+  Napi::Object get(Napi::Env env, T* object, Napi::FunctionReference* constructorFunc, bool isCreatedByNodeGui) {
     uint64_t ptrHash = extrautils::hashPointerTo53bit(object);
     if (this->cache.contains(ptrHash)) {
       napi_value result = nullptr;
@@ -58,8 +58,7 @@ class DLL_EXPORT WrapperCache : public QObject {
       }
     }
 
-    Napi::Object wrapper =
-        W::constructor.New({Napi::External<T>::New(env, object)});
+    Napi::Object wrapper = constructorFunc->New({Napi::External<T>::New(env, object)});
 
     store(env, extrautils::hashPointerTo53bit(object), object, wrapper, isCreatedByNodeGui);
     return wrapper;
