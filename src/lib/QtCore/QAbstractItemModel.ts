@@ -22,9 +22,9 @@ export class QAbstractItemModel extends QObject<any> {
 
                 case 'parent':
                     try {
-                        return this.parent(new QModelIndex(args[0])).native;
+                        return this.parentModelIndex(new QModelIndex(args[0])).native;
                     } catch (e) {
-                        console.log(`An exception was thrown while dispatching to method 'parent':`);
+                        console.log(`An exception was thrown while dispatching to method 'parentModelIndex':`);
                         console.log(e);
                     }
                     return new QModelIndex().native;
@@ -154,7 +154,10 @@ export class QAbstractItemModel extends QObject<any> {
     // TODO: bool moveRow(const QModelIndex &sourceParent, int sourceRow, const QModelIndex &destinationParent, int destinationChild)
     // TODO: virtual bool moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild)
 
-    parent(child: QModelIndex): QModelIndex {
+    /**
+     * Note: This corresponds to `QAbstractItemModel::parent(QModelIndex)`. It has been given a different name in TS.
+     */
+    parentModelIndex(child: QModelIndex): QModelIndex {
         return new QModelIndex();
     }
 
