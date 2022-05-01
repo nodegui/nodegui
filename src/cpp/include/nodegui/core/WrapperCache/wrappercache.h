@@ -14,6 +14,8 @@ struct CachedObject {
   napi_env env;
 };
 
+typedef Napi::Object (*WrapFunc)(Napi::Env, QObject *);
+
 /**
  * C++ side cache for wrapper objects.
  *
@@ -26,6 +28,7 @@ class DLL_EXPORT WrapperCache : public QObject {
 
  private:
   QMap<uint64_t, CachedObject> cache;
+  QMap<QString, WrapFunc> wrapperRegistry;
 
  public:
   /**
@@ -64,6 +67,35 @@ class DLL_EXPORT WrapperCache : public QObject {
     return wrapper;
   }
 
+  void registerWrapper(QString typeName, WrapFunc wrapFunc) {
+    this->wrapperRegistry[typeName] = wrapFunc;
+  }
+
+  Napi::Value getWrapper(Napi::Env env, QObject* qobject) {
+    if (qobject == nullptr) {
+      return env.Null();
+    }
+
+    uint64_t ptrHash = extrautils::hashPointerTo53bit(qobject);
+    if (this->cache.contains(ptrHash)) {
+      napi_value result = nullptr;
+      napi_get_reference_value(env, this->cache[ptrHash].ref, &result);
+
+      napi_valuetype valuetype;
+      napi_typeof(env, result, &valuetype);
+      if (valuetype != napi_null) {
+        return Napi::Object(env, result);
+      }
+    }
+
+    // QString className(object->metaObject()->className());
+    // if (this->wrapperRegistry.contains(className)) {
+    //   this->wrapperRegistry[className]
+    // }
+
+    return env.Null();
+  }
+
   /**
    * Store a mapping from Qt Object to wrapper
    *
@@ -89,8 +121,8 @@ class DLL_EXPORT WrapperCache : public QObject {
   static Napi::Object init(Napi::Env env, Napi::Object exports) {
     exports.Set("WrapperCache_injectCallback",
                 Napi::Function::New<injectDestroyCallback>(env));
-    // exports.Set("WrapperCache_storeJS",
-    //             Napi::Function::New<storeJS>(env));
+    exports.Set("WrapperCache_store",
+                Napi::Function::New<storeJS>(env));
     return exports;
   }
 
@@ -98,6 +130,17 @@ class DLL_EXPORT WrapperCache : public QObject {
     Napi::Env env = info.Env();
 
     destroyedCallback = Napi::Persistent(info[0].As<Napi::Function>());
+    return env.Null();
+  }
+
+  static Napi::Value storeJS(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+
+    Napi::Object objectWrapper = info[0].As<Napi::Object>();
+    QObject* qobject = info[1].As<Napi::External<QObject>>().Data();
+
+    uint64_t ptrHash = extrautils::hashPointerTo53bit(qobject);
+    instance.store(env, ptrHash, qobject, objectWrapper, false);
     return env.Null();
   }
 

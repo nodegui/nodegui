@@ -5,6 +5,8 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
 #include "core/Events/eventwidget_macro.h"
+#include "core/WrapperCache/wrappercache.h"
+
 /*
 
     This macro adds common QObject exported methods
@@ -88,6 +90,15 @@
     int id = info[0].As<Napi::Number>().Int32Value();                        \
     this->instance->killTimer(id);                                           \
     return env.Null();                                                       \
+  }                                                                          \
+  Napi::Value parent(const Napi::CallbackInfo& info) {                       \
+    Napi::Env env = info.Env();                                              \
+    QObject *parent = this->instance->parent();                              \
+    if (parent) {                                                            \
+      return WrapperCache::instance.getWrapper(env, parent);                 \
+    } else {                                                                 \
+      return env.Null();                                                     \
+    }                                                                        \
   }
 
 // Ideally this macro below should go in
@@ -131,7 +142,8 @@
       InstanceMethod("dumpObjectInfo", &ComponentWrapName::dumpObjectInfo), \
       InstanceMethod("setParent", &ComponentWrapName::setParent),           \
       InstanceMethod("startTimer", &ComponentWrapName::startTimer),         \
-      InstanceMethod("killTimer", &ComponentWrapName::killTimer),
+      InstanceMethod("killTimer", &ComponentWrapName::killTimer),           \
+      InstanceMethod("parent", &ComponentWrapName::parent),
 
 #endif  // QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
 

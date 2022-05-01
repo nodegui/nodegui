@@ -4,6 +4,7 @@ import { checkIfNativeElement } from '../utils/helpers';
 import addon from '../utils/addon';
 import { QVariant, QVariantType } from './QVariant';
 import { TimerType } from '../QtEnums/TimerType';
+import { wrapperCache } from '../core/WrapperCache';
 
 export class QObject<Signals extends QObjectSignals = QObjectSignals> extends EventWidget<Signals> {
     constructor(nativeElementOrParent?: NativeElement | QObject) {
@@ -18,6 +19,9 @@ export class QObject<Signals extends QObjectSignals = QObjectSignals> extends Ev
             native = new addon.QObject();
         }
         super(native);
+
+        wrapperCache.store(this);
+
         this.setNodeParent(parent);
     }
 
@@ -50,6 +54,9 @@ export class QObject<Signals extends QObjectSignals = QObjectSignals> extends Ev
         } else {
             this.native.setParent(null);
         }
+    }
+    parent(): QObject {
+        return wrapperCache.getWrapper(this.native.parent());
     }
     startTimer(intervalMS: number, timerType = TimerType.CoarseTimer): number {
         return this.native.startTimer(intervalMS, timerType);

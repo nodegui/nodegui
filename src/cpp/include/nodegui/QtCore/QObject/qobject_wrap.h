@@ -20,5 +20,6 @@ class DLL_EXPORT QObjectWrap : public Napi::ObjectWrap<QObjectWrap> {
   NObject* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
+  static Napi::Object wrapFunc(Napi::Env env, QObject* qobject);
   // wrapped methods
 };
