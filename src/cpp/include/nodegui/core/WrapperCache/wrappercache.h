@@ -147,8 +147,8 @@ class DLL_EXPORT WrapperCache : public QObject {
   static Napi::FunctionReference destroyedCallback;
 
  public Q_SLOTS:
-  void handleDestroyed(const QObject* object) {
-    uint64_t ptrHash = extrautils::hashPointerTo53bit(object);
+  void handleDestroyed(const QObject* qobject) {
+    uint64_t ptrHash = extrautils::hashPointerTo53bit(qobject);
     if (!this->cache.contains(ptrHash)) {
       return;
     }

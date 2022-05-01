@@ -59,5 +59,19 @@ describe('WrapperCache using CacheTestQObject', () => {
         expect((<any>b.parent())['magic']).toBe(true);
     });
 
+    it('QObject.delete() clears the native field', () => {
+        const a = new QObject();
+        a.delete();
+        expect(a.native).toBeNull();
+    });
+
+    it('QObject.delete() clears chains of QObjects and their native field', () => {
+        const a = new QObject();
+        const b = new QObject(a);
+        a.delete();
+        expect(a.native).toBeNull();
+        expect(b.native).toBeNull();
+    });
+
     qApp.quit();
 });

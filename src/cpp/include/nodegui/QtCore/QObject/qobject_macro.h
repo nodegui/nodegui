@@ -99,7 +99,18 @@
     } else {                                                                 \
       return env.Null();                                                     \
     }                                                                        \
-  }
+  }                                                                          \
+  Napi::Value deleteLater(const Napi::CallbackInfo& info) {                  \
+    Napi::Env env = info.Env();                                              \
+    this->instance->deleteLater();                                           \
+    return env.Null();                                                       \
+  }                                                                          \
+  Napi::Value deleteObject(const Napi::CallbackInfo& info) {                 \
+    Napi::Env env = info.Env();                                              \
+    delete static_cast<QObject*>(this->instance);                            \
+    return env.Null();                                                       \
+  }                                                                          \
+
 
 // Ideally this macro below should go in
 // QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE but some wrappers
@@ -143,7 +154,9 @@
       InstanceMethod("setParent", &ComponentWrapName::setParent),           \
       InstanceMethod("startTimer", &ComponentWrapName::startTimer),         \
       InstanceMethod("killTimer", &ComponentWrapName::killTimer),           \
-      InstanceMethod("parent", &ComponentWrapName::parent),
+      InstanceMethod("parent", &ComponentWrapName::parent),                 \
+      InstanceMethod("deleteLater", &ComponentWrapName::deleteLater),       \
+      InstanceMethod("delete", &ComponentWrapName::deleteObject),
 
 #endif  // QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
 

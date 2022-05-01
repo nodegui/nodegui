@@ -64,6 +64,12 @@ export class QObject<Signals extends QObjectSignals = QObjectSignals> extends Ev
     killTimer(timerId: number): void {
         this.native.killTimer(timerId);
     }
+    delete(): void {
+        this.native.delete();
+    }
+    deleteLater(): void {
+        this.native.deleteLater();
+    }
 }
 
 export interface QObjectSignals {
