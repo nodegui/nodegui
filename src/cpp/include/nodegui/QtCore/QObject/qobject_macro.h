@@ -109,6 +109,16 @@
     Napi::Env env = info.Env();                                              \
     delete static_cast<QObject*>(this->instance);                            \
     return env.Null();                                                       \
+  }                                                                          \
+  Napi::Value children(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                              \
+    QObjectList children = this->instance->children();                       \
+    Napi::Array resultArrayNapi = Napi::Array::New(env, children.size());    \
+    for (int i = 0; i < children.size(); i++) {                              \
+      resultArrayNapi[i] =                                                   \
+          WrapperCache::instance.getWrapper(env, children[i]);               \
+    }                                                                        \
+    return resultArrayNapi;                                                  \
   }
 
 // Ideally this macro below should go in
@@ -155,7 +165,8 @@
       InstanceMethod("killTimer", &ComponentWrapName::killTimer),           \
       InstanceMethod("parent", &ComponentWrapName::parent),                 \
       InstanceMethod("deleteLater", &ComponentWrapName::deleteLater),       \
-      InstanceMethod("delete", &ComponentWrapName::deleteObject),
+      InstanceMethod("delete", &ComponentWrapName::deleteObject),           \
+      InstanceMethod("children", &ComponentWrapName::children),
 
 #endif  // QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
 

@@ -70,6 +70,9 @@ export class QObject<Signals extends QObjectSignals = QObjectSignals> extends Ev
     deleteLater(): void {
         this.native.deleteLater();
     }
+    children(): QObject[] {
+        return this.native.children().map((kid: any) => wrapperCache.getWrapper(kid));
+    }
 }
 
 export interface QObjectSignals {

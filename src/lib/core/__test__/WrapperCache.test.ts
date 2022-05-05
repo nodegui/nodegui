@@ -82,5 +82,16 @@ describe('WrapperCache using CacheTestQObject', () => {
         expect(b.native).toBeNull();
     });
 
+    it('Object.children()', () => {
+        wrapperCache._flush();
+        const parent = new QObject();
+        const kid1 = new QObject(parent);
+        const kid2 = new QObject(parent);
+        const allKids = parent.children();
+        expect(allKids.length).toBe(2);
+        expect(allKids[0]).toEqual(kid1);
+        expect(allKids[1]).toEqual(kid2);
+    });
+
     qApp.quit();
 });
