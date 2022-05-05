@@ -12,13 +12,7 @@ Napi::Object QObjectWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME, {QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QObjectWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
-
-  WrapperCache::instance.registerWrapper(QString("NObject"),
-    [](Napi::Env env, QObject *qobject) -> Napi::Object {
-      QObject *exactQObject = dynamic_cast<QObject*>(qobject);
-      Napi::Object wrapper = QObjectWrap::constructor.New({Napi::External<QObject>::New(env, exactQObject)});
-    return wrapper;
-  });
+  QOBJECT_REGISTER_WRAPPER(NObject, QObjectWrap);
   return exports;
 }
 

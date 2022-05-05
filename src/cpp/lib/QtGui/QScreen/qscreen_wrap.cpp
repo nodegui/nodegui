@@ -16,6 +16,7 @@ Napi::Object QScreenWrap::init(Napi::Env env, Napi::Object exports) {
                    QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QScreenWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QScreen, QScreenWrap);
   return exports;
 }
 

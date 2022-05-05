@@ -118,8 +118,7 @@ Napi::Value StaticQApplicationWrapMethods::clipboard(
   Napi::Env env = info.Env();
   QClipboard* clipboard = QApplication::clipboard();
   if (clipboard) {
-    return WrapperCache::instance.get<QClipboard>(env,
-                                                  clipboard, &QClipboardWrap::constructor, false);
+    return WrapperCache::instance.getWrapper(env, clipboard, true);
   } else {
     return env.Null();
   }
@@ -163,7 +162,7 @@ Napi::Value StaticQApplicationWrapMethods::primaryScreen(
   Napi::Env env = info.Env();
   auto screen = QApplication::primaryScreen();
   if (screen) {
-    return WrapperCache::instance.get<QScreen>(env, screen, &QScreenWrap::constructor, false);
+    return WrapperCache::instance.getWrapper(env, screen, true);
   } else {
     return env.Null();
   }
@@ -176,8 +175,7 @@ Napi::Value StaticQApplicationWrapMethods::screens(
   Napi::Array jsArray = Napi::Array::New(env, screens.size());
   for (int i = 0; i < screens.size(); i++) {
     QScreen* screen = screens[i];
-    auto instance =
-        WrapperCache::instance.get<QScreen>(env, screen, &QScreenWrap::constructor, false);
+    auto instance = WrapperCache::instance.getWrapper(env, screen, true);
     jsArray[i] = instance;
   }
   return jsArray;

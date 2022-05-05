@@ -35,9 +35,7 @@ class DLL_EXPORT NAbstractItemModel : public QAbstractItemModel,
     return *newIndex;
   }
 
-  QObject *parent() const {
-    return nullptr;
-  }
+  QObject* parent() const { return nullptr; }
 
   QModelIndex parent(const QModelIndex& child) const override {
     Napi::Env env = this->dispatchOnNode.Env();

@@ -1,3 +1,4 @@
+import { QObject } from '../QtCore/QObject';
 import addon from '../utils/addon';
 import { NativeElement } from './Component';
 
@@ -15,9 +16,15 @@ import { NativeElement } from './Component';
 export class WrapperCache {
     private _strongCache = new Map<number, QObject>();
     private _weakCache = new Map<number, WeakRef<QObject>>();
+    private _wrapperRegistry = new Map<string, { new (native: any): QObject }>();
 
     constructor() {
         addon.WrapperCache_injectCallback(this._objectDestroyedCallback.bind(this));
+    }
+
+    _flush(): void {
+        this._strongCache = new Map<number, QObject>();
+        this._weakCache = new Map<number, WeakRef<QObject>>();
     }
 
     private _objectDestroyedCallback(objectId: number): void {
@@ -47,12 +54,13 @@ export class WrapperCache {
         return wrapper;
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     getWrapper(native: any): QObject | null {
         if (native == null) {
             return null;
         }
-        const id = native.__id__();
 
+        const id = native.__id__();
         if (this._strongCache.has(id)) {
             return this._strongCache.get(id);
         }
@@ -65,7 +73,19 @@ export class WrapperCache {
             }
         }
 
-        return null;    // FIXME: Create new wrapper on demand.
+        if (this._wrapperRegistry.has(native.wrapperType)) {
+            const wrapper = new (this._wrapperRegistry.get(native.wrapperType))(native);
+            this.store(wrapper);
+            return wrapper;
+        } else {
+            console.log(`NodeGui: Unable to find JS wrapper for type '${native.wrapperType}'.`);
+        }
+
+        return null;
+    }
+
+    registerWrapper(qobjectClassName: string, wrapperConstructor: { new (native: any): QObject }): void {
+        this._wrapperRegistry.set(qobjectClassName, wrapperConstructor);
     }
 
     store(wrapper: QObject): void {

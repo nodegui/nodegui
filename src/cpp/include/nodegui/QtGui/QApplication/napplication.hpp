@@ -29,8 +29,7 @@ class DLL_EXPORT NApplication : public QApplication, public EventWidget {
         this, &QGuiApplication::primaryScreenChanged, [=](QScreen* screen) {
           Napi::Env env = this->emitOnNode.Env();
           Napi::HandleScope scope(env);
-          auto instance =
-              WrapperCache::instance.get<QScreen>(env, screen, &QScreenWrap::constructor, false);
+          auto instance = WrapperCache::instance.getWrapper(env, screen, true);
           this->emitOnNode.Call(
               {Napi::String::New(env, "primaryScreenChanged"), instance});
         });
@@ -38,8 +37,7 @@ class DLL_EXPORT NApplication : public QApplication, public EventWidget {
     QObject::connect(this, &QGuiApplication::screenAdded, [=](QScreen* screen) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
-      auto instance =
-          WrapperCache::instance.get<QScreen>(env, screen, &QScreenWrap::constructor, false);
+      auto instance = WrapperCache::instance.getWrapper(env, screen, true);
       this->emitOnNode.Call({Napi::String::New(env, "screenAdded"), instance});
     });
 
@@ -47,8 +45,7 @@ class DLL_EXPORT NApplication : public QApplication, public EventWidget {
         this, &QGuiApplication::screenRemoved, [=](QScreen* screen) {
           Napi::Env env = this->emitOnNode.Env();
           Napi::HandleScope scope(env);
-          auto instance =
-              WrapperCache::instance.get<QScreen>(env, screen, &QScreenWrap::constructor, false);
+          auto instance = WrapperCache::instance.getWrapper(env, screen, true);
           this->emitOnNode.Call(
               {Napi::String::New(env, "screenRemoved"), instance});
         });

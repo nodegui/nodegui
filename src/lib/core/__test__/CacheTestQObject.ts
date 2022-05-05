@@ -6,7 +6,7 @@ import { wrapperCache } from '../../core/WrapperCache';
 export class CacheTestQObject extends QObject<QObjectSignals> {
     constructor(arg?: NativeElement) {
         let native;
-        if (native == null) {
+        if (arg == null) {
             native = new addon.CacheTestQObject();
         } else {
             native = arg;
@@ -16,7 +16,7 @@ export class CacheTestQObject extends QObject<QObjectSignals> {
     }
 
     foo(): CacheTestQObject {
-        return wrapperCache.get<CacheTestQObject>(CacheTestQObject, this.native.foo());
+        return wrapperCache.getWrapper(this.native.foo()) as CacheTestQObject;
     }
 
     clearFoo(): void {
@@ -24,6 +24,7 @@ export class CacheTestQObject extends QObject<QObjectSignals> {
     }
 
     bar(): CacheTestQObject {
-        return wrapperCache.get<CacheTestQObject>(CacheTestQObject, this.native.bar());
+        return wrapperCache.getWrapper(this.native.bar()) as CacheTestQObject;
     }
 }
+wrapperCache.registerWrapper('CacheTestQObjectWrap', CacheTestQObject);

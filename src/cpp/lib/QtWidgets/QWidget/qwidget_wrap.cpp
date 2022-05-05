@@ -12,6 +12,7 @@ Napi::Object QWidgetWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME, {QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(NWidget, QWidgetWrap);
   return exports;
 }
 

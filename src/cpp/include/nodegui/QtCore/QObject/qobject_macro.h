@@ -8,10 +8,9 @@
 #include "core/WrapperCache/wrappercache.h"
 
 /*
-
-    This macro adds common QObject exported methods
-    The exported methods are taken into this macro to avoid writing them in each
-   and every widget we export.
+  This macro adds common QObject exported methods
+  The exported methods are taken into this macro to avoid writing them in each
+  and every widget we export.
  */
 
 #ifndef QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE
@@ -22,7 +21,8 @@
   Napi::Value __id__(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                              \
     return Napi::Value::From(                                                \
-        env, extrautils::hashPointerTo53bit(this->instance.data()));         \
+        env, extrautils::hashPointerTo53bit(                                 \
+                 static_cast<QObject*>(this->instance.data())));             \
   }                                                                          \
   Napi::Value inherits(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                              \
@@ -93,7 +93,7 @@
   }                                                                          \
   Napi::Value parent(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                              \
-    QObject *parent = this->instance->parent();                              \
+    QObject* parent = this->instance->parent();                              \
     if (parent) {                                                            \
       return WrapperCache::instance.getWrapper(env, parent);                 \
     } else {                                                                 \
@@ -109,8 +109,7 @@
     Napi::Env env = info.Env();                                              \
     delete static_cast<QObject*>(this->instance);                            \
     return env.Null();                                                       \
-  }                                                                          \
-
+  }
 
 // Ideally this macro below should go in
 // QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE but some wrappers
@@ -175,5 +174,23 @@
 #ifndef QOBJECT_SIGNALS
 #define QOBJECT_SIGNALS QOBJECT_SIGNALS_ON_TARGET(this)
 #endif  // QOBJECT_SIGNALS
+
+/*
+  Macro to register a function to wrap QObject pointers of a
+  given subclass to wrapper instances. First parameter is the
+  plain name of the QObject subclass (no quotes), seconds is the
+  name of the wrapper class.
+ */
+#ifndef QOBJECT_REGISTER_WRAPPER
+#define QOBJECT_REGISTER_WRAPPER(qobjectType, ComponentWrapName)         \
+  WrapperCache::instance.registerWrapper(                                \
+      QString(#qobjectType),                                             \
+      [](Napi::Env env, QObject* qobject) -> Napi::Object {              \
+        qobjectType* exactQObject = dynamic_cast<qobjectType*>(qobject); \
+        Napi::Object wrapper = ComponentWrapName::constructor.New(       \
+            {Napi::External<QObject>::New(env, exactQObject)});          \
+        return wrapper;                                                  \
+      });
+#endif  // QOBJECT_REGISTER_WRAPPER
 
 #include "QtCore/QObject/qobject_wrap.h"

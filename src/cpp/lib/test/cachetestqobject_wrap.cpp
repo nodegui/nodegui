@@ -16,6 +16,7 @@ Napi::Object CacheTestQObjectWrap::init(Napi::Env env, Napi::Object exports) {
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(CacheTestQObjectWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(CacheTestQObject, CacheTestQObjectWrap);
   return exports;
 }
 
@@ -47,8 +48,7 @@ void CacheTestQObjectWrap::connectSignalsToEventEmitter() {
 Napi::Value CacheTestQObjectWrap::foo(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   CacheTestQObject* foo = this->instance->foo();
-  return WrapperCache::instance.get<CacheTestQObject>(
-      env, foo, &CacheTestQObjectWrap::constructor, false);
+  return WrapperCache::instance.getWrapper(env, foo);
 }
 
 Napi::Value CacheTestQObjectWrap::clearFoo(const Napi::CallbackInfo& info) {
@@ -60,6 +60,5 @@ Napi::Value CacheTestQObjectWrap::clearFoo(const Napi::CallbackInfo& info) {
 Napi::Value CacheTestQObjectWrap::bar(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   CacheTestQObject* bar = this->instance->bar();
-  return WrapperCache::instance.get<CacheTestQObject>(
-      env, bar, &CacheTestQObjectWrap::constructor, false);
+  return WrapperCache::instance.getWrapper(env, bar);
 }
