@@ -45,6 +45,7 @@ Napi::Object QAbstractItemModelWrap::init(Napi::Env env, Napi::Object exports) {
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QAbstractItemModelWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(NAbstractItemModel, QAbstractItemModelWrap);
   return exports;
 }
 
@@ -58,7 +59,21 @@ QAbstractItemModelWrap::~QAbstractItemModelWrap() {
 QAbstractItemModelWrap::QAbstractItemModelWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QAbstractItemModelWrap>(info) {
   Napi::Env env = info.Env();
-  this->instance = new NAbstractItemModel();
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
+    this->instance = new NAbstractItemModel();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<NAbstractItemModel>>().Data();
+    }
+  } else {
+    Napi::TypeError::New(env,
+                         "NodeGui: QAbstractItemModelWrap: Wrong number of "
+                         "arguments to constructor")
+        .ThrowAsJavaScriptException();
+  }
 }
 
 Napi::Value QAbstractItemModelWrap::initNodeDispatcher(

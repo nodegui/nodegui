@@ -35,7 +35,6 @@ export class QTabWidget extends QWidget<QTabWidgetSignals> {
             native = new addon.QTabWidget();
         }
         super(native);
-        this.setNodeParent(parent);
         this.tabs = [];
     }
 

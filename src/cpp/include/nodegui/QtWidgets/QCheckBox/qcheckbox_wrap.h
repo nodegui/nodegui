@@ -12,14 +12,13 @@
 class DLL_EXPORT QCheckBoxWrap : public Napi::ObjectWrap<QCheckBoxWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NCheckBox> instance;
-  bool disableDeletion;
+  QPointer<QCheckBox> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QCheckBoxWrap(const Napi::CallbackInfo& info);
   ~QCheckBoxWrap();
-  NCheckBox* getInternalInstance();
+  QCheckBox* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

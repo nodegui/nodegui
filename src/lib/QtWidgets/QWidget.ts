@@ -41,18 +41,15 @@ view.setLayout(new FlexLayout());
 ```
  */
 export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends YogaWidget<Signals> {
-    _layout?: QLayout;
     _rawInlineStyle: string;
     type: string;
-    private _effect?: QGraphicsEffect<any> | null;
 
     constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        let parent: QWidget = null;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (arg as QWidget) {
-            parent = arg as QWidget;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QWidget(parent.native);
         } else {
             native = new addon.QWidget();
@@ -61,18 +58,22 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
         this._rawInlineStyle = '';
         this.type = 'widget';
 
-        this.setNodeParent(parent);
-
         this.setStyleSheet = memoizeOne(this.setStyleSheet);
         this.setInlineStyle = memoizeOne(this.setInlineStyle);
         this.setObjectName = memoizeOne(this.setObjectName);
     }
 
-    get layout(): QLayout | undefined {
-        return this._layout;
+    layout(): QLayout | null {
+        return wrapperCache.getWrapper(this.native.layout()) as QLayout;
     }
-    set layout(l: QLayout | undefined) {
-        this._layout = l;
+    setLayout(layout: QLayout): void {
+        this.native.setLayout(layout == null ? null : layout.native);
+
+        const flexLayout = layout as FlexLayout;
+        if (flexLayout?.setFlexNode) {
+            //if flex layout set the flexnode
+            flexLayout.setFlexNode(this.getFlexNode());
+        }
     }
     // *** Public Functions ***
     acceptDrops(): boolean {
@@ -367,7 +368,6 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
         this.native.setGeometry(x, y, w, h);
     }
     setGraphicsEffect(effect: QGraphicsEffect<any>): void {
-        this._effect = effect;
         this.native.setGraphicsEffect(effect.native);
     }
     // TODO: void 	setInputMethodHints(Qt::InputMethodHints hints)
@@ -379,15 +379,6 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
         } else {
             this.native.setStyleSheet(style);
         }
-    }
-    setLayout(parentLayout: QLayout): void {
-        const flexLayout = parentLayout as FlexLayout;
-        this.native.setLayout(parentLayout.native);
-        if (flexLayout.setFlexNode) {
-            //if flex layout set the flexnode
-            flexLayout.setFlexNode(this.getFlexNode());
-        }
-        this._layout = parentLayout;
     }
     // TODO: void 	setLayoutDirection(Qt::LayoutDirection direction)
     // TODO: void 	setLocale(const QLocale &locale)
@@ -661,3 +652,4 @@ export interface QWidgetSignals extends QObjectSignals {
     windowIconChanged: (iconNative: NativeElement) => void;
     customContextMenuRequested: (pos: { x: number; y: number }) => void;
 }
+wrapperCache.registerWrapper('QWidgetWrap', QWidget);

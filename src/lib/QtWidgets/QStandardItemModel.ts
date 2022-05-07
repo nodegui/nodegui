@@ -16,7 +16,6 @@ export class QStandardItemModel extends QObject {
             native = new addon.QStandardItemModel();
         }
         super(native);
-        parent && parent.nodeChildren.add(this);
     }
     item(row: number, column = 0): QStandardItem | void {
         const item = this.native.item(row, column);

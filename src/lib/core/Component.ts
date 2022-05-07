@@ -18,17 +18,8 @@ Its the root base class in NodeGui world.
 */
 
 export abstract class Component {
-    nodeChildren: Set<Component>;
-    nodeParent?: Component;
-
     native: NativeElement | null;
-
     constructor(native: NativeElement) {
         this.native = native;
-        this.nodeChildren = new Set<Component>();
-    }
-    setNodeParent(parent?: Component): void {
-        this.nodeParent = parent;
-        parent?.nodeChildren.add(this);
     }
 }

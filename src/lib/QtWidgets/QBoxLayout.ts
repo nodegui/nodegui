@@ -3,6 +3,8 @@ import { QWidget } from './QWidget';
 import { QLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag, Direction } from '../QtEnums';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -26,21 +28,19 @@ centralWidget.setLayout(boxLayout);
 ```
  */
 export class QBoxLayout extends QLayout<QBoxLayoutSignals> {
-    childLayouts: Set<QLayout>;
-    constructor(dir: Direction, parent?: QWidget) {
+    constructor(arg: NativeElement | Direction, parent?: QWidget) {
         let native: NativeElement;
-        if (parent) {
-            native = new addon.QBoxLayout(dir, parent.native);
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (parent) {
+            native = new addon.QBoxLayout(arg as Direction, parent.native);
         } else {
-            native = new addon.QBoxLayout(dir);
+            native = new addon.QBoxLayout(arg as Direction);
         }
         super(native);
-        this.setNodeParent(parent);
-        this.childLayouts = new Set();
     }
-    addLayout(layout: QLayout<any>, stretch = 0): void {
+    addLayout(layout: QLayout, stretch = 0): void {
         this.native.addLayout(layout.native, stretch);
-        this.childLayouts.add(layout);
     }
     addSpacing(size: number): void {
         this.native.addSpacing(size);
@@ -53,18 +53,15 @@ export class QBoxLayout extends QLayout<QBoxLayoutSignals> {
     }
     addWidget(widget: QWidget, stretch = 0, alignment: AlignmentFlag = 0): void {
         this.native.addWidget(widget.native, stretch, alignment);
-        this.nodeChildren.add(widget);
     }
     insertWidget(index: number, widget: QWidget, stretch = 0): void {
         this.native.insertWidget(index, widget.native, stretch);
-        this.nodeChildren.add(widget);
     }
     direction(): Direction {
         return this.native.direction();
     }
     insertLayout(index: number, layout: QLayout, stretch = 0): void {
         this.native.insertLayout(index, layout.native, stretch);
-        this.childLayouts.add(layout);
     }
     insertSpacing(index: number, size: number): void {
         this.native.insertSpacing(index, size);
@@ -74,7 +71,6 @@ export class QBoxLayout extends QLayout<QBoxLayoutSignals> {
     }
     removeWidget(widget: QWidget): void {
         this.native.removeWidget(widget.native);
-        this.nodeChildren.delete(widget);
     }
     setDirection(dir: Direction): void {
         this.native.setDirection(dir);
@@ -86,5 +82,6 @@ export class QBoxLayout extends QLayout<QBoxLayoutSignals> {
         return this.native.count();
     }
 }
+wrapperCache.registerWrapper('QBoxLayoutWrap', QBoxLayout);
 
 export type QBoxLayoutSignals = QLayoutSignals;

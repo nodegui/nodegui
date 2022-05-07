@@ -14,7 +14,6 @@ class DLL_EXPORT QItemSelectionModelWrap
 
  private:
   QPointer<QItemSelectionModel> instance;
-  bool disableDeletion;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

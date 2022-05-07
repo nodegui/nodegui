@@ -11,13 +11,13 @@
 class DLL_EXPORT QTextBrowserWrap : public Napi::ObjectWrap<QTextBrowserWrap> {
   QTEXTEDIT_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NTextBrowser> instance;
+  QPointer<QTextBrowser> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QTextBrowserWrap(const Napi::CallbackInfo& info);
   ~QTextBrowserWrap();
-  NTextBrowser* getInternalInstance();
+  QTextBrowser* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

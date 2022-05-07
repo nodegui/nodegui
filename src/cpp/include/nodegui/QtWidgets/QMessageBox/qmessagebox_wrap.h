@@ -11,13 +11,13 @@
 class DLL_EXPORT QMessageBoxWrap : public Napi::ObjectWrap<QMessageBoxWrap> {
   QDIALOG_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NMessageBox> instance;
+  QPointer<QMessageBox> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QMessageBoxWrap(const Napi::CallbackInfo& info);
   ~QMessageBoxWrap();
-  NMessageBox* getInternalInstance();
+  QMessageBox* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

@@ -67,22 +67,24 @@ QListWidgetItemWrap::QListWidgetItemWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QListWidgetItemWrap>(info) {
   Napi::Env env = info.Env();
   this->disableDeletion = false;
-  if (info.Length() > 0 && info[0].IsExternal()) {
+  size_t argCount = info.Length();
+  if (argCount > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<QListWidgetItem>>().Data();
-    if (info.Length() == 2) {
+    if (argCount == 2) {
       this->disableDeletion = info[1].As<Napi::Boolean>().Value();
     }
   } else {
     // --- regular cases ---
-    if (info.Length() == 1) {
+    if (argCount == 1) {
       QString text =
           QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
       this->instance = new QListWidgetItem(text);
-    } else if (info.Length() == 0) {
+    } else if (argCount == 0) {
       this->instance = new QListWidgetItem();
     } else {
-      Napi::TypeError::New(env, "Wrong number of arguments")
+      Napi::TypeError::New(
+          env, "NodeGui: QListWidgetItemWrap: Wrong number of arguments")
           .ThrowAsJavaScriptException();
     }
   }

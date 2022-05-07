@@ -13,14 +13,13 @@ class DLL_EXPORT QRadioButtonWrap : public Napi::ObjectWrap<QRadioButtonWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
 
  private:
-  QPointer<NRadioButton> instance;
-  bool disableDeletion;
+  QPointer<QRadioButton> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QRadioButtonWrap(const Napi::CallbackInfo& info);
   ~QRadioButtonWrap();
-  NRadioButton* getInternalInstance();
+  QRadioButton* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

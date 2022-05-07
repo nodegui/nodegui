@@ -1,31 +1,33 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
-import { NativeRawPointer } from '../core/Component';
+import { NativeElement, NativeRawPointer } from '../core/Component';
 import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 export interface QButtonGroupSignals extends QObjectSignals {
     buttonClicked: (id?: number) => void;
 }
 
 export class QButtonGroup extends QObject<any> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: NativeElement | QWidget) {
         let native;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg) {
+            const parent = arg as QWidget;
             native = new addon.QButtonGroup(parent.native);
         } else {
             native = new addon.QButtonGroup();
         }
         super(native);
-        parent && parent.nodeChildren.add(this);
     }
     addButton(button: QAbstractButton<QAbstractButtonSignals>, id = -1): void {
         this.native.addButton(button.native, id);
-        this.nodeChildren.add(button);
     }
     removeButton(button: QAbstractButton<QAbstractButtonSignals>): void {
         this.native.removeButton(button.native);
-        this.nodeChildren.delete(button);
     }
     setExclusive(exculsive: boolean): void {
         this.native.setProperty('exclusive', exculsive);
@@ -52,3 +54,4 @@ export class QButtonGroup extends QObject<any> {
         return this.native.button(id);
     }
 }
+wrapperCache.registerWrapper('QButtonGroupWrap', QButtonGroup);

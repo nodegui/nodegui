@@ -11,13 +11,13 @@
 class DLL_EXPORT QComboBoxWrap : public Napi::ObjectWrap<QComboBoxWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NComboBox> instance;
+  QPointer<QComboBox> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QComboBoxWrap(const Napi::CallbackInfo& info);
   ~QComboBoxWrap();
-  NComboBox* getInternalInstance();
+  QComboBox* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

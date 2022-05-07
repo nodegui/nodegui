@@ -12,13 +12,13 @@ class DLL_EXPORT QSystemTrayIconWrap
     : public Napi::ObjectWrap<QSystemTrayIconWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NSystemTrayIcon> instance;
+  QPointer<QSystemTrayIcon> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QSystemTrayIconWrap(const Napi::CallbackInfo& info);
   ~QSystemTrayIconWrap();
-  NSystemTrayIcon* getInternalInstance();
+  QSystemTrayIcon* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

@@ -11,7 +11,7 @@
 class DLL_EXPORT QTreeWidgetWrap : public Napi::ObjectWrap<QTreeWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NTreeWidget> instance;
+  QPointer<QTreeWidget> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
@@ -20,7 +20,7 @@ class DLL_EXPORT QTreeWidgetWrap : public Napi::ObjectWrap<QTreeWidgetWrap> {
 
   ~QTreeWidgetWrap();
 
-  NTreeWidget *getInternalInstance();
+  QTreeWidget *getInternalInstance();
 
   // class constructor
   static Napi::FunctionReference constructor;

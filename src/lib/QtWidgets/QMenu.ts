@@ -27,7 +27,6 @@ export class QMenu extends QWidget<QMenuSignals> {
             native = new addon.QMenu();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     clear(): void {
         this.native.clear();

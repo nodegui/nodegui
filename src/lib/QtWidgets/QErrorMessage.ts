@@ -29,7 +29,6 @@ export class QErrorMessage extends QDialog<QErrorMessageSignals> {
             native = new addon.QErrorMessage();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     showMessage(message: string): void {
         this.native.showMessage(message);

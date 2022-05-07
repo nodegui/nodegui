@@ -35,7 +35,6 @@ export class QColorDialog extends QDialog<QColorDialogSignals> {
             native = new addon.QColorDialog();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     setCurrentColor(color: QColor): void {
         this.setProperty('currentColor', color.native);

@@ -16,10 +16,11 @@ Napi::Object QErrorMessageWrap::init(Napi::Env env, Napi::Object exports) {
        QDIALOG_WRAPPED_METHODS_EXPORT_DEFINE(QErrorMessageWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QErrorMessage, QErrorMessageWrap);
   return exports;
 }
 
-NErrorMessage* QErrorMessageWrap::getInternalInstance() {
+QErrorMessage* QErrorMessageWrap::getInternalInstance() {
   return this->instance;
 }
 
@@ -30,21 +31,30 @@ QErrorMessageWrap::~QErrorMessageWrap() {
 QErrorMessageWrap::QErrorMessageWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QErrorMessageWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    QWidget* parent = parentWidgetWrap->getInternalInstance();
-    this->instance = new NErrorMessage(parent);
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NErrorMessage();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QErrorMessage>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance =
+          new NErrorMessage(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QErrorMessageWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      false);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), false);
 }
 
 Napi::Value QErrorMessageWrap::showMessage(const Napi::CallbackInfo& info) {

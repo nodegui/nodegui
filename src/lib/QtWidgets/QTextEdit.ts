@@ -37,7 +37,6 @@ export class QTextEdit<Signals extends QTextEditSignals = QTextEditSignals> exte
             native = new addon.QTextEdit();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
 
     setAcceptRichText(accept: boolean): void {

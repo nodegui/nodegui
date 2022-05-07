@@ -3,6 +3,8 @@ import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QDate } from '../QtCore/QDate';
 import { DayOfWeek } from '../QtEnums';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -22,15 +24,17 @@ const calendarWidget = new QCalendarWidget();
 ```
  */
 export class QCalendarWidget extends QWidget<QCalendarWidgetSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: NativeElement | QWidget) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg as QWidget) {
+            const parent = arg as QWidget;
             native = new addon.QCalendarWidget(parent.native);
         } else {
             native = new addon.QCalendarWidget();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     setDateEditAcceptDelay(delay: number): void {
         this.setProperty('dateEditAcceptDelay', delay);
@@ -81,6 +85,7 @@ export class QCalendarWidget extends QWidget<QCalendarWidgetSignals> {
         return this.property('verticalHeaderFormat').toInt();
     }
 }
+wrapperCache.registerWrapper('QCalendarWidgetWrap', QCalendarWidget);
 
 export enum HorizontalHeaderFormat {
     NoHorizontalHeader,

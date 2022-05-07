@@ -4,6 +4,7 @@
 
 #include <QDebug>
 #include <QtCore/QMap>
+#include <QtCore/QMapIterator>
 #include <QtCore/QObject>
 
 #include "Extras/Export/export.h"
@@ -75,15 +76,32 @@ class DLL_EXPORT WrapperCache : public QObject {
       }
     }
 
-    QString className(qobject->metaObject()->className());
-    if (this->wrapperRegistry.contains(className)) {
-      Napi::Object wrapper = this->wrapperRegistry[className](env, qobject);
-      store(env, ptrHash, qobject, wrapper, !keepAlive);
-      return wrapper;
-    } else {
-      qDebug() << "NodeGui: Unable to find wrapper for instance of class "
-               << className << ".\n\n";
+    // Might have to climb up the class hierarchy looking for a wrapper type we
+    // support. This makes us immune to internal Qt subclasses, i.e.
+    // `QWidgetWindow` when `QWindow` was expected.
+    const QMetaObject* meta = qobject->metaObject();
+    while (meta != nullptr) {
+      QString className(meta->className());
+      if (this->wrapperRegistry.contains(className)) {
+        Napi::Object wrapper = this->wrapperRegistry[className](env, qobject);
+        store(env, ptrHash, qobject, wrapper, !keepAlive);
+        return wrapper;
+      }
+      meta = meta->superClass();
     }
+
+    QMapIterator<QString, WrapFunc> i(this->wrapperRegistry);
+    QString allQWrapperNames;
+    while (i.hasNext()) {
+      i.next();
+      allQWrapperNames.append(i.key());
+      allQWrapperNames.append(", ");
+    }
+
+    qDebug() << "NodeGui: Unable to find wrapper for instance of C++ class "
+             << qobject->metaObject()->className()
+             << ". (The following C++ classes are recognized: "
+             << allQWrapperNames << ")";
 
     return env.Null();
   }

@@ -21,8 +21,6 @@ export class QObject<Signals extends QObjectSignals = QObjectSignals> extends Ev
         super(native);
 
         wrapperCache.store(this);
-
-        this.setNodeParent(parent);
     }
 
     inherits(className: string): boolean {

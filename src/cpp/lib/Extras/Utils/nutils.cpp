@@ -7,6 +7,7 @@
 
 #include "core/Component/component_wrap.h"
 #include "core/FlexLayout/flexutils.h"
+#include "core/YogaWidget/yogawidget.h"
 
 bool extrautils::isNapiValueInt(Napi::Env& env, Napi::Value& num) {
   return env.Global()
@@ -101,12 +102,16 @@ QVariant* extrautils::convertToQVariant(Napi::Env& env, Napi::Value& value) {
 }
 
 void* extrautils::configureComponent(void* component) { return component; }
+
 void* extrautils::configureQObject(QObject* object) {
   return configureComponent(object);
 }
-void* extrautils::configureQWidget(QWidget* widget, YGNodeRef node,
-                                   bool isLeafNode) {
-  flexutils::configureFlexNode(widget, node, isLeafNode);
+
+void* extrautils::configureQWidget(QWidget* widget, bool isLeafNode) {
+  YogaWidget* yogaWidget = dynamic_cast<YogaWidget*>(widget);
+  if (yogaWidget) {
+    flexutils::configureFlexNode(widget, yogaWidget->getFlexNode(), isLeafNode);
+  }
   return configureQObject(widget);
 }
 

@@ -45,7 +45,6 @@ export class QComboBox extends QWidget<QComboBoxSignals> {
             native = new addon.QComboBox();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     // *** Public Functions ***
     addItem(icon: QIcon | undefined, text: string, userData: QVariant = new QVariant()): void {

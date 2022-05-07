@@ -41,7 +41,6 @@ export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
             native = new addon.QPlainTextEdit();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     setPlainText(text: string | number): void {
         // react:✓

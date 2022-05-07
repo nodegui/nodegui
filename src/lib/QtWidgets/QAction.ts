@@ -9,6 +9,7 @@ import { ShortcutContext } from '../QtEnums';
 import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from '../QtCore/QVariant';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -34,11 +35,12 @@ export class QAction extends QObject<QActionSignals> {
     constructor();
     constructor(native: NativeElement);
     constructor(parent: QWidget);
-    constructor(parent?: NativeElement | QWidget) {
+    constructor(arg?: NativeElement | QWidget) {
         let native: NativeElement;
-        if (checkIfNativeElement(parent)) {
-            native = parent as NativeElement;
-        } else if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg) {
+            const parent = arg as QWidget;
             native = new addon.QAction(parent.native);
         } else {
             native = new addon.QAction();
@@ -101,3 +103,4 @@ export interface QActionSignals extends QObjectSignals {
     hovered: () => void;
     toggled: (checked: boolean) => void;
 }
+wrapperCache.registerWrapper('QActionWrap', QAction);

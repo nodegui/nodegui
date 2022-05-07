@@ -27,13 +27,13 @@ class DLL_EXPORT NodeWidgetWrap : public Napi::ObjectWrap<NodeWidgetWrap> {
 class DLL_EXPORT QWidgetWrap : public Napi::ObjectWrap<QWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NWidget> instance;
+  QPointer<QWidget> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QWidgetWrap(const Napi::CallbackInfo& info);
   ~QWidgetWrap();
-  NWidget* getInternalInstance();
+  QWidget* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

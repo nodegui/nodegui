@@ -34,7 +34,6 @@ export class QTabBar extends QWidget<QTabBarSignals> {
             native = new addon.QTabBar();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     setAutoHide(hide: boolean): void {
         this.setProperty('autoHide', hide);

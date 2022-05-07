@@ -47,7 +47,6 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
             native = new addon.QTableWidget(rows, columns);
         }
         super(native);
-        this.setNodeParent(parent);
         this.items = new Set();
     }
     selectedRanges(): Range[] {

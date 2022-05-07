@@ -11,42 +11,38 @@ Napi::Object QListViewWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME, {QLISTVIEW_WRAPPED_METHODS_EXPORT_DEFINE(QListViewWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QListView, QListViewWrap);
   return exports;
 }
 
-NListView* QListViewWrap::getInternalInstance() { return this->instance; }
+QListView* QListViewWrap::getInternalInstance() { return this->instance; }
 
-QListViewWrap::~QListViewWrap() {
-  if (!this->disableDeletion) {
-    extrautils::safeDelete(this->instance);
-  }
-}
+QListViewWrap::~QListViewWrap() { extrautils::safeDelete(this->instance); }
 
 QListViewWrap::QListViewWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QListViewWrap>(info) {
   Napi::Env env = info.Env();
-  this->disableDeletion = false;
-  if (info.Length() > 0 && info[0].IsExternal()) {
-    // --- if external ---
-    this->instance = info[0].As<Napi::External<NListView>>().Data();
-    if (info.Length() == 2) {
-      this->disableDeletion = info[1].As<Napi::Boolean>().Value();
-    }
-  } else {
-    // --- regular cases ---
-    if (info.Length() == 1) {
+
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
+    this->instance = new NListView();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QListView>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
       Napi::Object parentObject = info[0].As<Napi::Object>();
       NodeWidgetWrap* parentWidgetWrap =
           Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
       this->instance = new NListView(parentWidgetWrap->getInternalInstance());
-    } else if (info.Length() == 0) {
-      this->instance = new NListView();
-    } else {
-      Napi::TypeError::New(env, "Wrong number of arguments")
-          .ThrowAsJavaScriptException();
     }
+  } else {
+    Napi::TypeError::New(
+        env, "NodeGui: QListViewWrap: Wrong number of arguments to constructor")
+        .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      true);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), true);
 }

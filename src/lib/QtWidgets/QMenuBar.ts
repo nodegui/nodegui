@@ -28,18 +28,15 @@ export class QMenuBar extends QWidget<QMenuBarSignals> {
 
     constructor(arg?: QWidget | NativeElement) {
         let native;
-        let parent;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
         } else if (typeof arg === 'object') {
             native = new addon.QMenuBar(arg.native);
-            parent = arg as QWidget;
         } else {
             native = new addon.QMenuBar();
         }
         super(native);
         this._menus = new Set<QMenu>();
-        this.setNodeParent(parent);
     }
     addMenu(menu: QMenu | string): QMenu {
         if (typeof menu === 'string') {

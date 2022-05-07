@@ -28,7 +28,6 @@ export class QProgressBar extends QWidget<QProgressBarSignals> {
             native = new addon.QProgressBar();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {
         this.setProperty('alignment', alignment);

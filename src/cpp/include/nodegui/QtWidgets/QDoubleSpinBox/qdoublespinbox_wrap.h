@@ -12,13 +12,13 @@ class DLL_EXPORT QDoubleSpinBoxWrap
     : public Napi::ObjectWrap<QDoubleSpinBoxWrap> {
   QABSTRACTSPINBOX_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NDoubleSpinBox> instance;
+  QPointer<QDoubleSpinBox> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QDoubleSpinBoxWrap(const Napi::CallbackInfo& info);
   ~QDoubleSpinBoxWrap();
-  NDoubleSpinBox* getInternalInstance();
+  QDoubleSpinBox* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

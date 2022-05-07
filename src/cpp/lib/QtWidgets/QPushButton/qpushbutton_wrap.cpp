@@ -16,44 +16,40 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
        QABSTRACTBUTTON_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QPushButton, QPushButtonWrap);
   return exports;
 }
 
-NPushButton* QPushButtonWrap::getInternalInstance() { return this->instance; }
+QPushButton* QPushButtonWrap::getInternalInstance() { return this->instance; }
 
-QPushButtonWrap::~QPushButtonWrap() {
-  if (!this->disableDeletion) {
-    extrautils::safeDelete(this->instance);
-  }
-}
+QPushButtonWrap::~QPushButtonWrap() { extrautils::safeDelete(this->instance); }
 
 QPushButtonWrap::QPushButtonWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QPushButtonWrap>(info) {
   Napi::Env env = info.Env();
-  this->disableDeletion = false;
-  if (info.Length() > 0 && info[0].IsExternal()) {
-    // --- if external ---
-    this->instance = info[0].As<Napi::External<NPushButton>>().Data();
-    if (info.Length() == 2) {
-      this->disableDeletion = info[1].As<Napi::Boolean>().Value();
-    }
-  } else {
-    if (info.Length() == 1) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
+    this->instance = new NPushButton();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QPushButton>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
       Napi::Object parentObject = info[0].As<Napi::Object>();
       NodeWidgetWrap* parentWidgetWrap =
           Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
       this->instance = new NPushButton(parentWidgetWrap->getInternalInstance());
-    } else if (info.Length() == 0) {
-      this->instance = new NPushButton();
-    } else {
-      Napi::TypeError::New(env, "Wrong number of arguments")
-          .ThrowAsJavaScriptException();
     }
+  } else {
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QPushButtonWrap: Wrong number of arguments to constructor")
+        .ThrowAsJavaScriptException();
   }
-
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      true);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), true);
 }
 
 Napi::Value QPushButtonWrap::setMenu(const Napi::CallbackInfo& info) {

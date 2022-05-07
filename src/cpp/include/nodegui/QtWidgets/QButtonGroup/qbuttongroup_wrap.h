@@ -9,13 +9,13 @@
 #include "nbuttongroup.hpp"
 class DLL_EXPORT QButtonGroupWrap : public Napi::ObjectWrap<QButtonGroupWrap> {
  private:
-  QPointer<NButtonGroup> instance;
+  QPointer<QButtonGroup> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QButtonGroupWrap(const Napi::CallbackInfo& info);
   ~QButtonGroupWrap();
-  NButtonGroup* getInternalInstance();
+  QButtonGroup* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

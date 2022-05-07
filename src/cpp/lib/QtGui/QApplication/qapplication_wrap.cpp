@@ -41,13 +41,15 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
 QApplicationWrap::QApplicationWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QApplicationWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
+  size_t argCount = info.Length();
+  if (argCount == 1) {
     this->instance = info[0].As<Napi::External<NApplication>>().Data();
-  } else if (info.Length() == 0) {
+  } else if (argCount == 0) {
     this->instance = new NApplication(qode::qode_argc, qode::qode_argv);
     this->_wasManuallyCreated = true;
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(env,
+                         "NodeGui: QApplicationWrap: Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureComponent(this->getInternalInstance());

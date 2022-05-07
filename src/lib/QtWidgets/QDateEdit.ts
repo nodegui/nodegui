@@ -29,6 +29,5 @@ export class QDateEdit extends QDateTimeEdit {
             native = new addon.QDateEdit();
         }
         super(native);
-        this.setNodeParent(parent);
     }
 }

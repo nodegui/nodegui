@@ -15,28 +15,37 @@ Napi::Object QSpinBoxWrap::init(Napi::Env env, Napi::Object exports) {
        QABSTRACTSPINBOX_WRAPPED_METHODS_EXPORT_DEFINE(QSpinBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QSpinBox, QSpinBoxWrap);
   return exports;
 }
 
-NSpinBox* QSpinBoxWrap::getInternalInstance() { return this->instance; }
+QSpinBox* QSpinBoxWrap::getInternalInstance() { return this->instance; }
 
 QSpinBoxWrap::QSpinBoxWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QSpinBoxWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NSpinBox(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NSpinBox();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QSpinBox>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NSpinBox(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env, "NodeGui: QSpinBoxWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      true);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), true);
 }
 
 QSpinBoxWrap::~QSpinBoxWrap() { extrautils::safeDelete(this->instance); }

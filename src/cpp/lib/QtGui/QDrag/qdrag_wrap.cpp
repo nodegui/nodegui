@@ -32,21 +32,33 @@ Napi::Object QDragWrap::init(Napi::Env env, Napi::Object exports) {
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDragWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QDrag, QDragWrap);
   return exports;
 }
 
-NDrag* QDragWrap::getInternalInstance() { return this->instance; }
+QDrag* QDragWrap::getInternalInstance() { return this->instance; }
 
 QDragWrap::QDragWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QDragWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object wrap0_0 = info[0].As<Napi::Object>();
-    QObjectWrap* wrap0_1 = Napi::ObjectWrap<QObjectWrap>::Unwrap(wrap0_0);
-    QObject* dragSource = wrap0_1->getInternalInstance();
-    this->instance = new NDrag(dragSource);
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
+    this->instance = new NDrag(nullptr);
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QDrag>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object sourceObject = info[0].As<Napi::Object>();
+      QObjectWrap* sourceObjectWrap =
+          Napi::ObjectWrap<QObjectWrap>::Unwrap(sourceObject);
+      this->instance = new NDrag(sourceObjectWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env, "NodeGui: QDragWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureComponent(this->getInternalInstance());

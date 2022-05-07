@@ -12,7 +12,6 @@ export class CacheTestQObject extends QObject<QObjectSignals> {
             native = arg;
         }
         super(native);
-        this.native = native;
     }
 
     foo(): CacheTestQObject {

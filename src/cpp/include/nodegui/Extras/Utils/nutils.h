@@ -13,8 +13,7 @@ namespace extrautils {
 DLL_EXPORT QVariant* convertToQVariant(Napi::Env& env, Napi::Value& value);
 DLL_EXPORT bool isNapiValueInt(Napi::Env& env, Napi::Value& num);
 DLL_EXPORT std::string getNapiObjectClassName(Napi::Object& object);
-DLL_EXPORT void* configureQWidget(QWidget* widget, YGNodeRef node,
-                                  bool isLeafNode = false);
+DLL_EXPORT void* configureQWidget(QWidget* widget, bool isLeafNode = false);
 DLL_EXPORT void* configureQObject(QObject* object);
 DLL_EXPORT void* configureComponent(void* component);
 DLL_EXPORT uint64_t hashPointerTo53bit(const void* input);

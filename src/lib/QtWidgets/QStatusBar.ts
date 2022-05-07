@@ -35,7 +35,6 @@ export class QStatusBar extends QWidget<QStatusBarSignals> {
         }
 
         super(native);
-        this.setNodeParent(parent);
 
         this.permanentWidgets = new Set();
         this.widgets = new Set();

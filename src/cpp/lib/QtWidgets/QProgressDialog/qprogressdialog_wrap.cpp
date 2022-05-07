@@ -20,10 +20,11 @@ Napi::Object QProgressDialogWrap::init(Napi::Env env, Napi::Object exports) {
                    QDIALOG_WRAPPED_METHODS_EXPORT_DEFINE(QProgressDialogWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QProgressDialog, QProgressDialogWrap);
   return exports;
 }
 
-NProgressDialog* QProgressDialogWrap::getInternalInstance() {
+QProgressDialog* QProgressDialogWrap::getInternalInstance() {
   return this->instance;
 }
 
@@ -34,21 +35,30 @@ QProgressDialogWrap::~QProgressDialogWrap() {
 QProgressDialogWrap::QProgressDialogWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QProgressDialogWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    QWidget* parent = parentWidgetWrap->getInternalInstance();
-    this->instance = new NProgressDialog(parent);
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NProgressDialog();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QProgressDialog>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance =
+          new NProgressDialog(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(env,
+                         "NodeGui: QProgressDialogWrap: Wrong number of "
+                         "arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      false);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), false);
 }
 
 Napi::Value QProgressDialogWrap::cancel(const Napi::CallbackInfo& info) {

@@ -28,7 +28,6 @@ export class QTableView<Signals extends QTableViewSignals = QTableViewSignals> e
             native = new addon.QTableView();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     // *** Public Functions ***
     clearSpans(): void {

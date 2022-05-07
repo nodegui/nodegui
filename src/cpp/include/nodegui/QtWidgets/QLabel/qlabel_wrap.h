@@ -12,13 +12,13 @@
 class DLL_EXPORT QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {
   QFRAME_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NLabel> instance;
+  QPointer<QLabel> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QLabelWrap(const Napi::CallbackInfo& info);
   ~QLabelWrap();
-  NLabel* getInternalInstance();
+  QLabel* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

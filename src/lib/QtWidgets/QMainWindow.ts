@@ -44,14 +44,12 @@ export class QMainWindow extends QWidget<QMainWindowSignals> {
             native = new addon.QMainWindow();
         }
         super(native);
-        this.setNodeParent(parent);
 
         this.setLayout = (parentLayout: QLayout): void => {
             if (this.centralWidget) {
                 this.centralWidget.setLayout(parentLayout);
             } else {
                 this.native.setLayout(parentLayout.native);
-                super.layout = parentLayout;
             }
         };
     }
@@ -80,11 +78,11 @@ export class QMainWindow extends QWidget<QMainWindowSignals> {
     setMenuWidget(menuWidget: QWidget): void {
         this.native.setMenuWidget(menuWidget.native);
     }
-    get layout(): QLayout | undefined {
+    layout(): QLayout | undefined {
         if (this.centralWidget) {
-            return this.centralWidget.layout;
+            return this.centralWidget.layout();
         }
-        return super.layout;
+        return super.layout();
     }
     center(): void {
         this.native.center();

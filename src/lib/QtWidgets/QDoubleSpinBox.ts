@@ -28,7 +28,6 @@ export class QDoubleSpinBox extends QAbstractSpinBox<QDoubleSpinBoxSignals> {
             native = new addon.QDoubleSpinBox();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     cleanText(): string {
         return this.property('cleanText').toString();

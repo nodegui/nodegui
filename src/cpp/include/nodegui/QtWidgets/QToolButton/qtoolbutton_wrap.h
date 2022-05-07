@@ -12,14 +12,13 @@
 class DLL_EXPORT QToolButtonWrap : public Napi::ObjectWrap<QToolButtonWrap> {
   QABSTRACTBUTTON_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NToolButton> instance;
-  bool disableDeletion;
+  QPointer<QToolButton> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QToolButtonWrap(const Napi::CallbackInfo& info);
   ~QToolButtonWrap();
-  NToolButton* getInternalInstance();
+  QToolButton* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

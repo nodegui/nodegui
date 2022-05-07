@@ -49,10 +49,9 @@ export class FlexLayout extends QLayout<FlexLayoutSignals> {
 
     addWidget(childWidget: QWidget, childFlexNode?: FlexNode): void {
         const childYogaNode = childFlexNode || childWidget.getFlexNode();
-        if (this.nodeChildren.has(childWidget)) {
+        if (this.children().includes(childWidget)) {
             this.removeWidget(childWidget, childYogaNode);
         }
-        this.nodeChildren.add(childWidget);
         this.native.addWidget(childWidget.native, childYogaNode);
     }
 
@@ -63,27 +62,16 @@ export class FlexLayout extends QLayout<FlexLayoutSignals> {
         beforeChildFlexNode?: FlexNode,
     ): void {
         const childYogaNode = childFlexNode || childWidget.getFlexNode();
-        if (this.nodeChildren.has(childWidget)) {
+        if (this.children().includes(childWidget)) {
             this.removeWidget(childWidget, childYogaNode);
         }
         const beforeChildYogaNode = beforeChildFlexNode || beforeChildWidget.getFlexNode();
-
-        const widgetArr = Array.from(this.nodeChildren);
-        const beforeChildIndex = this.getChildIndex(beforeChildWidget);
-        if (beforeChildIndex !== -1) {
-            widgetArr.splice(beforeChildIndex, 0, childWidget);
-        }
-        this.nodeChildren = new Set(widgetArr);
         this.native.insertChildBefore(childWidget.native, beforeChildYogaNode, childYogaNode);
     }
 
     removeWidget(childWidget: QWidget, childFlexNode?: FlexNode): void {
-        if (!this.nodeChildren.has(childWidget)) {
-            return;
-        }
         const childYogaNode = childFlexNode || childWidget.getFlexNode();
         this.native.removeWidget(childWidget.native, childYogaNode);
-        this.nodeChildren.delete(childWidget);
     }
 
     setFlexNode(flexNode: FlexNode): void {
@@ -92,13 +80,12 @@ export class FlexLayout extends QLayout<FlexLayoutSignals> {
     }
 
     getChildIndex(childWidget: QWidget): number {
-        const widgetArr = Array.from(this.nodeChildren);
-        return widgetArr.indexOf(childWidget);
+        return this.children().indexOf(childWidget);
     }
 
     getNextSibling(childWidget: QWidget): QWidget | null {
         const childIndex = this.getChildIndex(childWidget);
-        const widgetArr = Array.from(this.nodeChildren);
+        const widgetArr = this.children();
         if (childIndex !== -1) {
             return (widgetArr[childIndex + 1] as QWidget) || null;
         }

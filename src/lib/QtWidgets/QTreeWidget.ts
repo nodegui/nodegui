@@ -60,7 +60,6 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
             native = new addon.QTreeWidget();
         }
         super(native);
-        this.setNodeParent(parent);
         this.topLevelItems = new Set<QTreeWidgetItem>();
         this.itemWidgets = new Map<QTreeWidgetItem, QWidget>();
     }

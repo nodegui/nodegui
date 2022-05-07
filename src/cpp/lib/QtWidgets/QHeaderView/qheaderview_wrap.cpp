@@ -111,27 +111,21 @@ Napi::Object QHeaderViewWrap::init(Napi::Env env, Napi::Object exports) {
       });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QHeaderView, QHeaderViewWrap);
   return exports;
 }
 
 QHeaderView* QHeaderViewWrap::getInternalInstance() { return this->instance; }
 
-QHeaderViewWrap::~QHeaderViewWrap() {
-  if (!this->disableDeletion) {
-    extrautils::safeDelete(this->instance);
-  }
-}
+QHeaderViewWrap::~QHeaderViewWrap() { extrautils::safeDelete(this->instance); }
 
 QHeaderViewWrap::QHeaderViewWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QHeaderViewWrap>(info) {
   Napi::Env env = info.Env();
-  size_t len = info.Length();
-
-  this->disableDeletion = false;
-  if (len == 1) {
+  size_t argCount = info.Length();
+  if (argCount == 1) {
     if (info[0].IsExternal()) {
       this->instance = info[0].As<Napi::External<QHeaderView>>().Data();
-      this->disableDeletion = true;
     } else {
       int orientation = info[0].As<Napi::Number>().Int32Value();
       this->instance =
@@ -152,8 +146,8 @@ QHeaderViewWrap::QHeaderViewWrap(const Napi::CallbackInfo& info)
   this->rawData = nullptr;
   FlexItem* item = dynamic_cast<FlexItem*>(this->getInternalInstance());
   if (item) {
-    this->rawData = extrautils::configureQWidget(this->getInternalInstance(),
-                                                 item->getFlexNode(), false);
+    this->rawData =
+        extrautils::configureQWidget(this->getInternalInstance(), false);
   }
 }
 

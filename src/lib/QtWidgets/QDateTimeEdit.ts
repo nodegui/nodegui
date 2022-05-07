@@ -37,19 +37,15 @@ export class QDateTimeEdit extends QAbstractSpinBox<QDateTimeEditSignals> {
 
     constructor(arg?: QWidget | NativeElement) {
         let native: NativeElement;
-        let parent: QWidget = null;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
         } else if (arg) {
-            parent = arg as QWidget;
+            const parent = arg as QWidget;
             native = new addon.QDateTimeEdit(parent.native);
         } else {
             native = new addon.QDateTimeEdit();
         }
         super(native);
-        if (parent != null) {
-            this.setNodeParent(parent);
-        }
     }
 
     setCalendarWidget(calendarWidget: QCalendarWidget): void {

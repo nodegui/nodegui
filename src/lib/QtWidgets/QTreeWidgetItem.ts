@@ -8,7 +8,7 @@ import { CheckState, ItemDataRole } from '../QtEnums';
 import { QVariantType, QVariant } from '../QtCore/QVariant';
 
 /**
- 
+
 > Creates an item for QTreeWidget.
 
 * **This class is a JS wrapper around Qt's [QTreeWidgetItem class](https://doc.qt.io/qt-5/qtreewidgetitem.html)**
@@ -54,13 +54,11 @@ export class QTreeWidgetItem extends Component {
     constructor(strings: string[]);
     constructor(parent?: NativeElement | QTreeWidgetItem | QTreeWidget | string[], strings?: string[]) {
         let native: NativeElement;
-        let parentTreeWidgetItem: QTreeWidgetItem | QTreeWidget = null;
         if (checkIfNativeElement(parent)) {
             native = parent as NativeElement;
         } else {
             if (parent instanceof QTreeWidgetItem || parent instanceof QTreeWidget) {
                 const type = parent instanceof QTreeWidgetItem ? 'item' : 'tree';
-                parentTreeWidgetItem = parent;
                 if (strings) {
                     native = new addon.QTreeWidgetItem(parent.native, strings, type);
                 } else {
@@ -75,9 +73,6 @@ export class QTreeWidgetItem extends Component {
         }
         super(native);
         this.items = new Set();
-        if (parentTreeWidgetItem != null) {
-            this.setNodeParent(parentTreeWidgetItem);
-        }
     }
     setText(column: number, text: string): void {
         this.native.setText(column, text);

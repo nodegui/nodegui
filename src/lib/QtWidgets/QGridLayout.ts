@@ -38,7 +38,6 @@ export class QGridLayout extends QLayout<QGridLayoutSignals> {
             native = new addon.QGridLayout();
         }
         super(native);
-        this.setNodeParent(parent);
     }
 
     addLayout(
@@ -54,11 +53,9 @@ export class QGridLayout extends QLayout<QGridLayoutSignals> {
 
     addWidget(widget: QWidget, row = 0, col = 0, rowSpan = 1, colSpan = 1, alignment: AlignmentFlag = 0): void {
         this.native.addWidget(widget.native, row, col, rowSpan, colSpan, alignment);
-        this.nodeChildren.add(widget);
     }
     removeWidget(widget: QWidget): void {
         this.native.removeWidget(widget.native);
-        this.nodeChildren.delete(widget);
     }
     columnStretch(column: number): number {
         return this.native.columnStretch(column);

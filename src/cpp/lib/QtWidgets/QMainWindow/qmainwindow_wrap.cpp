@@ -27,29 +27,39 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
       });
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QMainWindow, QMainWindowWrap);
   return exports;
 }
 
-NMainWindow* QMainWindowWrap::getInternalInstance() { return this->instance; }
+QMainWindow* QMainWindowWrap::getInternalInstance() { return this->instance; }
 
 QMainWindowWrap::~QMainWindowWrap() { extrautils::safeDelete(this->instance); }
 
 QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMainWindowWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NMainWindow(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NMainWindow();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QMainWindow>>().Data();
+    } else {
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NMainWindow(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QMainWindowWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode());
+  this->rawData = extrautils::configureQWidget(this->getInternalInstance());
 }
 
 Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {

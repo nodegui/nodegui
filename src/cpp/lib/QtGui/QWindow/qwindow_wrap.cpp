@@ -25,6 +25,7 @@ Napi::Object QWindowWrap::init(Napi::Env env, Napi::Object exports) {
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QWindowWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QWindow, QWindowWrap);
   return exports;
 }
 
@@ -36,7 +37,8 @@ QWindowWrap::QWindowWrap(const Napi::CallbackInfo& info)
   if (info.Length() == 1 && info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<QWindow>>().Data();
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments to QWindow.")
+    Napi::TypeError::New(env,
+                         "NodeGui: QWindowWrap: Bad arguments to constructor.")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureQObject(this->getInternalInstance());

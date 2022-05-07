@@ -4,7 +4,7 @@ import addon from './addon';
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function checkIfNativeElement(arg: any): boolean {
     const nativeArg = arg as NativeElement;
-    return typeof nativeArg === 'object' && nativeArg.type === 'native';
+    return nativeArg != null && typeof nativeArg === 'object' && nativeArg.type === 'native';
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

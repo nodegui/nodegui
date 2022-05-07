@@ -30,7 +30,6 @@ export class QTextBrowser extends QTextEdit<QTextBrowserSignals> {
             native = new addon.QTextBrowser();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     setOpenExternalLinks(open: boolean): void {
         this.setProperty('openExternalLinks', open);

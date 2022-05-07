@@ -10,7 +10,6 @@ Napi::Object QMimeDataWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QMimeData";
   Napi::Function func =
       DefineClass(env, CLASSNAME,
-
                   {InstanceMethod("clear", &QMimeDataWrap::clear),
                    InstanceMethod("hasColor", &QMimeDataWrap::hasColor),
                    InstanceMethod("hasHtml", &QMimeDataWrap::hasHtml),
@@ -25,43 +24,31 @@ Napi::Object QMimeDataWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("setUrls", &QMimeDataWrap::setUrls),
                    InstanceMethod("text", &QMimeDataWrap::text),
                    InstanceMethod("urls", &QMimeDataWrap::urls),
-
-                   COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QMimeDataWrap)});
+                   QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QMimeDataWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QMimeData, QMimeDataWrap);
   return exports;
 }
 
-QMimeData* QMimeDataWrap::getInternalInstance() { return this->instance.get(); }
+QMimeData* QMimeDataWrap::getInternalInstance() { return this->instance; }
 
-QMimeDataWrap::~QMimeDataWrap() { this->instance.reset(); }
+QMimeDataWrap::~QMimeDataWrap() { extrautils::safeDelete(this->instance); }
 
 QMimeDataWrap::QMimeDataWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMimeDataWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::External<QMimeData> eventObject =
-        info[0].As<Napi::External<QMimeData>>();
-    this->instance = std::make_unique<QMimeData>();
-    // Copy data to our instance
-    QMimeData* mimeReference = eventObject.Data();
-    this->cloneFromMimeData(mimeReference);
-    // foreach(QString format, mimeReference->formats())
-    // {
-    //     // Retrieving data
-    //     QByteArray data = mimeReference->data(format);
-    //     // Checking for custom MIME types
-    //     if(format.startsWith("application/x-qt"))
-    //     {
-    //         // Retrieving true format name
-    //         int indexBegin = format.indexOf('"') + 1;
-    //         int indexEnd = format.indexOf('"', indexBegin);
-    //         format = format.mid(indexBegin, indexEnd - indexBegin);
-    //     }
-    //     this->instance->setData(format, data);
-    // }
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
+    this->instance = new QMimeData();
+  } else if (argCount == 1 && info[0].IsExternal()) {
+    // --- Wrap a given C++ instance
+    this->instance = info[0].As<Napi::External<QMimeData>>().Data();
   } else {
-    this->instance = std::make_unique<QMimeData>();
+    Napi::TypeError::New(
+        env, "NodeGui: QMimeDataWrap: Wrong number of arguments to constructor")
+        .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
 }

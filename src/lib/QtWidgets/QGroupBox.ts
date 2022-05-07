@@ -48,7 +48,6 @@ export class QGroupBox extends QWidget<QGroupBoxSignals> {
             native = new addon.QGroupBox();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {
         this.setProperty('alignment', alignment);

@@ -4,6 +4,7 @@ import { NativeElement } from '../core/Component';
 import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
 import { QSize } from '../QtCore/QSize';
 import { AlignmentFlag } from '../..';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -21,15 +22,17 @@ const listview = new QListView();
 ```
  */
 export class QListView<Signals extends QListViewSignals = QListViewSignals> extends QAbstractItemView<Signals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QListView(parent.native);
         } else {
             native = new addon.QListView();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     setBatchSize(batchSize: number): void {
         this.setProperty('batchSize', batchSize);

@@ -28,7 +28,6 @@ export class QLCDNumber extends QWidget<QLCDNumberSignals> {
             native = new addon.QLCDNumber();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     setDigitCount(numDigits: number): void {
         this.setProperty('digitCount', numDigits);

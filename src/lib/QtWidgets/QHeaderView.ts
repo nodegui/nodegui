@@ -24,7 +24,6 @@ export class QHeaderView<Signals extends QHeaderViewSignals = QHeaderViewSignals
             }
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
 
     // *** Public Function ***

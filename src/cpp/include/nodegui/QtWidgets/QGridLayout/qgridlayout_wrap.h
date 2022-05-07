@@ -12,13 +12,13 @@
 class DLL_EXPORT QGridLayoutWrap : public Napi::ObjectWrap<QGridLayoutWrap> {
   QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NGridLayout> instance;
+  QPointer<QGridLayout> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QGridLayoutWrap(const Napi::CallbackInfo& info);
   ~QGridLayoutWrap();
-  NGridLayout* getInternalInstance();
+  QGridLayout* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

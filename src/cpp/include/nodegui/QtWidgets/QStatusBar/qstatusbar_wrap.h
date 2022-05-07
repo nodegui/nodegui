@@ -12,7 +12,7 @@ class DLL_EXPORT QStatusBarWrap : public Napi::ObjectWrap<QStatusBarWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
 
  private:
-  QPointer<NStatusBar> instance;
+  QPointer<QStatusBar> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
@@ -22,7 +22,7 @@ class DLL_EXPORT QStatusBarWrap : public Napi::ObjectWrap<QStatusBarWrap> {
   QStatusBarWrap(const Napi::CallbackInfo &info);
   ~QStatusBarWrap();
 
-  NStatusBar *getInternalInstance();
+  QStatusBar *getInternalInstance();
 
   // Wrapped methods
   Napi::Value addPermanentWidget(const Napi::CallbackInfo &info);

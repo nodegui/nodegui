@@ -26,7 +26,7 @@ QScreenWrap::QScreenWrap(const Napi::CallbackInfo& info)
   if (info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<QScreen>>().Data();
   } else {
-    Napi::TypeError::New(env, "Incorrect initialization of QScreenWrap")
+    Napi::TypeError::New(env, "NodeGui: QScreenWrap: Incorrect initialization")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureComponent(this->getInternalInstance());

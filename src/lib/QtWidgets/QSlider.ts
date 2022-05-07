@@ -28,7 +28,6 @@ export class QSlider extends QAbstractSlider<QSliderSignals> {
             native = new addon.QSlider();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     setTickInterval(ti: number): void {
         this.setProperty('tickInterval', ti);

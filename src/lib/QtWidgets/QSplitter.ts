@@ -43,7 +43,6 @@ export class QSplitter extends QFrame<QSplitterSignals> {
             native = new addon.QSplitter();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     addWidget(widget: QWidget): void {
         this.native.addWidget(widget.native);

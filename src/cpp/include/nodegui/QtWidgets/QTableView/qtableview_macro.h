@@ -181,15 +181,13 @@
   Napi::Value horizontalHeader(const Napi::CallbackInfo& info) {              \
     Napi::Env env = info.Env();                                               \
     auto header = this->instance->horizontalHeader();                         \
-    auto instance = QHeaderViewWrap::constructor.New(                         \
-        {Napi::External<QHeaderView>::New(env, header)});                     \
+    auto instance = WrapperCache::instance.getWrapper(env, header);           \
     return instance;                                                          \
   }                                                                           \
   Napi::Value verticalHeader(const Napi::CallbackInfo& info) {                \
     Napi::Env env = info.Env();                                               \
     auto header = this->instance->verticalHeader();                           \
-    auto instance = QHeaderViewWrap::constructor.New(                         \
-        {Napi::External<QHeaderView>::New(env, header)});                     \
+    auto instance = WrapperCache::instance.getWrapper(env, header);           \
     return instance;                                                          \
   }
 

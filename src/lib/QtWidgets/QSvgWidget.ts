@@ -35,7 +35,6 @@ export class QSvgWidget extends QWidget<QWidgetSignals> {
             native = new addon.QSvgWidget();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     load(file: string | Buffer): void {
         if (file instanceof Buffer) {

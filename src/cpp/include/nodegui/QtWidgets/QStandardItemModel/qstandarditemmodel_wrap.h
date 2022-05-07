@@ -10,13 +10,13 @@
 class DLL_EXPORT QStandardItemModelWrap
     : public Napi::ObjectWrap<QStandardItemModelWrap> {
  private:
-  QPointer<NStandardItemModel> instance;
+  QPointer<QStandardItemModel> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QStandardItemModelWrap(const Napi::CallbackInfo& info);
   ~QStandardItemModelWrap();
-  NStandardItemModel* getInternalInstance();
+  QStandardItemModel* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

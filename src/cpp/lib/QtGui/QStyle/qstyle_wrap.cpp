@@ -25,7 +25,8 @@ QStyleWrap::QStyleWrap(const Napi::CallbackInfo& info)
   if (info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<QStyle>>().Data();
   } else {
-    Napi::TypeError::New(env, "Incorrect initialization of QStyleWrap")
+    Napi::TypeError::New(
+        env, "NodeGui: QStyleWrap: Incorrect initialization of QStyleWrap")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureComponent(this->getInternalInstance());

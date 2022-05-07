@@ -11,13 +11,13 @@
 class DLL_EXPORT QTextEditWrap : public Napi::ObjectWrap<QTextEditWrap> {
   QTEXTEDIT_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NTextEdit> instance;
+  QPointer<QTextEdit> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QTextEditWrap(const Napi::CallbackInfo& info);
   ~QTextEditWrap();
-  NTextEdit* getInternalInstance();
+  QTextEdit* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

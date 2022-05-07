@@ -38,7 +38,6 @@ export class QFileDialog extends QDialog<QFileDialogSignals> {
             native = new addon.QFileDialog();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     supportedSchemes(): string[] {
         return this.native.supportedSchemes();

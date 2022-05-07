@@ -11,13 +11,13 @@
 class DLL_EXPORT QSvgWidgetWrap : public Napi::ObjectWrap<QSvgWidgetWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NSvgWidget> instance;
+  QPointer<QSvgWidget> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QSvgWidgetWrap(const Napi::CallbackInfo& info);
   ~QSvgWidgetWrap();
-  NSvgWidget* getInternalInstance();
+  QSvgWidget* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

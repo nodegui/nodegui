@@ -18,43 +18,40 @@ Napi::Object QToolButtonWrap::init(Napi::Env env, Napi::Object exports) {
        QABSTRACTBUTTON_WRAPPED_METHODS_EXPORT_DEFINE(QToolButtonWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QToolButton, QToolButtonWrap);
   return exports;
 }
 
-NToolButton* QToolButtonWrap::getInternalInstance() { return this->instance; }
+QToolButton* QToolButtonWrap::getInternalInstance() { return this->instance; }
 
-QToolButtonWrap::~QToolButtonWrap() {
-  if (!this->disableDeletion) {
-    extrautils::safeDelete(this->instance);
-  }
-}
+QToolButtonWrap::~QToolButtonWrap() { extrautils::safeDelete(this->instance); }
 
 QToolButtonWrap::QToolButtonWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QToolButtonWrap>(info) {
   Napi::Env env = info.Env();
-  this->disableDeletion = false;
-  if (info.Length() > 0 && info[0].IsExternal()) {
-    // --- if external ---
-    this->instance = info[0].As<Napi::External<NToolButton>>().Data();
-    if (info.Length() == 2) {
-      this->disableDeletion = info[1].As<Napi::Boolean>().Value();
-    }
-  } else {
-    if (info.Length() == 1) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
+    this->instance = new NToolButton();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QToolButton>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
       Napi::Object parentObject = info[0].As<Napi::Object>();
       NodeWidgetWrap* parentWidgetWrap =
           Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
       this->instance = new NToolButton(parentWidgetWrap->getInternalInstance());
-    } else if (info.Length() == 0) {
-      this->instance = new NToolButton();
-    } else {
-      Napi::TypeError::New(env, "Wrong number of arguments")
-          .ThrowAsJavaScriptException();
     }
+  } else {
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QToolButtonWrap: Wrong number of arguments to constructor")
+        .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      true);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), true);
 }
 
 Napi::Value QToolButtonWrap::setMenu(const Napi::CallbackInfo& info) {

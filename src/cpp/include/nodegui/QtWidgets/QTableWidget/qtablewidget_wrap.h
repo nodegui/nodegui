@@ -11,13 +11,13 @@
 class DLL_EXPORT QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NTableWidget> instance;
+  QPointer<QTableWidget> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QTableWidgetWrap(const Napi::CallbackInfo& info);
   ~QTableWidgetWrap();
-  NTableWidget* getInternalInstance();
+  QTableWidget* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

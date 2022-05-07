@@ -30,7 +30,6 @@ export class QInputDialog extends QDialog<QInputDialogSignals> {
             native = new addon.QInputDialog();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     setCancelButtonText(text: string): void {
         this.native.setCancelButtonText(text);

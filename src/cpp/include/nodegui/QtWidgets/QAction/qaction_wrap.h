@@ -11,14 +11,13 @@ class DLL_EXPORT QActionWrap : public Napi::ObjectWrap<QActionWrap> {
   QOBJECT_WRAPPED_METHODS_DECLARATION
 
  private:
-  QPointer<NAction> instance;
-  bool disableDeletion;
+  QPointer<QAction> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QActionWrap(const Napi::CallbackInfo& info);
   ~QActionWrap();
-  NAction* getInternalInstance();
+  QAction* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

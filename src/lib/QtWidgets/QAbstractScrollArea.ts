@@ -3,6 +3,7 @@ import { QFrame, QFrameSignals } from './QFrame';
 import { ScrollBarPolicy } from '../QtEnums/ScrollBarPolicy';
 import { QSize } from '../QtCore/QSize';
 import { QScrollBar } from './QScrollBar';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -18,16 +19,11 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 
  */
 export abstract class QAbstractScrollArea<Signals extends QAbstractScrollAreaSignals> extends QFrame<Signals> {
-    viewportWidget?: QWidget;
     setViewport(widget: QWidget): void {
-        this.viewportWidget = widget;
         this.native.setViewport(widget.native);
     }
     viewport(): QWidget {
-        if (!this.viewportWidget) {
-            this.viewportWidget = new QWidget(this.native.viewport());
-        }
-        return this.viewportWidget;
+        return wrapperCache.getWrapper(this.native.viewport()) as QWidget;
     }
     maximumViewportSize(): QSize {
         return this.native.maximumViewportSize();

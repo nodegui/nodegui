@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
-import { NativeElement, NativeRawPointer, Component } from '../core/Component';
+import { NativeElement, NativeRawPointer } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { ToolButtonStyle } from '../QtEnums/ToolButtonStyle';
 import { ArrowType } from '../QtEnums/ArrowType';
@@ -31,7 +31,6 @@ export class QToolButton extends QAbstractButton<QToolButtonSignals> {
 
     constructor(arg?: QWidget | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
         let native;
-        let parent: Component | undefined;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
         } else if (checkIfNapiExternal(arg)) {
@@ -39,12 +38,10 @@ export class QToolButton extends QAbstractButton<QToolButtonSignals> {
         } else if (arg) {
             const parentWidget = arg as QWidget;
             native = new addon.QToolButton(parentWidget.native);
-            parent = parentWidget;
         } else {
             native = new addon.QToolButton();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     setArrowType(type: ArrowType): void {
         this.setProperty('arrowType', type);

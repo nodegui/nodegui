@@ -28,7 +28,6 @@ export class QScrollBar extends QAbstractSlider<QScrollBarSignals> {
             native = new addon.QScrollBar();
         }
         super(native);
-        this.setNodeParent(parent);
     }
 }
 

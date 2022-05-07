@@ -45,7 +45,6 @@ class DLL_EXPORT QHeaderViewWrap : public Napi::ObjectWrap<QHeaderViewWrap> {
 
  private:
   QPointer<QHeaderView> instance;
-  bool disableDeletion;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

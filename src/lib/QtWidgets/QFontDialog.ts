@@ -33,7 +33,6 @@ export class QFontDialog extends QDialog<QFontDialogSignals> {
             native = new addon.QFontDialog();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     setCurrentFont(font: QFont): void {
         this.setProperty('currentFont', font.native);

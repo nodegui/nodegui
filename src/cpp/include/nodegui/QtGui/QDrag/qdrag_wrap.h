@@ -22,13 +22,13 @@ class DLL_EXPORT QDragWrap : public Napi::ObjectWrap<QDragWrap> {
   // except that it is automatically cleared when the referenced object is
   // destroyed (unlike normal C++ pointers, which become "dangling pointers" in
   // such cases). T must be a subclass of QObject.
-  QPointer<NDrag> instance;
+  QPointer<QDrag> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QDragWrap(const Napi::CallbackInfo& info);
   ~QDragWrap();
-  NDrag* getInternalInstance();
+  QDrag* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
 

@@ -37,20 +37,21 @@ QStandardItemWrap::QStandardItemWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QStandardItemWrap>(info) {
   Napi::Env env = info.Env();
   this->disableDeletion = false;
-  if (info.Length() > 0 && info[0].IsExternal()) {
+  size_t argCount = info.Length();
+  if (argCount > 0 && info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<QStandardItem>>().Data();
-    if (info.Length() == 2) {
+    if (argCount == 2) {
       this->disableDeletion = info[1].As<Napi::Boolean>().Value();
     }
   } else {
-    if (info.Length() == 1) {
+    if (argCount == 1) {
       QString text =
           QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
       this->instance = new QStandardItem(text);
-    } else if (info.Length() == 0) {
+    } else if (argCount == 0) {
       this->instance = new QStandardItem();
     } else {
-      Napi::TypeError::New(env, "Wrong number of arguments")
+      Napi::TypeError::New(env, "QStandardItemWrap: Wrong number of arguments")
           .ThrowAsJavaScriptException();
     }
   }

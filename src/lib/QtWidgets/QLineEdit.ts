@@ -30,7 +30,6 @@ export class QLineEdit extends QWidget<QLineEditSignals> {
             native = new addon.QLineEdit();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     // TODO: void 	addAction(QAction *action, QLineEdit::ActionPosition position)
     // TODO: QAction *	addAction(const QIcon &icon, QLineEdit::ActionPosition position)

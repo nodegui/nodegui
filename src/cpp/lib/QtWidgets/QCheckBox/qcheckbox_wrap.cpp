@@ -17,44 +17,40 @@ Napi::Object QCheckBoxWrap::init(Napi::Env env, Napi::Object exports) {
        QABSTRACTBUTTON_WRAPPED_METHODS_EXPORT_DEFINE(QCheckBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QCheckBox, QCheckBoxWrap);
   return exports;
 }
 
-NCheckBox* QCheckBoxWrap::getInternalInstance() { return this->instance; }
+QCheckBox* QCheckBoxWrap::getInternalInstance() { return this->instance; }
 
 QCheckBoxWrap::QCheckBoxWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QCheckBoxWrap>(info) {
   Napi::Env env = info.Env();
-  this->disableDeletion = false;
-  if (info.Length() > 0 && info[0].IsExternal()) {
-    // --- if external ---
-    this->instance = info[0].As<Napi::External<NCheckBox>>().Data();
-    if (info.Length() == 2) {
-      this->disableDeletion = info[1].As<Napi::Boolean>().Value();
-    }
-  } else {
-    if (info.Length() == 1) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
+    this->instance = new NCheckBox();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QCheckBox>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
       Napi::Object parentObject = info[0].As<Napi::Object>();
       NodeWidgetWrap* parentWidgetWrap =
           Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
       this->instance = new NCheckBox(parentWidgetWrap->getInternalInstance());
-    } else if (info.Length() == 0) {
-      this->instance = new NCheckBox();
-    } else {
-      Napi::TypeError::New(env, "Wrong number of arguments")
-          .ThrowAsJavaScriptException();
     }
+  } else {
+    Napi::TypeError::New(
+        env, "NodeGui: QCheckBoxWrap: Wrong number of arguments to constructor")
+        .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      true);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), true);
 }
 
-QCheckBoxWrap::~QCheckBoxWrap() {
-  if (!this->disableDeletion) {
-    extrautils::safeDelete(this->instance);
-  }
-}
+QCheckBoxWrap::~QCheckBoxWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QCheckBoxWrap::checkState(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

@@ -28,6 +28,5 @@ export class QTimeEdit extends QDateTimeEdit {
             native = new addon.QTimeEdit();
         }
         super(native);
-        this.setNodeParent(parent);
     }
 }

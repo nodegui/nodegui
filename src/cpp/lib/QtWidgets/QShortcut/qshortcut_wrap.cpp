@@ -21,21 +21,33 @@ Napi::Object QShortcutWrap::init(Napi::Env env, Napi::Object exports) {
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QShortcutWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QShortcut, QShortcutWrap);
   return exports;
 }
 
-NShortcut* QShortcutWrap::getInternalInstance() { return this->instance; }
+QShortcut* QShortcutWrap::getInternalInstance() { return this->instance; }
 
 QShortcutWrap::QShortcutWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QShortcutWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NShortcut(parentWidgetWrap->getInternalInstance());
+  size_t argCount = info.Length();
+
+  // Note: QShortcut object always need a parent or instance to wrap
+
+  if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QShortcut>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NShortcut(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env, "NodeGui: QShortcutWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureQObject(this->getInternalInstance());

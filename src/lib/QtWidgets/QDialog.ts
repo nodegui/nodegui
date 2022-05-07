@@ -26,7 +26,6 @@ export class QDialog<Signals extends QDialogSignals = QDialogSignals> extends QW
             native = new addon.QDialog();
         }
         super(native);
-        this.setNodeParent(parent);
     }
 
     setResult(i: number): void {

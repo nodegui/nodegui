@@ -5,13 +5,13 @@
 #include <QMimeData>
 
 #include "Extras/Export/export.h"
-#include "core/Component/component_macro.h"
+#include "QtCore/QObject/qobject_macro.h"
 
 class DLL_EXPORT QMimeDataWrap : public Napi::ObjectWrap<QMimeDataWrap> {
-  COMPONENT_WRAPPED_METHODS_DECLARATION
+  QOBJECT_WRAPPED_METHODS_DECLARATION
 
  private:
-  std::unique_ptr<QMimeData> instance;
+  QPointer<QMimeData> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);

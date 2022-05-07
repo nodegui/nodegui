@@ -40,7 +40,6 @@ export class QLabel extends QFrame<QLabelSignals> {
             native = new addon.QLabel();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {
         this.setProperty('alignment', alignment);

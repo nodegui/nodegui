@@ -28,7 +28,6 @@ export class QProgressDialog extends QDialog<QProgressDialogSignals> {
             native = new addon.QProgressDialog();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     setAutoClose(close: boolean): void {
         this.setProperty('autoClose', close);

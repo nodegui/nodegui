@@ -48,7 +48,6 @@ export class QMessageBox extends QDialog<QMessageBoxSignals> {
             native = new addon.QMessageBox();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     accept(): void {
         this.native.accept();
@@ -78,12 +77,10 @@ export class QMessageBox extends QDialog<QMessageBoxSignals> {
 
     setDefaultButton(button: QPushButton): void {
         this.native.setDefaultButton(button);
-        this.nodeChildren.add(button);
     }
 
     addButton(button: QAbstractButton<QAbstractButtonSignals>, role: ButtonRole = ButtonRole.NoRole): void {
         this.native.addButton(button.native, role);
-        this.nodeChildren.add(button);
     }
 
     static about(parent: QWidget, title: string, text: string): void {

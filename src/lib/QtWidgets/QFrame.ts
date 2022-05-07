@@ -32,7 +32,6 @@ export class QFrame<Signals extends QFrameSignals = QFrameSignals> extends QWidg
             native = new addon.QFrame();
         }
         super(native);
-        this.setNodeParent(parent);
     }
 
     setFrameRect(r: QRect): void {

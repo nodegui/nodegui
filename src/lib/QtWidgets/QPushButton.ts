@@ -1,6 +1,6 @@
 import addon from '../utils/addon';
 import { QWidget } from './QWidget';
-import { NativeElement, NativeRawPointer, Component } from '../core/Component';
+import { NativeElement, NativeRawPointer } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
 import { QMenu } from './QMenu';
@@ -27,7 +27,6 @@ export class QPushButton extends QAbstractButton<QPushButtonSignals> {
 
     constructor(arg?: QWidget | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
         let native;
-        let parent: Component | undefined;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
         } else if (checkIfNapiExternal(arg)) {
@@ -35,12 +34,10 @@ export class QPushButton extends QAbstractButton<QPushButtonSignals> {
         } else if (arg) {
             const parentWidget = arg as QWidget;
             native = new addon.QPushButton(parentWidget.native);
-            parent = parentWidget;
         } else {
             native = new addon.QPushButton();
         }
         super(native);
-        parent && this.setNodeParent(parent);
     }
     setAutoDefault(auto: boolean): void {
         this.setProperty('autoDefault', auto);

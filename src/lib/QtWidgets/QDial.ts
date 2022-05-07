@@ -30,7 +30,6 @@ export class QDial extends QAbstractSlider<QDialSignals> {
             native = new addon.QDial();
         }
         super(native);
-        this.setNodeParent(parent);
     }
     notchSize(): number {
         return this.property('notchSize').toInt();

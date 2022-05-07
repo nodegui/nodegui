@@ -32,28 +32,38 @@ Napi::Object QTreeWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QTreeWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QTreeWidget, QTreeWidgetWrap);
   return exports;
 }
 
-NTreeWidget* QTreeWidgetWrap::getInternalInstance() { return this->instance; }
+QTreeWidget* QTreeWidgetWrap::getInternalInstance() { return this->instance; }
 
 QTreeWidgetWrap::QTreeWidgetWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QTreeWidgetWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NTreeWidget(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NTreeWidget();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QTreeWidget>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NTreeWidget(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QTreeWidgetWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      true);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), true);
 }
 
 QTreeWidgetWrap::~QTreeWidgetWrap() { extrautils::safeDelete(this->instance); }

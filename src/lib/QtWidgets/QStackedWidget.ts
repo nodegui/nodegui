@@ -52,13 +52,11 @@ export class QStackedWidget extends QFrame<QStackedWidgetSignals> {
             native = new addon.QStackedWidget();
         }
         super(native);
-        this.setNodeParent(parent);
     }
 
     // *** Public Function ***
     addWidget(widget: QWidget): void {
         this.native.addWidget(widget.native);
-        this.nodeChildren.add(widget);
         widget.setFlexNodeSizeControlled(true);
     }
     count(): number {
@@ -72,7 +70,6 @@ export class QStackedWidget extends QFrame<QStackedWidgetSignals> {
     // TODO: int 	insertWidget(int index, QWidget *widget)
     removeWidget(widget: QWidget): void {
         this.native.removeWidget(widget.native);
-        this.nodeChildren.delete(widget);
     }
     // TODO: QWidget *	widget(int index) const
 

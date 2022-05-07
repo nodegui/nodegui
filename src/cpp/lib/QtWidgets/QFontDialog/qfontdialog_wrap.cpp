@@ -18,31 +18,40 @@ Napi::Object QFontDialogWrap::init(Napi::Env env, Napi::Object exports) {
        QDIALOG_WRAPPED_METHODS_EXPORT_DEFINE(QFontDialogWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QFontDialog, QFontDialogWrap);
   return exports;
 }
 
-NFontDialog* QFontDialogWrap::getInternalInstance() { return this->instance; }
+QFontDialog* QFontDialogWrap::getInternalInstance() { return this->instance; }
 
 QFontDialogWrap::~QFontDialogWrap() { extrautils::safeDelete(this->instance); }
 
 QFontDialogWrap::QFontDialogWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QFontDialogWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    QWidget* parent = parentWidgetWrap->getInternalInstance();
-    this->instance = new NFontDialog(parent);
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NFontDialog();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QFontDialog>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NFontDialog(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QFontDialogWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      false);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), false);
 }
 
 Napi::Value QFontDialogWrap::selectedFont(const Napi::CallbackInfo& info) {

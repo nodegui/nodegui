@@ -11,13 +11,13 @@
 class DLL_EXPORT QFileDialogWrap : public Napi::ObjectWrap<QFileDialogWrap> {
   QDIALOG_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NFileDialog> instance;
+  QPointer<QFileDialog> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QFileDialogWrap(const Napi::CallbackInfo& info);
   ~QFileDialogWrap();
-  NFileDialog* getInternalInstance();
+  QFileDialog* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

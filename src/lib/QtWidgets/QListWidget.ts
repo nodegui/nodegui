@@ -43,7 +43,6 @@ export class QListWidget extends QListView<QListWidgetSignals> {
             native = new addon.QListWidget();
         }
         super(native);
-        parent && this.setNodeParent(parent);
         this.items = new Set();
     }
     count(): number {
