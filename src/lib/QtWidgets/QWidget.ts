@@ -12,6 +12,7 @@ import { YogaWidget } from '../core/YogaWidget';
 import { QPoint } from '../QtCore/QPoint';
 import { QSize } from '../QtCore/QSize';
 import { QRect } from '../QtCore/QRect';
+import { QPixmap } from '../QtGui/QPixmap';
 import { QObjectSignals } from '../QtCore/QObject';
 import { QFont } from '../QtGui/QFont';
 import { QAction } from './QAction';
@@ -149,7 +150,10 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
     geometry(): QRect {
         return QRect.fromQVariant(this.property('geometry'));
     }
-    // TODO: QPixmap 	grab(const QRect &rectangle = QRect(QPoint(0, 0), QSize(-1, -1)))
+    grab(rect?: QRect): QPixmap {
+        const arg = rect ?? new QRect(0, 0, -1, -1);
+        return this.native.grab(arg.native);
+    }
     // TODO: void 	grabGesture(Qt::GestureType gesture, Qt::GestureFlags flags = Qt::GestureFlags())
     grabKeyboard(): void {
         this.native.grabKeyboard();
