@@ -7,6 +7,9 @@ import { QVariant } from '../QtCore/QVariant';
 import { QColor } from '../QtGui/QColor';
 import { QPoint } from '../QtCore/QPoint';
 import { QRect } from '../QtCore/QRect';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -26,9 +29,12 @@ const tabBar = new QTabBar();
 ```
  */
 export class QTabBar extends QWidget<QTabBarSignals> {
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QTabBar(parent.native);
         } else {
             native = new addon.QTabBar();
@@ -195,6 +201,7 @@ export class QTabBar extends QWidget<QTabBarSignals> {
         return new QRect(this.native.tabRect(index));
     }
 }
+wrapperCache.registerWrapper('QTabBarWrap', QTabBar);
 
 export enum ButtonPosition {
     LeftSide = 0,

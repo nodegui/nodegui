@@ -1,6 +1,8 @@
 import addon from '../utils/addon';
 import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -27,9 +29,12 @@ fs.readFile("icon.svg", (err, buffer) => {
 
  */
 export class QSvgWidget extends QWidget<QWidgetSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QSvgWidget(parent.native);
         } else {
             native = new addon.QSvgWidget();
@@ -44,3 +49,4 @@ export class QSvgWidget extends QWidget<QWidgetSignals> {
         }
     }
 }
+wrapperCache.registerWrapper('QSvgWidgetWrap', QSvgWidget);

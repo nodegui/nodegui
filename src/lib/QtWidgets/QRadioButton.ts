@@ -1,8 +1,9 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
-import { NativeElement, NativeRawPointer } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { NativeElement } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
-import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -23,20 +24,19 @@ radioButton.setText("Hello");
 
  */
 export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
-    constructor(arg?: QWidget | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
-        let native;
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (checkIfNapiExternal(arg)) {
-            native = new addon.QRadioButton(arg, disableNativeDeletion);
-        } else if (arg) {
-            const parentWidget = arg as QWidget;
-            native = new addon.QRadioButton(parentWidget.native);
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QRadioButton(parent.native);
         } else {
             native = new addon.QRadioButton();
         }
         super(native);
     }
 }
+wrapperCache.registerWrapper('QRadioButtonWrap', QRadioButton);
 
 export type QRadioButtonSignals = QAbstractButtonSignals;

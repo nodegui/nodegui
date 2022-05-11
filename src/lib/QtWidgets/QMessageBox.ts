@@ -1,9 +1,11 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
-import { NativeRawPointer } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { NativeElement, NativeRawPointer } from '../core/Component';
 import { QDialog, QDialogSignals } from './QDialog';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { QPushButton } from './QPushButton';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 export enum ButtonRole {
     InvalidRole,
@@ -40,9 +42,12 @@ messageBox.exec();
 ```
  */
 export class QMessageBox extends QDialog<QMessageBoxSignals> {
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QMessageBox(parent.native);
         } else {
             native = new addon.QMessageBox();
@@ -91,6 +96,7 @@ export class QMessageBox extends QDialog<QMessageBoxSignals> {
         addon.QMessageBox.aboutQt(parent.native, title);
     }
 }
+wrapperCache.registerWrapper('QMessageBoxWrap', QMessageBox);
 
 export interface QMessageBoxSignals extends QDialogSignals {
     buttonClicked: (buttonRawPointer: NativeRawPointer<'QAbstractButton*'>) => void;

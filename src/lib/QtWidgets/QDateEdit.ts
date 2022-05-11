@@ -1,7 +1,9 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QDateTimeEdit } from './QDateTimeEdit';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -21,9 +23,12 @@ const dateEdit = new QDateEdit();
 ```
  */
 export class QDateEdit extends QDateTimeEdit {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QDateEdit(parent.native);
         } else {
             native = new addon.QDateEdit();
@@ -31,3 +36,4 @@ export class QDateEdit extends QDateTimeEdit {
         super(native);
     }
 }
+wrapperCache.registerWrapper('QDateEditWrap', QDateEdit);

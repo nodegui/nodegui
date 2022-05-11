@@ -1,7 +1,9 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSlider, QAbstractSliderSignals } from './QAbstractSlider';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -20,9 +22,12 @@ const slider = new QSlider();
 ```
  */
 export class QSlider extends QAbstractSlider<QSliderSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QSlider(parent.native);
         } else {
             native = new addon.QSlider();
@@ -42,6 +47,7 @@ export class QSlider extends QAbstractSlider<QSliderSignals> {
         return this.property('tickPosition').toInt();
     }
 }
+wrapperCache.registerWrapper('QSliderWrap', QSlider);
 
 export enum TickPosition {
     NoTicks,

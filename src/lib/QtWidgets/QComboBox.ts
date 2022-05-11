@@ -7,6 +7,8 @@ import { QVariant } from '../QtCore/QVariant';
 import { QStandardItemModel } from './QStandardItemModel';
 import { QSize } from '../QtCore/QSize';
 import { QModelIndex } from '../QtCore/QModelIndex';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -37,9 +39,12 @@ comboBox.addEventListener('currentIndexChanged', (index) => {
 ```
  */
 export class QComboBox extends QWidget<QComboBoxSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QComboBox(parent.native);
         } else {
             native = new addon.QComboBox();
@@ -221,3 +226,5 @@ export interface QComboBoxSignals extends QWidgetSignals {
     textActivated: (text: string) => void;
     textHighlighted: (text: string) => void;
 }
+
+wrapperCache.registerWrapper('QComboBoxWrap', QComboBox);

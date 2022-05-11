@@ -23,6 +23,7 @@ Napi::Object QTabWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("currentIndex", &QTabWidgetWrap::currentIndex),
        InstanceMethod("removeTab", &QTabWidgetWrap::removeTab),
        InstanceMethod("setTabsClosable", &QTabWidgetWrap::setTabsClosable),
+       InstanceMethod("widget", &QTabWidgetWrap::widget),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QTabWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -159,4 +160,15 @@ Napi::Value QTabWidgetWrap::setTabsClosable(const Napi::CallbackInfo& info) {
   Napi::Boolean closable = info[0].As<Napi::Boolean>();
   this->instance->setTabsClosable(closable.Value());
   return env.Null();
+}
+
+Napi::Value QTabWidgetWrap::widget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::Number index = info[0].As<Napi::Number>();
+  QWidget* widget = this->instance->widget(index.Int32Value());
+  if (widget) {
+    return WrapperCache::instance.getWrapper(env, widget);
+  } else {
+    return env.Null();
+  }
 }

@@ -1,8 +1,11 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { SortOrder, PenStyle } from '../QtEnums';
 import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
 import { QHeaderView } from './QHeaderView';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -20,9 +23,12 @@ const tableview = new QTableView();
 ```
  */
 export class QTableView<Signals extends QTableViewSignals = QTableViewSignals> extends QAbstractItemView<Signals> {
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QTableView(parent.native);
         } else {
             native = new addon.QTableView();
@@ -185,5 +191,6 @@ export class QTableView<Signals extends QTableViewSignals = QTableViewSignals> e
         this.native.sortByColumn(column, order);
     }
 }
+wrapperCache.registerWrapper('QTableViewWrap', QTableView);
 
 export type QTableViewSignals = QAbstractItemViewSignals;

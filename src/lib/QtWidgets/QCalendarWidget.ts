@@ -24,11 +24,11 @@ const calendarWidget = new QCalendarWidget();
 ```
  */
 export class QCalendarWidget extends QWidget<QCalendarWidgetSignals> {
-    constructor(arg?: NativeElement | QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (arg as QWidget) {
+        } else if (arg != null) {
             const parent = arg as QWidget;
             native = new addon.QCalendarWidget(parent.native);
         } else {

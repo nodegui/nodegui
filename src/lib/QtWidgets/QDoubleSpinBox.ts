@@ -1,7 +1,9 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSpinBox, QAbstractSpinBoxSignals, StepType } from './QAbstractSpinBox';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -20,9 +22,12 @@ const doublespinBox = new QDoubleSpinBox();
 ```
  */
 export class QDoubleSpinBox extends QAbstractSpinBox<QDoubleSpinBoxSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QDoubleSpinBox(parent.native);
         } else {
             native = new addon.QDoubleSpinBox();
@@ -90,6 +95,7 @@ export class QDoubleSpinBox extends QAbstractSpinBox<QDoubleSpinBoxSignals> {
         return this.native.valueFromText(text);
     }
 }
+wrapperCache.registerWrapper('QDoubleSpinBoxWrap', QDoubleSpinBox);
 
 export interface QDoubleSpinBoxSignals extends QAbstractSpinBoxSignals {
     valueChanged: (value: number) => void;

@@ -2,6 +2,8 @@ import addon from '../utils/addon';
 import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -40,15 +42,19 @@ win.show();
 ```
  */
 export class QGroupBox extends QWidget<QGroupBoxSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QGroupBox(parent.native);
         } else {
             native = new addon.QGroupBox();
         }
         super(native);
     }
+
     setAlignment(alignment: AlignmentFlag): void {
         this.setProperty('alignment', alignment);
     }
@@ -80,6 +86,7 @@ export class QGroupBox extends QWidget<QGroupBoxSignals> {
         return this.property('title').toString();
     }
 }
+wrapperCache.registerWrapper('QGroupBoxWrap', QGroupBox);
 
 export interface QGroupBoxSignals extends QWidgetSignals {
     clicked: (checked: boolean) => void;

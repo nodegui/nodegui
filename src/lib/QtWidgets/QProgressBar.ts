@@ -2,6 +2,8 @@ import addon from '../utils/addon';
 import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { Orientation, AlignmentFlag } from '../QtEnums';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -20,9 +22,12 @@ const progressBar = new QProgressBar();
 ```
  */
 export class QProgressBar extends QWidget<QProgressBarSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QProgressBar(parent.native);
         } else {
             native = new addon.QProgressBar();
@@ -96,6 +101,7 @@ export class QProgressBar extends QWidget<QProgressBarSignals> {
         this.native.setRange(minimum, maximum);
     }
 }
+wrapperCache.registerWrapper('QProgressBarWrap', QProgressBar);
 
 export enum QProgressBarDirection {
     TopToBottom,

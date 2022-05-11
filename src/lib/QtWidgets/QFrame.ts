@@ -3,6 +3,7 @@ import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QRect } from '../QtCore/QRect';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
  > Create and control frame.
@@ -20,20 +21,18 @@ const frame = new QFrame();
 ```
  */
 export class QFrame<Signals extends QFrameSignals = QFrameSignals> extends QWidget<Signals> {
-    constructor(arg?: QWidget | NativeElement) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        let parent;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (arg as QWidget) {
-            parent = arg as QWidget;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QFrame(parent.native);
         } else {
             native = new addon.QFrame();
         }
         super(native);
     }
-
     setFrameRect(r: QRect): void {
         this.setProperty('frameRect', r.native);
     }
@@ -74,6 +73,7 @@ export class QFrame<Signals extends QFrameSignals = QFrameSignals> extends QWidg
         return this.native.frameStyle();
     }
 }
+wrapperCache.registerWrapper('QFrameWrap', QFrame);
 
 export enum Shadow {
     Plain = 0x0010,

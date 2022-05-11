@@ -23,5 +23,6 @@ class DLL_EXPORT QPushButtonWrap : public Napi::ObjectWrap<QPushButtonWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value setMenu(const Napi::CallbackInfo& info);
+  Napi::Value menu(const Napi::CallbackInfo& info);
   Napi::Value showMenu(const Napi::CallbackInfo& info);
 };

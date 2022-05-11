@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement, NativeRawPointer } from '../core/Component';
 import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
@@ -11,11 +11,11 @@ export interface QButtonGroupSignals extends QObjectSignals {
 }
 
 export class QButtonGroup extends QObject<any> {
-    constructor(arg?: NativeElement | QWidget) {
-        let native;
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (arg) {
+        } else if (arg != null) {
             const parent = arg as QWidget;
             native = new addon.QButtonGroup(parent.native);
         } else {

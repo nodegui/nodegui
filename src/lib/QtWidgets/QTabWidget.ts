@@ -3,6 +3,8 @@ import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QIcon } from '../QtGui/QIcon';
 import { TabPosition } from '../QtEnums';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -25,29 +27,27 @@ tabWidget.addTab(new QCalendarWidget(), new QIcon(), 'Tab 2');
 ```
  */
 export class QTabWidget extends QWidget<QTabWidgetSignals> {
-    tabs: QWidget[];
-
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QTabWidget(parent.native);
         } else {
             native = new addon.QTabWidget();
         }
         super(native);
-        this.tabs = [];
     }
 
     addTab(page: QWidget, icon: QIcon, label: string): number {
         const index = this.native.addTab(page.native, icon.native, label);
-        this.tabs.push(page);
         page.setFlexNodeSizeControlled(true);
         return index;
     }
 
     insertTab(index: number, page: QWidget, icon: QIcon, label: string): number {
         const newIndex = this.native.insertTab(index, page.native, icon.native, label);
-        this.tabs.splice(index, 0, page);
         return newIndex;
     }
 
@@ -77,15 +77,19 @@ export class QTabWidget extends QWidget<QTabWidgetSignals> {
 
     removeTab(index: number): void {
         this.native.removeTab(index);
-        const toRemove = this.tabs[index];
+        const toRemove = this.widget(index);
         toRemove.setFlexNodeSizeControlled(false);
-        this.tabs.splice(index, 1);
     }
 
     setTabsClosable(closeable: boolean): void {
         this.native.setTabsClosable(closeable);
     }
+
+    widget(index: number): QWidget {
+        return wrapperCache.getWrapper(this.native.widget(index)) as QWidget;
+    }
 }
+wrapperCache.registerWrapper('QTabWidgetWrap', QTabWidget);
 
 export interface QTabWidgetSignals extends QWidgetSignals {
     currentChanged: (index: number) => void;

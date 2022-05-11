@@ -35,7 +35,7 @@ export class QMainWindow extends QWidget<QMainWindowSignals> {
     public centralWidget?: QWidget | null;
     private _menuBar?: QMenuBar;
     private _statusBar?: QStatusBar | null;
-
+    // TODO
     constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {

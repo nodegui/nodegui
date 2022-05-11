@@ -1,10 +1,11 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
 import { QSize } from '../QtCore/QSize';
 import { AlignmentFlag } from '../..';
 import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -22,7 +23,7 @@ const listview = new QListView();
 ```
  */
 export class QListView<Signals extends QListViewSignals = QListViewSignals> extends QAbstractItemView<Signals> {
-    constructor(arg?: QWidget | NativeElement) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
@@ -129,6 +130,7 @@ export class QListView<Signals extends QListViewSignals = QListViewSignals> exte
         return this.native.isRowHidden(row);
     }
 }
+wrapperCache.registerWrapper('QListViewWrap', QListView);
 
 export enum Flow {
     LeftToRight,

@@ -3,6 +3,7 @@ import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
 import { AlignmentFlag, checkIfNativeElement, Orientation, QPoint, SortOrder } from '../..';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -217,6 +218,7 @@ export class QHeaderView<Signals extends QHeaderViewSignals = QHeaderViewSignals
         this.native.setOffsetToSectionPosition(visualSectionNumber);
     }
 }
+wrapperCache.registerWrapper('QHeaderViewWrap', QHeaderView);
 
 export enum QHeaderViewResizeMode {
     Interactive = 0,

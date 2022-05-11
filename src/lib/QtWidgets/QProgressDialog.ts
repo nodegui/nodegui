@@ -1,6 +1,9 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QDialog, QDialogSignals } from './QDialog';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -20,9 +23,12 @@ const progressDialog = new QProgressDialog();
 ```
  */
 export class QProgressDialog extends QDialog<QProgressDialogSignals> {
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QProgressDialog(parent.native);
         } else {
             native = new addon.QProgressDialog();
@@ -87,6 +93,7 @@ export class QProgressDialog extends QDialog<QProgressDialogSignals> {
         this.native.setRange(minimum, maximum);
     }
 }
+wrapperCache.registerWrapper('QProgressDialogWrap', QProgressDialog);
 
 export interface QProgressDialogSignals extends QDialogSignals {
     canceled: () => void;

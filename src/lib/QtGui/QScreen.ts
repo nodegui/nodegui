@@ -94,6 +94,7 @@ export class QScreen extends QObject<QScreenSignals> {
         return QSize.fromQVariant(this.property('virtualSize'));
     }
 }
+wrapperCache.registerWrapper('QScreenWrap', QScreen);
 
 export interface QScreenSignals extends QObjectSignals {
     availableGeometryChanged: (geometry: QRect) => void;

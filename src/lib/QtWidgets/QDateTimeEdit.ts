@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QAbstractSpinBox, QAbstractSpinBoxSignals } from './QAbstractSpinBox';
 import { QCalendarWidget } from './QCalendarWidget';
 import { QDate } from '../QtCore/QDate';
@@ -8,6 +8,7 @@ import { QTime } from '../QtCore/QTime';
 import { TimeSpec } from '../QtEnums';
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -33,13 +34,11 @@ dateTimeEdit.setTime(time);
 ```
  */
 export class QDateTimeEdit extends QAbstractSpinBox<QDateTimeEditSignals> {
-    calendar?: QCalendarWidget;
-
-    constructor(arg?: QWidget | NativeElement) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (arg) {
+        } else if (arg != null) {
             const parent = arg as QWidget;
             native = new addon.QDateTimeEdit(parent.native);
         } else {
@@ -47,17 +46,11 @@ export class QDateTimeEdit extends QAbstractSpinBox<QDateTimeEditSignals> {
         }
         super(native);
     }
-
     setCalendarWidget(calendarWidget: QCalendarWidget): void {
-        this.calendar = calendarWidget;
         this.native.setCalendarWidget(calendarWidget.native);
     }
     calendarWidget(): QCalendarWidget | null {
-        const calendar = this.calendar;
-        if (calendar) {
-            return calendar;
-        }
-        return null;
+        return wrapperCache.getWrapper(this.native.calendarWidget()) as QCalendarWidget;
     }
     setCalendarPopup(enable: boolean): void {
         this.setProperty('calendarPopup', enable);
@@ -99,6 +92,7 @@ export class QDateTimeEdit extends QAbstractSpinBox<QDateTimeEditSignals> {
         return this.property('timeSpec').toInt();
     }
 }
+wrapperCache.registerWrapper('QDateTimeEditWrap', QDateTimeEdit);
 
 export interface QDateTimeEditSignals extends QAbstractSpinBoxSignals {
     dateChanged: (date: QDate) => void;

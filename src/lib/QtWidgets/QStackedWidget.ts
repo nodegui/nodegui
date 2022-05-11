@@ -1,6 +1,9 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QFrame, QFrameSignals } from './QFrame';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -44,16 +47,18 @@ win.show();
 ```
  */
 export class QStackedWidget extends QFrame<QStackedWidgetSignals> {
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QStackedWidget(parent.native);
         } else {
             native = new addon.QStackedWidget();
         }
         super(native);
     }
-
     // *** Public Function ***
     addWidget(widget: QWidget): void {
         this.native.addWidget(widget.native);
@@ -81,6 +86,7 @@ export class QStackedWidget extends QFrame<QStackedWidgetSignals> {
         this.native.setCurrentWidget(widget.native);
     }
 }
+wrapperCache.registerWrapper('QStackedWidgetWrap', QStackedWidget);
 
 export interface QStackedWidgetSignals extends QFrameSignals {
     currentChanged: (index: number) => void;

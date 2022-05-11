@@ -69,6 +69,7 @@ export class QWindow extends QObject<QWindowSignals> {
         return this.native.setVisibility(visibility);
     }
 }
+wrapperCache.registerWrapper('QWindowWrap', QWindow);
 
 export interface QWindowSignals extends QObjectSignals {
     screenChanged: (screen: QScreen) => void;

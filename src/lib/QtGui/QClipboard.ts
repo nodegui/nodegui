@@ -46,6 +46,7 @@ export class QClipboard extends QObject<QClipboardSignals> {
         return new QPixmap(this.native.pixmap(mode));
     }
 }
+wrapperCache.registerWrapper('QClipboardWrap', QClipboard);
 
 export enum QClipboardMode {
     Clipboard = 0,

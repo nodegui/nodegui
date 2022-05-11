@@ -4,19 +4,16 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QSize } from '../QtCore/QSize';
 import { QPixmap } from './QPixmap';
+import { wrapperCache } from '../core/WrapperCache';
 
 export class QMovie extends QObject<QMovieSignals> {
-    constructor();
-    constructor(native: NativeElement);
-    constructor(parent: QObject);
     constructor(arg?: QObject | NativeElement) {
         let native: NativeElement;
-        if (arg) {
-            if (checkIfNativeElement(arg)) {
-                native = arg as NativeElement;
-            } else {
-                native = new addon.QMovie(arg);
-            }
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QObject;
+            native = new addon.QMovie(parent.native);
         } else {
             native = new addon.QMovie();
         }
@@ -76,6 +73,7 @@ export class QMovie extends QObject<QMovieSignals> {
         return this.native.frameCount();
     }
 }
+wrapperCache.registerWrapper('QMovieWrap', QMovie);
 
 export enum CacheMode {
     CacheNone,

@@ -12,6 +12,7 @@ Napi::Object QPushButtonWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("setMenu", &QPushButtonWrap::setMenu),
+       InstanceMethod("menu", &QPushButtonWrap::menu),
        InstanceMethod("showMenu", &QPushButtonWrap::showMenu),
        QABSTRACTBUTTON_WRAPPED_METHODS_EXPORT_DEFINE(QPushButtonWrap)});
   constructor = Napi::Persistent(func);
@@ -58,6 +59,16 @@ Napi::Value QPushButtonWrap::setMenu(const Napi::CallbackInfo& info) {
   QMenuWrap* menuWrap = Napi::ObjectWrap<QMenuWrap>::Unwrap(menuObject);
   this->instance->setMenu(menuWrap->getInternalInstance());
   return env.Null();
+}
+
+Napi::Value QPushButtonWrap::menu(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QObject* menu = this->instance->menu();
+  if (menu) {
+    return WrapperCache::instance.getWrapper(env, menu);
+  } else {
+    return env.Null();
+  }
 }
 
 Napi::Value QPushButtonWrap::showMenu(const Napi::CallbackInfo& info) {

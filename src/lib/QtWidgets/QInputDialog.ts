@@ -1,7 +1,10 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QDialog, QDialogSignals } from './QDialog';
 import { EchoMode } from './QLineEdit';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -22,9 +25,12 @@ dialog.exec();
 ```
  */
 export class QInputDialog extends QDialog<QInputDialogSignals> {
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QInputDialog(parent.native);
         } else {
             native = new addon.QInputDialog();
@@ -134,6 +140,7 @@ export class QInputDialog extends QDialog<QInputDialogSignals> {
         this.native.setTextValue(value);
     }
 }
+wrapperCache.registerWrapper('QInputDialogWrap', QInputDialog);
 
 export interface QInputDialogSignals extends QDialogSignals {
     doubleValueChanged: (value: number) => void;

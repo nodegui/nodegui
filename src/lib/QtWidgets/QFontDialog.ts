@@ -1,8 +1,10 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QDialog, QDialogSignals } from './QDialog';
 import { QFont } from '../QtGui/QFont';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -25,9 +27,12 @@ console.log(font);
 ```
  */
 export class QFontDialog extends QDialog<QFontDialogSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QFontDialog(parent.native);
         } else {
             native = new addon.QFontDialog();
@@ -56,6 +61,7 @@ export class QFontDialog extends QDialog<QFontDialogSignals> {
         return this.native.testOption(option);
     }
 }
+wrapperCache.registerWrapper('QFontDialogWrap', QFontDialog);
 
 export enum FontDialogOption {
     NoButtons = 0x00000001,

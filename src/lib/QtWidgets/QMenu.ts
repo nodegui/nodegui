@@ -3,6 +3,8 @@ import { QWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { QAction } from './QAction';
 import { QPoint } from '../QtCore/QPoint';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -19,9 +21,12 @@ const menu = new QMenu();
 ```
  */
 export class QMenu extends QWidget<QMenuSignals> {
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QMenu(parent.native);
         } else {
             native = new addon.QMenu();
@@ -50,6 +55,7 @@ export class QMenu extends QWidget<QMenuSignals> {
         this.native.popup(point.native, action?.native);
     }
 }
+wrapperCache.registerWrapper('QMenuWrap', QMenu);
 
 export interface QMenuSignals extends QWidgetSignals {
     triggered: (action: NativeElement) => void;

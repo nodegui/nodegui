@@ -3,6 +3,9 @@ import { QWidget, QWidgetSignals } from './QWidget';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 import { CursorMoveStyle } from '../QtEnums/CursorMoveStyle';
 import { QPoint } from '../QtCore/QPoint';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -22,9 +25,12 @@ const lineEdit = new QLineEdit();
 
  */
 export class QLineEdit extends QWidget<QLineEditSignals> {
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QLineEdit(parent.native);
         } else {
             native = new addon.QLineEdit();
@@ -208,6 +214,7 @@ export class QLineEdit extends QWidget<QLineEditSignals> {
         this.native.undo();
     }
 }
+wrapperCache.registerWrapper('QLineEditWrap', QLineEdit);
 
 export enum EchoMode {
     Normal,

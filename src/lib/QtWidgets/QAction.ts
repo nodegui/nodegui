@@ -1,5 +1,4 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QMenu } from './QMenu';
 import { QIcon } from '../QtGui/QIcon';
@@ -34,13 +33,13 @@ menu.addAction(menuAction);
 export class QAction extends QObject<QActionSignals> {
     constructor();
     constructor(native: NativeElement);
-    constructor(parent: QWidget);
-    constructor(arg?: NativeElement | QWidget) {
+    constructor(parent: QObject);
+    constructor(arg?: NativeElement | QObject) {
         let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
         } else if (arg) {
-            const parent = arg as QWidget;
+            const parent = arg as QObject;
             native = new addon.QAction(parent.native);
         } else {
             native = new addon.QAction();
@@ -96,6 +95,7 @@ export class QAction extends QObject<QActionSignals> {
         return new QVariant(this.native.data());
     }
 }
+wrapperCache.registerWrapper('QActionWrap', QAction);
 
 export interface QActionSignals extends QObjectSignals {
     triggered: (checked: boolean) => void;

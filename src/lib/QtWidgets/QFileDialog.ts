@@ -3,6 +3,8 @@ import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { AcceptMode, DialogLabel, FileMode, Option, ViewMode } from '../QtEnums';
 import { QDialog, QDialogSignals } from './QDialog';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -30,10 +32,12 @@ console.log(selectedFiles);
 export class QFileDialog extends QDialog<QFileDialogSignals> {
     constructor();
     constructor(parent: QWidget, caption?: string, directory?: string, filter?: string);
-    constructor(parent?: QWidget, caption = 'Select File', directory = '', filter = '') {
+    constructor(arg?: QWidget, caption = 'Select File', directory = '', filter = '') {
         let native: NativeElement;
-        if (parent) {
-            native = new addon.QFileDialog(parent.native, caption, directory, filter);
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            native = new addon.QFileDialog(arg.native, caption, directory, filter);
         } else {
             native = new addon.QFileDialog();
         }
@@ -88,6 +92,7 @@ export class QFileDialog extends QDialog<QFileDialogSignals> {
         this.setProperty('options', options);
     }
 }
+wrapperCache.registerWrapper('QFileDialogWrap', QFileDialog);
 
 export interface QFileDialogSignals extends QDialogSignals {
     currentChanged: (path: string) => void;

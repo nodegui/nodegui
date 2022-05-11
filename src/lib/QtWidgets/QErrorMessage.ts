@@ -1,7 +1,9 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QDialog, QDialogSignals } from './QDialog';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -21,9 +23,12 @@ const errorMessage = new QErrorMessage();
 ```
  */
 export class QErrorMessage extends QDialog<QErrorMessageSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QErrorMessage(parent.native);
         } else {
             native = new addon.QErrorMessage();
@@ -34,5 +39,6 @@ export class QErrorMessage extends QDialog<QErrorMessageSignals> {
         this.native.showMessage(message);
     }
 }
+wrapperCache.registerWrapper('QErrorMessageWrap', QErrorMessage);
 
 export type QErrorMessageSignals = QDialogSignals;

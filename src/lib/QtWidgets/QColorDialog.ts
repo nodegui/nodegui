@@ -1,8 +1,10 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QDialog, QDialogSignals } from './QDialog';
 import { QColor } from '../QtGui/QColor';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -27,15 +29,19 @@ console.log(color.red(), color.green(), color.blue());
 ```
  */
 export class QColorDialog extends QDialog<QColorDialogSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QColorDialog(parent.native);
         } else {
             native = new addon.QColorDialog();
         }
         super(native);
     }
+
     setCurrentColor(color: QColor): void {
         this.setProperty('currentColor', color.native);
     }
@@ -84,3 +90,5 @@ export interface QColorDialogSignals extends QDialogSignals {
     colorSelected: (color: QColor) => void;
     currentColorChanged: (color: QColor) => void;
 }
+
+wrapperCache.registerWrapper('QColorDialogWrap', QColorDialog);

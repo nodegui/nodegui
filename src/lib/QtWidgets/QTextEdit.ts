@@ -1,11 +1,12 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { AlignmentFlag, TextInteractionFlag } from '../QtEnums';
 import { QFont } from '../QtGui/QFont';
 import { QColor } from '../QtGui/QColor';
 import { checkIfNativeElement } from '../utils/helpers';
 import { NativeElement } from '../core/Component';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -25,20 +26,18 @@ const textEdit = new QTextEdit();
 
  */
 export class QTextEdit<Signals extends QTextEditSignals = QTextEditSignals> extends QAbstractScrollArea<Signals> {
-    constructor(arg?: QWidget | NativeElement) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        let parent: QWidget = null;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (arg) {
-            parent = arg as QWidget;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QTextEdit(parent.native);
         } else {
             native = new addon.QTextEdit();
         }
         super(native);
     }
-
     setAcceptRichText(accept: boolean): void {
         this.setProperty('acceptRichText', accept);
     }
@@ -232,6 +231,7 @@ export class QTextEdit<Signals extends QTextEditSignals = QTextEditSignals> exte
         this.native.zoomOut(range);
     }
 }
+wrapperCache.registerWrapper('QTextEditWrap', QTextEdit);
 
 export enum AutoFormattingFlag {
     AutoNone = 0,

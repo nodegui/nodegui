@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QFrame, QFrameSignals } from './QFrame';
 import { QPixmap } from '../QtGui/QPixmap';
 import { QMovie } from '../QtGui/QMovie';
@@ -7,6 +7,9 @@ import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 import { TextFormat } from '../QtEnums/TextFormat';
 import { TextInteractionFlag } from '../QtEnums';
 import { QPicture } from '../QtGui/QPicture';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -31,10 +34,13 @@ export class QLabel extends QFrame<QLabelSignals> {
     private _pixmap?: QPixmap;
     private _movie?: QMovie;
     private _buddy?: QWidget | null;
-
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    // TODO
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QLabel(parent.native);
         } else {
             native = new addon.QLabel();
@@ -148,6 +154,7 @@ export class QLabel extends QFrame<QLabelSignals> {
         this.native.clear();
     }
 }
+wrapperCache.registerWrapper('QLabelWrap', QLabel);
 
 export interface QLabelSignals extends QFrameSignals {
     linkActivated: (link: string) => void;

@@ -1,8 +1,11 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
 import { QObject, QObjectSignals } from '../QtCore/QObject';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -29,8 +32,17 @@ global.shortcut = shortcut;
 ```
  */
 export class QShortcut extends QObject<QShortcutSignals> {
-    constructor(parent: QWidget) {
-        super(new addon.QShortcut(parent.native));
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QShortcut(parent.native);
+        } else {
+            native = new addon.QShortcut();
+        }
+        super(native);
     }
     setEnabled(enabled: boolean): void {
         this.native.setEnabled(enabled);
@@ -45,6 +57,7 @@ export class QShortcut extends QObject<QShortcutSignals> {
         this.native.setContext(shortcutContext);
     }
 }
+wrapperCache.registerWrapper('QShortcutWrap', QShortcut);
 
 export interface QShortcutSignals extends QObjectSignals {
     activated: () => void;

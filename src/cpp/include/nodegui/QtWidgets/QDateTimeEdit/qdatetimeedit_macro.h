@@ -24,14 +24,24 @@
     this->instance->setCalendarWidget(                                       \
         calendarWidgetWrap->getInternalInstance());                          \
     return env.Null();                                                       \
+  }                                                                          \
+  Napi::Value calendarWidget(const Napi::CallbackInfo &info) {               \
+    Napi::Env env = info.Env();                                              \
+    QObject *calendarWidget = this->instance->calendarWidget();              \
+    if (calendarWidget) {                                                    \
+      return WrapperCache::instance.getWrapper(env, calendarWidget);         \
+    } else {                                                                 \
+      return env.Null();                                                     \
+    }                                                                        \
   }
 
 #endif  // QDATETIMEEDIT_WRAPPED_METHODS_DECLARATION
 
 #ifndef QDATETIMEEDIT_WRAPPED_METHODS_EXPORT_DEFINE
-#define QDATETIMEEDIT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
-  QABSTRACTSPINBOX_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)    \
-  InstanceMethod("setCalendarWidget", &WidgetWrapName::setCalendarWidget),
+#define QDATETIMEEDIT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)        \
+  QABSTRACTSPINBOX_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)           \
+  InstanceMethod("setCalendarWidget", &WidgetWrapName::setCalendarWidget), \
+      InstanceMethod("calendarWidget", &WidgetWrapName::calendarWidget),
 
 #endif  // QDATETIMEEDIT_WRAPPED_METHODS_EXPORT_DEFINE
 

@@ -1,9 +1,10 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { QTreeWidgetItem } from './QTreeWidgetItem';
-import { MatchFlag } from '../..';
+import { checkIfNativeElement, MatchFlag } from '../..';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -52,9 +53,12 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
     topLevelItems: Set<QTreeWidgetItem>;
     itemWidgets: Map<QTreeWidgetItem, QWidget>;
 
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QTreeWidget(parent.native);
         } else {
             native = new addon.QTreeWidget();
@@ -188,6 +192,7 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
         this.native.clear();
     }
 }
+wrapperCache.registerWrapper('QTreeWidgetWrap', QTreeWidget);
 
 export interface QTreeWidgetSignals extends QAbstractScrollAreaSignals {
     itemSelectionChanged: () => void;

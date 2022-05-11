@@ -1,10 +1,11 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { AlignmentFlag } from '../QtEnums';
 import { Margins } from '../utils/Margins';
 import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -30,9 +31,12 @@ scrollArea.setWidget(imageLabel);
 ```
  */
 export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QScrollArea(parent.native);
         } else {
             native = new addon.QScrollArea();
@@ -82,5 +86,6 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
         };
     }
 }
+wrapperCache.registerWrapper('QScrollAreaWrap', QScrollArea);
 
 export type QScrollAreaSignals = QAbstractScrollAreaSignals;

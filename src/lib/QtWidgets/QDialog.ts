@@ -4,6 +4,7 @@ import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QWidget, QWidgetSignals } from './QWidget';
 import { DialogCode } from '../QtEnums';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -14,13 +15,12 @@ import { DialogCode } from '../QtEnums';
 It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage, QFontDialog, QInputDialog, QMessageBox, QProgressDialog, and QWizard)
  */
 export class QDialog<Signals extends QDialogSignals = QDialogSignals> extends QWidget<Signals> {
-    constructor(arg?: QDialog | NativeElement) {
-        let native;
-        let parent;
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (arg as QDialog) {
-            parent = arg as QDialog;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QDialog(parent.native);
         } else {
             native = new addon.QDialog();
@@ -53,6 +53,7 @@ export class QDialog<Signals extends QDialogSignals = QDialogSignals> extends QW
         this.native.reject();
     }
 }
+wrapperCache.registerWrapper('QDialogWrap', QDialog);
 
 export interface QDialogSignals extends QWidgetSignals {
     accepted: () => void;

@@ -25,4 +25,5 @@ class DLL_EXPORT QToolButtonWrap : public Napi::ObjectWrap<QToolButtonWrap> {
   Napi::Value setMenu(const Napi::CallbackInfo& info);
   Napi::Value setDefaultAction(const Napi::CallbackInfo& info);
   Napi::Value showMenu(const Napi::CallbackInfo& info);
+  Napi::Value defaultAction(const Napi::CallbackInfo& info);
 };

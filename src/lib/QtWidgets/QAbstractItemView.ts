@@ -8,6 +8,7 @@ import { QAbstractItemModel } from '../QtCore/QAbstractItemModel';
 import { QPoint } from '../QtCore/QPoint';
 import { QItemSelectionModel } from '../QtCore/QItemSelectionModel';
 import { NativeElement } from '../core/Component';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -63,7 +64,7 @@ export abstract class QAbstractItemView<Signals extends QAbstractItemViewSignals
         return this.native.indexAt(point);
     }
     indexWidget(index: QModelIndex): QWidget {
-        return new QWidget(this.native.indexWidget(index));
+        return wrapperCache.getWrapper(this.native.indexWidget(index)) as QWidget;
     }
 
     isPersistentEditorOpen(index: QModelIndex): boolean {
@@ -99,7 +100,7 @@ export abstract class QAbstractItemView<Signals extends QAbstractItemViewSignals
         return this.property('selectionMode').toInt();
     }
     selectionModel(): QItemSelectionModel {
-        return new QItemSelectionModel(this.native.selectionModel());
+        return wrapperCache.getWrapper(this.native.selectionModel()) as QItemSelectionModel;
     }
     setAlternatingRowColors(enable: boolean): void {
         this.setProperty('alternatingRowColors', enable);

@@ -8,12 +8,11 @@ import { wrapperCache } from '../core/WrapperCache';
 
 export class QObject<Signals extends QObjectSignals = QObjectSignals> extends EventWidget<Signals> {
     constructor(nativeElementOrParent?: NativeElement | QObject) {
-        let native;
-        let parent;
+        let native: NativeElement;
         if (checkIfNativeElement(nativeElementOrParent)) {
             native = nativeElementOrParent as NativeElement;
         } else if (nativeElementOrParent) {
-            parent = nativeElementOrParent as QObject<any>;
+            const parent = nativeElementOrParent as QObject<any>;
             native = new addon.QObject(parent.native);
         } else {
             native = new addon.QObject();
@@ -72,6 +71,7 @@ export class QObject<Signals extends QObjectSignals = QObjectSignals> extends Ev
         return this.native.children().map((kid: any) => wrapperCache.getWrapper(kid));
     }
 }
+wrapperCache.registerWrapper('QObjectWrap', QObject);
 
 export interface QObjectSignals {
     objectNameChanged: (objectName: string) => void;

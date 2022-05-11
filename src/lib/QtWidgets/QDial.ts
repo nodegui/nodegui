@@ -1,7 +1,9 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSlider, QAbstractSliderSignals } from './QAbstractSlider';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -20,11 +22,12 @@ const dial = new QDial();
 ```
  */
 export class QDial extends QAbstractSlider<QDialSignals> {
-    constructor();
-    constructor(parent: QWidget);
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QDial(parent.native);
         } else {
             native = new addon.QDial();
@@ -53,5 +56,6 @@ export class QDial extends QAbstractSlider<QDialSignals> {
         return this.property('wrapping').toBool();
     }
 }
+wrapperCache.registerWrapper('QDialWrap', QDial);
 
 export type QDialSignals = QAbstractSliderSignals;

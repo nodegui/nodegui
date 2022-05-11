@@ -1,8 +1,10 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QFrame, QFrameSignals } from './QFrame';
 import { NativeElement } from '../core/Component';
 import { Orientation } from '../QtEnums';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -35,9 +37,12 @@ splitterHorizontal.addWidget(right);
 
  */
 export class QSplitter extends QFrame<QSplitterSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QSplitter(parent.native);
         } else {
             native = new addon.QSplitter();
@@ -72,6 +77,7 @@ export class QSplitter extends QFrame<QSplitterSignals> {
         this.native.setOrientation(orientation);
     }
 }
+wrapperCache.registerWrapper('QSplitterWrap', QSplitter);
 
 export interface QSplitterSignals extends QFrameSignals {
     splitterMoved: (pos: number, index: number) => void;

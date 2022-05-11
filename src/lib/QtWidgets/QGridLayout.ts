@@ -1,8 +1,10 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -30,16 +32,18 @@ layout.addWidget(label2);
 
  */
 export class QGridLayout extends QLayout<QGridLayoutSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QGridLayout(parent.native);
         } else {
             native = new addon.QGridLayout();
         }
         super(native);
     }
-
     addLayout(
         layout: QLayout,
         row: number,
@@ -100,5 +104,6 @@ export class QGridLayout extends QLayout<QGridLayoutSignals> {
         return this.native.rowCount();
     }
 }
+wrapperCache.registerWrapper('QGridLayoutWrap', QGridLayout);
 
 export type QGridLayoutSignals = QLayoutSignals;

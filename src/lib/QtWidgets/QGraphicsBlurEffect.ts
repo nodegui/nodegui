@@ -3,9 +3,10 @@ import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QObject } from '../QtCore/QObject';
 import { QGraphicsEffect, QGraphicsEffectSignals } from './QGraphicsEffect';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
+
 > The QGraphicsBlurEffect class provides a blur effect.
 
 * **This class is a JS wrapper around Qt's [QGraphicsBlurEffect class](https://doc.qt.io/qt-5/qgraphicsblureffect.html)**
@@ -22,17 +23,13 @@ blur.setBlurRadius(8);
 ```
  */
 export class QGraphicsBlurEffect extends QGraphicsEffect<QGraphicsBlurEffectSignals> {
-    constructor();
-    constructor(native: NativeElement);
-    constructor(parent: QObject<any>);
-    constructor(arg?: QObject<any> | NativeElement) {
+    constructor(arg?: QObject | NativeElement) {
         let native: NativeElement;
-        if (arg) {
-            if (checkIfNativeElement(arg)) {
-                native = arg as NativeElement;
-            } else {
-                native = new addon.QGraphicsBlurEffect(arg.native);
-            }
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QObject;
+            native = new addon.QGraphicsBlurEffect(parent.native);
         } else {
             native = new addon.QGraphicsBlurEffect();
         }
@@ -51,6 +48,7 @@ export class QGraphicsBlurEffect extends QGraphicsEffect<QGraphicsBlurEffectSign
         return this.property('blurRadius').toDouble();
     }
 }
+wrapperCache.registerWrapper('QGraphicsBlurEffectWrap', QGraphicsBlurEffect);
 
 export enum BlurHint {
     PerformanceHint = 0x00,

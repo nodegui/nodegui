@@ -1,12 +1,13 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
-import { NativeElement, NativeRawPointer } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { NativeElement } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { ToolButtonStyle } from '../QtEnums/ToolButtonStyle';
 import { ArrowType } from '../QtEnums/ArrowType';
 import { QAction } from '../QtWidgets/QAction';
 import { QMenu } from './QMenu';
-import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -26,18 +27,13 @@ tool.setText('Help');
 ```
  */
 export class QToolButton extends QAbstractButton<QToolButtonSignals> {
-    private _defaultAction?: QAction | null;
-    private _menu?: QMenu | null;
-
-    constructor(arg?: QWidget | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
-        let native;
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (checkIfNapiExternal(arg)) {
-            native = new addon.QToolButton(arg, disableNativeDeletion);
-        } else if (arg) {
-            const parentWidget = arg as QWidget;
-            native = new addon.QToolButton(parentWidget.native);
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QToolButton(parent.native);
         } else {
             native = new addon.QToolButton();
         }
@@ -68,29 +64,22 @@ export class QToolButton extends QAbstractButton<QToolButtonSignals> {
         return this.property('toolButtonStyle').toInt();
     }
     setMenu(menu: QMenu): void {
-        this._menu = menu;
         this.native.setMenu(menu.native);
     }
     menu(): QMenu | null {
-        if (this._menu) {
-            return this._menu;
-        }
-        return null;
+        return wrapperCache.getWrapper(this.native.menu()) as QMenu;
     }
     setDefaultAction(action: QAction): void {
-        this._defaultAction = action;
         this.native.setDefaultAction(action.native);
     }
     defaultAction(): QAction | null {
-        if (this._defaultAction) {
-            return this._defaultAction;
-        }
-        return null;
+        return wrapperCache.getWrapper(this.native.defaultAction()) as QAction;
     }
     showMenu(): void {
         this.native.showMenu();
     }
 }
+wrapperCache.registerWrapper('QToolButtonWrap', QToolButton);
 
 export enum ToolButtonPopupMode {
     DelayedPopup,

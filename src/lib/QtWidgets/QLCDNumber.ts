@@ -1,4 +1,7 @@
+import { NativeElement } from '../core/Component';
+import { wrapperCache } from '../core/WrapperCache';
 import addon from '../utils/addon';
+import { checkIfNativeElement } from '../utils/helpers';
 import { QWidget, QWidgetSignals } from './QWidget';
 
 /**
@@ -20,9 +23,12 @@ const lcd = new QLCDNumber();
 
  */
 export class QLCDNumber extends QWidget<QLCDNumberSignals> {
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QLCDNumber(parent.native);
         } else {
             native = new addon.QLCDNumber();
@@ -78,6 +84,7 @@ export class QLCDNumber extends QWidget<QLCDNumberSignals> {
         this.native.setOctMode();
     }
 }
+wrapperCache.registerWrapper('QLCDNumberWrap', QLCDNumber);
 
 export enum Mode {
     Hex,

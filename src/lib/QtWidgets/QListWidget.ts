@@ -1,11 +1,13 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement, Component } from '../core/Component';
 import { QListWidgetItem } from './QListWidgetItem';
 import { QListView, QListViewSignals } from './QListView';
 import { QRect } from '../QtCore/QRect';
 import { SortOrder, ScrollHint, MatchFlag } from '../QtEnums';
 import { QModelIndex } from '../QtCore/QModelIndex';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -33,11 +35,14 @@ for (let i = 0; i < 30; i++) {
 ```
  */
 export class QListWidget extends QListView<QListWidgetSignals> {
-    items: Set<NativeElement | Component>;
+    items: Set<Component>;
 
-    constructor(parent?: QWidget) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QListWidget(parent.native);
         } else {
             native = new addon.QListWidget();
@@ -150,6 +155,7 @@ export class QListWidget extends QListView<QListWidgetSignals> {
         this.native.scrollToItem(item.native, hint);
     }
 }
+wrapperCache.registerWrapper('QListWidgetWrap', QListWidget);
 
 export interface QListWidgetSignals extends QListViewSignals {
     currentItemChanged: (current: QListWidgetItem, previous: QListWidgetItem) => void;

@@ -1,7 +1,9 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSlider, QAbstractSliderSignals } from './QAbstractSlider';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -20,9 +22,12 @@ const scrollbar = new QScrollBar();
 ```
  */
 export class QScrollBar extends QAbstractSlider<QScrollBarSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QScrollBar(parent.native);
         } else {
             native = new addon.QScrollBar();
@@ -30,5 +35,6 @@ export class QScrollBar extends QAbstractSlider<QScrollBarSignals> {
         super(native);
     }
 }
+wrapperCache.registerWrapper('QScrollBarWrap', QScrollBar);
 
 export type QScrollBarSignals = QAbstractSliderSignals;

@@ -1,8 +1,8 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
-import { NativeElement, NativeRawPointer } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { NativeElement } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
-import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
+import { checkIfNativeElement } from '../utils/helpers';
 import { CheckState } from '../QtEnums';
 import { wrapperCache } from '../core/WrapperCache';
 
@@ -24,23 +24,19 @@ checkbox.setText("Hello");
 ```
  */
 export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
-    constructor();
-    constructor(parent: QWidget);
-    constructor(rawPointer: NativeRawPointer<any>);
-    constructor(arg?: QWidget | NativeRawPointer<any> | NativeElement) {
-        let native;
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (checkIfNapiExternal(arg)) {
-            native = new addon.QCheckBox(arg);
-        } else if (arg) {
-            const parentWidget = arg as QWidget;
-            native = new addon.QCheckBox(parentWidget.native);
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QCheckBox(parent.native);
         } else {
             native = new addon.QCheckBox();
         }
         super(native);
     }
+
     setTristate(y = true): void {
         this.setProperty('tristate', y);
     }

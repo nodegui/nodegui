@@ -3,6 +3,7 @@ import { NativeElement } from '../core/Component';
 import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QModelIndex } from './QModelIndex';
 import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 export type QItemSelectionModelSignals = QObjectSignals;
 
@@ -102,6 +103,7 @@ export class QItemSelectionModel extends QObject<QItemSelectionModelSignals> {
     // TODO: void 	modelChanged(QAbstractItemModel *model)
     // TODO: void 	selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 }
+wrapperCache.registerWrapper('QItemSelectionModelWrap', QItemSelectionModel);
 
 export enum SelectionFlag {
     NoUpdate = 0x0000,

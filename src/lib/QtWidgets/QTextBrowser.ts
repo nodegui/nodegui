@@ -1,8 +1,10 @@
 import addon from '../utils/addon';
-import { QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QUrl } from '../QtCore/QUrl';
 import { QTextEdit, QTextEditSignals } from './QTextEdit';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -22,9 +24,12 @@ const textBrowser = new QTextBrowser();
 
  */
 export class QTextBrowser extends QTextEdit<QTextBrowserSignals> {
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QTextBrowser(parent.native);
         } else {
             native = new addon.QTextBrowser();
@@ -84,6 +89,7 @@ export class QTextBrowser extends QTextEdit<QTextBrowserSignals> {
         this.native.reload();
     }
 }
+wrapperCache.registerWrapper('QTextBrowserWrap', QTextBrowser);
 
 export interface QTextBrowserSignals extends QTextEditSignals {
     anchorClicked: (link: QUrl) => void;

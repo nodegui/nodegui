@@ -15,6 +15,7 @@ Napi::Object QToolButtonWrap::init(Napi::Env env, Napi::Object exports) {
       {InstanceMethod("setMenu", &QToolButtonWrap::setMenu),
        InstanceMethod("setDefaultAction", &QToolButtonWrap::setDefaultAction),
        InstanceMethod("showMenu", &QToolButtonWrap::showMenu),
+       InstanceMethod("defaultAction", &QToolButtonWrap::defaultAction),
        QABSTRACTBUTTON_WRAPPED_METHODS_EXPORT_DEFINE(QToolButtonWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -74,4 +75,14 @@ Napi::Value QToolButtonWrap::showMenu(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   this->instance->showMenu();
   return env.Null();
+}
+
+Napi::Value QToolButtonWrap::defaultAction(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QAction* action = this->instance->defaultAction();
+  if (action) {
+    return WrapperCache::instance.getWrapper(env, action);
+  } else {
+    return env.Null();
+  }
 }

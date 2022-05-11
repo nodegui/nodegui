@@ -28,17 +28,17 @@ qApp.quit();
 ```
  */
 export class QApplication extends QObject<QApplicationSignals> {
-    constructor();
-    constructor(native: NativeElement);
-    constructor(arg?: NativeElement) {
+    constructor(arg?: QObject | NativeElement) {
         let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QObject;
+            native = new addon.QApplication(parent.native);
         } else {
             native = new addon.QApplication();
         }
         super(native);
-
         this.setStyleSheet = memoizeOne(this.setStyleSheet);
     }
     devicePixelRatio(): number {
@@ -102,6 +102,7 @@ export class QApplication extends QObject<QApplicationSignals> {
         return new QStyle(addon.QApplication.style());
     }
 }
+wrapperCache.registerWrapper('QApplicationWrap', QApplication);
 
 export interface QApplicationSignals extends QObjectSignals {
     focusWindowChanged: () => void;
