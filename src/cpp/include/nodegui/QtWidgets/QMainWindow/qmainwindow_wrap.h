@@ -22,6 +22,7 @@ class DLL_EXPORT QMainWindowWrap : public Napi::ObjectWrap<QMainWindowWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
+  Napi::Value centralWidget(const Napi::CallbackInfo& info);
   Napi::Value setCentralWidget(const Napi::CallbackInfo& info);
   Napi::Value takeCentralWidget(const Napi::CallbackInfo& info);
   Napi::Value setMenuBar(const Napi::CallbackInfo& info);

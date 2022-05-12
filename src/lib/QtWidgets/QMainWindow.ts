@@ -4,6 +4,8 @@ import { QLayout } from './QLayout';
 import { QMenuBar } from './QMenuBar';
 import { QStatusBar } from './QStatusBar';
 import { NativeElement } from '../core/Component';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -32,55 +34,58 @@ QMainWindow needs to have a central widget set before other widgets can be added
 Once a central widget is set you can add children/layout to the central widget.
  */
 export class QMainWindow extends QWidget<QMainWindowSignals> {
-    public centralWidget?: QWidget | null;
-    private _menuBar?: QMenuBar;
-    private _statusBar?: QStatusBar | null;
-    // TODO
-    constructor(parent?: QWidget) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QMainWindow(parent.native);
         } else {
             native = new addon.QMainWindow();
         }
         super(native);
-
-        this.setLayout = (parentLayout: QLayout): void => {
-            if (this.centralWidget) {
-                this.centralWidget.setLayout(parentLayout);
-            } else {
-                this.native.setLayout(parentLayout.native);
-            }
-        };
+    }
+    setLayout(parentLayout: QLayout): void {
+        const centralWidget = this.centralWidget();
+        if (centralWidget) {
+            centralWidget.setLayout(parentLayout);
+        } else {
+            super.setLayout(parentLayout);
+        }
     }
     setCentralWidget(widget: QWidget): void {
         this.native.setCentralWidget(widget.native);
-        this.centralWidget = widget;
-        this.centralWidget.setFlexNodeSizeControlled(true);
+        const centralWidget = this.centralWidget();
+        if (centralWidget) {
+            centralWidget.setFlexNodeSizeControlled(true);
+        }
+    }
+    centralWidget(): QWidget {
+        return wrapperCache.getWrapper(this.native.centralWidget()) as QWidget;
     }
     takeCentralWidget(): QWidget | null {
-        const centralWidget = this.centralWidget;
+        const centralWidget = this.centralWidget();
         this.centralWidget = null;
         if (centralWidget) {
             centralWidget.setFlexNodeSizeControlled(false);
-            this.native.takeCentralWidget();
-            return centralWidget;
+            return wrapperCache.getWrapper(this.native.takeCentralWidget()) as QWidget;
         }
         return null;
     }
     setMenuBar(menuBar: QMenuBar): void {
         this.native.setMenuBar(menuBar.native);
-        this._menuBar = menuBar;
     }
     menuBar(): QMenuBar | undefined {
-        return this._menuBar;
+        return wrapperCache.getWrapper(this.native.menuBar()) as QMenuBar;
     }
     setMenuWidget(menuWidget: QWidget): void {
         this.native.setMenuWidget(menuWidget.native);
     }
     layout(): QLayout | undefined {
-        if (this.centralWidget) {
-            return this.centralWidget.layout();
+        const centralWidget = this.centralWidget();
+        if (centralWidget) {
+            return centralWidget.layout();
         }
         return super.layout();
     }
@@ -94,24 +99,20 @@ export class QMainWindow extends QWidget<QMainWindowSignals> {
      * @param statusBar The status bar.
      */
     setStatusBar(statusBar: QStatusBar): void {
-        this.native.setStatusBar(statusBar.native);
-        this._statusBar = statusBar;
-    }
-
-    /**
-     * Removes the status bar from the main window.
-     */
-    removeStatusBar(): void {
-        this.native.setStatusBar(null);
-        this._statusBar = null;
+        if (statusBar != null) {
+            this.native.setStatusBar(statusBar.native);
+        } else {
+            this.native.setStatusBar(null);
+        }
     }
 
     /**
      * Returns the status bar for the main window.
      */
     statusBar(): QStatusBar {
-        return new QStatusBar(this.native.statusBar());
+        return wrapperCache.getWrapper(this.native.statusBar()) as QStatusBar;
     }
 }
+wrapperCache.registerWrapper('QMainWindowWrap', QMainWindow);
 
 export type QMainWindowSignals = QWidgetSignals;
