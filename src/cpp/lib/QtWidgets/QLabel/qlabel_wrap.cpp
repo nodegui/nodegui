@@ -18,6 +18,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
       {InstanceMethod("setSelection", &QLabelWrap::setSelection),
        InstanceMethod("selectionStart", &QLabelWrap::selectionStart),
        InstanceMethod("setBuddy", &QLabelWrap::setBuddy),
+       InstanceMethod("buddy", &QLabelWrap::buddy),
        InstanceMethod("clear", &QLabelWrap::clear),
        InstanceMethod("setMovie", &QLabelWrap::setMovie),
        InstanceMethod("setNumDouble", &QLabelWrap::setNumDouble),
@@ -89,6 +90,16 @@ Napi::Value QLabelWrap::setBuddy(const Napi::CallbackInfo& info) {
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(buddyObject);
   this->instance->setBuddy(buddyWrap->getInternalInstance());
   return env.Null();
+}
+
+Napi::Value QLabelWrap::buddy(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QObject* parent = this->instance->buddy();
+  if (parent) {
+    return WrapperCache::instance.getWrapper(env, parent);
+  } else {
+    return env.Null();
+  }
 }
 
 Napi::Value QLabelWrap::clear(const Napi::CallbackInfo& info) {

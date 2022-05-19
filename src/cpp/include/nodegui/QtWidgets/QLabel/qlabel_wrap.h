@@ -25,6 +25,7 @@ class DLL_EXPORT QLabelWrap : public Napi::ObjectWrap<QLabelWrap> {
   Napi::Value setSelection(const Napi::CallbackInfo& info);
   Napi::Value selectionStart(const Napi::CallbackInfo& info);
   Napi::Value setBuddy(const Napi::CallbackInfo& info);
+  Napi::Value buddy(const Napi::CallbackInfo& info);
   Napi::Value clear(const Napi::CallbackInfo& info);
   Napi::Value setMovie(const Napi::CallbackInfo& info);
   Napi::Value setNumDouble(const Napi::CallbackInfo& info);

@@ -33,7 +33,7 @@ export class QLabel extends QFrame<QLabelSignals> {
     private _picture?: QPicture;
     private _pixmap?: QPixmap;
     private _movie?: QMovie;
-    private _buddy?: QWidget | null;
+
     // TODO
     constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
@@ -115,13 +115,9 @@ export class QLabel extends QFrame<QLabelSignals> {
     }
     setBuddy(buddy: QWidget): void {
         this.native.setBuddy(buddy.native);
-        this._buddy = buddy;
     }
     buddy(): QWidget | null {
-        if (this._buddy) {
-            return this._buddy;
-        }
-        return null;
+        return wrapperCache.getWrapper(this.native.budd()) as QWidget;
     }
     setMovie(movie: QMovie): void {
         this.native.setMovie(movie.native);
