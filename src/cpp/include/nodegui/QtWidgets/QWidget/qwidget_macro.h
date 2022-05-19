@@ -6,9 +6,11 @@
 
 #include "QtCore/QObject/qobject_wrap.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
+#include "QtCore/QRect/qrect_wrap.h"
 #include "QtCore/QSize/qsize_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
 #include "QtGui/QIcon/qicon_wrap.h"
+#include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "QtGui/QStyle/qstyle_wrap.h"
 #include "QtGui/QWindow/qwindow_wrap.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
@@ -454,6 +456,17 @@
     this->instance->clearMask();                                               \
     return env.Null();                                                         \
   }                                                                            \
+  Napi::Value grab(const Napi::CallbackInfo& info) {                           \
+    Napi::Env env = info.Env();                                                \
+    Napi::Object boundingRectObject = info[0].As<Napi::Object>();              \
+    QRectWrap* boundingRectWrap =                                              \
+        Napi::ObjectWrap<QRectWrap>::Unwrap(boundingRectObject);               \
+    auto pixmap =                                                              \
+        this->instance->grab(*boundingRectWrap->getInternalInstance());        \
+    auto instance = QPixmapWrap::constructor.New(                              \
+        {Napi::External<QPixmap>::New(env, new QPixmap(pixmap))});             \
+    return instance;                                                           \
+  }                                                                            \
   Napi::Value grabKeyboard(const Napi::CallbackInfo& info) {                   \
     Napi::Env env = info.Env();                                                \
     this->instance->grabKeyboard();                                            \
@@ -633,6 +646,7 @@
       InstanceMethod("setFixedWidth", &WidgetWrapName::setFixedWidth),         \
       InstanceMethod("ensurePolished", &WidgetWrapName::ensurePolished),       \
       InstanceMethod("clearMask", &WidgetWrapName::clearMask),                 \
+      InstanceMethod("grab", &WidgetWrapName::grab),                           \
       InstanceMethod("grabKeyboard", &WidgetWrapName::grabKeyboard),           \
       InstanceMethod("grabMouse", &WidgetWrapName::grabMouse),                 \
       InstanceMethod("hasHeightForWidth", &WidgetWrapName::hasHeightForWidth), \
