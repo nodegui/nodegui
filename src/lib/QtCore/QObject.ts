@@ -7,6 +7,8 @@ import { TimerType } from '../QtEnums/TimerType';
 import { wrapperCache } from '../core/WrapperCache';
 
 export class QObject<Signals extends QObjectSignals = QObjectSignals> extends EventWidget<Signals> {
+    private __id: number;
+
     constructor(nativeElementOrParent?: NativeElement | QObject) {
         let native: NativeElement;
         if (checkIfNativeElement(nativeElementOrParent)) {
@@ -18,10 +20,22 @@ export class QObject<Signals extends QObjectSignals = QObjectSignals> extends Ev
             native = new addon.QObject();
         }
         super(native);
-
+        this.__id = native.__id__();
         wrapperCache.store(this);
     }
 
+    /**
+     * Get an ID identifying the underlying C++ object.
+     *
+     * This can be useful when debugging memory problems with help from
+     * `setLogCreateQObject()` and `setLogDestroyQObject()`. The number is
+     * hash of the memory address of the C++ object.
+     *
+     * @return a unique number which is valid for the lifetime of the C++ object.
+     */
+    _id(): number {
+        return this.__id;
+    }
     inherits(className: string): boolean {
         return this.native.inherits(className);
     }
