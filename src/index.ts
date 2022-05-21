@@ -190,5 +190,4 @@ export { Margins } from './lib/utils/Margins';
 // Test:
 export { CacheTestQObject } from './lib/core/__test__/CacheTestQObject';
 
-// Debug:
-export { setLogCreateQObject, setLogDestroyQObject } from './lib/core/WrapperCache';
+export { wrapperCache, setLogCreateQObject, setLogDestroyQObject } from './lib/core/WrapperCache';
