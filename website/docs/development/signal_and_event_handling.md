@@ -52,7 +52,7 @@ Example:
 
 ```js
 import addon from '../../core/addon';
-import { NodeWidget } from '../../QtGui/QWidget';
+import { QWidget } from '../../QtGui/QWidget';
 import { BaseWidgetEvents } from '../../core/EventWidget';
 
 export const QPushButtonEvents = Object.freeze({
@@ -63,8 +63,8 @@ export const QPushButtonEvents = Object.freeze({
     toggled: 'toggled',
 });
 
-export class QPushButton extends NodeWidget {
-    constructor(parent?: NodeWidget) {
+export class QPushButton extends QWidget {
+    constructor(parent?: QWidget) {
         let native: NativeElement;
         if (parent) {
             native = new addon.QPushButton(parent.native);
