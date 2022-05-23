@@ -107,13 +107,14 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     autoFillBackground(): boolean {
         return this.property('autoFillBackground').toBool();
     }
-    // CLASS: QWidget
     // TODO: QPalette::ColorRole 	backgroundRole() const
     // TODO: QBackingStore *	backingStore() const
     baseSize(): QSize {
         return QSize.fromQVariant(this.property('baseSize'));
     }
-    // TODO: QWidget *	childAt(int x, int y) const
+    childAt(x: number, y: number): QWidget {
+        return wrapperCache.getWrapper(this.native.childAt(x, y)) as QWidget;
+    }
     // TODO: QWidget *	childAt(const QPoint &p) const
     childrenRect(): QRect {
         return QRect.fromQVariant(this.property('childrenRect'));
@@ -126,7 +127,9 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
         this.native.clearMask();
     }
     // TODO: QMargins 	contentsMargins() const
-    // TODO: QRect 	contentsRect() const
+    contentsRect(): QRect {
+        return new QRect(this.native.contentsRect());
+    }
     contextMenuPolicy(): ContextMenuPolicy {
         return this.property('contextMenuPolicy').toInt();
     }
@@ -136,8 +139,13 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
         this.native.ensurePolished();
     }
     // TODO: Qt::FocusPolicy 	focusPolicy() const
-    // TODO: QWidget *	focusProxy() const
-    // TODO: QWidget *	focusWidget() const
+    focusProxy(): QWidget {
+        return wrapperCache.getWrapper(this.native.focusProxy()) as QWidget;
+    }
+    focusWidget(): QWidget {
+        return wrapperCache.getWrapper(this.native.focusWidget()) as QWidget;
+    }
+
     font(): QFont {
         return QFont.fromQVariant(this.property('font'));
     }
@@ -270,20 +278,28 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     move(x: number, y: number): void {
         this.native.move(x, y);
     }
-    // TODO: QWidget *	nativeParentWidget() const
-    // TODO: QWidget *	nextInFocusChain() const
+    nativeParentWidget(): QWidget {
+        return wrapperCache.getWrapper(this.native.nativeParentWidget()) as QWidget;
+    }
+    nextInFocusChain(): QWidget {
+        return wrapperCache.getWrapper(this.native.nextInFocusChain()) as QWidget;
+    }
     normalGeometry(): QRect {
         return QRect.fromQVariant(this.property('normalGeometry'));
     }
     // TODO: void 	overrideWindowFlags(Qt::WindowFlags flags)
     // TODO: const QPalette &	palette() const
-    // TODO: QWidget *	parentWidget() const
+    parentWidget(): QWidget {
+        return wrapperCache.getWrapper(this.native.parentWidget()) as QWidget;
+    }
 
     // PROP: QWidget
     pos(): { x: number; y: number } {
         return this.native.pos();
     }
-    // TODO: QWidget *	previousInFocusChain() const
+    previousInFocusChain(): QWidget {
+        return wrapperCache.getWrapper(this.native.previousInFocusChain()) as QWidget;
+    }
     rect(): QRect {
         return QRect.fromQVariant(this.property('rect'));
     }
@@ -546,7 +562,10 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     winId(): number {
         return this.native.winId();
     }
-    // TODO: QWidget *	window() const
+    window(): QWidget {
+        return wrapperCache.getWrapper(this.native.window()) as QWidget;
+    }
+
     windowFilePath(): string {
         return this.property('windowFilePath').toString();
     }

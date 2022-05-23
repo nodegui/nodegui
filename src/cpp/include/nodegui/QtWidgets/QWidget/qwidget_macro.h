@@ -577,6 +577,95 @@
     Napi::Env env = info.Env();                                                \
     WId result = this->instance->winId();                                      \
     return Napi::BigInt::New(env, static_cast<uint64_t>(result));              \
+  }                                                                            \
+  Napi::Value contentsRect(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                                \
+    QRect result = this->instance->contentsRect();                             \
+    auto resultInstance = QRectWrap::constructor.New(                          \
+        {Napi::External<QRect>::New(env, new QRect(result))});                 \
+    return resultInstance;                                                     \
+  }                                                                            \
+  Napi::Value childAt(const Napi::CallbackInfo& info) {                        \
+    Napi::Env env = info.Env();                                                \
+    int x = info[0].As<Napi::Number>().Int32Value();                           \
+    int y = info[1].As<Napi::Number>().Int32Value();                           \
+    QWidget* result = this->instance->childAt(x, y);                           \
+    if (result) {                                                              \
+      return WrapperCache::instance.getWrapper(env,                            \
+                                               static_cast<QObject*>(result)); \
+    } else {                                                                   \
+      return env.Null();                                                       \
+    }                                                                          \
+  }                                                                            \
+  Napi::Value focusProxy(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                                \
+    QWidget* result = this->instance->focusProxy();                            \
+    if (result) {                                                              \
+      return WrapperCache::instance.getWrapper(env,                            \
+                                               static_cast<QObject*>(result)); \
+    } else {                                                                   \
+      return env.Null();                                                       \
+    }                                                                          \
+  }                                                                            \
+  Napi::Value focusWidget(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                                \
+    QWidget* result = this->instance->focusWidget();                           \
+    if (result) {                                                              \
+      return WrapperCache::instance.getWrapper(env,                            \
+                                               static_cast<QObject*>(result)); \
+    } else {                                                                   \
+      return env.Null();                                                       \
+    }                                                                          \
+  }                                                                            \
+  Napi::Value nativeParentWidget(const Napi::CallbackInfo& info) {             \
+    Napi::Env env = info.Env();                                                \
+    QWidget* result = this->instance->nativeParentWidget();                    \
+    if (result) {                                                              \
+      return WrapperCache::instance.getWrapper(env,                            \
+                                               static_cast<QObject*>(result)); \
+    } else {                                                                   \
+      return env.Null();                                                       \
+    }                                                                          \
+  }                                                                            \
+  Napi::Value nextInFocusChain(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                                \
+    QWidget* result = this->instance->nextInFocusChain();                      \
+    if (result) {                                                              \
+      return WrapperCache::instance.getWrapper(env,                            \
+                                               static_cast<QObject*>(result)); \
+    } else {                                                                   \
+      return env.Null();                                                       \
+    }                                                                          \
+  }                                                                            \
+  Napi::Value parentWidget(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                                \
+    QWidget* result = this->instance->parentWidget();                          \
+    if (result) {                                                              \
+      return WrapperCache::instance.getWrapper(env,                            \
+                                               static_cast<QObject*>(result)); \
+    } else {                                                                   \
+      return env.Null();                                                       \
+    }                                                                          \
+  }                                                                            \
+  Napi::Value previousInFocusChain(const Napi::CallbackInfo& info) {           \
+    Napi::Env env = info.Env();                                                \
+    QWidget* result = this->instance->previousInFocusChain();                  \
+    if (result) {                                                              \
+      return WrapperCache::instance.getWrapper(env,                            \
+                                               static_cast<QObject*>(result)); \
+    } else {                                                                   \
+      return env.Null();                                                       \
+    }                                                                          \
+  }                                                                            \
+  Napi::Value window(const Napi::CallbackInfo& info) {                         \
+    Napi::Env env = info.Env();                                                \
+    QWidget* result = this->instance->window();                                \
+    if (result) {                                                              \
+      return WrapperCache::instance.getWrapper(env,                            \
+                                               static_cast<QObject*>(result)); \
+    } else {                                                                   \
+      return env.Null();                                                       \
+    }                                                                          \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -669,7 +758,18 @@
       InstanceMethod("unsetLocale", &WidgetWrapName::unsetLocale),             \
       InstanceMethod("windowRole", &WidgetWrapName::windowRole),               \
       InstanceMethod("heightForWidth", &WidgetWrapName::heightForWidth),       \
-      InstanceMethod("winId", &WidgetWrapName::winId),
+      InstanceMethod("winId", &WidgetWrapName::winId),                         \
+      InstanceMethod("contentsRect", &WidgetWrapName::contentsRect),           \
+      InstanceMethod("childAt", &WidgetWrapName::childAt),                     \
+      InstanceMethod("focusProxy", &WidgetWrapName::focusProxy),               \
+      InstanceMethod("focusWidget", &WidgetWrapName::focusWidget),             \
+      InstanceMethod("nativeParentWidget",                                     \
+                     &WidgetWrapName::nativeParentWidget),                     \
+      InstanceMethod("nextInFocusChain", &WidgetWrapName::nextInFocusChain),   \
+      InstanceMethod("parentWidget", &WidgetWrapName::parentWidget),           \
+      InstanceMethod("previousInFocusChain",                                   \
+                     &WidgetWrapName::previousInFocusChain),                   \
+      InstanceMethod("window", &WidgetWrapName::window),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 
