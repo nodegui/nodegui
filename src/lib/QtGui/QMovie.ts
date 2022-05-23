@@ -1,28 +1,23 @@
 import addon from '../utils/addon';
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QSize } from '../QtCore/QSize';
 import { QPixmap } from './QPixmap';
+import { wrapperCache } from '../core/WrapperCache';
 
-export class QMovie extends NodeObject<QMovieSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(native: NativeElement);
-    constructor(parent: NodeObject<any>);
-    constructor(arg?: NodeObject<any> | NativeElement) {
+export class QMovie extends QObject<QMovieSignals> {
+    constructor(arg?: QObject | NativeElement) {
         let native: NativeElement;
-        if (arg) {
-            if (checkIfNativeElement(arg)) {
-                native = arg as NativeElement;
-            } else {
-                native = new addon.QMovie(arg);
-            }
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QObject;
+            native = new addon.QMovie(parent.native);
         } else {
             native = new addon.QMovie();
         }
         super(native);
-        this.native = native;
     }
     //Methods
     setFileName(fileName: string): void {
@@ -78,6 +73,7 @@ export class QMovie extends NodeObject<QMovieSignals> {
         return this.native.frameCount();
     }
 }
+wrapperCache.registerWrapper('QMovieWrap', QMovie);
 
 export enum CacheMode {
     CacheNone,

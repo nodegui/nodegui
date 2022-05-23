@@ -41,13 +41,15 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
 QApplicationWrap::QApplicationWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QApplicationWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
+  size_t argCount = info.Length();
+  if (argCount == 1) {
     this->instance = info[0].As<Napi::External<NApplication>>().Data();
-  } else if (info.Length() == 0) {
+  } else if (argCount == 0) {
     this->instance = new NApplication(qode::qode_argc, qode::qode_argv);
     this->_wasManuallyCreated = true;
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(env,
+                         "NodeGui: QApplicationWrap: Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureComponent(this->getInternalInstance());
@@ -118,8 +120,7 @@ Napi::Value StaticQApplicationWrapMethods::clipboard(
   Napi::Env env = info.Env();
   QClipboard* clipboard = QApplication::clipboard();
   if (clipboard) {
-    return WrapperCache::instance.get<QClipboard, QClipboardWrap>(env,
-                                                                  clipboard);
+    return WrapperCache::instance.getWrapper(env, clipboard, true);
   } else {
     return env.Null();
   }
@@ -163,7 +164,7 @@ Napi::Value StaticQApplicationWrapMethods::primaryScreen(
   Napi::Env env = info.Env();
   auto screen = QApplication::primaryScreen();
   if (screen) {
-    return WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
+    return WrapperCache::instance.getWrapper(env, screen, true);
   } else {
     return env.Null();
   }
@@ -176,8 +177,7 @@ Napi::Value StaticQApplicationWrapMethods::screens(
   Napi::Array jsArray = Napi::Array::New(env, screens.size());
   for (int i = 0; i < screens.size(); i++) {
     QScreen* screen = screens[i];
-    auto instance =
-        WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
+    auto instance = WrapperCache::instance.getWrapper(env, screen, true);
     jsArray[i] = instance;
   }
   return jsArray;

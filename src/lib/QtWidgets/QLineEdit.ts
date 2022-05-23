@@ -1,9 +1,11 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
-import { NativeElement } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 import { CursorMoveStyle } from '../QtEnums/CursorMoveStyle';
 import { QPoint } from '../QtCore/QPoint';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -22,20 +24,18 @@ const lineEdit = new QLineEdit();
 ```
 
  */
-export class QLineEdit extends NodeWidget<QLineEditSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QLineEdit extends QWidget<QLineEditSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QLineEdit(parent.native);
         } else {
             native = new addon.QLineEdit();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     // TODO: void 	addAction(QAction *action, QLineEdit::ActionPosition position)
     // TODO: QAction *	addAction(const QIcon &icon, QLineEdit::ActionPosition position)
@@ -214,6 +214,7 @@ export class QLineEdit extends NodeWidget<QLineEditSignals> {
         this.native.undo();
     }
 }
+wrapperCache.registerWrapper('QLineEditWrap', QLineEdit);
 
 export enum EchoMode {
     Normal,

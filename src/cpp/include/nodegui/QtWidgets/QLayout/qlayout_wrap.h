@@ -13,13 +13,13 @@
 class DLL_EXPORT QLayoutWrap : public Napi::ObjectWrap<QLayoutWrap> {
   QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NLayout> instance;
+  QPointer<QLayout> instance;
 
  public:
-  static void init(Napi::Env env);
+  static void init(Napi::Env env, Napi::Object exports);
   QLayoutWrap(const Napi::CallbackInfo& info);
   ~QLayoutWrap();
-  NLayout* getInternalInstance();
+  QLayout* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

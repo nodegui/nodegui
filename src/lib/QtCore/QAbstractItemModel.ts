@@ -1,18 +1,14 @@
 import addon from '../utils/addon';
-import { NativeElement } from '../core/Component';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QModelIndex } from './QModelIndex';
 import { QVariant } from './QVariant';
 import { ItemDataRole, ItemFlag, Orientation } from '../QtEnums';
 
 export type QAbstractItemSignals = QObjectSignals;
 
-export class QAbstractItemModel extends NodeObject<any> {
-    native: NativeElement;
+export class QAbstractItemModel extends QObject<any> {
     constructor() {
-        const native = new addon.QAbstractItemModel();
-        super(native);
-        this.native = native;
+        super(new addon.QAbstractItemModel());
         const dispatcher = (methodName: string, ...args: any[]): any => {
             switch (methodName) {
                 case 'index':
@@ -26,9 +22,9 @@ export class QAbstractItemModel extends NodeObject<any> {
 
                 case 'parent':
                     try {
-                        return this.parent(new QModelIndex(args[0])).native;
+                        return this.parentModelIndex(new QModelIndex(args[0])).native;
                     } catch (e) {
-                        console.log(`An exception was thrown while dispatching to method 'parent':`);
+                        console.log(`An exception was thrown while dispatching to method 'parentModelIndex':`);
                         console.log(e);
                     }
                     return new QModelIndex().native;
@@ -158,7 +154,10 @@ export class QAbstractItemModel extends NodeObject<any> {
     // TODO: bool moveRow(const QModelIndex &sourceParent, int sourceRow, const QModelIndex &destinationParent, int destinationChild)
     // TODO: virtual bool moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild)
 
-    parent(child: QModelIndex): QModelIndex {
+    /**
+     * Note: This corresponds to `QAbstractItemModel::parent(QModelIndex)`. It has been given a different name in TS.
+     */
+    parentModelIndex(child: QModelIndex): QModelIndex {
         return new QModelIndex();
     }
 

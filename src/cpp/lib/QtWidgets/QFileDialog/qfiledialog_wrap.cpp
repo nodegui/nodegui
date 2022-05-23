@@ -24,16 +24,19 @@ Napi::Object QFileDialogWrap::init(Napi::Env env, Napi::Object exports) {
        QDIALOG_WRAPPED_METHODS_EXPORT_DEFINE(QFileDialogWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QFileDialog, QFileDialogWrap);
   return exports;
 }
 
-NFileDialog* QFileDialogWrap::getInternalInstance() { return this->instance; }
+QFileDialog* QFileDialogWrap::getInternalInstance() { return this->instance; }
+
 QFileDialogWrap::~QFileDialogWrap() { extrautils::safeDelete(this->instance); }
 
 QFileDialogWrap::QFileDialogWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QFileDialogWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 4) {
+  size_t argCount = info.Length();
+  if (argCount == 4) {
     Napi::Object parentObject = info[0].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
@@ -45,15 +48,15 @@ QFileDialogWrap::QFileDialogWrap(const Napi::CallbackInfo& info)
     QString filter =
         QString::fromUtf8(info[3].As<Napi::String>().Utf8Value().c_str());
     this->instance = new NFileDialog(parent, caption, directory, filter);
-  } else if (info.Length() == 0) {
+  } else if (argCount == 0) {
     this->instance = new NFileDialog();
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(env,
+                         "NodeGui: QFileDialogWrap: Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      false);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), false);
 }
 
 Napi::Value QFileDialogWrap::supportedSchemes(const Napi::CallbackInfo& info) {

@@ -11,13 +11,13 @@
 class DLL_EXPORT QFontDialogWrap : public Napi::ObjectWrap<QFontDialogWrap> {
   QDIALOG_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NFontDialog> instance;
+  QPointer<QFontDialog> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QFontDialogWrap(const Napi::CallbackInfo& info);
   ~QFontDialogWrap();
-  NFontDialog* getInternalInstance();
+  QFontDialog* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

@@ -1,10 +1,12 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSlider, QAbstractSliderSignals } from './QAbstractSlider';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
- 
+
 > Create and control scollbar widgets.
 
 * **This class is a JS wrapper around Qt's [QScrollBar class](https://doc.qt.io/qt-5/qscrollbar.html)**
@@ -20,20 +22,19 @@ const scrollbar = new QScrollBar();
 ```
  */
 export class QScrollBar extends QAbstractSlider<QScrollBarSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QScrollBar(parent.native);
         } else {
             native = new addon.QScrollBar();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
 }
+wrapperCache.registerWrapper('QScrollBarWrap', QScrollBar);
 
 export type QScrollBarSignals = QAbstractSliderSignals;

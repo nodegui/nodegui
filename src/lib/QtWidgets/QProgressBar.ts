@@ -1,10 +1,12 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { Orientation, AlignmentFlag } from '../QtEnums';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
- 
+
 > Create and control progress bar widgets.
 
 * **This class is a JS wrapper around Qt's [QProgressBar class](https://doc.qt.io/qt-5/qprogressbar.html)**
@@ -19,20 +21,18 @@ const { QProgressBar } = require("@nodegui/nodegui");
 const progressBar = new QProgressBar();
 ```
  */
-export class QProgressBar extends NodeWidget<QProgressBarSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QProgressBar extends QWidget<QProgressBarSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QProgressBar(parent.native);
         } else {
             native = new addon.QProgressBar();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {
         this.setProperty('alignment', alignment);
@@ -101,6 +101,7 @@ export class QProgressBar extends NodeWidget<QProgressBarSignals> {
         this.native.setRange(minimum, maximum);
     }
 }
+wrapperCache.registerWrapper('QProgressBarWrap', QProgressBar);
 
 export enum QProgressBarDirection {
     TopToBottom,

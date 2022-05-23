@@ -12,13 +12,13 @@
 class DLL_EXPORT QListWidgetWrap : public Napi::ObjectWrap<QListWidgetWrap> {
   QLISTVIEW_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NListWidget> instance;
+  QPointer<QListWidget> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QListWidgetWrap(const Napi::CallbackInfo& info);
   ~QListWidgetWrap();
-  NListWidget* getInternalInstance();
+  QListWidget* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

@@ -1,25 +1,22 @@
-import { NodeWidget } from '../..';
+import { QWidget } from '../..';
 import { Component, NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 
 export class QStyle extends Component {
-    native: NativeElement;
     constructor(native: NativeElement) {
-        super();
-        if (checkIfNativeElement(native)) {
-            this.native = native;
-        } else {
+        if (!checkIfNativeElement(native)) {
             throw new Error('QStyle cannot be initialised this way. Use QApplication::style()');
         }
+        super(native);
     }
 
     pixelMetric(metric: QStylePixelMetric): number {
         return this.native.pixelMetric(metric);
     }
-    polish(widget: NodeWidget<any>): void {
+    polish(widget: QWidget): void {
         this.native.polish(widget.native);
     }
-    unpolish(widget: NodeWidget<any>): void {
+    unpolish(widget: QWidget): void {
         this.native.unpolish(widget.native);
     }
 }

@@ -4,22 +4,22 @@ import { QVariant } from '../QtCore/QVariant';
 import { checkIfNativeElement } from '../utils/helpers';
 
 export class QFont extends Component {
-    native: NativeElement;
     constructor();
     constructor(font: QFont);
     constructor(native: NativeElement);
     constructor(family: string, pointSize?: number, weight?: QFontWeight, italic?: boolean);
     constructor(arg?: QFont | string | NativeElement, pointSize = -1, weight = -1, italic = false) {
-        super();
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else if (arg instanceof QFont) {
-            this.native = arg.native;
+            native = arg.native;
         } else if (typeof arg === 'string') {
-            this.native = new addon.QFont(arg, pointSize, weight, italic);
+            native = new addon.QFont(arg, pointSize, weight, italic);
         } else {
-            this.native = new addon.QFont();
+            native = new addon.QFont();
         }
+        super(native);
     }
     bold(): boolean {
         return this.native.bold();

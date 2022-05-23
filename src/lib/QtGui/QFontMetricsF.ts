@@ -7,19 +7,19 @@ import { TextElideMode, TextFlag } from '../QtEnums';
 import { QRect } from '../..';
 
 export class QFontMetricsF extends Component {
-    native: NativeElement;
     constructor(native: NativeElement);
     constructor(qfont: QFont);
     constructor(qfontmetricsf: QFontMetricsF);
     constructor(arg: QFont | QFontMetricsF | NativeElement) {
-        super();
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else if (arg instanceof QFontMetricsF) {
-            this.native = arg.native;
+            native = arg.native;
         } else {
-            this.native = new addon.QFontMetricsF(arg.native);
+            native = new addon.QFontMetricsF(arg.native);
         }
+        super(native);
     }
     // *** Public Functions ***
 

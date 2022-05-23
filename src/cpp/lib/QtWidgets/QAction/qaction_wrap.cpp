@@ -34,44 +34,40 @@ Napi::Object QActionWrap::init(Napi::Env env, Napi::Object exports) {
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QActionWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QAction, QActionWrap);
   return exports;
 }
 
-NAction* QActionWrap::getInternalInstance() { return this->instance; }
+QAction* QActionWrap::getInternalInstance() { return this->instance; }
 
 QActionWrap::QActionWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QActionWrap>(info) {
   Napi::Env env = info.Env();
-
-  this->disableDeletion = false;
-  if (info.Length() > 0 && info[0].IsExternal()) {
-    // --- if external ---
-    this->instance = info[0].As<Napi::External<NAction>>().Data();
-    if (info.Length() == 2) {
-      this->disableDeletion = info[1].As<Napi::Boolean>().Value();
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
+    this->instance = new NAction();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QAction>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      QObjectWrap* parentObjectWrap =
+          Napi::ObjectWrap<QObjectWrap>::Unwrap(parentObject);
+      this->instance = new NAction(parentObjectWrap->getInternalInstance());
     }
   } else {
-    // --- regular cases ---
-    if (info.Length() == 1) {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      NodeWidgetWrap* parentWidgetWrap =
-          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-      this->instance = new NAction(parentWidgetWrap->getInternalInstance());
-    } else if (info.Length() == 0) {
-      this->instance = new NAction();
-    } else {
-      Napi::TypeError::New(env, "Wrong number of arguments")
-          .ThrowAsJavaScriptException();
-    }
+    Napi::TypeError::New(
+        env, "NodeGui: QActionWrap: Wrong number of arguments to constructor")
+        .ThrowAsJavaScriptException();
   }
+
   this->rawData = extrautils::configureQObject(this->getInternalInstance());
 }
 
-QActionWrap::~QActionWrap() {
-  if (!this->disableDeletion) {
-    extrautils::safeDelete(this->instance);
-  }
-}
+QActionWrap::~QActionWrap() { extrautils::safeDelete(this->instance); }
 
 Napi::Value QActionWrap::setText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

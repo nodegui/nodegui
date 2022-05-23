@@ -1,10 +1,12 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { NodeDialog, QDialogSignals } from './QDialog';
+import { QDialog, QDialogSignals } from './QDialog';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
+
 > Create and control error message dialogs.
 
 * **This class is a JS wrapper around Qt's [QErrorMessage class](https://doc.qt.io/qt-5/qerrormessage.html)**
@@ -20,24 +22,23 @@ const errorMessage = new QErrorMessage();
 
 ```
  */
-export class QErrorMessage extends NodeDialog<QErrorMessageSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QErrorMessage extends QDialog<QErrorMessageSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QErrorMessage(parent.native);
         } else {
             native = new addon.QErrorMessage();
         }
         super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
     }
     showMessage(message: string): void {
         this.native.showMessage(message);
     }
 }
+wrapperCache.registerWrapper('QErrorMessageWrap', QErrorMessage);
 
 export type QErrorMessageSignals = QDialogSignals;

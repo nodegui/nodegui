@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { SizeAdjustPolicy } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
@@ -7,6 +7,8 @@ import { QVariant } from '../QtCore/QVariant';
 import { QStandardItemModel } from './QStandardItemModel';
 import { QSize } from '../QtCore/QSize';
 import { QModelIndex } from '../QtCore/QModelIndex';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -36,20 +38,18 @@ comboBox.addEventListener('currentIndexChanged', (index) => {
 });
 ```
  */
-export class QComboBox extends NodeWidget<QComboBoxSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QComboBox extends QWidget<QComboBoxSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QComboBox(parent.native);
         } else {
             native = new addon.QComboBox();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     // *** Public Functions ***
     addItem(icon: QIcon | undefined, text: string, userData: QVariant = new QVariant()): void {
@@ -226,3 +226,5 @@ export interface QComboBoxSignals extends QWidgetSignals {
     textActivated: (text: string) => void;
     textHighlighted: (text: string) => void;
 }
+
+wrapperCache.registerWrapper('QComboBoxWrap', QComboBox);

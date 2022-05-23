@@ -1,16 +1,18 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
-import { NodeFrame, QFrameSignals } from './QFrame';
-import { NativeElement } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { QFrame, QFrameSignals } from './QFrame';
 import { QPixmap } from '../QtGui/QPixmap';
 import { QMovie } from '../QtGui/QMovie';
 import { AlignmentFlag } from '../QtEnums/AlignmentFlag';
 import { TextFormat } from '../QtEnums/TextFormat';
 import { TextInteractionFlag } from '../QtEnums';
 import { QPicture } from '../QtGui/QPicture';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
- 
+
 > Create and control text.
 
 * **This class is a JS wrapper around Qt's [QLabel class](https://doc.qt.io/qt-5/qlabel.html)**
@@ -27,24 +29,23 @@ label.setText("Hello");
 ```
 
  */
-export class QLabel extends NodeFrame<QLabelSignals> {
-    native: NativeElement;
+export class QLabel extends QFrame<QLabelSignals> {
     private _picture?: QPicture;
     private _pixmap?: QPixmap;
     private _movie?: QMovie;
-    private _buddy?: NodeWidget<any> | null;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+
+    // TODO
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QLabel(parent.native);
         } else {
             native = new addon.QLabel();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {
         this.setProperty('alignment', alignment);
@@ -112,15 +113,11 @@ export class QLabel extends NodeFrame<QLabelSignals> {
     selectionStart(): number {
         return this.native.selectionStart();
     }
-    setBuddy(buddy: NodeWidget<any>): void {
+    setBuddy(buddy: QWidget): void {
         this.native.setBuddy(buddy.native);
-        this._buddy = buddy;
     }
-    buddy(): NodeWidget<any> | null {
-        if (this._buddy) {
-            return this._buddy;
-        }
-        return null;
+    buddy(): QWidget | null {
+        return wrapperCache.getWrapper(this.native.budd()) as QWidget;
     }
     setMovie(movie: QMovie): void {
         this.native.setMovie(movie.native);
@@ -153,6 +150,7 @@ export class QLabel extends NodeFrame<QLabelSignals> {
         this.native.clear();
     }
 }
+wrapperCache.registerWrapper('QLabelWrap', QLabel);
 
 export interface QLabelSignals extends QFrameSignals {
     linkActivated: (link: string) => void;

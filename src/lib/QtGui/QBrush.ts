@@ -21,18 +21,18 @@ const brush = new QBrush();
 ```
  */
 export class QBrush extends Component {
-    native: NativeElement;
-    constructor(arg?: NativeElement | GlobalColor | QColor, style = BrushStyle.SolidPattern) {
-        super();
-        if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
-        } else if (typeof arg === 'number') {
-            this.native = new addon.QBrush(arg, style);
-        } else if (arg == null) {
-            this.native = new addon.QBrush();
+    constructor(nativeOrGlobalColor?: NativeElement | GlobalColor | QColor, style = BrushStyle.SolidPattern) {
+        let native: NativeElement;
+        if (checkIfNativeElement(nativeOrGlobalColor)) {
+            native = nativeOrGlobalColor as NativeElement;
+        } else if (typeof nativeOrGlobalColor === 'number') {
+            native = new addon.QBrush(nativeOrGlobalColor, style);
+        } else if (nativeOrGlobalColor == null) {
+            native = new addon.QBrush();
         } else {
-            this.native = new addon.QBrush(arg?.native, style);
+            native = new addon.QBrush(nativeOrGlobalColor?.native, style);
         }
+        super(native);
     }
     isOpaque(): boolean {
         return this.native.isOpaque();

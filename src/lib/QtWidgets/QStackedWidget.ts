@@ -1,7 +1,9 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
-import { NodeFrame, QFrameSignals } from './QFrame';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { QFrame, QFrameSignals } from './QFrame';
+import { wrapperCache } from '../core/WrapperCache';
 import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -44,26 +46,22 @@ win.show();
 
 ```
  */
-export class QStackedWidget extends NodeFrame<QStackedWidgetSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QStackedWidget extends QFrame<QStackedWidgetSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QStackedWidget(parent.native);
         } else {
             native = new addon.QStackedWidget();
         }
         super(native);
-        this.setNodeParent(parent);
-        this.native = native;
     }
-
     // *** Public Function ***
-    addWidget(widget: NodeWidget<any>): void {
+    addWidget(widget: QWidget): void {
         this.native.addWidget(widget.native);
-        this.nodeChildren.add(widget);
         widget.setFlexNodeSizeControlled(true);
     }
     count(): number {
@@ -75,9 +73,8 @@ export class QStackedWidget extends NodeFrame<QStackedWidgetSignals> {
     // TODO: QWidget *	currentWidget() const
     // TODO: int 	indexOf(QWidget *widget) const
     // TODO: int 	insertWidget(int index, QWidget *widget)
-    removeWidget(widget: NodeWidget<any>): void {
+    removeWidget(widget: QWidget): void {
         this.native.removeWidget(widget.native);
-        this.nodeChildren.delete(widget);
     }
     // TODO: QWidget *	widget(int index) const
 
@@ -85,10 +82,11 @@ export class QStackedWidget extends NodeFrame<QStackedWidgetSignals> {
     setCurrentIndex(index: number): void {
         this.native.setCurrentIndex(index);
     }
-    setCurrentWidget(widget: NodeWidget<any>): void {
+    setCurrentWidget(widget: QWidget): void {
         this.native.setCurrentWidget(widget.native);
     }
 }
+wrapperCache.registerWrapper('QStackedWidgetWrap', QStackedWidget);
 
 export interface QStackedWidgetSignals extends QFrameSignals {
     currentChanged: (index: number) => void;

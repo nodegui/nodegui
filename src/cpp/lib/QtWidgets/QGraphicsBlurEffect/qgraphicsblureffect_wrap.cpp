@@ -2,6 +2,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_wrap.h"
+#include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QGraphicsBlurEffectWrap::constructor;
 
@@ -14,10 +15,11 @@ Napi::Object QGraphicsBlurEffectWrap::init(Napi::Env env,
       {QGRAPHICSEFFECT_WRAPPED_METHODS_EXPORT_DEFINE(QGraphicsBlurEffectWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QGraphicsBlurEffect, QGraphicsBlurEffectWrap);
   return exports;
 }
 
-NGraphicsBlurEffect* QGraphicsBlurEffectWrap::getInternalInstance() {
+QGraphicsBlurEffect* QGraphicsBlurEffectWrap::getInternalInstance() {
   return this->instance;
 }
 
@@ -28,16 +30,26 @@ QGraphicsBlurEffectWrap::~QGraphicsBlurEffectWrap() {
 QGraphicsBlurEffectWrap::QGraphicsBlurEffectWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QGraphicsBlurEffectWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    QObjectWrap* parentObjectWrap =
-        Napi::ObjectWrap<QObjectWrap>::Unwrap(parentObject);
-    this->instance =
-        new NGraphicsBlurEffect(parentObjectWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NGraphicsBlurEffect();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QGraphicsBlurEffect>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance =
+          new NGraphicsBlurEffect(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(env,
+                         "NodeGui: QGraphicsBlurEffectWrap: Wrong number of "
+                         "arguments to constructor")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureQObject(this->getInternalInstance());

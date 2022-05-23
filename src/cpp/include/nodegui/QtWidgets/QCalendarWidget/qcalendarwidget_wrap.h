@@ -11,13 +11,13 @@
 class DLL_EXPORT QCalendarWidgetWrap
     : public Napi::ObjectWrap<QCalendarWidgetWrap> {
  private:
-  QPointer<NCalendarWidget> instance;
+  QPointer<QCalendarWidget> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QCalendarWidgetWrap(const Napi::CallbackInfo &info);
   ~QCalendarWidgetWrap();
-  NCalendarWidget *getInternalInstance();
+  QCalendarWidget *getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

@@ -145,9 +145,7 @@
   Napi::Value selectionModel(const Napi::CallbackInfo& info) {                 \
     Napi::Env env = info.Env();                                                \
     QItemSelectionModel* model = this->instance->selectionModel();             \
-    auto modelExt = Napi::External<QItemSelectionModel>::New(env, model);      \
-    auto instance = QItemSelectionModelWrap::constructor.New({modelExt});      \
-    return instance;                                                           \
+    return WrapperCache::instance.getWrapper(env, model);                      \
   }                                                                            \
   Napi::Value isPersistentEditorOpen(const Napi::CallbackInfo& info) {         \
     Napi::Env env = info.Env();                                                \

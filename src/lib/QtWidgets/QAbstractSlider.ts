@@ -1,8 +1,8 @@
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { Orientation } from '../QtEnums';
 
 /**
- 
+
 > Abstract class to add functionalities common to all slider based widgets.
 
 **This class implements all methods, properties of Qt's [QAbstractSlider class](https://doc.qt.io/qt-5/qabstractslider.html) so that it can be inherited by all slider based widgets**
@@ -14,7 +14,7 @@ import { Orientation } from '../QtEnums';
 QAbstractSlider will list all methods and properties that are common to all slider widgets in the NodeGui world.
 
  */
-export abstract class QAbstractSlider<Signals extends QAbstractSliderSignals> extends NodeWidget<Signals> {
+export abstract class QAbstractSlider<Signals extends QAbstractSliderSignals> extends QWidget<Signals> {
     triggerAction(action: SliderAction): void {
         this.native.triggerAction(action);
     }

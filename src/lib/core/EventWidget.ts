@@ -36,8 +36,9 @@ view.addEventListener(WidgetEventTypes.MouseMove, () => {
 export abstract class EventWidget<Signals extends unknown> extends Component {
     private emitter: EventEmitter;
     private _isEventProcessed = false;
+
     constructor(native: NativeElement) {
-        super();
+        super(native);
         if (native.initNodeEventEmitter == null) {
             throw new Error('initNodeEventEmitter not implemented on native side');
         }

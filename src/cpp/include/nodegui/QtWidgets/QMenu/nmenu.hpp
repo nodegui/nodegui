@@ -17,10 +17,8 @@ class DLL_EXPORT NMenu : public QMenu, public NodeWidget {
     QObject::connect(this, &QMenu::triggered, [=](QAction* action) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
-      auto actionInstance = QActionWrap::constructor.New(
-          {Napi::External<QAction>::New(env, action)});
-      this->emitOnNode.Call(
-          {Napi::String::New(env, "triggered"), actionInstance});
+      auto instance = WrapperCache::instance.getWrapper(env, action);
+      this->emitOnNode.Call({Napi::String::New(env, "triggered"), instance});
     });
   }
 };

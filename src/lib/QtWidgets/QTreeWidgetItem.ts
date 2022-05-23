@@ -8,7 +8,7 @@ import { CheckState, ItemDataRole } from '../QtEnums';
 import { QVariantType, QVariant } from '../QtCore/QVariant';
 
 /**
- 
+
 > Creates an item for QTreeWidget.
 
 * **This class is a JS wrapper around Qt's [QTreeWidgetItem class](https://doc.qt.io/qt-5/qtreewidgetitem.html)**
@@ -46,7 +46,6 @@ win.show();
 ```
  */
 export class QTreeWidgetItem extends Component {
-    native: NativeElement;
     items: Set<NativeElement | Component>;
     constructor();
     constructor(parent: QTreeWidgetItem, strings?: string[]);
@@ -54,26 +53,26 @@ export class QTreeWidgetItem extends Component {
     constructor(native: NativeElement);
     constructor(strings: string[]);
     constructor(parent?: NativeElement | QTreeWidgetItem | QTreeWidget | string[], strings?: string[]) {
-        super();
-        this.items = new Set();
+        let native: NativeElement;
         if (checkIfNativeElement(parent)) {
-            this.native = parent as NativeElement;
+            native = parent as NativeElement;
         } else {
             if (parent instanceof QTreeWidgetItem || parent instanceof QTreeWidget) {
-                this.setNodeParent(parent);
                 const type = parent instanceof QTreeWidgetItem ? 'item' : 'tree';
                 if (strings) {
-                    this.native = new addon.QTreeWidgetItem(parent.native, strings, type);
+                    native = new addon.QTreeWidgetItem(parent.native, strings, type);
                 } else {
-                    this.native = new addon.QTreeWidgetItem(parent.native, type);
+                    native = new addon.QTreeWidgetItem(parent.native, type);
                 }
             } else if (Array.isArray(parent)) {
                 const strings = parent;
-                this.native = new addon.QTreeWidgetItem(strings);
+                native = new addon.QTreeWidgetItem(strings);
             } else {
-                this.native = new addon.QTreeWidgetItem();
+                native = new addon.QTreeWidgetItem();
             }
         }
+        super(native);
+        this.items = new Set();
     }
     setText(column: number, text: string): void {
         this.native.setText(column, text);

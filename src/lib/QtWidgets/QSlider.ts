@@ -1,10 +1,12 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSlider, QAbstractSliderSignals } from './QAbstractSlider';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
+
 > Create and control slider widgets.
 
 * **This class is a JS wrapper around Qt's [QSlider class](https://doc.qt.io/qt-5/qslider.html)**
@@ -20,19 +22,17 @@ const slider = new QSlider();
 ```
  */
 export class QSlider extends QAbstractSlider<QSliderSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QSlider(parent.native);
         } else {
             native = new addon.QSlider();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     setTickInterval(ti: number): void {
         this.setProperty('tickInterval', ti);
@@ -47,6 +47,7 @@ export class QSlider extends QAbstractSlider<QSliderSignals> {
         return this.property('tickPosition').toInt();
     }
 }
+wrapperCache.registerWrapper('QSliderWrap', QSlider);
 
 export enum TickPosition {
     NoTicks,

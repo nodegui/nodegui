@@ -1,6 +1,5 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
-import { NativeElement } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QIcon } from '../QtGui/QIcon';
 import { TextElideMode } from '../QtEnums';
 import { QSize } from '../QtCore/QSize';
@@ -8,6 +7,9 @@ import { QVariant } from '../QtCore/QVariant';
 import { QColor } from '../QtGui/QColor';
 import { QPoint } from '../QtCore/QPoint';
 import { QRect } from '../QtCore/QRect';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -26,20 +28,18 @@ const tabBar = new QTabBar();
 
 ```
  */
-export class QTabBar extends NodeWidget<QTabBarSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QTabBar extends QWidget<QTabBarSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QTabBar(parent.native);
         } else {
             native = new addon.QTabBar();
         }
         super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
     }
     setAutoHide(hide: boolean): void {
         this.setProperty('autoHide', hide);
@@ -155,7 +155,7 @@ export class QTabBar extends NodeWidget<QTabBarSignals> {
     removeTab(index: number): void {
         this.native.removeTab(index);
     }
-    setTabButton(index: number, position: ButtonPosition, widget: NodeWidget<any> | undefined | null): void {
+    setTabButton(index: number, position: ButtonPosition, widget: QWidget | undefined | null): void {
         this.native.setTabButton(index, position, widget == null ? null : widget?.native);
     }
     setTabData(index: number, data: QVariant): void {
@@ -201,6 +201,7 @@ export class QTabBar extends NodeWidget<QTabBarSignals> {
         return new QRect(this.native.tabRect(index));
     }
 }
+wrapperCache.registerWrapper('QTabBarWrap', QTabBar);
 
 export enum ButtonPosition {
     LeftSide = 0,

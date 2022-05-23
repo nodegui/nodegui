@@ -1,4 +1,4 @@
-import { Component, NativeElement } from '../core/Component';
+import { Component } from '../core/Component';
 import addon from '../utils/addon';
 import { GlobalColor, PenStyle, PenCapStyle } from '../QtEnums';
 import { QColor } from './QColor';
@@ -18,10 +18,8 @@ const pen = new QPen();
 ```
  */
 export class QPen extends Component {
-    native: NativeElement;
     constructor() {
-        super();
-        this.native = new addon.QPen();
+        super(new addon.QPen());
     }
     setColor(color: QColor | GlobalColor): void {
         if (typeof color === 'number') {

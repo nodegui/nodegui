@@ -7,7 +7,7 @@ export class QAbstractTableModel extends QAbstractItemModel {
         return this.hasIndex(row, column, parent) ? this.createIndex(row, column) : new QModelIndex();
     }
 
-    parent(child: QModelIndex): QModelIndex {
+    parentModelIndex(child: QModelIndex): QModelIndex {
         return new QModelIndex();
     }
 

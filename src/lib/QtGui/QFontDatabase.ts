@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { Component, NativeElement } from '../core/Component';
+import { Component } from '../core/Component';
 
 export enum WritingSystem {
     Any = 0,
@@ -40,10 +40,8 @@ export enum WritingSystem {
 }
 
 export class QFontDatabase extends Component {
-    native: NativeElement;
     constructor() {
-        super();
-        this.native = new addon.QFontDatabase();
+        super(new addon.QFontDatabase());
     }
     families(ws: WritingSystem = WritingSystem.Any): string[] {
         return this.native.families(ws);

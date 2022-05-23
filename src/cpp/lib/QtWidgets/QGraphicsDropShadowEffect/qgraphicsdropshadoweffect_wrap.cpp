@@ -2,6 +2,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QObject/qobject_wrap.h"
+#include "QtWidgets/QWidget/qwidget_wrap.h"
 
 Napi::FunctionReference QGraphicsDropShadowEffectWrap::constructor;
 
@@ -15,10 +16,12 @@ Napi::Object QGraphicsDropShadowEffectWrap::init(Napi::Env env,
                       QGraphicsDropShadowEffectWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QGraphicsDropShadowEffect,
+                           QGraphicsDropShadowEffectWrap);
   return exports;
 }
 
-NGraphicsDropShadowEffect*
+QGraphicsDropShadowEffect*
 QGraphicsDropShadowEffectWrap::getInternalInstance() {
   return this->instance;
 }
@@ -31,16 +34,28 @@ QGraphicsDropShadowEffectWrap::QGraphicsDropShadowEffectWrap(
     const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QGraphicsDropShadowEffectWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    QObjectWrap* parentObjectWrap =
-        Napi::ObjectWrap<QObjectWrap>::Unwrap(parentObject);
-    this->instance =
-        new NGraphicsDropShadowEffect(parentObjectWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NGraphicsDropShadowEffect();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance =
+          info[0].As<Napi::External<QGraphicsDropShadowEffect>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NGraphicsDropShadowEffect(
+          parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QGraphicsDropShadowEffectWrap: Wrong number of "
+        "arguments to constructor")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureQObject(this->getInternalInstance());

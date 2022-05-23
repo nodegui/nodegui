@@ -58,9 +58,7 @@
   Napi::Value viewport(const Napi::CallbackInfo& info) {               \
     Napi::Env env = info.Env();                                        \
     QWidget* viewPort = this->instance->viewport();                    \
-    NWidget* nviewPort = reinterpret_cast<NWidget*>(viewPort);         \
-    auto instance = QWidgetWrap::constructor.New(                      \
-        {Napi::External<NWidget>::New(env, nviewPort)});               \
+    auto instance = WrapperCache::instance.getWrapper(env, viewPort);  \
     return instance;                                                   \
   }
 

@@ -7,19 +7,19 @@ import { QVariant } from './QVariant';
  * The QPoint class defines a point in the plane using integer precision.
  */
 export class QPoint extends Component {
-    native: NativeElement;
     constructor();
     constructor(nativeElement: NativeElement);
     constructor(x?: number, y?: number);
-    constructor(arg?: NativeElement | number, y = 0) {
-        super();
-        if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
-        } else if (typeof arg === 'number') {
-            this.native = new addon.QPoint(arg, y);
+    constructor(nativeOrX?: NativeElement | number, y = 0) {
+        let native: NativeElement;
+        if (checkIfNativeElement(nativeOrX)) {
+            native = nativeOrX as NativeElement;
+        } else if (typeof nativeOrX === 'number') {
+            native = new addon.QPoint(nativeOrX, y);
         } else {
-            this.native = new addon.QPoint();
+            native = new addon.QPoint();
         }
+        super(native);
     }
     setX(value: number): void {
         this.native.setX(value);

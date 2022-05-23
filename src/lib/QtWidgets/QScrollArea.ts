@@ -1,9 +1,11 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { AlignmentFlag } from '../QtEnums';
 import { Margins } from '../utils/Margins';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -29,20 +31,17 @@ scrollArea.setWidget(imageLabel);
 ```
  */
 export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
-    native: NativeElement;
-    contentWidget?: NodeWidget<any> | null;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QScrollArea(parent.native);
         } else {
             native = new addon.QScrollArea();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     setAlignment(alignment: AlignmentFlag): void {
         this.setProperty('alignment', alignment);
@@ -59,28 +58,17 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
     ensureVisible(x: number, y: number, xmargin = 50, ymargin = 50): void {
         this.native.ensureVisible(x, y, xmargin, ymargin);
     }
-    ensureWidgetVisible(childWidget: NodeWidget<any>, xmargin = 50, ymargin = 50): void {
+    ensureWidgetVisible(childWidget: QWidget, xmargin = 50, ymargin = 50): void {
         this.native.ensureWidgetVisible(childWidget.native, xmargin, ymargin);
     }
-    setWidget(widget: NodeWidget<any>): void {
-        this.contentWidget = widget;
+    setWidget(widget: QWidget): void {
         this.native.setWidget(widget.native);
     }
-    widget(): NodeWidget<any> | null {
-        if (this.contentWidget) {
-            return this.contentWidget;
-        }
-        return null;
+    widget(): QWidget | null {
+        return wrapperCache.getWrapper(this.native.widget()) as QWidget;
     }
-    takeWidget(): NodeWidget<any> | null {
-        // react:✓
-        const contentWidget = this.contentWidget;
-        this.contentWidget = null;
-        if (contentWidget) {
-            this.native.takeWidget();
-            return contentWidget;
-        }
-        return null;
+    takeWidget(): QWidget | null {
+        return wrapperCache.getWrapper(this.native.takeWidget()) as QWidget;
     }
     setViewportMargins(left: number, top: number, right: number, bottom: number): void {
         // Technically part of QAbstractScrollArea, but the C++ side has subclass specific
@@ -98,5 +86,6 @@ export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
         };
     }
 }
+wrapperCache.registerWrapper('QScrollAreaWrap', QScrollArea);
 
 export type QScrollAreaSignals = QAbstractScrollAreaSignals;

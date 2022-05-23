@@ -23,35 +23,44 @@ Napi::Object QTabWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("currentIndex", &QTabWidgetWrap::currentIndex),
        InstanceMethod("removeTab", &QTabWidgetWrap::removeTab),
        InstanceMethod("setTabsClosable", &QTabWidgetWrap::setTabsClosable),
+       InstanceMethod("widget", &QTabWidgetWrap::widget),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QTabWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QTabWidget, QTabWidgetWrap);
   return exports;
 }
 
-NTabWidget* QTabWidgetWrap::getInternalInstance() { return this->instance; }
+QTabWidget* QTabWidgetWrap::getInternalInstance() { return this->instance; }
 
 QTabWidgetWrap::~QTabWidgetWrap() { extrautils::safeDelete(this->instance); }
 
 QTabWidgetWrap::QTabWidgetWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QTabWidgetWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NTabWidget(
-        parentWidgetWrap
-            ->getInternalInstance());  // this sets the parent to current widget
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NTabWidget();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QTabWidget>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NTabWidget(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QTabWidgetWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      true);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), true);
 }
 
 Napi::Value QTabWidgetWrap::addTab(const Napi::CallbackInfo& info) {
@@ -151,4 +160,15 @@ Napi::Value QTabWidgetWrap::setTabsClosable(const Napi::CallbackInfo& info) {
   Napi::Boolean closable = info[0].As<Napi::Boolean>();
   this->instance->setTabsClosable(closable.Value());
   return env.Null();
+}
+
+Napi::Value QTabWidgetWrap::widget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::Number index = info[0].As<Napi::Number>();
+  QWidget* widget = this->instance->widget(index.Int32Value());
+  if (widget) {
+    return WrapperCache::instance.getWrapper(env, widget);
+  } else {
+    return env.Null();
+  }
 }

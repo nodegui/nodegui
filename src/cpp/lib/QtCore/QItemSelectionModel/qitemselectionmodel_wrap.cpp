@@ -38,6 +38,7 @@ Napi::Object QItemSelectionModelWrap::init(Napi::Env env,
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QItemSelectionModelWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QItemSelectionModel, QItemSelectionModelWrap);
   return exports;
 }
 
@@ -46,20 +47,33 @@ QItemSelectionModel* QItemSelectionModelWrap::getInternalInstance() {
 }
 
 QItemSelectionModelWrap::~QItemSelectionModelWrap() {
-  if (!this->disableDeletion) {
-    extrautils::safeDelete(this->instance);
-  }
+  extrautils::safeDelete(this->instance);
 }
 
 QItemSelectionModelWrap::QItemSelectionModelWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QItemSelectionModelWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NItemSelectionModel();
-    this->disableDeletion = false;
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QItemSelectionModel>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      // Napi::Object parentObject = info[0].As<Napi::Object>();
+      // QObjectWrap* parentObjectWrap =
+      //     Napi::ObjectWrap<QObjectWrap>::Unwrap(parentObject);
+      // this->instance = new
+      // NItemSelectionModel(parentObjectWrap->getInternalInstance());
+    }
   } else {
-    this->instance = info[0].As<Napi::External<QItemSelectionModel>>().Data();
-    this->disableDeletion = true;
+    Napi::TypeError::New(env,
+                         "NodeGui: QItemSelectionModelWrap: Wrong number of "
+                         "arguments to constructor")
+        .ThrowAsJavaScriptException();
   }
 }
 Napi::Value QItemSelectionModelWrap::columnIntersectsSelection(

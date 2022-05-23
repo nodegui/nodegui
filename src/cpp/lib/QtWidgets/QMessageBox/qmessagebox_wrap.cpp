@@ -23,30 +23,41 @@ Napi::Object QMessageBoxWrap::init(Napi::Env env, Napi::Object exports) {
        QDIALOG_WRAPPED_METHODS_EXPORT_DEFINE(QMessageBoxWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QMessageBox, QMessageBoxWrap);
   return exports;
 }
 
-NMessageBox* QMessageBoxWrap::getInternalInstance() { return this->instance; }
+QMessageBox* QMessageBoxWrap::getInternalInstance() { return this->instance; }
+
 QMessageBoxWrap::~QMessageBoxWrap() { extrautils::safeDelete(this->instance); }
 
 QMessageBoxWrap::QMessageBoxWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMessageBoxWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NMessageBox(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NMessageBox();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QMessageBox>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NMessageBox(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QMessageBoxWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
   this->instance->setStandardButtons(QMessageBox::NoButton);
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      false);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), false);
 }
 
 Napi::Value QMessageBoxWrap::setDefaultButton(const Napi::CallbackInfo& info) {

@@ -1,10 +1,12 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement, Component } from '../core/Component';
 import { MatchFlag, ScrollHint, SortOrder } from '../QtEnums';
 import { QTableWidgetItem } from './QTableWidgetItem';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { QRect } from '../QtCore/QRect';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -38,18 +40,24 @@ win.show();
 ```
  */
 export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
-    native: NativeElement;
     items: Set<NativeElement | Component>;
-    constructor(rows: number, columns: number, parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
-            native = new addon.QTableWidget(rows, columns, parent.native);
+    constructor(rowsOrNativeOrParent: QWidget | NativeElement | number, columns?: number, parent?: QWidget) {
+        let native: NativeElement;
+        if (checkIfNativeElement(rowsOrNativeOrParent)) {
+            native = rowsOrNativeOrParent as NativeElement;
+        } else if (typeof rowsOrNativeOrParent == 'number') {
+            const rows = rowsOrNativeOrParent;
+            if (parent) {
+                native = new addon.QTableWidget(rows, columns, parent.native);
+            } else {
+                native = new addon.QTableWidget(rows, columns);
+            }
+        } else if (rowsOrNativeOrParent != null) {
+            native = new addon.QTableWidget(rowsOrNativeOrParent.native);
         } else {
-            native = new addon.QTableWidget(rows, columns);
+            native = new addon.QTableWidget();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
         this.items = new Set();
     }
     selectedRanges(): Range[] {
@@ -61,9 +69,8 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     editItem(item: Component): void {
         this.native.editItem(item.native);
     }
-    setCellWidget(row: number, column: number, widget: NodeWidget<any>): void {
+    setCellWidget(row: number, column: number, widget: QWidget): void {
         this.native.setCellWidget(row, column, widget.native);
-        this.items.add(widget);
     }
     setItem(row: number, column: number, item: QTableWidgetItem): void {
         this.native.setItem(row, column, item.native);
@@ -232,6 +239,7 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
         return this.native.isSortingEnabled();
     }
 }
+wrapperCache.registerWrapper('QTableWidgetWrap', QTableWidget);
 
 interface Range {
     topRow: number;

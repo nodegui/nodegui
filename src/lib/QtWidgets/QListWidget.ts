@@ -1,11 +1,13 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement, Component } from '../core/Component';
 import { QListWidgetItem } from './QListWidgetItem';
-import { NodeListView, QListViewSignals } from './QListView';
+import { QListView, QListViewSignals } from './QListView';
 import { QRect } from '../QtCore/QRect';
 import { SortOrder, ScrollHint, MatchFlag } from '../QtEnums';
 import { QModelIndex } from '../QtCore/QModelIndex';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -32,21 +34,20 @@ for (let i = 0; i < 30; i++) {
 }
 ```
  */
-export class QListWidget extends NodeListView<QListWidgetSignals> {
-    native: NativeElement;
-    items: Set<NativeElement | Component>;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QListWidget extends QListView<QListWidgetSignals> {
+    items: Set<Component>;
+
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QListWidget(parent.native);
         } else {
             native = new addon.QListWidget();
         }
         super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
         this.items = new Set();
     }
     count(): number {
@@ -135,7 +136,7 @@ export class QListWidget extends NodeListView<QListWidgetSignals> {
     setCurrentItem(item: QListWidgetItem): void {
         this.native.setCurrentItem(item.native);
     }
-    setItemWidget(item: QListWidgetItem, widget: NodeWidget<any>): void {
+    setItemWidget(item: QListWidgetItem, widget: QWidget): void {
         this.native.setItemWidget(item.native, widget.native);
     }
     sortItems(order = SortOrder.AscendingOrder): void {
@@ -154,6 +155,7 @@ export class QListWidget extends NodeListView<QListWidgetSignals> {
         this.native.scrollToItem(item.native, hint);
     }
 }
+wrapperCache.registerWrapper('QListWidgetWrap', QListWidget);
 
 export interface QListWidgetSignals extends QListViewSignals {
     currentItemChanged: (current: QListWidgetItem, previous: QListWidgetItem) => void;

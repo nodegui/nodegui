@@ -1,13 +1,15 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { AlignmentFlag, TextInteractionFlag } from '../QtEnums';
 import { QFont } from '../QtGui/QFont';
 import { QColor } from '../QtGui/QColor';
+import { checkIfNativeElement } from '../utils/helpers';
+import { NativeElement } from '../core/Component';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
+
 > Create and control editable text field.
 
 * **This class is a JS wrapper around Qt's [QTextEdit class](https://doc.qt.io/qt-5/qtextedit.html)**
@@ -23,7 +25,19 @@ const textEdit = new QTextEdit();
 ```
 
  */
-export abstract class NodeTextEdit<Signals extends QTextEditSignals> extends QAbstractScrollArea<Signals> {
+export class QTextEdit<Signals extends QTextEditSignals = QTextEditSignals> extends QAbstractScrollArea<Signals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QTextEdit(parent.native);
+        } else {
+            native = new addon.QTextEdit();
+        }
+        super(native);
+    }
     setAcceptRichText(accept: boolean): void {
         this.setProperty('acceptRichText', accept);
     }
@@ -217,6 +231,7 @@ export abstract class NodeTextEdit<Signals extends QTextEditSignals> extends QAb
         this.native.zoomOut(range);
     }
 }
+wrapperCache.registerWrapper('QTextEditWrap', QTextEdit);
 
 export enum AutoFormattingFlag {
     AutoNone = 0,
@@ -237,23 +252,6 @@ export enum WrapMode {
     ManualWrap,
     WrapAnywhere,
     WrapAtWordBoundaryOrAnywhere,
-}
-
-export class QTextEdit extends NodeTextEdit<QTextEditSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
-            native = new addon.QTextEdit(parent.native);
-        } else {
-            native = new addon.QTextEdit();
-        }
-        super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
-    }
 }
 
 export interface QTextEditSignals extends QAbstractScrollAreaSignals {

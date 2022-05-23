@@ -11,14 +11,13 @@
 class DLL_EXPORT QTableViewWrap : public Napi::ObjectWrap<QTableViewWrap> {
   QTABLEVIEW_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NTableView> instance;
-  bool disableDeletion;
+  QPointer<QTableView> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QTableViewWrap(const Napi::CallbackInfo& info);
   ~QTableViewWrap();
-  NTableView* getInternalInstance();
+  QTableView* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

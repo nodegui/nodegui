@@ -11,13 +11,13 @@
 class DLL_EXPORT QDateEditWrap : public Napi::ObjectWrap<QDateEditWrap> {
   QDATETIMEEDIT_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NDateEdit> instance;
+  QPointer<QDateEdit> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QDateEditWrap(const Napi::CallbackInfo &info);
   ~QDateEditWrap();
-  NDateEdit *getInternalInstance();
+  QDateEdit *getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

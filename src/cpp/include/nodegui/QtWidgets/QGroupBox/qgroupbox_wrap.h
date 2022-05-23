@@ -11,13 +11,13 @@
 class DLL_EXPORT QGroupBoxWrap : public Napi::ObjectWrap<QGroupBoxWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NGroupBox> instance;
+  QPointer<QGroupBox> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QGroupBoxWrap(const Napi::CallbackInfo& info);
   ~QGroupBoxWrap();
-  NGroupBox* getInternalInstance();
+  QGroupBox* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

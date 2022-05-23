@@ -1,10 +1,12 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { NodeDateTimeEdit } from './QDateTimeEdit';
+import { QDateTimeEdit } from './QDateTimeEdit';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
+
 > Creates a widget to edit dates with spin box layout. WIP!
 
 * **This class is a JS wrapper around Qt's [QDateEdit class](https://doc.qt.io/qt-5/qdateedit.html)**
@@ -20,19 +22,18 @@ const dateEdit = new QDateEdit();
 // must be implemented
 ```
  */
-export class QDateEdit extends NodeDateTimeEdit {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QDateEdit extends QDateTimeEdit {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QDateEdit(parent.native);
         } else {
             native = new addon.QDateEdit();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
 }
+wrapperCache.registerWrapper('QDateEditWrap', QDateEdit);

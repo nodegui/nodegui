@@ -1,11 +1,13 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { AcceptMode, DialogLabel, FileMode, Option, ViewMode } from '../QtEnums';
-import { NodeDialog, QDialogSignals } from './QDialog';
+import { QDialog, QDialogSignals } from './QDialog';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
- 
+
 > Create and control file dialogs.
 
 * **This class is a JS wrapper around Qt's [QFileDialog class](https://doc.qt.io/qt-5/qfiledialog.html)**
@@ -27,20 +29,19 @@ console.log(selectedFiles);
 
 ```
  */
-export class QFileDialog extends NodeDialog<QFileDialogSignals> {
-    native: NativeElement;
+export class QFileDialog extends QDialog<QFileDialogSignals> {
     constructor();
-    constructor(parent: NodeWidget<any>, caption?: string, directory?: string, filter?: string);
-    constructor(parent?: NodeWidget<any>, caption = 'Select File', directory = '', filter = '') {
-        let native;
-        if (parent) {
-            native = new addon.QFileDialog(parent.native, caption, directory, filter);
+    constructor(parent: QWidget, caption?: string, directory?: string, filter?: string);
+    constructor(arg?: QWidget, caption = 'Select File', directory = '', filter = '') {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            native = new addon.QFileDialog(arg.native, caption, directory, filter);
         } else {
             native = new addon.QFileDialog();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     supportedSchemes(): string[] {
         return this.native.supportedSchemes();
@@ -91,6 +92,7 @@ export class QFileDialog extends NodeDialog<QFileDialogSignals> {
         this.setProperty('options', options);
     }
 }
+wrapperCache.registerWrapper('QFileDialogWrap', QFileDialog);
 
 export interface QFileDialogSignals extends QDialogSignals {
     currentChanged: (path: string) => void;

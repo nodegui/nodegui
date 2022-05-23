@@ -5,17 +5,17 @@ import { QVariant } from './QVariant';
 import { DateFormat } from '../QtEnums';
 
 export class QTime extends Component {
-    native: NativeElement;
-    constructor(arg?: NativeElement | number, m?: number, s = 0, ms = 0) {
-        super();
+    constructor(nativeOrHours?: NativeElement | number, m?: number, s = 0, ms = 0) {
         const count = arguments.length;
+        let native: NativeElement;
         if (count > 1) {
-            this.native = new addon.QTime(arg, m, s, ms);
-        } else if (count == 1 && checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = new addon.QTime(nativeOrHours, m, s, ms);
+        } else if (checkIfNativeElement(nativeOrHours)) {
+            native = nativeOrHours as NativeElement;
         } else {
-            this.native = new addon.QTime();
+            native = new addon.QTime();
         }
+        super(native);
     }
     addMSecs(ms: number): QTime {
         return new QTime(this.native.addMSecs(ms));

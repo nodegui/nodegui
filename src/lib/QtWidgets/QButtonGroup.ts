@@ -1,35 +1,33 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement, NativeRawPointer } from '../core/Component';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 export interface QButtonGroupSignals extends QObjectSignals {
     buttonClicked: (id?: number) => void;
 }
 
-export class QButtonGroup extends NodeObject<any> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QButtonGroup extends QObject<any> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QButtonGroup(parent.native);
         } else {
             native = new addon.QButtonGroup();
         }
         super(native);
-        this.native = native;
-        parent && parent.nodeChildren.add(this);
     }
     addButton(button: QAbstractButton<QAbstractButtonSignals>, id = -1): void {
         this.native.addButton(button.native, id);
-        this.nodeChildren.add(button);
     }
     removeButton(button: QAbstractButton<QAbstractButtonSignals>): void {
         this.native.removeButton(button.native);
-        this.nodeChildren.delete(button);
     }
     setExclusive(exculsive: boolean): void {
         this.native.setProperty('exclusive', exculsive);
@@ -56,3 +54,4 @@ export class QButtonGroup extends NodeObject<any> {
         return this.native.button(id);
     }
 }
+wrapperCache.registerWrapper('QButtonGroupWrap', QButtonGroup);

@@ -22,30 +22,39 @@ Napi::Object QSplitterWrap::init(Napi::Env env, Napi::Object exports) {
        QFRAME_WRAPPED_METHODS_EXPORT_DEFINE(QSplitterWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QSplitter, QSplitterWrap);
   return exports;
 }
 
-NSplitter* QSplitterWrap::getInternalInstance() { return this->instance; }
+QSplitter* QSplitterWrap::getInternalInstance() { return this->instance; }
 
 QSplitterWrap::~QSplitterWrap() { extrautils::safeDelete(this->instance); }
 
 QSplitterWrap::QSplitterWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QSplitterWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NSplitter(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NSplitter();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QSplitter>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NSplitter(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env, "NodeGui: QSplitterWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      false);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), false);
 }
 
 Napi::Value QSplitterWrap::addWidget(const Napi::CallbackInfo& info) {

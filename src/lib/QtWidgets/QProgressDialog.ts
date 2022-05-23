@@ -1,10 +1,12 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { QDialog, QDialogSignals } from './QDialog';
+import { wrapperCache } from '../core/WrapperCache';
 import { NativeElement } from '../core/Component';
-import { NodeDialog, QDialogSignals } from './QDialog';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
- 
+
 > Create and control progress dialogs.
 
 * **This class is a JS wrapper around Qt's [QProgressDialog class](https://doc.qt.io/qt-5/qprogressdialog.html)**
@@ -20,20 +22,18 @@ const progressDialog = new QProgressDialog();
 
 ```
  */
-export class QProgressDialog extends NodeDialog<QProgressDialogSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QProgressDialog extends QDialog<QProgressDialogSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QProgressDialog(parent.native);
         } else {
             native = new addon.QProgressDialog();
         }
         super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
     }
     setAutoClose(close: boolean): void {
         this.setProperty('autoClose', close);
@@ -93,6 +93,7 @@ export class QProgressDialog extends NodeDialog<QProgressDialogSignals> {
         this.native.setRange(minimum, maximum);
     }
 }
+wrapperCache.registerWrapper('QProgressDialogWrap', QProgressDialog);
 
 export interface QProgressDialogSignals extends QDialogSignals {
     canceled: () => void;

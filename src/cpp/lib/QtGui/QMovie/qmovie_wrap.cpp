@@ -42,21 +42,27 @@ QMovieWrap::~QMovieWrap() { extrautils::safeDelete(this->instance); }
 QMovieWrap::QMovieWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMovieWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    if (info[0].IsExternal()) {
-      this->instance = new NMovie(info[0].As<Napi::External<NMovie>>().Data());
-    } else {
-      Napi::Object parentObject = info[0].As<Napi::Object>();
-      QMovieWrap* parentWidgetWrap =
-          Napi::ObjectWrap<QMovieWrap>::Unwrap(parentObject);
-      this->instance = new NMovie(parentWidgetWrap->getInternalInstance());
-    }
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NMovie();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<NMovie>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      QObjectWrap* parentObjectWrap =
+          Napi::ObjectWrap<QObjectWrap>::Unwrap(parentObject);
+      this->instance = new NMovie(parentObjectWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env, "NodeGui: QMovieWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
+  QOBJECT_REGISTER_WRAPPER(QMovie, QMovieWrap);
   this->bufferDevice = QSharedPointer<QBuffer>(new QBuffer);
   this->rawData = extrautils::configureQObject(this->getInternalInstance());
 }

@@ -1,8 +1,10 @@
 import { NativeElement } from '../core/Component';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { QAction } from './QAction';
 import { QPoint } from '../QtCore/QPoint';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -18,20 +20,18 @@ const { QMenu } = require("@nodegui/nodegui");
 const menu = new QMenu();
 ```
  */
-export class QMenu extends NodeWidget<QMenuSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QMenu extends QWidget<QMenuSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QMenu(parent.native);
         } else {
             native = new addon.QMenu();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     clear(): void {
         this.native.clear();
@@ -55,6 +55,7 @@ export class QMenu extends NodeWidget<QMenuSignals> {
         this.native.popup(point.native, action?.native);
     }
 }
+wrapperCache.registerWrapper('QMenuWrap', QMenu);
 
 export interface QMenuSignals extends QWidgetSignals {
     triggered: (action: NativeElement) => void;

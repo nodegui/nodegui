@@ -1,13 +1,14 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { QTreeWidgetItem } from './QTreeWidgetItem';
-import { MatchFlag } from '../..';
+import { checkIfNativeElement, MatchFlag } from '../..';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
-> Creates a tree view that uses a predefined tree model. 
+
+> Creates a tree view that uses a predefined tree model.
 
 * **This class is a JS wrapper around Qt's [QTreeWidget class](https://doc.qt.io/qt-5/qtreewidget.html)**
 
@@ -49,21 +50,20 @@ win.show();
 (global as any).win = win;```
  */
 export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
-    native: NativeElement;
     topLevelItems: Set<QTreeWidgetItem>;
     itemWidgets: Map<QTreeWidgetItem, QWidget>;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QTreeWidget(parent.native);
         } else {
             native = new addon.QTreeWidget();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
         this.topLevelItems = new Set<QTreeWidgetItem>();
         this.itemWidgets = new Map<QTreeWidgetItem, QWidget>();
     }
@@ -192,6 +192,7 @@ export class QTreeWidget extends QAbstractScrollArea<QTreeWidgetSignals> {
         this.native.clear();
     }
 }
+wrapperCache.registerWrapper('QTreeWidgetWrap', QTreeWidget);
 
 export interface QTreeWidgetSignals extends QAbstractScrollAreaSignals {
     itemSelectionChanged: () => void;

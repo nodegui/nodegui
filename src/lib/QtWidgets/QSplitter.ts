@@ -1,8 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
-import { NodeFrame, QFrameSignals } from './QFrame';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { QFrame, QFrameSignals } from './QFrame';
 import { NativeElement } from '../core/Component';
 import { Orientation } from '../QtEnums';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -34,22 +36,20 @@ splitterHorizontal.addWidget(right);
 ```
 
  */
-export class QSplitter extends NodeFrame<QSplitterSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QSplitter extends QFrame<QSplitterSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QSplitter(parent.native);
         } else {
             native = new addon.QSplitter();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
-    addWidget(widget: NodeWidget<any>): void {
+    addWidget(widget: QWidget): void {
         this.native.addWidget(widget.native);
     }
     childrenCollapsible(): boolean {
@@ -58,10 +58,10 @@ export class QSplitter extends NodeFrame<QSplitterSignals> {
     count(): number {
         return this.native.count();
     }
-    indexOf(widget: NodeWidget<any>): number {
+    indexOf(widget: QWidget): number {
         return this.native.indexOf(widget.native);
     }
-    insertWidget(index: number, widget: NodeWidget<any>): void {
+    insertWidget(index: number, widget: QWidget): void {
         this.native.insertWidget(index, widget.native);
     }
     isCollapsible(index: number): boolean {
@@ -77,6 +77,7 @@ export class QSplitter extends NodeFrame<QSplitterSignals> {
         this.native.setOrientation(orientation);
     }
 }
+wrapperCache.registerWrapper('QSplitterWrap', QSplitter);
 
 export interface QSplitterSignals extends QFrameSignals {
     splitterMoved: (pos: number, index: number) => void;

@@ -6,14 +6,14 @@ import { QUrl } from './QUrl';
  * description
  */
 export class QMimeData extends Component {
-    native: NativeElement;
     constructor(arg?: NativeElement) {
-        super();
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else {
-            this.native = new addon.QMimeData();
+            native = new addon.QMimeData();
         }
+        super(native);
     }
 
     /**

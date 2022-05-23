@@ -15,29 +15,37 @@ Napi::Object QSliderWrap::init(Napi::Env env, Napi::Object exports) {
                   {QABSTRACTSLIDER_WRAPPED_METHODS_EXPORT_DEFINE(QSliderWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QSlider, QSliderWrap);
   return exports;
 }
 
-NSlider* QSliderWrap::getInternalInstance() { return this->instance; }
+QSlider* QSliderWrap::getInternalInstance() { return this->instance; }
 
 QSliderWrap::QSliderWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QSliderWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NSlider(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NSlider();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QSlider>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NSlider(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env, "NodeGui: QSliderWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      true);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), true);
 }
 
 QSliderWrap::~QSliderWrap() { extrautils::safeDelete(this->instance); }

@@ -18,20 +18,20 @@ const picture = new QPicture();
 ```
  */
 export class QPicture extends Component {
-    native: NativeElement;
     constructor();
     constructor(native: NativeElement);
     constructor(formatVersion: number);
     constructor(arg?: number | NativeElement) {
-        super();
+        let native: NativeElement;
         if (typeof arg === 'number') {
             const formatVersion = arg;
-            this.native = new addon.QPicture(formatVersion);
+            native = new addon.QPicture(formatVersion);
         } else if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else {
-            this.native = new addon.QPicture();
+            native = new addon.QPicture();
         }
+        super(native);
     }
     setBoundingRect(r: QRect): void {
         this.native.setBoundingRect(r.native);

@@ -86,10 +86,12 @@ Napi::Object QTableWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QTableWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QTableWidget, QTableWidgetWrap);
   return exports;
 }
 
-NTableWidget* QTableWidgetWrap::getInternalInstance() { return this->instance; }
+QTableWidget* QTableWidgetWrap::getInternalInstance() { return this->instance; }
+
 QTableWidgetWrap::~QTableWidgetWrap() {
   extrautils::safeDelete(this->instance);
 }
@@ -97,34 +99,43 @@ QTableWidgetWrap::~QTableWidgetWrap() {
 QTableWidgetWrap::QTableWidgetWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QTableWidgetWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 2 || info.Length() == 3) {
-    int rows = info[0].As<Napi::Number>().Int32Value();
-    int columns = info[1].As<Napi::Number>().Int32Value();
 
-    if (info.Length() == 3) {
-      Napi::Object parentObject = info[2].As<Napi::Object>();
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
+    this->instance = new NTableWidget();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QTableWidget>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
       NodeWidgetWrap* parentWidgetWrap =
           Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-      this->instance = new NTableWidget(
-          rows, columns, parentWidgetWrap->getInternalInstance());
-    } else {
-      this->instance = new NTableWidget(rows, columns);
+      this->instance =
+          new NTableWidget(parentWidgetWrap->getInternalInstance());
     }
-
-  } else if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
+  } else if (argCount == 2) {
+    int rows = info[0].As<Napi::Number>().Int32Value();
+    int columns = info[1].As<Napi::Number>().Int32Value();
+    this->instance = new NTableWidget(rows, columns);
+  } else if (argCount == 3) {
+    int rows = info[0].As<Napi::Number>().Int32Value();
+    int columns = info[1].As<Napi::Number>().Int32Value();
+    Napi::Object parentObject = info[2].As<Napi::Object>();
     NodeWidgetWrap* parentWidgetWrap =
         Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NTableWidget(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
-    this->instance = new NTableWidget();
+    this->instance = new NTableWidget(rows, columns,
+                                      parentWidgetWrap->getInternalInstance());
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QTableWidgetWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      false);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), false);
 }
 
 Napi::Value QTableWidgetWrap::selectedRanges(const Napi::CallbackInfo& info) {

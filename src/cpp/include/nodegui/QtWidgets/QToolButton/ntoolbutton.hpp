@@ -21,11 +21,7 @@ class DLL_EXPORT NToolButton : public QToolButton, public NodeWidget {
     QObject::connect(this, &QToolButton::triggered, [=](QAction* action) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
-
-      // disable deletion of the native instance for these by passing true
-      auto instance = QActionWrap::constructor.New(
-          {Napi::External<QAction>::New(env, action),
-           Napi::Boolean::New(env, true)});
+      auto instance = WrapperCache::instance.getWrapper(env, action);
       this->emitOnNode.Call({Napi::String::New(env, "triggered"), instance});
     });
   }

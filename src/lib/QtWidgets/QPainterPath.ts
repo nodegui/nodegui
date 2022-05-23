@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { Component, NativeElement } from '../core/Component';
+import { Component } from '../core/Component';
 import { SizeMode, FillRule } from '../QtEnums';
 import { QFont } from '../QtGui/QFont';
 
@@ -12,11 +12,8 @@ import { QFont } from '../QtGui/QFont';
 */
 
 export class QPainterPath extends Component {
-    native: NativeElement;
     constructor() {
-        super();
-        const native = new addon.QPainterPath();
-        this.native = native;
+        super(new addon.QPainterPath());
     }
 
     moveTo(x: number, y: number): void {

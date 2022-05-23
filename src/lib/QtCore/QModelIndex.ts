@@ -6,18 +6,16 @@ import { ItemDataRole } from '../QtEnums/ItemDataRole';
 import { ItemFlag } from '../QtEnums/ItemFlag';
 
 export class QModelIndex extends Component {
-    native: NativeElement;
-    constructor();
-    constructor(nativeElement: NativeElement);
     constructor(arg?: NativeElement) {
-        super();
+        let native: NativeElement;
         if (!arg) {
-            this.native = new addon.QModelIndex();
+            native = new addon.QModelIndex();
         } else if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else {
             throw new Error('QModelIndex cannot be initialised this way.');
         }
+        super(native);
     }
     column(): number {
         return this.native.column();

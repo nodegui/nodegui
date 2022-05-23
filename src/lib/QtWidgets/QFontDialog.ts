@@ -1,11 +1,13 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { NodeDialog, QDialogSignals } from './QDialog';
+import { QDialog, QDialogSignals } from './QDialog';
 import { QFont } from '../QtGui/QFont';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
- 
+
 > Create and control font dialogs.
 
 * **This class is a JS wrapper around Qt's [QFontDialog class](https://doc.qt.io/qt-5/qfontdialog.html)**
@@ -24,20 +26,18 @@ console.log(font);
 
 ```
  */
-export class QFontDialog extends NodeDialog<QFontDialogSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QFontDialog extends QDialog<QFontDialogSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QFontDialog(parent.native);
         } else {
             native = new addon.QFontDialog();
         }
         super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
     }
     setCurrentFont(font: QFont): void {
         this.setProperty('currentFont', font.native);
@@ -61,6 +61,7 @@ export class QFontDialog extends NodeDialog<QFontDialogSignals> {
         return this.native.testOption(option);
     }
 }
+wrapperCache.registerWrapper('QFontDialogWrap', QFontDialog);
 
 export enum FontDialogOption {
     NoButtons = 0x00000001,

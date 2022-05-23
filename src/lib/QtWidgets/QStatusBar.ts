@@ -1,13 +1,15 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals, QWidget } from './QWidget';
+import { QWidgetSignals, QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 export interface QStatusBarSignals extends QWidgetSignals {
     messageChanged: (message: string) => void;
 }
 
 /**
- 
+
 > Create and control progress bar widgets.
 
 * **This class is a JS wrapper around Qt's [QStatusBar class](https://doc.qt.io/qt-5/qstatusbar.html)**
@@ -22,28 +24,19 @@ const { QStatusBar } = require("@nodegui/nodegui");
 const progressBar = new QStatusBar();
 ```
  */
-export class QStatusBar extends NodeWidget<QStatusBarSignals> {
-    native: NativeElement;
-    permanentWidgets: Set<NativeElement>;
-    widgets: Set<NativeElement>;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QStatusBar extends QWidget<QStatusBarSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QStatusBar(parent.native);
         } else {
             native = new addon.QStatusBar();
         }
-
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
-
-        this.permanentWidgets = new Set();
-        this.widgets = new Set();
     }
-
     /**
      * Adds the given widget permanently to this status bar, reparenting the widget if it isn't already a child of this QStatusBar object. The stretch parameter is used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.
      * Permanently means that the widget may not be obscured by temporary messages. It is is located at the far right of the status bar.
@@ -52,10 +45,6 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
      */
     addPermanentWidget(widget: QWidget, stretch = 0): void {
         this.native.addPermanentWidget(widget.native, stretch);
-
-        if (!this.permanentWidgets.has(widget.native)) {
-            this.permanentWidgets.add(widget.native);
-        }
     }
 
     /**
@@ -66,10 +55,6 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
      */
     addWidget(widget: QWidget, stretch = 0): void {
         this.native.addWidget(widget.native, stretch);
-
-        if (!this.widgets.has(widget.native)) {
-            this.widgets.add(widget.native);
-        }
     }
 
     /**
@@ -95,12 +80,7 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
      * @param stretch Used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.
      */
     insertPermanentWidget(index: number, widget: QWidget, stretch = 0): number {
-        const insertionIndex = this.native.insertPermanentWidget(index, widget.native, stretch);
-        if (!this.permanentWidgets.has(widget.native)) {
-            this.permanentWidgets.add(widget.native);
-        }
-
-        return insertionIndex;
+        return this.native.insertPermanentWidget(index, widget.native, stretch);
     }
 
     /**
@@ -112,12 +92,7 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
      * @param stretch Used to compute a suitable size for the given widget as the status bar grows and shrinks. The default stretch factor is 0, i.e giving the widget a minimum of space.
      */
     insertWidget(index: number, widget: QWidget, stretch = 0): number {
-        const insertionIndex = this.native.insertWidget(index, widget.native, stretch);
-        if (!this.widgets.has(widget.native)) {
-            this.widgets.add(widget.native);
-        }
-
-        return insertionIndex;
+        return this.native.insertWidget(index, widget.native, stretch);
     }
 
     /**
@@ -134,8 +109,6 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
      */
     removeWidget(widget: QWidget): void {
         this.native.removeWidget(widget.native);
-        this.widgets.delete(widget.native);
-        this.permanentWidgets.delete(widget.native);
     }
 
     /**
@@ -156,3 +129,4 @@ export class QStatusBar extends NodeWidget<QStatusBarSignals> {
         this.native.setSizeGripEnabled(enabled);
     }
 }
+wrapperCache.registerWrapper('QStatusBarWrap', QStatusBar);

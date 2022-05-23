@@ -1,11 +1,13 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
-import { NodeDialog, QDialogSignals } from './QDialog';
+import { QDialog, QDialogSignals } from './QDialog';
 import { QColor } from '../QtGui/QColor';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
- 
+
 > Create and control color dialogs.
 
 * **This class is a JS wrapper around Qt's [QColorDialog class](https://doc.qt.io/qt-5/qcolordialog.html)**
@@ -26,21 +28,20 @@ console.log(color.red(), color.green(), color.blue());
 
 ```
  */
-export class QColorDialog extends NodeDialog<QColorDialogSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QColorDialog extends QDialog<QColorDialogSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QColorDialog(parent.native);
         } else {
             native = new addon.QColorDialog();
         }
         super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
     }
+
     setCurrentColor(color: QColor): void {
         this.setProperty('currentColor', color.native);
     }
@@ -89,3 +90,5 @@ export interface QColorDialogSignals extends QDialogSignals {
     colorSelected: (color: QColor) => void;
     currentColorChanged: (color: QColor) => void;
 }
+
+wrapperCache.registerWrapper('QColorDialogWrap', QColorDialog);

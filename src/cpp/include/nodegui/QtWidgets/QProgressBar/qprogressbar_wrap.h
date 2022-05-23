@@ -11,13 +11,13 @@
 class DLL_EXPORT QProgressBarWrap : public Napi::ObjectWrap<QProgressBarWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NProgressBar> instance;
+  QPointer<QProgressBar> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QProgressBarWrap(const Napi::CallbackInfo& info);
   ~QProgressBarWrap();
-  NProgressBar* getInternalInstance();
+  QProgressBar* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

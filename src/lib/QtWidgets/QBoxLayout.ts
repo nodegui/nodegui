@@ -1,8 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
-import { NodeLayout, QLayoutSignals } from './QLayout';
+import { QWidget } from './QWidget';
+import { QLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag, Direction } from '../QtEnums';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -25,26 +27,20 @@ boxLayout.addWidget(new QCalendarWidget());
 centralWidget.setLayout(boxLayout);
 ```
  */
-export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
-    native: NativeElement;
-    childLayouts: Set<NodeLayout<any>>;
-    constructor(dir: Direction);
-    constructor(dir: Direction, parent: NodeWidget<any>);
-    constructor(dir: Direction, parent?: NodeWidget<any>) {
+export class QBoxLayout extends QLayout<QBoxLayoutSignals> {
+    constructor(arg: NativeElement | Direction, parent?: QWidget) {
         let native: NativeElement;
-        if (parent) {
-            native = new addon.QBoxLayout(dir, parent.native);
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (parent) {
+            native = new addon.QBoxLayout(arg as Direction, parent.native);
         } else {
-            native = new addon.QBoxLayout(dir);
+            native = new addon.QBoxLayout(arg as Direction);
         }
         super(native);
-        this.setNodeParent(parent);
-        this.native = native;
-        this.childLayouts = new Set();
     }
-    addLayout(layout: NodeLayout<any>, stretch = 0): void {
+    addLayout(layout: QLayout, stretch = 0): void {
         this.native.addLayout(layout.native, stretch);
-        this.childLayouts.add(layout);
     }
     addSpacing(size: number): void {
         this.native.addSpacing(size);
@@ -55,20 +51,17 @@ export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     addStrut(size: number): void {
         this.native.addStrut(size);
     }
-    addWidget(widget: NodeWidget<any>, stretch = 0, alignment: AlignmentFlag = 0): void {
+    addWidget(widget: QWidget, stretch = 0, alignment: AlignmentFlag = 0): void {
         this.native.addWidget(widget.native, stretch, alignment);
-        this.nodeChildren.add(widget);
     }
-    insertWidget(index: number, widget: NodeWidget<any>, stretch = 0): void {
+    insertWidget(index: number, widget: QWidget, stretch = 0): void {
         this.native.insertWidget(index, widget.native, stretch);
-        this.nodeChildren.add(widget);
     }
     direction(): Direction {
         return this.native.direction();
     }
-    insertLayout(index: number, layout: NodeLayout<any>, stretch = 0): void {
+    insertLayout(index: number, layout: QLayout, stretch = 0): void {
         this.native.insertLayout(index, layout.native, stretch);
-        this.childLayouts.add(layout);
     }
     insertSpacing(index: number, size: number): void {
         this.native.insertSpacing(index, size);
@@ -76,9 +69,8 @@ export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
     insertStretch(index: number, stretch = 0): void {
         this.native.insertStretch(index, stretch);
     }
-    removeWidget(widget: NodeWidget<any>): void {
+    removeWidget(widget: QWidget): void {
         this.native.removeWidget(widget.native);
-        this.nodeChildren.delete(widget);
     }
     setDirection(dir: Direction): void {
         this.native.setDirection(dir);
@@ -90,5 +82,6 @@ export class QBoxLayout extends NodeLayout<QBoxLayoutSignals> {
         return this.native.count();
     }
 }
+wrapperCache.registerWrapper('QBoxLayoutWrap', QBoxLayout);
 
 export type QBoxLayoutSignals = QLayoutSignals;

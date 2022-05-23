@@ -2,12 +2,32 @@ import addon from '../utils/addon';
 import { NativeElement } from '../core/Component';
 
 import { checkIfNativeElement } from '../utils/helpers';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { DialogCode } from '../QtEnums';
+import { wrapperCache } from '../core/WrapperCache';
 
-// All Dialogs should extend from NodeDialog
-// Implement all native QDialog methods here so that all dialogs get access to those aswell
-export abstract class NodeDialog<Signals extends QDialogSignals> extends NodeWidget<Signals> {
+/**
+
+> This is the base class of dialog windows.
+
+* **This class is a JS wrapper around Qt's [QDialog class](https://doc.qt.io/qt-5/qdialog.html)**
+
+It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage, QFontDialog, QInputDialog, QMessageBox, QProgressDialog, and QWizard)
+ */
+export class QDialog<Signals extends QDialogSignals = QDialogSignals> extends QWidget<Signals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QDialog(parent.native);
+        } else {
+            native = new addon.QDialog();
+        }
+        super(native);
+    }
+
     setResult(i: number): void {
         this.native.setResult(i);
     }
@@ -33,33 +53,7 @@ export abstract class NodeDialog<Signals extends QDialogSignals> extends NodeWid
         this.native.reject();
     }
 }
-
-/**
- 
-> This is the base class of dialog windows.
-
-* **This class is a JS wrapper around Qt's [QDialog class](https://doc.qt.io/qt-5/qdialog.html)**
-
-It is inherited by QFileDialog and QMessageBox (n/a QColorDialog, QErrorMessage, QFontDialog, QInputDialog, QMessageBox, QProgressDialog, and QWizard)
- */
-export class QDialog extends NodeDialog<QDialogSignals> {
-    native: NativeElement;
-    constructor(arg?: NodeDialog<QDialogSignals> | NativeElement) {
-        let native;
-        let parent;
-        if (checkIfNativeElement(arg)) {
-            native = arg as NativeElement;
-        } else if (arg as NodeDialog<QDialogSignals>) {
-            parent = arg as NodeDialog<QDialogSignals>;
-            native = new addon.QDialog(parent.native);
-        } else {
-            native = new addon.QDialog();
-        }
-        super(native);
-        this.setNodeParent(parent);
-        this.native = native;
-    }
-}
+wrapperCache.registerWrapper('QDialogWrap', QDialog);
 
 export interface QDialogSignals extends QWidgetSignals {
     accepted: () => void;

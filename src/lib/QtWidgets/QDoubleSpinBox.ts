@@ -1,10 +1,12 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractSpinBox, QAbstractSpinBoxSignals, StepType } from './QAbstractSpinBox';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
+
 > Create and control double spin box widgets.
 
 * **This class is a JS wrapper around Qt's [QDoubleSpinBox class](https://doc.qt.io/qt-5/qdoublespinbox.html)**
@@ -20,19 +22,17 @@ const doublespinBox = new QDoubleSpinBox();
 ```
  */
 export class QDoubleSpinBox extends QAbstractSpinBox<QDoubleSpinBoxSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QDoubleSpinBox(parent.native);
         } else {
             native = new addon.QDoubleSpinBox();
         }
         super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
     }
     cleanText(): string {
         return this.property('cleanText').toString();
@@ -95,6 +95,7 @@ export class QDoubleSpinBox extends QAbstractSpinBox<QDoubleSpinBoxSignals> {
         return this.native.valueFromText(text);
     }
 }
+wrapperCache.registerWrapper('QDoubleSpinBoxWrap', QDoubleSpinBox);
 
 export interface QDoubleSpinBoxSignals extends QAbstractSpinBoxSignals {
     valueChanged: (value: number) => void;

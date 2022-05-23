@@ -1,5 +1,5 @@
 import addon from '../utils/addon';
-import { NodeLayout } from './QLayout';
+import { QLayout } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { FlexLayout } from '../core/FlexLayout';
 import { WidgetAttribute, WindowType, ContextMenuPolicy, FocusReason, FocusPolicy } from '../QtEnums';
@@ -24,54 +24,57 @@ import { QStyle } from '../QtGui/QStyle';
 import { QWindow } from '../QtGui/QWindow';
 
 /**
+ > Create and control views.
 
-> Abstract class to add functionalities common to all Widgets.
+* **This class is a JS wrapper around Qt's [QWidget class](https://doc.qt.io/qt-5/qwidget.html)**
 
-**This class implements all methods, properties of Qt's [QWidget class](https://doc.qt.io/qt-5/qwidget.html) so that it can be inherited by all widgets**
+A `QWidget` can be used to encapsulate other widgets and provide structure. It functions similar to a `div` in the web world.
 
-`NodeWidget` is an abstract class and hence no instances of the same should be created. It exists so that we can add similar functionalities to all widget's easily. Additionally it helps in type checking process. If you wish to create a `div` like widget use [QWidget](QWidget.md) instead.
-
-**NodeWidget is the base class for all widgets.**
 
 ### Example
 
 ```javascript
-const {
-  NodeWidget,
-  QPushButton,
-  QWidget,
-  QRadioButton
-} = require("@nodegui/nodegui");
+const { QWidget } = require("@nodegui/nodegui");
 
-// showWidget can accept any widget since it expects NodeWidget
-const showWidget = (widget: NodeWidget) => {
-  widget.show();
-};
-
-showWidget(new QPushButton());
-showWidget(new QWidget());
-showWidget(new QRadioButton());
+const view = new QWidget();
+view.setObjectName("container"); //Similar to setting `id` on the web
+view.setLayout(new FlexLayout());
 ```
-All Widgets should extend from NodeWidget
-Implement all native QWidget methods here so that all widgets get access to those aswell
-
  */
-export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWidget<Signals> {
-    _layout?: NodeLayout<Signals>;
-    _rawInlineStyle = '';
-    type = 'widget';
-    private _effect?: QGraphicsEffect<any> | null;
-    constructor(native: NativeElement) {
+export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends YogaWidget<Signals> {
+    _rawInlineStyle: string;
+    type: string;
+
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QWidget(parent.native);
+        } else {
+            native = new addon.QWidget();
+        }
         super(native);
+        this._rawInlineStyle = '';
+        this.type = 'widget';
+
         this.setStyleSheet = memoizeOne(this.setStyleSheet);
         this.setInlineStyle = memoizeOne(this.setInlineStyle);
         this.setObjectName = memoizeOne(this.setObjectName);
     }
-    get layout(): NodeLayout<Signals> | undefined {
-        return this._layout;
+
+    layout(): QLayout | null {
+        return wrapperCache.getWrapper(this.native.layout()) as QLayout;
     }
-    set layout(l: NodeLayout<Signals> | undefined) {
-        this._layout = l;
+    setLayout(layout: QLayout): void {
+        this.native.setLayout(layout == null ? null : layout.native);
+
+        const flexLayout = layout as FlexLayout;
+        if (flexLayout?.setFlexNode) {
+            //if flex layout set the flexnode
+            flexLayout.setFlexNode(this.getFlexNode());
+        }
     }
     // *** Public Functions ***
     acceptDrops(): boolean {
@@ -369,7 +372,6 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         this.native.setGeometry(x, y, w, h);
     }
     setGraphicsEffect(effect: QGraphicsEffect<any>): void {
-        this._effect = effect;
         this.native.setGraphicsEffect(effect.native);
     }
     // TODO: void 	setInputMethodHints(Qt::InputMethodHints hints)
@@ -381,15 +383,6 @@ export abstract class NodeWidget<Signals extends QWidgetSignals> extends YogaWid
         } else {
             this.native.setStyleSheet(style);
         }
-    }
-    setLayout(parentLayout: NodeLayout<Signals>): void {
-        const flexLayout = parentLayout as FlexLayout;
-        this.native.setLayout(parentLayout.native);
-        if (flexLayout.setFlexNode) {
-            //if flex layout set the flexnode
-            flexLayout.setFlexNode(this.getFlexNode());
-        }
-        this._layout = parentLayout;
     }
     // TODO: void 	setLayoutDirection(Qt::LayoutDirection direction)
     // TODO: void 	setLocale(const QLocale &locale)
@@ -663,40 +656,4 @@ export interface QWidgetSignals extends QObjectSignals {
     windowIconChanged: (iconNative: NativeElement) => void;
     customContextMenuRequested: (pos: { x: number; y: number }) => void;
 }
-
-/**
- > Create and control views.
-
-* **This class is a JS wrapper around Qt's [QWidget class](https://doc.qt.io/qt-5/qwidget.html)**
-
-A `QWidget` can be used to encapsulate other widgets and provide structure. It functions similar to a `div` in the web world.
-
-
-### Example
-
-```javascript
-const { QWidget } = require("@nodegui/nodegui");
-
-const view = new QWidget();
-view.setObjectName("container"); //Similar to setting `id` on the web
-view.setLayout(new FlexLayout());
-```
- */
-export class QWidget extends NodeWidget<QWidgetSignals> {
-    native: NativeElement;
-    constructor(arg?: NodeWidget<QWidgetSignals> | NativeElement) {
-        let native;
-        let parent;
-        if (checkIfNativeElement(arg)) {
-            native = arg as NativeElement;
-        } else if (arg as NodeWidget<QWidgetSignals>) {
-            parent = arg as NodeWidget<QWidgetSignals>;
-            native = new addon.QWidget(parent.native);
-        } else {
-            native = new addon.QWidget();
-        }
-        super(native);
-        this.setNodeParent(parent);
-        this.native = native;
-    }
-}
+wrapperCache.registerWrapper('QWidgetWrap', QWidget);

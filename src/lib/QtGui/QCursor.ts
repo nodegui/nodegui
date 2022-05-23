@@ -17,17 +17,17 @@ const cursor = new QCursor();
 ```
  */
 export class QCursor extends Component {
-    native: NativeElement;
     constructor();
     constructor(native: NativeElement);
     constructor(shape: CursorShape);
     constructor(arg?: NativeElement | CursorShape) {
-        super();
+        let native: NativeElement;
         if (arg) {
-            this.native = new addon.QCursor(arg);
+            native = new addon.QCursor(arg);
         } else {
-            this.native = new addon.QCursor();
+            native = new addon.QCursor();
         }
+        super(native);
     }
     pos(): { x: number; y: number } {
         return this.native.pos();

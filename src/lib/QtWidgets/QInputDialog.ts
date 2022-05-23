@@ -1,11 +1,13 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
-import { NodeDialog, QDialogSignals } from './QDialog';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { QDialog, QDialogSignals } from './QDialog';
 import { EchoMode } from './QLineEdit';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
- 
+
 > Create and control input modal dialogs.
 
 * **This class is a JS wrapper around Qt's [QInputDialog class](https://doc.qt.io/qt-5/qinputdialog.html)**
@@ -22,20 +24,18 @@ dialog.exec();
 
 ```
  */
-export class QInputDialog extends NodeDialog<QInputDialogSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QInputDialog extends QDialog<QInputDialogSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QInputDialog(parent.native);
         } else {
             native = new addon.QInputDialog();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     setCancelButtonText(text: string): void {
         this.native.setCancelButtonText(text);
@@ -140,6 +140,7 @@ export class QInputDialog extends NodeDialog<QInputDialogSignals> {
         this.native.setTextValue(value);
     }
 }
+wrapperCache.registerWrapper('QInputDialogWrap', QInputDialog);
 
 export interface QInputDialogSignals extends QDialogSignals {
     doubleValueChanged: (value: number) => void;

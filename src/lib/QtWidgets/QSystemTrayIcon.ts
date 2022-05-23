@@ -1,12 +1,14 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { QIcon } from '../QtGui/QIcon';
 import { QMenu } from './QMenu';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
- 
+
 > Create and control system tray icon.
 
 * **This class is a JS wrapper around Qt's [QSystemTrayIcon class](https://doc.qt.io/qt-5/qsystemtrayicon.html)**
@@ -28,20 +30,18 @@ tray.show();
 global.tray = tray; // prevents garbage collection of tray
 ```
  */
-export class QSystemTrayIcon extends NodeObject<QSystemTrayIconSignals> {
-    native: NativeElement;
-    contextMenu?: QMenu;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QSystemTrayIcon extends QObject<QSystemTrayIconSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QSystemTrayIcon(parent.native);
         } else {
             native = new addon.QSystemTrayIcon();
         }
         super(native);
-        this.native = native;
     }
     show(): void {
         this.native.show();
@@ -62,10 +62,10 @@ export class QSystemTrayIcon extends NodeObject<QSystemTrayIconSignals> {
         this.native.setToolTip(tooltip);
     }
     setContextMenu(menu: QMenu): void {
-        this.contextMenu = menu;
-        this.native.setContextMenu(this.contextMenu.native);
+        this.native.setContextMenu(menu.native);
     }
 }
+wrapperCache.registerWrapper('QSystemTrayIconWrap', QSystemTrayIcon);
 
 export enum QSystemTrayIconActivationReason {
     Unknown = 0,

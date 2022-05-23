@@ -1,7 +1,7 @@
 import postcss from 'postcss';
 import cuid from 'cuid';
 import nodeguiAutoPrefixer from 'postcss-nodegui-autoprefixer';
-import { NodeWidget, QWidgetSignals } from '../../QtWidgets/QWidget';
+import { QWidget, QWidgetSignals } from '../../QtWidgets/QWidget';
 export class StyleSheet {
     static create(cssString: string): string {
         try {
@@ -14,7 +14,7 @@ export class StyleSheet {
 }
 
 export function prepareInlineStyleSheet<Signals extends QWidgetSignals>(
-    widget: NodeWidget<Signals>,
+    widget: QWidget<Signals>,
     rawStyle: string,
 ): string {
     const inlineStyle = StyleSheet.create(rawStyle);

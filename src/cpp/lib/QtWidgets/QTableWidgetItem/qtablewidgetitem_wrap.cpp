@@ -65,19 +65,20 @@ QTableWidgetItemWrap::~QTableWidgetItemWrap() {
 QTableWidgetItemWrap::QTableWidgetItemWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QTableWidgetItemWrap>(info) {
   Napi::Env env = info.Env();
+  size_t argCount = info.Length();
   this->disableDeletion = false;
-  if (info.Length() > 0 && info[0].IsExternal()) {
+  if (argCount > 0 && info[0].IsExternal()) {
     // --- if external ---
     this->instance = info[0].As<Napi::External<QTableWidgetItem>>().Data();
-    if (info.Length() == 2) {
+    if (argCount == 2) {
       this->disableDeletion = info[1].As<Napi::Boolean>().Value();
     }
   } else {
-    if (info.Length() == 1) {
+    if (argCount == 1) {
       QString text =
           QString::fromUtf8(info[0].As<Napi::String>().Utf8Value().c_str());
       this->instance = new QTableWidgetItem(text);
-    } else if (info.Length() == 0) {
+    } else if (argCount == 0) {
       this->instance = new QTableWidgetItem();
     } else {
       Napi::TypeError::New(env,

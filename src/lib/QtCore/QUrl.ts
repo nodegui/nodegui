@@ -3,7 +3,7 @@ import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from './QVariant';
 
-enum ComponentFormattingOption {
+export enum ComponentFormattingOption {
     /** The component is returned in a "pretty form", with most percent-encoded characters decoded. The exact behavior of PrettyDecoded varies from component to component and may also change from Qt release to Qt release. This is the default. */
     PrettyDecoded = 0x000000,
     /** Leave space characters in their encoded form ("%20"). */
@@ -29,7 +29,7 @@ export enum ParsingMode {
     /** QUrl will interpret the URL component in the fully-decoded form, where percent characters stand for themselves, not as the beginning of a percent-encoded sequence. This mode is only valid for the setters setting components of a URL; it is not permitted in the QUrl constructor, in fromEncoded() or in setUrl(). For more information on this mode, see the documentation for QUrl::FullyDecoded.*/
     DecodedMode = 2,
 }
-enum UrlFormattingOption {
+export enum UrlFormattingOption {
     None = 0x0,
     RemoveScheme = 0x1,
     RemovePassword = 0x2,
@@ -44,7 +44,7 @@ enum UrlFormattingOption {
     StripTrailingSlash = 0x400,
     NormalizePathSegments = 0x1000,
 }
-enum UserInputResolutionOption {
+export enum UserInputResolutionOption {
     /** The default resolution mechanism is to check whether a local file exists, in the working directory given to fromUserInput, and only return a local path in that case. Otherwise a URL is assumed. */
     DefaultResolution = 0,
     /** This option makes fromUserInput() always return a local path unless the input contains a scheme, such as http://file.pl. This is useful for applications such as text editors, which are able to create the file if it doesn't exist. */
@@ -52,27 +52,19 @@ enum UserInputResolutionOption {
 }
 
 export class QUrl extends Component {
-    static readonly ComponentFormattingOption = ComponentFormattingOption;
-    static readonly ParsingMode = ParsingMode;
-    static readonly UrlFormattingOption = UrlFormattingOption;
-    static readonly UserInputResolutionOption = UserInputResolutionOption;
-    readonly ComponentFormattingOption = ComponentFormattingOption;
-    readonly ParsingMode = ParsingMode;
-    readonly UrlFormattingOption = UrlFormattingOption;
-    readonly UserInputResolutionOption = UserInputResolutionOption;
-    native: NativeElement;
     constructor();
     constructor(nativeElement: NativeElement);
     constructor(url: string, parsingMode?: ParsingMode);
-    constructor(arg?: string | NativeElement, parsingMode: ParsingMode = ParsingMode.TolerantMode) {
-        super();
-        if (!arg) {
-            this.native = new addon.QUrl();
-        } else if (checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+    constructor(nativeOrString?: string | NativeElement, parsingMode: ParsingMode = ParsingMode.TolerantMode) {
+        let native: NativeElement;
+        if (!nativeOrString) {
+            native = new addon.QUrl();
+        } else if (checkIfNativeElement(nativeOrString)) {
+            native = nativeOrString as NativeElement;
         } else {
-            this.native = new addon.QUrl(arg, parsingMode);
+            native = new addon.QUrl(nativeOrString, parsingMode);
         }
+        super(native);
     }
 
     static fromQVariant(variant: QVariant): QUrl {

@@ -12,13 +12,13 @@ class DLL_EXPORT QProgressDialogWrap
     : public Napi::ObjectWrap<QProgressDialogWrap> {
   QDIALOG_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NProgressDialog> instance;
+  QPointer<QProgressDialog> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QProgressDialogWrap(const Napi::CallbackInfo& info);
   ~QProgressDialogWrap();
-  NProgressDialog* getInternalInstance();
+  QProgressDialog* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

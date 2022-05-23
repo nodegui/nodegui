@@ -1,21 +1,18 @@
 import { NativeElement } from '../core/Component';
 import { checkIfNativeElement, registerNativeWrapFunction } from '../utils/helpers';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QRect } from '../QtCore/QRect';
 import { QSizeF } from '../QtCore/QSizeF';
 import { QSize } from '../QtCore/QSize';
 import { wrapperCache } from '../core/WrapperCache';
 import { QPixmap } from './QPixmap';
 
-export class QScreen extends NodeObject<QScreenSignals> {
-    native: NativeElement;
+export class QScreen extends QObject<QScreenSignals> {
     constructor(native: NativeElement) {
-        super(native);
-        if (checkIfNativeElement(native)) {
-            this.native = native;
-        } else {
+        if (!checkIfNativeElement(native)) {
             throw new Error('QScreen cannot be initialised this way.');
         }
+        super(native);
     }
 
     availableGeometry(): QRect {
@@ -97,6 +94,7 @@ export class QScreen extends NodeObject<QScreenSignals> {
         return QSize.fromQVariant(this.property('virtualSize'));
     }
 }
+wrapperCache.registerWrapper('QScreenWrap', QScreen);
 
 export interface QScreenSignals extends QObjectSignals {
     availableGeometryChanged: (geometry: QRect) => void;

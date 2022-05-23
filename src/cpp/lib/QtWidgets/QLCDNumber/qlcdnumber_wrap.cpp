@@ -20,31 +20,41 @@ Napi::Object QLCDNumberWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setOctMode", &QLCDNumberWrap::setOctMode),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QLCDNumberWrap)});
   constructor = Napi::Persistent(func);
+  QOBJECT_REGISTER_WRAPPER(QLCDNumber, QLCDNumberWrap);
   exports.Set(CLASSNAME, func);
   return exports;
 }
 
-NLCDNumber* QLCDNumberWrap::getInternalInstance() { return this->instance; }
+QLCDNumber* QLCDNumberWrap::getInternalInstance() { return this->instance; }
 
 QLCDNumberWrap::~QLCDNumberWrap() { extrautils::safeDelete(this->instance); }
 
 QLCDNumberWrap::QLCDNumberWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QLCDNumberWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NLCDNumber(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NLCDNumber();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QLCDNumber>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NLCDNumber(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QLCDNumberWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      true);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), true);
 }
 
 Napi::Value QLCDNumberWrap::checkOverflow(const Napi::CallbackInfo& info) {

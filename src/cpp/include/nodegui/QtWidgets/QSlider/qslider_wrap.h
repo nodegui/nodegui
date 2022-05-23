@@ -12,13 +12,13 @@
 class DLL_EXPORT QSliderWrap : public Napi::ObjectWrap<QSliderWrap> {
   QABSTRACTSLIDER_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NSlider> instance;
+  QPointer<QSlider> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QSliderWrap(const Napi::CallbackInfo& info);
   ~QSliderWrap();
-  NSlider* getInternalInstance();
+  QSlider* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

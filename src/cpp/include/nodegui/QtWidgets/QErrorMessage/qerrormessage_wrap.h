@@ -12,13 +12,13 @@ class DLL_EXPORT QErrorMessageWrap
     : public Napi::ObjectWrap<QErrorMessageWrap> {
   QDIALOG_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NErrorMessage> instance;
+  QPointer<QErrorMessage> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QErrorMessageWrap(const Napi::CallbackInfo& info);
   ~QErrorMessageWrap();
-  NErrorMessage* getInternalInstance();
+  QErrorMessage* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

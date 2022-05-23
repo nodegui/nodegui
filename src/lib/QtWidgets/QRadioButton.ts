@@ -1,11 +1,12 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
-import { NativeElement, NativeRawPointer, Component } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { NativeElement } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
-import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
+
 > Create and control radio button.
 
 * **This class is a JS wrapper around Qt's [QRadioButton class](https://doc.qt.io/qt-5/qradiobutton.html)**
@@ -23,28 +24,19 @@ radioButton.setText("Hello");
 
  */
 export class QRadioButton extends QAbstractButton<QRadioButtonSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(rawPointer: NativeRawPointer<any>, disableNativeDeletion?: boolean);
-    constructor(arg?: NodeWidget<any> | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
-        let native;
-        let parent: Component | undefined;
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (checkIfNapiExternal(arg)) {
-            native = new addon.QRadioButton(arg, disableNativeDeletion);
-        } else if (arg) {
-            const parentWidget = arg as NodeWidget<any>;
-            native = new addon.QRadioButton(parentWidget.native);
-            parent = parentWidget;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QRadioButton(parent.native);
         } else {
             native = new addon.QRadioButton();
         }
         super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
     }
 }
+wrapperCache.registerWrapper('QRadioButtonWrap', QRadioButton);
 
 export type QRadioButtonSignals = QAbstractButtonSignals;

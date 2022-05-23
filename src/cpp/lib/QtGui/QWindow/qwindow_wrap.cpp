@@ -25,6 +25,7 @@ Napi::Object QWindowWrap::init(Napi::Env env, Napi::Object exports) {
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QWindowWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QWindow, QWindowWrap);
   return exports;
 }
 
@@ -36,7 +37,8 @@ QWindowWrap::QWindowWrap(const Napi::CallbackInfo& info)
   if (info.Length() == 1 && info[0].IsExternal()) {
     this->instance = info[0].As<Napi::External<QWindow>>().Data();
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments to QWindow.")
+    Napi::TypeError::New(env,
+                         "NodeGui: QWindowWrap: Bad arguments to constructor.")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureQObject(this->getInternalInstance());
@@ -55,8 +57,7 @@ void QWindowWrap::connectSignalsToEventEmitter() {
       this->instance.data(), &QWindow::screenChanged, [=](QScreen* screen) {
         Napi::Env env = this->emitOnNode.Env();
         Napi::HandleScope scope(env);
-        auto instance =
-            WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
+        auto instance = WrapperCache::instance.getWrapper(env, screen, true);
         this->emitOnNode.Call(
             {Napi::String::New(env, "screenChanged"), instance});
       });
@@ -81,7 +82,7 @@ Napi::Value QWindowWrap::screen(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   QScreen* screen = this->instance->screen();
   if (screen) {
-    return WrapperCache::instance.get<QScreen, QScreenWrap>(env, screen);
+    return WrapperCache::instance.getWrapper(env, screen, true);
   } else {
     return env.Null();
   }

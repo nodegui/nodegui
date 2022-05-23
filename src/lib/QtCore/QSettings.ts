@@ -1,4 +1,4 @@
-import { NativeElement, Component } from '../core/Component';
+import { Component } from '../core/Component';
 import addon from '../utils/addon';
 import { QVariant } from './QVariant';
 
@@ -16,10 +16,8 @@ export enum QSettingsScope {
 }
 
 export class QSettings extends Component {
-    native: NativeElement;
     constructor(organization: string, application: string) {
-        super();
-        this.native = new addon.QSettings(organization, application);
+        super(new addon.QSettings(organization, application));
     }
     sync(): void {
         this.native.sync();

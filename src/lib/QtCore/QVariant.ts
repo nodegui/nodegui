@@ -5,19 +5,19 @@ import { checkIfNativeElement } from '../utils/helpers';
 export type QVariantType = NativeElement | string | string[] | number | boolean;
 
 export class QVariant extends Component {
-    native: NativeElement;
     constructor();
     constructor(nativeElement: NativeElement);
     constructor(variant: QVariantType);
     constructor(arg?: QVariantType | NativeElement) {
-        super();
+        let native: NativeElement;
         if (checkIfNativeElement(arg) && arg instanceof addon.QVariant) {
-            this.native = arg as NativeElement;
+            native = arg as NativeElement;
         } else if (arg) {
-            this.native = new addon.QVariant.convertToQVariant(arg);
+            native = new addon.QVariant.convertToQVariant(arg);
         } else {
-            this.native = new addon.QVariant();
+            native = new addon.QVariant();
         }
+        super(native);
     }
     toString(): string {
         return this.native.toString();

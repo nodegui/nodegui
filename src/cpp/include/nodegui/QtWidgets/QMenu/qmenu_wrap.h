@@ -10,13 +10,13 @@
 class DLL_EXPORT QMenuWrap : public Napi::ObjectWrap<QMenuWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NMenu> instance;
+  QPointer<QMenu> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QMenuWrap(const Napi::CallbackInfo& info);
   ~QMenuWrap();
-  NMenu* getInternalInstance();
+  QMenu* getInternalInstance();
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value clear(const Napi::CallbackInfo& info);

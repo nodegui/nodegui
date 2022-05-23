@@ -12,13 +12,13 @@ class DLL_EXPORT QGraphicsDropShadowEffectWrap
     : public Napi::ObjectWrap<QGraphicsDropShadowEffectWrap> {
   QGRAPHICSEFFECT_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NGraphicsDropShadowEffect> instance;
+  QPointer<QGraphicsDropShadowEffect> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QGraphicsDropShadowEffectWrap(const Napi::CallbackInfo& info);
   ~QGraphicsDropShadowEffectWrap();
-  NGraphicsDropShadowEffect* getInternalInstance();
+  QGraphicsDropShadowEffect* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

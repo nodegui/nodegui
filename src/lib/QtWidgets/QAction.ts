@@ -1,14 +1,14 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QMenu } from './QMenu';
 import { QIcon } from '../QtGui/QIcon';
 import { QFont } from '../QtGui/QFont';
 import { QKeySequence } from '../QtGui/QKeySequence';
 import { ShortcutContext } from '../QtEnums';
-import { NodeObject, QObjectSignals } from '../QtCore/QObject';
+import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from '../QtCore/QVariant';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -30,22 +30,21 @@ menuAction.addEventListener("triggered", () => {
 menu.addAction(menuAction);
 ```
  */
-export class QAction extends NodeObject<QActionSignals> {
-    native: NativeElement;
+export class QAction extends QObject<QActionSignals> {
     constructor();
     constructor(native: NativeElement);
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NativeElement | NodeWidget<any>) {
-        let native;
-        if (checkIfNativeElement(parent)) {
-            native = parent as NativeElement;
-        } else if (parent) {
+    constructor(parent: QObject);
+    constructor(arg?: NativeElement | QObject) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg) {
+            const parent = arg as QObject;
             native = new addon.QAction(parent.native);
         } else {
             native = new addon.QAction();
         }
         super(native);
-        this.native = native;
     }
     setText(text: string): void {
         this.native.setText(text);
@@ -96,6 +95,7 @@ export class QAction extends NodeObject<QActionSignals> {
         return new QVariant(this.native.data());
     }
 }
+wrapperCache.registerWrapper('QActionWrap', QAction);
 
 export interface QActionSignals extends QObjectSignals {
     triggered: (checked: boolean) => void;
@@ -103,3 +103,4 @@ export interface QActionSignals extends QObjectSignals {
     hovered: () => void;
     toggled: (checked: boolean) => void;
 }
+wrapperCache.registerWrapper('QActionWrap', QAction);

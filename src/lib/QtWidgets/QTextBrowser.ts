@@ -1,11 +1,13 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QUrl } from '../QtCore/QUrl';
-import { NodeTextEdit, QTextEditSignals } from './QTextEdit';
+import { QTextEdit, QTextEditSignals } from './QTextEdit';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
- 
+
 > Create and control text browser.
 
 * **This class is a JS wrapper around Qt's [QTextBrowser class](https://doc.qt.io/qt-5/qtextbrowser.html)**
@@ -21,20 +23,18 @@ const textBrowser = new QTextBrowser();
 ```
 
  */
-export class QTextBrowser extends NodeTextEdit<QTextBrowserSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QTextBrowser extends QTextEdit<QTextBrowserSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QTextBrowser(parent.native);
         } else {
             native = new addon.QTextBrowser();
         }
         super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
     }
     setOpenExternalLinks(open: boolean): void {
         this.setProperty('openExternalLinks', open);
@@ -89,6 +89,7 @@ export class QTextBrowser extends NodeTextEdit<QTextBrowserSignals> {
         this.native.reload();
     }
 }
+wrapperCache.registerWrapper('QTextBrowserWrap', QTextBrowser);
 
 export interface QTextBrowserSignals extends QTextEditSignals {
     anchorClicked: (link: QUrl) => void;

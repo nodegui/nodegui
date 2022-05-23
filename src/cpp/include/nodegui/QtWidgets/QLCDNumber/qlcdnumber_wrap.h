@@ -11,13 +11,13 @@
 class DLL_EXPORT QLCDNumberWrap : public Napi::ObjectWrap<QLCDNumberWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NLCDNumber> instance;
+  QPointer<QLCDNumber> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QLCDNumberWrap(const Napi::CallbackInfo& info);
   ~QLCDNumberWrap();
-  NLCDNumber* getInternalInstance();
+  QLCDNumber* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

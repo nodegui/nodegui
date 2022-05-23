@@ -11,14 +11,13 @@
 class DLL_EXPORT QTabBarWrap : public Napi::ObjectWrap<QTabBarWrap> {
   QWIDGET_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NTabBar> instance;
-  bool disableDeletion;
+  QPointer<QTabBar> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QTabBarWrap(const Napi::CallbackInfo& info);
   ~QTabBarWrap();
-  NTabBar* getInternalInstance();
+  QTabBar* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

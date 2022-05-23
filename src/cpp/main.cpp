@@ -122,16 +122,14 @@
 #include "test/cachetestqobject_wrap.h"
 
 // These cant be instantiated in JS Side
-void InitPrivateHelpers(Napi::Env env) {
-  qodeIntegration::integrate();
-  QLayoutWrap::init(env);  // Abstact class wrapper for pointing to any layout
-}
+void InitPrivateHelpers(Napi::Env env) { qodeIntegration::integrate(); }
 
 Napi::Object Main(Napi::Env env, Napi::Object exports) {
   InitPrivateHelpers(env);
   NUtilsWrap::init(env, exports);
   WrapperCache::init(env, exports);
   QApplicationWrap::init(env, exports);
+  QLayoutWrap::init(env, exports);
   QDateWrap::init(env, exports);
   QDateTimeWrap::init(env, exports);
   QMimeDataWrap::init(env, exports);

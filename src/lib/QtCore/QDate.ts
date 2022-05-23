@@ -5,17 +5,17 @@ import { QVariant } from './QVariant';
 import { DateFormat } from '../QtEnums';
 
 export class QDate extends Component {
-    native: NativeElement;
     constructor(arg?: NativeElement | number, month?: number, day?: number) {
-        super();
         const count = arguments.length;
+        let native: NativeElement;
         if (count == 3) {
-            this.native = new addon.QDate(arg, month, day);
-        } else if (count == 1 && checkIfNativeElement(arg)) {
-            this.native = arg as NativeElement;
+            native = new addon.QDate(arg, month, day);
+        } else if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
         } else {
-            this.native = new addon.QDate();
+            native = new addon.QDate();
         }
+        super(native);
     }
     addDays(ndays: number): QDate {
         return new QDate(this.native.addDays(ndays));

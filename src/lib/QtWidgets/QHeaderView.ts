@@ -1,8 +1,9 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
 import { AlignmentFlag, checkIfNativeElement, Orientation, QPoint, SortOrder } from '../..';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
 
@@ -11,7 +12,21 @@ import { AlignmentFlag, checkIfNativeElement, Orientation, QPoint, SortOrder } f
 * **This class is a JS wrapper around Qt's [QHeaderView class](https://doc.qt.io/qt-5/qheaderview.html)**
 
  */
-export abstract class NodeHeaderView<Signals extends QHeaderViewSignals> extends QAbstractItemView<Signals> {
+export class QHeaderView<Signals extends QHeaderViewSignals = QHeaderViewSignals> extends QAbstractItemView<Signals> {
+    constructor(orientationOrNative: Orientation | NativeElement, parent: QWidget | null = null) {
+        let native: NativeElement;
+        if (checkIfNativeElement(orientationOrNative)) {
+            native = orientationOrNative as NativeElement;
+        } else {
+            if (parent != null) {
+                native = new addon.QHeaderView(orientationOrNative, parent.native);
+            } else {
+                native = new addon.QHeaderView(orientationOrNative);
+            }
+        }
+        super(native);
+    }
+
     // *** Public Function ***
     cascadingSectionResizes(): boolean {
         return this.native.cascadingSectionResizes();
@@ -203,25 +218,7 @@ export abstract class NodeHeaderView<Signals extends QHeaderViewSignals> extends
         this.native.setOffsetToSectionPosition(visualSectionNumber);
     }
 }
-
-export class QHeaderView extends NodeHeaderView<QHeaderViewSignals> {
-    native: NativeElement;
-    constructor(orientationOrNative: Orientation | NativeElement, parent: NodeWidget<any> | null = null) {
-        let native;
-        if (checkIfNativeElement(orientationOrNative)) {
-            native = orientationOrNative as NativeElement;
-        } else {
-            if (parent != null) {
-                native = new addon.QHeaderView(orientationOrNative, parent.native);
-            } else {
-                native = new addon.QHeaderView(orientationOrNative);
-            }
-        }
-        super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
-    }
-}
+wrapperCache.registerWrapper('QHeaderViewWrap', QHeaderView);
 
 export enum QHeaderViewResizeMode {
     Interactive = 0,

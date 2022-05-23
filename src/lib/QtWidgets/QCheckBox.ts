@@ -1,12 +1,13 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
-import { NativeElement, NativeRawPointer, Component } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { NativeElement } from '../core/Component';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
-import { checkIfNativeElement, checkIfNapiExternal } from '../utils/helpers';
+import { checkIfNativeElement } from '../utils/helpers';
 import { CheckState } from '../QtEnums';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
+
 > Create and control checkbox.
 
 * **This class is a JS wrapper around Qt's [QCheckBox class](https://doc.qt.io/qt-5/qcheckbox.html)**
@@ -23,28 +24,19 @@ checkbox.setText("Hello");
 ```
  */
 export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(rawPointer: NativeRawPointer<any>, disableNativeDeletion?: boolean);
-    constructor(arg?: NodeWidget<any> | NativeRawPointer<any> | NativeElement, disableNativeDeletion = true) {
-        let native;
-        let parent: Component | undefined;
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (checkIfNapiExternal(arg)) {
-            native = new addon.QCheckBox(arg, disableNativeDeletion);
-        } else if (arg) {
-            const parentWidget = arg as NodeWidget<any>;
-            native = new addon.QCheckBox(parentWidget.native);
-            parent = parentWidget;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QCheckBox(parent.native);
         } else {
             native = new addon.QCheckBox();
         }
         super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
     }
+
     setTristate(y = true): void {
         this.setProperty('tristate', y);
     }
@@ -58,6 +50,7 @@ export class QCheckBox extends QAbstractButton<QCheckBoxSignals> {
         this.native.setCheckState(state);
     }
 }
+wrapperCache.registerWrapper('QCheckBoxWrap', QCheckBox);
 
 export interface QCheckBoxSignals extends QAbstractButtonSignals {
     stateChanged: (state: number) => void;

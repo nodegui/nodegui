@@ -1,8 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { QTextOptionWrapMode } from '../QtGui/QTextOption';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 export interface QPlainTextEditSignals extends QAbstractScrollAreaSignals {
     textChanged: () => void;
@@ -16,7 +18,7 @@ export interface QPlainTextEditSignals extends QAbstractScrollAreaSignals {
 }
 
 /**
- 
+
 > Used to edit and display plain text.
 
 * **This class is a JS wrapper around Qt's [QPlainTextEdit class](https://doc.qt.io/qt-5/qplaintextedit.html)**
@@ -32,20 +34,17 @@ const plainTextEdit = new QPlainTextEdit();
 ```
  */
 export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
-    native: NativeElement;
-    placeholderText?: string;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QPlainTextEdit(parent.native);
         } else {
             native = new addon.QPlainTextEdit();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     setPlainText(text: string | number): void {
         // react:✓
@@ -53,7 +52,6 @@ export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
     }
     setPlaceholderText(text: string): void {
         // react:✓, //TODO:getter
-        this.placeholderText = text;
         this.native.setPlaceholderText(text);
     }
     toPlainText(): string {
@@ -84,6 +82,7 @@ export class QPlainTextEdit extends QAbstractScrollArea<QPlainTextEditSignals> {
         this.native.insertPlainText(`${text}`);
     }
 }
+wrapperCache.registerWrapper('QPlainTextEditWrap', QPlainTextEdit);
 
 export enum LineWrapMode {
     NoWrap,

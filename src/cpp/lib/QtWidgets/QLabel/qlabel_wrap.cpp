@@ -18,6 +18,7 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
       {InstanceMethod("setSelection", &QLabelWrap::setSelection),
        InstanceMethod("selectionStart", &QLabelWrap::selectionStart),
        InstanceMethod("setBuddy", &QLabelWrap::setBuddy),
+       InstanceMethod("buddy", &QLabelWrap::buddy),
        InstanceMethod("clear", &QLabelWrap::clear),
        InstanceMethod("setMovie", &QLabelWrap::setMovie),
        InstanceMethod("setNumDouble", &QLabelWrap::setNumDouble),
@@ -27,31 +28,46 @@ Napi::Object QLabelWrap::init(Napi::Env env, Napi::Object exports) {
        QFRAME_WRAPPED_METHODS_EXPORT_DEFINE(QLabelWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QLabel, QLabelWrap);
   return exports;
 }
 
-NLabel* QLabelWrap::getInternalInstance() { return this->instance; }
+QLabel* QLabelWrap::getInternalInstance() { return this->instance; }
 
 QLabelWrap::~QLabelWrap() { extrautils::safeDelete(this->instance); }
 
 QLabelWrap::QLabelWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QLabelWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NLabel(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NLabel();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QLabel>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NLabel(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env, "NodeGui: QLabelWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  auto flexNode = this->getInternalInstance()->getFlexNode();
-  YGNodeSetNodeType(flexNode, YGNodeType::YGNodeTypeText);
+
+  YogaWidget* yogaWidget =
+      dynamic_cast<YogaWidget*>(this->getInternalInstance());
+  if (yogaWidget) {
+    auto flexNode = yogaWidget->getFlexNode();
+    YGNodeSetNodeType(flexNode, YGNodeType::YGNodeTypeText);
+  }
   this->rawData =
-      extrautils::configureQWidget(this->getInternalInstance(), flexNode, true);
+      extrautils::configureQWidget(this->getInternalInstance(), true);
 }
 
 Napi::Value QLabelWrap::setSelection(const Napi::CallbackInfo& info) {
@@ -74,6 +90,16 @@ Napi::Value QLabelWrap::setBuddy(const Napi::CallbackInfo& info) {
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(buddyObject);
   this->instance->setBuddy(buddyWrap->getInternalInstance());
   return env.Null();
+}
+
+Napi::Value QLabelWrap::buddy(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QObject* parent = this->instance->buddy();
+  if (parent) {
+    return WrapperCache::instance.getWrapper(env, parent);
+  } else {
+    return env.Null();
+  }
 }
 
 Napi::Value QLabelWrap::clear(const Napi::CallbackInfo& info) {

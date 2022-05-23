@@ -1,9 +1,11 @@
-import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
+import { wrapperCache } from '../core/WrapperCache';
+import addon from '../utils/addon';
+import { checkIfNativeElement } from '../utils/helpers';
+import { QWidget, QWidgetSignals } from './QWidget';
 
 /**
- 
+
 > Create and control number.
 
 * **This class is a JS wrapper around Qt's [QLCDNumber class](https://doc.qt.io/qt-5/qlcdnumber.html)**
@@ -20,20 +22,18 @@ const lcd = new QLCDNumber();
 ```
 
  */
-export class QLCDNumber extends NodeWidget<QLCDNumberSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QLCDNumber extends QWidget<QLCDNumberSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QLCDNumber(parent.native);
         } else {
             native = new addon.QLCDNumber();
         }
         super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
     }
     setDigitCount(numDigits: number): void {
         this.setProperty('digitCount', numDigits);
@@ -84,6 +84,7 @@ export class QLCDNumber extends NodeWidget<QLCDNumberSignals> {
         this.native.setOctMode();
     }
 }
+wrapperCache.registerWrapper('QLCDNumberWrap', QLCDNumber);
 
 export enum Mode {
     Hex,

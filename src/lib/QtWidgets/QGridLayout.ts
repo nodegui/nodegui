@@ -1,8 +1,10 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
-import { NodeLayout, QLayoutSignals } from './QLayout';
+import { QWidget, QWidgetSignals } from './QWidget';
+import { QLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { AlignmentFlag } from '../QtEnums';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -29,24 +31,21 @@ layout.addWidget(label2);
 ```
 
  */
-export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
+export class QGridLayout extends QLayout<QGridLayoutSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
-        if (parent) {
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QGridLayout(parent.native);
         } else {
             native = new addon.QGridLayout();
         }
         super(native);
-        this.setNodeParent(parent);
-        this.native = native;
     }
-
     addLayout(
-        layout: NodeLayout<any>,
+        layout: QLayout,
         row: number,
         column: number,
         rowSpan = 1,
@@ -56,13 +55,11 @@ export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
         this.native.addLayout(layout.native, row, column, rowSpan, columnSpan, alignment);
     }
 
-    addWidget(widget: NodeWidget<any>, row = 0, col = 0, rowSpan = 1, colSpan = 1, alignment: AlignmentFlag = 0): void {
+    addWidget(widget: QWidget, row = 0, col = 0, rowSpan = 1, colSpan = 1, alignment: AlignmentFlag = 0): void {
         this.native.addWidget(widget.native, row, col, rowSpan, colSpan, alignment);
-        this.nodeChildren.add(widget);
     }
-    removeWidget(widget: NodeWidget<any>): void {
+    removeWidget(widget: QWidget): void {
         this.native.removeWidget(widget.native);
-        this.nodeChildren.delete(widget);
     }
     columnStretch(column: number): number {
         return this.native.columnStretch(column);
@@ -107,5 +104,6 @@ export class QGridLayout extends NodeLayout<QGridLayoutSignals> {
         return this.native.rowCount();
     }
 }
+wrapperCache.registerWrapper('QGridLayoutWrap', QGridLayout);
 
 export type QGridLayoutSignals = QLayoutSignals;

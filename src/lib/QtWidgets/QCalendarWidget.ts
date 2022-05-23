@@ -1,11 +1,13 @@
 import addon from '../utils/addon';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QDate } from '../QtCore/QDate';
 import { DayOfWeek } from '../QtEnums';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
+
 > Create and control a selectable monthly calendar.
 
 * **This class is a JS wrapper around Qt's [QCalendarWidget class](https://doc.qt.io/qt-5/qcalendarwidget.html)**
@@ -21,20 +23,18 @@ const calendarWidget = new QCalendarWidget();
 // more will follow when .selectedDate() et cetera are implemented
 ```
  */
-export class QCalendarWidget extends NodeWidget<QCalendarWidgetSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QCalendarWidget extends QWidget<QCalendarWidgetSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QCalendarWidget(parent.native);
         } else {
             native = new addon.QCalendarWidget();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     setDateEditAcceptDelay(delay: number): void {
         this.setProperty('dateEditAcceptDelay', delay);
@@ -85,6 +85,7 @@ export class QCalendarWidget extends NodeWidget<QCalendarWidgetSignals> {
         return this.property('verticalHeaderFormat').toInt();
     }
 }
+wrapperCache.registerWrapper('QCalendarWidgetWrap', QCalendarWidget);
 
 export enum HorizontalHeaderFormat {
     NoHorizontalHeader,

@@ -1,9 +1,11 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
-import { NativeElement } from '../core/Component';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { SortOrder, PenStyle } from '../QtEnums';
 import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
 import { QHeaderView } from './QHeaderView';
+import { wrapperCache } from '../core/WrapperCache';
+import { NativeElement } from '../core/Component';
+import { checkIfNativeElement } from '../utils/helpers';
 
 /**
 
@@ -20,7 +22,19 @@ const tableview = new QTableView();
 
 ```
  */
-export abstract class NodeTableView<Signals extends QTableViewSignals> extends QAbstractItemView<Signals> {
+export class QTableView<Signals extends QTableViewSignals = QTableViewSignals> extends QAbstractItemView<Signals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QTableView(parent.native);
+        } else {
+            native = new addon.QTableView();
+        }
+        super(native);
+    }
     // *** Public Functions ***
     clearSpans(): void {
         this.native.clearSpans();
@@ -177,22 +191,6 @@ export abstract class NodeTableView<Signals extends QTableViewSignals> extends Q
         this.native.sortByColumn(column, order);
     }
 }
-
-export class QTableView extends NodeTableView<QTableViewSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
-            native = new addon.QTableView(parent.native);
-        } else {
-            native = new addon.QTableView();
-        }
-        super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
-    }
-}
+wrapperCache.registerWrapper('QTableViewWrap', QTableView);
 
 export type QTableViewSignals = QAbstractItemViewSignals;

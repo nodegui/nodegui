@@ -11,13 +11,13 @@
 class DLL_EXPORT QSplitterWrap : public Napi::ObjectWrap<QSplitterWrap> {
   QFRAME_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NSplitter> instance;
+  QPointer<QSplitter> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QSplitterWrap(const Napi::CallbackInfo& info);
   ~QSplitterWrap();
-  NSplitter* getInternalInstance();
+  QSplitter* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

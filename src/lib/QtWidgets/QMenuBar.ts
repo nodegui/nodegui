@@ -1,12 +1,13 @@
 import { QMenu } from './QMenu';
 import { NativeElement } from '../core/Component';
-import { NodeWidget, QWidgetSignals } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QAction } from './QAction';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
+
 > The QMenuBar class provides a menu widget for use in menu bars, context menus, and other popup menus.
 
 * **This class is a JS wrapper around Qt's [QMenuBar class](https://doc.qt.io/qt-5/qmenu.html)**
@@ -23,38 +24,28 @@ win.show();
 global.win = win;
 ```
  */
-export class QMenuBar extends NodeWidget<QMenuBarSignals> {
-    native: NativeElement;
-    _menus: Set<QMenu>;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(native: NativeElement);
-    constructor(arg?: NodeWidget<any> | NativeElement) {
-        let native;
-        let parent;
+export class QMenuBar extends QWidget<QMenuBarSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
-        } else if (typeof arg === 'object') {
-            native = new addon.QMenuBar(arg.native);
-            parent = arg as NodeWidget<any>;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QMenuBar(parent.native);
         } else {
             native = new addon.QMenuBar();
         }
         super(native);
-        this.native = native;
-        this._menus = new Set<QMenu>();
-        this.setNodeParent(parent);
     }
+
     addMenu(menu: QMenu | string): QMenu {
         if (typeof menu === 'string') {
             const qmenu = new QMenu();
             qmenu.setTitle(menu);
             this.native.addMenu(qmenu.native);
-            this._menus.add(qmenu);
             return qmenu;
         }
         this.native.addMenu(menu.native);
-        this._menus.add(menu);
         return menu;
     }
     addSeparator(): QAction {
@@ -64,5 +55,6 @@ export class QMenuBar extends NodeWidget<QMenuBarSignals> {
         this.native.setNativeMenuBar(nativeMenuBar);
     }
 }
+wrapperCache.registerWrapper('QMenuBarWrap', QMenuBar);
 
 export type QMenuBarSignals = QWidgetSignals;

@@ -27,16 +27,19 @@ Napi::Object QBoxLayoutWrap::init(Napi::Env env, Napi::Object exports) {
        QLAYOUT_WRAPPED_METHODS_EXPORT_DEFINE(QBoxLayoutWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QBoxLayout, QBoxLayoutWrap);
   return exports;
 }
 
-NBoxLayout* QBoxLayoutWrap::getInternalInstance() { return this->instance; }
+QBoxLayout* QBoxLayoutWrap::getInternalInstance() { return this->instance; }
+
 QBoxLayoutWrap::~QBoxLayoutWrap() { extrautils::safeDelete(this->instance); }
 
 QBoxLayoutWrap::QBoxLayoutWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QBoxLayoutWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 2) {
+  size_t argCount = info.Length();
+  if (argCount == 2) {
     QBoxLayout::Direction dir = static_cast<QBoxLayout::Direction>(
         info[0].As<Napi::Number>().Int32Value());
     Napi::Object parentObject = info[1].As<Napi::Object>();
@@ -44,12 +47,17 @@ QBoxLayoutWrap::QBoxLayoutWrap(const Napi::CallbackInfo& info)
         Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
     this->instance =
         new NBoxLayout(dir, parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 1) {
-    QBoxLayout::Direction dir = static_cast<QBoxLayout::Direction>(
-        info[0].As<Napi::Number>().Int32Value());
-    this->instance = new NBoxLayout(dir);
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QBoxLayout>>().Data();
+    } else {
+      QBoxLayout::Direction dir = static_cast<QBoxLayout::Direction>(
+          info[0].As<Napi::Number>().Int32Value());
+      this->instance = new NBoxLayout(dir);
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(env, "QBoxLayoutWrap: Wrong number of arguments")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureQObject(this->getInternalInstance());

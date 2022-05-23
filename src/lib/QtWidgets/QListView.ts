@@ -1,12 +1,14 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement } from '../core/Component';
 import { QAbstractItemView, QAbstractItemViewSignals } from './QAbstractItemView';
 import { QSize } from '../QtCore/QSize';
 import { AlignmentFlag } from '../..';
+import { checkIfNativeElement } from '../utils/helpers';
+import { wrapperCache } from '../core/WrapperCache';
 
 /**
- 
+
 > The QListView class provides a list or icon view onto a model.
 
 * **This class is a JS wrapper around Qt's [QListView class](https://doc.qt.io/qt-5/qlistview.html)**
@@ -20,7 +22,19 @@ const listview = new QListView();
 
 ```
  */
-export abstract class NodeListView<Signals extends QListViewSignals> extends QAbstractItemView<Signals> {
+export class QListView<Signals extends QListViewSignals = QListViewSignals> extends QAbstractItemView<Signals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
+            native = new addon.QListView(parent.native);
+        } else {
+            native = new addon.QListView();
+        }
+        super(native);
+    }
     setBatchSize(batchSize: number): void {
         this.setProperty('batchSize', batchSize);
     }
@@ -116,6 +130,7 @@ export abstract class NodeListView<Signals extends QListViewSignals> extends QAb
         return this.native.isRowHidden(row);
     }
 }
+wrapperCache.registerWrapper('QListViewWrap', QListView);
 
 export enum Flow {
     LeftToRight,
@@ -141,23 +156,6 @@ export enum ResizeMode {
 export enum ListViewMode {
     ListMode,
     IconMode,
-}
-
-export class QListView extends NodeListView<QListViewSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
-            native = new addon.QListView(parent.native);
-        } else {
-            native = new addon.QListView();
-        }
-        super(native);
-        this.native = native;
-        parent && this.setNodeParent(parent);
-    }
 }
 
 export type QListViewSignals = QAbstractItemViewSignals;

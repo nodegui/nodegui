@@ -12,13 +12,13 @@ class DLL_EXPORT QStackedWidgetWrap
     : public Napi::ObjectWrap<QStackedWidgetWrap> {
   QFRAME_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NStackedWidget> instance;
+  QPointer<QStackedWidget> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QStackedWidgetWrap(const Napi::CallbackInfo &info);
   ~QStackedWidgetWrap();
-  NStackedWidget *getInternalInstance();
+  QStackedWidget *getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

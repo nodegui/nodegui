@@ -3,7 +3,7 @@ import { NativeElement } from '../core/Component';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QClipboard } from './QClipboard';
 import { QStyle } from './QStyle';
-import { QObjectSignals, NodeObject } from '../QtCore/QObject';
+import { QObjectSignals, QObject } from '../QtCore/QObject';
 import { QPalette } from './QPalette';
 import { StyleSheet } from '../core/Style/StyleSheet';
 import memoizeOne from 'memoize-one';
@@ -27,20 +27,18 @@ const qApp = QApplication.instance();
 qApp.quit();
 ```
  */
-export class QApplication extends NodeObject<QApplicationSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(native: NativeElement);
-    constructor(arg?: NativeElement) {
+export class QApplication extends QObject<QApplicationSignals> {
+    constructor(arg?: QObject | NativeElement) {
         let native: NativeElement;
         if (checkIfNativeElement(arg)) {
             native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QObject;
+            native = new addon.QApplication(parent.native);
         } else {
             native = new addon.QApplication();
         }
         super(native);
-        this.native = native;
-
         this.setStyleSheet = memoizeOne(this.setStyleSheet);
     }
     devicePixelRatio(): number {
@@ -104,6 +102,7 @@ export class QApplication extends NodeObject<QApplicationSignals> {
         return new QStyle(addon.QApplication.style());
     }
 }
+wrapperCache.registerWrapper('QApplicationWrap', QApplication);
 
 export interface QApplicationSignals extends QObjectSignals {
     focusWindowChanged: () => void;

@@ -1,9 +1,11 @@
 import addon from '../utils/addon';
-import { NodeWidget } from './QWidget';
+import { QWidget, QWidgetSignals } from './QWidget';
 import { NativeElement, NativeRawPointer } from '../core/Component';
-import { NodeDialog, QDialogSignals } from './QDialog';
+import { QDialog, QDialogSignals } from './QDialog';
 import { QAbstractButton, QAbstractButtonSignals } from './QAbstractButton';
 import { QPushButton } from './QPushButton';
+import { wrapperCache } from '../core/WrapperCache';
+import { checkIfNativeElement } from '../utils/helpers';
 
 export enum ButtonRole {
     InvalidRole,
@@ -19,7 +21,7 @@ export enum ButtonRole {
 }
 
 /**
- 
+
 > Create and control classic modal dialogs.
 
 * **This class is a JS wrapper around Qt's [QMessageBox class](https://doc.qt.io/qt-5/qmessagebox.html)**
@@ -39,20 +41,18 @@ messageBox.exec();
 
 ```
  */
-export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
-    native: NativeElement;
-    constructor();
-    constructor(parent: NodeWidget<any>);
-    constructor(parent?: NodeWidget<any>) {
-        let native;
-        if (parent) {
+export class QMessageBox extends QDialog<QMessageBoxSignals> {
+    constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else if (arg != null) {
+            const parent = arg as QWidget;
             native = new addon.QMessageBox(parent.native);
         } else {
             native = new addon.QMessageBox();
         }
         super(native);
-        this.native = native;
-        this.setNodeParent(parent);
     }
     accept(): void {
         this.native.accept();
@@ -82,22 +82,21 @@ export class QMessageBox extends NodeDialog<QMessageBoxSignals> {
 
     setDefaultButton(button: QPushButton): void {
         this.native.setDefaultButton(button);
-        this.nodeChildren.add(button);
     }
 
     addButton(button: QAbstractButton<QAbstractButtonSignals>, role: ButtonRole = ButtonRole.NoRole): void {
         this.native.addButton(button.native, role);
-        this.nodeChildren.add(button);
     }
 
-    static about(parent: NodeWidget<any>, title: string, text: string): void {
+    static about(parent: QWidget, title: string, text: string): void {
         addon.QMessageBox.about(parent.native, title, text);
     }
 
-    static aboutQt(parent: NodeWidget<any>, title: string): void {
+    static aboutQt(parent: QWidget, title: string): void {
         addon.QMessageBox.aboutQt(parent.native, title);
     }
 }
+wrapperCache.registerWrapper('QMessageBoxWrap', QMessageBox);
 
 export interface QMessageBoxSignals extends QDialogSignals {
     buttonClicked: (buttonRawPointer: NativeRawPointer<'QAbstractButton*'>) => void;

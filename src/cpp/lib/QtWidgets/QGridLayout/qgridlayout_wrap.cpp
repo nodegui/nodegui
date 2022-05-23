@@ -35,24 +35,36 @@ Napi::Object QGridLayoutWrap::init(Napi::Env env, Napi::Object exports) {
        QLAYOUT_WRAPPED_METHODS_EXPORT_DEFINE(QGridLayoutWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QGridLayout, QGridLayoutWrap);
   return exports;
 }
 
-NGridLayout* QGridLayoutWrap::getInternalInstance() { return this->instance; }
+QGridLayout* QGridLayoutWrap::getInternalInstance() { return this->instance; }
+
 QGridLayoutWrap::~QGridLayoutWrap() { extrautils::safeDelete(this->instance); }
 
 QGridLayoutWrap::QGridLayoutWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QGridLayoutWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NGridLayout(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NGridLayout();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QGridLayout>>().Data();
+    } else {
+      // --- Construct a new instance and pass a parent
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NGridLayout(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QGridLayoutWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
   this->rawData = extrautils::configureQObject(this->getInternalInstance());

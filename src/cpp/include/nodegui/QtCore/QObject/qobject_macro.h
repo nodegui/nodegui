@@ -5,11 +5,12 @@
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QVariant/qvariant_wrap.h"
 #include "core/Events/eventwidget_macro.h"
-/*
+#include "core/WrapperCache/wrappercache.h"
 
-    This macro adds common QObject exported methods
-    The exported methods are taken into this macro to avoid writing them in each
-   and every widget we export.
+/*
+  This macro adds common QObject exported methods
+  The exported methods are taken into this macro to avoid writing them in each
+  and every widget we export.
  */
 
 #ifndef QOBJECT_WRAPPED_METHODS_DECLARATION_WITH_EVENT_SOURCE
@@ -20,7 +21,8 @@
   Napi::Value __id__(const Napi::CallbackInfo& info) {                       \
     Napi::Env env = info.Env();                                              \
     return Napi::Value::From(                                                \
-        env, extrautils::hashPointerTo53bit(this->instance.data()));         \
+        env, extrautils::hashPointerTo53bit(                                 \
+                 static_cast<QObject*>(this->instance.data())));             \
   }                                                                          \
   Napi::Value inherits(const Napi::CallbackInfo& info) {                     \
     Napi::Env env = info.Env();                                              \
@@ -88,6 +90,35 @@
     int id = info[0].As<Napi::Number>().Int32Value();                        \
     this->instance->killTimer(id);                                           \
     return env.Null();                                                       \
+  }                                                                          \
+  Napi::Value parent(const Napi::CallbackInfo& info) {                       \
+    Napi::Env env = info.Env();                                              \
+    QObject* parent = this->instance->parent();                              \
+    if (parent) {                                                            \
+      return WrapperCache::instance.getWrapper(env, parent);                 \
+    } else {                                                                 \
+      return env.Null();                                                     \
+    }                                                                        \
+  }                                                                          \
+  Napi::Value deleteLater(const Napi::CallbackInfo& info) {                  \
+    Napi::Env env = info.Env();                                              \
+    this->instance->deleteLater();                                           \
+    return env.Null();                                                       \
+  }                                                                          \
+  Napi::Value deleteObject(const Napi::CallbackInfo& info) {                 \
+    Napi::Env env = info.Env();                                              \
+    delete static_cast<QObject*>(this->instance);                            \
+    return env.Null();                                                       \
+  }                                                                          \
+  Napi::Value children(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                              \
+    QObjectList children = this->instance->children();                       \
+    Napi::Array resultArrayNapi = Napi::Array::New(env, children.size());    \
+    for (int i = 0; i < children.size(); i++) {                              \
+      resultArrayNapi[i] =                                                   \
+          WrapperCache::instance.getWrapper(env, children[i]);               \
+    }                                                                        \
+    return resultArrayNapi;                                                  \
   }
 
 // Ideally this macro below should go in
@@ -131,7 +162,11 @@
       InstanceMethod("dumpObjectInfo", &ComponentWrapName::dumpObjectInfo), \
       InstanceMethod("setParent", &ComponentWrapName::setParent),           \
       InstanceMethod("startTimer", &ComponentWrapName::startTimer),         \
-      InstanceMethod("killTimer", &ComponentWrapName::killTimer),
+      InstanceMethod("killTimer", &ComponentWrapName::killTimer),           \
+      InstanceMethod("parent", &ComponentWrapName::parent),                 \
+      InstanceMethod("deleteLater", &ComponentWrapName::deleteLater),       \
+      InstanceMethod("delete", &ComponentWrapName::deleteObject),           \
+      InstanceMethod("children", &ComponentWrapName::children),
 
 #endif  // QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
 
@@ -150,5 +185,23 @@
 #ifndef QOBJECT_SIGNALS
 #define QOBJECT_SIGNALS QOBJECT_SIGNALS_ON_TARGET(this)
 #endif  // QOBJECT_SIGNALS
+
+/*
+  Macro to register a function to wrap QObject pointers of a
+  given subclass to wrapper instances. First parameter is the
+  plain name of the QObject subclass (no quotes), seconds is the
+  name of the wrapper class.
+ */
+#ifndef QOBJECT_REGISTER_WRAPPER
+#define QOBJECT_REGISTER_WRAPPER(qobjectType, ComponentWrapName)         \
+  WrapperCache::instance.registerWrapper(                                \
+      QString(#qobjectType),                                             \
+      [](Napi::Env env, QObject* qobject) -> Napi::Object {              \
+        qobjectType* exactQObject = dynamic_cast<qobjectType*>(qobject); \
+        Napi::Object wrapper = ComponentWrapName::constructor.New(       \
+            {Napi::External<QObject>::New(env, exactQObject)});          \
+        return wrapper;                                                  \
+      });
+#endif  // QOBJECT_REGISTER_WRAPPER
 
 #include "QtCore/QObject/qobject_wrap.h"

@@ -13,13 +13,13 @@ class DLL_EXPORT QPlainTextEditWrap
     : public Napi::ObjectWrap<QPlainTextEditWrap> {
   QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
  private:
-  QPointer<NPlainTextEdit> instance;
+  QPointer<QPlainTextEdit> instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
   QPlainTextEditWrap(const Napi::CallbackInfo &info);
   ~QPlainTextEditWrap();
-  NPlainTextEdit *getInternalInstance();
+  QPlainTextEdit *getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods

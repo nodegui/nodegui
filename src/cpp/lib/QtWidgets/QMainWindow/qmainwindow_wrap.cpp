@@ -16,40 +16,50 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("setCentralWidget", &QMainWindowWrap::setCentralWidget),
+       InstanceMethod("centralWidget", &QMainWindowWrap::centralWidget),
        InstanceMethod("takeCentralWidget", &QMainWindowWrap::takeCentralWidget),
        InstanceMethod("setMenuBar", &QMainWindowWrap::setMenuBar),
+       InstanceMethod("menuBar", &QMainWindowWrap::menuBar),
        InstanceMethod("setMenuWidget", &QMainWindowWrap::setMenuWidget),
        InstanceMethod("center", &QMainWindowWrap::center),
        InstanceMethod("setStatusBar", &QMainWindowWrap::setStatusBar),
        InstanceMethod("statusBar", &QMainWindowWrap::statusBar),
-       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)
-
-      });
+       QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QMainWindow, QMainWindowWrap);
   return exports;
 }
 
-NMainWindow* QMainWindowWrap::getInternalInstance() { return this->instance; }
+QMainWindow* QMainWindowWrap::getInternalInstance() { return this->instance; }
 
 QMainWindowWrap::~QMainWindowWrap() { extrautils::safeDelete(this->instance); }
 
 QMainWindowWrap::QMainWindowWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QMainWindowWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object parentObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* parentWidgetWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
-    this->instance = new NMainWindow(parentWidgetWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
     this->instance = new NMainWindow();
+  } else if (argCount == 1) {
+    if (info[0].IsExternal()) {
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QMainWindow>>().Data();
+    } else {
+      Napi::Object parentObject = info[0].As<Napi::Object>();
+      NodeWidgetWrap* parentWidgetWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
+      this->instance = new NMainWindow(parentWidgetWrap->getInternalInstance());
+    }
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env,
+        "NodeGui: QMainWindowWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode());
+  this->rawData = extrautils::configureQWidget(this->getInternalInstance());
 }
 
 Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {
@@ -57,15 +67,32 @@ Napi::Value QMainWindowWrap::setCentralWidget(const Napi::CallbackInfo& info) {
   Napi::Object widgetObject = info[0].As<Napi::Object>();
   NodeWidgetWrap* centralWidget =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);
-  this->instance->setCentralWidget(centralWidget->getInternalInstance());
+  if (centralWidget != nullptr) {
+    this->instance->setCentralWidget(centralWidget->getInternalInstance());
+  } else {
+    this->instance->setCentralWidget(nullptr);
+  }
   return env.Null();
+}
+
+Napi::Value QMainWindowWrap::centralWidget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QWidget* widget = this->instance->centralWidget();
+  if (widget) {
+    return WrapperCache::instance.getWrapper(env, widget);
+  } else {
+    return env.Null();
+  }
 }
 
 Napi::Value QMainWindowWrap::takeCentralWidget(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  this->instance->takeCentralWidget();
-  // We will not return the value here since we are doing it in js side anyway
-  return env.Null();
+  QWidget* widget = this->instance->takeCentralWidget();
+  if (widget) {
+    return WrapperCache::instance.getWrapper(env, widget);
+  } else {
+    return env.Null();
+  }
 }
 
 Napi::Value QMainWindowWrap::setMenuBar(const Napi::CallbackInfo& info) {
@@ -119,6 +146,19 @@ Napi::Value QMainWindowWrap::setStatusBar(const Napi::CallbackInfo& info) {
 Napi::Value QMainWindowWrap::statusBar(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   QStatusBar* statusBar = this->instance->statusBar();
+  if (statusBar) {
+    return WrapperCache::instance.getWrapper(env, statusBar);
+  } else {
+    return env.Null();
+  }
+}
 
-  return QStatusBarWrap::fromQStatusBar(env, statusBar);
+Napi::Value QMainWindowWrap::menuBar(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QMenuBar* menuBar = this->instance->menuBar();
+  if (menuBar) {
+    return WrapperCache::instance.getWrapper(env, menuBar);
+  } else {
+    return env.Null();
+  }
 }

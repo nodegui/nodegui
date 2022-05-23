@@ -12,33 +12,37 @@ Napi::Object QWidgetWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME, {QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QWidgetWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
+  QOBJECT_REGISTER_WRAPPER(QWidget, QWidgetWrap);
   return exports;
 }
 
-NWidget *QWidgetWrap::getInternalInstance() { return this->instance; }
+QWidget *QWidgetWrap::getInternalInstance() { return this->instance; }
 
 QWidgetWrap::~QWidgetWrap() { extrautils::safeDelete(this->instance); }
 
 QWidgetWrap::QWidgetWrap(const Napi::CallbackInfo &info)
     : Napi::ObjectWrap<QWidgetWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
+  size_t argCount = info.Length();
+  if (argCount == 0) {
+    // --- Construct a new instance
+    this->instance = new NWidget();
+  } else if (argCount == 1) {
     if (info[0].IsExternal()) {
-      this->instance =
-          new NWidget(info[0].As<Napi::External<NWidget>>().Data());
+      // --- Wrap a given C++ instance
+      this->instance = info[0].As<Napi::External<QWidget>>().Data();
     } else {
+      // --- Construct a new instance and pass a parent
       Napi::Object parentObject = info[0].As<Napi::Object>();
       NodeWidgetWrap *parentWidgetWrap =
           Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(parentObject);
       this->instance = new NWidget(parentWidgetWrap->getInternalInstance());
     }
-  } else if (info.Length() == 0) {
-    this->instance = new NWidget();
   } else {
-    Napi::TypeError::New(env, "Wrong number of arguments")
+    Napi::TypeError::New(
+        env, "NodeGui: QWidgetWrap: Wrong number of arguments to constructor")
         .ThrowAsJavaScriptException();
   }
-  this->rawData = extrautils::configureQWidget(
-      this->getInternalInstance(), this->getInternalInstance()->getFlexNode(),
-      false);
+  this->rawData =
+      extrautils::configureQWidget(this->getInternalInstance(), false);
 }
