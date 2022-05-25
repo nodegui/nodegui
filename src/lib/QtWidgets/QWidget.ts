@@ -115,7 +115,6 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     childAt(x: number, y: number): QWidget {
         return wrapperCache.getWrapper(this.native.childAt(x, y)) as QWidget;
     }
-    // TODO: QWidget *	childAt(const QPoint &p) const
     childrenRect(): QRect {
         return QRect.fromQVariant(this.property('childrenRect'));
     }
@@ -201,11 +200,15 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     isActiveWindow(): boolean {
         return this.property('isActiveWindow').toBool();
     }
-    // TODO: bool 	isAncestorOf(const QWidget *child) const
+    isAncestorOf(child: QWidget): boolean {
+        return this.native.isAncestorOf(child);
+    }
     isEnabled(): boolean {
         return this.property('enabled').toBool();
     }
-    // TODO: bool 	isEnabledTo(const QWidget *ancestor) const
+    isEnabledTo(ancestor: QWidget): boolean {
+        return this.native.isEnabledTo(ancestor);
+    }
     isFullScreen(): boolean {
         return this.property('fullScreen').toBool();
     }
@@ -224,14 +227,15 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     isVisible(): boolean {
         return this.property('visible').toBool();
     }
-    // TODO: bool 	isVisibleTo(const QWidget *ancestor) const
+    isVisibleTo(ancestor: QWidget): boolean {
+        return this.native.isVisibleTo(ancestor);
+    }
     isWindow(): boolean {
         return this.native.isWindow();
     }
     isWindowModified(): boolean {
         return this.native.isWindowModified();
     }
-    // TODO: QLayout *	layout() const
     // TODO: Qt::LayoutDirection 	layoutDirection() const
     // TODO: QLocale 	locale() const
     mapFrom(parent: QWidget, pos: QPoint): QPoint {
@@ -378,7 +382,9 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     setFocusPolicy(policy: FocusPolicy): void {
         this.setProperty('focusPolicy', policy);
     }
-    // TODO: void 	setFocusProxy(QWidget *w)
+    setFocusProxy(widget: QWidget): void {
+        this.native.setFocusProxy(widget);
+    }
     setFont(font: QFont): void {
         this.native.setProperty('font', font.native);
     }
@@ -509,7 +515,9 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     }
     // PROP: QWidget
     // TODO: QSizePolicy 	sizePolicy() const
-    // TODO: void 	stackUnder(QWidget *w)
+    stackUnder(w: QWidget): void {
+        this.native.stackUnder(w);
+    }
     statusTip(): string {
         return this.property('statusTip').toString();
     }

@@ -607,6 +607,14 @@
       return env.Null();                                                       \
     }                                                                          \
   }                                                                            \
+  Napi::Value setFocusProxy(const Napi::CallbackInfo& info) {                  \
+    Napi::Env env = info.Env();                                                \
+    Napi::Object widgetObject = info[0].As<Napi::Object>();                    \
+    NodeWidgetWrap* widgetWrap =                                               \
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetObject);                \
+    this->instance->setFocusProxy(widgetWrap->getInternalInstance());          \
+    return env.Null();                                                         \
+  }                                                                            \
   Napi::Value focusWidget(const Napi::CallbackInfo& info) {                    \
     Napi::Env env = info.Env();                                                \
     QWidget* result = this->instance->focusWidget();                           \
@@ -666,6 +674,42 @@
     } else {                                                                   \
       return env.Null();                                                       \
     }                                                                          \
+  }                                                                            \
+  Napi::Value isAncestorOf(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                                \
+    Napi::Object childWidgetObject = info[0].As<Napi::Object>();               \
+    NodeWidgetWrap* childWidgetWrap =                                          \
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(childWidgetObject);           \
+    QWidget* child = childWidgetWrap->getInternalInstance();                   \
+    bool result = this->instance->isAncestorOf(child);                         \
+    return Napi::Boolean::New(env, result);                                    \
+  }                                                                            \
+  Napi::Value isEnabledTo(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                                \
+    Napi::Object ancestorWidgetObject = info[0].As<Napi::Object>();            \
+    NodeWidgetWrap* ancestorWidgetWrap =                                       \
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(ancestorWidgetObject);        \
+    QWidget* ancestor = ancestorWidgetWrap->getInternalInstance();             \
+    bool result = this->instance->isEnabledTo(ancestor);                       \
+    return Napi::Boolean::New(env, result);                                    \
+  }                                                                            \
+  Napi::Value isVisibleTo(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                                \
+    Napi::Object ancestorWidgetObject = info[0].As<Napi::Object>();            \
+    NodeWidgetWrap* ancestorWidgetWrap =                                       \
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(ancestorWidgetObject);        \
+    QWidget* ancestor = ancestorWidgetWrap->getInternalInstance();             \
+    bool result = this->instance->isVisibleTo(ancestor);                       \
+    return Napi::Boolean::New(env, result);                                    \
+  }                                                                            \
+  Napi::Value stackUnder(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                                \
+    Napi::Object wWidgetObject = info[0].As<Napi::Object>();                   \
+    NodeWidgetWrap* wWidgetWrap =                                              \
+        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(wWidgetObject);               \
+    QWidget* w = wWidgetWrap->getInternalInstance();                           \
+    this->instance->stackUnder(w);                                             \
+    return env.Null();                                                         \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -762,6 +806,7 @@
       InstanceMethod("contentsRect", &WidgetWrapName::contentsRect),           \
       InstanceMethod("childAt", &WidgetWrapName::childAt),                     \
       InstanceMethod("focusProxy", &WidgetWrapName::focusProxy),               \
+      InstanceMethod("setFocusProxy", &WidgetWrapName::setFocusProxy),         \
       InstanceMethod("focusWidget", &WidgetWrapName::focusWidget),             \
       InstanceMethod("nativeParentWidget",                                     \
                      &WidgetWrapName::nativeParentWidget),                     \
@@ -769,7 +814,11 @@
       InstanceMethod("parentWidget", &WidgetWrapName::parentWidget),           \
       InstanceMethod("previousInFocusChain",                                   \
                      &WidgetWrapName::previousInFocusChain),                   \
-      InstanceMethod("window", &WidgetWrapName::window),
+      InstanceMethod("window", &WidgetWrapName::window),                       \
+      InstanceMethod("isAncestorOf", &WidgetWrapName::isAncestorOf),           \
+      InstanceMethod("isEnabledTo", &WidgetWrapName::isEnabledTo),             \
+      InstanceMethod("isVisibleTo", &WidgetWrapName::isVisibleTo),             \
+      InstanceMethod("stackUnder", &WidgetWrapName::stackUnder),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 
