@@ -360,6 +360,7 @@ module.exports = {
       "guides/nodegui-architecture",
       "guides/debugging",
       "guides/debugging-in-vscode",
+      "guides/understanding-memory",
       "guides/using-native-node-modules",
       "guides/custom-nodegui-native-plugin",
       "guides/packaging"
