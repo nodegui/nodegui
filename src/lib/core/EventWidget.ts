@@ -7,6 +7,15 @@ function addDefaultErrorHandler(native: NativeElement, emitter: EventEmitter): v
     emitter.addListener('error', () => null);
 }
 
+export interface EventListenerOptions {
+    /**
+     * This applies only when listening to QEvents. If set to true, then the callback will
+     * be called after the default processing by the base widget has occurred. By default
+     * callbacks for QEvents are called before the base widget `::event()` is called.
+     */
+    afterDefault?: boolean;
+}
+
 /**
 
 > Abstract class that adds event handling support to all widgets.
@@ -33,6 +42,7 @@ view.addEventListener(WidgetEventTypes.MouseMove, () => {
 });
 ```
  */
+
 export abstract class EventWidget<Signals extends unknown> extends Component {
     private emitter: EventEmitter;
     private _isEventProcessed = false;
@@ -51,18 +61,43 @@ export abstract class EventWidget<Signals extends unknown> extends Component {
 
         this.emitter = new EventEmitter();
         this.emitter.emit = wrapWithActivateUvLoop(this.emitter.emit.bind(this.emitter));
-        const logExceptions = (event: string | symbol, ...args: any[]): boolean => {
+        const logExceptions = (eventName: string, ...args: any[]): boolean => {
             // Preserve the value of `_isQObjectEventProcessed` as we dispatch this event
             // to JS land, and restore it afterwards. This lets us support recursive event
             // dispatches on the same object.
-            const wrappedArgs = args.map(wrapNative);
             const previousEventProcessed = this._isEventProcessed;
             this._isEventProcessed = false;
-            try {
-                this.emitter.emit(event, ...wrappedArgs);
-            } catch (e) {
-                console.log(`An exception was thrown while dispatching an event of type '${event.toString()}':`);
-                console.log(e);
+
+            // Events start with a capital letter, signals are lower case by convention.
+            const firstChar = eventName.charAt(0);
+            const isQEvent = firstChar.toUpperCase() === firstChar;
+            if (isQEvent) {
+                try {
+                    const event = wrapNative(args[0]);
+                    const afterBaseWidget = args[1];
+                    const baseWidgetResult = args[2];
+                    if (!afterBaseWidget) {
+                        this.emitter.emit(eventName, event);
+                    } else {
+                        this._isEventProcessed = baseWidgetResult;
+                        this.emitter.emit(`${eventName}_after`);
+                    }
+                } catch (e) {
+                    console.log(
+                        `An exception was thrown while dispatching an event of type '${eventName.toString()}':`,
+                    );
+                    console.log(e);
+                }
+            } else {
+                try {
+                    const wrappedArgs = args.map(wrapNative);
+                    this.emitter.emit(eventName, ...wrappedArgs);
+                } catch (e) {
+                    console.log(
+                        `An exception was thrown while dispatching a signal of type '${eventName.toString()}':`,
+                    );
+                    console.log(e);
+                }
             }
 
             const returnCode = this._isEventProcessed;
@@ -107,6 +142,7 @@ export abstract class EventWidget<Signals extends unknown> extends Component {
      *
     @param signalType SignalType is a signal from the widgets signals interface.
     @param callback Corresponding callback for the signal as mentioned in the widget's signal interface
+    @param options Extra optional options controlling how this event listener is added.
     @returns void
 
     For example in the case of QPushButton:
@@ -116,23 +152,37 @@ export abstract class EventWidget<Signals extends unknown> extends Component {
     // here clicked is a value from QPushButtonSignals interface
     ```
      */
-    addEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;
+    addEventListener<SignalType extends keyof Signals>(
+        signalType: SignalType,
+        callback: Signals[SignalType],
+        options?: EventListenerOptions,
+    ): void;
 
     /**
 
-     @param eventType
-     @param callback
+    @param eventType
+    @param callback
+    @param options Extra optional options controlling how this event listener is added.
 
-     For example in the case of QPushButton:
-     ```js
-     const button = new QPushButton();
-     button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
-     ```
-     */
-    addEventListener(eventType: WidgetEventTypes, callback: (event?: NativeRawPointer<'QEvent'>) => void): void;
-    addEventListener(eventOrSignalType: string, callback: (...payloads: any[]) => void): void {
+    For example in the case of QPushButton:
+    ```js
+    const button = new QPushButton();
+    button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
+    ```
+    */
+    addEventListener(
+        eventType: WidgetEventTypes,
+        callback: (event?: NativeRawPointer<'QEvent'>) => void,
+        options?: EventListenerOptions,
+    ): void;
+    addEventListener(
+        eventOrSignalType: string,
+        callback: (...payloads: any[]) => void,
+        options?: EventListenerOptions,
+    ): void {
+        const eventOrSignalName = options?.afterDefault ? `${eventOrSignalType}_after` : eventOrSignalType;
         if (this.native.subscribeToQtEvent(eventOrSignalType)) {
-            this.emitter.addListener(eventOrSignalType, callback);
+            this.emitter.addListener(eventOrSignalName, callback);
         } else {
             try {
                 throw new Error();
@@ -145,15 +195,29 @@ export abstract class EventWidget<Signals extends unknown> extends Component {
         }
     }
 
-    removeEventListener<SignalType extends keyof Signals>(signalType: SignalType, callback: Signals[SignalType]): void;
-    removeEventListener(eventType: WidgetEventTypes, callback: (event?: NativeRawPointer<'QEvent'>) => void): void;
-    removeEventListener(eventOrSignalType: string, callback?: (...payloads: any[]) => void): void {
+    removeEventListener<SignalType extends keyof Signals>(
+        signalType: SignalType,
+        callback: Signals[SignalType],
+        options?: EventListenerOptions,
+    ): void;
+    removeEventListener(
+        eventType: WidgetEventTypes,
+        callback: (event?: NativeRawPointer<'QEvent'>) => void,
+        options?: EventListenerOptions,
+    ): void;
+    removeEventListener(
+        eventOrSignalType: string,
+        callback?: (...payloads: any[]) => void,
+        options?: EventListenerOptions,
+    ): void {
+        const eventOrSignalTypeAfter = `${eventOrSignalType}_after`;
+        const registeredEventName = options?.afterDefault ? eventOrSignalTypeAfter : eventOrSignalType;
         if (callback) {
-            this.emitter.removeListener(eventOrSignalType, callback);
+            this.emitter.removeListener(registeredEventName, callback);
         } else {
-            this.emitter.removeAllListeners(eventOrSignalType);
+            this.emitter.removeAllListeners(registeredEventName);
         }
-        if (this.emitter.listenerCount(eventOrSignalType) < 1) {
+        if (this.emitter.listenerCount(eventOrSignalType) + this.emitter.listenerCount(eventOrSignalTypeAfter) === 0) {
             this.native.unSubscribeToQtEvent(eventOrSignalType);
         }
     }

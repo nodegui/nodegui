@@ -29,6 +29,15 @@ void EventWidget::unSubscribeToQtEvent(std::string evtString) {
 }
 
 bool EventWidget::event(QEvent* event) {
+  return sendEventToNode(event, false, false);
+}
+
+bool EventWidget::eventAfterDefault(QEvent* event, bool baseWidgetResult) {
+  return sendEventToNode(event, true, baseWidgetResult);
+}
+
+bool EventWidget::sendEventToNode(QEvent* event, bool afterBaseWidget,
+                                  bool baseWidgetResult) {
   if (this->emitOnNode) {
     try {
       QEvent::Type evtType = event->type();
@@ -37,8 +46,10 @@ bool EventWidget::event(QEvent* event) {
       Napi::HandleScope scope(env);
 
       Napi::Value nativeEvent = Napi::External<QEvent>::New(env, event);
-      std::vector<napi_value> args = {Napi::String::New(env, eventTypeString),
-                                      nativeEvent};
+      std::vector<napi_value> args = {
+          Napi::String::New(env, eventTypeString), nativeEvent,
+          Napi::Boolean::New(env, afterBaseWidget),
+          Napi::Boolean::New(env, baseWidgetResult)};
 
       Napi::Value returnCode = this->emitOnNode.Call(args);
       return returnCode.As<Napi::Boolean>().Value();
@@ -46,7 +57,7 @@ bool EventWidget::event(QEvent* event) {
       // Do nothing
     }
   }
-  return false;
+  return baseWidgetResult;
 }
 
 void EventWidget::connectSignalsToEventEmitter() {
