@@ -30,6 +30,7 @@ Dynamic layouts automatically position and resize widgets when the amount of spa
 NodeGui currently supports the following layouts at the moment:
 
 - FlexLayout
+- QBoxLayout
 - QGridLayout
 
 _More layouts will be added as time goes on. You can also add layouts yourself by creating custom native plugins for NodeGui usng the [Custom Native Plugin API.](custom-nodegui-native-plugin.md)_
