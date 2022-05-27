@@ -361,6 +361,7 @@ module.exports = {
       "guides/debugging",
       "guides/debugging-in-vscode",
       "guides/understanding-memory",
+      "guides/advanced-qevent-handling",
       "guides/using-native-node-modules",
       "guides/custom-nodegui-native-plugin",
       "guides/packaging"

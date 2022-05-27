@@ -99,12 +99,13 @@ struct InitHelper {
 #endif  // EVENTWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 
 #ifndef EVENTWIDGET_IMPLEMENTATIONS
-#define EVENTWIDGET_IMPLEMENTATIONS(BaseWidgetName) \
-  bool event(QEvent* event) override {              \
-    if (EventWidget::event(event)) {                \
-      return true;                                  \
-    }                                               \
-    return BaseWidgetName::event(event);            \
+#define EVENTWIDGET_IMPLEMENTATIONS(BaseWidgetName)                    \
+  bool event(QEvent* event) override {                                 \
+    if (EventWidget::event(event)) {                                   \
+      return true;                                                     \
+    }                                                                  \
+    bool baseWidgetResult = BaseWidgetName::event(event);              \
+    return EventWidget::eventAfterDefault(event, baseWidgetResult);    \
   }
 
 #endif  // EVENTWIDGET_IMPLEMENTATIONS
