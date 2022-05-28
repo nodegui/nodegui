@@ -76,13 +76,13 @@ export class QMainWindow extends QWidget<QMainWindowSignals> {
     setMenuBar(menuBar: QMenuBar): void {
         this.native.setMenuBar(menuBar.native);
     }
-    menuBar(): QMenuBar | undefined {
+    menuBar(): QMenuBar | null {
         return wrapperCache.getWrapper(this.native.menuBar()) as QMenuBar;
     }
     setMenuWidget(menuWidget: QWidget): void {
         this.native.setMenuWidget(menuWidget.native);
     }
-    layout(): QLayout | undefined {
+    layout(): QLayout | null {
         const centralWidget = this.centralWidget();
         if (centralWidget) {
             return centralWidget.layout();
@@ -109,7 +109,7 @@ export class QMainWindow extends QWidget<QMainWindowSignals> {
     /**
      * Returns the status bar for the main window.
      */
-    statusBar(): QStatusBar {
+    statusBar(): QStatusBar | null {
         return wrapperCache.getWrapper(this.native.statusBar()) as QStatusBar;
     }
 }
