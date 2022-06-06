@@ -3,6 +3,7 @@
 #include "QtCore/QAbstractItemModel/qabstractitemmodel_wrap.h"
 #include "QtCore/QItemSelectionModel/qitemselectionmodel_wrap.h"
 #include "QtCore/QModelIndex/qmodelindex_wrap.h"
+#include "QtWidgets/QAbstractItemDelegate/qabstractitemdelegate_wrap.h"
 #include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 
@@ -169,6 +170,47 @@
     QString search = QString::fromUtf8(searchNapiText.c_str());                \
     this->instance->keyboardSearch(search);                                    \
     return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value setItemDelegate(const Napi::CallbackInfo& info) {                \
+    Napi::Env env = info.Env();                                                \
+    if (info[0].IsNull()) {                                                    \
+      this->instance->setItemDelegate(nullptr);                                \
+    } else {                                                                   \
+      QAbstractItemDelegateWrap* delegateWrap =                                \
+          Napi::ObjectWrap<QAbstractItemDelegateWrap>::Unwrap(                 \
+              info[0].As<Napi::Object>());                                     \
+      QAbstractItemDelegate* delegate = delegateWrap->getInternalInstance();   \
+      this->instance->setItemDelegate(delegate);                               \
+    }                                                                          \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value setItemDelegateForColumn(const Napi::CallbackInfo& info) {       \
+    Napi::Env env = info.Env();                                                \
+    int column = info[0].As<Napi::Number>().Int32Value();                      \
+    if (info[1].IsNull()) {                                                    \
+      this->instance->setItemDelegateForColumn(column, nullptr);               \
+    } else {                                                                   \
+      QAbstractItemDelegateWrap* delegateWrap =                                \
+          Napi::ObjectWrap<QAbstractItemDelegateWrap>::Unwrap(                 \
+              info[1].As<Napi::Object>());                                     \
+      QAbstractItemDelegate* delegate = delegateWrap->getInternalInstance();   \
+      this->instance->setItemDelegateForColumn(column, delegate);              \
+    }                                                                          \
+    return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value setItemDelegateForRow(const Napi::CallbackInfo& info) {          \
+    Napi::Env env = info.Env();                                                \
+    int row = info[0].As<Napi::Number>().Int32Value();                         \
+    if (info[1].IsNull()) {                                                    \
+      this->instance->setItemDelegateForRow(row, nullptr);                     \
+    } else {                                                                   \
+      QAbstractItemDelegateWrap* delegateWrap =                                \
+          Napi::ObjectWrap<QAbstractItemDelegateWrap>::Unwrap(                 \
+              info[1].As<Napi::Object>());                                     \
+      QAbstractItemDelegate* delegate = delegateWrap->getInternalInstance();   \
+      this->instance->setItemDelegateForRow(row, delegate);                    \
+    }                                                                          \
+    return env.Null();                                                         \
   }
 
 #define QABSTRACTITEMVIEW_WRAPPED_METHODS_DECLARATION                          \
@@ -198,37 +240,42 @@
 #endif  // QABSTRACTITEMVIEW_WRAPPED_METHODS_DECLARATION
 
 #ifndef QABSTRACTITEMVIEW_WRAPPED_METHODS_EXPORT_DEFINE
-#define QABSTRACTITEMVIEW_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)  \
-  QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)      \
-  InstanceMethod("setCurrentIndex", &WidgetWrapName::setCurrentIndex),   \
-      InstanceMethod("currentIndex", &WidgetWrapName::currentIndex),     \
-      InstanceMethod("setIndexWidget", &WidgetWrapName::setIndexWidget), \
-      InstanceMethod("indexWidget", &WidgetWrapName::indexWidget),       \
-      InstanceMethod("resetHorizontalScrollMode",                        \
-                     &WidgetWrapName::resetHorizontalScrollMode),        \
-      InstanceMethod("resetVerticalScrollMode",                          \
-                     &WidgetWrapName::resetVerticalScrollMode),          \
-      InstanceMethod("rootIndex", &WidgetWrapName::rootIndex),           \
-      InstanceMethod("scrollToBottom", &WidgetWrapName::scrollToBottom), \
-      InstanceMethod("scrollToTop", &WidgetWrapName::scrollToTop),       \
-      InstanceMethod("setModel", &WidgetWrapName::setModel),             \
-      InstanceMethod("closePersistentEditor",                            \
-                     &WidgetWrapName::closePersistentEditor),            \
-      InstanceMethod("clearSelection", &WidgetWrapName::clearSelection), \
-      InstanceMethod("edit", &WidgetWrapName::edit),                     \
-      InstanceMethod("reset", &WidgetWrapName::reset),                   \
-      InstanceMethod("selectAll", &WidgetWrapName::selectAll),           \
-      InstanceMethod("setRootIndex", &WidgetWrapName::setRootIndex),     \
-      InstanceMethod("update_QModelIndex",                               \
-                     &WidgetWrapName::update_QModelIndex),               \
-      InstanceMethod("indexAt", &WidgetWrapName::indexAt),               \
-      InstanceMethod("selectionModel", &WidgetWrapName::selectionModel), \
-      InstanceMethod("scrollTo", &WidgetWrapName::scrollTo),             \
-      InstanceMethod("isPersistentEditorOpen",                           \
-                     &WidgetWrapName::isPersistentEditorOpen),           \
-      InstanceMethod("openPersistentEditor",                             \
-                     &WidgetWrapName::openPersistentEditor),             \
-      InstanceMethod("keyboardSearch", &WidgetWrapName::keyboardSearch),
+#define QABSTRACTITEMVIEW_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)    \
+  QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)        \
+  InstanceMethod("setCurrentIndex", &WidgetWrapName::setCurrentIndex),     \
+      InstanceMethod("currentIndex", &WidgetWrapName::currentIndex),       \
+      InstanceMethod("setIndexWidget", &WidgetWrapName::setIndexWidget),   \
+      InstanceMethod("indexWidget", &WidgetWrapName::indexWidget),         \
+      InstanceMethod("resetHorizontalScrollMode",                          \
+                     &WidgetWrapName::resetHorizontalScrollMode),          \
+      InstanceMethod("resetVerticalScrollMode",                            \
+                     &WidgetWrapName::resetVerticalScrollMode),            \
+      InstanceMethod("rootIndex", &WidgetWrapName::rootIndex),             \
+      InstanceMethod("scrollToBottom", &WidgetWrapName::scrollToBottom),   \
+      InstanceMethod("scrollToTop", &WidgetWrapName::scrollToTop),         \
+      InstanceMethod("setModel", &WidgetWrapName::setModel),               \
+      InstanceMethod("closePersistentEditor",                              \
+                     &WidgetWrapName::closePersistentEditor),              \
+      InstanceMethod("clearSelection", &WidgetWrapName::clearSelection),   \
+      InstanceMethod("edit", &WidgetWrapName::edit),                       \
+      InstanceMethod("reset", &WidgetWrapName::reset),                     \
+      InstanceMethod("selectAll", &WidgetWrapName::selectAll),             \
+      InstanceMethod("setRootIndex", &WidgetWrapName::setRootIndex),       \
+      InstanceMethod("update_QModelIndex",                                 \
+                     &WidgetWrapName::update_QModelIndex),                 \
+      InstanceMethod("indexAt", &WidgetWrapName::indexAt),                 \
+      InstanceMethod("selectionModel", &WidgetWrapName::selectionModel),   \
+      InstanceMethod("scrollTo", &WidgetWrapName::scrollTo),               \
+      InstanceMethod("isPersistentEditorOpen",                             \
+                     &WidgetWrapName::isPersistentEditorOpen),             \
+      InstanceMethod("openPersistentEditor",                               \
+                     &WidgetWrapName::openPersistentEditor),               \
+      InstanceMethod("keyboardSearch", &WidgetWrapName::keyboardSearch),   \
+      InstanceMethod("setItemDelegate", &WidgetWrapName::setItemDelegate), \
+      InstanceMethod("setItemDelegateForColumn",                           \
+                     &WidgetWrapName::setItemDelegateForColumn),           \
+      InstanceMethod("setItemDelegateForRow",                              \
+                     &WidgetWrapName::setItemDelegateForRow),
 
 #endif  // QABSTRACTITEMVIEW_WRAPPED_METHODS_EXPORT_DEFINE
 

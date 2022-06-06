@@ -9,6 +9,7 @@ import { QPoint } from '../QtCore/QPoint';
 import { QItemSelectionModel } from '../QtCore/QItemSelectionModel';
 import { NativeElement } from '../core/Component';
 import { wrapperCache } from '../core/WrapperCache';
+import { QAbstractItemDelegate } from './QAbstractItemDelegate';
 
 /**
 
@@ -138,9 +139,42 @@ export abstract class QAbstractItemView<Signals extends QAbstractItemViewSignals
     setIndexWidget(index: QModelIndex, widget: QWidget): void {
         this.native.setIndexWidget(index.native, widget.native);
     }
-    // TODO: void 	setItemDelegate(QAbstractItemDelegate *delegate)
-    // TODO: void 	setItemDelegateForColumn(int column, QAbstractItemDelegate *delegate)
-    // TODO: void 	setItemDelegateForRow(int row, QAbstractItemDelegate *delegate)
+    setItemDelegate(delegate: QAbstractItemDelegate): void {
+        if (delegate != null) {
+            const parent = delegate.parent();
+            if (parent != null && parent != this) {
+                throw new Error('NodeGui: QAbstractItemDelegate instances can only be given to one view instance.');
+            }
+            delegate.setParent(this);
+            this.native.setItemDelegate(delegate.native);
+        } else {
+            this.native.setItemDelegate(null);
+        }
+    }
+    setItemDelegateForColumn(column: number, delegate: QAbstractItemDelegate): void {
+        if (delegate != null) {
+            const parent = delegate.parent();
+            if (parent != null && parent != this) {
+                throw new Error('NodeGui: QAbstractItemDelegate instances can only be given to one view instance.');
+            }
+            delegate.setParent(this);
+            this.native.setItemDelegateForColumn(column, delegate.native);
+        } else {
+            this.native.setItemDelegateForColumn(column, null);
+        }
+    }
+    setItemDelegateForRow(row: number, delegate: QAbstractItemDelegate): void {
+        if (delegate != null) {
+            const parent = delegate.parent();
+            if (parent != null && parent != this) {
+                throw new Error('NodeGui: QAbstractItemDelegate instances can only be given to one view instance.');
+            }
+            delegate.setParent(this);
+            this.native.setItemDelegateForColumn(row, delegate.native);
+        } else {
+            this.native.setItemDelegateForColumn(row, null);
+        }
+    }
     setModel(model: QAbstractItemModel): void {
         this.native.setModel(model.native);
     }

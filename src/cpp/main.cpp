@@ -51,6 +51,7 @@
 #include "QtGui/QScreen/qscreen_wrap.h"
 #include "QtGui/QStyle/qstyle_wrap.h"
 #include "QtGui/QWindow/qwindow_wrap.h"
+#include "QtWidgets/QAbstractItemDelegate/qabstractitemdelegate_wrap.h"
 #include "QtWidgets/QAction/qaction_wrap.h"
 #include "QtWidgets/QBoxLayout/qboxlayout_wrap.h"
 #include "QtWidgets/QButtonGroup/qbuttongroup_wrap.h"
@@ -244,6 +245,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QWindowWrap::init(env, exports);
   QResizeEventWrap::init(env, exports);
   QTimerEventWrap::init(env, exports);
+  QAbstractItemDelegateWrap::init(env, exports);
 
   // Test
   CacheTestQObjectWrap::init(env, exports);

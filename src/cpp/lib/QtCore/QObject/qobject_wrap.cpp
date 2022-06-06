@@ -29,9 +29,9 @@ QObjectWrap::QObjectWrap(const Napi::CallbackInfo& info)
       this->instance = info[0].As<Napi::External<QObject>>().Data();
     } else {
       Napi::Object parentObject = info[0].As<Napi::Object>();
-      QObjectWrap* parentWidgetWrap =
+      QObjectWrap* parentObjectWrap =
           Napi::ObjectWrap<QObjectWrap>::Unwrap(parentObject);
-      this->instance = new NObject(parentWidgetWrap->getInternalInstance());
+      this->instance = new NObject(parentObjectWrap->getInternalInstance());
     }
   } else if (argCount == 0) {
     this->instance = new NObject();

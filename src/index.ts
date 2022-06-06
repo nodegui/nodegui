@@ -144,6 +144,7 @@ export {
 } from './lib/QtWidgets/QTextEdit';
 export { QStyleFactory } from './lib/QtWidgets/QStyleFactory';
 export { QSizePolicyPolicy, QSizePolicyPolicyFlag } from './lib/QtWidgets/QSizePolicy';
+export { QAbstractItemDelegate } from './lib/QtWidgets/QAbstractItemDelegate';
 
 // Core
 export { QAbstractItemModel } from './lib/QtCore/QAbstractItemModel';
