@@ -10,6 +10,7 @@ import { QItemSelectionModel } from '../QtCore/QItemSelectionModel';
 import { NativeElement } from '../core/Component';
 import { wrapperCache } from '../core/WrapperCache';
 import { QAbstractItemDelegate } from './QAbstractItemDelegate';
+import { QRect } from '../QtCore/QRect';
 
 /**
 
@@ -197,9 +198,11 @@ export abstract class QAbstractItemView<Signals extends QAbstractItemViewSignals
     showDropIndicator(): boolean {
         return this.property('showDropIndicator').toBool();
     }
-    // TODO: virtual int 	sizeHintForColumn(int column) const
-    // TODO: QSize 	sizeHintForIndex(const QModelIndex &index) const
-    // TODO: virtual int 	sizeHintForRow(int row) const
+    // TODO: virtual int    sizeHintForColumn(int column) const
+    sizeHintForIndex(index: QModelIndex): QSize {
+        return new QSize(this.native.sizeHintForIndex(index.native));
+    }
+    // TODO: virtual int    sizeHintForRow(int row) const
     tabKeyNavigation(): boolean {
         return this.property('tabKeyNavigation').toBool();
     }
@@ -209,7 +212,9 @@ export abstract class QAbstractItemView<Signals extends QAbstractItemViewSignals
     verticalScrollMode(): ScrollMode {
         return this.property('verticalScrollMode').toInt();
     }
-    // TODO: virtual QRect 	visualRect(const QModelIndex &index) const = 0
+    visualRect(index: QModelIndex): QRect {
+        return new QRect(this.native.visualRect(index.native));
+    }
 
     // *** Public Slots ***
     clearSelection(): void {

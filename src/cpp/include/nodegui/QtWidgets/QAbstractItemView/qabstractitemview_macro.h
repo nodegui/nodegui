@@ -211,6 +211,16 @@
       this->instance->setItemDelegateForRow(row, delegate);                    \
     }                                                                          \
     return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value sizeHintForIndex(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                                \
+    QModelIndexWrap* indexWrap =                                               \
+        Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>()); \
+    QModelIndex* index = indexWrap->getInternalInstance();                     \
+    QSize result = this->instance->sizeHintForIndex(*index);                   \
+    auto resultInstance = QSizeWrap::constructor.New(                          \
+        {Napi::External<QSize>::New(env, new QSize(result))});                 \
+    return resultInstance;                                                     \
   }
 
 #define QABSTRACTITEMVIEW_WRAPPED_METHODS_DECLARATION                          \
@@ -235,6 +245,16 @@
             info[1].As<Napi::Number>().Int32Value());                          \
     this->instance->scrollTo(*index, hint);                                    \
     return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value visualRect(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                                \
+    QModelIndexWrap* indexWrap =                                               \
+        Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>()); \
+    QModelIndex* index = indexWrap->getInternalInstance();                     \
+    QRect ret = this->instance->visualRect(*index);                            \
+    auto instance = QRectWrap::constructor.New(                                \
+        {Napi::External<QRect>::New(env, new QRect(ret))});                    \
+    return instance;                                                           \
   }
 
 #endif  // QABSTRACTITEMVIEW_WRAPPED_METHODS_DECLARATION
@@ -275,7 +295,9 @@
       InstanceMethod("setItemDelegateForColumn",                           \
                      &WidgetWrapName::setItemDelegateForColumn),           \
       InstanceMethod("setItemDelegateForRow",                              \
-                     &WidgetWrapName::setItemDelegateForRow),
+                     &WidgetWrapName::setItemDelegateForRow),              \
+      InstanceMethod("visualRect", &WidgetWrapName::visualRect),           \
+      InstanceMethod("sizeHintForIndex", &WidgetWrapName::sizeHintForIndex),
 
 #endif  // QABSTRACTITEMVIEW_WRAPPED_METHODS_EXPORT_DEFINE
 

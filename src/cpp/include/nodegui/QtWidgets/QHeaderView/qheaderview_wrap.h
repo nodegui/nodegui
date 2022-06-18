@@ -43,6 +43,22 @@ class DLL_EXPORT QHeaderViewWrap : public Napi::ObjectWrap<QHeaderViewWrap> {
     return env.Null();
   }
 
+  Napi::Value visualRect(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+
+    NHeaderView* wrapper = dynamic_cast<NHeaderView*>(this->instance.data());
+    if (wrapper) {
+      QModelIndexWrap* indexWrap =
+          Napi::ObjectWrap<QModelIndexWrap>::Unwrap(info[0].As<Napi::Object>());
+      QModelIndex* index = indexWrap->getInternalInstance();
+      QRect ret = wrapper->_protected_visualRect(*index);
+      auto instance = QRectWrap::constructor.New(
+          {Napi::External<QRect>::New(env, new QRect(ret))});
+      return instance;
+    }
+    return env.Null();
+  }
+
  private:
   QPointer<QHeaderView> instance;
 

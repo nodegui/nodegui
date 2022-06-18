@@ -21,4 +21,7 @@ class DLL_EXPORT NHeaderView : public QHeaderView, public NodeWidget {
   void _protected_scrollTo(const QModelIndex &index, ScrollHint hint) {
     scrollTo(index, hint);
   }
+  QRect _protected_visualRect(const QModelIndex &index) const {
+    return visualRect(index);
+  }
 };
