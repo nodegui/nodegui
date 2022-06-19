@@ -16,8 +16,6 @@ Napi::Object QMessageBoxWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("setDefaultButton", &QMessageBoxWrap::setDefaultButton),
        InstanceMethod("addButton", &QMessageBoxWrap::addButton),
-       InstanceMethod("accept", &QMessageBoxWrap::accept),
-       InstanceMethod("done", &QMessageBoxWrap::done),
        StaticMethod("about", &StaticQMessageBoxWrapMethods::about),
        StaticMethod("aboutQt", &StaticQMessageBoxWrapMethods::aboutQt),
        QDIALOG_WRAPPED_METHODS_EXPORT_DEFINE(QMessageBoxWrap)});
@@ -77,17 +75,6 @@ Napi::Value QMessageBoxWrap::addButton(const Napi::CallbackInfo& info) {
 
   int role = info[1].As<Napi::Number>().Int32Value();
   this->instance->addButton(btn, QMessageBox::ButtonRole(role));
-  return env.Null();
-}
-Napi::Value QMessageBoxWrap::accept(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  this->instance->accept();
-  return env.Null();
-}
-Napi::Value QMessageBoxWrap::done(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  Napi::Number r = info[0].As<Napi::Number>();
-  this->instance->done(r.Int32Value());
   return env.Null();
 }
 

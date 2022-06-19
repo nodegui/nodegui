@@ -9,7 +9,7 @@
 #include "QtWidgets/QFontDialog/nfontdialog.hpp"
 
 class DLL_EXPORT QFontDialogWrap : public Napi::ObjectWrap<QFontDialogWrap> {
-  QDIALOG_WRAPPED_METHODS_DECLARATION
+  QDIALOG_WRAPPED_METHODS_DECLARATION_NO_ACCEPT_OR_DONE
  private:
   QPointer<QFontDialog> instance;
 
@@ -24,4 +24,6 @@ class DLL_EXPORT QFontDialogWrap : public Napi::ObjectWrap<QFontDialogWrap> {
   Napi::Value selectedFont(const Napi::CallbackInfo& info);
   Napi::Value setOption(const Napi::CallbackInfo& info);
   Napi::Value testOption(const Napi::CallbackInfo& info);
+  Napi::Value accept(const Napi::CallbackInfo& info);
+  Napi::Value done(const Napi::CallbackInfo& info);
 };

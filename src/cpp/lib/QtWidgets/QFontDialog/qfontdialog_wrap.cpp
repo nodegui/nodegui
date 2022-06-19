@@ -78,3 +78,17 @@ Napi::Value QFontDialogWrap::testOption(const Napi::CallbackInfo& info) {
       static_cast<QFontDialog::FontDialogOption>(option));
   return Napi::Boolean::New(env, on);
 }
+
+Napi::Value QFontDialogWrap::accept(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->accept();
+  return env.Null();
+}
+
+Napi::Value QFontDialogWrap::done(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::TypeError::New(
+      env, "NodeGui: QFontDialog: done() is protected and can't be called.")
+      .ThrowAsJavaScriptException();
+  return env.Null();
+}

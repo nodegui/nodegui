@@ -64,3 +64,17 @@ Napi::Value QErrorMessageWrap::showMessage(const Napi::CallbackInfo& info) {
   this->instance->showMessage(message);
   return env.Null();
 }
+
+Napi::Value QErrorMessageWrap::accept(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->accept();
+  return env.Null();
+}
+
+Napi::Value QErrorMessageWrap::done(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::TypeError::New(
+      env, "NodeGui: QErrorMessage: done() is protected and can't be called.")
+      .ThrowAsJavaScriptException();
+  return env.Null();
+}

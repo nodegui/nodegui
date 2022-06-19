@@ -43,6 +43,12 @@ export class QDialog<Signals extends QDialogSignals = QDialogSignals> extends QW
     isSizeGripEnabled(): boolean {
         return this.property('sizeGripEnabled').toBool();
     }
+    accept(): void {
+        this.native.accept();
+    }
+    done(r: number): void {
+        this.native.done(r);
+    }
     exec(): DialogCode {
         return this.native.exec();
     }

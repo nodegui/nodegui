@@ -10,7 +10,7 @@
 
 class DLL_EXPORT QErrorMessageWrap
     : public Napi::ObjectWrap<QErrorMessageWrap> {
-  QDIALOG_WRAPPED_METHODS_DECLARATION
+  QDIALOG_WRAPPED_METHODS_DECLARATION_NO_ACCEPT_OR_DONE
  private:
   QPointer<QErrorMessage> instance;
 
@@ -23,4 +23,6 @@ class DLL_EXPORT QErrorMessageWrap
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value showMessage(const Napi::CallbackInfo& info);
+  Napi::Value accept(const Napi::CallbackInfo& info);
+  Napi::Value done(const Napi::CallbackInfo& info);
 };

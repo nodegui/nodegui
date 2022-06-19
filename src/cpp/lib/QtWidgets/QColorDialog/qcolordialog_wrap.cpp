@@ -91,6 +91,20 @@ Napi::Value QColorDialogWrap::testOption(const Napi::CallbackInfo& info) {
   return Napi::Boolean::New(env, on);
 }
 
+Napi::Value QColorDialogWrap::accept(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->accept();
+  return env.Null();
+}
+
+Napi::Value QColorDialogWrap::done(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::TypeError::New(
+      env, "NodeGui: QColorDialog: done() is protected and can't be called.")
+      .ThrowAsJavaScriptException();
+  return env.Null();
+}
+
 Napi::Value StaticQColorDialogWrapMethods::customColor(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();

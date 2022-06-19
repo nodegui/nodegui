@@ -9,7 +9,7 @@
 #include "QtWidgets/QFileDialog/nfiledialog.hpp"
 
 class DLL_EXPORT QFileDialogWrap : public Napi::ObjectWrap<QFileDialogWrap> {
-  QDIALOG_WRAPPED_METHODS_DECLARATION
+  QDIALOG_WRAPPED_METHODS_DECLARATION_NO_ACCEPT_OR_DONE
  private:
   QPointer<QFileDialog> instance;
 
@@ -28,4 +28,6 @@ class DLL_EXPORT QFileDialogWrap : public Napi::ObjectWrap<QFileDialogWrap> {
   Napi::Value setOption(const Napi::CallbackInfo& info);
   Napi::Value setNameFilter(const Napi::CallbackInfo& info);
   Napi::Value selectedFiles(const Napi::CallbackInfo& info);
+  Napi::Value accept(const Napi::CallbackInfo& info);
+  Napi::Value done(const Napi::CallbackInfo& info);
 };

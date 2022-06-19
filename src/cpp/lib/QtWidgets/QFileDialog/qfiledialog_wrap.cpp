@@ -134,3 +134,19 @@ Napi::Value QFileDialogWrap::selectedFiles(const Napi::CallbackInfo& info) {
   }
   return fileList;
 }
+
+Napi::Value QFileDialogWrap::accept(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::TypeError::New(
+      env, "NodeGui: QFileDialog: accept() is protected and can't be called.")
+      .ThrowAsJavaScriptException();
+  return env.Null();
+}
+
+Napi::Value QFileDialogWrap::done(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::TypeError::New(
+      env, "NodeGui: QFileDialog: done() is protected and can't be called.")
+      .ThrowAsJavaScriptException();
+  return env.Null();
+}

@@ -23,8 +23,6 @@ class DLL_EXPORT QMessageBoxWrap : public Napi::ObjectWrap<QMessageBoxWrap> {
   // wrapped methods
   Napi::Value setDefaultButton(const Napi::CallbackInfo& info);
   Napi::Value addButton(const Napi::CallbackInfo& info);
-  Napi::Value accept(const Napi::CallbackInfo& info);
-  Napi::Value done(const Napi::CallbackInfo& info);
 };
 namespace StaticQMessageBoxWrapMethods {
 DLL_EXPORT Napi::Value about(const Napi::CallbackInfo& info);

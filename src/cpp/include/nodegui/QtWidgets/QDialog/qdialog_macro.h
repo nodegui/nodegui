@@ -10,39 +10,55 @@
 
     This macro adds common QDialog exported methods
     The exported methods are taken into this macro to avoid writing them in each
-   and every widget we export.
+    and every widget we export.
  */
 
+#ifndef QDIALOG_WRAPPED_METHODS_DECLARATION_NO_ACCEPT_OR_DONE
+#define QDIALOG_WRAPPED_METHODS_DECLARATION_NO_ACCEPT_OR_DONE \
+                                                              \
+  QWIDGET_WRAPPED_METHODS_DECLARATION                         \
+                                                              \
+  Napi::Value setResult(const Napi::CallbackInfo& info) {     \
+    Napi::Env env = info.Env();                               \
+    Napi::Number result = info[0].As<Napi::Number>();         \
+    this->instance->setResult(result.Int32Value());           \
+    return env.Null();                                        \
+  }                                                           \
+  Napi::Value result(const Napi::CallbackInfo& info) {        \
+    Napi::Env env = info.Env();                               \
+    int value = this->instance->result();                     \
+    return Napi::Value::From(env, value);                     \
+  }                                                           \
+  Napi::Value exec(const Napi::CallbackInfo& info) {          \
+    Napi::Env env = info.Env();                               \
+    int value = static_cast<int>(this->instance->exec());     \
+    return Napi::Number::From(env, value);                    \
+  }                                                           \
+  Napi::Value open(const Napi::CallbackInfo& info) {          \
+    Napi::Env env = info.Env();                               \
+    this->instance->open();                                   \
+    return env.Null();                                        \
+  }                                                           \
+  Napi::Value reject(const Napi::CallbackInfo& info) {        \
+    Napi::Env env = info.Env();                               \
+    this->instance->reject();                                 \
+    return env.Null();                                        \
+  }
+#endif
+
 #ifndef QDIALOG_WRAPPED_METHODS_DECLARATION
-#define QDIALOG_WRAPPED_METHODS_DECLARATION               \
-                                                          \
-  QWIDGET_WRAPPED_METHODS_DECLARATION                     \
-                                                          \
-  Napi::Value setResult(const Napi::CallbackInfo& info) { \
-    Napi::Env env = info.Env();                           \
-    Napi::Number result = info[0].As<Napi::Number>();     \
-    this->instance->setResult(result.Int32Value());       \
-    return env.Null();                                    \
-  }                                                       \
-  Napi::Value result(const Napi::CallbackInfo& info) {    \
-    Napi::Env env = info.Env();                           \
-    int value = this->instance->result();                 \
-    return Napi::Value::From(env, value);                 \
-  }                                                       \
-  Napi::Value exec(const Napi::CallbackInfo& info) {      \
-    Napi::Env env = info.Env();                           \
-    int value = static_cast<int>(this->instance->exec()); \
-    return Napi::Number::From(env, value);                \
-  }                                                       \
-  Napi::Value open(const Napi::CallbackInfo& info) {      \
-    Napi::Env env = info.Env();                           \
-    this->instance->open();                               \
-    return env.Null();                                    \
-  }                                                       \
-  Napi::Value reject(const Napi::CallbackInfo& info) {    \
-    Napi::Env env = info.Env();                           \
-    this->instance->reject();                             \
-    return env.Null();                                    \
+#define QDIALOG_WRAPPED_METHODS_DECLARATION             \
+  QDIALOG_WRAPPED_METHODS_DECLARATION_NO_ACCEPT_OR_DONE \
+  Napi::Value accept(const Napi::CallbackInfo& info) {  \
+    Napi::Env env = info.Env();                         \
+    this->instance->accept();                           \
+    return env.Null();                                  \
+  }                                                     \
+  Napi::Value done(const Napi::CallbackInfo& info) {    \
+    Napi::Env env = info.Env();                         \
+    int r = info[0].As<Napi::Number>().Int32Value();    \
+    this->instance->done(r);                            \
+    return env.Null();                                  \
   }
 #endif
 
@@ -54,7 +70,9 @@
       InstanceMethod("setResult", &DialogWrapName::setResult), \
       InstanceMethod("exec", &DialogWrapName::exec),           \
       InstanceMethod("open", &DialogWrapName::open),           \
-      InstanceMethod("reject", &DialogWrapName::reject),
+      InstanceMethod("reject", &DialogWrapName::reject),       \
+      InstanceMethod("accept", &DialogWrapName::accept),       \
+      InstanceMethod("done", &DialogWrapName::done),
 
 #endif  // QDIALOG_WRAPPED_METHODS_EXPORT_DEFINE
 
