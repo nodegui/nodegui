@@ -7,13 +7,13 @@ NodeGui enables you to create desktop applications with JavaScript. You could se
 as a lightly modified variant of the Node.js runtime that is focused on desktop applications
 instead of web servers.
 
-NodeGui is also an efficient JavaScript binding to a cross platform graphical user interface
-(GUI) library `Qt`. Qt is one of the most mature and efficient library for building desktop applications.
-This enabled NodeGui to be extremely memory and CPU efficient as compared to other popular Javascript Desktop GUI solutions. A hello world app built with NodeGui runs on less than 20Mb of memory.
+NodeGui is also an efficient JavaScript binding to the cross platform graphical user interface
+(GUI) library `Qt`. Qt is one of the most mature and efficient libraries for building desktop applications.
+This enables NodeGui to be extremely memory and CPU efficient compared to other popular Javascript desktop GUI solutions. A hello world app built with NodeGui runs on less than 20MB of memory.
 
 ## Developer environment
 
-To turn your operating system into an environment capable of building desktop apps with NodeGui, you would need Node.js, npm,a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+To turn your operating system into an environment capable of building desktop apps with NodeGui, you would need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line.
 
 Along with these, there are a few operating system dependent instructions that are listed below.
 
@@ -22,11 +22,9 @@ Along with these, there are a few operating system dependent instructions that a
 **Requirements:**
 
 - NodeGui supports macOS 10.10 (Yosemite) and up. NodeGui currently only supports 64bit OS.
-- CMake 3.1 and up (Installation instructions can be found here: https://cmake.org/install/)
-- Make, GCC v7
-- Currently supported Node.Js versions are 14.x.
+- Currently supported Node.Js versions are 16.x.
 
-We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
+We strongly suggest you use some kind of version manager for Node.js. This would allow you to switch to any version of Node.js quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
 
 Confirm that both `node` and `npm` are available by running:
 
@@ -44,16 +42,12 @@ for JavaScript development.
 
 ### Setting up on Windows
 
-> NodeGui supports Windows 7 and later versions – attempting to develop NodeGui
-> applications on earlier versions of Windows might not work. NodeGui currently only supports 64bit OS.
-
 **Requirements:**
 
-- Visual studio 2017 and up.
-- CMake 3.1 and up (Installation instructions can be found here: https://cmake.org/install/)
-- Currently supported Node.Js versions are 12.x and up.
+- NodeGui supports Windows 7 and later on 64bit operating systems.
+- Currently supported Node.js versions are 16.x and up.
 
-We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily.
+We strongly suggest you use some kind of version manager for Node.js. This would allow you to switch to any version of Node.js quite easily.
 
 We strongly recommend Powershell as preferred terminal in Windows.
 
@@ -77,12 +71,9 @@ for JavaScript development.
 
 **Requirements:**
 
-- Make, GCC v7
-- CMake 3.1 and up (Installation instructions can be found here: https://cmake.org/install/)
-- Currently supported Node.Js versions are 12.x and up.
-- On Ubuntu and Ubuntu-based distros it is advisable to run `sudo apt-get update`, followed by `sudo apt-get install pkg-config build-essential mesa-common-dev libglu1-mesa-dev`
+- Currently supported Node.js versions are 16.x and up.
 
-We strongly suggest you use some kind of version manager for Node.Js. This would allow you to switch to any version of nodejs quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
+We strongly suggest you use some kind of version manager for Node.js. This would allow you to switch to any version of Node.js quite easily. We recommend `nvm`: https://github.com/nvm-sh/nvm
 
 Confirm that both `node` and `npm` are available by running:
 
@@ -100,12 +91,9 @@ for JavaScript development.
 
 ### A Good Editor
 
-We might suggest two free popular editors:
-GitHub's [Atom][atom] and Microsoft's [Visual Studio Code][code]. Both of
-them have excellent JavaScript support.
+We might suggest two free popular editors: GitHub's [Atom][atom] and Microsoft's [Visual Studio Code][code]. Both of them have excellent JavaScript support.
 
-If you are one of the many developers with a strong preference, know that
-virtually all code editors and IDEs these days support JavaScript.
+If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
 
 [code]: https://code.visualstudio.com/
 [atom]: https://atom.io/
@@ -114,7 +102,7 @@ virtually all code editors and IDEs these days support JavaScript.
 
 **Compiling Qt from source**
 
-You will need to download and install Qt from source since there are no binaries from Qt for M1 yet. 
+You will need to download and install Qt from source since there are no binaries from Qt for M1 yet.
 
 (https://www.reddit.com/r/QtFramework/comments/ll58wg/how_to_build_qt_creator_for_macos_arm64_a_guide/)
 
