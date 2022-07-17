@@ -1,4 +1,5 @@
 import { NativeElement, Component } from '../core/Component';
+import { AspectRatioMode } from '../QtEnums';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
 import { QVariant } from './QVariant';
@@ -17,17 +18,44 @@ export class QSize extends Component {
         }
         super(native);
     }
-    setWidth(width: number): void {
-        return this.native.setWidth(width);
+    boundedTo(otherSize: QSize): QSize {
+        return new QSize(this.native.boundedTo(otherSize));
     }
-    width(): number {
-        return this.native.width();
+    expandedTo(otherSize: QSize): QSize {
+        return new QSize(this.native.expandedTo(otherSize));
+    }
+    height(): number {
+        return this.native.height();
+    }
+    isEmpty(): boolean {
+        return this.native.isEmpty();
+    }
+    isNull(): boolean {
+        return this.native.isNull();
+    }
+    isValid(): boolean {
+        return this.native.isValid();
+    }
+    scale(width: number, height: number, mode: AspectRatioMode): void {
+        this.native.scale(width, height, mode);
+    }
+    scaled(width: number, height: number, mode: AspectRatioMode): QSize {
+        return new QSize(this.native.scaled(width, height, mode));
     }
     setHeight(height: number): void {
         return this.native.setHeight(height);
     }
-    height(): number {
-        return this.native.height();
+    setWidth(width: number): void {
+        return this.native.setWidth(width);
+    }
+    transpose(): void {
+        this.native.transpose();
+    }
+    transposed(): QSize {
+        return new QSize(this.native.transposed());
+    }
+    width(): number {
+        return this.native.width();
     }
     static fromQVariant(variant: QVariant): QSize {
         return new QSize(addon.QSize.fromQVariant(variant.native));

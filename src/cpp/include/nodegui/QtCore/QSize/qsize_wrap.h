@@ -19,9 +19,18 @@ class DLL_EXPORT QSizeWrap : public Napi::ObjectWrap<QSizeWrap> {
   ~QSizeWrap();
   QSize* getInternalInstance();
   // Wrapped methods
+  Napi::Value boundedTo(const Napi::CallbackInfo& info);
+  Napi::Value expandedTo(const Napi::CallbackInfo& info);
+  Napi::Value height(const Napi::CallbackInfo& info);
+  Napi::Value isEmpty(const Napi::CallbackInfo& info);
+  Napi::Value isNull(const Napi::CallbackInfo& info);
+  Napi::Value isValid(const Napi::CallbackInfo& info);
+  Napi::Value scale(const Napi::CallbackInfo& info);
+  Napi::Value scaled(const Napi::CallbackInfo& info);
   Napi::Value setHeight(const Napi::CallbackInfo& info);
   Napi::Value setWidth(const Napi::CallbackInfo& info);
-  Napi::Value height(const Napi::CallbackInfo& info);
+  Napi::Value transpose(const Napi::CallbackInfo& info);
+  Napi::Value transposed(const Napi::CallbackInfo& info);
   Napi::Value width(const Napi::CallbackInfo& info);
 };
 
