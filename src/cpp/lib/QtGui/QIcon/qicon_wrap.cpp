@@ -13,8 +13,7 @@ Napi::Object QIconWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QIcon";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {
-       InstanceMethod("actualSize", &QIconWrap::actualSize),
+      {InstanceMethod("actualSize", &QIconWrap::actualSize),
        InstanceMethod("addFile", &QIconWrap::addFile),
        InstanceMethod("addPixmap", &QIconWrap::addPixmap),
        InstanceMethod("availableSizes", &QIconWrap::availableSizes),
@@ -46,8 +45,9 @@ QIconWrap::QIconWrap(const Napi::CallbackInfo& info)
         QString imageUrl = QString::fromUtf8(url.Utf8Value().c_str());
         this->instance = std::make_unique<QIcon>(imageUrl);
       } else {
-        QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(info[0].As<Napi::Object>());
-          QPixmap* pixmap = pixmapWrap->getInternalInstance();
+        QPixmapWrap* pixmapWrap =
+            Napi::ObjectWrap<QPixmapWrap>::Unwrap(info[0].As<Napi::Object>());
+        QPixmap* pixmap = pixmapWrap->getInternalInstance();
         this->instance = std::make_unique<QIcon>(*pixmap);
       }
     }
@@ -66,42 +66,53 @@ QIcon* QIconWrap::getInternalInstance() { return this->instance.get(); }
 
 Napi::Value QIconWrap::actualSize(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  QSizeWrap* sizeWrap = Napi::ObjectWrap<QSizeWrap>::Unwrap(info[0].As<Napi::Object>());
+  QSizeWrap* sizeWrap =
+      Napi::ObjectWrap<QSizeWrap>::Unwrap(info[0].As<Napi::Object>());
   QSize* size = sizeWrap->getInternalInstance();
-  QIcon::Mode mode = static_cast<QIcon::Mode>(info[1].As<Napi::Number>().Int32Value());
-  QIcon::State state = static_cast<QIcon::State>(info[2].As<Napi::Number>().Int32Value());
+  QIcon::Mode mode =
+      static_cast<QIcon::Mode>(info[1].As<Napi::Number>().Int32Value());
+  QIcon::State state =
+      static_cast<QIcon::State>(info[2].As<Napi::Number>().Int32Value());
   QSize result = this->instance->actualSize(*size, mode, state);
   auto resultInstance = QSizeWrap::constructor.New(
       {Napi::External<QSize>::New(env, new QSize(result))});
-    return resultInstance;
+  return resultInstance;
 }
 
 Napi::Value QIconWrap::addFile(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   std::string fileNameNapiText = info[0].As<Napi::String>().Utf8Value();
   QString fileName = QString::fromUtf8(fileNameNapiText.c_str());
-  QSizeWrap* sizeWrap = Napi::ObjectWrap<QSizeWrap>::Unwrap(info[1].As<Napi::Object>());
+  QSizeWrap* sizeWrap =
+      Napi::ObjectWrap<QSizeWrap>::Unwrap(info[1].As<Napi::Object>());
   QSize* size = sizeWrap->getInternalInstance();
-  QIcon::Mode mode = static_cast<QIcon::Mode>(info[2].As<Napi::Number>().Int32Value());
-  QIcon::State state = static_cast<QIcon::State>(info[3].As<Napi::Number>().Int32Value());
+  QIcon::Mode mode =
+      static_cast<QIcon::Mode>(info[2].As<Napi::Number>().Int32Value());
+  QIcon::State state =
+      static_cast<QIcon::State>(info[3].As<Napi::Number>().Int32Value());
   this->instance->addFile(fileName, *size, mode, state);
   return env.Null();
 }
 
 Napi::Value QIconWrap::addPixmap(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(info[0].As<Napi::Object>());
-    QPixmap* pixmap = pixmapWrap->getInternalInstance();
-  QIcon::Mode mode = static_cast<QIcon::Mode>(info[1].As<Napi::Number>().Int32Value());
-  QIcon::State state = static_cast<QIcon::State>(info[2].As<Napi::Number>().Int32Value());
+  QPixmapWrap* pixmapWrap =
+      Napi::ObjectWrap<QPixmapWrap>::Unwrap(info[0].As<Napi::Object>());
+  QPixmap* pixmap = pixmapWrap->getInternalInstance();
+  QIcon::Mode mode =
+      static_cast<QIcon::Mode>(info[1].As<Napi::Number>().Int32Value());
+  QIcon::State state =
+      static_cast<QIcon::State>(info[2].As<Napi::Number>().Int32Value());
   this->instance->addPixmap(*pixmap, mode, state);
   return env.Null();
 }
 
 Napi::Value QIconWrap::availableSizes(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  QIcon::Mode mode = static_cast<QIcon::Mode>(info[0].As<Napi::Number>().Int32Value());
-  QIcon::State state = static_cast<QIcon::State>(info[1].As<Napi::Number>().Int32Value());
+  QIcon::Mode mode =
+      static_cast<QIcon::Mode>(info[0].As<Napi::Number>().Int32Value());
+  QIcon::State state =
+      static_cast<QIcon::State>(info[1].As<Napi::Number>().Int32Value());
   QList<QSize> result = this->instance->availableSizes(mode, state);
   Napi::Array resultArrayNapi = Napi::Array::New(env, result.size());
   for (int i = 0; i < result.size(); i++) {
@@ -151,15 +162,19 @@ Napi::Value QIconWrap::name(const Napi::CallbackInfo& info) {
 
 Napi::Value QIconWrap::paint(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  QPainterWrap* painterWrap = Napi::ObjectWrap<QPainterWrap>::Unwrap(info[0].As<Napi::Object>());
-    QPainter* painter = painterWrap->getInternalInstance();
+  QPainterWrap* painterWrap =
+      Napi::ObjectWrap<QPainterWrap>::Unwrap(info[0].As<Napi::Object>());
+  QPainter* painter = painterWrap->getInternalInstance();
   int x = info[1].As<Napi::Number>().Int32Value();
   int y = info[2].As<Napi::Number>().Int32Value();
   int w = info[3].As<Napi::Number>().Int32Value();
   int h = info[4].As<Napi::Number>().Int32Value();
-  Qt::Alignment alignment = static_cast<Qt::Alignment>(info[5].As<Napi::Number>().Int32Value());
-  QIcon::Mode mode = static_cast<QIcon::Mode>(info[6].As<Napi::Number>().Int32Value());
-  QIcon::State state = static_cast<QIcon::State>(info[7].As<Napi::Number>().Int32Value());
+  Qt::Alignment alignment =
+      static_cast<Qt::Alignment>(info[5].As<Napi::Number>().Int32Value());
+  QIcon::Mode mode =
+      static_cast<QIcon::Mode>(info[6].As<Napi::Number>().Int32Value());
+  QIcon::State state =
+      static_cast<QIcon::State>(info[7].As<Napi::Number>().Int32Value());
   this->instance->paint(painter, x, y, w, h, alignment, mode, state);
   return env.Null();
 }
@@ -188,8 +203,9 @@ Napi::Value QIconWrap::cacheKey(const Napi::CallbackInfo& info) {
 
 Napi::Value QIconWrap::swap(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  QIconWrap* qiconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(info[0].As<Napi::Object>());
-    QIcon* other = qiconWrap->getInternalInstance();
+  QIconWrap* qiconWrap =
+      Napi::ObjectWrap<QIconWrap>::Unwrap(info[0].As<Napi::Object>());
+  QIcon* other = qiconWrap->getInternalInstance();
   this->instance->swap(*other);
   return env.Null();
 }
@@ -206,4 +222,3 @@ Napi::Value StaticQIconWrapMethods::fromQVariant(
       {Napi::External<QIcon>::New(env, new QIcon(icon))});
   return instance;
 }
-
