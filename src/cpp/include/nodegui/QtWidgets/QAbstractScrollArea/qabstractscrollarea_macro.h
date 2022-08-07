@@ -60,6 +60,20 @@
     QWidget* viewPort = this->instance->viewport();                    \
     auto instance = WrapperCache::instance.getWrapper(env, viewPort);  \
     return instance;                                                   \
+  }                                                                    \
+                                                                       \
+  Napi::Value horizontalScrollBar(const Napi::CallbackInfo& info) {    \
+    Napi::Env env = info.Env();                                        \
+    QScrollBar* scrollBar = this->instance->horizontalScrollBar();     \
+    auto instance = WrapperCache::instance.getWrapper(env, scrollBar); \
+    return instance;                                                   \
+  }                                                                    \
+                                                                       \
+  Napi::Value verticalScrollBar(const Napi::CallbackInfo& info) {      \
+    Napi::Env env = info.Env();                                        \
+    QScrollBar* scrollBar = this->instance->verticalScrollBar();       \
+    auto instance = WrapperCache::instance.getWrapper(env, scrollBar); \
+    return instance;                                                   \
   }
 
 #endif  // QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
@@ -75,7 +89,10 @@
       InstanceMethod("setVerticalScrollBar",                                   \
                      &WidgetWrapName::setVerticalScrollBar),                   \
       InstanceMethod("setViewport", &WidgetWrapName::setViewport),             \
-      InstanceMethod("viewport", &WidgetWrapName::viewport),
+      InstanceMethod("viewport", &WidgetWrapName::viewport),                   \
+      InstanceMethod("horizontalScrollBar",                                    \
+                     &WidgetWrapName::horizontalScrollBar),                    \
+      InstanceMethod("verticalScrollBar", &WidgetWrapName::verticalScrollBar),
 
 #endif  // QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE
 

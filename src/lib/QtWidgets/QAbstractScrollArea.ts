@@ -19,11 +19,8 @@ QAbstractScrollArea will list all methods and properties that are common to all 
 
  */
 export abstract class QAbstractScrollArea<Signals extends QAbstractScrollAreaSignals> extends QFrame<Signals> {
-    setViewport(widget: QWidget): void {
-        this.native.setViewport(widget.native);
-    }
-    viewport(): QWidget {
-        return wrapperCache.getWrapper(this.native.viewport()) as QWidget;
+    horizontalScrollBar(): QScrollBar {
+        return wrapperCache.getWrapper(this.native.horizontalScrollBar()) as QScrollBar;
     }
     maximumViewportSize(): QSize {
         return this.native.maximumViewportSize();
@@ -34,11 +31,20 @@ export abstract class QAbstractScrollArea<Signals extends QAbstractScrollAreaSig
     setHorizontalScrollBarPolicy(policy: ScrollBarPolicy): void {
         this.native.setProperty('horizontalScrollBarPolicy', policy);
     }
+    setViewport(widget: QWidget): void {
+        this.native.setViewport(widget.native);
+    }
     setVerticalScrollBar(scrollBar: QScrollBar): void {
         this.native.setVerticalScrollBar(scrollBar.native);
     }
     setVerticalScrollBarPolicy(policy: ScrollBarPolicy): void {
         this.native.setProperty('verticalScrollBarPolicy', policy);
+    }
+    verticalScrollBar(): QScrollBar {
+        return wrapperCache.getWrapper(this.native.verticalScrollBar()) as QScrollBar;
+    }
+    viewport(): QWidget {
+        return wrapperCache.getWrapper(this.native.viewport()) as QWidget;
     }
 }
 
