@@ -71,6 +71,15 @@ void QWindowWrap::connectSignalsToEventEmitter() {
                                Napi::Number::New(env, visibility)});
       });
 
+  QObject::connect(
+      this->instance.data(), &QWindow::windowStateChanged,
+      [=](Qt::WindowState windowState) {
+        Napi::Env env = this->emitOnNode.Env();
+        Napi::HandleScope scope(env);
+        this->emitOnNode.Call({Napi::String::New(env, "windowStateChanged"),
+                               Napi::Number::New(env, windowState)});
+      });
+
   this->instance->installEventFilter(this);
 }
 

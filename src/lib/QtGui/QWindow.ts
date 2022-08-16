@@ -74,6 +74,7 @@ wrapperCache.registerWrapper('QWindowWrap', QWindow);
 export interface QWindowSignals extends QObjectSignals {
     screenChanged: (screen: QScreen) => void;
     visibilityChanged: (visibility: Visibility) => void;
+    windowStateChanged: (windowState: WindowState) => void;
 }
 
 registerNativeWrapFunction('QWindowWrap', (native: any) => {
