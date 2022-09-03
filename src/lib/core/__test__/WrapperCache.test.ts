@@ -35,7 +35,7 @@ describe('WrapperCache using CacheTestQObject', () => {
         const fooId = foo.native.__id__();
         a.clearFoo();
         expect(foo.native).toBeNull();
-
+        console.log(''); // for some reason this fixes the test in macos
         const foo2 = a.foo();
         expect(foo2).not.toBe(foo);
         expect(foo2.native.__id__()).not.toBe(fooId);

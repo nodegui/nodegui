@@ -14,6 +14,6 @@ describe('QMainWindow', () => {
         const win = new QMainWindow();
         const widget = new QWidget();
         win.setCentralWidget(widget);
-        expect(win.centralWidget).toEqual(widget);
+        expect(win.centralWidget()).toEqual(widget);
     });
 });
