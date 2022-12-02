@@ -80,7 +80,7 @@ export abstract class EventWidget<Signals extends unknown> extends Component {
                         this.emitter.emit(eventName, event);
                     } else {
                         this._isEventProcessed = baseWidgetResult;
-                        this.emitter.emit(`${eventName}_after`);
+                        this.emitter.emit(`${eventName}_after`, event);
                     }
                 } catch (e) {
                     console.log(
