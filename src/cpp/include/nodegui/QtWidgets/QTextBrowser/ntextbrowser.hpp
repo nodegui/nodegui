@@ -38,14 +38,13 @@ class DLL_EXPORT NTextBrowser : public QTextBrowser, public NodeWidget {
           this->emitOnNode.Call({Napi::String::New(env, "forwardAvailable"),
                                  Napi::Boolean::New(env, available)});
         });
-    QObject::connect(
-        this, &QTextBrowser::highlighted,
-        [=](const QUrl& link) {
-          Napi::Env env = this->emitOnNode.Env();
-          Napi::HandleScope scope(env);
-          this->emitOnNode.Call({Napi::String::New(env, "highlighted"),
-                                 Napi::String::New(env, link.toString().toStdString())});
-        });
+    QObject::connect(this, &QTextBrowser::highlighted, [=](const QUrl& link) {
+      Napi::Env env = this->emitOnNode.Env();
+      Napi::HandleScope scope(env);
+      this->emitOnNode.Call(
+          {Napi::String::New(env, "highlighted"),
+           Napi::String::New(env, link.toString().toStdString())});
+    });
     QObject::connect(this, &QTextBrowser::historyChanged, [=]() {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
