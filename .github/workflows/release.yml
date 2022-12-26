@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-18.04
+          - os: ubuntu-20.04
             platform: linux
             arch: x64
           - os: windows-latest
@@ -30,7 +30,7 @@ jobs:
           node-version: '16.x'
 
       - name: Install ubuntu deps
-        if: contains(matrix.os, 'ubuntu-18.04')
+        if: contains(matrix.os, 'ubuntu-20.04')
         run: sudo apt install mesa-common-dev libglu1-mesa-dev
 
       - name: Install deps
