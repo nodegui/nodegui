@@ -50,7 +50,7 @@ std::unordered_map<std::string, int> NodeStyle::NodeWrap{
 
 NodeValueUnit NodeStyle::parseMeasurement(QString rawValue) {
   float value = std::stof(rawValue.toStdString());
-  if (rawValue.back() == "%") {
+  if (rawValue.back() == '%') {
     return NodeValueUnit(value, YGUnitPercent);
   }
   return NodeValueUnit(value, YGUnitPoint);

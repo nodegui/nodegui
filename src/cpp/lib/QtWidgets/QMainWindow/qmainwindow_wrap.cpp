@@ -1,7 +1,6 @@
 #include "QtWidgets/QMainWindow/qmainwindow_wrap.h"
 
 #include <QApplication>
-#include <QDesktopWidget>
 
 #include "Extras/Utils/nutils.h"
 #include "QtWidgets/QMenuBar/qmenubar_wrap.h"
@@ -21,7 +20,6 @@ Napi::Object QMainWindowWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("setMenuBar", &QMainWindowWrap::setMenuBar),
        InstanceMethod("menuBar", &QMainWindowWrap::menuBar),
        InstanceMethod("setMenuWidget", &QMainWindowWrap::setMenuWidget),
-       InstanceMethod("center", &QMainWindowWrap::center),
        InstanceMethod("setStatusBar", &QMainWindowWrap::setStatusBar),
        InstanceMethod("statusBar", &QMainWindowWrap::statusBar),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMainWindowWrap)});
@@ -112,17 +110,6 @@ Napi::Value QMainWindowWrap::setMenuWidget(const Napi::CallbackInfo& info) {
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(menuObject);
 
   this->instance->setMenuWidget(menuWidget->getInternalInstance());
-
-  return env.Null();
-}
-
-Napi::Value QMainWindowWrap::center(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  auto window = this->getInternalInstance();
-  // https://wiki.qt.io/How_to_Center_a_Window_on_the_Screen
-  window->setGeometry(
-      QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, window->size(),
-                          QApplication::desktop()->availableGeometry(window)));
 
   return env.Null();
 }

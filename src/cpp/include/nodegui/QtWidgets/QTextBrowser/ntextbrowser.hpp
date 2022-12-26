@@ -39,12 +39,12 @@ class DLL_EXPORT NTextBrowser : public QTextBrowser, public NodeWidget {
                                  Napi::Boolean::New(env, available)});
         });
     QObject::connect(
-        this, QOverload<const QString&>::of(&QTextBrowser::highlighted),
-        [=](const QString& link) {
+        this, &QTextBrowser::highlighted,
+        [=](const QUrl& link) {
           Napi::Env env = this->emitOnNode.Env();
           Napi::HandleScope scope(env);
           this->emitOnNode.Call({Napi::String::New(env, "highlighted"),
-                                 Napi::String::New(env, link.toStdString())});
+                                 Napi::String::New(env, link.toString().toStdString())});
         });
     QObject::connect(this, &QTextBrowser::historyChanged, [=]() {
       Napi::Env env = this->emitOnNode.Env();

@@ -23,9 +23,6 @@ export class QTime extends Component {
     addSecs(s: number): QTime {
         return new QTime(this.native.addSecs(s));
     }
-    elapsed(): number {
-        return this.native.elapsed();
-    }
     hour(): number {
         return this.native.hour();
     }
@@ -47,9 +44,6 @@ export class QTime extends Component {
     msecsTo(t: QTime): number {
         return this.native.msecsTo(t.native);
     }
-    restart(): number {
-        return this.native.restart();
-    }
     second(): number {
         return this.native.second();
     }
@@ -58,9 +52,6 @@ export class QTime extends Component {
     }
     setHMS(h: number, m: number, s: number, ms = 0): boolean {
         return this.native.setHMS(h, m, s, ms);
-    }
-    start(): void {
-        this.native.start();
     }
     toString(format: string | DateFormat): string {
         return this.native.toString$(format);

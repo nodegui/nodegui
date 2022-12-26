@@ -14,8 +14,8 @@ It is inherited by QCheckBox, QPushButton, QRadioButton, and QToolButton.
 
  */
 export abstract class QAbstractButton<Signals extends QAbstractButtonSignals> extends QWidget<Signals> {
-    animateClick(msec: number): void {
-        this.native.animateClick(msec);
+    animateClick(): void {
+        this.native.animateClick();
     }
     click(): void {
         this.native.click();

@@ -71,10 +71,10 @@ QVariant* extrautils::convertToQVariant(Napi::Env& env, Napi::Value& value) {
   } else if (value.IsObject()) {
     Napi::Object object = value.As<Napi::Object>();
     std::string className = getNapiObjectClassName(object);
-    int typeId = QMetaType::type(className.c_str());
+    QMetaType type = QMetaType::fromName(className.c_str());
     ComponentWrap* componentWrap =
         Napi::ObjectWrap<ComponentWrap>::Unwrap(object);
-    return new QVariant(typeId, componentWrap->rawData);
+    return new QVariant(type, componentWrap->rawData);
 
   } else if (value.IsFunction()) {
     return new QVariant();

@@ -141,13 +141,13 @@ Napi::Value QFontWrap::stretch(const Napi::CallbackInfo& info) {
 Napi::Value QFontWrap::setWeight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int weight = info[0].As<Napi::Number>().Int32Value();
-  this->instance->setWeight(weight);
+  this->instance->setWeight(static_cast<QFont::Weight>(weight));
   return env.Null();
 }
 
 Napi::Value QFontWrap::weight(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  return Napi::Value::From(env, this->instance->weight());
+  return Napi::Value::From(env, static_cast<int>(this->instance->weight()));
 }
 
 Napi::Value QFontWrap::setItalic(const Napi::CallbackInfo& info) {

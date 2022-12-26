@@ -7,7 +7,10 @@ import { checkIfNativeElement } from '../utils/helpers';
 import { wrapperCache } from '../core/WrapperCache';
 
 export interface QButtonGroupSignals extends QObjectSignals {
-    buttonClicked: (id?: number) => void;
+    idClicked: (id: number) => void;
+    idPressed: (id: number) => void;
+    idReleased: (id: number) => void;
+    idToggled: (id: number, checked: boolean) => void;
 }
 
 export class QButtonGroup extends QObject<any> {

@@ -12,7 +12,6 @@ Napi::Object QTimeWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("addMSecs", &QTimeWrap::addMSecs),
        InstanceMethod("addSecs", &QTimeWrap::addSecs),
-       InstanceMethod("elapsed", &QTimeWrap::elapsed),
        InstanceMethod("hour", &QTimeWrap::hour),
        InstanceMethod("isNull", &QTimeWrap::isNull),
        InstanceMethod("isValid", &QTimeWrap::isValid),
@@ -20,11 +19,9 @@ Napi::Object QTimeWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("msec", &QTimeWrap::msec),
        InstanceMethod("msecsSinceStartOfDay", &QTimeWrap::msecsSinceStartOfDay),
        InstanceMethod("msecsTo", &QTimeWrap::msecsTo),
-       InstanceMethod("restart", &QTimeWrap::restart),
        InstanceMethod("second", &QTimeWrap::second),
        InstanceMethod("secsTo", &QTimeWrap::secsTo),
        InstanceMethod("setHMS", &QTimeWrap::setHMS),
-       InstanceMethod("start", &QTimeWrap::start),
        InstanceMethod("toString$", &QTimeWrap::toString),
        StaticMethod("currentTime", &StaticTimeWrapMethods::currentTime),
        StaticMethod("fromMSecsSinceStartOfDay",
@@ -81,11 +78,6 @@ Napi::Value QTimeWrap::addSecs(const Napi::CallbackInfo& info) {
   return instance;
 }
 
-Napi::Value QTimeWrap::elapsed(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  return Napi::Value::From(env, this->instance->elapsed());
-}
-
 Napi::Value QTimeWrap::hour(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   return Napi::Value::From(env, this->instance->hour());
@@ -124,12 +116,6 @@ Napi::Value QTimeWrap::msecsTo(const Napi::CallbackInfo& info) {
   return Napi::Value::From(env, result);
 }
 
-Napi::Value QTimeWrap::restart(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  int result = this->instance->restart();
-  return Napi::Value::From(env, result);
-}
-
 Napi::Value QTimeWrap::second(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   return Napi::Value::From(env, this->instance->second());
@@ -151,12 +137,6 @@ Napi::Value QTimeWrap::setHMS(const Napi::CallbackInfo& info) {
   int ms = info[3].As<Napi::Number>().Int32Value();
   bool result = this->instance->setHMS(h, m, s, ms);
   return Napi::Value::From(env, result);
-}
-
-Napi::Value QTimeWrap::start(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  this->instance->start();
-  return env.Null();
 }
 
 Napi::Value QTimeWrap::toString(const Napi::CallbackInfo& info) {
