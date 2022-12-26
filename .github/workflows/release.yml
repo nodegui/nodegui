@@ -31,7 +31,7 @@ jobs:
 
       - name: Install ubuntu deps
         if: contains(matrix.os, 'ubuntu-20.04')
-        run: sudo apt install mesa-common-dev libglu1-mesa-dev
+        run: sudo apt install mesa-common-dev libglu1-mesa-dev libegl1
 
       - name: Install deps
         run: npm install
