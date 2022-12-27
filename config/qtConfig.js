@@ -13,41 +13,27 @@ const checkIfExists = (fullPath) => {
 function getMiniQtConfig() {
     switch (os.platform()) {
         case 'darwin': {
-            if (os.arch() === 'arm64') {
-                const qtHome = path.resolve(SETUP_DIR, 'Qt-6.4.1');
-                return {
-                    qtHome,
-                    artifacts: [
-                        {
-                            name: 'Mini Qt Bundle',
-                            link: `https://github.com/nodegui/nodegui/releases/download/miniQtm1-5153/Qt-6.4.1.zip`,
-                            skipSetup: checkIfExists(path.resolve(qtHome, 'plugins', 'platforms', 'libqcocoa.dylib')),
-                        },
-                    ],
-                };
-            } else {
-                const qtHome = path.resolve(SETUP_DIR, QT_VERSION, 'clang_64');
-                return {
-                    qtHome,
-                    artifacts: [
-                        {
-                            name: 'Qt Base',
-                            link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt6_641/qt.qt6.641.clang_64/6.4.1-0-202211101256qtbase-MacOS-MacOS_12-Clang-MacOS-MacOS_12-X86_64-ARM64.7z`,
-                            skipSetup: checkIfExists(path.resolve(qtHome, 'plugins', 'platforms', 'libqcocoa.dylib')),
-                        },
-                        {
-                            name: 'Qt Svg',
-                            link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt6_641/qt.qt6.641.clang_64/6.4.1-0-202211101256qtsvg-MacOS-MacOS_12-Clang-MacOS-MacOS_12-X86_64-ARM64.7z`,
-                            skipSetup: checkIfExists(path.resolve(qtHome, 'lib', 'QtSvg.framework', 'QtSvg')),
-                        },
-                        {
-                            name: 'Qt Tools',
-                            link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt6_641/qt.qt6.641.clang_64/6.4.1-0-202211101256qttools-MacOS-MacOS_12-Clang-MacOS-MacOS_12-X86_64-ARM64.7z`,
-                            skipSetup: checkIfExists(path.resolve(qtHome, 'bin', 'macdeployqt')),
-                        },
-                    ],
-                };
-            }
+            const qtHome = path.resolve(SETUP_DIR, QT_VERSION, 'macos');
+            return {
+                qtHome,
+                artifacts: [
+                    {
+                        name: 'Qt Base',
+                        link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt6_641/qt.qt6.641.clang_64/6.4.1-0-202211101256qtbase-MacOS-MacOS_12-Clang-MacOS-MacOS_12-X86_64-ARM64.7z`,
+                        skipSetup: checkIfExists(path.resolve(qtHome, 'plugins', 'platforms', 'libqcocoa.dylib')),
+                    },
+                    {
+                        name: 'Qt Svg',
+                        link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt6_641/qt.qt6.641.clang_64/6.4.1-0-202211101256qtsvg-MacOS-MacOS_12-Clang-MacOS-MacOS_12-X86_64-ARM64.7z`,
+                        skipSetup: checkIfExists(path.resolve(qtHome, 'lib', 'QtSvg.framework', 'QtSvg')),
+                    },
+                    {
+                        name: 'Qt Tools',
+                        link: `${MIRROR}/online/qtsdkrepository/mac_x64/desktop/qt6_641/qt.qt6.641.clang_64/6.4.1-0-202211101256qttools-MacOS-MacOS_12-Clang-MacOS-MacOS_12-X86_64-ARM64.7z`,
+                        skipSetup: checkIfExists(path.resolve(qtHome, 'bin', 'macdeployqt')),
+                    },
+                ],
+            };
         }
         case 'win32': {
             const qtHome = path.resolve(SETUP_DIR, QT_VERSION, 'msvc2019_64');
