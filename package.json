@@ -1,6 +1,6 @@
 {
     "name": "@nodegui/nodegui",
-    "version": "0.57.3",
+    "version": "0.58.0-rc1",
     "description": "A cross-platform library to build native desktop apps.",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -15,6 +15,7 @@
     },
     "scripts": {
         "dev": "npm run build && node ./scripts/qode.js dist/demo.js",
+        "demo": "node ./scripts/qode.js dist/demo.js",
         "build": "tsc && npm run build:addon",
         "install": "npm run setupqt && (node ./scripts/skip.js || npm run setupbinary || npm run build:addon)",
         "setupqt": "node ./scripts/setupMiniQt.js",
@@ -33,7 +34,7 @@
     "engineStrict": false,
     "dependencies": {
         "@nodegui/artifact-installer": "^1.1.0",
-        "@nodegui/qode": "^16.4.3",
+        "@nodegui/qode": "^18.12.1-rc1",
         "cmake-js": "^6.2.1",
         "cross-env": "^7.0.3",
         "cuid": "^2.1.8",
