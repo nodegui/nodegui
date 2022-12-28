@@ -89,9 +89,6 @@ export class QMainWindow extends QWidget<QMainWindowSignals> {
         }
         return super.layout();
     }
-    center(): void {
-        this.native.center();
-    }
 
     /**
      * Sets the status bar for the main window to statusbar.

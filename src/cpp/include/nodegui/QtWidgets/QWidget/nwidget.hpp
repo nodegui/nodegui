@@ -16,7 +16,7 @@ class DLL_EXPORT NWidget : public QWidget, public NodeWidget {
   // https://doc.qt.io/qt-5/stylesheet-reference.html
   void paintEvent(QPaintEvent* e) override {
     QStyleOption opt;
-    opt.init(this);
+    opt.initFrom(this);
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
     QWidget::paintEvent(e);

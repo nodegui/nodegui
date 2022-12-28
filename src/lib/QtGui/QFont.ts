@@ -100,13 +100,13 @@ export enum QFontCapitalization {
     Capitalize = 4,
 }
 export enum QFontWeight {
-    Thin = 0,
-    ExtraLight = 12,
-    Light = 25,
-    Normal = 50,
-    Medium = 57,
-    DemiBold = 63,
-    Bold = 75,
-    ExtraBold = 81,
-    Black = 87,
+    Thin = 100,
+    ExtraLight = 200,
+    Light = 300,
+    Normal = 400,
+    Medium = 500,
+    DemiBold = 600,
+    Bold = 700,
+    ExtraBold = 800,
+    Black = 900,
 }

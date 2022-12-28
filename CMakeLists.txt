@@ -271,8 +271,9 @@ endif()
 
 target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
     "${CMAKE_JS_LIB}"
-    Qt5::Widgets
-    Qt5::Core
-    Qt5::Gui
-    Qt5::Svg
+    Qt6::Widgets
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Svg
+    Qt6::SvgWidgets
 )
