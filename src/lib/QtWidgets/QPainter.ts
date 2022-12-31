@@ -10,6 +10,7 @@ import { QWidget } from './QWidget';
 import { QImage } from '../QtGui/QImage';
 import { QFont } from '../QtGui/QFont';
 import { QRect } from '../QtCore/QRect';
+import { QRectF } from '../QtCore/QRectF';
 
 /**
 
@@ -46,7 +47,7 @@ win.show();
 https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpainter
 */
 export class QPainter extends Component {
-    constructor(device?: Component) {
+    constructor(device?: QWidget) {
         let native: NativeElement;
         if (device) {
             native = new addon.QPainter(device.native);
@@ -74,6 +75,12 @@ export class QPainter extends Component {
     boundingRect(x: number, y: number, w: number, h: number, flags: number, text: string): QRect {
         return new QRect(this.native.boundingRect(x, y, w, h, flags, text));
     }
+    /**
+     * Version of boundingRect() which takes floating point parameters.
+     */
+    boundingRectF(x: number, y: number, w: number, h: number, flags: number, text: string): QRect {
+        return new QRectF(this.native.boundingRectF(x, y, w, h, flags, text));
+    }
     // TODO: QRectF 	boundingRect(const QRectF &rectangle, const QString &text, const QTextOption &option = QTextOption())
     // TODO: const QBrush &	brush() const
     // TODO: QPoint 	brushOrigin() const
@@ -90,26 +97,60 @@ export class QPainter extends Component {
     drawArc(x: number, y: number, width: number, height: number, startAngle: number, spanAngle: number): void {
         this.native.drawArc(x, y, width, height, startAngle, spanAngle);
     }
+    /**
+     * Version of drawArc() which takes floating point parameters.
+     */
+    drawArcF(x: number, y: number, width: number, height: number, startAngle: number, spanAngle: number): void {
+        this.native.drawArcF(x, y, width, height, startAngle, spanAngle);
+    }
     // TODO: void 	drawChord(const QRectF &rectangle, int startAngle, int spanAngle)
     drawChord(x: number, y: number, width: number, height: number, startAngle: number, spanAngle: number): void {
         this.native.drawChord(x, y, width, height, startAngle, spanAngle);
+    }
+    /**
+     * Version of drawChord() which takes floating point parameters.
+     */
+    drawChordF(x: number, y: number, width: number, height: number, startAngle: number, spanAngle: number): void {
+        this.native.drawChordF(x, y, width, height, startAngle, spanAngle);
     }
     // TODO: void 	drawChord(const QRect &rectangle, int startAngle, int spanAngle)
     drawConvexPolygon(points: QPoint[]): void {
         const nativePoints = points.map((point) => point.native);
         this.native.drawConvexPolygon(nativePoints);
     }
+    drawConvexPolygonF(points: QPoint[]): void {
+        const nativePoints = points.map((point) => point.native);
+        this.native.drawConvexPolygonF(nativePoints);
+    }
     // TODO: void 	drawConvexPolygon(const QPolygonF &polygon)
     drawEllipse(x: number, y: number, width: number, height: number): void {
         return this.native.drawEllipse(x, y, width, height);
+    }
+    /**
+     * Version of drawEllipse() which takes floating point parameters.
+     */
+    drawEllipseF(x: number, y: number, width: number, height: number): void {
+        return this.native.drawEllipseF(x, y, width, height);
     }
     // TODO: void 	drawEllipse(const QRectF &rectangle)
     // TODO: void 	drawGlyphRun(const QPointF &position, const QGlyphRun &glyphs)
     drawImage(x: number, y: number, image: QImage, sx = 0, sy = 0, sw = -1, sh = -1): void {
         this.native.drawImage(x, y, image.native, sx, sy, sw, sh);
     }
+    /**
+     * Version of drawImage() which takes floating point parameters.
+     */
+    drawImageF(x: number, y: number, image: QImage, sx = 0, sy = 0, sw = -1, sh = -1): void {
+        this.native.drawImageF(x, y, image.native, sx, sy, sw, sh);
+    }
     drawLine(x1: number, y1: number, x2: number, y2: number): void {
         this.native.drawLine(x1, y1, x2, y2);
+    }
+    /**
+     * Version of drawLine() which takes floating point parameters.
+     */
+    drawLineF(x1: number, y1: number, x2: number, y2: number): void {
+        this.native.drawLineF(x1, y1, x2, y2);
     }
     // TODO: void 	drawLines(const QVector<QLineF> &lines)
     drawPath(path: QPainterPath): void {
@@ -119,21 +160,42 @@ export class QPainter extends Component {
     drawPie(x: number, y: number, width: number, height: number, startAngle: number, sweepLength: number): void {
         return this.native.drawPie(x, y, width, height, startAngle, sweepLength);
     }
+    /**
+     * Version of drawPie() which takes floating point parameters.
+     */
+    drawPieF(x: number, y: number, width: number, height: number, startAngle: number, sweepLength: number): void {
+        return this.native.drawPieF(x, y, width, height, startAngle, sweepLength);
+    }
     // TODO: void 	drawPixmap(int x, int y, int w, int h, const QPixmap &pixmap, int sx, int sy, int sw, int sh)
     // TODO: void 	drawPixmapFragments(const QPainter::PixmapFragment *fragments, int fragmentCount, const QPixmap &pixmap, QPainter::PixmapFragmentHints hints = PixmapFragmentHints())
     drawPoint(x: number, y: number): void {
         this.native.drawPoint(x, y);
+    }
+    drawPointF(x: number, y: number): void {
+        this.native.drawPointF(x, y);
     }
     // TODO: void 	drawPoints(const QPointF *points, int pointCount)
     // TODO: void 	drawPolygon(const QPointF *points, int pointCount, Qt::FillRule fillRule = Qt::OddEvenFill)
     drawRect(x: number, y: number, width: number, height: number): void {
         this.native.drawRect(x, y, width, height);
     }
+    /**
+     * Version of drawRect() which takes floating point parameters.
+     */
+    drawRectF(x: number, y: number, width: number, height: number): void {
+        this.native.drawRectF(x, y, width, height);
+    }
     // TODO: void 	drawRects(const QVector<QRectF> &rectangles)
     // TODO: void 	drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, Qt::SizeMode mode = Qt::AbsoluteSize)
     // TODO: void 	drawStaticText(int left, int top, const QStaticText &staticText)
     drawText(x: number, y: number, text: string): void {
         return this.native.drawText(x, y, text);
+    }
+    /**
+     * Version of drawText() which takes floating point parameters
+     */
+    drawTextF(x: number, y: number, text: string): void {
+        return this.native.drawTextF(x, y, text);
     }
     // TODO: void 	drawText(int x, int y, int width, int height, int flags, const QString &text, QRect *boundingRect = nullptr)
     // TODO: void 	drawTiledPixmap(int x, int y, int width, int height, const QPixmap &pixmap, int sx = 0, int sy = 0)
@@ -146,8 +208,20 @@ export class QPainter extends Component {
     eraseRect(x: number, y: number, width: number, height: number): void {
         this.native.eraseRect(x, y, width, height);
     }
+    /**
+     * Version of eraseRect() which takes floating point parameters.
+     */
+    eraseRectF(x: number, y: number, width: number, height: number): void {
+        this.native.eraseRectF(x, y, width, height);
+    }
     fillRect(x: number, y: number, width: number, height: number, color: QColor): void {
         this.native.fillRect(x, y, width, height, color.native);
+    }
+    /**
+     * Version of fillRect() which takes floating point parameters.
+     */
+    fillRectF(x: number, y: number, width: number, height: number, color: QColor): void {
+        this.native.fillRectF(x, y, width, height, color.native);
     }
     // TODO: const QFont &	font() const
     // TODO: QFontInfo 	fontInfo() const
@@ -186,6 +260,12 @@ export class QPainter extends Component {
     }
     setBrushOrigin(x: number, y: number): void {
         this.native.setBrushOrigin(x, y);
+    }
+    /**
+     * Version of setBrushOrigin() which takes floating point parameters.
+     */
+    setBrushOriginF(x: number, y: number): void {
+        this.native.setBrushOriginF(x, y);
     }
     setCompositionMode(mode: CompositionMode): void {
         this.native.setCompositionMode(mode);

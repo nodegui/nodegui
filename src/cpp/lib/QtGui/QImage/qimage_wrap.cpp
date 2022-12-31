@@ -453,7 +453,7 @@ void QImageWrap::setColorCount(const Napi::CallbackInfo& info) {
 
 void QImageWrap::setDevicePixelRatio(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  int64_t scaleFactor = info[0].As<Napi::Number>();
+  qreal scaleFactor = info[0].As<Napi::Number>();
   this->instance->setDevicePixelRatio(scaleFactor);
 }
 
