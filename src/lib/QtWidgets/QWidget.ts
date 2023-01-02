@@ -611,6 +611,43 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
         return this.property('y').toInt();
     }
 
+    // QPaintDevice public methods
+    colorCount(): number {
+        return this.native.colorCount();
+    }
+    depth(): number {
+        return this.native.depth();
+    }
+    devicePixelRatio(): number {
+        return this.native.devicePixelRatio();
+    }
+    devicePixelRatioF(): number {
+        return this.native.devicePixelRatioF();
+    }
+    heightMM(): number {
+        return this.native.heightMM();
+    }
+    logicalDpiX(): number {
+        return this.native.logicalDpiX();
+    }
+    logicalDpiY(): number {
+        return this.native.logicalDpiY();
+    }
+    paintingActive(): boolean {
+        return this.native.paintingActive();
+    }
+    physicalDpiX(): number {
+        return this.native.physicalDpiX();
+    }
+    physicalDpiY(): number {
+        return this.native.physicalDpiY();
+    }
+    widthMM(): number {
+        return this.native.widthMM();
+    }
+
+    // TODO: virtual QPaintEngine *	paintEngine() const = 0
+
     // *** Public Slots ***
     close(): boolean {
         return this.native.close();

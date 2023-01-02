@@ -710,6 +710,61 @@
     QWidget* w = wWidgetWrap->getInternalInstance();                           \
     this->instance->stackUnder(w);                                             \
     return env.Null();                                                         \
+  }                                                                            \
+  Napi::Value colorCount(const Napi::CallbackInfo& info) {                     \
+    Napi::Env env = info.Env();                                                \
+    int result = this->instance->colorCount();                                 \
+    return Napi::Number::New(env, result);                                     \
+  }                                                                            \
+  Napi::Value depth(const Napi::CallbackInfo& info) {                          \
+    Napi::Env env = info.Env();                                                \
+    int result = this->instance->depth();                                      \
+    return Napi::Number::New(env, result);                                     \
+  }                                                                            \
+  Napi::Value devicePixelRatio(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                                \
+    qreal result = this->instance->devicePixelRatio();                         \
+    return Napi::Number::New(env, result);                                     \
+  }                                                                            \
+  Napi::Value devicePixelRatioF(const Napi::CallbackInfo& info) {              \
+    Napi::Env env = info.Env();                                                \
+    qreal result = this->instance->devicePixelRatioF();                        \
+    return Napi::Number::New(env, result);                                     \
+  }                                                                            \
+  Napi::Value heightMM(const Napi::CallbackInfo& info) {                       \
+    Napi::Env env = info.Env();                                                \
+    int result = this->instance->heightMM();                                   \
+    return Napi::Number::New(env, result);                                     \
+  }                                                                            \
+  Napi::Value logicalDpiX(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                                \
+    int result = this->instance->logicalDpiX();                                \
+    return Napi::Number::New(env, result);                                     \
+  }                                                                            \
+  Napi::Value logicalDpiY(const Napi::CallbackInfo& info) {                    \
+    Napi::Env env = info.Env();                                                \
+    int result = this->instance->logicalDpiY();                                \
+    return Napi::Number::New(env, result);                                     \
+  }                                                                            \
+  Napi::Value paintingActive(const Napi::CallbackInfo& info) {                 \
+    Napi::Env env = info.Env();                                                \
+    bool result = this->instance->paintingActive();                            \
+    return Napi::Boolean::New(env, result);                                    \
+  }                                                                            \
+  Napi::Value physicalDpiX(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                                \
+    int result = this->instance->physicalDpiX();                               \
+    return Napi::Number::New(env, result);                                     \
+  }                                                                            \
+  Napi::Value physicalDpiY(const Napi::CallbackInfo& info) {                   \
+    Napi::Env env = info.Env();                                                \
+    int result = this->instance->physicalDpiY();                               \
+    return Napi::Number::New(env, result);                                     \
+  }                                                                            \
+  Napi::Value widthMM(const Napi::CallbackInfo& info) {                        \
+    Napi::Env env = info.Env();                                                \
+    int result = this->instance->widthMM();                                    \
+    return Napi::Number::New(env, result);                                     \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -818,7 +873,18 @@
       InstanceMethod("isAncestorOf", &WidgetWrapName::isAncestorOf),           \
       InstanceMethod("isEnabledTo", &WidgetWrapName::isEnabledTo),             \
       InstanceMethod("isVisibleTo", &WidgetWrapName::isVisibleTo),             \
-      InstanceMethod("stackUnder", &WidgetWrapName::stackUnder),
+      InstanceMethod("stackUnder", &WidgetWrapName::stackUnder),               \
+      InstanceMethod("colorCount", &WidgetWrapName::colorCount),               \
+      InstanceMethod("depth", &WidgetWrapName::depth),                         \
+      InstanceMethod("devicePixelRatio", &WidgetWrapName::devicePixelRatio),   \
+      InstanceMethod("devicePixelRatioF", &WidgetWrapName::devicePixelRatioF), \
+      InstanceMethod("heightMM", &WidgetWrapName::heightMM),                   \
+      InstanceMethod("logicalDpiX", &WidgetWrapName::logicalDpiX),             \
+      InstanceMethod("logicalDpiY", &WidgetWrapName::logicalDpiY),             \
+      InstanceMethod("paintingActive", &WidgetWrapName::paintingActive),       \
+      InstanceMethod("physicalDpiX", &WidgetWrapName::physicalDpiX),           \
+      InstanceMethod("physicalDpiY", &WidgetWrapName::physicalDpiY),           \
+      InstanceMethod("widthMM", &WidgetWrapName::widthMM),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

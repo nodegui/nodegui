@@ -2,7 +2,9 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtCore/QPoint/qpoint_wrap.h"
+#include "QtCore/QPointF/qpointf_wrap.h"
 #include "QtCore/QRect/qrect_wrap.h"
+#include "QtCore/QRectF/qrectf_wrap.h"
 #include "QtGui/QBrush/qbrush_wrap.h"
 #include "QtGui/QColor/qcolor_wrap.h"
 #include "QtGui/QFont/qfont_wrap.h"
@@ -19,42 +21,55 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QPainter";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("drawArc", &QPainterWrap::drawArc),
-       InstanceMethod("drawText", &QPainterWrap::drawText),
-       InstanceMethod("drawPath", &QPainterWrap::drawPath),
-       InstanceMethod("drawPie", &QPainterWrap::drawPie),
-       InstanceMethod("drawEllipse", &QPainterWrap::drawEllipse),
-       InstanceMethod("drawImage", &QPainterWrap::drawImage),
-       InstanceMethod("strokePath", &QPainterWrap::strokePath),
-       InstanceMethod("begin", &QPainterWrap::begin),
-       InstanceMethod("end", &QPainterWrap::end),
-       InstanceMethod("rotate", &QPainterWrap::rotate),
-       InstanceMethod("setFont", &QPainterWrap::setFont),
-       InstanceMethod("setPen", &QPainterWrap::setPen),
-       InstanceMethod("setBrush", &QPainterWrap::setBrush),
-       InstanceMethod("setTransform", &QPainterWrap::setTransform),
-       InstanceMethod("drawLine", &QPainterWrap::drawLine),
-       InstanceMethod("scale", &QPainterWrap::scale),
-       InstanceMethod("translate", &QPainterWrap::translate),
-       InstanceMethod("setRenderHint", &QPainterWrap::setRenderHint),
-       InstanceMethod("drawConvexPolygon", &QPainterWrap::drawConvexPolygon),
-       InstanceMethod("save", &QPainterWrap::save),
-       InstanceMethod("restore", &QPainterWrap::restore),
+      {InstanceMethod("begin", &QPainterWrap::begin),
        InstanceMethod("beginNativePainting",
                       &QPainterWrap::beginNativePainting),
-       InstanceMethod("endNativePainting", &QPainterWrap::endNativePainting),
-       InstanceMethod("fillRect", &QPainterWrap::fillRect),
-       InstanceMethod("compositionMode", &QPainterWrap::compositionMode),
-       InstanceMethod("setCompositionMode", &QPainterWrap::setCompositionMode),
-       InstanceMethod("opacity", &QPainterWrap::opacity),
-       InstanceMethod("setOpacity", &QPainterWrap::setOpacity),
-       InstanceMethod("drawPoint", &QPainterWrap::drawPoint),
-       InstanceMethod("drawRect", &QPainterWrap::drawRect),
-       InstanceMethod("eraseRect", &QPainterWrap::eraseRect),
        InstanceMethod("boundingRect", &QPainterWrap::boundingRect),
+       InstanceMethod("boundingRectF", &QPainterWrap::boundingRectF),
+       InstanceMethod("compositionMode", &QPainterWrap::compositionMode),
+       InstanceMethod("drawArc", &QPainterWrap::drawArc),
+       InstanceMethod("drawArcF", &QPainterWrap::drawArcF),
        InstanceMethod("drawChord", &QPainterWrap::drawChord),
+       InstanceMethod("drawChordF", &QPainterWrap::drawChord),
+       InstanceMethod("drawConvexPolygon", &QPainterWrap::drawConvexPolygon),
+       InstanceMethod("drawConvexPolygonF", &QPainterWrap::drawConvexPolygonF),
+       InstanceMethod("drawEllipse", &QPainterWrap::drawEllipse),
+       InstanceMethod("drawEllipseF", &QPainterWrap::drawEllipseF),
+       InstanceMethod("drawImage", &QPainterWrap::drawImage),
+       InstanceMethod("drawImageF", &QPainterWrap::drawImageF),
+       InstanceMethod("drawLine", &QPainterWrap::drawLine),
+       InstanceMethod("drawLineF", &QPainterWrap::drawLineF),
+       InstanceMethod("drawPath", &QPainterWrap::drawPath),
        InstanceMethod("drawPie", &QPainterWrap::drawPie),
+       InstanceMethod("drawPieF", &QPainterWrap::drawPieF),
+       InstanceMethod("drawPoint", &QPainterWrap::drawPoint),
+       InstanceMethod("drawPointF", &QPainterWrap::drawPointF),
+       InstanceMethod("drawRect", &QPainterWrap::drawRect),
+       InstanceMethod("drawRectF", &QPainterWrap::drawRectF),
+       InstanceMethod("drawText", &QPainterWrap::drawText),
+       InstanceMethod("drawTextF", &QPainterWrap::drawTextF),
+       InstanceMethod("end", &QPainterWrap::end),
+       InstanceMethod("endNativePainting", &QPainterWrap::endNativePainting),
+       InstanceMethod("eraseRect", &QPainterWrap::eraseRect),
+       InstanceMethod("eraseRectF", &QPainterWrap::eraseRectF),
+       InstanceMethod("fillRect", &QPainterWrap::fillRect),
+       InstanceMethod("fillRectF", &QPainterWrap::fillRectF),
+       InstanceMethod("opacity", &QPainterWrap::opacity),
+       InstanceMethod("restore", &QPainterWrap::restore),
+       InstanceMethod("rotate", &QPainterWrap::rotate),
+       InstanceMethod("save", &QPainterWrap::save),
+       InstanceMethod("scale", &QPainterWrap::scale),
+       InstanceMethod("setBrush", &QPainterWrap::setBrush),
        InstanceMethod("setBrushOrigin", &QPainterWrap::setBrushOrigin),
+       InstanceMethod("setBrushOriginF", &QPainterWrap::setBrushOriginF),
+       InstanceMethod("setCompositionMode", &QPainterWrap::setCompositionMode),
+       InstanceMethod("setFont", &QPainterWrap::setFont),
+       InstanceMethod("setOpacity", &QPainterWrap::setOpacity),
+       InstanceMethod("setPen", &QPainterWrap::setPen),
+       InstanceMethod("setRenderHint", &QPainterWrap::setRenderHint),
+       InstanceMethod("setTransform", &QPainterWrap::setTransform),
+       InstanceMethod("strokePath", &QPainterWrap::strokePath),
+       InstanceMethod("translate", &QPainterWrap::translate),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QPainterWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -91,6 +106,17 @@ Napi::Value QPainterWrap::drawArc(const Napi::CallbackInfo& info) {
   this->instance->drawArc(x, y, width, height, startAngle, spanAngle);
   return env.Null();
 }
+Napi::Value QPainterWrap::drawArcF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  qreal width = info[2].As<Napi::Number>().DoubleValue();
+  qreal height = info[3].As<Napi::Number>().DoubleValue();
+  int startAngle = info[4].As<Napi::Number>().Int32Value();
+  int spanAngle = info[5].As<Napi::Number>().Int32Value();
+  this->instance->drawArc(QRectF(x, y, width, height), startAngle, spanAngle);
+  return env.Null();
+}
 Napi::Value QPainterWrap::drawText(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int x = info[0].As<Napi::Number>().Int32Value();
@@ -98,6 +124,15 @@ Napi::Value QPainterWrap::drawText(const Napi::CallbackInfo& info) {
   Napi::String napiText = info[2].As<Napi::String>();
   std::string text = napiText.Utf8Value();
   this->instance->drawText(x, y, QString::fromUtf8(text.c_str()));
+  return env.Null();
+}
+Napi::Value QPainterWrap::drawTextF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  Napi::String napiText = info[2].As<Napi::String>();
+  std::string text = napiText.Utf8Value();
+  this->instance->drawText(QPointF(x, y), QString::fromUtf8(text.c_str()));
   return env.Null();
 }
 Napi::Value QPainterWrap::drawPath(const Napi::CallbackInfo& info) {
@@ -189,11 +224,27 @@ Napi::Value QPainterWrap::drawEllipse(const Napi::CallbackInfo& info) {
         .ThrowAsJavaScriptException();
     return env.Null();
   }
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  int width = info[2].As<Napi::Number>().Int32Value();
+  int height = info[3].As<Napi::Number>().Int32Value();
+  this->instance->drawEllipse(x, y, width, height);
+
+  return env.Null();
+}
+
+Napi::Value QPainterWrap::drawEllipseF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  if (info.Length() < 4) {
+    Napi::TypeError::New(env, "Invalid number of arguments to drawEllipseF")
+        .ThrowAsJavaScriptException();
+    return env.Null();
+  }
   qreal x = info[0].As<Napi::Number>().DoubleValue();
   qreal y = info[1].As<Napi::Number>().DoubleValue();
   qreal width = info[2].As<Napi::Number>().DoubleValue();
   qreal height = info[3].As<Napi::Number>().DoubleValue();
-  this->instance->drawEllipse(x, y, width, height);
+  this->instance->drawEllipse(QRectF(x, y, width, height));
 
   return env.Null();
 }
@@ -217,7 +268,44 @@ Napi::Value QPainterWrap::drawImage(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
+Napi::Value QPainterWrap::drawImageF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+
+  Napi::Object imageObject = info[2].As<Napi::Object>();
+  QImageWrap* imageWrap = Napi::ObjectWrap<QImageWrap>::Unwrap(imageObject);
+  QImage* image = imageWrap->getInternalInstance();
+
+  qreal sx = info[3].As<Napi::Number>().DoubleValue();
+  qreal sy = info[4].As<Napi::Number>().DoubleValue();
+  qreal sw = info[5].As<Napi::Number>().DoubleValue();
+  qreal sh = info[6].As<Napi::Number>().DoubleValue();
+  this->instance->drawImage(QPointF(x, y), *image, QRectF(sx, sy, sw, sh));
+
+  return env.Null();
+}
+
 Napi::Value QPainterWrap::drawPie(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  if (info.Length() < 6) {
+    Napi::TypeError::New(env, "Invalid number of arguments to drawPie")
+        .ThrowAsJavaScriptException();
+    return env.Null();
+  }
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  int width = info[2].As<Napi::Number>().Int32Value();
+  int height = info[3].As<Napi::Number>().Int32Value();
+  int startAngle = info[4].As<Napi::Number>().Int32Value();
+  int sweepLength = info[5].As<Napi::Number>().Int32Value();
+  this->instance->drawPie(x, y, width, height, startAngle, sweepLength);
+
+  return env.Null();
+}
+
+Napi::Value QPainterWrap::drawPieF(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   if (info.Length() < 6) {
     Napi::TypeError::New(env, "Invalid number of arguments to drawPie")
@@ -228,12 +316,13 @@ Napi::Value QPainterWrap::drawPie(const Napi::CallbackInfo& info) {
   qreal y = info[1].As<Napi::Number>().DoubleValue();
   qreal width = info[2].As<Napi::Number>().DoubleValue();
   qreal height = info[3].As<Napi::Number>().DoubleValue();
-  qreal startAngle = info[4].As<Napi::Number>().DoubleValue();
-  qreal sweepLength = info[5].As<Napi::Number>().DoubleValue();
-  this->instance->drawPie(x, y, width, height, startAngle, sweepLength);
+  int startAngle = info[4].As<Napi::Number>().Int32Value();
+  int sweepLength = info[5].As<Napi::Number>().Int32Value();
+  this->instance->drawPie(QRectF(x, y, width, height), startAngle, sweepLength);
 
   return env.Null();
 }
+
 Napi::Value QPainterWrap::drawLine(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int x1 = info[0].As<Napi::Number>().Int32Value();
@@ -241,6 +330,15 @@ Napi::Value QPainterWrap::drawLine(const Napi::CallbackInfo& info) {
   int x2 = info[2].As<Napi::Number>().Int32Value();
   int y2 = info[3].As<Napi::Number>().Int32Value();
   this->instance->drawLine(x1, y1, x2, y2);
+  return env.Null();
+}
+Napi::Value QPainterWrap::drawLineF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal x1 = info[0].As<Napi::Number>().DoubleValue();
+  qreal y1 = info[1].As<Napi::Number>().DoubleValue();
+  qreal x2 = info[2].As<Napi::Number>().DoubleValue();
+  qreal y2 = info[3].As<Napi::Number>().DoubleValue();
+  this->instance->drawLine(QLineF(x1, y1, x2, y2));
   return env.Null();
 }
 Napi::Value QPainterWrap::scale(const Napi::CallbackInfo& info) {
@@ -265,6 +363,19 @@ Napi::Value QPainterWrap::drawConvexPolygon(const Napi::CallbackInfo& info) {
     Napi::Object pointObject = pointsNapi.Get(i).As<Napi::Object>();
     QPointWrap* pointWrap = Napi::ObjectWrap<QPointWrap>::Unwrap(pointObject);
     QPoint* point = pointWrap->getInternalInstance();
+    polygon << *point;
+  }
+  this->instance->drawConvexPolygon(polygon);
+  return env.Null();
+}
+Napi::Value QPainterWrap::drawConvexPolygonF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::Array pointsNapi = info[0].As<Napi::Array>();
+  QPolygonF polygon;
+  for (int i = 0; i < pointsNapi.Length(); i++) {
+    Napi::Object pointObject = pointsNapi.Get(i).As<Napi::Object>();
+    QPointFWrap* pointWrap = Napi::ObjectWrap<QPointFWrap>::Unwrap(pointObject);
+    QPointF* point = pointWrap->getInternalInstance();
     polygon << *point;
   }
   this->instance->drawConvexPolygon(polygon);
@@ -349,6 +460,18 @@ Napi::Value QPainterWrap::fillRect(const Napi::CallbackInfo& info) {
   this->instance->fillRect(x, y, width, height, *color);
   return env.Null();
 }
+Napi::Value QPainterWrap::fillRectF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  qreal width = info[2].As<Napi::Number>().DoubleValue();
+  qreal height = info[3].As<Napi::Number>().DoubleValue();
+  Napi::Object colorObject = info[4].As<Napi::Object>();
+  QColorWrap* colorWrap = Napi::ObjectWrap<QColorWrap>::Unwrap(colorObject);
+  QColor* color = colorWrap->getInternalInstance();
+  this->instance->fillRect(QRectF(x, y, width, height), *color);
+  return env.Null();
+}
 Napi::Value QPainterWrap::compositionMode(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   uint mode = static_cast<uint>(this->instance->compositionMode());
@@ -379,6 +502,13 @@ Napi::Value QPainterWrap::drawPoint(const Napi::CallbackInfo& info) {
   this->instance->drawPoint(x, y);
   return env.Null();
 }
+Napi::Value QPainterWrap::drawPointF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  this->instance->drawPoint(QPointF(x, y));
+  return env.Null();
+}
 Napi::Value QPainterWrap::drawRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int x = info[0].As<Napi::Number>().Int32Value();
@@ -388,6 +518,15 @@ Napi::Value QPainterWrap::drawRect(const Napi::CallbackInfo& info) {
   this->instance->drawRect(x, y, width, height);
   return env.Null();
 }
+Napi::Value QPainterWrap::drawRectF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  qreal width = info[2].As<Napi::Number>().DoubleValue();
+  qreal height = info[3].As<Napi::Number>().DoubleValue();
+  this->instance->drawRect(QRectF(x, y, width, height));
+  return env.Null();
+}
 Napi::Value QPainterWrap::eraseRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int x = info[0].As<Napi::Number>().Int32Value();
@@ -395,6 +534,15 @@ Napi::Value QPainterWrap::eraseRect(const Napi::CallbackInfo& info) {
   int width = info[2].As<Napi::Number>().Int32Value();
   int height = info[3].As<Napi::Number>().Int32Value();
   this->instance->eraseRect(x, y, width, height);
+  return env.Null();
+}
+Napi::Value QPainterWrap::eraseRectF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  qreal width = info[2].As<Napi::Number>().DoubleValue();
+  qreal height = info[3].As<Napi::Number>().DoubleValue();
+  this->instance->eraseRect(QRectF(x, y, width, height));
   return env.Null();
 }
 Napi::Value QPainterWrap::boundingRect(const Napi::CallbackInfo& info) {
@@ -411,6 +559,20 @@ Napi::Value QPainterWrap::boundingRect(const Napi::CallbackInfo& info) {
       {Napi::External<QRect>::New(env, new QRect(result))});
   return resultInstance;
 }
+Napi::Value QPainterWrap::boundingRectF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  qreal w = info[2].As<Napi::Number>().DoubleValue();
+  qreal h = info[3].As<Napi::Number>().DoubleValue();
+  int flags = info[4].As<Napi::Number>().Int32Value();
+  std::string textNapiText = info[5].As<Napi::String>().Utf8Value();
+  QString text = QString::fromUtf8(textNapiText.c_str());
+  QRectF result = this->instance->boundingRect(QRectF(x, y, w, h), flags, text);
+  auto resultInstance = QRectFWrap::constructor.New(
+      {Napi::External<QRectF>::New(env, new QRectF(result))});
+  return resultInstance;
+}
 Napi::Value QPainterWrap::drawChord(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int x = info[0].As<Napi::Number>().Int32Value();
@@ -422,10 +584,28 @@ Napi::Value QPainterWrap::drawChord(const Napi::CallbackInfo& info) {
   this->instance->drawChord(x, y, width, height, startAngle, spanAngle);
   return env.Null();
 }
+Napi::Value QPainterWrap::drawChordF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  qreal width = info[2].As<Napi::Number>().DoubleValue();
+  qreal height = info[3].As<Napi::Number>().DoubleValue();
+  int startAngle = info[4].As<Napi::Number>().Int32Value();
+  int spanAngle = info[5].As<Napi::Number>().Int32Value();
+  this->instance->drawChord(QRectF(x, y, width, height), startAngle, spanAngle);
+  return env.Null();
+}
 Napi::Value QPainterWrap::setBrushOrigin(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int x = info[0].As<Napi::Number>().Int32Value();
   int y = info[1].As<Napi::Number>().Int32Value();
   this->instance->setBrushOrigin(x, y);
+  return env.Null();
+}
+Napi::Value QPainterWrap::setBrushOriginF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  this->instance->setBrushOrigin(QPointF(x, y));
   return env.Null();
 }
