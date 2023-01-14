@@ -19,11 +19,25 @@ class DLL_EXPORT NApplication : public QApplication, public EventWidget {
     QOBJECT_SIGNALS
 
     QObject::connect(
+        this, &QGuiApplication::applicationDisplayNameChanged, [=]() {
+          Napi::Env env = this->emitOnNode.Env();
+          Napi::HandleScope scope(env);
+          this->emitOnNode.Call(
+              {Napi::String::New(env, "applicationDisplayNameChanged")});
+        });
+
+    QObject::connect(
         this, &QGuiApplication::focusWindowChanged, [=](QWindow* focusWindow) {
           Napi::Env env = this->emitOnNode.Env();
           Napi::HandleScope scope(env);
           this->emitOnNode.Call({Napi::String::New(env, "focusWindowChanged")});
         });
+
+    QObject::connect(this, &QGuiApplication::lastWindowClosed, [=]() {
+      Napi::Env env = this->emitOnNode.Env();
+      Napi::HandleScope scope(env);
+      this->emitOnNode.Call({Napi::String::New(env, "lastWindowClosed")});
+    });
 
     QObject::connect(
         this, &QGuiApplication::primaryScreenChanged, [=](QScreen* screen) {
