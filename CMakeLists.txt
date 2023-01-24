@@ -11,6 +11,7 @@ set(CORE_WIDGETS_ADDON "nodegui_core")
 
 project(${CORE_WIDGETS_ADDON})
 
+set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
 
 # Note: CMake+moc also use this list when finding files which `moc` applied.
 
@@ -265,6 +266,7 @@ if (UNIX AND NOT APPLE)
 endif()
 
 if (APPLE)
+    set(CMAKE_MACOSX_RPATH ON)
     file(RELATIVE_PATH QT_LIBRARY_REL_PATH "${CMAKE_BINARY_DIR}/Release" "${QT_CMAKE_HOME_DIR}/../..")
     set_target_properties(${CORE_WIDGETS_ADDON} PROPERTIES INSTALL_RPATH "@loader_path/${QT_LIBRARY_REL_PATH}")
 endif()
