@@ -238,6 +238,18 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     isSortingEnabled(): boolean {
         return this.native.isSortingEnabled();
     }
+    selectAll(): void {
+        this.native.selectAll();
+    }
+    clearSelection(): void {
+        this.native.clearSelection();
+    }
+    scrollToTop(): void {
+        this.native.scrollToTop();
+    }
+    scrollToBottom(): void {
+        this.native.scrollToBottom();
+    }
 }
 wrapperCache.registerWrapper('QTableWidgetWrap', QTableWidget);
 
