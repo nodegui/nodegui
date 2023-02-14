@@ -80,4 +80,8 @@ class DLL_EXPORT QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   Napi::Value setRowCount(const Napi::CallbackInfo& info);
   Napi::Value setSortingEnabled(const Napi::CallbackInfo& info);
   Napi::Value isSortingEnabled(const Napi::CallbackInfo& info);
+  Napi::Value clearSelection(const Napi::CallbackInfo& info);
+  Napi::Value selectAll(const Napi::CallbackInfo& info);
+  Napi::Value scrollToBottom(const Napi::CallbackInfo& info);
+  Napi::Value scrollToTop(const Napi::CallbackInfo& info);
 };

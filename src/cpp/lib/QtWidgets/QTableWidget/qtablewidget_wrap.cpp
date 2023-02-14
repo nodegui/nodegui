@@ -82,6 +82,10 @@ Napi::Object QTableWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("visualColumn", &QTableWidgetWrap::visualColumn),
        InstanceMethod("visualItemRect", &QTableWidgetWrap::visualItemRect),
        InstanceMethod("visualRow", &QTableWidgetWrap::visualRow),
+       InstanceMethod("clearSelection", &QTableWidgetWrap::clearSelection),
+       InstanceMethod("selectAll", &QTableWidgetWrap::selectAll),
+       InstanceMethod("scrollToBottom",  &QTableWidgetWrap::scrollToBottom),
+       InstanceMethod("scrollToTop",  &QTableWidgetWrap::scrollToTop),
 
        QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QTableWidgetWrap)});
   constructor = Napi::Persistent(func);
@@ -646,4 +650,28 @@ Napi::Value QTableWidgetWrap::isSortingEnabled(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   bool enabled = this->instance->isSortingEnabled();
   return Napi::Boolean::New(env, enabled);
+}
+
+Napi::Value QTableWidgetWrap::clearSelection(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->clearSelection();
+  return env.Null();
+}
+
+Napi::Value QTableWidgetWrap::selectAll(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->clearSelection();
+  return env.Null();
+}
+
+Napi::Value QTableWidgetWrap::scrollToBottom(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->scrollToBottom();
+  return env.Null();
+}
+
+Napi::Value QTableWidgetWrap::scrollToTop(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->scrollToTop();
+  return env.Null();
 }
