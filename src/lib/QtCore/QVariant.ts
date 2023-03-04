@@ -1,8 +1,9 @@
 import { NativeElement, Component } from '../core/Component';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
+import { QRect } from './QRect';
 
-export type QVariantType = NativeElement | string | string[] | number | boolean;
+export type QVariantType = NativeElement | string | string[] | number | boolean | QRect;
 
 export class QVariant extends Component {
     constructor();

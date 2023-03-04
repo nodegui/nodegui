@@ -193,7 +193,9 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     heightForWidth(w: number): number {
         return this.native.heightForWidth(w);
     }
-    // TODO: Qt::InputMethodHints 	inputMethodHints() const
+    inputMethodHints(): number {
+        return this.property('inputMethodHints').toInt();
+    }
     // TODO: virtual QVariant 	inputMethodQuery(Qt::InputMethodQuery query) const
     // TODO: void 	insertAction(QAction *before, QAction *action)
     // TODO: void 	insertActions(QAction *before, QList<QAction *> actions)
@@ -396,7 +398,9 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     setGraphicsEffect(effect: QGraphicsEffect<any>): void {
         this.native.setGraphicsEffect(effect.native);
     }
-    // TODO: void 	setInputMethodHints(Qt::InputMethodHints hints)
+    setInputMethodHints(hints: number): void {
+        this.setProperty('inputMethodHints', hints);
+    }
     setInlineStyle(style: string, postprocess = true): void {
         if (postprocess) {
             this._rawInlineStyle = style;

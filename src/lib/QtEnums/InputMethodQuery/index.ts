@@ -1,6 +1,5 @@
 export enum InputMethodQuery {
     ImEnabled = 0x1,
-    ImMicroFocus = 0x2,
     ImCursorRectangle = 0x2,
     ImFont = 0x4,
     ImCursorPosition = 0x8,
@@ -17,6 +16,7 @@ export enum InputMethodQuery {
     ImEnterKeyType = 0x2000,
     ImAnchorRectangle = 0x4000,
     ImInputItemClipRectangle = 0x8000,
+    ImReadOnly = 0x10000,
     //Masks:
     ImQueryAll = 0xffffffff,
 }

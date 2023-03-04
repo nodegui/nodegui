@@ -22,6 +22,8 @@ export { QFontDatabase, SystemFont, WritingSystem } from './lib/QtGui/QFontDatab
 export { QFontMetrics } from './lib/QtGui/QFontMetrics';
 export { QFontMetricsF } from './lib/QtGui/QFontMetricsF';
 // Events: Maybe a separate module ?
+export { QInputMethodEvent } from './lib/QtGui/QEvent/QInputMethodEvent';
+export { QInputMethodQueryEvent } from './lib/QtGui/QEvent/QInputMethodQueryEvent';
 export { QKeyEvent } from './lib/QtGui/QEvent/QKeyEvent';
 export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
 export { QMoveEvent } from './lib/QtGui/QEvent/QMoveEvent';
