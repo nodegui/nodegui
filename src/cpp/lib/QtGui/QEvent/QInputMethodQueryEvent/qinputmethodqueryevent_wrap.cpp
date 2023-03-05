@@ -50,8 +50,8 @@ QInputMethodQueryEventWrap::~QInputMethodQueryEventWrap() {
 Napi::Value QInputMethodQueryEventWrap::queries(
     const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  int queries = this->instance->queries();
-  return Napi::Number::From(env, queries);
+  Qt::InputMethodQueries queries = this->instance->queries();
+  return Napi::Number::From(env, queries.toInt());
 }
 
 Napi::Value QInputMethodQueryEventWrap::setValue(
