@@ -2,7 +2,7 @@ import addon from '../utils/addon';
 import { QLayout } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { FlexLayout } from '../core/FlexLayout';
-import { WidgetAttribute, WindowType, ContextMenuPolicy, FocusReason, FocusPolicy } from '../QtEnums';
+import { WidgetAttribute, WindowType, ContextMenuPolicy, FocusReason, FocusPolicy, InputMethodQuery } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
 import { QCursor } from '../QtGui/QCursor';
 import { CursorShape, WindowState } from '../QtEnums';
@@ -564,6 +564,11 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     updatesEnabled(): boolean {
         return this.property('updatesEnabled').toBool();
     }
+
+    updateMicroFocus(query: number = InputMethodQuery.ImQueryAll): void {
+        this.native.updateMicroFocus(query);
+    }
+
     // TODO: QRegion 	visibleRegion() const
     whatsThis(): string {
         return this.property('whatsThis').toString();
