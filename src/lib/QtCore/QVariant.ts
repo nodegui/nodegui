@@ -36,3 +36,14 @@ export class QVariant extends Component {
         return this.native.toStringList();
     }
 }
+
+/**
+ * Get the correct native object which should be passed down to the
+ * C++ wrapper from a QVariantType object.
+ */
+export function nativeObjectFromVariantType(obj: QVariantType): any {
+    if (obj instanceof QRect) {
+        return obj.native;
+    }
+    return obj;
+}

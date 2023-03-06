@@ -1,9 +1,14 @@
 import addon from '../../utils/addon';
 import { NativeRawPointer } from '../../core/Component';
-import { QVariant, QVariantType } from '../../QtCore/QVariant';
+import { QVariant, QVariantType, nativeObjectFromVariantType } from '../../QtCore/QVariant';
 import { QEvent } from './QEvent';
-import { QRect } from '../../QtCore/QRect';
 
+/**
+ * Note: Qt performs some default processing for `QInputMethodQueryEvents`.
+ * When attaching an event listener via `addEventListener()` use the
+ * options object to specify that you want to run after the default
+ * processing, otherwise your `setValue()` calls will be overwritten.
+ */
 export class QInputMethodQueryEvent extends QEvent {
     constructor(event: NativeRawPointer<'QEvent'>) {
         super(new addon.QInputMethodQueryEvent(event));
@@ -14,11 +19,7 @@ export class QInputMethodQueryEvent extends QEvent {
     }
 
     setValue(query: number /* InputMethodQuery */, value: QVariantType): void {
-        if (value instanceof QRect) {
-            this.native.setValue(query, value.native);
-        } else {
-            this.native.setValue(query, value);
-        }
+        this.native.setValue(query, nativeObjectFromVariantType(value));
     }
 
     value(query: number /* InputMethodQuery */): QVariant {
