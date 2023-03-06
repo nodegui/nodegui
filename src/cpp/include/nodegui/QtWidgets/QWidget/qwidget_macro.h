@@ -768,10 +768,10 @@
   }                                                                            \
   Napi::Value updateMicroFocus(const Napi::CallbackInfo& info) {               \
     Napi::Env env = info.Env();                                                \
-    NWidget *nwidget = dynamic_cast<NWidget*>(this->instance.data());          \
+    NWidget* nwidget = dynamic_cast<NWidget*>(this->instance.data());          \
     if (nwidget) {                                                             \
       Qt::InputMethodQuery query = static_cast<Qt::InputMethodQuery>(          \
-        info[0].As<Napi::Number>().Int32Value());                              \
+          info[0].As<Napi::Number>().Int32Value());                            \
       nwidget->_protected_updateMicroFocus(query);                             \
     }                                                                          \
     return env.Null();                                                         \
