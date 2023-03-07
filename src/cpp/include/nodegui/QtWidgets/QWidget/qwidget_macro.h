@@ -765,6 +765,16 @@
     Napi::Env env = info.Env();                                                \
     int result = this->instance->widthMM();                                    \
     return Napi::Number::New(env, result);                                     \
+  }                                                                            \
+  Napi::Value updateMicroFocus(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                                \
+    NWidget* nwidget = dynamic_cast<NWidget*>(this->instance.data());          \
+    if (nwidget) {                                                             \
+      Qt::InputMethodQuery query = static_cast<Qt::InputMethodQuery>(          \
+          info[0].As<Napi::Number>().Int32Value());                            \
+      nwidget->_protected_updateMicroFocus(query);                             \
+    }                                                                          \
+    return env.Null();                                                         \
   }
 
 #endif  // QWIDGET_WRAPPED_METHODS_DECLARATION
@@ -884,7 +894,8 @@
       InstanceMethod("paintingActive", &WidgetWrapName::paintingActive),       \
       InstanceMethod("physicalDpiX", &WidgetWrapName::physicalDpiX),           \
       InstanceMethod("physicalDpiY", &WidgetWrapName::physicalDpiY),           \
-      InstanceMethod("widthMM", &WidgetWrapName::widthMM),
+      InstanceMethod("widthMM", &WidgetWrapName::widthMM),                     \
+      InstanceMethod("updateMicroFocus", &WidgetWrapName::updateMicroFocus),
 
 #endif  // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
 

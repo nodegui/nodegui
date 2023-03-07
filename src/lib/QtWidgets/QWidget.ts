@@ -2,7 +2,7 @@ import addon from '../utils/addon';
 import { QLayout } from './QLayout';
 import { NativeElement } from '../core/Component';
 import { FlexLayout } from '../core/FlexLayout';
-import { WidgetAttribute, WindowType, ContextMenuPolicy, FocusReason, FocusPolicy } from '../QtEnums';
+import { WidgetAttribute, WindowType, ContextMenuPolicy, FocusReason, FocusPolicy, InputMethodQuery } from '../QtEnums';
 import { QIcon } from '../QtGui/QIcon';
 import { QCursor } from '../QtGui/QCursor';
 import { CursorShape, WindowState } from '../QtEnums';
@@ -193,7 +193,9 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     heightForWidth(w: number): number {
         return this.native.heightForWidth(w);
     }
-    // TODO: Qt::InputMethodHints 	inputMethodHints() const
+    inputMethodHints(): number {
+        return this.property('inputMethodHints').toInt();
+    }
     // TODO: virtual QVariant 	inputMethodQuery(Qt::InputMethodQuery query) const
     // TODO: void 	insertAction(QAction *before, QAction *action)
     // TODO: void 	insertActions(QAction *before, QList<QAction *> actions)
@@ -396,7 +398,9 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     setGraphicsEffect(effect: QGraphicsEffect<any>): void {
         this.native.setGraphicsEffect(effect.native);
     }
-    // TODO: void 	setInputMethodHints(Qt::InputMethodHints hints)
+    setInputMethodHints(hints: number): void {
+        this.setProperty('inputMethodHints', hints);
+    }
     setInlineStyle(style: string, postprocess = true): void {
         if (postprocess) {
             this._rawInlineStyle = style;
@@ -560,6 +564,11 @@ export class QWidget<Signals extends QWidgetSignals = QWidgetSignals> extends Yo
     updatesEnabled(): boolean {
         return this.property('updatesEnabled').toBool();
     }
+
+    updateMicroFocus(query: number = InputMethodQuery.ImQueryAll): void {
+        this.native.updateMicroFocus(query);
+    }
+
     // TODO: QRegion 	visibleRegion() const
     whatsThis(): string {
         return this.property('whatsThis').toString();

@@ -23,4 +23,8 @@ class DLL_EXPORT NWidget : public QWidget, public NodeWidget {
   }
 
   virtual void connectSignalsToEventEmitter() { QWIDGET_SIGNALS }
+
+  void _protected_updateMicroFocus(Qt::InputMethodQuery query) {
+    updateMicroFocus(query);
+  }
 };

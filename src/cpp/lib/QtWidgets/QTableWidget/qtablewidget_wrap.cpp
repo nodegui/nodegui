@@ -84,8 +84,8 @@ Napi::Object QTableWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("visualRow", &QTableWidgetWrap::visualRow),
        InstanceMethod("clearSelection", &QTableWidgetWrap::clearSelection),
        InstanceMethod("selectAll", &QTableWidgetWrap::selectAll),
-       InstanceMethod("scrollToBottom",  &QTableWidgetWrap::scrollToBottom),
-       InstanceMethod("scrollToTop",  &QTableWidgetWrap::scrollToTop),
+       InstanceMethod("scrollToBottom", &QTableWidgetWrap::scrollToBottom),
+       InstanceMethod("scrollToTop", &QTableWidgetWrap::scrollToTop),
 
        QABSTRACTSCROLLAREA_WRAPPED_METHODS_EXPORT_DEFINE(QTableWidgetWrap)});
   constructor = Napi::Persistent(func);

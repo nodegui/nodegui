@@ -27,6 +27,8 @@
 #include "QtGui/QEvent/QDragLeaveEvent/qdragleaveevent_wrap.h"
 #include "QtGui/QEvent/QDragMoveEvent/qdragmoveevent_wrap.h"
 #include "QtGui/QEvent/QDropEvent/qdropevent_wrap.h"
+#include "QtGui/QEvent/QInputMethodEvent/qinputmethodevent_wrap.h"
+#include "QtGui/QEvent/QInputMethodQueryEvent/qinputmethodqueryevent_wrap.h"
 #include "QtGui/QEvent/QKeyEvent/qkeyevent_wrap.h"
 #include "QtGui/QEvent/QMouseEvent/qmouseevent_wrap.h"
 #include "QtGui/QEvent/QMoveEvent/qmoveevent_wrap.h"
@@ -246,6 +248,8 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QResizeEventWrap::init(env, exports);
   QTimerEventWrap::init(env, exports);
   QAbstractItemDelegateWrap::init(env, exports);
+  QInputMethodEventWrap::init(env, exports);
+  QInputMethodQueryEventWrap::init(env, exports);
 
   // Test
   CacheTestQObjectWrap::init(env, exports);

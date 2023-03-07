@@ -1,8 +1,9 @@
 import { NativeElement, Component } from '../core/Component';
 import addon from '../utils/addon';
 import { checkIfNativeElement } from '../utils/helpers';
+import { QRect } from './QRect';
 
-export type QVariantType = NativeElement | string | string[] | number | boolean;
+export type QVariantType = NativeElement | string | string[] | number | boolean | QRect;
 
 export class QVariant extends Component {
     constructor();
@@ -34,4 +35,15 @@ export class QVariant extends Component {
     toStringList(): string[] {
         return this.native.toStringList();
     }
+}
+
+/**
+ * Get the correct native object which should be passed down to the
+ * C++ wrapper from a QVariantType object.
+ */
+export function nativeObjectFromVariantType(obj: QVariantType): any {
+    if (obj instanceof QRect) {
+        return obj.native;
+    }
+    return obj;
 }
