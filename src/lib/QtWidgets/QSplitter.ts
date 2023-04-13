@@ -36,7 +36,7 @@ splitterHorizontal.addWidget(right);
 ```
 
  */
-export class QSplitter extends QFrame<QSplitterSignals> {
+export class QSplitter<Signals extends QSplitterSignals = QSplitterSignals> extends QFrame<Signals> {
     constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
         if (checkIfNativeElement(arg)) {
