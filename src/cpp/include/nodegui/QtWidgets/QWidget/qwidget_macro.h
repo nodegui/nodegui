@@ -132,7 +132,15 @@
     this->instance->setLayout(layoutWrap->getInternalInstance());              \
     return env.Null();                                                         \
   }                                                                            \
-                                                                               \
+  Napi::Value layout(const Napi::CallbackInfo& info) {                         \
+    Napi::Env env = info.Env();                                                \
+    QLayout* layout = this->instance->layout();                                \
+    if (layout) {                                                              \
+      return WrapperCache::instance.getWrapper(env, layout, true);             \
+    } else {                                                                   \
+      return env.Null();                                                       \
+    }                                                                          \
+  }                                                                            \
   Napi::Value setStyleSheet(const Napi::CallbackInfo& info) {                  \
     Napi::Env env = info.Env();                                                \
     Napi::String text = info[0].As<Napi::String>();                            \
@@ -794,6 +802,7 @@
       InstanceMethod("mapToParent", &WidgetWrapName::mapToParent),             \
       InstanceMethod("mapTo", &WidgetWrapName::mapTo),                         \
       InstanceMethod("setLayout", &WidgetWrapName::setLayout),                 \
+      InstanceMethod("layout", &WidgetWrapName::layout),                       \
       InstanceMethod("setStyleSheet", &WidgetWrapName::setStyleSheet),         \
       InstanceMethod("setCursor", &WidgetWrapName::setCursor),                 \
       InstanceMethod("setWindowIcon", &WidgetWrapName::setWindowIcon),         \
