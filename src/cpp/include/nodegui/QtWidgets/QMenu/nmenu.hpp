@@ -14,6 +14,25 @@ class DLL_EXPORT NMenu : public QMenu, public NodeWidget {
   virtual void connectSignalsToEventEmitter() {
     QWIDGET_SIGNALS
 
+    QObject::connect(this, &QMenu::aboutToHide, [=]() {
+      Napi::Env env = this->emitOnNode.Env();
+      Napi::HandleScope scope(env);
+      this->emitOnNode.Call({Napi::String::New(env, "aboutToHide")});
+    });
+
+    QObject::connect(this, &QMenu::aboutToShow, [=]() {
+      Napi::Env env = this->emitOnNode.Env();
+      Napi::HandleScope scope(env);
+      this->emitOnNode.Call({Napi::String::New(env, "aboutToShow")});
+    });
+
+    QObject::connect(this, &QMenu::hovered, [=](QAction* action) {
+      Napi::Env env = this->emitOnNode.Env();
+      Napi::HandleScope scope(env);
+      auto instance = WrapperCache::instance.getWrapper(env, action);
+      this->emitOnNode.Call({Napi::String::New(env, "hovered"), instance});
+    });
+
     QObject::connect(this, &QMenu::triggered, [=](QAction* action) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
