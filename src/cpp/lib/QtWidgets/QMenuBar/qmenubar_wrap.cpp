@@ -17,7 +17,17 @@ Napi::Object QMenuBarWrap::init(Napi::Env env, Napi::Object exports) {
       env, CLASSNAME,
       {InstanceMethod("addMenu", &QMenuBarWrap::addMenu),
        InstanceMethod("addSeparator", &QMenuBarWrap::addSeparator),
-       InstanceMethod("setNativeMenuBar", &QMenuBarWrap::setNativeMenuBar),
+       InstanceMethod("actionAt", &QMenuBarWrap::actionAt),
+       InstanceMethod("actionGeometry", &QMenuBarWrap::actionGeometry),
+       InstanceMethod("activeAction", &QMenuBarWrap::activeAction),
+       InstanceMethod("addMenu_1", &QMenuBarWrap::addMenu_1),
+       InstanceMethod("addMenu_2", &QMenuBarWrap::addMenu_2),
+       InstanceMethod("clear", &QMenuBarWrap::clear),
+       InstanceMethod("cornerWidget", &QMenuBarWrap::cornerWidget),
+       InstanceMethod("insertMenu", &QMenuBarWrap::insertMenu),
+       InstanceMethod("insertSeparator", &QMenuBarWrap::insertSeparator),
+       InstanceMethod("setActiveAction", &QMenuBarWrap::setActiveAction),
+       InstanceMethod("setCornerWidget", &QMenuBarWrap::setCornerWidget),
        QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE(QMenuBarWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -65,17 +75,141 @@ Napi::Value QMenuBarWrap::addMenu(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value QMenuBarWrap::addSeparator(const Napi::CallbackInfo& info) {
+Napi::Value QMenuBarWrap::actionAt(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  auto value =
-      Napi::External<QAction>::New(env, this->instance->addSeparator());
-  return Napi::Value::From(env, value);
+  QPointWrap* ptWrap =
+      Napi::ObjectWrap<QPointWrap>::Unwrap(info[0].As<Napi::Object>());
+  QPoint* pt = ptWrap->getInternalInstance();
+  QAction* result = this->instance->actionAt(*pt);
+  if (result) {
+    return WrapperCache::instance.getWrapper(env, result);
+  } else {
+    return env.Null();
+  }
 }
 
-Napi::Value QMenuBarWrap::setNativeMenuBar(const Napi::CallbackInfo& info) {
+Napi::Value QMenuBarWrap::actionGeometry(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  Napi::HandleScope scope(env);
-  Napi::Boolean nativeMenuBar = info[0].As<Napi::Boolean>();
-  this->instance->setNativeMenuBar(nativeMenuBar.Value());
+  QActionWrap* actWrap =
+      Napi::ObjectWrap<QActionWrap>::Unwrap(info[0].As<Napi::Object>());
+  QAction* act = actWrap->getInternalInstance();
+  QRect result = this->instance->actionGeometry(act);
+  auto resultInstance = QRectWrap::constructor.New(
+      {Napi::External<QRect>::New(env, new QRect(result))});
+  return resultInstance;
+}
+
+Napi::Value QMenuBarWrap::activeAction(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QAction* result = this->instance->activeAction();
+  if (result) {
+    return WrapperCache::instance.getWrapper(env, result);
+  } else {
+    return env.Null();
+  }
+}
+
+Napi::Value QMenuBarWrap::addMenu_1(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  std::string titleNapiText = info[0].As<Napi::String>().Utf8Value();
+  QString title = QString::fromUtf8(titleNapiText.c_str());
+  QMenu* result = this->instance->addMenu(title);
+  if (result) {
+    return WrapperCache::instance.getWrapper(env, result);
+  } else {
+    return env.Null();
+  }
+}
+
+Napi::Value QMenuBarWrap::addMenu_2(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QIconWrap* iconWrap =
+      Napi::ObjectWrap<QIconWrap>::Unwrap(info[0].As<Napi::Object>());
+  QIcon* icon = iconWrap->getInternalInstance();
+  std::string titleNapiText = info[1].As<Napi::String>().Utf8Value();
+  QString title = QString::fromUtf8(titleNapiText.c_str());
+  QMenu* result = this->instance->addMenu(*icon, title);
+  if (result) {
+    return WrapperCache::instance.getWrapper(env, result);
+  } else {
+    return env.Null();
+  }
+}
+
+Napi::Value QMenuBarWrap::addSeparator(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QAction* result = this->instance->addSeparator();
+  if (result) {
+    return WrapperCache::instance.getWrapper(env, result);
+  } else {
+    return env.Null();
+  }
+}
+
+Napi::Value QMenuBarWrap::clear(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  this->instance->clear();
+  return env.Null();
+}
+
+Napi::Value QMenuBarWrap::cornerWidget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Qt::Corner corner =
+      static_cast<Qt::Corner>(info[0].As<Napi::Number>().Int32Value());
+  QWidget* result = this->instance->cornerWidget(corner);
+  if (result) {
+    return WrapperCache::instance.getWrapper(env, result);
+  } else {
+    return env.Null();
+  }
+}
+
+Napi::Value QMenuBarWrap::insertMenu(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QActionWrap* beforeWrap =
+      Napi::ObjectWrap<QActionWrap>::Unwrap(info[0].As<Napi::Object>());
+  QAction* before = beforeWrap->getInternalInstance();
+  QMenuWrap* menuWrap =
+      Napi::ObjectWrap<QMenuWrap>::Unwrap(info[1].As<Napi::Object>());
+  QMenu* menu = menuWrap->getInternalInstance();
+  QAction* result = this->instance->insertMenu(before, menu);
+  if (result) {
+    return WrapperCache::instance.getWrapper(env, result);
+  } else {
+    return env.Null();
+  }
+}
+
+Napi::Value QMenuBarWrap::insertSeparator(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QActionWrap* beforeWrap =
+      Napi::ObjectWrap<QActionWrap>::Unwrap(info[0].As<Napi::Object>());
+  QAction* before = beforeWrap->getInternalInstance();
+  QAction* result = this->instance->insertSeparator(before);
+  if (result) {
+    return WrapperCache::instance.getWrapper(env, result);
+  } else {
+    return env.Null();
+  }
+}
+
+Napi::Value QMenuBarWrap::setActiveAction(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QActionWrap* actWrap =
+      Napi::ObjectWrap<QActionWrap>::Unwrap(info[0].As<Napi::Object>());
+  QAction* act = actWrap->getInternalInstance();
+  this->instance->setActiveAction(act);
+  return env.Null();
+}
+
+Napi::Value QMenuBarWrap::setCornerWidget(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::Object widgetWidgetObject = info[0].As<Napi::Object>();
+  NodeWidgetWrap* widgetWidgetWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(widgetWidgetObject);
+  QWidget* widget = widgetWidgetWrap->getInternalInstance();
+  Qt::Corner corner =
+      static_cast<Qt::Corner>(info[1].As<Napi::Number>().Int32Value());
+  this->instance->setCornerWidget(widget, corner);
   return env.Null();
 }
