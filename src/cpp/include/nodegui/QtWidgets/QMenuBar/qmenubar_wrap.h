@@ -21,5 +21,15 @@ class DLL_EXPORT QMenuBarWrap : public Napi::ObjectWrap<QMenuBarWrap> {
   // wrapped methods
   Napi::Value addMenu(const Napi::CallbackInfo& info);
   Napi::Value addSeparator(const Napi::CallbackInfo& info);
-  Napi::Value setNativeMenuBar(const Napi::CallbackInfo& info);
+  Napi::Value actionAt(const Napi::CallbackInfo& info);
+  Napi::Value actionGeometry(const Napi::CallbackInfo& info);
+  Napi::Value activeAction(const Napi::CallbackInfo& info);
+  Napi::Value addMenu_1(const Napi::CallbackInfo& info);
+  Napi::Value addMenu_2(const Napi::CallbackInfo& info);
+  Napi::Value clear(const Napi::CallbackInfo& info);
+  Napi::Value cornerWidget(const Napi::CallbackInfo& info);
+  Napi::Value insertMenu(const Napi::CallbackInfo& info);
+  Napi::Value insertSeparator(const Napi::CallbackInfo& info);
+  Napi::Value setActiveAction(const Napi::CallbackInfo& info);
+  Napi::Value setCornerWidget(const Napi::CallbackInfo& info);
 };
