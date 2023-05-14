@@ -104,4 +104,7 @@ export class QMenuBar extends QWidget<QMenuBarSignals> {
 }
 wrapperCache.registerWrapper('QMenuBarWrap', QMenuBar);
 
-export type QMenuBarSignals = QWidgetSignals;
+export interface QMenuBarSignals extends QWidgetSignals {
+    hovered: (action: NativeElement) => void;
+    triggered: (action: NativeElement) => void;
+}
