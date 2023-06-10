@@ -40,4 +40,14 @@ DLL_EXPORT Napi::Value primaryScreen(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value screens(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value setStyle(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value style(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value setWindowIcon(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value windowIcon(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value applicationDisplayName(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value platformName(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value desktopFileName(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value desktopSettingsAware(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value setApplicationDisplayName(
+    const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value setDesktopFileName(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value setDesktopSettingsAware(const Napi::CallbackInfo& info);
 }  // namespace StaticQApplicationWrapMethods

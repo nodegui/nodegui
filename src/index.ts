@@ -39,7 +39,7 @@ export { QPaintEvent } from './lib/QtGui/QEvent/QPaintEvent';
 export { QResizeEvent } from './lib/QtGui/QEvent/QResizeEvent';
 export { QScreen } from './lib/QtGui/QScreen';
 export { QWindow } from './lib/QtGui/QWindow';
-export { WidgetEventTypes } from './lib/core/EventWidget';
+export { WidgetEventTypes, EventListenerOptions, EventWidget } from './lib/core/EventWidget';
 // Abstract:
 export { QWidget, QWidgetSignals } from './lib/QtWidgets/QWidget';
 export { QLayout, QLayoutSignals, SizeConstraint } from './lib/QtWidgets/QLayout';

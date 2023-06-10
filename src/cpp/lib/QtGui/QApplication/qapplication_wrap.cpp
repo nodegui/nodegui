@@ -2,6 +2,7 @@
 
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
+#include "QtGui/QIcon/qicon_wrap.h"
 #include "QtGui/QPalette/qpalette_wrap.h"
 #include "QtGui/QStyle/qstyle_wrap.h"
 #include "core/Integration/qode-api.h"
@@ -25,6 +26,9 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("palette", &QApplicationWrap::palette),
        InstanceMethod("setStyleSheet", &QApplicationWrap::setStyleSheet),
        InstanceMethod("devicePixelRatio", &QApplicationWrap::devicePixelRatio),
+       StaticMethod("setWindowIcon",
+                    &StaticQApplicationWrapMethods::setWindowIcon),
+       StaticMethod("windowIcon", &StaticQApplicationWrapMethods::windowIcon),
        StaticMethod("instance", &StaticQApplicationWrapMethods::instance),
        StaticMethod("clipboard", &StaticQApplicationWrapMethods::clipboard),
        StaticMethod("setStyle", &StaticQApplicationWrapMethods::setStyle),
@@ -32,6 +36,21 @@ Napi::Object QApplicationWrap::init(Napi::Env env, Napi::Object exports) {
        StaticMethod("primaryScreen",
                     &StaticQApplicationWrapMethods::primaryScreen),
        StaticMethod("screens", &StaticQApplicationWrapMethods::screens),
+       StaticMethod("applicationDisplayName",
+                    &StaticQApplicationWrapMethods::applicationDisplayName),
+       StaticMethod("platformName",
+                    &StaticQApplicationWrapMethods::platformName),
+       StaticMethod("desktopFileName",
+                    &StaticQApplicationWrapMethods::desktopFileName),
+       StaticMethod("desktopSettingsAware",
+                    &StaticQApplicationWrapMethods::desktopSettingsAware),
+       StaticMethod("setApplicationDisplayName",
+                    &StaticQApplicationWrapMethods::setApplicationDisplayName),
+       StaticMethod("setDesktopFileName",
+                    &StaticQApplicationWrapMethods::setDesktopFileName),
+       StaticMethod("setDesktopSettingsAware",
+                    &StaticQApplicationWrapMethods::setDesktopSettingsAware),
+
        QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QApplicationWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -187,4 +206,77 @@ Napi::Value QApplicationWrap::devicePixelRatio(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   qreal result = this->instance->devicePixelRatio();
   return Napi::Value::From(env, result);
+}
+
+Napi::Value StaticQApplicationWrapMethods::setWindowIcon(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QIconWrap* iconWrap =
+      Napi::ObjectWrap<QIconWrap>::Unwrap(info[0].As<Napi::Object>());
+  QIcon* icon = iconWrap->getInternalInstance();
+  QApplication::setWindowIcon(*icon);
+  return env.Null();
+}
+
+Napi::Value StaticQApplicationWrapMethods::windowIcon(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QIcon result = QApplication::windowIcon();
+  auto resultInstance = QIconWrap::constructor.New(
+      {Napi::External<QIcon>::New(env, new QIcon(result))});
+  return resultInstance;
+}
+
+Napi::Value StaticQApplicationWrapMethods::applicationDisplayName(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QString result = QApplication::applicationDisplayName();
+  return Napi::String::New(env, result.toStdString());
+}
+
+Napi::Value StaticQApplicationWrapMethods::platformName(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QString result = QApplication::platformName();
+  return Napi::String::New(env, result.toStdString());
+}
+
+Napi::Value StaticQApplicationWrapMethods::desktopFileName(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  QString result = QApplication::desktopFileName();
+  return Napi::String::New(env, result.toStdString());
+}
+
+Napi::Value StaticQApplicationWrapMethods::desktopSettingsAware(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool result = QApplication::desktopSettingsAware();
+  return Napi::Boolean::New(env, result);
+}
+
+Napi::Value StaticQApplicationWrapMethods::setApplicationDisplayName(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  std::string nameNapiText = info[0].As<Napi::String>().Utf8Value();
+  QString name = QString::fromUtf8(nameNapiText.c_str());
+  QApplication::setApplicationDisplayName(name);
+  return env.Null();
+}
+
+Napi::Value StaticQApplicationWrapMethods::setDesktopFileName(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  std::string nameNapiText = info[0].As<Napi::String>().Utf8Value();
+  QString name = QString::fromUtf8(nameNapiText.c_str());
+  QApplication::setDesktopFileName(name);
+  return env.Null();
+}
+
+Napi::Value StaticQApplicationWrapMethods::setDesktopSettingsAware(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  bool on = info[0].As<Napi::Boolean>().Value();
+  QApplication::setDesktopSettingsAware(on);
+  return env.Null();
 }
