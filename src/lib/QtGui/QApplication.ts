@@ -9,6 +9,7 @@ import { StyleSheet } from '../core/Style/StyleSheet';
 import memoizeOne from 'memoize-one';
 import { QScreen } from './QScreen';
 import { wrapperCache } from '../core/WrapperCache';
+import { QIcon } from './QIcon';
 
 /**
 
@@ -41,6 +42,7 @@ export class QApplication extends QObject<QApplicationSignals> {
         super(native);
         this.setStyleSheet = memoizeOne(this.setStyleSheet);
     }
+
     devicePixelRatio(): number {
         return this.native.devicePixelRatio();
     }
@@ -73,6 +75,19 @@ export class QApplication extends QObject<QApplicationSignals> {
             this.native.setStyleSheet(styleSheet);
         }
     }
+
+    static instance(): QApplication {
+        const nativeQApp = addon.QApplication.instance();
+        return new QApplication(nativeQApp);
+    }
+
+    // CLASS: QApplication
+    // TODO: QWindowList 	allWindows()
+    static applicationDisplayName(): string {
+        return addon.QApplication.applicationDisplayName();
+    }
+    // TODO: Qt::ApplicationState 	applicationState()
+    // TODO: void 	changeOverrideCursor(const QCursor &cursor)
     static clipboard(): QClipboard | null {
         const clipboardNative = addon.QApplication.clipboard();
         if (clipboardNative == null) {
@@ -80,9 +95,28 @@ export class QApplication extends QObject<QApplicationSignals> {
         }
         return wrapperCache.get<QClipboard>(QClipboard, clipboardNative);
     }
-    static instance(): QApplication {
-        const nativeQApp = addon.QApplication.instance();
-        return new QApplication(nativeQApp);
+    static desktopFileName(): string {
+        return addon.QApplication.desktopFileName();
+    }
+    static desktopSettingsAware(): boolean {
+        return addon.QApplication.desktopSettingsAware();
+    }
+    // TODO: int 	exec()
+    // TODO: QObject *	focusObject()
+    // TODO: QWindow *	focusWindow()
+    // TODO: QFont 	font()
+    // TODO: Qt::HighDpiScaleFactorRoundingPolicy 	highDpiScaleFactorRoundingPolicy()
+    // TODO: QInputMethod *	inputMethod()
+    // TODO: bool 	isLeftToRight()
+    // TODO: bool 	isRightToLeft()
+    // TODO: Qt::KeyboardModifiers 	keyboardModifiers()
+    // TODO: Qt::LayoutDirection 	layoutDirection()
+    // TODO: QWindow *	modalWindow()
+    // TODO: Qt::MouseButtons 	mouseButtons()
+    // TODO: QCursor *	overrideCursor()
+    // TODO: QPalette 	palette()
+    static platformName(): string {
+        return addon.QApplication.platformName();
     }
     static primaryScreen(): QScreen | null {
         const screenNative = addon.QApplication.primaryScreen();
@@ -91,9 +125,41 @@ export class QApplication extends QObject<QApplicationSignals> {
         }
         return wrapperCache.get<QScreen>(QScreen, screenNative);
     }
+    // TODO: Qt::KeyboardModifiers 	queryKeyboardModifiers()
+    // TODO: bool 	quitOnLastWindowClosed()
+    // TODO: void 	restoreOverrideCursor()
+    // TODO: QScreen *	screenAt(const QPoint &point)
     static screens(): QScreen[] {
         const screenNativeList = addon.QApplication.screens();
         return screenNativeList.map((screenNative: any) => wrapperCache.get<QScreen>(QScreen, screenNative));
+    }
+    static setApplicationDisplayName(name: string): void {
+        addon.QApplication.setApplicationDisplayName(name);
+    }
+    static setDesktopFileName(name: string): void {
+        addon.QApplication.setDesktopFileName(name);
+    }
+    static setDesktopSettingsAware(on: boolean): void {
+        addon.QApplication.setDesktopSettingsAware(on);
+    }
+
+    // CLASS: QApplication
+    // TODO: void 	setFont(const QFont &font)
+    // TODO: void 	setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy policy)
+    // TODO: void 	setLayoutDirection(Qt::LayoutDirection direction)
+    // TODO: void 	setOverrideCursor(const QCursor &cursor)
+    // TODO: void 	setPalette(const QPalette &pal)
+    // TODO: void 	setQuitOnLastWindowClosed(bool quit)
+
+    static setWindowIcon(icon: QIcon): void {
+        addon.QApplication.setWindowIcon(icon.native);
+    }
+    // TODO: QStyleHints *	styleHints()
+    // TODO: void 	sync()
+    // TODO: QWindow *	topLevelAt(const QPoint &pos)
+    // TODO: QWindowList 	topLevelWindows()
+    static windowIcon(): QIcon {
+        return addon.QApplication.windowIcon();
     }
     static setStyle(style: QStyle): void {
         addon.QApplication.setStyle(style.native);
