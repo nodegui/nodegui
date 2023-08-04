@@ -30,7 +30,7 @@ imageLabel.setPixmap(pixmap);
 scrollArea.setWidget(imageLabel);
 ```
  */
-export class QScrollArea extends QAbstractScrollArea<QScrollAreaSignals> {
+export class QScrollArea<Signals extends QScrollAreaSignals = QScrollAreaSignals> extends QAbstractScrollArea<Signals> {
     constructor(arg?: QWidget<QWidgetSignals> | NativeElement) {
         let native: NativeElement;
         if (checkIfNativeElement(arg)) {
