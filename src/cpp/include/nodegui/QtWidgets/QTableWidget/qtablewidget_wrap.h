@@ -5,11 +5,11 @@
 #include <QPointer>
 
 #include "Extras/Export/export.h"
-#include "QtWidgets/QAbstractScrollArea/qabstractscrollarea_macro.h"
+#include "QtWidgets/QTableView/qtableview_macro.h"
 #include "QtWidgets/QTableWidget/ntablewidget.hpp"
 
 class DLL_EXPORT QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
-  QABSTRACTSCROLLAREA_WRAPPED_METHODS_DECLARATION
+  QTABLEVIEW_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<QTableWidget> instance;
 
@@ -22,7 +22,8 @@ class DLL_EXPORT QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value selectedRanges(const Napi::CallbackInfo& info);
-  Napi::Value closePersistentEditor(const Napi::CallbackInfo& info);
+  Napi::Value closePersistentEditor_qtablewidgetitem(
+      const Napi::CallbackInfo& info);
   Napi::Value editItem(const Napi::CallbackInfo& info);
   Napi::Value setCellWidget(const Napi::CallbackInfo& info);
   Napi::Value setItem(const Napi::CallbackInfo& info);
@@ -45,10 +46,12 @@ class DLL_EXPORT QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   Napi::Value currentItem(const Napi::CallbackInfo& info);
   Napi::Value currentRow(const Napi::CallbackInfo& info);
   Napi::Value findItems(const Napi::CallbackInfo& info);
-  Napi::Value isPersistentEditorOpen(const Napi::CallbackInfo& info);
+  Napi::Value isPersistentEditorOpen_qtablewidgetitem(
+      const Napi::CallbackInfo& info);
   Napi::Value item(const Napi::CallbackInfo& info);
   Napi::Value itemAt(const Napi::CallbackInfo& info);
-  Napi::Value openPersistentEditor(const Napi::CallbackInfo& info);
+  Napi::Value openPersistentEditor_qtablewidgetitem(
+      const Napi::CallbackInfo& info);
   Napi::Value removeCellWidget(const Napi::CallbackInfo& info);
   Napi::Value setCurrentCell(const Napi::CallbackInfo& info);
   Napi::Value setCurrentItem(const Napi::CallbackInfo& info);
@@ -57,31 +60,4 @@ class DLL_EXPORT QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   Napi::Value visualColumn(const Napi::CallbackInfo& info);
   Napi::Value visualItemRect(const Napi::CallbackInfo& info);
   Napi::Value visualRow(const Napi::CallbackInfo& info);
-
-  // FROM TABLEVIEW
-  Napi::Value hideColumn(const Napi::CallbackInfo& info);
-  Napi::Value hideRow(const Napi::CallbackInfo& info);
-  Napi::Value resizeColumnToContents(const Napi::CallbackInfo& info);
-  Napi::Value resizeColumnsToContents(const Napi::CallbackInfo& info);
-  Napi::Value resizeRowToContents(const Napi::CallbackInfo& info);
-  Napi::Value resizeRowsToContents(const Napi::CallbackInfo& info);
-  Napi::Value selectColumn(const Napi::CallbackInfo& info);
-  Napi::Value selectRow(const Napi::CallbackInfo& info);
-  Napi::Value setShowGrid(const Napi::CallbackInfo& info);
-  Napi::Value showGrid(const Napi::CallbackInfo& info);
-  Napi::Value showColumn(const Napi::CallbackInfo& info);
-  Napi::Value showRow(const Napi::CallbackInfo& info);
-  Napi::Value sortByColumn(const Napi::CallbackInfo& info);
-  Napi::Value setColumnWidth(const Napi::CallbackInfo& info);
-  Napi::Value setRowHeight(const Napi::CallbackInfo& info);
-  Napi::Value columnCount(const Napi::CallbackInfo& info);
-  Napi::Value rowCount(const Napi::CallbackInfo& info);
-  Napi::Value setColumnCount(const Napi::CallbackInfo& info);
-  Napi::Value setRowCount(const Napi::CallbackInfo& info);
-  Napi::Value setSortingEnabled(const Napi::CallbackInfo& info);
-  Napi::Value isSortingEnabled(const Napi::CallbackInfo& info);
-  Napi::Value clearSelection(const Napi::CallbackInfo& info);
-  Napi::Value selectAll(const Napi::CallbackInfo& info);
-  Napi::Value scrollToBottom(const Napi::CallbackInfo& info);
-  Napi::Value scrollToTop(const Napi::CallbackInfo& info);
 };
