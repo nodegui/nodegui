@@ -39,15 +39,46 @@ export class QTabWidget extends QWidget<QTabWidgetSignals> {
         }
         super(native);
     }
-
-    addTab(page: QWidget, icon: QIcon, label: string): number {
-        const index = this.native.addTab(page.native, icon.native, label);
+    /**
+     * Adds a tab to the TabBar of the widget.
+     * If you include an ampersand (`&`) in the label, the next character will become the shortcut to this tab.
+     * Eg: the label "Bro&wse" will assign ALT+W to focus on this tab.
+     * @param page The widget that will become the body of the tab.
+     * @param icon The icon of the tab (optional).
+     * @param label The label of the tab. 
+     * @returns The index of the tab.
+     */
+    addTab(page: QWidget, icon: QIcon | string | undefined, label: string | undefined): number {
+        let index
+        if (icon instanceof String){
+            index = this.native.addTab(page.native, icon);
+        } else if (icon instanceof QIcon && label instanceof String) {
+            index = this.native.addTab(page.native, label);
+        } else {
+            index = this.native.addTab(page.native, icon.native, label);
+        }
         page.setFlexNodeSizeControlled(true);
         return index;
     }
-
-    insertTab(index: number, page: QWidget, icon: QIcon, label: string): number {
-        const newIndex = this.native.insertTab(index, page.native, icon.native, label);
+    /**
+     * Adds a tab to the TabBar of the widget to a specific position.
+     * If you include an ampersand (`&`) in the label, the next character will become the shortcut to this tab.
+     * Eg: the label "Bro&wse" will assign ALT+W to focus on this tab.
+     * @param index The index where the tab will be inserted.
+     * @param page The widget that will become the body of the Tab.
+     * @param icon The icon of the tab (optional).
+     * @param label The label of the tab.
+     * @returns The new index of the tab
+     */
+    insertTab(index: number, page: QWidget, icon: QIcon | string | undefined, label: string): number {
+        let newIndex
+        if (icon instanceof String) {
+            newIndex = this.native.insertTab(index, page.native, icon);
+        } else if (icon instanceof QIcon && label instanceof String) {
+            newIndex = this.native.insertTab(index, page.native, label);            
+        } else {
+            newIndex = this.native.insertTab(index, page.native, icon.native, label);
+        }
         return newIndex;
     }
 
