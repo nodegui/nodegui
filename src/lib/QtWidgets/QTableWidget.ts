@@ -3,10 +3,11 @@ import { QWidget } from './QWidget';
 import { NativeElement, Component } from '../core/Component';
 import { MatchFlag, ScrollHint, SortOrder } from '../QtEnums';
 import { QTableWidgetItem } from './QTableWidgetItem';
-import { QAbstractScrollArea, QAbstractScrollAreaSignals } from './QAbstractScrollArea';
 import { QRect } from '../QtCore/QRect';
 import { wrapperCache } from '../core/WrapperCache';
 import { checkIfNativeElement } from '../utils/helpers';
+import { QTableView, QTableViewSignals } from './QTableView';
+import { QModelIndex } from '../QtCore/QModelIndex';
 
 /**
 
@@ -39,7 +40,7 @@ win.show();
 
 ```
  */
-export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
+export class QTableWidget extends QTableView<QTableWidgetSignals> {
     items: Set<NativeElement | Component>;
     constructor(rowsOrNativeOrParent: QWidget | NativeElement | number, columns?: number, parent?: QWidget) {
         let native: NativeElement;
@@ -63,8 +64,12 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     selectedRanges(): Range[] {
         return this.native.selectedRanges();
     }
-    closePersistentEditor(item: QTableWidgetItem): void {
-        this.native.closePersistentEditor(item.native);
+    closePersistentEditor(itemOrIndex: QTableWidgetItem | QModelIndex): void {
+        if (itemOrIndex instanceof QModelIndex) {
+            super.closePersistentEditor(itemOrIndex);
+        } else {
+            this.native.closePersistentEditor_qtablewidgetitem(itemOrIndex.native);
+        }
     }
     editItem(item: Component): void {
         this.native.editItem(item.native);
@@ -137,11 +142,19 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
             return new QTableWidgetItem(item);
         });
     }
-    isPersistentEditorOpen(item: QTableWidgetItem): void {
-        return this.native.isPersistentEditorOpen(item.native);
+    isPersistentEditorOpen(itemOrIndex: QTableWidgetItem | QModelIndex): boolean {
+        if (itemOrIndex instanceof QModelIndex) {
+            return super.isPersistentEditorOpen(itemOrIndex);
+        } else {
+            return this.native.isPersistentEditorOpen_qtablewidgetitem(itemOrIndex);
+        }
     }
-    openPersistentEditor(item: QTableWidgetItem): void {
-        return this.native.openPersistentEditor(item.native);
+    openPersistentEditor(itemOrIndex: QTableWidgetItem | QModelIndex): void {
+        if (itemOrIndex instanceof QModelIndex) {
+            return super.openPersistentEditor(itemOrIndex);
+        } else {
+            return this.native.openPersistentEditor_qtablewidgetitem(itemOrIndex.native);
+        }
     }
     item(row = 0, column = 0): QTableWidgetItem {
         return new QTableWidgetItem(this.native.item(row, column));
@@ -173,83 +186,6 @@ export class QTableWidget extends QAbstractScrollArea<QTableWidgetSignals> {
     visualRow(logicalRow = 0): number {
         return this.native.visualColumn(logicalRow);
     }
-
-    // FROM TABLEVIEW
-    hideColumn(column: number): void {
-        this.native.hideColumn(column);
-    }
-    hideRow(row: number): void {
-        this.native.hideRow(row);
-    }
-    resizeColumnToContents(column: number): void {
-        this.native.resizeColumnToContents(column);
-    }
-    resizeColumnsToContents(): void {
-        this.native.resizeColumnsToContents();
-    }
-    resizeRowToContents(row: number): void {
-        this.native.resizeRowToContents(row);
-    }
-    resizeRowsToContents(): void {
-        this.native.resizeRowsToContents();
-    }
-    selectColumn(column: number): void {
-        this.native.selectColumn(column);
-    }
-    selectRow(row: number): void {
-        this.native.selectRow(row);
-    }
-    setShowGrid(show: boolean): void {
-        this.native.setShowGrid(show);
-    }
-    showGrid(): boolean {
-        return this.native.showGrid();
-    }
-    showColumn(column: number): void {
-        this.native.showColumn(column);
-    }
-    showRow(row: number): void {
-        this.native.showRow(row);
-    }
-    sortByColumn(column: number, order: SortOrder): void {
-        this.native.sortByColumn(column, order);
-    }
-    setColumnWidth(column: number, width: number): void {
-        this.native.setColumnWidth(column, width);
-    }
-    setRowHeight(row: number, height: number): void {
-        this.native.setRowHeight(row, height);
-    }
-    columnCount(): number {
-        return this.native.columnCount();
-    }
-    rowCount(): number {
-        return this.native.rowCount();
-    }
-    setColumnCount(count: number): void {
-        this.native.setColumnCount(count);
-    }
-    setRowCount(count: number): void {
-        this.native.setRowCount(count);
-    }
-    setSortingEnabled(enable: boolean): void {
-        this.native.setSortingEnabled(enable);
-    }
-    isSortingEnabled(): boolean {
-        return this.native.isSortingEnabled();
-    }
-    selectAll(): void {
-        this.native.selectAll();
-    }
-    clearSelection(): void {
-        this.native.clearSelection();
-    }
-    scrollToTop(): void {
-        this.native.scrollToTop();
-    }
-    scrollToBottom(): void {
-        this.native.scrollToBottom();
-    }
 }
 wrapperCache.registerWrapper('QTableWidgetWrap', QTableWidget);
 
@@ -262,7 +198,7 @@ interface Range {
     rowCount: number;
 }
 
-export interface QTableWidgetSignals extends QAbstractScrollAreaSignals {
+export interface QTableWidgetSignals extends QTableViewSignals {
     cellActivated: (row: number, col: number) => void;
     cellChanged: (row: number, col: number) => void;
     cellClicked: (row: number, col: number) => void;
