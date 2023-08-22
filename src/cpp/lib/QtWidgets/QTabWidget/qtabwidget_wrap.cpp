@@ -80,6 +80,22 @@ Napi::Value QTabWidgetWrap::addTab(const Napi::CallbackInfo& info) {
   return Napi::Number::New(env, index);
 }
 
+Napi::Value QTabWidgetWrap::addTab2(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::Object pageObject = info[0].As<Napi::Object>();
+  Napi::String napiLabel = info[1].As<Napi::String>();
+  std::string label = napiLabel.Utf8Value();
+
+  NodeWidgetWrap* pageObjectWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(pageObject);
+  //QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
+
+  int index =
+      this->instance->addTab(pageObjectWrap->getInternalInstance(),
+                             /* *iconWrap->getInternalInstance(),*/ label.c_str());
+  return Napi::Number::New(env, index);
+}
+
 Napi::Value QTabWidgetWrap::insertTab(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int tabPosition = info[0].As<Napi::Number>().Int32Value();
@@ -95,6 +111,24 @@ Napi::Value QTabWidgetWrap::insertTab(const Napi::CallbackInfo& info) {
   int index = this->instance->insertTab(
       tabPosition, pageObjectWrap->getInternalInstance(),
       *iconWrap->getInternalInstance(), label.c_str());
+  return Napi::Number::New(env, index);
+}
+
+Napi::Value QTabWidgetWrap::insertTab2(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int tabPosition = info[0].As<Napi::Number>().Int32Value();
+  Napi::Object pageObject = info[1].As<Napi::Object>();
+  //Napi::Object iconObject = info[2].As<Napi::Object>();
+  Napi::String napiLabel = info[2].As<Napi::String>();
+  std::string label = napiLabel.Utf8Value();
+
+  NodeWidgetWrap* pageObjectWrap =
+      Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(pageObject);
+  //QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
+
+  int index = this->instance->insertTab(
+      tabPosition, pageObjectWrap->getInternalInstance(),
+      /* *iconWrap->getInternalInstance(), */ label.c_str());
   return Napi::Number::New(env, index);
 }
 
