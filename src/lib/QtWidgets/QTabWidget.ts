@@ -45,16 +45,14 @@ export class QTabWidget extends QWidget<QTabWidgetSignals> {
      * Eg: the label "Bro&wse" will assign ALT+W to focus on this tab.
      * @param page The widget that will become the body of the tab.
      * @param iconOrLabel The icon of the tab (optional). When you omit the icon, this must be the label.
-     * @param label The label of the tab. 
+     * @param label The label of the tab.
      * @returns The index of the tab.
      */
     addTab(page: QWidget, iconOrLabel: QIcon | string | undefined, label: string | undefined): number {
-        let index
-        if (iconOrLabel instanceof String){
+        let index;
+        if (iconOrLabel instanceof String) {
             index = this.native.addTab2(page.native, iconOrLabel);
-        } else if (iconOrLabel instanceof QIcon && label instanceof String) {
-            index = this.native.addTab2(page.native, label);
-        } else {
+        } else if (iconOrLabel instanceof QIcon && label !== undefined) {
             index = this.native.addTab(page.native, iconOrLabel.native, label);
         }
         page.setFlexNodeSizeControlled(true);
@@ -71,13 +69,11 @@ export class QTabWidget extends QWidget<QTabWidgetSignals> {
      * @returns The new index of the tab
      */
     insertTab(index: number, page: QWidget, iconOrLabel: QIcon | string | undefined, label: string): number {
-        let newIndex
+        let newIndex;
         if (iconOrLabel instanceof String) {
             newIndex = this.native.insertTab2(index, page.native, iconOrLabel);
-        } else if (iconOrLabel instanceof QIcon && label instanceof String) {
-            newIndex = this.native.insertTab2(index, page.native, label);            
-        } else {
-            newIndex = this.native.insertTab(index, page.native, iconOrLabel.native, label);
+        } else if (iconOrLabel instanceof QIcon && label !== undefined) {
+            newIndex = this.native.insertTab2(index, page.native, iconOrLabel.native, label);
         }
         return newIndex;
     }
