@@ -91,8 +91,8 @@ Napi::Value QTabWidgetWrap::addTab2(const Napi::CallbackInfo& info) {
   NodeWidgetWrap* pageObjectWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(pageObject);
 
-  int index =
-      this->instance->addTab(pageObjectWrap->getInternalInstance(), label.c_str());
+  int index = this->instance->addTab(pageObjectWrap->getInternalInstance(),
+                                     label.c_str());
   return Napi::Number::New(env, index);
 }
 
@@ -124,7 +124,8 @@ Napi::Value QTabWidgetWrap::insertTab2(const Napi::CallbackInfo& info) {
   NodeWidgetWrap* pageObjectWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(pageObject);
 
-  int index = this->instance->insertTab(tabPosition, pageObjectWrap->getInternalInstance(), label.c_str());
+  int index = this->instance->insertTab(
+      tabPosition, pageObjectWrap->getInternalInstance(), label.c_str());
   return Napi::Number::New(env, index);
 }
 
