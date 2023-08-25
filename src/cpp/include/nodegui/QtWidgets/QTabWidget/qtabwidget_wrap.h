@@ -22,7 +22,9 @@ class DLL_EXPORT QTabWidgetWrap : public Napi::ObjectWrap<QTabWidgetWrap> {
   static Napi::FunctionReference constructor;
   // wrapped methods
   Napi::Value addTab(const Napi::CallbackInfo &info);
+  Napi::Value addTab2(const Napi::CallbackInfo &info);
   Napi::Value insertTab(const Napi::CallbackInfo &info);
+  Napi::Value insertTab2(const Napi::CallbackInfo &info);
   Napi::Value indexOf(const Napi::CallbackInfo &info);
   Napi::Value setTabPosition(const Napi::CallbackInfo &info);
   Napi::Value setCurrentIndex(const Napi::CallbackInfo &info);

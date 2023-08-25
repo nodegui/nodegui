@@ -14,7 +14,9 @@ Napi::Object QTabWidgetWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("addTab", &QTabWidgetWrap::addTab),
+       InstanceMethod("addTab2", &QTabWidgetWrap::addTab2),
        InstanceMethod("insertTab", &QTabWidgetWrap::insertTab),
+       InstanceMethod("insertTab2", &QTabWidgetWrap::insertTab2),
        InstanceMethod("setTabPosition", &QTabWidgetWrap::setTabPosition),
        InstanceMethod("indexOf", &QTabWidgetWrap::indexOf),
        InstanceMethod("setTabText", &QTabWidgetWrap::setTabText),
@@ -88,11 +90,9 @@ Napi::Value QTabWidgetWrap::addTab2(const Napi::CallbackInfo& info) {
 
   NodeWidgetWrap* pageObjectWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(pageObject);
-  //QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
 
   int index =
-      this->instance->addTab(pageObjectWrap->getInternalInstance(),
-                             /* *iconWrap->getInternalInstance(),*/ label.c_str());
+      this->instance->addTab(pageObjectWrap->getInternalInstance(), label.c_str());
   return Napi::Number::New(env, index);
 }
 
@@ -118,17 +118,13 @@ Napi::Value QTabWidgetWrap::insertTab2(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int tabPosition = info[0].As<Napi::Number>().Int32Value();
   Napi::Object pageObject = info[1].As<Napi::Object>();
-  //Napi::Object iconObject = info[2].As<Napi::Object>();
   Napi::String napiLabel = info[2].As<Napi::String>();
   std::string label = napiLabel.Utf8Value();
 
   NodeWidgetWrap* pageObjectWrap =
       Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(pageObject);
-  //QIconWrap* iconWrap = Napi::ObjectWrap<QIconWrap>::Unwrap(iconObject);
 
-  int index = this->instance->insertTab(
-      tabPosition, pageObjectWrap->getInternalInstance(),
-      /* *iconWrap->getInternalInstance(), */ label.c_str());
+  int index = this->instance->insertTab(tabPosition, pageObjectWrap->getInternalInstance(), label.c_str());
   return Napi::Number::New(env, index);
 }
 
