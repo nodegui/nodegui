@@ -51,9 +51,9 @@ export class QTabWidget extends QWidget<QTabWidgetSignals> {
     addTab(page: QWidget, iconOrLabel: QIcon | string | undefined, label: string | undefined): number {
         let index;
         if (iconOrLabel instanceof String) {
-            index = this.native.addTab2(page.native, iconOrLabel);
+            index = this.native.addTab_2(page.native, iconOrLabel);
         } else if (iconOrLabel instanceof QIcon && label !== undefined) {
-            index = this.native.addTab(page.native, iconOrLabel.native, label);
+            index = this.native.addTab_3(page.native, iconOrLabel.native, label);
         }
         page.setFlexNodeSizeControlled(true);
         return index;
@@ -71,9 +71,9 @@ export class QTabWidget extends QWidget<QTabWidgetSignals> {
     insertTab(index: number, page: QWidget, iconOrLabel: QIcon | string | undefined, label: string): number {
         let newIndex;
         if (iconOrLabel instanceof String) {
-            newIndex = this.native.insertTab2(index, page.native, iconOrLabel);
+            newIndex = this.native.insertTab_3(index, page.native, iconOrLabel);
         } else if (iconOrLabel instanceof QIcon && label !== undefined) {
-            newIndex = this.native.insertTab2(index, page.native, iconOrLabel.native, label);
+            newIndex = this.native.insertTab_4(index, page.native, iconOrLabel.native, label);
         }
         return newIndex;
     }

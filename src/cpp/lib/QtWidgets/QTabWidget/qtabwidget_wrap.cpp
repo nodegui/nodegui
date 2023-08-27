@@ -13,10 +13,10 @@ Napi::Object QTabWidgetWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QTabWidget";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("addTab", &QTabWidgetWrap::addTab),
-       InstanceMethod("addTab2", &QTabWidgetWrap::addTab2),
-       InstanceMethod("insertTab", &QTabWidgetWrap::insertTab),
-       InstanceMethod("insertTab2", &QTabWidgetWrap::insertTab2),
+      {InstanceMethod("addTab_3", &QTabWidgetWrap::addTab_3),
+       InstanceMethod("addTab_2", &QTabWidgetWrap::addTab_2),
+       InstanceMethod("insertTab_3", &QTabWidgetWrap::insertTab_3),
+       InstanceMethod("insertTab_4", &QTabWidgetWrap::insertTab_4),
        InstanceMethod("setTabPosition", &QTabWidgetWrap::setTabPosition),
        InstanceMethod("indexOf", &QTabWidgetWrap::indexOf),
        InstanceMethod("setTabText", &QTabWidgetWrap::setTabText),
@@ -65,7 +65,7 @@ QTabWidgetWrap::QTabWidgetWrap(const Napi::CallbackInfo& info)
       extrautils::configureQWidget(this->getInternalInstance(), true);
 }
 
-Napi::Value QTabWidgetWrap::addTab(const Napi::CallbackInfo& info) {
+Napi::Value QTabWidgetWrap::addTab_3(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::Object pageObject = info[0].As<Napi::Object>();
   Napi::Object iconObject = info[1].As<Napi::Object>();
@@ -82,7 +82,7 @@ Napi::Value QTabWidgetWrap::addTab(const Napi::CallbackInfo& info) {
   return Napi::Number::New(env, index);
 }
 
-Napi::Value QTabWidgetWrap::addTab2(const Napi::CallbackInfo& info) {
+Napi::Value QTabWidgetWrap::addTab_2(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::Object pageObject = info[0].As<Napi::Object>();
   Napi::String napiLabel = info[1].As<Napi::String>();
@@ -96,7 +96,7 @@ Napi::Value QTabWidgetWrap::addTab2(const Napi::CallbackInfo& info) {
   return Napi::Number::New(env, index);
 }
 
-Napi::Value QTabWidgetWrap::insertTab(const Napi::CallbackInfo& info) {
+Napi::Value QTabWidgetWrap::insertTab_4(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int tabPosition = info[0].As<Napi::Number>().Int32Value();
   Napi::Object pageObject = info[1].As<Napi::Object>();
@@ -114,7 +114,7 @@ Napi::Value QTabWidgetWrap::insertTab(const Napi::CallbackInfo& info) {
   return Napi::Number::New(env, index);
 }
 
-Napi::Value QTabWidgetWrap::insertTab2(const Napi::CallbackInfo& info) {
+Napi::Value QTabWidgetWrap::insertTab_3(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int tabPosition = info[0].As<Napi::Number>().Int32Value();
   Napi::Object pageObject = info[1].As<Napi::Object>();
