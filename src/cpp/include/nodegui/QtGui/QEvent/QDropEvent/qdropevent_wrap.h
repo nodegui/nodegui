@@ -5,6 +5,8 @@
 #include <QDropEvent>
 
 #include "Extras/Export/export.h"
+#include "QtCore/QMimeData/qmimedata_wrap.h"
+#include "QtGui/QEvent/QDropEvent/qdropevent_macro.h"
 #include "QtGui/QEvent/QEvent/qevent_macro.h"
 #include "core/Component/component_macro.h"
 
@@ -22,16 +24,6 @@ class DLL_EXPORT QDropEventWrap : public Napi::ObjectWrap<QDropEventWrap> {
   // class constructor
   static Napi::FunctionReference constructor;
   // wrapped methods
-  Napi::Value acceptProposedAction(const Napi::CallbackInfo& info);
-  Napi::Value dropAction(const Napi::CallbackInfo& info);
-  Napi::Value keyboardModifiers(const Napi::CallbackInfo& info);
-  Napi::Value mouseButtons(const Napi::CallbackInfo& info);
-  Napi::Value mimeData(const Napi::CallbackInfo& info);
-  Napi::Value pos(const Napi::CallbackInfo& info);
-  Napi::Value possibleActions(const Napi::CallbackInfo& info);
-  Napi::Value proposedAction(const Napi::CallbackInfo& info);
-  Napi::Value setDropAction(const Napi::CallbackInfo& info);
-
-  // Methods from QEvent
+  QDROPEVENT_WRAPPED_METHODS_DECLARATION
   QEVENT_WRAPPED_METHODS_DECLARATION
 };
