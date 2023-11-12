@@ -6,7 +6,7 @@ import { QVariant } from '../QtCore/QVariant';
 import { QImage } from './QImage';
 
 /**
- 
+
 > The QPixmap class helps hold an image in the form of off-screen image representation.
 
 * **This class is a JS wrapper around Qt's [QPixmap class](https://doc.qt.io/qt-5/qpixmap.html)**
@@ -38,6 +38,11 @@ export class QPixmap extends Component {
         }
         super(native);
     }
+
+    convertFromImage(image: QImage, flags: ImageConversionFlag): boolean {
+        return this.native.convertFromImage(image.native, flags);
+    }
+
     load(imagePath: string): boolean {
         return this.native.load(imagePath);
     }
@@ -62,6 +67,13 @@ export class QPixmap extends Component {
         }
         const nativePixmap = this.native.scaled(...args);
         return new QPixmap(nativePixmap);
+    }
+    /**
+     * Sets the device pixel ratio for the image. This is the ratio between image pixels
+     * and device-independent pixels
+     */
+    setDevicePixelRatio(ratio: number): void {
+        this.native.setDevicePixelRatio(ratio);
     }
     height(): number {
         return this.native.height();

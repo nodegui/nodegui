@@ -8,6 +8,7 @@ import { QPoint } from '../QtCore/QPoint';
 import { QPen } from '../QtGui/QPen';
 import { QWidget } from './QWidget';
 import { QImage } from '../QtGui/QImage';
+import { QPixmap } from '../QtGui/QPixmap';
 import { QFont } from '../QtGui/QFont';
 import { QRect } from '../QtCore/QRect';
 import { QRectF } from '../QtCore/QRectF';
@@ -166,8 +167,13 @@ export class QPainter extends Component {
     drawPieF(x: number, y: number, width: number, height: number, startAngle: number, sweepLength: number): void {
         return this.native.drawPieF(x, y, width, height, startAngle, sweepLength);
     }
-    // TODO: void 	drawPixmap(int x, int y, int w, int h, const QPixmap &pixmap, int sx, int sy, int sw, int sh)
+
+    drawPixmap(x: number, y: number, pixmap: QPixmap, sx = 0, sy = 0, sw = -1, sh = -1): void {
+        return this.native.drawPixmap(x, y, pixmap.native, sx, sy, sw, sh);
+    }
+    // TODO: void 	drawPixmapF(int x, int y, int w, int h, const QPixmap &pixmap, int sx, int sy, int sw, int sh)
     // TODO: void 	drawPixmapFragments(const QPainter::PixmapFragment *fragments, int fragmentCount, const QPixmap &pixmap, QPainter::PixmapFragmentHints hints = PixmapFragmentHints())
+
     drawPoint(x: number, y: number): void {
         this.native.drawPoint(x, y);
     }

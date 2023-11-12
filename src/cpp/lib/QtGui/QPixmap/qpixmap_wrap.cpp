@@ -11,11 +11,13 @@ Napi::Object QPixmapWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QPixmap";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("load", &QPixmapWrap::load),
+      {InstanceMethod("convertFromImage", &QPixmapWrap::convertFromImage),
+       InstanceMethod("load", &QPixmapWrap::load),
        InstanceMethod("loadFromData", &QPixmapWrap::loadFromData),
        InstanceMethod("save", &QPixmapWrap::save),
        InstanceMethod("scaled", &QPixmapWrap::scaled),
        InstanceMethod("height", &QPixmapWrap::height),
+       InstanceMethod("setDevicePixelRatio", &QPixmapWrap::setDevicePixelRatio),
        InstanceMethod("width", &QPixmapWrap::width),
        StaticMethod("fromImage", &QPixmapWrap::fromImage),
        StaticMethod("fromQVariant", &StaticQPixmapWrapMethods::fromQVariant),
@@ -49,6 +51,17 @@ QPixmapWrap::QPixmapWrap(const Napi::CallbackInfo& info)
 QPixmapWrap::~QPixmapWrap() { this->instance.reset(); }
 
 QPixmap* QPixmapWrap::getInternalInstance() { return this->instance.get(); }
+
+Napi::Value QPixmapWrap::convertFromImage(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+
+  QImage* img = Napi::ObjectWrap<QImageWrap>::Unwrap(info[0].As<Napi::Object>())
+                    ->getInternalInstance();
+  Qt::ImageConversionFlags flags = static_cast<Qt::ImageConversionFlags>(
+      info[1].As<Napi::Number>().Int32Value());
+  bool result = this->instance->convertFromImage(*img, flags);
+  return Napi::Boolean::New(env, result);
+}
 
 Napi::Value QPixmapWrap::load(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
@@ -127,6 +140,12 @@ Napi::Value QPixmapWrap::scaled(const Napi::CallbackInfo& info) {
   auto instance = QPixmapWrap::constructor.New(
       {Napi::External<QPixmap>::New(env, updatedPixMap)});
   return instance;
+}
+
+void QPixmapWrap::setDevicePixelRatio(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal scaleFactor = info[0].As<Napi::Number>();
+  this->instance->setDevicePixelRatio(scaleFactor);
 }
 
 Napi::Value QPixmapWrap::height(const Napi::CallbackInfo& info) {

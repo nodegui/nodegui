@@ -42,6 +42,7 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("drawPath", &QPainterWrap::drawPath),
        InstanceMethod("drawPie", &QPainterWrap::drawPie),
        InstanceMethod("drawPieF", &QPainterWrap::drawPieF),
+       InstanceMethod("drawPixmap", &QPainterWrap::drawPixmap),
        InstanceMethod("drawPoint", &QPainterWrap::drawPoint),
        InstanceMethod("drawPointF", &QPainterWrap::drawPointF),
        InstanceMethod("drawRect", &QPainterWrap::drawRect),
@@ -319,6 +320,25 @@ Napi::Value QPainterWrap::drawPieF(const Napi::CallbackInfo& info) {
   int startAngle = info[4].As<Napi::Number>().Int32Value();
   int sweepLength = info[5].As<Napi::Number>().Int32Value();
   this->instance->drawPie(QRectF(x, y, width, height), startAngle, sweepLength);
+
+  return env.Null();
+}
+
+Napi::Value QPainterWrap::drawPixmap(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+
+  Napi::Object pixmapObject = info[2].As<Napi::Object>();
+  QPixmapWrap* pixmapWrap = Napi::ObjectWrap<QPixmapWrap>::Unwrap(pixmapObject);
+  QPixmap* pixmap = pixmapWrap->getInternalInstance();
+
+  int sx = info[3].As<Napi::Number>().Int32Value();
+  int sy = info[4].As<Napi::Number>().Int32Value();
+  int sw = info[5].As<Napi::Number>().Int32Value();
+  int sh = info[6].As<Napi::Number>().Int32Value();
+  this->instance->drawPixmap(x, y, *pixmap, sx, sy, sw, sh);
 
   return env.Null();
 }
