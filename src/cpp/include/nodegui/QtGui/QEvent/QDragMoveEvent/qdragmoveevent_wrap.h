@@ -6,9 +6,10 @@
 
 #include "Extras/Export/export.h"
 #include "QtCore/QMimeData/qmimedata_wrap.h"
-#include "core/Component/component_macro.h"
-#include "QtGui/QEvent/QEvent/qevent_macro.h"
+#include "QtGui/QEvent/QDragMoveEvent/qdragmoveevent_macro.h"
 #include "QtGui/QEvent/QDropEvent/qdropevent_macro.h"
+#include "QtGui/QEvent/QEvent/qevent_macro.h"
+#include "core/Component/component_macro.h"
 
 class DLL_EXPORT QDragMoveEventWrap
     : public Napi::ObjectWrap<QDragMoveEventWrap> {
@@ -25,10 +26,7 @@ class DLL_EXPORT QDragMoveEventWrap
   // class constructor
   static Napi::FunctionReference constructor;
 
-  Napi::Value answerRect(const Napi::CallbackInfo& info);
-  Napi::Value accept_qrect(const Napi::CallbackInfo& info);
-  Napi::Value ignore_qrect(const Napi::CallbackInfo& info);
-
+  QDROPMOVEEVENT_WRAPPED_METHODS_DECLARATION
   QDROPEVENT_WRAPPED_METHODS_DECLARATION
   QEVENT_WRAPPED_METHODS_DECLARATION
 };
