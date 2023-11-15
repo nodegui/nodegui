@@ -35,8 +35,8 @@
 #endif
 
 #ifndef QDROPMOVEEVENT_WRAPPED_METHODS_EXPORT_DEFINE
-#define QDROPMOVEEVENT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName)     \
-  InstanceMethod("answerRect", &QDragMoveEventWrap::proposedAction),     \
-      InstanceMethod("accept_qrect", &QDragMoveEventWrap::accept_qrect), \
-      InstanceMethod("ignore_qrect", &QDragMoveEventWrap::ignore_qrect),
+#define QDROPMOVEEVENT_WRAPPED_METHODS_EXPORT_DEFINE(WidgetWrapName) \
+  InstanceMethod("answerRect", &WidgetWrapName::proposedAction),     \
+      InstanceMethod("accept_qrect", &WidgetWrapName::accept_qrect), \
+      InstanceMethod("ignore_qrect", &WidgetWrapName::ignore_qrect),
 #endif

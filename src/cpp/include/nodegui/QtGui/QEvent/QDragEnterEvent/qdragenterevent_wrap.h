@@ -2,7 +2,7 @@
 
 #include <napi.h>
 
-#include <QDragMoveEvent>
+#include <QDragEnterEvent>
 
 #include "Extras/Export/export.h"
 #include "QtCore/QMimeData/qmimedata_wrap.h"
@@ -11,18 +11,19 @@
 #include "QtGui/QEvent/QEvent/qevent_macro.h"
 #include "core/Component/component_macro.h"
 
-class DLL_EXPORT QDragMoveEventWrap
-    : public Napi::ObjectWrap<QDragMoveEventWrap> {
+class DLL_EXPORT QDragEnterEventWrap
+    : public Napi::ObjectWrap<QDragEnterEventWrap> {
  private:
-  QDragMoveEvent* instance;
+  QDragEnterEvent* instance;
 
  public:
   static Napi::Object init(Napi::Env env, Napi::Object exports);
-  QDragMoveEventWrap(const Napi::CallbackInfo& info);
-  ~QDragMoveEventWrap();
-  QDragMoveEvent* getInternalInstance();
+  QDragEnterEventWrap(const Napi::CallbackInfo& info);
+  ~QDragEnterEventWrap();
+  QDragEnterEvent* getInternalInstance();
   // class constructor
   static Napi::FunctionReference constructor;
+  // wrapped methods (none)
 
   COMPONENT_WRAPPED_METHODS_DECLARATION
   QEVENT_WRAPPED_METHODS_DECLARATION

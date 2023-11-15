@@ -1,10 +1,17 @@
 import addon from '../../utils/addon';
-import { NativeRawPointer } from '../../core/Component';
+import { NativeElement, NativeRawPointer } from '../../core/Component';
 import { QDropEvent } from './QDropEvent';
+import { checkIfNativeElement } from '../../utils/helpers';
 
 export class QDragMoveEvent extends QDropEvent {
-    constructor(event: NativeRawPointer<'QEvent'>) {
-        super(new addon.QDragMoveEvent(event));
+    constructor(arg: NativeRawPointer<'QEvent'> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else {
+            native = new addon.QDragMoveEvent(arg);
+        }
+        super(native);
     }
 
     /**
