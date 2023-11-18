@@ -33,6 +33,7 @@ export { QTabletEvent } from './lib/QtGui/QEvent/QTabletEvent';
 export { QTimerEvent } from './lib/QtGui/QEvent/QTimerEvent';
 export { QDrag } from './lib/QtGui/QDrag';
 export { QDropEvent } from './lib/QtGui/QEvent/QDropEvent';
+export { QDragEnterEvent } from './lib/QtGui/QEvent/QDragEnterEvent';
 export { QDragMoveEvent } from './lib/QtGui/QEvent/QDragMoveEvent';
 export { QDragLeaveEvent } from './lib/QtGui/QEvent/QDragLeaveEvent';
 export { QPaintEvent } from './lib/QtGui/QEvent/QPaintEvent';

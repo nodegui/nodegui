@@ -1,12 +1,19 @@
 import addon from '../../utils/addon';
-import { NativeRawPointer } from '../../core/Component';
+import { NativeElement, NativeRawPointer } from '../../core/Component';
 import { DropAction } from '../../QtEnums';
 import { QMimeData } from '../../QtCore/QMimeData';
 import { QEvent } from './QEvent';
+import { checkIfNativeElement } from '../../utils/helpers';
 
 export class QDropEvent extends QEvent {
-    constructor(event: NativeRawPointer<'QEvent'>) {
-        super(new addon.QDropEvent(event));
+    constructor(arg: NativeRawPointer<'QEvent'> | NativeElement) {
+        let native: NativeElement;
+        if (checkIfNativeElement(arg)) {
+            native = arg as NativeElement;
+        } else {
+            native = new addon.QDropEvent(arg);
+        }
+        super(native);
     }
 
     /** Sets the drop action to be the proposed action */

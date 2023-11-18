@@ -12,21 +12,10 @@ Napi::Object QDropEventWrap::init(Napi::Env env, Napi::Object exports) {
   char CLASSNAME[] = "QDropEvent";
   Napi::Function func = DefineClass(
       env, CLASSNAME,
-      {InstanceMethod("acceptProposedAction",
-                      &QDropEventWrap::acceptProposedAction),
-       InstanceMethod("dropAction", &QDropEventWrap::dropAction),
-       InstanceMethod("keyboardModifiers", &QDropEventWrap::keyboardModifiers),
-       InstanceMethod("mimeData", &QDropEventWrap::mimeData),
-       InstanceMethod("mouseButtons", &QDropEventWrap::mouseButtons),
-       InstanceMethod("pos", &QDropEventWrap::pos),
-       InstanceMethod("possibleActions", &QDropEventWrap::possibleActions),
-       InstanceMethod("proposedAction", &QDropEventWrap::proposedAction),
-       //    InstanceMethod("source", &QDropEventWrap::source),
+      {QDROPEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)
+           QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)
 
-       // Methods inherited from QEvent
-       QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)
-
-           COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)});
+               COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QDropEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -50,81 +39,6 @@ QDropEventWrap::QDropEventWrap(const Napi::CallbackInfo& info)
 
 QDropEventWrap::~QDropEventWrap() {
   // Do not destroy instance here. It will be done by Qt Event loop.
-}
-
-Napi::Value QDropEventWrap::acceptProposedAction(
-    const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  this->instance->acceptProposedAction();
-  return env.Null();
-}
-
-Napi::Value QDropEventWrap::dropAction(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  int action = static_cast<int>(this->instance->dropAction());
-  return Napi::Number::From(env, action);
-}
-
-Napi::Value QDropEventWrap::keyboardModifiers(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  int modifierFlags = static_cast<int>(this->instance->keyboardModifiers());
-  return Napi::Number::From(env, modifierFlags);
-}
-
-Napi::Value QDropEventWrap::mouseButtons(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  int m = static_cast<int>(this->instance->mouseButtons());
-  return Napi::Number::From(env, m);
-}
-
-Napi::Value QDropEventWrap::mimeData(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  const QMimeData* ret = this->instance->mimeData();
-
-  QMimeData* clone = new QMimeData();
-  // QMimeData has no copy constructor so I do this
-  QMimeDataWrap::cloneFromMimeDataToData((QMimeData*)ret, clone);
-  auto instance = QMimeDataWrap::constructor.New(
-      {Napi::External<QMimeData>::New(env, clone)});
-  return instance;
-}
-
-Napi::Value QDropEventWrap::pos(const Napi::CallbackInfo& info) {
-  // Uses QPoint
-  Napi::Env env = info.Env();
-  QPoint point = static_cast<QPoint>(this->instance->pos());
-  int x = static_cast<int>(point.x());
-  int y = static_cast<int>(point.y());
-  Napi::Object obj = Napi::Object::New(env);
-  obj.Set("x", Napi::Number::From(env, x));
-  obj.Set("y", Napi::Number::From(env, y));
-  return obj;
-}
-
-Napi::Value QDropEventWrap::possibleActions(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  int v = static_cast<int>(this->instance->possibleActions());
-  return Napi::Number::From(env, v);
-}
-
-Napi::Value QDropEventWrap::proposedAction(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  int v = static_cast<int>(this->instance->possibleActions());
-  return Napi::Number::From(env, v);
-}
-
-Napi::Value QDropEventWrap::setDropAction(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  int dropFlags;
-  if (info.Length() < 1) {
-    dropFlags = 1;  // Default to copy operation
-    return env.Null();
-  } else {
-    Napi::Number num = info[0].ToNumber();
-    dropFlags = static_cast<int>(num.Int32Value());
-  }
-  this->instance->setDropAction(static_cast<Qt::DropAction>(dropFlags));
-  return env.Null();
 }
 
 // Needs QWidget references... should I ?
