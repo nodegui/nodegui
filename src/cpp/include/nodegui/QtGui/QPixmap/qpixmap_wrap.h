@@ -20,12 +20,14 @@ class DLL_EXPORT QPixmapWrap : public Napi::ObjectWrap<QPixmapWrap> {
   ~QPixmapWrap();
   QPixmap* getInternalInstance();
   // Wrapped methods
+  Napi::Value convertFromImage(const Napi::CallbackInfo& info);
   Napi::Value load(const Napi::CallbackInfo& info);
   Napi::Value loadFromData(const Napi::CallbackInfo& info);
   Napi::Value save(const Napi::CallbackInfo& info);
   Napi::Value scaled(const Napi::CallbackInfo& info);
   Napi::Value height(const Napi::CallbackInfo& info);
   Napi::Value width(const Napi::CallbackInfo& info);
+  void setDevicePixelRatio(const Napi::CallbackInfo& info);
   static Napi::Value fromImage(const Napi::CallbackInfo& info);
 };
 

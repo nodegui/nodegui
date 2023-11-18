@@ -338,8 +338,8 @@ export class QImage extends Component {
      * Sets the device pixel ratio for the image. This is the ratio between image pixels
      * and device-independent pixels
      */
-    setDevicePixelRatio(scaleFactory: number): void {
-        this.native.setDevicePixelRatio(scaleFactory);
+    setDevicePixelRatio(ratio: number): void {
+        this.native.setDevicePixelRatio(ratio);
     }
 
     /**
