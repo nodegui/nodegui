@@ -10,8 +10,8 @@ jobs:
                 os: [ubuntu-20.04]
         runs-on: ${{ matrix.os }}
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
                 node-version: '16.x'
             - name: Install ubuntu deps
@@ -23,7 +23,7 @@ jobs:
               run: npm run build
             - name: Archive using npm pack
               run: npm --no-git-tag-version version 0.0.0-latest-master && npm pack
-            - uses: actions/upload-artifact@v1
+            - uses: actions/upload-artifact@v4
               with:
                   name: latest-release
                   path: nodegui-nodegui-0.0.0-latest-master.tgz
@@ -42,7 +42,7 @@ jobs:
                       nodegui-nodegui-0.0.0-latest-master.tgz:nodegui-master.tgz:application/tar+gzip
                   recreate: true
             - name: Repository Dispatch
-              uses: peter-evans/repository-dispatch@v1
+              uses: peter-evans/repository-dispatch@v3
               with:
                   token: ${{ secrets.REPO_ACCESS_TOKEN }}
                   repository: nodegui/nodegui

@@ -9,8 +9,8 @@ jobs:
                 os: [ubuntu-20.04, windows-latest, macos-latest]
         runs-on: ${{ matrix.os }}
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
                 node-version: '16.x'
             - name: Install ubuntu deps

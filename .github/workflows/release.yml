@@ -23,14 +23,14 @@ jobs:
     env:
       ARCHIVE_FILENAME: nodegui-binary-${{github.event.release.tag_name}}-${{ matrix.platform }}-${{ matrix.arch }}.tar.gz
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
           node-version: '16.x'
 
       - name: Install ubuntu deps
-        if: contains(matrix.os, 'ubuntu-20.04')
+        if: contains(matrix.platform, 'linux')
         run: sudo apt install mesa-common-dev libglu1-mesa-dev libegl1 libopengl-dev
 
       - name: Install deps
@@ -42,7 +42,7 @@ jobs:
           CMAKE_BUILD_PARALLEL_LEVEL: 8
 
       - name: Compress files
-        if: ${{!contains(matrix.os, 'windows-latest')}}
+        if: ${{!contains(matrix.platform, 'win32')}}
         uses: a7ul/tar-action@v1.0.2
         id: compress
         with:
@@ -53,7 +53,7 @@ jobs:
           outPath: ${{ env.ARCHIVE_FILENAME }}
 
       - name: Compress files (Windows)
-        if: contains(matrix.os, 'windows-latest')
+        if: contains(matrix.platform, 'win32')
         uses: a7ul/tar-action@v1.0.2
         id: compress-windows
         with:
@@ -65,25 +65,25 @@ jobs:
             ./nodegui_core.exp
           outPath: ${{ env.ARCHIVE_FILENAME }}
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ARCHIVE_FILENAME }}
           path: ${{ env.ARCHIVE_FILENAME }}
 
       - name: Upload release binaries
-        uses: alexellis/upload-assets@0.2.2
+        run: |
+            gh release upload "${{github.event.release.tag_name}}" \
+              ${{ env.ARCHIVE_FILENAME }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        with:
-          asset_paths: '["${{ env.ARCHIVE_FILENAME }}"]'
 
   publish-npm-package:
     needs: precompile
     if: contains(github.event.release.tag_name, 'v0.0.0-latest-master') == false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '16.x'
       - name: Install ubuntu deps
