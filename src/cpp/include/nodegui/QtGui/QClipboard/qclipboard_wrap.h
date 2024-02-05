@@ -3,6 +3,7 @@
 #include <napi.h>
 
 #include <QClipboard>
+#include <QMimeData>
 #include <QPointer>
 
 #include "Extras/Export/export.h"
@@ -29,6 +30,8 @@ class DLL_EXPORT QClipboardWrap : public Napi::ObjectWrap<QClipboardWrap>,
 
   // Wrapped methods
   Napi::Value clear(const Napi::CallbackInfo& info);
+  Napi::Value setMimeData(const Napi::CallbackInfo& info);
+  Napi::Value mimeData(const Napi::CallbackInfo& info);
   Napi::Value setText(const Napi::CallbackInfo& info);
   Napi::Value text(const Napi::CallbackInfo& info);
   Napi::Value setPixmap(const Napi::CallbackInfo& info);

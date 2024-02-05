@@ -3,6 +3,7 @@ import { checkIfNativeElement, registerNativeWrapFunction } from '../utils/helpe
 import { QObject, QObjectSignals } from '../QtCore/QObject';
 import { QPixmap } from './QPixmap';
 import { wrapperCache } from '../core/WrapperCache';
+import { QMimeData } from '../QtCore/QMimeData';
 
 /**
 
@@ -33,6 +34,15 @@ export class QClipboard extends QObject<QClipboardSignals> {
     clear(mode = QClipboardMode.Clipboard): void {
         this.native.clear(mode);
     }
+
+    mimeData(mode = QClipboardMode.Clipboard): QMimeData {
+        return new QMimeData(this.native.mimeData(mode));
+    }
+
+    setMimeData(src: QMimeData, mode = QClipboardMode.Clipboard): void {
+        this.native.setMimeData(src.native, mode);
+    }
+
     setText(text: string, mode = QClipboardMode.Clipboard): void {
         this.native.setText(text, mode);
     }

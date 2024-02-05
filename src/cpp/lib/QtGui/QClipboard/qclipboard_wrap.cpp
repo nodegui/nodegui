@@ -1,8 +1,10 @@
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 
+#include <QtCore/QMimeData/qmimedata_wrap.h>
 #include <QtGui/QPixmap/qpixmap_wrap.h>
 
 #include "Extras/Utils/nutils.h"
+#include "core/WrapperCache/wrappercache.h"
 
 Napi::FunctionReference QClipboardWrap::constructor;
 
@@ -16,6 +18,8 @@ Napi::Object QClipboardWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("pixmap", &QClipboardWrap::pixmap),
                    InstanceMethod("setText", &QClipboardWrap::setText),
                    InstanceMethod("text", &QClipboardWrap::text),
+                   InstanceMethod("setMimeData", &QClipboardWrap::setMimeData),
+                   InstanceMethod("mimeData", &QClipboardWrap::mimeData),
                    QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QClipboardWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -113,4 +117,37 @@ Napi::Value QClipboardWrap::text(const Napi::CallbackInfo& info) {
   QString text =
       this->instance->text(static_cast<QClipboard::Mode>(mode.Int32Value()));
   return Napi::Value::From(env, text.toStdString());
+}
+
+Napi::Value QClipboardWrap::setMimeData(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+
+  Napi::Object mimeDataObject = info[0].As<Napi::Object>();
+  QMimeDataWrap* mimeDataWrap =
+      Napi::ObjectWrap<QMimeDataWrap>::Unwrap(mimeDataObject);
+  Napi::Number mode = info[1].As<Napi::Number>();
+
+  QMimeData* mimeData = mimeDataWrap->getInternalInstance();
+  QMimeData* mimeDataClone = new QMimeData();
+  // QMimeData has no copy constructor so I do this
+  QMimeDataWrap::cloneFromMimeDataToData(mimeData, mimeDataClone);
+
+  this->instance->setMimeData(mimeDataClone,
+                              static_cast<QClipboard::Mode>(mode.Int32Value()));
+  return env.Null();
+}
+
+Napi::Value QClipboardWrap::mimeData(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::Number mode = info[0].As<Napi::Number>();
+  QMimeData* mimeData = const_cast<QMimeData*>(this->instance->mimeData(
+      static_cast<QClipboard::Mode>(mode.Int32Value())));
+
+  QMimeData* mimeDataClone = new QMimeData();
+  // QMimeData has no copy constructor so I do this
+  QMimeDataWrap::cloneFromMimeDataToData(mimeData, mimeDataClone);
+
+  auto instance = QMimeDataWrap::constructor.New(
+      {Napi::External<QMimeData>::New(env, mimeDataClone)});
+  return instance;
 }
