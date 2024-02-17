@@ -23,6 +23,10 @@ export class QMimeData extends Component {
         return this.native.clear();
     }
 
+    data(): Buffer | null {
+        return this.native.data();
+    }
+
     /**
     Returns true if the object can return a color (MIME type application/x-color); otherwise returns false.
     */
@@ -74,11 +78,10 @@ export class QMimeData extends Component {
 
     /*
     Sets the data associated with the MIME type given by mimeType to the specified data.
-    This is not implemented yet; need to do stuff with either Buffer or UInt8Array
     */
-    // setData(mimeType: string, QByteArray: const): void {
-    //     return this.native.setData(mimeType, QByteArray)
-    // }
+    setData(mimeType: string, data: Buffer): void {
+        return this.native.setData(mimeType, data);
+    }
 
     /**
     Sets html as the HTML (MIME type text/html) used to represent the data.

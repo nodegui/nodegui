@@ -40,4 +40,6 @@ class DLL_EXPORT QMimeDataWrap : public Napi::ObjectWrap<QMimeDataWrap> {
   Napi::Value setUrls(const Napi::CallbackInfo& info);
   Napi::Value text(const Napi::CallbackInfo& info);
   Napi::Value urls(const Napi::CallbackInfo& info);
+  Napi::Value data(const Napi::CallbackInfo& info);
+  Napi::Value setData(const Napi::CallbackInfo& info);
 };

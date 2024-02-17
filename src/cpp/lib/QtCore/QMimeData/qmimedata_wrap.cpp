@@ -24,6 +24,8 @@ Napi::Object QMimeDataWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("setUrls", &QMimeDataWrap::setUrls),
                    InstanceMethod("text", &QMimeDataWrap::text),
                    InstanceMethod("urls", &QMimeDataWrap::urls),
+                   InstanceMethod("data", &QMimeDataWrap::data),
+                   InstanceMethod("setData", &QMimeDataWrap::setData),
                    QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE(QMimeDataWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -190,6 +192,27 @@ Napi::Value QMimeDataWrap::urls(const Napi::CallbackInfo& info) {
     retval[i] = instance;
   }
   return retval;
+}
+
+Napi::Value QMimeDataWrap::data(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::String mimeType = info[0].As<Napi::String>();
+  QByteArray data =
+      this->instance->data(QString::fromStdString(mimeType.Utf8Value()));
+  if (data.isNull()) {
+    return env.Null();
+  }
+  return Napi::Buffer<const char>::Copy(env, data.constData(), data.size());
+}
+
+Napi::Value QMimeDataWrap::setData(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::String mimeType = info[0].As<Napi::String>();
+  Napi::Buffer<const char> buffer = info[1].As<Napi::Buffer<const char>>();
+  QByteArray byteArray = QByteArray(buffer.Data(), buffer.Length());
+  this->instance->setData(QString::fromStdString(mimeType.Utf8Value()),
+                          byteArray);
+  return env.Null();
 }
 
 // Static Methods here
