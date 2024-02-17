@@ -44,22 +44,24 @@ Firstly, we are running a regular Node.js app. This means that we are not runnin
 ## Trying out the starter project
 
 Clone and run the code by using the
-[`nodegui/nodegui-starter`][quick-start] repository.
+[`sedwards2009/nodegui-simple-starter`][quick-start] repository.
 
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 
-git clone https://github.com/nodegui/nodegui-starter
+git clone https://github.com/sedwards2009/nodegui-simple-starter.git
 
-cd nodegui-starter
+cd nodegui-simple-starter
 
 npm install
 
-npm start
+npm run build
+
+npm run start
 ```
 
-[quick-start]: https://github.com/nodegui/nodegui-starter
+[quick-start]: https://github.com/sedwards2009/nodegui-simple-starter
 
 ## What else other than a basic window?
 

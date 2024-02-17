@@ -6,8 +6,8 @@ title: Debugging in VSCode
 - **Open a NodeGui project in VSCode.**
 
   ```sh
-  $ git clone git@github.com:nodegui/nodegui-starter.git
-  $ code nodegui-starter
+  $ git clone https://github.com/sedwards2009/nodegui-simple-starter.git
+  $ code nodegui-simple-starter
   ```
 
 - **Add a file `.vscode/launch.json` with the following configuration:**
@@ -44,7 +44,7 @@ title: Debugging in VSCode
   }
   ```
 
-  **Tip**: 
+  **Tip**:
     1. You could also configure a preLaunchTask for building typescript before launching the debugger everytime.
     2. enable source-map feature for debugging.
 

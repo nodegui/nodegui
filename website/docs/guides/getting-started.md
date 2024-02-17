@@ -140,20 +140,21 @@ The logs should say something like `CustomQt detected at <your qt path>. Hence, 
 ### Hello World
 
 Clone and run the code in this tutorial by using the
-[`nodegui/nodegui-starter`][quick-start] repository.
+[`sedwards2009/nodegui-simple-starter`][quick-start] repository.
 
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 
-git clone https://github.com/nodegui/nodegui-starter
+git clone https://github.com/sedwards2009/nodegui-simple-starter.git
 
-cd nodegui-starter
+cd nodegui-simple-starter
 
 npm install
 
-npm start
+npm run build
 
+npm run run
 ```
 
 **Note**: If you encounter errors installing `nodegui`, please check the [FAQs](../faq.md#why-does-installation-fail-at-minimal-qt-setup) for additional help.
@@ -166,4 +167,4 @@ Congratulations! You've successfully run and modified your first NodeGui app.
 
 If you're curious to learn more about NodeGui, continue on to the [tutorial](tutorial.md).
 
-[quick-start]: https://github.com/nodegui/nodegui-starter
+[quick-start]: https://github.com/sedwards2009/nodegui-simple-starter

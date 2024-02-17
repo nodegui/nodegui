@@ -52,7 +52,7 @@ https://github.com/nodegui/examples
 
 ## Getting Started
 
--   Check out [nodegui-starter](https://github.com/nodegui/nodegui-starter) to get up and running with your own React NodeGUI app!
+-   Check out [nodegui-simple-starter](https://github.com/sedwards2009/nodegui-simple-starter) to get up and running with your own React NodeGUI app!
 -   Read through the [docs](https://nodegui.github.io/nodegui).
 -   Checkout the examples: https://github.com/nodegui/examples .
 -   [Tutorial: Build a native Meme Search Desktop app with Javascript (NodeGui) and Giphy API](https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/)
