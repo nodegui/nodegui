@@ -54,10 +54,11 @@ export const Try = () => {
                     <Description>
                         <SubTitle>1. Run these commands</SubTitle>
                         <Terminal>
-                            <Code>git clone https://github.com/nodegui/nodegui-starter</Code>
-                            <Code>cd nodegui-starter</Code>
+                            <Code>git clone https://github.com/sedwards2009/nodegui-simple-starter.git</Code>
+                            <Code>cd nodegui-simple-starter</Code>
                             <Code>npm install</Code>
-                            <Code>npm start</Code>
+                            <Code>npm run build</Code>
+                            <Code>npm run run</Code>
                         </Terminal>
                         <SubTitle>
                             2.{' '}

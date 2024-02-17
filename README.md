@@ -52,7 +52,7 @@ https://github.com/nodegui/examples
 
 ## Getting Started
 
--   Check out [nodegui-starter](https://github.com/nodegui/nodegui-starter) to get up and running with your own React NodeGUI app!
+-   Check out [nodegui-simple-starter](https://github.com/sedwards2009/nodegui-simple-starter) to get up and running with your own React NodeGUI app!
 -   Read through the [docs](https://nodegui.github.io/nodegui).
 -   Checkout the examples: https://github.com/nodegui/examples .
 -   [Tutorial: Build a native Meme Search Desktop app with Javascript (NodeGui) and Giphy API](https://www.sitepoint.com/build-native-desktop-gif-searcher-app-using-nodegui/)
@@ -173,30 +173,30 @@ You will need to download and install Qt from source since there are no binaries
 (https://www.reddit.com/r/QtFramework/comments/ll58wg/how_to_build_qt_creator_for_macos_arm64_a_guide/)
 
 ```
-git clone git://code.qt.io/qt/qt5.git
-cd qt5
-git checkout 5.15
+git clone git://code.qt.io/qt/qt5.git qt6
+cd qt6
+git checkout 6.6
 
 ./init-repository --module-subset=essential -f
 git submodule init qtsvg
 git submodule update qtsvg
 
 cd ..
-mkdir qt5-5.15-macOS-release
-cd qt5-5.15-macOS-release
+mkdir qt6-6.6-macOS-release
+cd qt6-6.6-macOS-release
 
-../qt5/configure -release QMAKE_APPLE_DEVICE_ARCHS=arm64 -opensource -confirm-license -nomake examples -nomake tests -skip qt3d -skip webengine -skip qtactiveqt -skip qtcanvas3d  -skip qtdeclarative -skip qtdatavis3d -skip qtdoc -skip qtgamepad -skip qtcharts -skip qtgraphicaleffects -skip qtlocation  -skip qtpurchasing -skip qtquickcontrols -skip qtquickcontrols2 -skip qtremoteobjects -skip qtscxml -skip qtsensors -skip qtserialbus -skip qtserialport -skip qtspeech -skip qtvirtualkeyboard -skip qtscript
+../qt6/configure -release QMAKE_APPLE_DEVICE_ARCHS=arm64 -opensource -confirm-license -nomake examples -nomake tests -skip qt3d -skip webengine -skip qtactiveqt -skip qtcanvas3d  -skip qtdeclarative -skip qtdatavis3d -skip qtdoc -skip qtgamepad -skip qtcharts -skip qtgraphicaleffects -skip qtlocation  -skip qtpurchasing -skip qtquickcontrols -skip qtquickcontrols2 -skip qtremoteobjects -skip qtscxml -skip qtsensors -skip qtserialbus -skip qtserialport -skip qtspeech -skip qtvirtualkeyboard -skip qtscript
 
 make -j15
 
 make install
 ```
 
-This should install Qt into something like this `/usr/local/Qt-5.15.3` (your directory can change. This will be displayed when running make)
+This should install Qt into something like this `/usr/local/Qt-6.6.0` (your directory can change. This will be displayed when running make)
 
 **Pointing nodegui to use your custom Qt installation**
 
-Now just set `export QT_INSTALL_DIR=<your qt path>` . In the above example it would look something like this `export QT_INSTALL_DIR=/usr/local/Qt-5.15.3`. Add this in your .zshrc or .bashrc so that you dont need to repeat this process again.
+Now just set `export QT_INSTALL_DIR=<your qt path>` . In the above example it would look something like this `export QT_INSTALL_DIR=/usr/local/Qt-6.6.0`. Add this in your .zshrc or .bashrc so that you dont need to repeat this process again.
 
 Now just `rm -rf node_modules` and do `npm install` again.
 
