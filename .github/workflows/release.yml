@@ -72,8 +72,7 @@ jobs:
 
       - name: Upload release binaries
         run: |
-            gh release upload "${{github.event.release.tag_name}}" \
-              ${{ env.ARCHIVE_FILENAME }}
+            gh release upload "${{github.event.release.tag_name}}" ${{ env.ARCHIVE_FILENAME }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
