@@ -92,11 +92,13 @@ QPainterWrap::QPainterWrap(const Napi::CallbackInfo& info)
 
     if (type == "qimage") {
       Napi::Object deviceObject = info[1].As<Napi::Object>();
-      QImageWrap* deviceWrap = Napi::ObjectWrap<QImageWrap>::Unwrap(deviceObject);
+      QImageWrap* deviceWrap =
+          Napi::ObjectWrap<QImageWrap>::Unwrap(deviceObject);
       this->instance = new QPainter(deviceWrap->getInternalInstance());
     } else if (type == "qwidget") {
       Napi::Object deviceObject = info[1].As<Napi::Object>();
-      NodeWidgetWrap* deviceWrap = Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(deviceObject);
+      NodeWidgetWrap* deviceWrap =
+          Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(deviceObject);
       this->instance = new QPainter(deviceWrap->getInternalInstance());
     }
   } else {
