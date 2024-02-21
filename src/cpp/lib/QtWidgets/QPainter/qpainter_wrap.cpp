@@ -83,13 +83,22 @@ QPainterWrap::~QPainterWrap() { delete this->instance; }
 QPainterWrap::QPainterWrap(const Napi::CallbackInfo& info)
     : Napi::ObjectWrap<QPainterWrap>(info) {
   Napi::Env env = info.Env();
-  if (info.Length() == 1) {
-    Napi::Object deviceObject = info[0].As<Napi::Object>();
-    NodeWidgetWrap* deviceWrap =
-        Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(deviceObject);
-    this->instance = new QPainter(deviceWrap->getInternalInstance());
-  } else if (info.Length() == 0) {
+
+  if (info.Length() == 0) {
     this->instance = new QPainter();
+  } else if (info.Length() == 2) {
+    Napi::String napiType = info[0].As<Napi::String>();
+    std::string type = napiType.Utf8Value();
+
+    if (type == "qimage") {
+      Napi::Object deviceObject = info[1].As<Napi::Object>();
+      QImageWrap* deviceWrap = Napi::ObjectWrap<QImageWrap>::Unwrap(deviceObject);
+      this->instance = new QPainter(deviceWrap->getInternalInstance());
+    } else if (type == "qwidget") {
+      Napi::Object deviceObject = info[1].As<Napi::Object>();
+      NodeWidgetWrap* deviceWrap = Napi::ObjectWrap<NodeWidgetWrap>::Unwrap(deviceObject);
+      this->instance = new QPainter(deviceWrap->getInternalInstance());
+    }
   } else {
     Napi::TypeError::New(env, "Wrong number of arguments")
         .ThrowAsJavaScriptException();
