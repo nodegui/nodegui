@@ -48,10 +48,14 @@ win.show();
 https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpainter
 */
 export class QPainter extends Component {
-    constructor(device?: QWidget) {
+    constructor(device?: QWidget | QImage) {
         let native: NativeElement;
         if (device) {
-            native = new addon.QPainter(device.native);
+            if (device instanceof QWidget) {
+                native = new addon.QPainter('qwidget', device.native);
+            } else {
+                native = new addon.QPainter('qimage', device.native);
+            }
         } else {
             native = new addon.QPainter();
         }
