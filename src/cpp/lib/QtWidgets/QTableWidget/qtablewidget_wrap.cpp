@@ -451,3 +451,30 @@ Napi::Value QTableWidgetWrap::visualRow(const Napi::CallbackInfo& info) {
   int row = this->instance->visualRow(logicalRow);
   return Napi::Number::New(env, row);
 }
+
+Napi::Value QTableWidgetWrap::columnCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int count = static_cast<int>(this->instance->columnCount());
+  return Napi::Number::New(env, count);
+}
+
+Napi::Value QTableWidgetWrap::rowCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int count = static_cast<int>(this->instance->rowCount());
+  return Napi::Number::New(env, count);
+}
+
+Napi::Value QTableWidgetWrap::setColumnCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int count = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setColumnCount(count);
+  return env.Null();
+}
+
+Napi::Value QTableWidgetWrap::setRowCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int count = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setRowCount(count);
+  return env.Null();
+}
+
