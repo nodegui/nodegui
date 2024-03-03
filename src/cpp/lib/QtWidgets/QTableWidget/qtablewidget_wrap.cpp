@@ -34,6 +34,27 @@ Napi::Object QTableWidgetWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("insertRow", &QTableWidgetWrap::insertRow),
        InstanceMethod("removeRow", &QTableWidgetWrap::removeRow),
        InstanceMethod("scrollToItem", &QTableWidgetWrap::scrollToItem),
+       InstanceMethod("cellWidget", &QTableWidgetWrap::cellWidget),
+       InstanceMethod("column", &QTableWidgetWrap::column),
+       InstanceMethod("row", &QTableWidgetWrap::row),
+       InstanceMethod("currentColumn", &QTableWidgetWrap::currentColumn),
+       InstanceMethod("currentItem", &QTableWidgetWrap::currentItem),
+       InstanceMethod("currentRow", &QTableWidgetWrap::currentRow),
+       InstanceMethod("findItems", &QTableWidgetWrap::findItems),
+       InstanceMethod("item", &QTableWidgetWrap::item),
+       InstanceMethod("itemAt", &QTableWidgetWrap::itemAt),
+       InstanceMethod("removeCellWidget", &QTableWidgetWrap::removeCellWidget),
+       InstanceMethod("setCurrentCell", &QTableWidgetWrap::setCurrentCell),
+       InstanceMethod("setCurrentItem", &QTableWidgetWrap::setCurrentItem),
+       InstanceMethod("sortItems", &QTableWidgetWrap::sortItems),
+       InstanceMethod("takeItem", &QTableWidgetWrap::takeItem),
+       InstanceMethod("visualColumn", &QTableWidgetWrap::visualColumn),
+       InstanceMethod("visualItemRect", &QTableWidgetWrap::visualItemRect),
+       InstanceMethod("visualRow", &QTableWidgetWrap::visualRow),
+       InstanceMethod("columnCount", &QTableWidgetWrap::columnCount),
+       InstanceMethod("rowCount", &QTableWidgetWrap::rowCount),
+       InstanceMethod("setColumnCount", &QTableWidgetWrap::setColumnCount),
+       InstanceMethod("setRowCount", &QTableWidgetWrap::setRowCount),
        InstanceMethod(
            "isPersistentEditorOpen_qtablewidgetitem",
            &QTableWidgetWrap::isPersistentEditorOpen_qtablewidgetitem),
@@ -451,3 +472,30 @@ Napi::Value QTableWidgetWrap::visualRow(const Napi::CallbackInfo& info) {
   int row = this->instance->visualRow(logicalRow);
   return Napi::Number::New(env, row);
 }
+
+Napi::Value QTableWidgetWrap::columnCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int count = static_cast<int>(this->instance->columnCount());
+  return Napi::Number::New(env, count);
+}
+
+Napi::Value QTableWidgetWrap::rowCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int count = static_cast<int>(this->instance->rowCount());
+  return Napi::Number::New(env, count);
+}
+
+Napi::Value QTableWidgetWrap::setColumnCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int count = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setColumnCount(count);
+  return env.Null();
+}
+
+Napi::Value QTableWidgetWrap::setRowCount(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int count = info[0].As<Napi::Number>().Int32Value();
+  this->instance->setRowCount(count);
+  return env.Null();
+}
+

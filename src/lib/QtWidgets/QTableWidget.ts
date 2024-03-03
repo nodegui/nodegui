@@ -186,6 +186,18 @@ export class QTableWidget extends QTableView<QTableWidgetSignals> {
     visualRow(logicalRow = 0): number {
         return this.native.visualColumn(logicalRow);
     }
+    columnCount(): number {
+        return this.native.columnCount();
+    }
+    rowCount(): number {
+        return this.native.rowCount();
+    }
+    setColumnCount(count: number): void {
+        this.native.setColumnCount(count);
+    }
+    setRowCount(count: number): void {
+        this.native.setRowCount(count);
+    }
 }
 wrapperCache.registerWrapper('QTableWidgetWrap', QTableWidget);
 
