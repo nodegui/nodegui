@@ -148,7 +148,7 @@ export {
 export { QStyleFactory } from './lib/QtWidgets/QStyleFactory';
 export { QSizePolicyPolicy, QSizePolicyPolicyFlag } from './lib/QtWidgets/QSizePolicy';
 export { QAbstractItemDelegate } from './lib/QtWidgets/QAbstractItemDelegate';
-
+export { QStackedLayout, QStackedLayoutSignals } from './lib/QtWidgets/QStackedLayout'
 // Core
 export { QAbstractItemModel } from './lib/QtCore/QAbstractItemModel';
 export { QAbstractTableModel } from './lib/QtCore/QAbstractTableModel';
