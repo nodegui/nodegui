@@ -126,4 +126,3 @@ export interface QStackedLayoutSignals extends QLayoutSignals {
     currentChanged: (index: number) => void;
     widgetRemoved: (index: number) => void;
 }
-

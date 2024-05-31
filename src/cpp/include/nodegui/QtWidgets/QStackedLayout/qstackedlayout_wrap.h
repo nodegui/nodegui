@@ -2,14 +2,15 @@
 
 #include <napi.h>
 
-#include <QStackedLayout>
 #include <QPointer>
+#include <QStackedLayout>
 
 #include "Extras/Export/export.h"
-#include "QtWidgets/QStackedLayout/nstackedlayout.hpp"
 #include "QtWidgets/QLayout/qlayout_macro.h"
+#include "QtWidgets/QStackedLayout/nstackedlayout.hpp"
 
-class DLL_EXPORT QStackedLayoutWrap : public Napi::ObjectWrap<QStackedLayoutWrap> {
+class DLL_EXPORT QStackedLayoutWrap
+    : public Napi::ObjectWrap<QStackedLayoutWrap> {
   QLAYOUT_WRAPPED_METHODS_DECLARATION
  private:
   QPointer<QStackedLayout> instance;

@@ -14,7 +14,8 @@ Napi::Object QStackedLayoutWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("removeWidget", &QStackedLayoutWrap::removeWidget),
        InstanceMethod("setCurrentIndex", &QStackedLayoutWrap::setCurrentIndex),
        InstanceMethod("insertWidget", &QStackedLayoutWrap::insertWidget),
-       InstanceMethod("setCurrentWidget", &QStackedLayoutWrap::setCurrentWidget),
+       InstanceMethod("setCurrentWidget",
+                      &QStackedLayoutWrap::setCurrentWidget),
        InstanceMethod("currentIndex", &QStackedLayoutWrap::currentIndex),
        InstanceMethod("currentWidget", &QStackedLayoutWrap::currentWidget),
        InstanceMethod("widget", &QStackedLayoutWrap::widget),
@@ -103,7 +104,8 @@ Napi::Value QStackedLayoutWrap::insertWidget(const Napi::CallbackInfo& info) {
   return env.Null();
 }
 
-Napi::Value QStackedLayoutWrap::setCurrentWidget(const Napi::CallbackInfo& info) {
+Napi::Value QStackedLayoutWrap::setCurrentWidget(
+    const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
   Napi::Object qwidgetObject = info[0].As<Napi::Object>();
@@ -117,7 +119,8 @@ Napi::Value QStackedLayoutWrap::currentIndex(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   Napi::HandleScope scope(env);
 
-  return Napi::Number::New(env, static_cast<int>(this->instance->currentIndex()));
+  return Napi::Number::New(env,
+                           static_cast<int>(this->instance->currentIndex()));
 }
 
 Napi::Value QStackedLayoutWrap::currentWidget(const Napi::CallbackInfo& info) {

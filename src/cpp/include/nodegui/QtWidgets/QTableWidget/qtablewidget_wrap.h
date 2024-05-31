@@ -64,5 +64,4 @@ class DLL_EXPORT QTableWidgetWrap : public Napi::ObjectWrap<QTableWidgetWrap> {
   Napi::Value rowCount(const Napi::CallbackInfo& info);
   Napi::Value setColumnCount(const Napi::CallbackInfo& info);
   Napi::Value setRowCount(const Napi::CallbackInfo& info);
-
 };
