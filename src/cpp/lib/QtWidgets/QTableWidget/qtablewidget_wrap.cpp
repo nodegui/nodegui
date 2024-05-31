@@ -498,4 +498,3 @@ Napi::Value QTableWidgetWrap::setRowCount(const Napi::CallbackInfo& info) {
   this->instance->setRowCount(count);
   return env.Null();
 }
-

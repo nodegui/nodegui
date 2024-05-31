@@ -101,6 +101,7 @@
 #include "QtWidgets/QSlider/qslider_wrap.h"
 #include "QtWidgets/QSpinBox/qspinbox_wrap.h"
 #include "QtWidgets/QSplitter/qsplitter_wrap.h"
+#include "QtWidgets/QStackedLayout/qstackedlayout_wrap.h"
 #include "QtWidgets/QStackedWidget/qstackedwidget_wrap.h"
 #include "QtWidgets/QStandardItem/qstandarditem_wrap.h"
 #include "QtWidgets/QStandardItemModel/qstandarditemmodel_wrap.h"
@@ -200,6 +201,7 @@ Napi::Object Main(Napi::Env env, Napi::Object exports) {
   QProgressBarWrap::init(env, exports);
   QProgressDialogWrap::init(env, exports);
   QRadioButtonWrap::init(env, exports);
+  QStackedLayoutWrap::init(env, exports);
   QStackedWidgetWrap::init(env, exports);
   QTabBarWrap::init(env, exports);
   QTabWidgetWrap::init(env, exports);
