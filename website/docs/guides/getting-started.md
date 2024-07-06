@@ -91,12 +91,11 @@ for JavaScript development.
 
 ### A Good Editor
 
-We might suggest two free popular editors: GitHub's [Atom][atom] and Microsoft's [Visual Studio Code][code]. Both of them have excellent JavaScript support.
+We might suggest Microsoft's [Visual Studio Code][code], a popular free editor with excellent JavaScript support.
 
 If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
 
 [code]: https://code.visualstudio.com/
-[atom]: https://atom.io/
 
 #### Using your own custom Qt installation (Optional)
 
