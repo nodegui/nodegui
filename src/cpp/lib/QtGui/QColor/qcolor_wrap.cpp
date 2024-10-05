@@ -21,6 +21,14 @@ Napi::Object QColorWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("rgb", &QColorWrap::rgb),
        InstanceMethod("rgba", &QColorWrap::rgba),
        StaticMethod("fromQVariant", &StaticQColorWrapMethods::fromQVariant),
+       StaticMethod("fromCmyk", &StaticQColorWrapMethods::fromCmyk),
+       StaticMethod("fromCmykF", &StaticQColorWrapMethods::fromCmykF),
+       StaticMethod("fromHsl", &StaticQColorWrapMethods::fromHsl),
+       StaticMethod("fromHslF", &StaticQColorWrapMethods::fromHslF),
+       StaticMethod("fromHsv", &StaticQColorWrapMethods::fromHsv),
+       StaticMethod("fromHsvF", &StaticQColorWrapMethods::fromHsvF),
+       StaticMethod("fromRgb", &StaticQColorWrapMethods::fromRgb),
+       StaticMethod("fromRgb", &StaticQColorWrapMethods::fromRgb),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QColorWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -124,6 +132,92 @@ Napi::Value StaticQColorWrapMethods::fromQVariant(
       Napi::ObjectWrap<QVariantWrap>::Unwrap(variantObject);
   QVariant* variant = variantWrap->getInternalInstance();
   QColor color = variant->value<QColor>();
+  auto instance = QColorWrap::constructor.New(
+      {Napi::External<QColor>::New(env, new QColor(color))});
+  return instance;
+}
+
+Napi::Value StaticQColorWrapMethods::fromCmyk(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int c = info[0].As<Napi::Number>().Int32Value();
+  int m = info[1].As<Napi::Number>().Int32Value();
+  int y = info[2].As<Napi::Number>().Int32Value();
+  int k = info[3].As<Napi::Number>().Int32Value();
+  int a = info[4].As<Napi::Number>().Int32Value();
+  QColor color = QColor::fromCmyk(c, m, y, k, a);
+  auto instance = QColorWrap::constructor.New(
+      {Napi::External<QColor>::New(env, new QColor(color))});
+  return instance;
+}
+
+Napi::Value StaticQColorWrapMethods::fromCmykF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  float c = info[0].As<Napi::Number>().FloatValue();
+  float m = info[1].As<Napi::Number>().FloatValue();
+  float y = info[2].As<Napi::Number>().FloatValue();
+  float k = info[3].As<Napi::Number>().FloatValue();
+  float a = info[4].As<Napi::Number>().FloatValue();
+  QColor color = QColor::fromCmykF(c, m, y, k, a);
+  auto instance = QColorWrap::constructor.New(
+      {Napi::External<QColor>::New(env, new QColor(color))});
+  return instance;
+}
+
+Napi::Value StaticQColorWrapMethods::fromHsl(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int h = info[0].As<Napi::Number>().Int32Value();
+  int s = info[1].As<Napi::Number>().Int32Value();
+  int l = info[2].As<Napi::Number>().Int32Value();
+  int a = info[3].As<Napi::Number>().Int32Value();
+  QColor color = QColor::fromHsl(h, s, l, a);
+  auto instance = QColorWrap::constructor.New(
+      {Napi::External<QColor>::New(env, new QColor(color))});
+  return instance;
+}
+
+Napi::Value StaticQColorWrapMethods::fromHslF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  float h = info[0].As<Napi::Number>().FloatValue();
+  float s = info[1].As<Napi::Number>().FloatValue();
+  float l = info[2].As<Napi::Number>().FloatValue();
+  float a = info[3].As<Napi::Number>().FloatValue();
+  QColor color = QColor::fromHslF(h, s, l, a);
+  auto instance = QColorWrap::constructor.New(
+      {Napi::External<QColor>::New(env, new QColor(color))});
+  return instance;
+}
+
+Napi::Value StaticQColorWrapMethods::fromHsv(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int h = info[0].As<Napi::Number>().Int32Value();
+  int s = info[1].As<Napi::Number>().Int32Value();
+  int v = info[2].As<Napi::Number>().Int32Value();
+  int a = info[3].As<Napi::Number>().Int32Value();
+  QColor color = QColor::fromHsv(h, s, v, a);
+  auto instance = QColorWrap::constructor.New(
+      {Napi::External<QColor>::New(env, new QColor(color))});
+  return instance;
+}
+
+Napi::Value StaticQColorWrapMethods::fromHsvF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  float h = info[0].As<Napi::Number>().FloatValue();
+  float s = info[1].As<Napi::Number>().FloatValue();
+  float v = info[2].As<Napi::Number>().FloatValue();
+  float a = info[3].As<Napi::Number>().FloatValue();
+  QColor color = QColor::fromHsvF(h, s, v, a);
+  auto instance = QColorWrap::constructor.New(
+      {Napi::External<QColor>::New(env, new QColor(color))});
+  return instance;
+}
+
+Napi::Value StaticQColorWrapMethods::fromRgb(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int r = info[0].As<Napi::Number>().Int32Value();
+  int g = info[1].As<Napi::Number>().Int32Value();
+  int b = info[2].As<Napi::Number>().Int32Value();
+  int a = info[3].As<Napi::Number>().Int32Value();
+  QColor color = QColor::fromRgb(r, g, b, a);
   auto instance = QColorWrap::constructor.New(
       {Napi::External<QColor>::New(env, new QColor(color))});
   return instance;
