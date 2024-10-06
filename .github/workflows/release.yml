@@ -27,7 +27,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: '18.12.1'
 
       - name: Install ubuntu deps
         if: contains(matrix.platform, 'linux')
@@ -84,7 +84,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: '18.12.1'
       - name: Install ubuntu deps
         run: sudo apt update
       - run: sudo apt install mesa-common-dev libglu1-mesa-dev
