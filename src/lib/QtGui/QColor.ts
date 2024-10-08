@@ -86,6 +86,9 @@ export class QColor extends Component {
     static fromRgb(r: number, g: number, b: number, a = 255): QColor {
         return new QColor(addon.QColor.fromRgb(r, g, b, a));
     }
+    static fromRgbF(r: number, g: number, b: number, a = 1.0): QColor {
+        return new QColor(addon.QColor.fromRgbF(r, g, b, a));
+    }
     static fromQVariant(variant: QVariant): QColor {
         return new QColor(addon.QColor.fromQVariant(variant.native));
     }

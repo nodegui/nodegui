@@ -40,5 +40,5 @@ DLL_EXPORT Napi::Value fromHslF(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value fromHsv(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value fromHsvF(const Napi::CallbackInfo& info);
 DLL_EXPORT Napi::Value fromRgb(const Napi::CallbackInfo& info);
-DLL_EXPORT Napi::Value fromRgb(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromRgbF(const Napi::CallbackInfo& info);
 }  // namespace StaticQColorWrapMethods
