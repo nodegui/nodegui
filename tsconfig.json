@@ -9,7 +9,8 @@
         "strictNullChecks": false,
         "moduleResolution": "node",
         "esModuleInterop": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "lib": ["ES2021"]
     },
     "include": ["src"],
     "typedocOptions": {

@@ -6,6 +6,7 @@ import { QSizeF } from '../QtCore/QSizeF';
 import { QSize } from '../QtCore/QSize';
 import { wrapperCache } from '../core/WrapperCache';
 import { QPixmap } from './QPixmap';
+import { ScreenOrientation } from '../QtEnums/ScreenOrientation';
 
 export class QScreen extends QObject<QScreenSignals> {
     constructor(native: NativeElement) {
