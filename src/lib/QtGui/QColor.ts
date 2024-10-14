@@ -52,9 +52,15 @@ export class QColor extends Component {
     alpha(): number {
         return this.native.alpha();
     }
+    /**
+     * Returns the color as a number in ARGB32 format.
+     */
     rgb(): number {
         return this.native.rgb();
     }
+    /**
+     * Returns the color as a number in ARGB32 format.
+     */
     rgba(): number {
         return this.native.rgba();
     }
