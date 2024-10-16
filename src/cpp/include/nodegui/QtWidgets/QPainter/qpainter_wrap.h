@@ -45,6 +45,8 @@ class DLL_EXPORT QPainterWrap : public Napi::ObjectWrap<QPainterWrap> {
   Napi::Value drawPointF(const Napi::CallbackInfo& info);
   Napi::Value drawRect(const Napi::CallbackInfo& info);
   Napi::Value drawRectF(const Napi::CallbackInfo& info);
+  Napi::Value drawRoundedRect(const Napi::CallbackInfo& info);
+  Napi::Value drawRoundedRectF(const Napi::CallbackInfo& info);
   Napi::Value drawText(const Napi::CallbackInfo& info);
   Napi::Value drawTextF(const Napi::CallbackInfo& info);
   Napi::Value end(const Napi::CallbackInfo& info);

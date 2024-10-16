@@ -1,7 +1,7 @@
 import addon from '../utils/addon';
 import { Component, NativeElement } from '../core/Component';
 import { QPainterPath } from '../QtWidgets/QPainterPath';
-import { PenStyle } from '../QtEnums';
+import { PenStyle, SizeMode } from '../QtEnums';
 import { QBrush } from '../QtGui/QBrush';
 import { QColor } from '../QtGui/QColor';
 import { QPoint } from '../QtCore/QPoint';
@@ -196,7 +196,31 @@ export class QPainter extends Component {
         this.native.drawRectF(x, y, width, height);
     }
     // TODO: void 	drawRects(const QVector<QRectF> &rectangles)
-    // TODO: void 	drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, Qt::SizeMode mode = Qt::AbsoluteSize)
+
+    drawRoundedRect(
+        x: number,
+        y: number,
+        w: number,
+        h: number,
+        xRadius: number,
+        yRadius: number,
+        mode = SizeMode.AbsoluteSize,
+    ): void {
+        this.native.drawRoundedRect(x, y, w, h, xRadius, yRadius, mode);
+    }
+
+    drawRoundedRectF(
+        x: number,
+        y: number,
+        w: number,
+        h: number,
+        xRadius: number,
+        yRadius: number,
+        mode = SizeMode.AbsoluteSize,
+    ): void {
+        this.native.drawRoundedRectF(x, y, w, h, xRadius, yRadius, mode);
+    }
+
     // TODO: void 	drawStaticText(int left, int top, const QStaticText &staticText)
     drawText(x: number, y: number, text: string): void {
         return this.native.drawText(x, y, text);
