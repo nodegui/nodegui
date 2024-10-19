@@ -47,12 +47,15 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("drawPointF", &QPainterWrap::drawPointF),
        InstanceMethod("drawRect", &QPainterWrap::drawRect),
        InstanceMethod("drawRectF", &QPainterWrap::drawRectF),
+       InstanceMethod("drawRoundedRect", &QPainterWrap::drawRoundedRect),
+       InstanceMethod("drawRoundedRectF", &QPainterWrap::drawRoundedRectF),
        InstanceMethod("drawText", &QPainterWrap::drawText),
        InstanceMethod("drawTextF", &QPainterWrap::drawTextF),
        InstanceMethod("end", &QPainterWrap::end),
        InstanceMethod("endNativePainting", &QPainterWrap::endNativePainting),
        InstanceMethod("eraseRect", &QPainterWrap::eraseRect),
        InstanceMethod("eraseRectF", &QPainterWrap::eraseRectF),
+       InstanceMethod("fillPath", &QPainterWrap::fillPath),
        InstanceMethod("fillRect", &QPainterWrap::fillRect),
        InstanceMethod("fillRectF", &QPainterWrap::fillRectF),
        InstanceMethod("opacity", &QPainterWrap::opacity),
@@ -479,6 +482,18 @@ Napi::Value QPainterWrap::endNativePainting(const Napi::CallbackInfo& info) {
   this->instance->endNativePainting();
   return env.Null();
 }
+Napi::Value QPainterWrap::fillPath(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::Object pathObject = info[0].As<Napi::Object>();
+  QPainterPathWrap* pathWrap =
+      Napi::ObjectWrap<QPainterPathWrap>::Unwrap(pathObject);
+  QPainterPath* path = pathWrap->getInternalInstance();
+  Napi::Object brushObject = info[1].As<Napi::Object>();
+  QBrushWrap* brushWrap = Napi::ObjectWrap<QBrushWrap>::Unwrap(brushObject);
+  QBrush* brush = brushWrap->getInternalInstance();
+  this->instance->fillPath(*path, *brush);
+  return env.Null();
+}
 Napi::Value QPainterWrap::fillRect(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int x = info[0].As<Napi::Number>().Int32Value();
@@ -556,6 +571,32 @@ Napi::Value QPainterWrap::drawRectF(const Napi::CallbackInfo& info) {
   qreal width = info[2].As<Napi::Number>().DoubleValue();
   qreal height = info[3].As<Napi::Number>().DoubleValue();
   this->instance->drawRect(QRectF(x, y, width, height));
+  return env.Null();
+}
+Napi::Value QPainterWrap::drawRoundedRect(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int x = info[0].As<Napi::Number>().Int32Value();
+  int y = info[1].As<Napi::Number>().Int32Value();
+  int width = info[2].As<Napi::Number>().Int32Value();
+  int height = info[3].As<Napi::Number>().Int32Value();
+  qreal xRadius = info[4].As<Napi::Number>().DoubleValue();
+  qreal yRadius = info[5].As<Napi::Number>().DoubleValue();
+  Qt::SizeMode mode = (Qt::SizeMode)info[6].As<Napi::Number>().Uint32Value();
+  this->instance->drawRoundedRect(QRect(x, y, width, height), xRadius, yRadius,
+                                  mode);
+  return env.Null();
+}
+Napi::Value QPainterWrap::drawRoundedRectF(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  qreal x = info[0].As<Napi::Number>().DoubleValue();
+  qreal y = info[1].As<Napi::Number>().DoubleValue();
+  qreal width = info[2].As<Napi::Number>().DoubleValue();
+  qreal height = info[3].As<Napi::Number>().DoubleValue();
+  qreal xRadius = info[4].As<Napi::Number>().DoubleValue();
+  qreal yRadius = info[5].As<Napi::Number>().DoubleValue();
+  Qt::SizeMode mode = (Qt::SizeMode)info[6].As<Napi::Number>().Uint32Value();
+  this->instance->drawRoundedRect(QRectF(x, y, width, height), xRadius, yRadius,
+                                  mode);
   return env.Null();
 }
 Napi::Value QPainterWrap::eraseRect(const Napi::CallbackInfo& info) {
