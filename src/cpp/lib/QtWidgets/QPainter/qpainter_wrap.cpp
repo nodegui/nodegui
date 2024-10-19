@@ -55,6 +55,7 @@ Napi::Object QPainterWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("endNativePainting", &QPainterWrap::endNativePainting),
        InstanceMethod("eraseRect", &QPainterWrap::eraseRect),
        InstanceMethod("eraseRectF", &QPainterWrap::eraseRectF),
+       InstanceMethod("fillPath", &QPainterWrap::fillPath),
        InstanceMethod("fillRect", &QPainterWrap::fillRect),
        InstanceMethod("fillRectF", &QPainterWrap::fillRectF),
        InstanceMethod("opacity", &QPainterWrap::opacity),
@@ -479,6 +480,18 @@ Napi::Value QPainterWrap::beginNativePainting(const Napi::CallbackInfo& info) {
 Napi::Value QPainterWrap::endNativePainting(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   this->instance->endNativePainting();
+  return env.Null();
+}
+Napi::Value QPainterWrap::fillPath(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::Object pathObject = info[0].As<Napi::Object>();
+  QPainterPathWrap* pathWrap =
+      Napi::ObjectWrap<QPainterPathWrap>::Unwrap(pathObject);
+  QPainterPath* path = pathWrap->getInternalInstance();
+  Napi::Object brushObject = info[1].As<Napi::Object>();
+  QBrushWrap* brushWrap = Napi::ObjectWrap<QBrushWrap>::Unwrap(brushObject);
+  QBrush* brush = brushWrap->getInternalInstance();
+  this->instance->fillPath(*path, *brush);
   return env.Null();
 }
 Napi::Value QPainterWrap::fillRect(const Napi::CallbackInfo& info) {

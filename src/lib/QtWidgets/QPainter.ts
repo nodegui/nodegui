@@ -242,6 +242,9 @@ export class QPainter extends Component {
     eraseRect(x: number, y: number, width: number, height: number): void {
         this.native.eraseRect(x, y, width, height);
     }
+    fillPath(path: QPainterPath, brush: QBrush): void {
+        this.native.fillPath(path.native, brush.native);
+    }
     /**
      * Version of eraseRect() which takes floating point parameters.
      */
