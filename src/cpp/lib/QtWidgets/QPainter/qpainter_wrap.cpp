@@ -581,8 +581,9 @@ Napi::Value QPainterWrap::drawRoundedRect(const Napi::CallbackInfo& info) {
   int height = info[3].As<Napi::Number>().Int32Value();
   qreal xRadius = info[4].As<Napi::Number>().DoubleValue();
   qreal yRadius = info[5].As<Napi::Number>().DoubleValue();
-  Qt::SizeMode mode = (Qt::SizeMode) info[6].As<Napi::Number>().Uint32Value();
-  this->instance->drawRoundedRect(QRect(x, y, width, height), xRadius, yRadius, mode);
+  Qt::SizeMode mode = (Qt::SizeMode)info[6].As<Napi::Number>().Uint32Value();
+  this->instance->drawRoundedRect(QRect(x, y, width, height), xRadius, yRadius,
+                                  mode);
   return env.Null();
 }
 Napi::Value QPainterWrap::drawRoundedRectF(const Napi::CallbackInfo& info) {
@@ -593,8 +594,9 @@ Napi::Value QPainterWrap::drawRoundedRectF(const Napi::CallbackInfo& info) {
   qreal height = info[3].As<Napi::Number>().DoubleValue();
   qreal xRadius = info[4].As<Napi::Number>().DoubleValue();
   qreal yRadius = info[5].As<Napi::Number>().DoubleValue();
-  Qt::SizeMode mode = (Qt::SizeMode) info[6].As<Napi::Number>().Uint32Value();
-  this->instance->drawRoundedRect(QRectF(x, y, width, height), xRadius, yRadius, mode);
+  Qt::SizeMode mode = (Qt::SizeMode)info[6].As<Napi::Number>().Uint32Value();
+  this->instance->drawRoundedRect(QRectF(x, y, width, height), xRadius, yRadius,
+                                  mode);
   return env.Null();
 }
 Napi::Value QPainterWrap::eraseRect(const Napi::CallbackInfo& info) {
