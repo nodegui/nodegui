@@ -6,8 +6,8 @@ module.exports = {
     favicon: 'img/favicon.ico',
     organizationName: 'nodegui', // Usually your GitHub org/user name.
     projectName: 'nodegui', // Usually your repo name.
-    onBrokenLinks: "warn",
-    onDuplicateRoutes: "warn",
+    onBrokenLinks: 'warn',
+    onDuplicateRoutes: 'warn',
     themeConfig: {
         navbar: {
             title: 'NodeGui',
@@ -77,11 +77,9 @@ module.exports = {
             ],
             copyright: `Copyright © ${new Date().getFullYear()} NodeGui`,
         },
-        googleAnalytics: {
-            trackingID: 'UA-145065218-1',
-        },
         algolia: {
             apiKey: '0baa260ee0052fe6c974714cbf091ae1',
+            appId: 'BH4D9OD16A',
             indexName: 'nodegui',
             algoliaOptions: {}, // Optional, if provided by Algolia
         },
@@ -97,6 +95,14 @@ module.exports = {
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
                 },
+            },
+        ],
+    ],
+    plugins: [
+        [
+            '@docusaurus/plugin-google-analytics',
+            {
+                trackingID: 'UA-145065218-1',
             },
         ],
     ],

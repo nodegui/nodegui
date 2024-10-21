@@ -3,18 +3,18 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "node --max_old_space_size=6656 node_modules/@docusaurus/core/bin/docusaurus start",
-        "build": "node --max_old_space_size=6656 node_modules/@docusaurus/core/bin/docusaurus build",
-        "swizzle": "node --max_old_space_size=6656 node_modules/@docusaurus/core/bin/docusaurus swizzle",
-        "deploy": "node --max_old_space_size=6656 node_modules/@docusaurus/core/bin/docusaurus deploy"
+        "start": "docusaurus start",
+        "build": "docusaurus build",
+        "swizzle": "docusaurus swizzle",
+        "deploy": "docusaurus deploy"
     },
     "dependencies": {
-        "@docusaurus/core": "^2.0.0-alpha.64",
-        "@docusaurus/plugin-google-analytics": "^2.0.0-alpha.64",
-        "@docusaurus/preset-classic": "^2.0.0-alpha.64",
+        "@docusaurus/core": "^3.x",
+        "@docusaurus/plugin-google-analytics": "^3.x",
+        "@docusaurus/preset-classic": "^3.x",
         "classnames": "^2.2.6",
-        "react": "^16.8.4",
-        "react-dom": "^16.8.4",
+        "react": "^18.x",
+        "react-dom": "^18.x",
         "styled-components": "^4.4.0"
     },
     "browserslist": {
