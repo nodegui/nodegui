@@ -15,9 +15,9 @@ const { QMainWindow, QPixmap, QLabel } = require('@nodegui/nodegui');
 const win = new QMainWindow();
 const label = new QLabel();
 
-const absoulteImagePath = '/Users/atulr/Project/nodegui/nodegui/extras/assets/logox200.png';
+const absoluteImagePath = '/Users/atulr/Project/nodegui/nodegui/extras/assets/logox200.png';
 const image = new QPixmap();
-image.load(absoulteImagePath);
+image.load(absoluteImagePath);
 
 label.setPixmap(image);
 
