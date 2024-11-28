@@ -75,4 +75,5 @@ class DLL_EXPORT QImageWrap : public Napi::ObjectWrap<QImageWrap> {
 
 namespace StaticQImageWrapMethods {
 DLL_EXPORT Napi::Value fromQVariant(const Napi::CallbackInfo& info);
+DLL_EXPORT Napi::Value fromBuffer(const Napi::CallbackInfo& info);
 }  // namespace StaticQImageWrapMethods

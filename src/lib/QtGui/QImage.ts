@@ -444,6 +444,10 @@ export class QImage extends Component {
     static fromQVariant(variant: QVariant): QImage {
         return new QImage(addon.QImage.fromQVariant(variant.native));
     }
+
+    static fromBuffer(buffer: Buffer, width: number, height: number, format: QImageFormat): QImage {
+        return new QImage(addon.QImage.fromBuffer(buffer, width, height, format));
+    }
 }
 
 export enum QImageFormat {

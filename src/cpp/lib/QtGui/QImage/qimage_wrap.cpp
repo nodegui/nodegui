@@ -65,6 +65,8 @@ Napi::Object QImageWrap::init(Napi::Env env, Napi::Object exports) {
        InstanceMethod("textKeys", &QImageWrap::textKeys),
        InstanceMethod("valid", &QImageWrap::valid),
        InstanceMethod("width", &QImageWrap::width),
+       StaticMethod("fromQVariant", &StaticQImageWrapMethods::fromQVariant),
+       StaticMethod("fromBuffer", &StaticQImageWrapMethods::fromBuffer),
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QImageWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
@@ -593,5 +595,18 @@ Napi::Value StaticQImageWrapMethods::fromQVariant(
   QImage image = variant->value<QImage>();
   auto instance = QImageWrap::constructor.New(
       {Napi::External<QImage>::New(env, new QImage(image))});
+  return instance;
+}
+
+Napi::Value StaticQImageWrapMethods::fromBuffer(
+    const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  Napi::Buffer<uchar> buffer = info[0].As<Napi::Buffer<uchar>>();
+  int32_t width = info[1].As<Napi::Number>();
+  int32_t height = info[2].As<Napi::Number>();
+  QImage::Format format = static_cast<QImage::Format>(info[3].As<Napi::Number>().Uint32Value());
+
+  auto instance = QImageWrap::constructor.New(
+      {Napi::External<QImage>::New(env, new QImage(QImage(buffer.Data(), width, height, format).copy()))});
   return instance;
 }
