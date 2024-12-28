@@ -40,10 +40,6 @@ module.exports = {
                     title: 'Community',
                     items: [
                         {
-                            label: 'Slack',
-                            href: 'https://nodegui.slack.com',
-                        },
-                        {
                             label: 'Medium',
                             to: 'https://medium.com/nodegui',
                         },
