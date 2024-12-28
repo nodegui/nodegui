@@ -10,6 +10,8 @@ sidebar_label: "QDropEvent"
 
   ↳ **QDropEvent**
 
+  ↳ [QDragMoveEvent](qdragmoveevent.md)
+
 ## Index
 
 ### Constructors
@@ -43,7 +45,7 @@ sidebar_label: "QDropEvent"
 
 ###  constructor
 
-\+ **new QDropEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QDropEvent](qdropevent.md)*
+\+ **new QDropEvent**(`arg`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› | [NativeElement](../globals.md#nativeelement)): *[QDropEvent](qdropevent.md)*
 
 *Overrides [QEvent](qevent.md).[constructor](qevent.md#constructor)*
 
@@ -51,7 +53,7 @@ sidebar_label: "QDropEvent"
 
 Name | Type |
 ------ | ------ |
-`event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
+`arg` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› &#124; [NativeElement](../globals.md#nativeelement) |
 
 **Returns:** *[QDropEvent](qdropevent.md)*
 

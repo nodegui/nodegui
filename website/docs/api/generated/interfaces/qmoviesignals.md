@@ -57,13 +57,13 @@ ___
 
 #### Type declaration:
 
-▸ (`frameNumber?`: undefined | number): *void*
+▸ (`frameNumber?`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`frameNumber?` | undefined &#124; number |
+`frameNumber?` | number |
 
 ___
 

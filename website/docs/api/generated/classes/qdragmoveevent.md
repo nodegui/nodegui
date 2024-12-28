@@ -6,9 +6,11 @@ sidebar_label: "QDragMoveEvent"
 
 ## Hierarchy
 
-* [QEvent](qevent.md)
+  ↳ [QDropEvent](qdropevent.md)
 
   ↳ **QDragMoveEvent**
+
+  ↳ [QDragEnterEvent](qdragenterevent.md)
 
 ## Index
 
@@ -44,15 +46,15 @@ sidebar_label: "QDragMoveEvent"
 
 ###  constructor
 
-\+ **new QDragMoveEvent**(`event`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *[QDragMoveEvent](qdragmoveevent.md)*
+\+ **new QDragMoveEvent**(`arg`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› | [NativeElement](../globals.md#nativeelement)): *[QDragMoveEvent](qdragmoveevent.md)*
 
-*Overrides [QEvent](qevent.md).[constructor](qevent.md#constructor)*
+*Overrides [QDropEvent](qdropevent.md).[constructor](qdropevent.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`event` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
+`arg` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› &#124; [NativeElement](../globals.md#nativeelement) |
 
 **Returns:** *[QDragMoveEvent](qdragmoveevent.md)*
 
@@ -68,7 +70,7 @@ Name | Type |
 
 ###  accept
 
-▸ **accept**(`x?`: undefined | number, `y?`: undefined | number, `width?`: undefined | number, `height?`: undefined | number): *void*
+▸ **accept**(`x?`: number, `y?`: number, `width?`: number, `height?`: number): *void*
 
 *Overrides [QEvent](qevent.md).[accept](qevent.md#accept)*
 
@@ -83,10 +85,10 @@ If the rectangle is empty, drag move events will be sent continuously. This is u
 
 Name | Type |
 ------ | ------ |
-`x?` | undefined &#124; number |
-`y?` | undefined &#124; number |
-`width?` | undefined &#124; number |
-`height?` | undefined &#124; number |
+`x?` | number |
+`y?` | number |
+`width?` | number |
+`height?` | number |
 
 **Returns:** *void*
 
@@ -95,6 +97,8 @@ ___
 ###  acceptProposedAction
 
 ▸ **acceptProposedAction**(): *void*
+
+*Inherited from [QDropEvent](qdropevent.md).[acceptProposedAction](qdropevent.md#acceptproposedaction)*
 
 Sets the drop action to be the proposed action
 
@@ -122,6 +126,8 @@ ___
 
 ▸ **dropAction**(): *[DropAction](../enums/dropaction.md)*
 
+*Inherited from [QDropEvent](qdropevent.md).[dropAction](qdropevent.md#dropaction)*
+
 Returns the action to be performed on the data by the target.
 This may be different from the action supplied in proposedAction()
 if you have called setDropAction() to explicitly choose a drop action
@@ -132,7 +138,7 @@ ___
 
 ###  ignore
 
-▸ **ignore**(`x?`: undefined | number, `y?`: undefined | number, `width?`: undefined | number, `height?`: undefined | number): *void*
+▸ **ignore**(`x?`: number, `y?`: number, `width?`: number, `height?`: number): *void*
 
 *Overrides [QEvent](qevent.md).[ignore](qevent.md#ignore)*
 
@@ -144,10 +150,10 @@ Unwanted events might be propagated to the parent widget.
 
 Name | Type |
 ------ | ------ |
-`x?` | undefined &#124; number |
-`y?` | undefined &#124; number |
-`width?` | undefined &#124; number |
-`height?` | undefined &#124; number |
+`x?` | number |
+`y?` | number |
+`width?` | number |
+`height?` | number |
 
 **Returns:** *void*
 
@@ -167,6 +173,8 @@ ___
 
 ▸ **keyboardModifiers**(): *number*
 
+*Inherited from [QDropEvent](qdropevent.md).[keyboardModifiers](qdropevent.md#keyboardmodifiers)*
+
 Returns the modifier keys that are pressed
 
 see Qt::KeyboardModifier for flags
@@ -179,6 +187,8 @@ ___
 
 ▸ **mimeData**(): *[QMimeData](qmimedata.md)*
 
+*Inherited from [QDropEvent](qdropevent.md).[mimeData](qdropevent.md#mimedata)*
+
 Returns the data that was dropped on the widget and its associated MIME type information
 
 **Returns:** *[QMimeData](qmimedata.md)*
@@ -188,6 +198,8 @@ ___
 ###  mouseButtons
 
 ▸ **mouseButtons**(): *number*
+
+*Inherited from [QDropEvent](qdropevent.md).[mouseButtons](qdropevent.md#mousebuttons)*
 
 Returns the mouse buttons that are pressed
 
@@ -200,6 +212,8 @@ ___
 ###  pos
 
 ▸ **pos**(): *object*
+
+*Inherited from [QDropEvent](qdropevent.md).[pos](qdropevent.md#pos)*
 
 Returns the position where the drop was made
 
@@ -215,6 +229,8 @@ ___
 
 ▸ **posF**(): *object*
 
+*Inherited from [QDropEvent](qdropevent.md).[posF](qdropevent.md#posf)*
+
 Returns the position where the drop was made
 
 **Returns:** *object*
@@ -229,6 +245,8 @@ ___
 
 ▸ **possibleActions**(): *number*
 
+*Inherited from [QDropEvent](qdropevent.md).[possibleActions](qdropevent.md#possibleactions)*
+
 Returns an OR-combination of possible drop actions.
 
 See Qt::DropAction for flags
@@ -240,6 +258,8 @@ ___
 ###  proposedAction
 
 ▸ **proposedAction**(): *[DropAction](../enums/dropaction.md)*
+
+*Inherited from [QDropEvent](qdropevent.md).[proposedAction](qdropevent.md#proposedaction)*
 
 Returns the proposed drop action
 
@@ -268,6 +288,8 @@ ___
 ###  setDropAction
 
 ▸ **setDropAction**(`action`: [DropAction](../enums/dropaction.md)): *void*
+
+*Inherited from [QDropEvent](qdropevent.md).[setDropAction](qdropevent.md#setdropaction)*
 
 **Parameters:**
 

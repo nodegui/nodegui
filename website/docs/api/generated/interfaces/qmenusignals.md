@@ -14,13 +14,36 @@ sidebar_label: "QMenuSignals"
 
 ### Properties
 
+* [aboutToHide](qmenusignals.md#abouttohide)
+* [aboutToShow](qmenusignals.md#abouttoshow)
 * [customContextMenuRequested](qmenusignals.md#customcontextmenurequested)
+* [hovered](qmenusignals.md#hovered)
 * [objectNameChanged](qmenusignals.md#objectnamechanged)
 * [triggered](qmenusignals.md#triggered)
 * [windowIconChanged](qmenusignals.md#windowiconchanged)
 * [windowTitleChanged](qmenusignals.md#windowtitlechanged)
 
 ## Properties
+
+###  aboutToHide
+
+• **aboutToHide**: *function*
+
+#### Type declaration:
+
+▸ (): *void*
+
+___
+
+###  aboutToShow
+
+• **aboutToShow**: *function*
+
+#### Type declaration:
+
+▸ (): *void*
+
+___
 
 ###  customContextMenuRequested
 
@@ -40,6 +63,22 @@ Name | Type |
 ------ | ------ |
 `x` | number |
 `y` | number |
+
+___
+
+###  hovered
+
+• **hovered**: *function*
+
+#### Type declaration:
+
+▸ (`action`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`action` | [NativeElement](../globals.md#nativeelement) |
 
 ___
 

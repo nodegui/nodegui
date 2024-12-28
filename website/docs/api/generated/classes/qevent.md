@@ -8,23 +8,23 @@ sidebar_label: "QEvent"
 
 * **QEvent**
 
-  ↳ [QKeyEvent](qkeyevent.md)
+  ↳ [QInputMethodEvent](qinputmethodevent.md)
 
-  ↳ [QMouseEvent](qmouseevent.md)
+  ↳ [QInputMethodQueryEvent](qinputmethodqueryevent.md)
 
-  ↳ [QWheelEvent](qwheelevent.md)
+  ↳ [QInputEvent](qinputevent.md)
 
-  ↳ [QNativeGestureEvent](qnativegestureevent.md)
+  ↳ [QMoveEvent](qmoveevent.md)
 
-  ↳ [QTabletEvent](qtabletevent.md)
+  ↳ [QTimerEvent](qtimerevent.md)
 
   ↳ [QDropEvent](qdropevent.md)
-
-  ↳ [QDragMoveEvent](qdragmoveevent.md)
 
   ↳ [QDragLeaveEvent](qdragleaveevent.md)
 
   ↳ [QPaintEvent](qpaintevent.md)
+
+  ↳ [QResizeEvent](qresizeevent.md)
 
 ## Index
 

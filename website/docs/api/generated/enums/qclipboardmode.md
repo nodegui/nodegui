@@ -16,16 +16,16 @@ sidebar_label: "QClipboardMode"
 
 ###  Clipboard
 
-• **Clipboard**:
+• **Clipboard**: = 0
 
 ___
 
 ###  FindBuffer
 
-• **FindBuffer**:
+• **FindBuffer**: = 2
 
 ___
 
 ###  Selection
 
-• **Selection**:
+• **Selection**: = 1

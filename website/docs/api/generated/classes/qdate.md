@@ -19,8 +19,6 @@ sidebar_label: "QDate"
 ### Properties
 
 * [native](qdate.md#native)
-* [nodeChildren](qdate.md#nodechildren)
-* [nodeParent](qdate.md#optional-nodeparent)
 
 ### Methods
 
@@ -37,7 +35,6 @@ sidebar_label: "QDate"
 * [isValid](qdate.md#isvalid)
 * [month](qdate.md#month)
 * [setDate](qdate.md#setdate)
-* [setNodeParent](qdate.md#setnodeparent)
 * [toJulianDay](qdate.md#tojulianday)
 * [toString](qdate.md#tostring)
 * [year](qdate.md#year)
@@ -52,7 +49,7 @@ sidebar_label: "QDate"
 
 ###  constructor
 
-\+ **new QDate**(`arg?`: [NativeElement](../globals.md#nativeelement) | number, `month?`: undefined | number, `day?`: undefined | number): *[QDate](qdate.md)*
+\+ **new QDate**(`arg?`: [NativeElement](../globals.md#nativeelement) | number, `month?`: number, `day?`: number): *[QDate](qdate.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -61,8 +58,8 @@ sidebar_label: "QDate"
 Name | Type |
 ------ | ------ |
 `arg?` | [NativeElement](../globals.md#nativeelement) &#124; number |
-`month?` | undefined &#124; number |
-`day?` | undefined &#124; number |
+`month?` | number |
+`day?` | number |
 
 **Returns:** *[QDate](qdate.md)*
 
@@ -70,25 +67,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -225,22 +206,6 @@ Name | Type |
 `day` | number |
 
 **Returns:** *boolean*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
 
 ___
 

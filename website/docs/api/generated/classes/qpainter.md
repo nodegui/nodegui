@@ -51,31 +51,56 @@ https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpa
 ### Properties
 
 * [native](qpainter.md#native)
-* [nodeChildren](qpainter.md#nodechildren)
-* [nodeParent](qpainter.md#optional-nodeparent)
 
 ### Methods
 
 * [begin](qpainter.md#begin)
 * [beginNativePainting](qpainter.md#beginnativepainting)
+* [boundingRect](qpainter.md#boundingrect)
+* [boundingRectF](qpainter.md#boundingrectf)
+* [compositionMode](qpainter.md#compositionmode)
 * [drawArc](qpainter.md#drawarc)
+* [drawArcF](qpainter.md#drawarcf)
+* [drawChord](qpainter.md#drawchord)
+* [drawChordF](qpainter.md#drawchordf)
 * [drawConvexPolygon](qpainter.md#drawconvexpolygon)
+* [drawConvexPolygonF](qpainter.md#drawconvexpolygonf)
 * [drawEllipse](qpainter.md#drawellipse)
+* [drawEllipseF](qpainter.md#drawellipsef)
 * [drawImage](qpainter.md#drawimage)
+* [drawImageF](qpainter.md#drawimagef)
 * [drawLine](qpainter.md#drawline)
+* [drawLineF](qpainter.md#drawlinef)
 * [drawPath](qpainter.md#drawpath)
 * [drawPie](qpainter.md#drawpie)
+* [drawPieF](qpainter.md#drawpief)
+* [drawPixmap](qpainter.md#drawpixmap)
+* [drawPoint](qpainter.md#drawpoint)
+* [drawPointF](qpainter.md#drawpointf)
+* [drawRect](qpainter.md#drawrect)
+* [drawRectF](qpainter.md#drawrectf)
+* [drawRoundedRect](qpainter.md#drawroundedrect)
+* [drawRoundedRectF](qpainter.md#drawroundedrectf)
 * [drawText](qpainter.md#drawtext)
+* [drawTextF](qpainter.md#drawtextf)
 * [end](qpainter.md#end)
 * [endNativePainting](qpainter.md#endnativepainting)
+* [eraseRect](qpainter.md#eraserect)
+* [eraseRectF](qpainter.md#eraserectf)
+* [fillPath](qpainter.md#fillpath)
 * [fillRect](qpainter.md#fillrect)
+* [fillRectF](qpainter.md#fillrectf)
+* [opacity](qpainter.md#opacity)
 * [restore](qpainter.md#restore)
 * [rotate](qpainter.md#rotate)
 * [save](qpainter.md#save)
 * [scale](qpainter.md#scale)
 * [setBrush](qpainter.md#setbrush)
+* [setBrushOrigin](qpainter.md#setbrushorigin)
+* [setBrushOriginF](qpainter.md#setbrushoriginf)
+* [setCompositionMode](qpainter.md#setcompositionmode)
 * [setFont](qpainter.md#setfont)
-* [setNodeParent](qpainter.md#setnodeparent)
+* [setOpacity](qpainter.md#setopacity)
 * [setPen](qpainter.md#setpen)
 * [setRenderHint](qpainter.md#setrenderhint)
 * [setTransform](qpainter.md#settransform)
@@ -86,13 +111,7 @@ https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpa
 
 ###  constructor
 
-\+ **new QPainter**(): *[QPainter](qpainter.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Returns:** *[QPainter](qpainter.md)*
-
-\+ **new QPainter**(`device`: [Component](component.md)): *[QPainter](qpainter.md)*
+\+ **new QPainter**(`device?`: [QWidget](qwidget.md) | [QImage](qimage.md)): *[QPainter](qpainter.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -100,7 +119,7 @@ https://github.com/nodegui/examples/blob/master/nodegui/custom-native-widget-qpa
 
 Name | Type |
 ------ | ------ |
-`device` | [Component](component.md) |
+`device?` | [QWidget](qwidget.md) &#124; [QImage](qimage.md) |
 
 **Returns:** *[QPainter](qpainter.md)*
 
@@ -108,25 +127,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -152,9 +155,118 @@ ___
 
 ___
 
+###  boundingRect
+
+▸ **boundingRect**(`x`: number, `y`: number, `w`: number, `h`: number, `flags`: number, `text`: string): *[QRect](qrect.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`w` | number |
+`h` | number |
+`flags` | number |
+`text` | string |
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
+###  boundingRectF
+
+▸ **boundingRectF**(`x`: number, `y`: number, `w`: number, `h`: number, `flags`: number, `text`: string): *[QRect](qrect.md)*
+
+Version of boundingRect() which takes floating point parameters.
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`w` | number |
+`h` | number |
+`flags` | number |
+`text` | string |
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
+###  compositionMode
+
+▸ **compositionMode**(): *[CompositionMode](../enums/compositionmode.md)*
+
+**Returns:** *[CompositionMode](../enums/compositionmode.md)*
+
+___
+
 ###  drawArc
 
 ▸ **drawArc**(`x`: number, `y`: number, `width`: number, `height`: number, `startAngle`: number, `spanAngle`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+`startAngle` | number |
+`spanAngle` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawArcF
+
+▸ **drawArcF**(`x`: number, `y`: number, `width`: number, `height`: number, `startAngle`: number, `spanAngle`: number): *void*
+
+Version of drawArc() which takes floating point parameters.
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+`startAngle` | number |
+`spanAngle` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawChord
+
+▸ **drawChord**(`x`: number, `y`: number, `width`: number, `height`: number, `startAngle`: number, `spanAngle`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+`startAngle` | number |
+`spanAngle` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawChordF
+
+▸ **drawChordF**(`x`: number, `y`: number, `width`: number, `height`: number, `startAngle`: number, `spanAngle`: number): *void*
+
+Version of drawChord() which takes floating point parameters.
 
 **Parameters:**
 
@@ -185,9 +297,42 @@ Name | Type |
 
 ___
 
+###  drawConvexPolygonF
+
+▸ **drawConvexPolygonF**(`points`: [QPoint](qpoint.md)[]): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`points` | [QPoint](qpoint.md)[] |
+
+**Returns:** *void*
+
+___
+
 ###  drawEllipse
 
 ▸ **drawEllipse**(`x`: number, `y`: number, `width`: number, `height`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawEllipseF
+
+▸ **drawEllipseF**(`x`: number, `y`: number, `width`: number, `height`: number): *void*
+
+Version of drawEllipse() which takes floating point parameters.
 
 **Parameters:**
 
@@ -222,9 +367,50 @@ Name | Type | Default |
 
 ___
 
+###  drawImageF
+
+▸ **drawImageF**(`x`: number, `y`: number, `image`: [QImage](qimage.md), `sx`: number, `sy`: number, `sw`: number, `sh`: number): *void*
+
+Version of drawImage() which takes floating point parameters.
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`x` | number | - |
+`y` | number | - |
+`image` | [QImage](qimage.md) | - |
+`sx` | number | 0 |
+`sy` | number | 0 |
+`sw` | number | -1 |
+`sh` | number | -1 |
+
+**Returns:** *void*
+
+___
+
 ###  drawLine
 
 ▸ **drawLine**(`x1`: number, `y1`: number, `x2`: number, `y2`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x1` | number |
+`y1` | number |
+`x2` | number |
+`y2` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawLineF
+
+▸ **drawLineF**(`x1`: number, `y1`: number, `x2`: number, `y2`: number): *void*
+
+Version of drawLine() which takes floating point parameters.
 
 **Parameters:**
 
@@ -272,9 +458,174 @@ Name | Type |
 
 ___
 
+###  drawPieF
+
+▸ **drawPieF**(`x`: number, `y`: number, `width`: number, `height`: number, `startAngle`: number, `sweepLength`: number): *void*
+
+Version of drawPie() which takes floating point parameters.
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+`startAngle` | number |
+`sweepLength` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawPixmap
+
+▸ **drawPixmap**(`x`: number, `y`: number, `pixmap`: [QPixmap](qpixmap.md), `sx`: number, `sy`: number, `sw`: number, `sh`: number): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`x` | number | - |
+`y` | number | - |
+`pixmap` | [QPixmap](qpixmap.md) | - |
+`sx` | number | 0 |
+`sy` | number | 0 |
+`sw` | number | -1 |
+`sh` | number | -1 |
+
+**Returns:** *void*
+
+___
+
+###  drawPoint
+
+▸ **drawPoint**(`x`: number, `y`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawPointF
+
+▸ **drawPointF**(`x`: number, `y`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawRect
+
+▸ **drawRect**(`x`: number, `y`: number, `width`: number, `height`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawRectF
+
+▸ **drawRectF**(`x`: number, `y`: number, `width`: number, `height`: number): *void*
+
+Version of drawRect() which takes floating point parameters.
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+
+**Returns:** *void*
+
+___
+
+###  drawRoundedRect
+
+▸ **drawRoundedRect**(`x`: number, `y`: number, `w`: number, `h`: number, `xRadius`: number, `yRadius`: number, `mode`: [SizeMode](../enums/sizemode.md)): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`x` | number | - |
+`y` | number | - |
+`w` | number | - |
+`h` | number | - |
+`xRadius` | number | - |
+`yRadius` | number | - |
+`mode` | [SizeMode](../enums/sizemode.md) | SizeMode.AbsoluteSize |
+
+**Returns:** *void*
+
+___
+
+###  drawRoundedRectF
+
+▸ **drawRoundedRectF**(`x`: number, `y`: number, `w`: number, `h`: number, `xRadius`: number, `yRadius`: number, `mode`: [SizeMode](../enums/sizemode.md)): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`x` | number | - |
+`y` | number | - |
+`w` | number | - |
+`h` | number | - |
+`xRadius` | number | - |
+`yRadius` | number | - |
+`mode` | [SizeMode](../enums/sizemode.md) | SizeMode.AbsoluteSize |
+
+**Returns:** *void*
+
+___
+
 ###  drawText
 
 ▸ **drawText**(`x`: number, `y`: number, `text`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`text` | string |
+
+**Returns:** *void*
+
+___
+
+###  drawTextF
+
+▸ **drawTextF**(`x`: number, `y`: number, `text`: string): *void*
+
+Version of drawText() which takes floating point parameters
 
 **Parameters:**
 
@@ -304,6 +655,57 @@ ___
 
 ___
 
+###  eraseRect
+
+▸ **eraseRect**(`x`: number, `y`: number, `width`: number, `height`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+
+**Returns:** *void*
+
+___
+
+###  eraseRectF
+
+▸ **eraseRectF**(`x`: number, `y`: number, `width`: number, `height`: number): *void*
+
+Version of eraseRect() which takes floating point parameters.
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+
+**Returns:** *void*
+
+___
+
+###  fillPath
+
+▸ **fillPath**(`path`: [QPainterPath](qpainterpath.md), `brush`: [QBrush](qbrush.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`path` | [QPainterPath](qpainterpath.md) |
+`brush` | [QBrush](qbrush.md) |
+
+**Returns:** *void*
+
+___
+
 ###  fillRect
 
 ▸ **fillRect**(`x`: number, `y`: number, `width`: number, `height`: number, `color`: [QColor](qcolor.md)): *void*
@@ -319,6 +721,34 @@ Name | Type |
 `color` | [QColor](qcolor.md) |
 
 **Returns:** *void*
+
+___
+
+###  fillRectF
+
+▸ **fillRectF**(`x`: number, `y`: number, `width`: number, `height`: number, `color`: [QColor](qcolor.md)): *void*
+
+Version of fillRect() which takes floating point parameters.
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+`width` | number |
+`height` | number |
+`color` | [QColor](qcolor.md) |
+
+**Returns:** *void*
+
+___
+
+###  opacity
+
+▸ **opacity**(): *number*
+
+**Returns:** *number*
 
 ___
 
@@ -369,13 +799,59 @@ ___
 
 ###  setBrush
 
-▸ **setBrush**(`color`: [QColor](qcolor.md)): *void*
+▸ **setBrush**(`colorOrBrush`: [QColor](qcolor.md) | [QBrush](qbrush.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`color` | [QColor](qcolor.md) |
+`colorOrBrush` | [QColor](qcolor.md) &#124; [QBrush](qbrush.md) |
+
+**Returns:** *void*
+
+___
+
+###  setBrushOrigin
+
+▸ **setBrushOrigin**(`x`: number, `y`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+
+**Returns:** *void*
+
+___
+
+###  setBrushOriginF
+
+▸ **setBrushOriginF**(`x`: number, `y`: number): *void*
+
+Version of setBrushOrigin() which takes floating point parameters.
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+
+**Returns:** *void*
+
+___
+
+###  setCompositionMode
+
+▸ **setCompositionMode**(`mode`: [CompositionMode](../enums/compositionmode.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`mode` | [CompositionMode](../enums/compositionmode.md) |
 
 **Returns:** *void*
 
@@ -395,17 +871,15 @@ Name | Type |
 
 ___
 
-###  setNodeParent
+###  setOpacity
 
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
+▸ **setOpacity**(`opacity`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`parent?` | [Component](component.md) |
+`opacity` | number |
 
 **Returns:** *void*
 

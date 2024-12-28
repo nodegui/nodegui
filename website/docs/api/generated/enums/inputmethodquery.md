@@ -20,10 +20,10 @@ sidebar_label: "InputMethodQuery"
 * [ImHints](inputmethodquery.md#imhints)
 * [ImInputItemClipRectangle](inputmethodquery.md#iminputitemcliprectangle)
 * [ImMaximumTextLength](inputmethodquery.md#immaximumtextlength)
-* [ImMicroFocus](inputmethodquery.md#immicrofocus)
 * [ImPlatformData](inputmethodquery.md#implatformdata)
 * [ImPreferredLanguage](inputmethodquery.md#impreferredlanguage)
 * [ImQueryAll](inputmethodquery.md#imqueryall)
+* [ImReadOnly](inputmethodquery.md#imreadonly)
 * [ImSurroundingText](inputmethodquery.md#imsurroundingtext)
 * [ImTextAfterCursor](inputmethodquery.md#imtextaftercursor)
 * [ImTextBeforeCursor](inputmethodquery.md#imtextbeforecursor)
@@ -102,12 +102,6 @@ ___
 
 ___
 
-###  ImMicroFocus
-
-• **ImMicroFocus**: = 2
-
-___
-
 ###  ImPlatformData
 
 • **ImPlatformData**: = 2147483648
@@ -123,6 +117,12 @@ ___
 ###  ImQueryAll
 
 • **ImQueryAll**: = 4294967295
+
+___
+
+###  ImReadOnly
+
+• **ImReadOnly**: = 65536
 
 ___
 

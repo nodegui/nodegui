@@ -6,7 +6,7 @@ sidebar_label: "QMouseEvent"
 
 ## Hierarchy
 
-* [QEvent](qevent.md)
+  ↳ [QInputEvent](qinputevent.md)
 
   ↳ **QMouseEvent**
 
@@ -29,8 +29,10 @@ sidebar_label: "QMouseEvent"
 * [globalY](qmouseevent.md#globaly)
 * [ignore](qmouseevent.md#ignore)
 * [isAccepted](qmouseevent.md#isaccepted)
+* [modifiers](qmouseevent.md#modifiers)
 * [setAccepted](qmouseevent.md#setaccepted)
 * [spontaneous](qmouseevent.md#spontaneous)
+* [timestamp](qmouseevent.md#timestamp)
 * [type](qmouseevent.md#type)
 * [x](qmouseevent.md#x)
 * [y](qmouseevent.md#y)
@@ -130,6 +132,16 @@ ___
 
 ___
 
+###  modifiers
+
+▸ **modifiers**(): *[KeyboardModifier](../enums/keyboardmodifier.md)*
+
+*Inherited from [QInputEvent](qinputevent.md).[modifiers](qinputevent.md#modifiers)*
+
+**Returns:** *[KeyboardModifier](../enums/keyboardmodifier.md)*
+
+___
+
 ###  setAccepted
 
 ▸ **setAccepted**(`accepted`: boolean): *void*
@@ -159,6 +171,16 @@ Returns true if the event originated outside the application (a system event); o
 The return value of this function is not defined for paint events.
 
 **Returns:** *boolean*
+
+___
+
+###  timestamp
+
+▸ **timestamp**(): *number*
+
+*Inherited from [QInputEvent](qinputevent.md).[timestamp](qinputevent.md#timestamp)*
+
+**Returns:** *number*
 
 ___
 

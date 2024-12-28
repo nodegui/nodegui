@@ -14,10 +14,15 @@ sidebar_label: "QListWidgetSignals"
 
 ### Properties
 
+* [activated](qlistwidgetsignals.md#activated)
+* [clicked](qlistwidgetsignals.md#clicked)
 * [currentItemChanged](qlistwidgetsignals.md#currentitemchanged)
 * [currentRowChanged](qlistwidgetsignals.md#currentrowchanged)
 * [currentTextChanged](qlistwidgetsignals.md#currenttextchanged)
 * [customContextMenuRequested](qlistwidgetsignals.md#customcontextmenurequested)
+* [doubleClicked](qlistwidgetsignals.md#doubleclicked)
+* [entered](qlistwidgetsignals.md#entered)
+* [iconSizeChanged](qlistwidgetsignals.md#iconsizechanged)
 * [itemActivated](qlistwidgetsignals.md#itemactivated)
 * [itemChanged](qlistwidgetsignals.md#itemchanged)
 * [itemClicked](qlistwidgetsignals.md#itemclicked)
@@ -26,11 +31,48 @@ sidebar_label: "QListWidgetSignals"
 * [itemPressed](qlistwidgetsignals.md#itempressed)
 * [itemSelectionChanged](qlistwidgetsignals.md#itemselectionchanged)
 * [objectNameChanged](qlistwidgetsignals.md#objectnamechanged)
+* [pressed](qlistwidgetsignals.md#pressed)
 * [viewportEntered](qlistwidgetsignals.md#viewportentered)
 * [windowIconChanged](qlistwidgetsignals.md#windowiconchanged)
 * [windowTitleChanged](qlistwidgetsignals.md#windowtitlechanged)
 
 ## Properties
+
+###  activated
+
+• **activated**: *function*
+
+*Inherited from [QAbstractItemViewSignals](qabstractitemviewsignals.md).[activated](qabstractitemviewsignals.md#activated)*
+
+#### Type declaration:
+
+▸ (`index`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | [NativeElement](../globals.md#nativeelement) |
+
+___
+
+###  clicked
+
+• **clicked**: *function*
+
+*Inherited from [QAbstractItemViewSignals](qabstractitemviewsignals.md).[clicked](qabstractitemviewsignals.md#clicked)*
+
+#### Type declaration:
+
+▸ (`index`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | [NativeElement](../globals.md#nativeelement) |
+
+___
 
 ###  currentItemChanged
 
@@ -99,6 +141,60 @@ Name | Type |
 ------ | ------ |
 `x` | number |
 `y` | number |
+
+___
+
+###  doubleClicked
+
+• **doubleClicked**: *function*
+
+*Inherited from [QAbstractItemViewSignals](qabstractitemviewsignals.md).[doubleClicked](qabstractitemviewsignals.md#doubleclicked)*
+
+#### Type declaration:
+
+▸ (`index`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | [NativeElement](../globals.md#nativeelement) |
+
+___
+
+###  entered
+
+• **entered**: *function*
+
+*Inherited from [QAbstractItemViewSignals](qabstractitemviewsignals.md).[entered](qabstractitemviewsignals.md#entered)*
+
+#### Type declaration:
+
+▸ (`index`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | [NativeElement](../globals.md#nativeelement) |
+
+___
+
+###  iconSizeChanged
+
+• **iconSizeChanged**: *function*
+
+*Inherited from [QAbstractItemViewSignals](qabstractitemviewsignals.md).[iconSizeChanged](qabstractitemviewsignals.md#iconsizechanged)*
+
+#### Type declaration:
+
+▸ (`size`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`size` | [NativeElement](../globals.md#nativeelement) |
 
 ___
 
@@ -223,6 +319,24 @@ ___
 Name | Type |
 ------ | ------ |
 `objectName` | string |
+
+___
+
+###  pressed
+
+• **pressed**: *function*
+
+*Inherited from [QAbstractItemViewSignals](qabstractitemviewsignals.md).[pressed](qabstractitemviewsignals.md#pressed)*
+
+#### Type declaration:
+
+▸ (`index`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | [NativeElement](../globals.md#nativeelement) |
 
 ___
 

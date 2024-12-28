@@ -12,17 +12,57 @@ sidebar_label: "QAbstractItemViewSignals"
 
   ↳ [QListWidgetSignals](qlistwidgetsignals.md)
 
+  ↳ [QTableWidgetSignals](qtablewidgetsignals.md)
+
 ## Index
 
 ### Properties
 
+* [activated](qabstractitemviewsignals.md#activated)
+* [clicked](qabstractitemviewsignals.md#clicked)
 * [customContextMenuRequested](qabstractitemviewsignals.md#customcontextmenurequested)
+* [doubleClicked](qabstractitemviewsignals.md#doubleclicked)
+* [entered](qabstractitemviewsignals.md#entered)
+* [iconSizeChanged](qabstractitemviewsignals.md#iconsizechanged)
 * [objectNameChanged](qabstractitemviewsignals.md#objectnamechanged)
+* [pressed](qabstractitemviewsignals.md#pressed)
 * [viewportEntered](qabstractitemviewsignals.md#viewportentered)
 * [windowIconChanged](qabstractitemviewsignals.md#windowiconchanged)
 * [windowTitleChanged](qabstractitemviewsignals.md#windowtitlechanged)
 
 ## Properties
+
+###  activated
+
+• **activated**: *function*
+
+#### Type declaration:
+
+▸ (`index`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | [NativeElement](../globals.md#nativeelement) |
+
+___
+
+###  clicked
+
+• **clicked**: *function*
+
+#### Type declaration:
+
+▸ (`index`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | [NativeElement](../globals.md#nativeelement) |
+
+___
 
 ###  customContextMenuRequested
 
@@ -45,6 +85,54 @@ Name | Type |
 
 ___
 
+###  doubleClicked
+
+• **doubleClicked**: *function*
+
+#### Type declaration:
+
+▸ (`index`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | [NativeElement](../globals.md#nativeelement) |
+
+___
+
+###  entered
+
+• **entered**: *function*
+
+#### Type declaration:
+
+▸ (`index`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | [NativeElement](../globals.md#nativeelement) |
+
+___
+
+###  iconSizeChanged
+
+• **iconSizeChanged**: *function*
+
+#### Type declaration:
+
+▸ (`size`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`size` | [NativeElement](../globals.md#nativeelement) |
+
+___
+
 ###  objectNameChanged
 
 • **objectNameChanged**: *function*
@@ -60,6 +148,22 @@ ___
 Name | Type |
 ------ | ------ |
 `objectName` | string |
+
+___
+
+###  pressed
+
+• **pressed**: *function*
+
+#### Type declaration:
+
+▸ (`index`: [NativeElement](../globals.md#nativeelement)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | [NativeElement](../globals.md#nativeelement) |
 
 ___
 

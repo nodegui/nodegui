@@ -31,15 +31,12 @@ const brush = new QBrush();
 ### Properties
 
 * [native](qbrush.md#native)
-* [nodeChildren](qbrush.md#nodechildren)
-* [nodeParent](qbrush.md#optional-nodeparent)
 
 ### Methods
 
 * [color](qbrush.md#color)
 * [isOpaque](qbrush.md#isopaque)
 * [setColor](qbrush.md#setcolor)
-* [setNodeParent](qbrush.md#setnodeparent)
 * [setStyle](qbrush.md#setstyle)
 * [setTexture](qbrush.md#settexture)
 * [style](qbrush.md#style)
@@ -50,47 +47,16 @@ const brush = new QBrush();
 
 ###  constructor
 
-\+ **new QBrush**(): *[QBrush](qbrush.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Returns:** *[QBrush](qbrush.md)*
-
-\+ **new QBrush**(`nativeElement`: [NativeElement](../globals.md#nativeelement)): *[QBrush](qbrush.md)*
+\+ **new QBrush**(`nativeOrGlobalColor?`: [NativeElement](../globals.md#nativeelement) | [GlobalColor](../enums/globalcolor.md) | [QColor](qcolor.md), `style`: [BrushStyle](../enums/brushstyle.md)): *[QBrush](qbrush.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`nativeElement` | [NativeElement](../globals.md#nativeelement) |
-
-**Returns:** *[QBrush](qbrush.md)*
-
-\+ **new QBrush**(`color`: [GlobalColor](../enums/globalcolor.md), `style`: [BrushStyle](../enums/brushstyle.md)): *[QBrush](qbrush.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`color` | [GlobalColor](../enums/globalcolor.md) |
-`style` | [BrushStyle](../enums/brushstyle.md) |
-
-**Returns:** *[QBrush](qbrush.md)*
-
-\+ **new QBrush**(`color`: [QColor](qcolor.md), `style`: [BrushStyle](../enums/brushstyle.md)): *[QBrush](qbrush.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`color` | [QColor](qcolor.md) |
-`style` | [BrushStyle](../enums/brushstyle.md) |
+Name | Type | Default |
+------ | ------ | ------ |
+`nativeOrGlobalColor?` | [NativeElement](../globals.md#nativeelement) &#124; [GlobalColor](../enums/globalcolor.md) &#124; [QColor](qcolor.md) | - |
+`style` | [BrushStyle](../enums/brushstyle.md) | BrushStyle.SolidPattern |
 
 **Returns:** *[QBrush](qbrush.md)*
 
@@ -98,25 +64,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -145,22 +95,6 @@ ___
 Name | Type |
 ------ | ------ |
 `color` | [QColor](qcolor.md) &#124; [GlobalColor](../enums/globalcolor.md) |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

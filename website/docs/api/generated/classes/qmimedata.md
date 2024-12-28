@@ -21,12 +21,11 @@ description
 ### Properties
 
 * [native](qmimedata.md#native)
-* [nodeChildren](qmimedata.md#nodechildren)
-* [nodeParent](qmimedata.md#optional-nodeparent)
 
 ### Methods
 
 * [clear](qmimedata.md#clear)
+* [data](qmimedata.md#data)
 * [hasColor](qmimedata.md#hascolor)
 * [hasHtml](qmimedata.md#hashtml)
 * [hasImage](qmimedata.md#hasimage)
@@ -34,8 +33,8 @@ description
 * [hasUrls](qmimedata.md#hasurls)
 * [html](qmimedata.md#html)
 * [removeFormat](qmimedata.md#removeformat)
+* [setData](qmimedata.md#setdata)
 * [setHtml](qmimedata.md#sethtml)
-* [setNodeParent](qmimedata.md#setnodeparent)
 * [setText](qmimedata.md#settext)
 * [setUrls](qmimedata.md#seturls)
 * [text](qmimedata.md#text)
@@ -61,25 +60,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -90,6 +73,14 @@ ___
 Removes all the MIME type and data entries in the object.
 
 **Returns:** *void*
+
+___
+
+###  data
+
+▸ **data**(): *Buffer | null*
+
+**Returns:** *Buffer | null*
 
 ___
 
@@ -169,6 +160,21 @@ Name | Type |
 
 ___
 
+###  setData
+
+▸ **setData**(`mimeType`: string, `data`: Buffer): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`mimeType` | string |
+`data` | Buffer |
+
+**Returns:** *void*
+
+___
+
 ###  setHtml
 
 ▸ **setHtml**(`html`: string): *void*
@@ -180,22 +186,6 @@ Sets html as the HTML (MIME type text/html) used to represent the data.
 Name | Type |
 ------ | ------ |
 `html` | string |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

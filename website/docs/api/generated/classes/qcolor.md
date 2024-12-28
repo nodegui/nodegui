@@ -19,8 +19,6 @@ sidebar_label: "QColor"
 ### Properties
 
 * [native](qcolor.md#native)
-* [nodeChildren](qcolor.md#nodechildren)
-* [nodeParent](qcolor.md#optional-nodeparent)
 
 ### Methods
 
@@ -28,12 +26,21 @@ sidebar_label: "QColor"
 * [blue](qcolor.md#blue)
 * [green](qcolor.md#green)
 * [red](qcolor.md#red)
+* [rgb](qcolor.md#rgb)
+* [rgba](qcolor.md#rgba)
 * [setAlpha](qcolor.md#setalpha)
 * [setBlue](qcolor.md#setblue)
 * [setGreen](qcolor.md#setgreen)
-* [setNodeParent](qcolor.md#setnodeparent)
 * [setRed](qcolor.md#setred)
+* [fromCmyk](qcolor.md#static-fromcmyk)
+* [fromCmykF](qcolor.md#static-fromcmykf)
+* [fromHsl](qcolor.md#static-fromhsl)
+* [fromHslF](qcolor.md#static-fromhslf)
+* [fromHsv](qcolor.md#static-fromhsv)
+* [fromHsvF](qcolor.md#static-fromhsvf)
 * [fromQVariant](qcolor.md#static-fromqvariant)
+* [fromRgb](qcolor.md#static-fromrgb)
+* [fromRgbF](qcolor.md#static-fromrgbf)
 
 ## Constructors
 
@@ -81,7 +88,7 @@ Name | Type |
 
 **Returns:** *[QColor](qcolor.md)*
 
-\+ **new QColor**(`r?`: undefined | number, `g?`: undefined | number, `b?`: undefined | number, `a?`: undefined | number): *[QColor](qcolor.md)*
+\+ **new QColor**(`r?`: number, `g?`: number, `b?`: number, `a?`: number): *[QColor](qcolor.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -89,10 +96,10 @@ Name | Type |
 
 Name | Type |
 ------ | ------ |
-`r?` | undefined &#124; number |
-`g?` | undefined &#124; number |
-`b?` | undefined &#124; number |
-`a?` | undefined &#124; number |
+`r?` | number |
+`g?` | number |
+`b?` | number |
+`a?` | number |
 
 **Returns:** *[QColor](qcolor.md)*
 
@@ -100,25 +107,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -149,6 +140,26 @@ ___
 ###  red
 
 ▸ **red**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  rgb
+
+▸ **rgb**(): *number*
+
+Returns the color as a number in ARGB32 format.
+
+**Returns:** *number*
+
+___
+
+###  rgba
+
+▸ **rgba**(): *number*
+
+Returns the color as a number in ARGB32 format.
 
 **Returns:** *number*
 
@@ -196,22 +207,6 @@ Name | Type |
 
 ___
 
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
-
-___
-
 ###  setRed
 
 ▸ **setRed**(`value`: number): *void*
@@ -226,6 +221,110 @@ Name | Type |
 
 ___
 
+### `Static` fromCmyk
+
+▸ **fromCmyk**(`c`: number, `m`: number, `y`: number, `k`: number, `a`: number): *[QColor](qcolor.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`c` | number | - |
+`m` | number | - |
+`y` | number | - |
+`k` | number | - |
+`a` | number | 255 |
+
+**Returns:** *[QColor](qcolor.md)*
+
+___
+
+### `Static` fromCmykF
+
+▸ **fromCmykF**(`c`: number, `m`: number, `y`: number, `k`: number, `a`: number): *[QColor](qcolor.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`c` | number | - |
+`m` | number | - |
+`y` | number | - |
+`k` | number | - |
+`a` | number | 1 |
+
+**Returns:** *[QColor](qcolor.md)*
+
+___
+
+### `Static` fromHsl
+
+▸ **fromHsl**(`h`: number, `s`: number, `l`: number, `a`: number): *[QColor](qcolor.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`h` | number | - |
+`s` | number | - |
+`l` | number | - |
+`a` | number | 255 |
+
+**Returns:** *[QColor](qcolor.md)*
+
+___
+
+### `Static` fromHslF
+
+▸ **fromHslF**(`h`: number, `s`: number, `l`: number, `a`: number): *[QColor](qcolor.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`h` | number | - |
+`s` | number | - |
+`l` | number | - |
+`a` | number | 1 |
+
+**Returns:** *[QColor](qcolor.md)*
+
+___
+
+### `Static` fromHsv
+
+▸ **fromHsv**(`h`: number, `s`: number, `v`: number, `a`: number): *[QColor](qcolor.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`h` | number | - |
+`s` | number | - |
+`v` | number | - |
+`a` | number | 255 |
+
+**Returns:** *[QColor](qcolor.md)*
+
+___
+
+### `Static` fromHsvF
+
+▸ **fromHsvF**(`h`: number, `s`: number, `v`: number, `a`: number): *[QColor](qcolor.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`h` | number | - |
+`s` | number | - |
+`v` | number | - |
+`a` | number | 1 |
+
+**Returns:** *[QColor](qcolor.md)*
+
+___
+
 ### `Static` fromQVariant
 
 ▸ **fromQVariant**(`variant`: [QVariant](qvariant.md)): *[QColor](qcolor.md)*
@@ -235,5 +334,39 @@ ___
 Name | Type |
 ------ | ------ |
 `variant` | [QVariant](qvariant.md) |
+
+**Returns:** *[QColor](qcolor.md)*
+
+___
+
+### `Static` fromRgb
+
+▸ **fromRgb**(`r`: number, `g`: number, `b`: number, `a`: number): *[QColor](qcolor.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`r` | number | - |
+`g` | number | - |
+`b` | number | - |
+`a` | number | 255 |
+
+**Returns:** *[QColor](qcolor.md)*
+
+___
+
+### `Static` fromRgbF
+
+▸ **fromRgbF**(`r`: number, `g`: number, `b`: number, `a`: number): *[QColor](qcolor.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`r` | number | - |
+`g` | number | - |
+`b` | number | - |
+`a` | number | 1 |
 
 **Returns:** *[QColor](qcolor.md)*

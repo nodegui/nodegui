@@ -21,8 +21,6 @@ description
 ### Properties
 
 * [native](qrectf.md#native)
-* [nodeChildren](qrectf.md#nodechildren)
-* [nodeParent](qrectf.md#optional-nodeparent)
 
 ### Methods
 
@@ -58,7 +56,6 @@ description
 * [setCoords](qrectf.md#setcoords)
 * [setHeight](qrectf.md#setheight)
 * [setLeft](qrectf.md#setleft)
-* [setNodeParent](qrectf.md#setnodeparent)
 * [setRect](qrectf.md#setrect)
 * [setRight](qrectf.md#setright)
 * [setTop](qrectf.md#settop)
@@ -84,36 +81,18 @@ description
 
 ###  constructor
 
-\+ **new QRectF**(): *[QRectF](qrectf.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Returns:** *[QRectF](qrectf.md)*
-
-\+ **new QRectF**(`nativeElement`: [NativeElement](../globals.md#nativeelement)): *[QRectF](qrectf.md)*
+\+ **new QRectF**(`nativeOrX?`: [NativeElement](../globals.md#nativeelement) | number, `y`: number, `width`: number, `height`: number): *[QRectF](qrectf.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`nativeElement` | [NativeElement](../globals.md#nativeelement) |
-
-**Returns:** *[QRectF](qrectf.md)*
-
-\+ **new QRectF**(`x?`: undefined | number, `y?`: undefined | number, `width?`: undefined | number, `height?`: undefined | number): *[QRectF](qrectf.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`x?` | undefined &#124; number |
-`y?` | undefined &#124; number |
-`width?` | undefined &#124; number |
-`height?` | undefined &#124; number |
+Name | Type | Default |
+------ | ------ | ------ |
+`nativeOrX?` | [NativeElement](../globals.md#nativeelement) &#124; number | - |
+`y` | number | 0 |
+`width` | number | 0 |
+`height` | number | 0 |
 
 **Returns:** *[QRectF](qrectf.md)*
 
@@ -121,25 +100,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -595,22 +558,6 @@ Sets the left edge of the rectangle to the given x coordinate. May change the wi
 Name | Type |
 ------ | ------ |
 `x` | number |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

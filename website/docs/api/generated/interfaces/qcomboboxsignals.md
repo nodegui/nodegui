@@ -14,15 +14,35 @@ sidebar_label: "QComboBoxSignals"
 
 ### Properties
 
+* [activated](qcomboboxsignals.md#activated)
 * [currentIndexChanged](qcomboboxsignals.md#currentindexchanged)
 * [currentTextChanged](qcomboboxsignals.md#currenttextchanged)
 * [customContextMenuRequested](qcomboboxsignals.md#customcontextmenurequested)
 * [editTextChanged](qcomboboxsignals.md#edittextchanged)
+* [highlighted](qcomboboxsignals.md#highlighted)
 * [objectNameChanged](qcomboboxsignals.md#objectnamechanged)
+* [textActivated](qcomboboxsignals.md#textactivated)
+* [textHighlighted](qcomboboxsignals.md#texthighlighted)
 * [windowIconChanged](qcomboboxsignals.md#windowiconchanged)
 * [windowTitleChanged](qcomboboxsignals.md#windowtitlechanged)
 
 ## Properties
+
+###  activated
+
+• **activated**: *function*
+
+#### Type declaration:
+
+▸ (`index`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+___
 
 ###  currentIndexChanged
 
@@ -93,6 +113,22 @@ Name | Type |
 
 ___
 
+###  highlighted
+
+• **highlighted**: *function*
+
+#### Type declaration:
+
+▸ (`index`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`index` | number |
+
+___
+
 ###  objectNameChanged
 
 • **objectNameChanged**: *function*
@@ -108,6 +144,38 @@ ___
 Name | Type |
 ------ | ------ |
 `objectName` | string |
+
+___
+
+###  textActivated
+
+• **textActivated**: *function*
+
+#### Type declaration:
+
+▸ (`text`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+
+___
+
+###  textHighlighted
+
+• **textHighlighted**: *function*
+
+#### Type declaration:
+
+▸ (`text`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
 
 ___
 

@@ -15,10 +15,10 @@ sidebar_label: "ScrollMode"
 
 ###  ScrollPerItem
 
-• **ScrollPerItem**:
+• **ScrollPerItem**: = 0
 
 ___
 
 ###  ScrollPerPixel
 
-• **ScrollPerPixel**:
+• **ScrollPerPixel**: = 1

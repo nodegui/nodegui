@@ -56,8 +56,6 @@ win.show();
 
 * [items](qtreewidgetitem.md#items)
 * [native](qtreewidgetitem.md#native)
-* [nodeChildren](qtreewidgetitem.md#nodechildren)
-* [nodeParent](qtreewidgetitem.md#optional-nodeparent)
 
 ### Methods
 
@@ -75,7 +73,6 @@ win.show();
 * [setFlags](qtreewidgetitem.md#setflags)
 * [setHidden](qtreewidgetitem.md#sethidden)
 * [setIcon](qtreewidgetitem.md#seticon)
-* [setNodeParent](qtreewidgetitem.md#setnodeparent)
 * [setSelected](qtreewidgetitem.md#setselected)
 * [setText](qtreewidgetitem.md#settext)
 * [text](qtreewidgetitem.md#text)
@@ -150,25 +147,9 @@ ___
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -362,22 +343,6 @@ Name | Type | Description |
 ------ | ------ | ------ |
 `column` | number | - |
 `icon` | [QIcon](qicon.md) | The icon object  |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

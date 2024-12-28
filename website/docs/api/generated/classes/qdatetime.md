@@ -19,8 +19,6 @@ sidebar_label: "QDateTime"
 ### Properties
 
 * [native](qdatetime.md#native)
-* [nodeChildren](qdatetime.md#nodechildren)
-* [nodeParent](qdatetime.md#optional-nodeparent)
 
 ### Methods
 
@@ -39,7 +37,6 @@ sidebar_label: "QDateTime"
 * [secsTo](qdatetime.md#secsto)
 * [setDate](qdatetime.md#setdate)
 * [setMSecsSinceEpoch](qdatetime.md#setmsecssinceepoch)
-* [setNodeParent](qdatetime.md#setnodeparent)
 * [setOffsetFromUtc](qdatetime.md#setoffsetfromutc)
 * [setSecsSinceEpoch](qdatetime.md#setsecssinceepoch)
 * [setTime](qdatetime.md#settime)
@@ -81,25 +78,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -278,22 +259,6 @@ ___
 Name | Type |
 ------ | ------ |
 `msecs` | number |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

@@ -19,27 +19,27 @@ sidebar_label: "QSize"
 ### Properties
 
 * [native](qsize.md#native)
-* [nodeChildren](qsize.md#nodechildren)
-* [nodeParent](qsize.md#optional-nodeparent)
 
 ### Methods
 
+* [boundedTo](qsize.md#boundedto)
+* [expandedTo](qsize.md#expandedto)
 * [height](qsize.md#height)
+* [isEmpty](qsize.md#isempty)
+* [isNull](qsize.md#isnull)
+* [isValid](qsize.md#isvalid)
+* [scale](qsize.md#scale)
+* [scaled](qsize.md#scaled)
 * [setHeight](qsize.md#setheight)
-* [setNodeParent](qsize.md#setnodeparent)
 * [setWidth](qsize.md#setwidth)
+* [transpose](qsize.md#transpose)
+* [transposed](qsize.md#transposed)
 * [width](qsize.md#width)
 * [fromQVariant](qsize.md#static-fromqvariant)
 
 ## Constructors
 
 ###  constructor
-
-\+ **new QSize**(): *[QSize](qsize.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Returns:** *[QSize](qsize.md)*
 
 \+ **new QSize**(`nativeElement`: [NativeElement](../globals.md#nativeelement)): *[QSize](qsize.md)*
 
@@ -53,7 +53,7 @@ Name | Type |
 
 **Returns:** *[QSize](qsize.md)*
 
-\+ **new QSize**(`width?`: undefined | number, `height?`: undefined | number): *[QSize](qsize.md)*
+\+ **new QSize**(`width?`: number, `height?`: number): *[QSize](qsize.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -61,8 +61,8 @@ Name | Type |
 
 Name | Type |
 ------ | ------ |
-`width?` | undefined &#124; number |
-`height?` | undefined &#124; number |
+`width?` | number |
+`height?` | number |
 
 **Returns:** *[QSize](qsize.md)*
 
@@ -70,33 +70,101 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
+
+###  boundedTo
+
+▸ **boundedTo**(`otherSize`: [QSize](qsize.md)): *[QSize](qsize.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`otherSize` | [QSize](qsize.md) |
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  expandedTo
+
+▸ **expandedTo**(`otherSize`: [QSize](qsize.md)): *[QSize](qsize.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`otherSize` | [QSize](qsize.md) |
+
+**Returns:** *[QSize](qsize.md)*
+
+___
 
 ###  height
 
 ▸ **height**(): *number*
 
 **Returns:** *number*
+
+___
+
+###  isEmpty
+
+▸ **isEmpty**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  isNull
+
+▸ **isNull**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  isValid
+
+▸ **isValid**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  scale
+
+▸ **scale**(`width`: number, `height`: number, `mode`: [AspectRatioMode](../enums/aspectratiomode.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`width` | number |
+`height` | number |
+`mode` | [AspectRatioMode](../enums/aspectratiomode.md) |
+
+**Returns:** *void*
+
+___
+
+###  scaled
+
+▸ **scaled**(`width`: number, `height`: number, `mode`: [AspectRatioMode](../enums/aspectratiomode.md)): *[QSize](qsize.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`width` | number |
+`height` | number |
+`mode` | [AspectRatioMode](../enums/aspectratiomode.md) |
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -114,22 +182,6 @@ Name | Type |
 
 ___
 
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
-
-___
-
 ###  setWidth
 
 ▸ **setWidth**(`width`: number): *void*
@@ -141,6 +193,22 @@ Name | Type |
 `width` | number |
 
 **Returns:** *void*
+
+___
+
+###  transpose
+
+▸ **transpose**(): *void*
+
+**Returns:** *void*
+
+___
+
+###  transposed
+
+▸ **transposed**(): *[QSize](qsize.md)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 

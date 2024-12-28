@@ -6,7 +6,7 @@ sidebar_label: "QWheelEvent"
 
 ## Hierarchy
 
-* [QEvent](qevent.md)
+  ↳ [QInputEvent](qinputevent.md)
 
   ↳ **QWheelEvent**
 
@@ -29,11 +29,13 @@ sidebar_label: "QWheelEvent"
 * [ignore](qwheelevent.md#ignore)
 * [inverted](qwheelevent.md#inverted)
 * [isAccepted](qwheelevent.md#isaccepted)
+* [modifiers](qwheelevent.md#modifiers)
 * [phase](qwheelevent.md#phase)
 * [pixelDelta](qwheelevent.md#pixeldelta)
 * [position](qwheelevent.md#position)
 * [setAccepted](qwheelevent.md#setaccepted)
 * [spontaneous](qwheelevent.md#spontaneous)
+* [timestamp](qwheelevent.md#timestamp)
 * [type](qwheelevent.md#type)
 
 ## Constructors
@@ -174,6 +176,16 @@ ___
 
 ___
 
+###  modifiers
+
+▸ **modifiers**(): *[KeyboardModifier](../enums/keyboardmodifier.md)*
+
+*Inherited from [QInputEvent](qinputevent.md).[modifiers](qinputevent.md#modifiers)*
+
+**Returns:** *[KeyboardModifier](../enums/keyboardmodifier.md)*
+
+___
+
 ###  phase
 
 ▸ **phase**(): *[ScrollPhase](../enums/scrollphase.md)*
@@ -246,6 +258,16 @@ Returns true if the event originated outside the application (a system event); o
 The return value of this function is not defined for paint events.
 
 **Returns:** *boolean*
+
+___
+
+###  timestamp
+
+▸ **timestamp**(): *number*
+
+*Inherited from [QInputEvent](qinputevent.md).[timestamp](qinputevent.md#timestamp)*
+
+**Returns:** *number*
 
 ___
 

@@ -29,7 +29,10 @@ sidebar_label: "Globals"
 * [ChecksumType](enums/checksumtype.md)
 * [ClipOperation](enums/clipoperation.md)
 * [ColorDialogOption](enums/colordialogoption.md)
+* [ColorGroup](enums/colorgroup.md)
+* [ColorRole](enums/colorrole.md)
 * [ComponentFormattingOption](enums/componentformattingoption.md)
+* [CompositionMode](enums/compositionmode.md)
 * [ConnectionType](enums/connectiontype.md)
 * [ContextMenuPolicy](enums/contextmenupolicy.md)
 * [CoordinateSystem](enums/coordinatesystem.md)
@@ -97,10 +100,12 @@ sidebar_label: "Globals"
 * [PenCapStyle](enums/pencapstyle.md)
 * [PenStyle](enums/penstyle.md)
 * [PointerType](enums/pointertype.md)
+* [QAbstractItemViewSelectionBehavior](enums/qabstractitemviewselectionbehavior.md)
 * [QClipboardMode](enums/qclipboardmode.md)
 * [QFontCapitalization](enums/qfontcapitalization.md)
 * [QFontStretch](enums/qfontstretch.md)
 * [QFontWeight](enums/qfontweight.md)
+* [QHeaderViewResizeMode](enums/qheaderviewresizemode.md)
 * [QIconMode](enums/qiconmode.md)
 * [QIconState](enums/qiconstate.md)
 * [QImageFormat](enums/qimageformat.md)
@@ -109,6 +114,8 @@ sidebar_label: "Globals"
 * [QProgressBarDirection](enums/qprogressbardirection.md)
 * [QSettingsFormat](enums/qsettingsformat.md)
 * [QSettingsScope](enums/qsettingsscope.md)
+* [QSizePolicyPolicy](enums/qsizepolicypolicy.md)
+* [QSizePolicyPolicyFlag](enums/qsizepolicypolicyflag.md)
 * [QStylePixelMetric](enums/qstylepixelmetric.md)
 * [QSystemTrayIconActivationReason](enums/qsystemtrayiconactivationreason.md)
 * [QTextEditLineWrapMode](enums/qtexteditlinewrapmode.md)
@@ -122,6 +129,7 @@ sidebar_label: "Globals"
 * [ScrollPhase](enums/scrollphase.md)
 * [SegmentStyle](enums/segmentstyle.md)
 * [SelectionBehavior](enums/selectionbehavior.md)
+* [SelectionFlag](enums/selectionflag.md)
 * [SelectionMode](enums/selectionmode.md)
 * [SequenceFormat](enums/sequenceformat.md)
 * [SequenceMatch](enums/sequencematch.md)
@@ -134,6 +142,7 @@ sidebar_label: "Globals"
 * [SizeMode](enums/sizemode.md)
 * [SliderAction](enums/slideraction.md)
 * [SortOrder](enums/sortorder.md)
+* [StackingMode](enums/stackingmode.md)
 * [StepType](enums/steptype.md)
 * [SystemFont](enums/systemfont.md)
 * [TabBarShape](enums/tabbarshape.md)
@@ -158,6 +167,7 @@ sidebar_label: "Globals"
 * [UserInputResolutionOption](enums/userinputresolutionoption.md)
 * [VerticalHeaderFormat](enums/verticalheaderformat.md)
 * [ViewMode](enums/viewmode.md)
+* [Visibility](enums/visibility.md)
 * [WhiteSpaceMode](enums/whitespacemode.md)
 * [WidgetAttribute](enums/widgetattribute.md)
 * [WidgetEventTypes](enums/widgeteventtypes.md)
@@ -170,23 +180,20 @@ sidebar_label: "Globals"
 
 ### Classes
 
+* [CacheTestQObject](classes/cachetestqobject.md)
 * [Component](classes/component.md)
 * [EventWidget](classes/eventwidget.md)
 * [FlexLayout](classes/flexlayout.md)
-* [NodeDateTimeEdit](classes/nodedatetimeedit.md)
-* [NodeDialog](classes/nodedialog.md)
-* [NodeFrame](classes/nodeframe.md)
-* [NodeLayout](classes/nodelayout.md)
-* [NodeListView](classes/nodelistview.md)
-* [NodeObject](classes/nodeobject.md)
-* [NodeTableView](classes/nodetableview.md)
-* [NodeTextEdit](classes/nodetextedit.md)
-* [NodeWidget](classes/nodewidget.md)
+* [MyApp](classes/myapp.md)
+* [MyModel](classes/mymodel.md)
 * [QAbstractButton](classes/qabstractbutton.md)
+* [QAbstractItemDelegate](classes/qabstractitemdelegate.md)
+* [QAbstractItemModel](classes/qabstractitemmodel.md)
 * [QAbstractItemView](classes/qabstractitemview.md)
 * [QAbstractScrollArea](classes/qabstractscrollarea.md)
 * [QAbstractSlider](classes/qabstractslider.md)
 * [QAbstractSpinBox](classes/qabstractspinbox.md)
+* [QAbstractTableModel](classes/qabstracttablemodel.md)
 * [QAction](classes/qaction.md)
 * [QApplication](classes/qapplication.md)
 * [QBoxLayout](classes/qboxlayout.md)
@@ -203,11 +210,11 @@ sidebar_label: "Globals"
 * [QDateEdit](classes/qdateedit.md)
 * [QDateTime](classes/qdatetime.md)
 * [QDateTimeEdit](classes/qdatetimeedit.md)
-* [QDesktopWidget](classes/qdesktopwidget.md)
 * [QDial](classes/qdial.md)
 * [QDialog](classes/qdialog.md)
 * [QDoubleSpinBox](classes/qdoublespinbox.md)
 * [QDrag](classes/qdrag.md)
+* [QDragEnterEvent](classes/qdragenterevent.md)
 * [QDragLeaveEvent](classes/qdragleaveevent.md)
 * [QDragMoveEvent](classes/qdragmoveevent.md)
 * [QDropEvent](classes/qdropevent.md)
@@ -218,19 +225,26 @@ sidebar_label: "Globals"
 * [QFontDatabase](classes/qfontdatabase.md)
 * [QFontDialog](classes/qfontdialog.md)
 * [QFontMetrics](classes/qfontmetrics.md)
+* [QFontMetricsF](classes/qfontmetricsf.md)
 * [QFrame](classes/qframe.md)
 * [QGraphicsBlurEffect](classes/qgraphicsblureffect.md)
 * [QGraphicsDropShadowEffect](classes/qgraphicsdropshadoweffect.md)
 * [QGraphicsEffect](classes/qgraphicseffect.md)
 * [QGridLayout](classes/qgridlayout.md)
 * [QGroupBox](classes/qgroupbox.md)
+* [QHeaderView](classes/qheaderview.md)
 * [QIcon](classes/qicon.md)
 * [QImage](classes/qimage.md)
 * [QInputDialog](classes/qinputdialog.md)
+* [QInputEvent](classes/qinputevent.md)
+* [QInputMethodEvent](classes/qinputmethodevent.md)
+* [QInputMethodQueryEvent](classes/qinputmethodqueryevent.md)
+* [QItemSelectionModel](classes/qitemselectionmodel.md)
 * [QKeyEvent](classes/qkeyevent.md)
 * [QKeySequence](classes/qkeysequence.md)
 * [QLCDNumber](classes/qlcdnumber.md)
 * [QLabel](classes/qlabel.md)
+* [QLayout](classes/qlayout.md)
 * [QLineEdit](classes/qlineedit.md)
 * [QListView](classes/qlistview.md)
 * [QListWidget](classes/qlistwidget.md)
@@ -242,12 +256,14 @@ sidebar_label: "Globals"
 * [QMimeData](classes/qmimedata.md)
 * [QModelIndex](classes/qmodelindex.md)
 * [QMouseEvent](classes/qmouseevent.md)
+* [QMoveEvent](classes/qmoveevent.md)
 * [QMovie](classes/qmovie.md)
 * [QNativeGestureEvent](classes/qnativegestureevent.md)
 * [QObject](classes/qobject.md)
 * [QPaintEvent](classes/qpaintevent.md)
 * [QPainter](classes/qpainter.md)
 * [QPainterPath](classes/qpainterpath.md)
+* [QPalette](classes/qpalette.md)
 * [QPen](classes/qpen.md)
 * [QPicture](classes/qpicture.md)
 * [QPixmap](classes/qpixmap.md)
@@ -260,18 +276,24 @@ sidebar_label: "Globals"
 * [QRadioButton](classes/qradiobutton.md)
 * [QRect](classes/qrect.md)
 * [QRectF](classes/qrectf.md)
+* [QResizeEvent](classes/qresizeevent.md)
+* [QScreen](classes/qscreen.md)
 * [QScrollArea](classes/qscrollarea.md)
 * [QScrollBar](classes/qscrollbar.md)
 * [QSettings](classes/qsettings.md)
 * [QShortcut](classes/qshortcut.md)
 * [QSize](classes/qsize.md)
+* [QSizeF](classes/qsizef.md)
 * [QSlider](classes/qslider.md)
 * [QSpinBox](classes/qspinbox.md)
+* [QSplitter](classes/qsplitter.md)
+* [QStackedLayout](classes/qstackedlayout.md)
 * [QStackedWidget](classes/qstackedwidget.md)
 * [QStandardItem](classes/qstandarditem.md)
 * [QStandardItemModel](classes/qstandarditemmodel.md)
 * [QStatusBar](classes/qstatusbar.md)
 * [QStyle](classes/qstyle.md)
+* [QStyleFactory](classes/qstylefactory.md)
 * [QSvgWidget](classes/qsvgwidget.md)
 * [QSystemTrayIcon](classes/qsystemtrayicon.md)
 * [QTabBar](classes/qtabbar.md)
@@ -284,6 +306,7 @@ sidebar_label: "Globals"
 * [QTextEdit](classes/qtextedit.md)
 * [QTime](classes/qtime.md)
 * [QTimeEdit](classes/qtimeedit.md)
+* [QTimerEvent](classes/qtimerevent.md)
 * [QToolButton](classes/qtoolbutton.md)
 * [QTreeWidget](classes/qtreewidget.md)
 * [QTreeWidgetItem](classes/qtreewidgetitem.md)
@@ -291,11 +314,14 @@ sidebar_label: "Globals"
 * [QVariant](classes/qvariant.md)
 * [QWheelEvent](classes/qwheelevent.md)
 * [QWidget](classes/qwidget.md)
+* [QWindow](classes/qwindow.md)
 * [StyleSheet](classes/stylesheet.md)
+* [WrapperCache](classes/wrappercache.md)
 * [YogaWidget](classes/yogawidget.md)
 
 ### Interfaces
 
+* [EventListenerOptions](interfaces/eventlisteneroptions.md)
 * [Margins](interfaces/margins.md)
 * [QAbstractButtonSignals](interfaces/qabstractbuttonsignals.md)
 * [QAbstractItemViewSignals](interfaces/qabstractitemviewsignals.md)
@@ -306,6 +332,7 @@ sidebar_label: "Globals"
 * [QButtonGroupSignals](interfaces/qbuttongroupsignals.md)
 * [QCalendarWidgetSignals](interfaces/qcalendarwidgetsignals.md)
 * [QCheckBoxSignals](interfaces/qcheckboxsignals.md)
+* [QClipboardSignals](interfaces/qclipboardsignals.md)
 * [QColorDialogSignals](interfaces/qcolordialogsignals.md)
 * [QComboBoxSignals](interfaces/qcomboboxsignals.md)
 * [QDateTimeEditSignals](interfaces/qdatetimeeditsignals.md)
@@ -322,6 +349,7 @@ sidebar_label: "Globals"
 * [QLabelSignals](interfaces/qlabelsignals.md)
 * [QLineEditSignals](interfaces/qlineeditsignals.md)
 * [QListWidgetSignals](interfaces/qlistwidgetsignals.md)
+* [QMenuBarSignals](interfaces/qmenubarsignals.md)
 * [QMenuSignals](interfaces/qmenusignals.md)
 * [QMessageBoxSignals](interfaces/qmessageboxsignals.md)
 * [QMovieSignals](interfaces/qmoviesignals.md)
@@ -329,8 +357,11 @@ sidebar_label: "Globals"
 * [QPlainTextEditSignals](interfaces/qplaintexteditsignals.md)
 * [QProgressBarSignals](interfaces/qprogressbarsignals.md)
 * [QProgressDialogSignals](interfaces/qprogressdialogsignals.md)
+* [QScreenSignals](interfaces/qscreensignals.md)
 * [QShortcutSignals](interfaces/qshortcutsignals.md)
 * [QSpinBoxSignals](interfaces/qspinboxsignals.md)
+* [QSplitterSignals](interfaces/qsplittersignals.md)
+* [QStackedLayoutSignals](interfaces/qstackedlayoutsignals.md)
 * [QStackedWidgetSignals](interfaces/qstackedwidgetsignals.md)
 * [QStandardItemModelSignals](interfaces/qstandarditemmodelsignals.md)
 * [QStatusBarSignals](interfaces/qstatusbarsignals.md)
@@ -343,6 +374,7 @@ sidebar_label: "Globals"
 * [QToolButtonSignals](interfaces/qtoolbuttonsignals.md)
 * [QTreeWidgetSignals](interfaces/qtreewidgetsignals.md)
 * [QWidgetSignals](interfaces/qwidgetsignals.md)
+* [QWindowSignals](interfaces/qwindowsignals.md)
 * [Range](interfaces/range.md)
 
 ### Type aliases
@@ -350,19 +382,21 @@ sidebar_label: "Globals"
 * [FlexLayoutSignals](globals.md#flexlayoutsignals)
 * [FlexNode](globals.md#flexnode)
 * [ImageFormats](globals.md#imageformats)
+* [JsWrapFunction](globals.md#jswrapfunction)
 * [NativeElement](globals.md#nativeelement)
 * [NativeRawPointer](globals.md#nativerawpointer)
+* [QAbstractItemSignals](globals.md#qabstractitemsignals)
 * [QAbstractScrollAreaSignals](globals.md#qabstractscrollareasignals)
 * [QBoxLayoutSignals](globals.md#qboxlayoutsignals)
-* [QDesktopWidgetSignals](globals.md#qdesktopwidgetsignals)
 * [QDialSignals](globals.md#qdialsignals)
 * [QErrorMessageSignals](globals.md#qerrormessagesignals)
 * [QFrameSignals](globals.md#qframesignals)
 * [QGridLayoutSignals](globals.md#qgridlayoutsignals)
+* [QHeaderViewSignals](globals.md#qheaderviewsignals)
+* [QItemSelectionModelSignals](globals.md#qitemselectionmodelsignals)
 * [QLayoutSignals](globals.md#qlayoutsignals)
 * [QListViewSignals](globals.md#qlistviewsignals)
 * [QMainWindowSignals](globals.md#qmainwindowsignals)
-* [QMenuBarSignals](globals.md#qmenubarsignals)
 * [QPushButtonSignals](globals.md#qpushbuttonsignals)
 * [QRadioButtonSignals](globals.md#qradiobuttonsignals)
 * [QScrollAreaSignals](globals.md#qscrollareasignals)
@@ -374,23 +408,36 @@ sidebar_label: "Globals"
 
 ### Variables
 
+* [COLS](globals.md#const-cols)
+* [ROWS](globals.md#const-rows)
 * [addon](globals.md#const-addon)
-* [outer](globals.md#const-outer)
-* [scrollArea](globals.md#const-scrollarea)
-* [sview](globals.md#const-sview)
+* [centralWidget](globals.md#const-centralwidget)
+* [combobox](globals.md#const-combobox)
+* [currentIndexLabel](globals.md#const-currentindexlabel)
+* [log](globals.md#const-log)
+* [rootLayout](globals.md#const-rootlayout)
+* [stackedLayout](globals.md#const-stackedlayout)
 * [testImagePath](globals.md#const-testimagepath)
-* [textView](globals.md#const-textview)
-* [win](globals.md#const-win)
+* [win](globals.md#let-win)
+* [wrapperCache](globals.md#const-wrappercache)
 
 ### Functions
 
 * [addDefaultErrorHandler](globals.md#adddefaulterrorhandler)
 * [checkIfNapiExternal](globals.md#checkifnapiexternal)
 * [checkIfNativeElement](globals.md#checkifnativeelement)
+* [createPage](globals.md#const-createpage)
 * [createTreeWidget](globals.md#createtreewidget)
+* [delay](globals.md#delay)
+* [handleButtonClick](globals.md#handlebuttonclick)
 * [main](globals.md#main)
+* [nativeObjectFromVariantType](globals.md#nativeobjectfromvarianttype)
 * [noop](globals.md#noop)
 * [prepareInlineStyleSheet](globals.md#prepareinlinestylesheet)
+* [registerNativeWrapFunction](globals.md#registernativewrapfunction)
+* [setLogCreateQObject](globals.md#setlogcreateqobject)
+* [setLogDestroyQObject](globals.md#setlogdestroyqobject)
+* [wrapNative](globals.md#wrapnative)
 * [wrapWithActivateUvLoop](globals.md#wrapwithactivateuvloop)
 
 ## Type aliases
@@ -413,6 +460,22 @@ ___
 
 ___
 
+###  JsWrapFunction
+
+Ƭ **JsWrapFunction**: *function*
+
+#### Type declaration:
+
+▸ (`element`: any): *any*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`element` | any |
+
+___
+
 ###  NativeElement
 
 Ƭ **NativeElement**: *object*
@@ -431,6 +494,12 @@ ___
 
 ___
 
+###  QAbstractItemSignals
+
+Ƭ **QAbstractItemSignals**: *[QObjectSignals](interfaces/qobjectsignals.md)*
+
+___
+
 ###  QAbstractScrollAreaSignals
 
 Ƭ **QAbstractScrollAreaSignals**: *[QFrameSignals](globals.md#qframesignals)*
@@ -440,31 +509,6 @@ ___
 ###  QBoxLayoutSignals
 
 Ƭ **QBoxLayoutSignals**: *[QLayoutSignals](globals.md#qlayoutsignals)*
-
-___
-
-###  QDesktopWidgetSignals
-
-Ƭ **QDesktopWidgetSignals**: *[QWidgetSignals](interfaces/qwidgetsignals.md)*
-
-> QDesktopWidget is a class that provides access to screen information on multi-head systems..
-
-**This class is a JS wrapper around Qt's [QDesktopWidget Class](https://doc.qt.io/qt-5/qdesktopwidget.html)**
-
-The QDesktopWidget class provides information about the user's desktop, such as its total size, number of screens, the geometry of each screen, and whether they are configured as separate desktops or a single virtual desktop.
-
-### Example
-
-```js
-const { QDesktopWidget } = require("@nodegui/nodegui");
-
-const desktop = new QDesktopWidget();
-const availableGeometry = desktop.availableGeometry();
-const screenGeometry = desktop.screenGeometry();
-console.log(availableGeometry.width() + 'x' + availableGeometry.height());
-console.log(screenGeometry.width() + 'x' + screenGeometry.height());
-console.log(desktop.screenNumber());
-```
 
 ___
 
@@ -492,6 +536,18 @@ ___
 
 ___
 
+###  QHeaderViewSignals
+
+Ƭ **QHeaderViewSignals**: *[QAbstractItemViewSignals](interfaces/qabstractitemviewsignals.md)*
+
+___
+
+###  QItemSelectionModelSignals
+
+Ƭ **QItemSelectionModelSignals**: *[QObjectSignals](interfaces/qobjectsignals.md)*
+
+___
+
 ###  QLayoutSignals
 
 Ƭ **QLayoutSignals**: *[QObjectSignals](interfaces/qobjectsignals.md)*
@@ -507,12 +563,6 @@ ___
 ###  QMainWindowSignals
 
 Ƭ **QMainWindowSignals**: *[QWidgetSignals](interfaces/qwidgetsignals.md)*
-
-___
-
-###  QMenuBarSignals
-
-Ƭ **QMenuBarSignals**: *[QWidgetSignals](interfaces/qwidgetsignals.md)*
 
 ___
 
@@ -554,7 +604,7 @@ ___
 
 ###  QVariantType
 
-Ƭ **QVariantType**: *[NativeElement](globals.md#nativeelement) | string | number | boolean*
+Ƭ **QVariantType**: *[NativeElement](globals.md#nativeelement) | string | string[] | number | boolean | [QRect](classes/qrect.md)*
 
 ___
 
@@ -564,27 +614,57 @@ ___
 
 ## Variables
 
+### `Const` COLS
+
+• **COLS**: *3* = 3
+
+___
+
+### `Const` ROWS
+
+• **ROWS**: *2* = 2
+
+___
+
 ### `Const` addon
 
 • **addon**: *any* = require('../../../build/Release/nodegui_core.node')
 
 ___
 
-### `Const` outer
+### `Const` centralWidget
 
-• **outer**: *[QWidget](classes/qwidget.md)‹›* = new QWidget()
-
-___
-
-### `Const` scrollArea
-
-• **scrollArea**: *[QScrollArea](classes/qscrollarea.md)‹›* = new QScrollArea()
+• **centralWidget**: *[QWidget](classes/qwidget.md)‹[QWidgetSignals](interfaces/qwidgetsignals.md)›* = new QWidget()
 
 ___
 
-### `Const` sview
+### `Const` combobox
 
-• **sview**: *[QWidget](classes/qwidget.md)‹›* = new QWidget()
+• **combobox**: *[QComboBox](classes/qcombobox.md)‹›* = new QComboBox()
+
+___
+
+### `Const` currentIndexLabel
+
+• **currentIndexLabel**: *[QLabel](classes/qlabel.md)‹›* = new QLabel()
+
+___
+
+### `Const` log
+
+• **log**: *log* = console.log.bind(console)
+
+___
+
+### `Const` rootLayout
+
+• **rootLayout**: *[QBoxLayout](classes/qboxlayout.md)‹›* = new QBoxLayout(Direction.TopToBottom)
+
+___
+
+### `Const` stackedLayout
+
+• **stackedLayout**: *[QStackedLayout](classes/qstackedlayout.md)‹›* = new QStackedLayout()
 
 ___
 
@@ -594,15 +674,15 @@ ___
 
 ___
 
-### `Const` textView
+### `Let` win
 
-• **textView**: *[QLabel](classes/qlabel.md)‹›* = new QLabel()
+• **win**: *[QMainWindow](classes/qmainwindow.md)* = null
 
 ___
 
-### `Const` win
+### `Const` wrapperCache
 
-• **win**: *[QMainWindow](classes/qmainwindow.md)‹›* = new QMainWindow()
+• **wrapperCache**: *[WrapperCache](classes/wrappercache.md)‹›* = new WrapperCache()
 
 ## Functions
 
@@ -637,7 +717,7 @@ ___
 
 ###  checkIfNativeElement
 
-▸ **checkIfNativeElement**(`arg`: any): *boolean*
+▸ **checkIfNativeElement**(`arg`: any): *arg is NativeElement*
 
 **Parameters:**
 
@@ -645,7 +725,21 @@ Name | Type |
 ------ | ------ |
 `arg` | any |
 
-**Returns:** *boolean*
+**Returns:** *arg is NativeElement*
+
+___
+
+### `Const` createPage
+
+▸ **createPage**(`text`: string): *[QWidget](classes/qwidget.md)‹[QWidgetSignals](interfaces/qwidgetsignals.md)›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+
+**Returns:** *[QWidget](classes/qwidget.md)‹[QWidgetSignals](interfaces/qwidgetsignals.md)›*
 
 ___
 
@@ -657,11 +751,50 @@ ___
 
 ___
 
+###  delay
+
+▸ **delay**(`ms`: number): *Promise‹void›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`ms` | number |
+
+**Returns:** *Promise‹void›*
+
+___
+
+###  handleButtonClick
+
+▸ **handleButtonClick**(): *void*
+
+**Returns:** *void*
+
+___
+
 ###  main
 
 ▸ **main**(): *void*
 
 **Returns:** *void*
+
+___
+
+###  nativeObjectFromVariantType
+
+▸ **nativeObjectFromVariantType**(`obj`: [QVariantType](globals.md#qvarianttype)): *any*
+
+Get the correct native object which should be passed down to the
+C++ wrapper from a QVariantType object.
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`obj` | [QVariantType](globals.md#qvarianttype) |
+
+**Returns:** *any*
 
 ___
 
@@ -675,7 +808,7 @@ ___
 
 ###  prepareInlineStyleSheet
 
-▸ **prepareInlineStyleSheet**‹**Signals**›(`widget`: [NodeWidget](classes/nodewidget.md)‹Signals›, `rawStyle`: string): *string*
+▸ **prepareInlineStyleSheet**‹**Signals**›(`widget`: [QWidget](classes/qwidget.md)‹Signals›, `rawStyle`: string): *string*
 
 **Type parameters:**
 
@@ -685,10 +818,78 @@ ___
 
 Name | Type |
 ------ | ------ |
-`widget` | [NodeWidget](classes/nodewidget.md)‹Signals› |
+`widget` | [QWidget](classes/qwidget.md)‹Signals› |
 `rawStyle` | string |
 
 **Returns:** *string*
+
+___
+
+###  registerNativeWrapFunction
+
+▸ **registerNativeWrapFunction**(`wrapperTypeName`: string, `jsWrapFunction`: [JsWrapFunction](globals.md#jswrapfunction)): *void*
+
+Register a function to wrap a specific Node API wrapper objects with a JS object.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`wrapperTypeName` | string | the C++ wrapper type name the wrap function applies to. |
+`jsWrapFunction` | [JsWrapFunction](globals.md#jswrapfunction) | function to wrap a native wrapper to a JS wrapper object.  |
+
+**Returns:** *void*
+
+___
+
+###  setLogCreateQObject
+
+▸ **setLogCreateQObject**(`on`: boolean): *void*
+
+Turn on/off logging when QObjects are created.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`on` | boolean | When true, logging is written to console when QObjects are           created by NodeGui.  |
+
+**Returns:** *void*
+
+___
+
+###  setLogDestroyQObject
+
+▸ **setLogDestroyQObject**(`on`: boolean): *void*
+
+Turn on/off logging when QObjects are destoryed.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`on` | boolean | When true, logging is written to console when QObjects are           destroyed.  |
+
+**Returns:** *void*
+
+___
+
+###  wrapNative
+
+▸ **wrapNative**(`native`: any): *any*
+
+Try to wrap a native Node object with its JS wrapper.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`native` | any | the native object to wrap |
+
+**Returns:** *any*
+
+the JS object wrapping the native object or the native object if
+        it couldn't be wrapped or doesn't need to be wrapped.
 
 ___
 

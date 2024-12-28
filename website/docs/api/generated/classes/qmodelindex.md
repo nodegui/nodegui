@@ -19,8 +19,6 @@ sidebar_label: "QModelIndex"
 ### Properties
 
 * [native](qmodelindex.md#native)
-* [nodeChildren](qmodelindex.md#nodechildren)
-* [nodeParent](qmodelindex.md#optional-nodeparent)
 
 ### Methods
 
@@ -30,7 +28,6 @@ sidebar_label: "QModelIndex"
 * [isValid](qmodelindex.md#isvalid)
 * [parent](qmodelindex.md#parent)
 * [row](qmodelindex.md#row)
-* [setNodeParent](qmodelindex.md#setnodeparent)
 * [sibling](qmodelindex.md#sibling)
 * [siblingAtColumn](qmodelindex.md#siblingatcolumn)
 * [siblingAtRow](qmodelindex.md#siblingatrow)
@@ -40,13 +37,7 @@ sidebar_label: "QModelIndex"
 
 ###  constructor
 
-\+ **new QModelIndex**(): *[QModelIndex](qmodelindex.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Returns:** *[QModelIndex](qmodelindex.md)*
-
-\+ **new QModelIndex**(`nativeElement`: [NativeElement](../globals.md#nativeelement)): *[QModelIndex](qmodelindex.md)*
+\+ **new QModelIndex**(`arg?`: [NativeElement](../globals.md#nativeelement)): *[QModelIndex](qmodelindex.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -54,7 +45,7 @@ sidebar_label: "QModelIndex"
 
 Name | Type |
 ------ | ------ |
-`nativeElement` | [NativeElement](../globals.md#nativeelement) |
+`arg?` | [NativeElement](../globals.md#nativeelement) |
 
 **Returns:** *[QModelIndex](qmodelindex.md)*
 
@@ -62,25 +53,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -135,22 +110,6 @@ ___
 ▸ **row**(): *number*
 
 **Returns:** *number*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
 
 ___
 

@@ -31,15 +31,12 @@ const pen = new QPen();
 ### Properties
 
 * [native](qpen.md#native)
-* [nodeChildren](qpen.md#nodechildren)
-* [nodeParent](qpen.md#optional-nodeparent)
 
 ### Methods
 
 * [color](qpen.md#color)
 * [setCapStyle](qpen.md#setcapstyle)
 * [setColor](qpen.md#setcolor)
-* [setNodeParent](qpen.md#setnodeparent)
 * [setStyle](qpen.md#setstyle)
 * [setWidth](qpen.md#setwidth)
 * [style](qpen.md#style)
@@ -58,25 +55,9 @@ const pen = new QPen();
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -111,22 +92,6 @@ ___
 Name | Type |
 ------ | ------ |
 `color` | [QColor](qcolor.md) &#124; [GlobalColor](../enums/globalcolor.md) |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

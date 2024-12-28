@@ -24,7 +24,7 @@ menu.addAction(menuAction);
 
 ## Hierarchy
 
-  ↳ [NodeObject](nodeobject.md)‹[QActionSignals](../interfaces/qactionsignals.md)›
+  ↳ [QObject](qobject.md)‹[QActionSignals](../interfaces/qactionsignals.md)›
 
   ↳ **QAction**
 
@@ -36,38 +36,45 @@ menu.addAction(menuAction);
 
 ### Properties
 
-* [icon](qaction.md#optional-icon)
-* [menu](qaction.md#optional-menu)
 * [native](qaction.md#native)
-* [nodeChildren](qaction.md#nodechildren)
-* [nodeParent](qaction.md#optional-nodeparent)
 
 ### Methods
 
+* [_id](qaction.md#_id)
 * [addEventListener](qaction.md#addeventlistener)
+* [children](qaction.md#children)
 * [data](qaction.md#data)
+* [delete](qaction.md#delete)
+* [deleteLater](qaction.md#deletelater)
+* [dumpObjectInfo](qaction.md#dumpobjectinfo)
+* [dumpObjectTree](qaction.md#dumpobjecttree)
+* [eventProcessed](qaction.md#eventprocessed)
 * [font](qaction.md#font)
 * [inherits](qaction.md#inherits)
 * [isCheckable](qaction.md#ischeckable)
 * [isChecked](qaction.md#ischecked)
 * [isSeparator](qaction.md#isseparator)
+* [killTimer](qaction.md#killtimer)
 * [objectName](qaction.md#objectname)
+* [parent](qaction.md#parent)
 * [property](qaction.md#property)
 * [removeEventListener](qaction.md#removeeventlistener)
 * [setCheckable](qaction.md#setcheckable)
 * [setChecked](qaction.md#setchecked)
 * [setData](qaction.md#setdata)
 * [setEnabled](qaction.md#setenabled)
+* [setEventProcessed](qaction.md#seteventprocessed)
 * [setFont](qaction.md#setfont)
 * [setIcon](qaction.md#seticon)
 * [setMenu](qaction.md#setmenu)
-* [setNodeParent](qaction.md#setnodeparent)
 * [setObjectName](qaction.md#setobjectname)
+* [setParent](qaction.md#setparent)
 * [setProperty](qaction.md#setproperty)
 * [setSeparator](qaction.md#setseparator)
 * [setShortcut](qaction.md#setshortcut)
 * [setShortcutContext](qaction.md#setshortcutcontext)
 * [setText](qaction.md#settext)
+* [startTimer](qaction.md#starttimer)
 
 ## Constructors
 
@@ -75,13 +82,13 @@ menu.addAction(menuAction);
 
 \+ **new QAction**(): *[QAction](qaction.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [QObject](qobject.md).[constructor](qobject.md#constructor)*
 
 **Returns:** *[QAction](qaction.md)*
 
 \+ **new QAction**(`native`: [NativeElement](../globals.md#nativeelement)): *[QAction](qaction.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [QObject](qobject.md).[constructor](qobject.md#constructor)*
 
 **Parameters:**
 
@@ -91,59 +98,49 @@ Name | Type |
 
 **Returns:** *[QAction](qaction.md)*
 
-\+ **new QAction**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QAction](qaction.md)*
+\+ **new QAction**(`parent`: [QObject](qobject.md)): *[QAction](qaction.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [QObject](qobject.md).[constructor](qobject.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`parent` | [NodeWidget](nodewidget.md)‹any› |
+`parent` | [QObject](qobject.md) |
 
 **Returns:** *[QAction](qaction.md)*
 
 ## Properties
 
-### `Optional` icon
-
-• **icon**? : *[QIcon](qicon.md)*
-
-___
-
-### `Optional` menu
-
-• **menu**? : *[QMenu](qmenu.md)*
-
-___
-
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
+###  _id
+
+▸ **_id**(): *number*
+
+*Inherited from [QObject](qobject.md).[_id](qobject.md#_id)*
+
+Get an ID identifying the underlying C++ object.
+
+This can be useful when debugging memory problems with help from
+`setLogCreateQObject()` and `setLogDestroyQObject()`. The number is
+hash of the memory address of the C++ object.
+
+**Returns:** *number*
+
+a unique number which is valid for the lifetime of the C++ object.
+
+___
+
 ###  addEventListener
 
-▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QActionSignals[SignalType]): *void*
+▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QActionSignals[SignalType], `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
@@ -157,6 +154,7 @@ Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
 `callback` | QActionSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`options?` | [EventListenerOptions](../interfaces/eventlisteneroptions.md) | Extra optional options controlling how this event listener is added. |
 
 **Returns:** *void*
 
@@ -169,7 +167,7 @@ button.addEventListener('clicked',(checked)=>console.log("clicked"));
 // here clicked is a value from QPushButtonSignals interface
 ```
 
-▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function, `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
@@ -179,12 +177,6 @@ button.addEventListener('clicked',(checked)=>console.log("clicked"));
 
 ▪ **callback**: *function*
 
-For example in the case of QPushButton:
-```js
-const button = new QPushButton();
-button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
-```
-
 ▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
@@ -193,7 +185,27 @@ Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
+▪`Optional`  **options**: *[EventListenerOptions](../interfaces/eventlisteneroptions.md)*
+
+Extra optional options controlling how this event listener is added.
+
+For example in the case of QPushButton:
+```js
+const button = new QPushButton();
+button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
+```
+
 **Returns:** *void*
+
+___
+
+###  children
+
+▸ **children**(): *[QObject](qobject.md)[]*
+
+*Inherited from [QObject](qobject.md).[children](qobject.md#children)*
+
+**Returns:** *[QObject](qobject.md)[]*
 
 ___
 
@@ -202,6 +214,62 @@ ___
 ▸ **data**(): *[QVariant](qvariant.md)*
 
 **Returns:** *[QVariant](qvariant.md)*
+
+___
+
+###  delete
+
+▸ **delete**(): *void*
+
+*Inherited from [QObject](qobject.md).[delete](qobject.md#delete)*
+
+**Returns:** *void*
+
+___
+
+###  deleteLater
+
+▸ **deleteLater**(): *void*
+
+*Inherited from [QObject](qobject.md).[deleteLater](qobject.md#deletelater)*
+
+**Returns:** *void*
+
+___
+
+###  dumpObjectInfo
+
+▸ **dumpObjectInfo**(): *void*
+
+*Inherited from [QObject](qobject.md).[dumpObjectInfo](qobject.md#dumpobjectinfo)*
+
+**Returns:** *void*
+
+___
+
+###  dumpObjectTree
+
+▸ **dumpObjectTree**(): *void*
+
+*Inherited from [QObject](qobject.md).[dumpObjectTree](qobject.md#dumpobjecttree)*
+
+**Returns:** *void*
+
+___
+
+###  eventProcessed
+
+▸ **eventProcessed**(): *boolean*
+
+*Inherited from [EventWidget](eventwidget.md).[eventProcessed](eventwidget.md#eventprocessed)*
+
+Get the state of the event processed flag
+
+See `setEventProcessed()`.
+
+**Returns:** *boolean*
+
+boolean True if the current event is flagged as processed.
 
 ___
 
@@ -217,7 +285,7 @@ ___
 
 ▸ **inherits**(`className`: string): *boolean*
 
-*Inherited from [NodeObject](nodeobject.md).[inherits](nodeobject.md#inherits)*
+*Inherited from [QObject](qobject.md).[inherits](qobject.md#inherits)*
 
 **Parameters:**
 
@@ -253,13 +321,39 @@ ___
 
 ___
 
+###  killTimer
+
+▸ **killTimer**(`timerId`: number): *void*
+
+*Inherited from [QObject](qobject.md).[killTimer](qobject.md#killtimer)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`timerId` | number |
+
+**Returns:** *void*
+
+___
+
 ###  objectName
 
 ▸ **objectName**(): *string*
 
-*Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
+*Inherited from [QObject](qobject.md).[objectName](qobject.md#objectname)*
 
 **Returns:** *string*
+
+___
+
+###  parent
+
+▸ **parent**(): *[QObject](qobject.md)*
+
+*Inherited from [QObject](qobject.md).[parent](qobject.md#parent)*
+
+**Returns:** *[QObject](qobject.md)*
 
 ___
 
@@ -267,7 +361,7 @@ ___
 
 ▸ **property**(`name`: string): *[QVariant](qvariant.md)*
 
-*Inherited from [NodeObject](nodeobject.md).[property](nodeobject.md#property)*
+*Inherited from [QObject](qobject.md).[property](qobject.md#property)*
 
 **Parameters:**
 
@@ -281,7 +375,7 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QActionSignals[SignalType]): *void*
+▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QActionSignals[SignalType], `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
@@ -295,10 +389,11 @@ Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
 `callback` | QActionSignals[SignalType] |
+`options?` | [EventListenerOptions](../interfaces/eventlisteneroptions.md) |
 
 **Returns:** *void*
 
-▸ **removeEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+▸ **removeEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function, `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
@@ -315,6 +410,8 @@ Name | Type |
 Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
+
+▪`Optional`  **options**: *[EventListenerOptions](../interfaces/eventlisteneroptions.md)*
 
 **Returns:** *void*
 
@@ -376,6 +473,33 @@ Name | Type |
 
 ___
 
+###  setEventProcessed
+
+▸ **setEventProcessed**(`isProcessed`: boolean): *void*
+
+*Inherited from [EventWidget](eventwidget.md).[setEventProcessed](eventwidget.md#seteventprocessed)*
+
+Mark the current event as having been processed
+
+This method is used to indicate that the currently dispatched event
+has been processed and no further processing by superclasses is
+required. It only makes sense to call this method from an event
+handler.
+
+When set, this flag will cause NodeGui's `QObject::event()` method to
+return true and not call the superclass `event()`, effectively preventing
+any further processing on this event.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`isProcessed` | boolean | true if the event has been processed.  |
+
+**Returns:** *void*
+
+___
+
 ###  setFont
 
 ▸ **setFont**(`font`: [QFont](qfont.md)): *void*
@@ -418,27 +542,11 @@ Name | Type |
 
 ___
 
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
-
-___
-
 ###  setObjectName
 
 ▸ **setObjectName**(`objectName`: string): *void*
 
-*Inherited from [NodeObject](nodeobject.md).[setObjectName](nodeobject.md#setobjectname)*
+*Inherited from [QObject](qobject.md).[setObjectName](qobject.md#setobjectname)*
 
 **Parameters:**
 
@@ -450,11 +558,27 @@ Name | Type |
 
 ___
 
+###  setParent
+
+▸ **setParent**(`parent`: [QObject](qobject.md)): *void*
+
+*Inherited from [QObject](qobject.md).[setParent](qobject.md#setparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`parent` | [QObject](qobject.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setProperty
 
 ▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
 
-*Inherited from [NodeObject](nodeobject.md).[setProperty](nodeobject.md#setproperty)*
+*Inherited from [QObject](qobject.md).[setProperty](qobject.md#setproperty)*
 
 **Parameters:**
 
@@ -520,3 +644,20 @@ Name | Type |
 `text` | string |
 
 **Returns:** *void*
+
+___
+
+###  startTimer
+
+▸ **startTimer**(`intervalMS`: number, `timerType`: [TimerType](../enums/timertype.md)): *number*
+
+*Inherited from [QObject](qobject.md).[startTimer](qobject.md#starttimer)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`intervalMS` | number | - |
+`timerType` | [TimerType](../enums/timertype.md) | TimerType.CoarseTimer |
+
+**Returns:** *number*

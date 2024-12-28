@@ -27,6 +27,11 @@ export function wrapWithActivateUvLoop<T extends Function>(func: T): T {
 }
 
 export type JsWrapFunction = (element: any) => any;
+
+/**
+ * Registry of functions to wrap native Node API wrapper objects with JS objects.
+ * @private
+ */
 const nativeWrapperRegistry = new Map<string, JsWrapFunction>();
 
 /**

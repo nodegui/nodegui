@@ -19,8 +19,6 @@ sidebar_label: "QStandardItem"
 ### Properties
 
 * [native](qstandarditem.md#native)
-* [nodeChildren](qstandarditem.md#nodechildren)
-* [nodeParent](qstandarditem.md#optional-nodeparent)
 
 ### Methods
 
@@ -28,7 +26,6 @@ sidebar_label: "QStandardItem"
 * [setCheckState](qstandarditem.md#setcheckstate)
 * [setData](qstandarditem.md#setdata)
 * [setFlags](qstandarditem.md#setflags)
-* [setNodeParent](qstandarditem.md#setnodeparent)
 
 ## Constructors
 
@@ -40,7 +37,7 @@ sidebar_label: "QStandardItem"
 
 **Returns:** *[QStandardItem](qstandarditem.md)*
 
-\+ **new QStandardItem**(`parent`: [QStandardItem](qstandarditem.md), `text?`: undefined | string): *[QStandardItem](qstandarditem.md)*
+\+ **new QStandardItem**(`parent`: [QStandardItem](qstandarditem.md), `text?`: string): *[QStandardItem](qstandarditem.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -49,7 +46,7 @@ sidebar_label: "QStandardItem"
 Name | Type |
 ------ | ------ |
 `parent` | [QStandardItem](qstandarditem.md) |
-`text?` | undefined &#124; string |
+`text?` | string |
 
 **Returns:** *[QStandardItem](qstandarditem.md)*
 
@@ -69,25 +66,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -137,21 +118,5 @@ ___
 Name | Type |
 ------ | ------ |
 `flags` | [ItemFlag](../enums/itemflag.md) |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*

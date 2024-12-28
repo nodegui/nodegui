@@ -19,11 +19,13 @@ Its the root base class in NodeGui world.
 
 * **Component**
 
+  ↳ [EventWidget](eventwidget.md)
+
+  ↳ [QRect](qrect.md)
+
   ↳ [QVariant](qvariant.md)
 
   ↳ [QSize](qsize.md)
-
-  ↳ [QRect](qrect.md)
 
   ↳ [QPoint](qpoint.md)
 
@@ -33,23 +35,33 @@ Its the root base class in NodeGui world.
 
   ↳ [QPixmap](qpixmap.md)
 
-  ↳ [QClipboard](qclipboard.md)
+  ↳ [QFont](qfont.md)
 
-  ↳ [QStyle](qstyle.md)
+  ↳ [QPainterPath](qpainterpath.md)
 
-  ↳ [EventWidget](eventwidget.md)
+  ↳ [QBrush](qbrush.md)
+
+  ↳ [QPen](qpen.md)
+
+  ↳ [QPointF](qpointf.md)
+
+  ↳ [QRectF](qrectf.md)
+
+  ↳ [QPainter](qpainter.md)
 
   ↳ [QIcon](qicon.md)
 
   ↳ [QCursor](qcursor.md)
 
-  ↳ [QFont](qfont.md)
-
   ↳ [QKeySequence](qkeysequence.md)
 
-  ↳ [QBrush](qbrush.md)
+  ↳ [QUrl](qurl.md)
 
-  ↳ [QPen](qpen.md)
+  ↳ [QMimeData](qmimedata.md)
+
+  ↳ [QPalette](qpalette.md)
+
+  ↳ [QSizeF](qsizef.md)
 
   ↳ [QPicture](qpicture.md)
 
@@ -57,9 +69,7 @@ Its the root base class in NodeGui world.
 
   ↳ [QFontMetrics](qfontmetrics.md)
 
-  ↳ [QUrl](qurl.md)
-
-  ↳ [QMimeData](qmimedata.md)
+  ↳ [QFontMetricsF](qfontmetricsf.md)
 
   ↳ [QDrag](qdrag.md)
 
@@ -79,15 +89,9 @@ Its the root base class in NodeGui world.
 
   ↳ [QTreeWidgetItem](qtreewidgetitem.md)
 
-  ↳ [QPainterPath](qpainterpath.md)
-
-  ↳ [QPainter](qpainter.md)
-
-  ↳ [QPointF](qpointf.md)
-
-  ↳ [QRectF](qrectf.md)
-
   ↳ [QSettings](qsettings.md)
+
+  ↳ [QStyle](qstyle.md)
 
 ## Index
 
@@ -97,50 +101,24 @@ Its the root base class in NodeGui world.
 
 ### Properties
 
-* [native](component.md#abstract-native)
-* [nodeChildren](component.md#nodechildren)
-* [nodeParent](component.md#optional-nodeparent)
-
-### Methods
-
-* [setNodeParent](component.md#setnodeparent)
+* [native](component.md#native)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new Component**(): *[Component](component.md)*
-
-**Returns:** *[Component](component.md)*
-
-## Properties
-
-### `Abstract` native
-
-• **native**: *[NativeElement](../globals.md#nativeelement)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-## Methods
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
+\+ **new Component**(`native`: [NativeElement](../globals.md#nativeelement)): *[Component](component.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`parent?` | [Component](component.md) |
+`native` | [NativeElement](../globals.md#nativeelement) |
 
-**Returns:** *void*
+**Returns:** *[Component](component.md)*
+
+## Properties
+
+###  native
+
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*

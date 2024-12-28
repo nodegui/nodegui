@@ -21,8 +21,6 @@ description
 ### Properties
 
 * [native](qdrag.md#native)
-* [nodeChildren](qdrag.md#nodechildren)
-* [nodeParent](qdrag.md#optional-nodeparent)
 
 ### Methods
 
@@ -35,7 +33,6 @@ description
 * [setDragCursor](qdrag.md#setdragcursor)
 * [setHotSpot](qdrag.md#sethotspot)
 * [setMimeData](qdrag.md#setmimedata)
-* [setNodeParent](qdrag.md#setnodeparent)
 * [setPixmap](qdrag.md#setpixmap)
 * [supportedActions](qdrag.md#supportedactions)
 * [cancel](qdrag.md#static-cancel)
@@ -60,25 +57,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -200,22 +181,6 @@ Ownership of the data is transferred to the QDrag object.
 Name | Type |
 ------ | ------ |
 `data` | [QMimeData](qmimedata.md) |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

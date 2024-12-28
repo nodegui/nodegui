@@ -18,17 +18,7 @@ sidebar_label: "QUrl"
 
 ### Properties
 
-* [ComponentFormattingOption](qurl.md#readonly-componentformattingoption)
-* [ParsingMode](qurl.md#readonly-parsingmode)
-* [UrlFormattingOption](qurl.md#readonly-urlformattingoption)
-* [UserInputResolutionOption](qurl.md#readonly-userinputresolutionoption)
 * [native](qurl.md#native)
-* [nodeChildren](qurl.md#nodechildren)
-* [nodeParent](qurl.md#optional-nodeparent)
-* [ComponentFormattingOption](qurl.md#static-readonly-componentformattingoption)
-* [ParsingMode](qurl.md#static-readonly-parsingmode)
-* [UrlFormattingOption](qurl.md#static-readonly-urlformattingoption)
-* [UserInputResolutionOption](qurl.md#static-readonly-userinputresolutionoption)
 
 ### Methods
 
@@ -56,7 +46,6 @@ sidebar_label: "QUrl"
 * [setAuthority](qurl.md#setauthority)
 * [setFragment](qurl.md#setfragment)
 * [setHost](qurl.md#sethost)
-* [setNodeParent](qurl.md#setnodeparent)
 * [setPassword](qurl.md#setpassword)
 * [setPath](qurl.md#setpath)
 * [setPort](qurl.md#setport)
@@ -98,7 +87,7 @@ Name | Type |
 
 **Returns:** *[QUrl](qurl.md)*
 
-\+ **new QUrl**(`url`: string, `parsingMode?`: [ParsingMode](qurl.md#readonly-parsingmode)): *[QUrl](qurl.md)*
+\+ **new QUrl**(`url`: string, `parsingMode?`: [ParsingMode](../enums/parsingmode.md)): *[QUrl](qurl.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -107,81 +96,17 @@ Name | Type |
 Name | Type |
 ------ | ------ |
 `url` | string |
-`parsingMode?` | [ParsingMode](qurl.md#readonly-parsingmode) |
+`parsingMode?` | [ParsingMode](../enums/parsingmode.md) |
 
 **Returns:** *[QUrl](qurl.md)*
 
 ## Properties
 
-### `Readonly` ComponentFormattingOption
-
-• **ComponentFormattingOption**: *[ComponentFormattingOption](../enums/componentformattingoption.md)* = ComponentFormattingOption
-
-___
-
-### `Readonly` ParsingMode
-
-• **ParsingMode**: *[ParsingMode](../enums/parsingmode.md)* = ParsingMode
-
-___
-
-### `Readonly` UrlFormattingOption
-
-• **UrlFormattingOption**: *[UrlFormattingOption](../enums/urlformattingoption.md)* = UrlFormattingOption
-
-___
-
-### `Readonly` UserInputResolutionOption
-
-• **UserInputResolutionOption**: *[UserInputResolutionOption](../enums/userinputresolutionoption.md)* = UserInputResolutionOption
-
-___
-
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
-
-___
-
-### `Static` `Readonly` ComponentFormattingOption
-
-▪ **ComponentFormattingOption**: *[ComponentFormattingOption](../enums/componentformattingoption.md)* = ComponentFormattingOption
-
-___
-
-### `Static` `Readonly` ParsingMode
-
-▪ **ParsingMode**: *[ParsingMode](../enums/parsingmode.md)* = ParsingMode
-
-___
-
-### `Static` `Readonly` UrlFormattingOption
-
-▪ **UrlFormattingOption**: *[UrlFormattingOption](../enums/urlformattingoption.md)* = UrlFormattingOption
-
-___
-
-### `Static` `Readonly` UserInputResolutionOption
-
-▪ **UserInputResolutionOption**: *[UserInputResolutionOption](../enums/userinputresolutionoption.md)* = UserInputResolutionOption
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -519,22 +444,6 @@ Name | Type | Default |
 
 ___
 
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
-
-___
-
 ###  setPassword
 
 ▸ **setPassword**(`password`: string, `mode`: [ParsingMode](../enums/parsingmode.md)): *void*
@@ -713,7 +622,7 @@ ___
 
 ###  toString
 
-▸ **toString**(`options?`: undefined | number): *string*
+▸ **toString**(`options?`: number): *string*
 
 Returns a string representation of the URL. The output can be customized by passing flags with options. The option QUrl::FullyDecoded is not permitted in this function since it would generate ambiguous data.
 
@@ -723,7 +632,7 @@ See QUrl::ComponentFormattingOption for flags
 
 Name | Type |
 ------ | ------ |
-`options?` | undefined &#124; number |
+`options?` | number |
 
 **Returns:** *string*
 
@@ -809,7 +718,7 @@ ___
 
 ### `Static` fromUserInput
 
-▸ **fromUserInput**(`userInput`: string, `workingDirectory?`: undefined | string, `options`: number): *[QUrl](qurl.md)*
+▸ **fromUserInput**(`userInput`: string, `workingDirectory?`: string, `options`: number): *[QUrl](qurl.md)*
 
 Returns a valid URL from a user supplied userInput string if one can be deduced. In the case that is not possible, an invalid QUrl() is returned.
 
@@ -818,7 +727,7 @@ Returns a valid URL from a user supplied userInput string if one can be deduced.
 Name | Type | Default |
 ------ | ------ | ------ |
 `userInput` | string | - |
-`workingDirectory?` | undefined &#124; string | - |
+`workingDirectory?` | string | - |
 `options` | number | UserInputResolutionOption.DefaultResolution |
 
 **Returns:** *[QUrl](qurl.md)*

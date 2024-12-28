@@ -6,7 +6,7 @@ sidebar_label: "QNativeGestureEvent"
 
 ## Hierarchy
 
-* [QEvent](qevent.md)
+  ↳ [QInputEvent](qinputevent.md)
 
   ↳ **QNativeGestureEvent**
 
@@ -28,10 +28,12 @@ sidebar_label: "QNativeGestureEvent"
 * [ignore](qnativegestureevent.md#ignore)
 * [isAccepted](qnativegestureevent.md#isaccepted)
 * [localPos](qnativegestureevent.md#localpos)
+* [modifiers](qnativegestureevent.md#modifiers)
 * [pos](qnativegestureevent.md#pos)
 * [screenPos](qnativegestureevent.md#screenpos)
 * [setAccepted](qnativegestureevent.md#setaccepted)
 * [spontaneous](qnativegestureevent.md#spontaneous)
+* [timestamp](qnativegestureevent.md#timestamp)
 * [type](qnativegestureevent.md#type)
 * [value](qnativegestureevent.md#value)
 * [windowPos](qnativegestureevent.md#windowpos)
@@ -138,6 +140,16 @@ relative to the widget or item that received the event
 
 ___
 
+###  modifiers
+
+▸ **modifiers**(): *[KeyboardModifier](../enums/keyboardmodifier.md)*
+
+*Inherited from [QInputEvent](qinputevent.md).[modifiers](qinputevent.md#modifiers)*
+
+**Returns:** *[KeyboardModifier](../enums/keyboardmodifier.md)*
+
+___
+
 ###  pos
 
 ▸ **pos**(): *object*
@@ -196,6 +208,16 @@ Returns true if the event originated outside the application (a system event); o
 The return value of this function is not defined for paint events.
 
 **Returns:** *boolean*
+
+___
+
+###  timestamp
+
+▸ **timestamp**(): *number*
+
+*Inherited from [QInputEvent](qinputevent.md).[timestamp](qinputevent.md#timestamp)*
+
+**Returns:** *number*
 
 ___
 

@@ -19,14 +19,11 @@ sidebar_label: "QTime"
 ### Properties
 
 * [native](qtime.md#native)
-* [nodeChildren](qtime.md#nodechildren)
-* [nodeParent](qtime.md#optional-nodeparent)
 
 ### Methods
 
 * [addMSecs](qtime.md#addmsecs)
 * [addSecs](qtime.md#addsecs)
-* [elapsed](qtime.md#elapsed)
 * [hour](qtime.md#hour)
 * [isNull](qtime.md#isnull)
 * [isValid](qtime.md#isvalid)
@@ -34,12 +31,9 @@ sidebar_label: "QTime"
 * [msec](qtime.md#msec)
 * [msecsSinceStartOfDay](qtime.md#msecssincestartofday)
 * [msecsTo](qtime.md#msecsto)
-* [restart](qtime.md#restart)
 * [second](qtime.md#second)
 * [secsTo](qtime.md#secsto)
 * [setHMS](qtime.md#sethms)
-* [setNodeParent](qtime.md#setnodeparent)
-* [start](qtime.md#start)
 * [toString](qtime.md#tostring)
 * [currentTime](qtime.md#static-currenttime)
 * [fromMSecsSinceStartOfDay](qtime.md#static-frommsecssincestartofday)
@@ -51,7 +45,7 @@ sidebar_label: "QTime"
 
 ###  constructor
 
-\+ **new QTime**(`arg?`: [NativeElement](../globals.md#nativeelement) | number, `m?`: undefined | number, `s`: number, `ms`: number): *[QTime](qtime.md)*
+\+ **new QTime**(`nativeOrHours?`: [NativeElement](../globals.md#nativeelement) | number, `m?`: number, `s`: number, `ms`: number): *[QTime](qtime.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -59,8 +53,8 @@ sidebar_label: "QTime"
 
 Name | Type | Default |
 ------ | ------ | ------ |
-`arg?` | [NativeElement](../globals.md#nativeelement) &#124; number | - |
-`m?` | undefined &#124; number | - |
+`nativeOrHours?` | [NativeElement](../globals.md#nativeelement) &#124; number | - |
+`m?` | number | - |
 `s` | number | 0 |
 `ms` | number | 0 |
 
@@ -70,25 +64,9 @@ Name | Type | Default |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -117,14 +95,6 @@ Name | Type |
 `s` | number |
 
 **Returns:** *[QTime](qtime.md)*
-
-___
-
-###  elapsed
-
-▸ **elapsed**(): *number*
-
-**Returns:** *number*
 
 ___
 
@@ -190,14 +160,6 @@ Name | Type |
 
 ___
 
-###  restart
-
-▸ **restart**(): *number*
-
-**Returns:** *number*
-
-___
-
 ###  second
 
 ▸ **second**(): *number*
@@ -234,30 +196,6 @@ Name | Type | Default |
 `ms` | number | 0 |
 
 **Returns:** *boolean*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
-
-___
-
-###  start
-
-▸ **start**(): *void*
-
-**Returns:** *void*
 
 ___
 

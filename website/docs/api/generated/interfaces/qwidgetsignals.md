@@ -30,8 +30,6 @@ sidebar_label: "QWidgetSignals"
 
   ↳ [QLineEditSignals](qlineeditsignals.md)
 
-  ↳ [QStatusBarSignals](qstatusbarsignals.md)
-
   ↳ [QProgressBarSignals](qprogressbarsignals.md)
 
   ↳ [QComboBoxSignals](qcomboboxsignals.md)
@@ -42,13 +40,17 @@ sidebar_label: "QWidgetSignals"
 
   ↳ [QTabWidgetSignals](qtabwidgetsignals.md)
 
-  ↳ [QTableWidgetSignals](qtablewidgetsignals.md)
+  ↳ [QMenuBarSignals](qmenubarsignals.md)
 
   ↳ [QPlainTextEditSignals](qplaintexteditsignals.md)
 
   ↳ [QTreeWidgetSignals](qtreewidgetsignals.md)
 
+  ↳ [QSplitterSignals](qsplittersignals.md)
+
   ↳ [QGroupBoxSignals](qgroupboxsignals.md)
+
+  ↳ [QStatusBarSignals](qstatusbarsignals.md)
 
   ↳ [QTextEditSignals](qtexteditsignals.md)
 

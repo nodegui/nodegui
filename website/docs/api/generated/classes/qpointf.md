@@ -25,14 +25,11 @@ In addition, the QPointF class provides a constructor converting a QPoint object
 ### Properties
 
 * [native](qpointf.md#native)
-* [nodeChildren](qpointf.md#nodechildren)
-* [nodeParent](qpointf.md#optional-nodeparent)
 
 ### Methods
 
 * [isNull](qpointf.md#isnull)
 * [manhattanLength](qpointf.md#manhattanlength)
-* [setNodeParent](qpointf.md#setnodeparent)
 * [setX](qpointf.md#setx)
 * [setY](qpointf.md#sety)
 * [toPoint](qpointf.md#topoint)
@@ -45,46 +42,16 @@ In addition, the QPointF class provides a constructor converting a QPoint object
 
 ###  constructor
 
-\+ **new QPointF**(): *[QPointF](qpointf.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Returns:** *[QPointF](qpointf.md)*
-
-\+ **new QPointF**(`nativeElement`: [NativeElement](../globals.md#nativeelement)): *[QPointF](qpointf.md)*
+\+ **new QPointF**(`nativeOrXOrQPoint?`: [NativeElement](../globals.md#nativeelement) | number | [QPoint](qpoint.md), `y`: number): *[QPointF](qpointf.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`nativeElement` | [NativeElement](../globals.md#nativeelement) |
-
-**Returns:** *[QPointF](qpointf.md)*
-
-\+ **new QPointF**(`x?`: undefined | number, `y?`: undefined | number): *[QPointF](qpointf.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`x?` | undefined &#124; number |
-`y?` | undefined &#124; number |
-
-**Returns:** *[QPointF](qpointf.md)*
-
-\+ **new QPointF**(`point`: [QPoint](qpoint.md)): *[QPointF](qpointf.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`point` | [QPoint](qpoint.md) |
+Name | Type | Default |
+------ | ------ | ------ |
+`nativeOrXOrQPoint?` | [NativeElement](../globals.md#nativeelement) &#124; number &#124; [QPoint](qpoint.md) | - |
+`y` | number | 0 |
 
 **Returns:** *[QPointF](qpointf.md)*
 
@@ -92,25 +59,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -131,22 +82,6 @@ ___
 Returns the sum of the absolute values of x() and y(), traditionally known as the "Manhattan length" of the vector from the origin to the point.
 
 **Returns:** *number*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
 
 ___
 

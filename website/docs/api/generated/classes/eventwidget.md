@@ -38,7 +38,7 @@ console.log("mouse moved");
 
   ↳ **EventWidget**
 
-  ↳ [NodeObject](nodeobject.md)
+  ↳ [QObject](qobject.md)
 
 ## Index
 
@@ -48,15 +48,14 @@ console.log("mouse moved");
 
 ### Properties
 
-* [native](eventwidget.md#abstract-native)
-* [nodeChildren](eventwidget.md#nodechildren)
-* [nodeParent](eventwidget.md#optional-nodeparent)
+* [native](eventwidget.md#native)
 
 ### Methods
 
 * [addEventListener](eventwidget.md#addeventlistener)
+* [eventProcessed](eventwidget.md#eventprocessed)
 * [removeEventListener](eventwidget.md#removeeventlistener)
-* [setNodeParent](eventwidget.md#setnodeparent)
+* [setEventProcessed](eventwidget.md#seteventprocessed)
 
 ## Constructors
 
@@ -76,33 +75,17 @@ Name | Type |
 
 ## Properties
 
-### `Abstract` native
+###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Inherited from [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
 ###  addEventListener
 
-▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: Signals[SignalType], `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 **Type parameters:**
 
@@ -114,6 +97,7 @@ Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
 `callback` | Signals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`options?` | [EventListenerOptions](../interfaces/eventlisteneroptions.md) | Extra optional options controlling how this event listener is added. |
 
 **Returns:** *void*
 
@@ -126,19 +110,13 @@ button.addEventListener('clicked',(checked)=>console.log("clicked"));
 // here clicked is a value from QPushButtonSignals interface
 ```
 
-▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function, `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 **Parameters:**
 
 ▪ **eventType**: *[WidgetEventTypes](../enums/widgeteventtypes.md)*
 
 ▪ **callback**: *function*
-
-For example in the case of QPushButton:
-```js
-const button = new QPushButton();
-button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
-```
 
 ▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
@@ -148,13 +126,37 @@ Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
+▪`Optional`  **options**: *[EventListenerOptions](../interfaces/eventlisteneroptions.md)*
+
+Extra optional options controlling how this event listener is added.
+
+For example in the case of QPushButton:
+```js
+const button = new QPushButton();
+button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
+```
+
 **Returns:** *void*
+
+___
+
+###  eventProcessed
+
+▸ **eventProcessed**(): *boolean*
+
+Get the state of the event processed flag
+
+See `setEventProcessed()`.
+
+**Returns:** *boolean*
+
+boolean True if the current event is flagged as processed.
 
 ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: Signals[SignalType]): *void*
+▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: Signals[SignalType], `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 **Type parameters:**
 
@@ -166,10 +168,11 @@ Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
 `callback` | Signals[SignalType] |
+`options?` | [EventListenerOptions](../interfaces/eventlisteneroptions.md) |
 
 **Returns:** *void*
 
-▸ **removeEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+▸ **removeEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function, `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 **Parameters:**
 
@@ -185,20 +188,31 @@ Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
+▪`Optional`  **options**: *[EventListenerOptions](../interfaces/eventlisteneroptions.md)*
+
 **Returns:** *void*
 
 ___
 
-###  setNodeParent
+###  setEventProcessed
 
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
+▸ **setEventProcessed**(`isProcessed`: boolean): *void*
 
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
+Mark the current event as having been processed
+
+This method is used to indicate that the currently dispatched event
+has been processed and no further processing by superclasses is
+required. It only makes sense to call this method from an event
+handler.
+
+When set, this flag will cause NodeGui's `QObject::event()` method to
+return true and not call the superclass `event()`, effectively preventing
+any further processing on this event.
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
+Name | Type | Description |
+------ | ------ | ------ |
+`isProcessed` | boolean | true if the event has been processed.  |
 
 **Returns:** *void*

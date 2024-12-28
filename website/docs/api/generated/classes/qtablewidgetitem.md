@@ -48,8 +48,6 @@ win.show();
 ### Properties
 
 * [native](qtablewidgetitem.md#native)
-* [nodeChildren](qtablewidgetitem.md#nodechildren)
-* [nodeParent](qtablewidgetitem.md#optional-nodeparent)
 
 ### Methods
 
@@ -70,7 +68,6 @@ win.show();
 * [setFont](qtablewidgetitem.md#setfont)
 * [setForeground](qtablewidgetitem.md#setforeground)
 * [setIcon](qtablewidgetitem.md#seticon)
-* [setNodeParent](qtablewidgetitem.md#setnodeparent)
 * [setSelected](qtablewidgetitem.md#setselected)
 * [setSizeHint](qtablewidgetitem.md#setsizehint)
 * [setStatusTip](qtablewidgetitem.md#setstatustip)
@@ -136,25 +133,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -338,22 +319,6 @@ ___
 Name | Type |
 ------ | ------ |
 `icon` | [QIcon](qicon.md) |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

@@ -12,11 +12,15 @@ sidebar_label: "QObjectSignals"
 
   ↳ [QGraphicsEffectSignals](qgraphicseffectsignals.md)
 
-  ↳ [QWidgetSignals](qwidgetsignals.md)
+  ↳ [QClipboardSignals](qclipboardsignals.md)
+
+  ↳ [QScreenSignals](qscreensignals.md)
 
   ↳ [QApplicationSignals](qapplicationsignals.md)
 
   ↳ [QMovieSignals](qmoviesignals.md)
+
+  ↳ [QWindowSignals](qwindowsignals.md)
 
   ↳ [QStandardItemModelSignals](qstandarditemmodelsignals.md)
 
@@ -25,6 +29,10 @@ sidebar_label: "QObjectSignals"
   ↳ [QSystemTrayIconSignals](qsystemtrayiconsignals.md)
 
   ↳ [QShortcutSignals](qshortcutsignals.md)
+
+  ↳ [QStackedLayoutSignals](qstackedlayoutsignals.md)
+
+  ↳ [QWidgetSignals](qwidgetsignals.md)
 
 ## Index
 

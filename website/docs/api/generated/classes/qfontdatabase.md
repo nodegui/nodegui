@@ -19,8 +19,6 @@ sidebar_label: "QFontDatabase"
 ### Properties
 
 * [native](qfontdatabase.md#native)
-* [nodeChildren](qfontdatabase.md#nodechildren)
-* [nodeParent](qfontdatabase.md#optional-nodeparent)
 
 ### Methods
 
@@ -28,10 +26,10 @@ sidebar_label: "QFontDatabase"
 * [families](qfontdatabase.md#families)
 * [isFixedPitch](qfontdatabase.md#isfixedpitch)
 * [italic](qfontdatabase.md#italic)
-* [setNodeParent](qfontdatabase.md#setnodeparent)
 * [styles](qfontdatabase.md#styles)
 * [weight](qfontdatabase.md#weight)
 * [addApplicationFont](qfontdatabase.md#static-addapplicationfont)
+* [applicationFontFamilies](qfontdatabase.md#static-applicationfontfamilies)
 * [removeApplicationFont](qfontdatabase.md#static-removeapplicationfont)
 
 ## Constructors
@@ -48,25 +46,9 @@ sidebar_label: "QFontDatabase"
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -129,22 +111,6 @@ Name | Type |
 
 ___
 
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
-
-___
-
 ###  styles
 
 ▸ **styles**(`family`: string): *string[]*
@@ -185,6 +151,20 @@ Name | Type |
 `fileName` | string |
 
 **Returns:** *number*
+
+___
+
+### `Static` applicationFontFamilies
+
+▸ **applicationFontFamilies**(`id`: number): *string[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`id` | number |
+
+**Returns:** *string[]*
 
 ___
 

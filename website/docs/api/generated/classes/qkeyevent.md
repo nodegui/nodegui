@@ -6,7 +6,7 @@ sidebar_label: "QKeyEvent"
 
 ## Hierarchy
 
-* [QEvent](qevent.md)
+  ↳ [QInputEvent](qinputevent.md)
 
   ↳ **QKeyEvent**
 
@@ -32,6 +32,7 @@ sidebar_label: "QKeyEvent"
 * [setAccepted](qkeyevent.md#setaccepted)
 * [spontaneous](qkeyevent.md#spontaneous)
 * [text](qkeyevent.md#text)
+* [timestamp](qkeyevent.md#timestamp)
 * [type](qkeyevent.md#type)
 
 ## Constructors
@@ -125,6 +126,8 @@ ___
 
 ▸ **modifiers**(): *number*
 
+*Overrides [QInputEvent](qinputevent.md).[modifiers](qinputevent.md#modifiers)*
+
 **Returns:** *number*
 
 ___
@@ -166,6 +169,16 @@ ___
 ▸ **text**(): *string*
 
 **Returns:** *string*
+
+___
+
+###  timestamp
+
+▸ **timestamp**(): *number*
+
+*Inherited from [QInputEvent](qinputevent.md).[timestamp](qinputevent.md#timestamp)*
+
+**Returns:** *number*
 
 ___
 

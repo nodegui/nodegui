@@ -8,26 +8,11 @@ sidebar_label: "SelectionBehavior"
 
 ### Enumeration members
 
-* [SelectColumns](selectionbehavior.md#selectcolumns)
-* [SelectItems](selectionbehavior.md#selectitems)
 * [SelectLeftTab](selectionbehavior.md#selectlefttab)
 * [SelectPreviousTab](selectionbehavior.md#selectprevioustab)
 * [SelectRightTab](selectionbehavior.md#selectrighttab)
-* [SelectRows](selectionbehavior.md#selectrows)
 
 ## Enumeration members
-
-###  SelectColumns
-
-• **SelectColumns**:
-
-___
-
-###  SelectItems
-
-• **SelectItems**:
-
-___
 
 ###  SelectLeftTab
 
@@ -44,9 +29,3 @@ ___
 ###  SelectRightTab
 
 • **SelectRightTab**: = 1
-
-___
-
-###  SelectRows
-
-• **SelectRows**:

@@ -21,14 +21,11 @@ The QPoint class defines a point in the plane using integer precision.
 ### Properties
 
 * [native](qpoint.md#native)
-* [nodeChildren](qpoint.md#nodechildren)
-* [nodeParent](qpoint.md#optional-nodeparent)
 
 ### Methods
 
 * [isNull](qpoint.md#isnull)
 * [manhattanLength](qpoint.md#manhattanlength)
-* [setNodeParent](qpoint.md#setnodeparent)
 * [setX](qpoint.md#setx)
 * [setY](qpoint.md#sety)
 * [transposed](qpoint.md#transposed)
@@ -58,7 +55,7 @@ Name | Type |
 
 **Returns:** *[QPoint](qpoint.md)*
 
-\+ **new QPoint**(`x?`: undefined | number, `y?`: undefined | number): *[QPoint](qpoint.md)*
+\+ **new QPoint**(`x?`: number, `y?`: number): *[QPoint](qpoint.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -66,8 +63,8 @@ Name | Type |
 
 Name | Type |
 ------ | ------ |
-`x?` | undefined &#124; number |
-`y?` | undefined &#124; number |
+`x?` | number |
+`y?` | number |
 
 **Returns:** *[QPoint](qpoint.md)*
 
@@ -75,25 +72,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -114,22 +95,6 @@ ___
 Returns the sum of the absolute values of x() and y(), traditionally known as the "Manhattan length" of the vector from the origin to the point.
 
 **Returns:** *number*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
 
 ___
 

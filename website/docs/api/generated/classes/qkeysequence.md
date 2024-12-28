@@ -31,15 +31,12 @@ const keySequence = new QKeySequence(`Ctrl+L`);
 ### Properties
 
 * [native](qkeysequence.md#native)
-* [nodeChildren](qkeysequence.md#nodechildren)
-* [nodeParent](qkeysequence.md#optional-nodeparent)
 
 ### Methods
 
 * [count](qkeysequence.md#count)
 * [isEmpty](qkeysequence.md#isempty)
 * [matches](qkeysequence.md#matches)
-* [setNodeParent](qkeysequence.md#setnodeparent)
 * [toString](qkeysequence.md#tostring)
 * [fromQVariant](qkeysequence.md#static-fromqvariant)
 
@@ -81,25 +78,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -130,22 +111,6 @@ Name | Type |
 `seq` | [QKeySequence](qkeysequence.md) |
 
 **Returns:** *[SequenceMatch](../enums/sequencematch.md)*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
 
 ___
 

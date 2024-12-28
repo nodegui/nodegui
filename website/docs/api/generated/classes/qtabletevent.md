@@ -8,7 +8,7 @@ The QTabletEvent class contains parameters that describe a Tablet event
 
 ## Hierarchy
 
-* [QEvent](qevent.md)
+  ↳ [QInputEvent](qinputevent.md)
 
   ↳ **QTabletEvent**
 
@@ -37,6 +37,7 @@ The QTabletEvent class contains parameters that describe a Tablet event
 * [globalY](qtabletevent.md#globaly)
 * [ignore](qtabletevent.md#ignore)
 * [isAccepted](qtabletevent.md#isaccepted)
+* [modifiers](qtabletevent.md#modifiers)
 * [pointerType](qtabletevent.md#pointertype)
 * [pos](qtabletevent.md#pos)
 * [posF](qtabletevent.md#posf)
@@ -45,6 +46,7 @@ The QTabletEvent class contains parameters that describe a Tablet event
 * [setAccepted](qtabletevent.md#setaccepted)
 * [spontaneous](qtabletevent.md#spontaneous)
 * [tangentialPressure](qtabletevent.md#tangentialpressure)
+* [timestamp](qtabletevent.md#timestamp)
 * [type](qtabletevent.md#type)
 * [uniqueId](qtabletevent.md#uniqueid)
 * [x](qtabletevent.md#x)
@@ -224,6 +226,16 @@ ___
 
 ___
 
+###  modifiers
+
+▸ **modifiers**(): *[KeyboardModifier](../enums/keyboardmodifier.md)*
+
+*Inherited from [QInputEvent](qinputevent.md).[modifiers](qinputevent.md#modifiers)*
+
+**Returns:** *[KeyboardModifier](../enums/keyboardmodifier.md)*
+
+___
+
 ###  pointerType
 
 ▸ **pointerType**(): *[PointerType](../enums/pointertype.md)*
@@ -335,6 +347,16 @@ This is typically given by a finger wheel on an airbrush tool.
 The range is from -1.0 to 1.0. 0.0 indicates a neutral position.
 Current airbrushes can only move in the positive direction from the neutrual position.
 If the device does not support tangential pressure, this value is always 0.0.
+
+**Returns:** *number*
+
+___
+
+###  timestamp
+
+▸ **timestamp**(): *number*
+
+*Inherited from [QInputEvent](qinputevent.md).[timestamp](qinputevent.md#timestamp)*
 
 **Returns:** *number*
 

@@ -19,20 +19,19 @@ sidebar_label: "QFont"
 ### Properties
 
 * [native](qfont.md#native)
-* [nodeChildren](qfont.md#nodechildren)
-* [nodeParent](qfont.md#optional-nodeparent)
 
 ### Methods
 
+* [bold](qfont.md#bold)
 * [capitalization](qfont.md#capitalization)
 * [family](qfont.md#family)
 * [italic](qfont.md#italic)
 * [pixelSize](qfont.md#pixelsize)
 * [pointSize](qfont.md#pointsize)
+* [setBold](qfont.md#setbold)
 * [setCapitalization](qfont.md#setcapitalization)
 * [setFamily](qfont.md#setfamily)
 * [setItalic](qfont.md#setitalic)
-* [setNodeParent](qfont.md#setnodeparent)
 * [setPixelSize](qfont.md#setpixelsize)
 * [setPointSize](qfont.md#setpointsize)
 * [setStretch](qfont.md#setstretch)
@@ -77,7 +76,7 @@ Name | Type |
 
 **Returns:** *[QFont](qfont.md)*
 
-\+ **new QFont**(`family`: string, `pointSize?`: undefined | number, `weight?`: [QFontWeight](../enums/qfontweight.md), `italic?`: undefined | false | true): *[QFont](qfont.md)*
+\+ **new QFont**(`family`: string, `pointSize?`: number, `weight?`: [QFontWeight](../enums/qfontweight.md), `italic?`: boolean): *[QFont](qfont.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -86,9 +85,9 @@ Name | Type |
 Name | Type |
 ------ | ------ |
 `family` | string |
-`pointSize?` | undefined &#124; number |
+`pointSize?` | number |
 `weight?` | [QFontWeight](../enums/qfontweight.md) |
-`italic?` | undefined &#124; false &#124; true |
+`italic?` | boolean |
 
 **Returns:** *[QFont](qfont.md)*
 
@@ -96,27 +95,19 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
+
+###  bold
+
+▸ **bold**(): *boolean*
+
+**Returns:** *boolean*
+
+___
 
 ###  capitalization
 
@@ -158,6 +149,20 @@ ___
 
 ___
 
+###  setBold
+
+▸ **setBold**(`enable`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enable` | boolean |
+
+**Returns:** *void*
+
+___
+
 ###  setCapitalization
 
 ▸ **setCapitalization**(`caps`: [QFontCapitalization](../enums/qfontcapitalization.md)): *void*
@@ -195,22 +200,6 @@ ___
 Name | Type |
 ------ | ------ |
 `enable` | boolean |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

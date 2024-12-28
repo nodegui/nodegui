@@ -34,17 +34,16 @@ const pixMap = new QPixmap(imageUrl);
 ### Properties
 
 * [native](qpixmap.md#native)
-* [nodeChildren](qpixmap.md#nodechildren)
-* [nodeParent](qpixmap.md#optional-nodeparent)
 
 ### Methods
 
+* [convertFromImage](qpixmap.md#convertfromimage)
 * [height](qpixmap.md#height)
 * [load](qpixmap.md#load)
 * [loadFromData](qpixmap.md#loadfromdata)
 * [save](qpixmap.md#save)
 * [scaled](qpixmap.md#scaled)
-* [setNodeParent](qpixmap.md#setnodeparent)
+* [setDevicePixelRatio](qpixmap.md#setdevicepixelratio)
 * [width](qpixmap.md#width)
 * [fromImage](qpixmap.md#static-fromimage)
 * [fromQVariant](qpixmap.md#static-fromqvariant)
@@ -87,27 +86,26 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
+
+###  convertFromImage
+
+▸ **convertFromImage**(`image`: [QImage](qimage.md), `flags`: [ImageConversionFlag](../enums/imageconversionflag.md)): *boolean*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`image` | [QImage](qimage.md) |
+`flags` | [ImageConversionFlag](../enums/imageconversionflag.md) |
+
+**Returns:** *boolean*
+
+___
 
 ###  height
 
@@ -178,17 +176,18 @@ Name | Type |
 
 ___
 
-###  setNodeParent
+###  setDevicePixelRatio
 
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
+▸ **setDevicePixelRatio**(`ratio`: number): *void*
 
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
+Sets the device pixel ratio for the image. This is the ratio between image pixels
+and device-independent pixels
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`parent?` | [Component](component.md) |
+`ratio` | number |
 
 **Returns:** *void*
 

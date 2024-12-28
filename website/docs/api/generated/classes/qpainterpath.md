@@ -23,8 +23,6 @@ sidebar_label: "QPainterPath"
 ### Properties
 
 * [native](qpainterpath.md#native)
-* [nodeChildren](qpainterpath.md#nodechildren)
-* [nodeParent](qpainterpath.md#optional-nodeparent)
 
 ### Methods
 
@@ -57,7 +55,6 @@ sidebar_label: "QPainterPath"
 * [reserve](qpainterpath.md#reserve)
 * [setElementPositionAt](qpainterpath.md#setelementpositionat)
 * [setFillRule](qpainterpath.md#setfillrule)
-* [setNodeParent](qpainterpath.md#setnodeparent)
 * [slopeAtPercent](qpainterpath.md#slopeatpercent)
 * [swap](qpainterpath.md#swap)
 * [translate](qpainterpath.md#translate)
@@ -76,25 +73,9 @@ sidebar_label: "QPainterPath"
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -499,22 +480,6 @@ ___
 Name | Type |
 ------ | ------ |
 `fillRule` | [FillRule](../enums/fillrule.md) |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

@@ -14,24 +14,76 @@ sidebar_label: "QButtonGroupSignals"
 
 ### Properties
 
-* [buttonClicked](qbuttongroupsignals.md#buttonclicked)
+* [idClicked](qbuttongroupsignals.md#idclicked)
+* [idPressed](qbuttongroupsignals.md#idpressed)
+* [idReleased](qbuttongroupsignals.md#idreleased)
+* [idToggled](qbuttongroupsignals.md#idtoggled)
 * [objectNameChanged](qbuttongroupsignals.md#objectnamechanged)
 
 ## Properties
 
-###  buttonClicked
+###  idClicked
 
-• **buttonClicked**: *function*
+• **idClicked**: *function*
 
 #### Type declaration:
 
-▸ (`id?`: undefined | number): *void*
+▸ (`id`: number): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`id?` | undefined &#124; number |
+`id` | number |
+
+___
+
+###  idPressed
+
+• **idPressed**: *function*
+
+#### Type declaration:
+
+▸ (`id`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`id` | number |
+
+___
+
+###  idReleased
+
+• **idReleased**: *function*
+
+#### Type declaration:
+
+▸ (`id`: number): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`id` | number |
+
+___
+
+###  idToggled
+
+• **idToggled**: *function*
+
+#### Type declaration:
+
+▸ (`id`: number, `checked`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`id` | number |
+`checked` | boolean |
 
 ___
 

@@ -19,8 +19,6 @@ sidebar_label: "QRect"
 ### Properties
 
 * [native](qrect.md#native)
-* [nodeChildren](qrect.md#nodechildren)
-* [nodeParent](qrect.md#optional-nodeparent)
 
 ### Methods
 
@@ -28,7 +26,6 @@ sidebar_label: "QRect"
 * [left](qrect.md#left)
 * [setHeight](qrect.md#setheight)
 * [setLeft](qrect.md#setleft)
-* [setNodeParent](qrect.md#setnodeparent)
 * [setTop](qrect.md#settop)
 * [setWidth](qrect.md#setwidth)
 * [top](qrect.md#top)
@@ -39,36 +36,18 @@ sidebar_label: "QRect"
 
 ###  constructor
 
-\+ **new QRect**(): *[QRect](qrect.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Returns:** *[QRect](qrect.md)*
-
-\+ **new QRect**(`nativeElement`: [NativeElement](../globals.md#nativeelement)): *[QRect](qrect.md)*
+\+ **new QRect**(`nativeOrX?`: [NativeElement](../globals.md#nativeelement) | number, `y`: number, `width`: number, `height`: number): *[QRect](qrect.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`nativeElement` | [NativeElement](../globals.md#nativeelement) |
-
-**Returns:** *[QRect](qrect.md)*
-
-\+ **new QRect**(`x?`: undefined | number, `y?`: undefined | number, `width?`: undefined | number, `height?`: undefined | number): *[QRect](qrect.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`x?` | undefined &#124; number |
-`y?` | undefined &#124; number |
-`width?` | undefined &#124; number |
-`height?` | undefined &#124; number |
+Name | Type | Default |
+------ | ------ | ------ |
+`nativeOrX?` | [NativeElement](../globals.md#nativeelement) &#124; number | - |
+`y` | number | 0 |
+`width` | number | 0 |
+`height` | number | 0 |
 
 **Returns:** *[QRect](qrect.md)*
 
@@ -76,25 +55,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -137,22 +100,6 @@ ___
 Name | Type |
 ------ | ------ |
 `height` | number |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

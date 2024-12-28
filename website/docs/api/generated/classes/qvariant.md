@@ -19,16 +19,14 @@ sidebar_label: "QVariant"
 ### Properties
 
 * [native](qvariant.md#native)
-* [nodeChildren](qvariant.md#nodechildren)
-* [nodeParent](qvariant.md#optional-nodeparent)
 
 ### Methods
 
-* [setNodeParent](qvariant.md#setnodeparent)
 * [toBool](qvariant.md#tobool)
 * [toDouble](qvariant.md#todouble)
 * [toInt](qvariant.md#toint)
 * [toString](qvariant.md#tostring)
+* [toStringList](qvariant.md#tostringlist)
 
 ## Constructors
 
@@ -68,43 +66,11 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
-
-___
 
 ###  toBool
 
@@ -135,3 +101,11 @@ ___
 ▸ **toString**(): *string*
 
 **Returns:** *string*
+
+___
+
+###  toStringList
+
+▸ **toStringList**(): *string[]*
+
+**Returns:** *string[]*

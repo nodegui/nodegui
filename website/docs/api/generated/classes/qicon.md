@@ -32,16 +32,21 @@ const icon = new QIcon(imageUrl);
 ### Properties
 
 * [native](qicon.md#native)
-* [nodeChildren](qicon.md#nodechildren)
-* [nodeParent](qicon.md#optional-nodeparent)
 
 ### Methods
 
+* [actualSize](qicon.md#actualsize)
+* [addFile](qicon.md#addfile)
+* [addPixmap](qicon.md#addpixmap)
+* [availableSizes](qicon.md#availablesizes)
 * [cacheKey](qicon.md#cachekey)
 * [isMask](qicon.md#ismask)
+* [isNull](qicon.md#isnull)
+* [name](qicon.md#name)
+* [paint](qicon.md#paint)
 * [pixmap](qicon.md#pixmap)
 * [setIsMask](qicon.md#setismask)
-* [setNodeParent](qicon.md#setnodeparent)
+* [swap](qicon.md#swap)
 * [fromQVariant](qicon.md#static-fromqvariant)
 
 ## Constructors
@@ -78,31 +83,91 @@ Name | Type |
 
 **Returns:** *[QIcon](qicon.md)*
 
+\+ **new QIcon**(`pixmap`: [QPixmap](qpixmap.md)): *[QIcon](qicon.md)*
+
+*Overrides [Component](component.md).[constructor](component.md#constructor)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`pixmap` | [QPixmap](qpixmap.md) |
+
+**Returns:** *[QIcon](qicon.md)*
+
 ## Properties
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
+
+###  actualSize
+
+▸ **actualSize**(`size`: [QSize](qsize.md), `mode`: [QIconMode](../enums/qiconmode.md), `state`: [QIconState](../enums/qiconstate.md)): *[QSize](qsize.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`size` | [QSize](qsize.md) | null |
+`mode` | [QIconMode](../enums/qiconmode.md) | QIconMode.Normal |
+`state` | [QIconState](../enums/qiconstate.md) | QIconState.Off |
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  addFile
+
+▸ **addFile**(`fileName`: string, `size`: [QSize](qsize.md), `mode`: [QIconMode](../enums/qiconmode.md), `state`: [QIconState](../enums/qiconstate.md)): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`fileName` | string | - |
+`size` | [QSize](qsize.md) | null |
+`mode` | [QIconMode](../enums/qiconmode.md) | QIconMode.Normal |
+`state` | [QIconState](../enums/qiconstate.md) | QIconState.Off |
+
+**Returns:** *void*
+
+___
+
+###  addPixmap
+
+▸ **addPixmap**(`pixmap`: [QPixmap](qpixmap.md), `mode`: [QIconMode](../enums/qiconmode.md), `state`: [QIconState](../enums/qiconstate.md)): *void*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`pixmap` | [QPixmap](qpixmap.md) | - |
+`mode` | [QIconMode](../enums/qiconmode.md) | QIconMode.Normal |
+`state` | [QIconState](../enums/qiconstate.md) | QIconState.Off |
+
+**Returns:** *void*
+
+___
+
+###  availableSizes
+
+▸ **availableSizes**(`mode`: [QIconMode](../enums/qiconmode.md), `state`: [QIconState](../enums/qiconstate.md)): *[QSize](qsize.md)[]*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`mode` | [QIconMode](../enums/qiconmode.md) | QIconMode.Normal |
+`state` | [QIconState](../enums/qiconstate.md) | QIconState.Off |
+
+**Returns:** *[QSize](qsize.md)[]*
+
+___
 
 ###  cacheKey
 
@@ -120,18 +185,55 @@ ___
 
 ___
 
-###  pixmap
+###  isNull
 
-▸ **pixmap**(`width`: number, `height`: number, `mode?`: [QIconMode](../enums/qiconmode.md), `state?`: [QIconState](../enums/qiconstate.md)): *[QPixmap](qpixmap.md)*
+▸ **isNull**(): *boolean*
+
+**Returns:** *boolean*
+
+___
+
+###  name
+
+▸ **name**(): *string*
+
+**Returns:** *string*
+
+___
+
+###  paint
+
+▸ **paint**(`painter`: [QPainter](qpainter.md), `x`: number, `y`: number, `w`: number, `h`: number, `alignment`: [AlignmentFlag](../enums/alignmentflag.md), `mode`: [QIconMode](../enums/qiconmode.md), `state`: [QIconState](../enums/qiconstate.md)): *void*
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`width` | number |
-`height` | number |
-`mode?` | [QIconMode](../enums/qiconmode.md) |
-`state?` | [QIconState](../enums/qiconstate.md) |
+Name | Type | Default |
+------ | ------ | ------ |
+`painter` | [QPainter](qpainter.md) | - |
+`x` | number | - |
+`y` | number | - |
+`w` | number | - |
+`h` | number | - |
+`alignment` | [AlignmentFlag](../enums/alignmentflag.md) | AlignmentFlag.AlignCenter |
+`mode` | [QIconMode](../enums/qiconmode.md) | QIconMode.Normal |
+`state` | [QIconState](../enums/qiconstate.md) | QIconState.Off |
+
+**Returns:** *void*
+
+___
+
+###  pixmap
+
+▸ **pixmap**(`width`: number, `height`: number, `mode`: [QIconMode](../enums/qiconmode.md), `state`: [QIconState](../enums/qiconstate.md)): *[QPixmap](qpixmap.md)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`width` | number | - |
+`height` | number | - |
+`mode` | [QIconMode](../enums/qiconmode.md) | QIconMode.Normal |
+`state` | [QIconState](../enums/qiconstate.md) | QIconState.Off |
 
 **Returns:** *[QPixmap](qpixmap.md)*
 
@@ -151,17 +253,15 @@ Name | Type |
 
 ___
 
-###  setNodeParent
+###  swap
 
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
+▸ **swap**(`other`: [QIcon](qicon.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`parent?` | [Component](component.md) |
+`other` | [QIcon](qicon.md) |
 
 **Returns:** *void*
 

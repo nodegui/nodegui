@@ -19,13 +19,12 @@ sidebar_label: "QStyle"
 ### Properties
 
 * [native](qstyle.md#native)
-* [nodeChildren](qstyle.md#nodechildren)
-* [nodeParent](qstyle.md#optional-nodeparent)
 
 ### Methods
 
 * [pixelMetric](qstyle.md#pixelmetric)
-* [setNodeParent](qstyle.md#setnodeparent)
+* [polish](qstyle.md#polish)
+* [unpolish](qstyle.md#unpolish)
 
 ## Constructors
 
@@ -47,25 +46,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -83,16 +66,28 @@ Name | Type |
 
 ___
 
-###  setNodeParent
+###  polish
 
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
+▸ **polish**(`widget`: [QWidget](qwidget.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`parent?` | [Component](component.md) |
+`widget` | [QWidget](qwidget.md) |
+
+**Returns:** *void*
+
+___
+
+###  unpolish
+
+▸ **unpolish**(`widget`: [QWidget](qwidget.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`widget` | [QWidget](qwidget.md) |
 
 **Returns:** *void*

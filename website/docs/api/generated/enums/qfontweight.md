@@ -22,52 +22,52 @@ sidebar_label: "QFontWeight"
 
 ###  Black
 
-• **Black**: = 87
+• **Black**: = 900
 
 ___
 
 ###  Bold
 
-• **Bold**: = 75
+• **Bold**: = 700
 
 ___
 
 ###  DemiBold
 
-• **DemiBold**: = 63
+• **DemiBold**: = 600
 
 ___
 
 ###  ExtraBold
 
-• **ExtraBold**: = 81
+• **ExtraBold**: = 800
 
 ___
 
 ###  ExtraLight
 
-• **ExtraLight**: = 12
+• **ExtraLight**: = 200
 
 ___
 
 ###  Light
 
-• **Light**: = 25
+• **Light**: = 300
 
 ___
 
 ###  Medium
 
-• **Medium**: = 57
+• **Medium**: = 500
 
 ___
 
 ###  Normal
 
-• **Normal**: = 50
+• **Normal**: = 400
 
 ___
 
 ###  Thin
 
-• **Thin**: = 0
+• **Thin**: = 100

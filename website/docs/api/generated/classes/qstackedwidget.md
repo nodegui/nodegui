@@ -44,7 +44,7 @@ win.show();
 
 ## Hierarchy
 
-  ↳ [NodeFrame](nodeframe.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)›
+  ↳ [QFrame](qframe.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)›
 
   ↳ **QStackedWidget**
 
@@ -56,57 +56,119 @@ win.show();
 
 ### Properties
 
-* [_layout](qstackedwidget.md#optional-_layout)
 * [_rawInlineStyle](qstackedwidget.md#_rawinlinestyle)
-* [actions](qstackedwidget.md#actions)
 * [native](qstackedwidget.md#native)
-* [nodeChildren](qstackedwidget.md#nodechildren)
-* [nodeParent](qstackedwidget.md#optional-nodeparent)
 * [type](qstackedwidget.md#type)
-
-### Accessors
-
-* [layout](qstackedwidget.md#layout)
 
 ### Methods
 
+* [_id](qstackedwidget.md#_id)
 * [acceptDrops](qstackedwidget.md#acceptdrops)
+* [accessibleDescription](qstackedwidget.md#accessibledescription)
+* [accessibleName](qstackedwidget.md#accessiblename)
 * [activateWindow](qstackedwidget.md#activatewindow)
 * [addAction](qstackedwidget.md#addaction)
 * [addEventListener](qstackedwidget.md#addeventlistener)
 * [addWidget](qstackedwidget.md#addwidget)
 * [adjustSize](qstackedwidget.md#adjustsize)
+* [autoFillBackground](qstackedwidget.md#autofillbackground)
+* [baseSize](qstackedwidget.md#basesize)
+* [childAt](qstackedwidget.md#childat)
+* [children](qstackedwidget.md#children)
+* [childrenRect](qstackedwidget.md#childrenrect)
 * [clearFocus](qstackedwidget.md#clearfocus)
+* [clearMask](qstackedwidget.md#clearmask)
 * [close](qstackedwidget.md#close)
+* [colorCount](qstackedwidget.md#colorcount)
+* [contentsRect](qstackedwidget.md#contentsrect)
+* [contextMenuPolicy](qstackedwidget.md#contextmenupolicy)
+* [count](qstackedwidget.md#count)
 * [currentIndex](qstackedwidget.md#currentindex)
+* [delete](qstackedwidget.md#delete)
+* [deleteLater](qstackedwidget.md#deletelater)
+* [depth](qstackedwidget.md#depth)
+* [devicePixelRatio](qstackedwidget.md#devicepixelratio)
+* [devicePixelRatioF](qstackedwidget.md#devicepixelratiof)
+* [dumpObjectInfo](qstackedwidget.md#dumpobjectinfo)
+* [dumpObjectTree](qstackedwidget.md#dumpobjecttree)
+* [ensurePolished](qstackedwidget.md#ensurepolished)
+* [eventProcessed](qstackedwidget.md#eventprocessed)
+* [focusProxy](qstackedwidget.md#focusproxy)
+* [focusWidget](qstackedwidget.md#focuswidget)
 * [font](qstackedwidget.md#font)
+* [frameGeometry](qstackedwidget.md#framegeometry)
 * [frameRect](qstackedwidget.md#framerect)
 * [frameShadow](qstackedwidget.md#frameshadow)
 * [frameShape](qstackedwidget.md#frameshape)
+* [frameSize](qstackedwidget.md#framesize)
 * [frameStyle](qstackedwidget.md#framestyle)
 * [frameWidth](qstackedwidget.md#framewidth)
 * [geometry](qstackedwidget.md#geometry)
 * [getFlexNode](qstackedwidget.md#getflexnode)
+* [grab](qstackedwidget.md#grab)
+* [grabKeyboard](qstackedwidget.md#grabkeyboard)
+* [grabMouse](qstackedwidget.md#grabmouse)
+* [hasFocus](qstackedwidget.md#hasfocus)
+* [hasHeightForWidth](qstackedwidget.md#hasheightforwidth)
 * [hasMouseTracking](qstackedwidget.md#hasmousetracking)
+* [hasTabletTracking](qstackedwidget.md#hastablettracking)
+* [height](qstackedwidget.md#height)
+* [heightForWidth](qstackedwidget.md#heightforwidth)
+* [heightMM](qstackedwidget.md#heightmm)
 * [hide](qstackedwidget.md#hide)
 * [inherits](qstackedwidget.md#inherits)
+* [inputMethodHints](qstackedwidget.md#inputmethodhints)
 * [isActiveWindow](qstackedwidget.md#isactivewindow)
+* [isAncestorOf](qstackedwidget.md#isancestorof)
 * [isEnabled](qstackedwidget.md#isenabled)
+* [isEnabledTo](qstackedwidget.md#isenabledto)
+* [isFullScreen](qstackedwidget.md#isfullscreen)
+* [isHidden](qstackedwidget.md#ishidden)
+* [isMaximized](qstackedwidget.md#ismaximized)
+* [isMinimized](qstackedwidget.md#isminimized)
+* [isModal](qstackedwidget.md#ismodal)
 * [isVisible](qstackedwidget.md#isvisible)
+* [isVisibleTo](qstackedwidget.md#isvisibleto)
+* [isWindow](qstackedwidget.md#iswindow)
+* [isWindowModified](qstackedwidget.md#iswindowmodified)
+* [killTimer](qstackedwidget.md#killtimer)
+* [layout](qstackedwidget.md#layout)
 * [lineWidth](qstackedwidget.md#linewidth)
+* [logicalDpiX](qstackedwidget.md#logicaldpix)
+* [logicalDpiY](qstackedwidget.md#logicaldpiy)
 * [lower](qstackedwidget.md#lower)
+* [mapFrom](qstackedwidget.md#mapfrom)
 * [mapFromGlobal](qstackedwidget.md#mapfromglobal)
 * [mapFromParent](qstackedwidget.md#mapfromparent)
+* [mapTo](qstackedwidget.md#mapto)
 * [mapToGlobal](qstackedwidget.md#maptoglobal)
 * [mapToParent](qstackedwidget.md#maptoparent)
+* [maximumHeight](qstackedwidget.md#maximumheight)
 * [maximumSize](qstackedwidget.md#maximumsize)
+* [maximumWidth](qstackedwidget.md#maximumwidth)
 * [midLineWidth](qstackedwidget.md#midlinewidth)
+* [minimumHeight](qstackedwidget.md#minimumheight)
 * [minimumSize](qstackedwidget.md#minimumsize)
+* [minimumSizeHint](qstackedwidget.md#minimumsizehint)
+* [minimumWidth](qstackedwidget.md#minimumwidth)
 * [move](qstackedwidget.md#move)
+* [nativeParentWidget](qstackedwidget.md#nativeparentwidget)
+* [nextInFocusChain](qstackedwidget.md#nextinfocuschain)
+* [normalGeometry](qstackedwidget.md#normalgeometry)
 * [objectName](qstackedwidget.md#objectname)
+* [paintingActive](qstackedwidget.md#paintingactive)
+* [parent](qstackedwidget.md#parent)
+* [parentWidget](qstackedwidget.md#parentwidget)
+* [physicalDpiX](qstackedwidget.md#physicaldpix)
+* [physicalDpiY](qstackedwidget.md#physicaldpiy)
 * [pos](qstackedwidget.md#pos)
+* [previousInFocusChain](qstackedwidget.md#previousinfocuschain)
 * [property](qstackedwidget.md#property)
 * [raise](qstackedwidget.md#raise)
+* [rect](qstackedwidget.md#rect)
+* [releaseKeyboard](qstackedwidget.md#releasekeyboard)
+* [releaseMouse](qstackedwidget.md#releasemouse)
+* [releaseShortcut](qstackedwidget.md#releaseshortcut)
 * [removeAction](qstackedwidget.md#removeaction)
 * [removeEventListener](qstackedwidget.md#removeeventlistener)
 * [removeWidget](qstackedwidget.md#removewidget)
@@ -114,16 +176,26 @@ win.show();
 * [repolish](qstackedwidget.md#repolish)
 * [resize](qstackedwidget.md#resize)
 * [setAcceptDrops](qstackedwidget.md#setacceptdrops)
+* [setAccessibleDescription](qstackedwidget.md#setaccessibledescription)
+* [setAccessibleName](qstackedwidget.md#setaccessiblename)
 * [setAttribute](qstackedwidget.md#setattribute)
+* [setAutoFillBackground](qstackedwidget.md#setautofillbackground)
+* [setBaseSize](qstackedwidget.md#setbasesize)
+* [setContentsMargins](qstackedwidget.md#setcontentsmargins)
 * [setContextMenuPolicy](qstackedwidget.md#setcontextmenupolicy)
 * [setCurrentIndex](qstackedwidget.md#setcurrentindex)
 * [setCurrentWidget](qstackedwidget.md#setcurrentwidget)
 * [setCursor](qstackedwidget.md#setcursor)
+* [setDisabled](qstackedwidget.md#setdisabled)
 * [setEnabled](qstackedwidget.md#setenabled)
+* [setEventProcessed](qstackedwidget.md#seteventprocessed)
+* [setFixedHeight](qstackedwidget.md#setfixedheight)
 * [setFixedSize](qstackedwidget.md#setfixedsize)
+* [setFixedWidth](qstackedwidget.md#setfixedwidth)
 * [setFlexNodeSizeControlled](qstackedwidget.md#setflexnodesizecontrolled)
 * [setFocus](qstackedwidget.md#setfocus)
 * [setFocusPolicy](qstackedwidget.md#setfocuspolicy)
+* [setFocusProxy](qstackedwidget.md#setfocusproxy)
 * [setFont](qstackedwidget.md#setfont)
 * [setFrameRect](qstackedwidget.md#setframerect)
 * [setFrameShadow](qstackedwidget.md#setframeshadow)
@@ -131,20 +203,40 @@ win.show();
 * [setFrameStyle](qstackedwidget.md#setframestyle)
 * [setGeometry](qstackedwidget.md#setgeometry)
 * [setGraphicsEffect](qstackedwidget.md#setgraphicseffect)
+* [setHidden](qstackedwidget.md#sethidden)
 * [setInlineStyle](qstackedwidget.md#setinlinestyle)
+* [setInputMethodHints](qstackedwidget.md#setinputmethodhints)
 * [setLayout](qstackedwidget.md#setlayout)
 * [setLineWidth](qstackedwidget.md#setlinewidth)
+* [setMaximumHeight](qstackedwidget.md#setmaximumheight)
 * [setMaximumSize](qstackedwidget.md#setmaximumsize)
+* [setMaximumWidth](qstackedwidget.md#setmaximumwidth)
 * [setMidLineWidth](qstackedwidget.md#setmidlinewidth)
+* [setMinimumHeight](qstackedwidget.md#setminimumheight)
 * [setMinimumSize](qstackedwidget.md#setminimumsize)
+* [setMinimumWidth](qstackedwidget.md#setminimumwidth)
 * [setMouseTracking](qstackedwidget.md#setmousetracking)
-* [setNodeParent](qstackedwidget.md#setnodeparent)
 * [setObjectName](qstackedwidget.md#setobjectname)
+* [setParent](qstackedwidget.md#setparent)
 * [setProperty](qstackedwidget.md#setproperty)
+* [setShortcutAutoRepeat](qstackedwidget.md#setshortcutautorepeat)
+* [setShortcutEnabled](qstackedwidget.md#setshortcutenabled)
+* [setSizeIncrement](qstackedwidget.md#setsizeincrement)
+* [setSizePolicy](qstackedwidget.md#setsizepolicy)
+* [setStatusTip](qstackedwidget.md#setstatustip)
 * [setStyleSheet](qstackedwidget.md#setstylesheet)
+* [setTabletTracking](qstackedwidget.md#settablettracking)
+* [setToolTip](qstackedwidget.md#settooltip)
+* [setToolTipDuration](qstackedwidget.md#settooltipduration)
+* [setUpdatesEnabled](qstackedwidget.md#setupdatesenabled)
+* [setVisible](qstackedwidget.md#setvisible)
+* [setWhatsThis](qstackedwidget.md#setwhatsthis)
+* [setWindowFilePath](qstackedwidget.md#setwindowfilepath)
 * [setWindowFlag](qstackedwidget.md#setwindowflag)
 * [setWindowIcon](qstackedwidget.md#setwindowicon)
+* [setWindowModified](qstackedwidget.md#setwindowmodified)
 * [setWindowOpacity](qstackedwidget.md#setwindowopacity)
+* [setWindowRole](qstackedwidget.md#setwindowrole)
 * [setWindowState](qstackedwidget.md#setwindowstate)
 * [setWindowTitle](qstackedwidget.md#setwindowtitle)
 * [show](qstackedwidget.md#show)
@@ -153,115 +245,98 @@ win.show();
 * [showMinimized](qstackedwidget.md#showminimized)
 * [showNormal](qstackedwidget.md#shownormal)
 * [size](qstackedwidget.md#size)
+* [sizeHint](qstackedwidget.md#sizehint)
+* [sizeIncrement](qstackedwidget.md#sizeincrement)
+* [stackUnder](qstackedwidget.md#stackunder)
+* [startTimer](qstackedwidget.md#starttimer)
+* [statusTip](qstackedwidget.md#statustip)
+* [style](qstackedwidget.md#style)
 * [styleSheet](qstackedwidget.md#stylesheet)
 * [testAttribute](qstackedwidget.md#testattribute)
+* [toolTip](qstackedwidget.md#tooltip)
+* [toolTipDuration](qstackedwidget.md#tooltipduration)
+* [underMouse](qstackedwidget.md#undermouse)
+* [unsetCursor](qstackedwidget.md#unsetcursor)
+* [unsetLayoutDirection](qstackedwidget.md#unsetlayoutdirection)
+* [unsetLocale](qstackedwidget.md#unsetlocale)
 * [update](qstackedwidget.md#update)
 * [updateGeometry](qstackedwidget.md#updategeometry)
+* [updateMicroFocus](qstackedwidget.md#updatemicrofocus)
+* [updatesEnabled](qstackedwidget.md#updatesenabled)
+* [whatsThis](qstackedwidget.md#whatsthis)
+* [width](qstackedwidget.md#width)
+* [widthMM](qstackedwidget.md#widthmm)
+* [winId](qstackedwidget.md#winid)
+* [window](qstackedwidget.md#window)
+* [windowFilePath](qstackedwidget.md#windowfilepath)
+* [windowHandle](qstackedwidget.md#windowhandle)
+* [windowIcon](qstackedwidget.md#windowicon)
 * [windowOpacity](qstackedwidget.md#windowopacity)
+* [windowRole](qstackedwidget.md#windowrole)
 * [windowState](qstackedwidget.md#windowstate)
 * [windowTitle](qstackedwidget.md#windowtitle)
+* [x](qstackedwidget.md#x)
+* [y](qstackedwidget.md#y)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QStackedWidget**(): *[QStackedWidget](qstackedwidget.md)*
+\+ **new QStackedWidget**(`arg?`: [QWidget](qwidget.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› | [NativeElement](../globals.md#nativeelement)): *[QStackedWidget](qstackedwidget.md)*
 
-*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
-
-**Returns:** *[QStackedWidget](qstackedwidget.md)*
-
-\+ **new QStackedWidget**(`parent`: [NodeWidget](nodewidget.md)‹any›): *[QStackedWidget](qstackedwidget.md)*
-
-*Overrides [NodeWidget](nodewidget.md).[constructor](nodewidget.md#constructor)*
+*Overrides [QFrame](qframe.md).[constructor](qframe.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`parent` | [NodeWidget](nodewidget.md)‹any› |
+`arg?` | [QWidget](qwidget.md)‹[QWidgetSignals](../interfaces/qwidgetsignals.md)› &#124; [NativeElement](../globals.md#nativeelement) |
 
 **Returns:** *[QStackedWidget](qstackedwidget.md)*
 
 ## Properties
 
-### `Optional` _layout
-
-• **_layout**? : *[NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)›*
-
-*Inherited from [QMenu](qmenu.md).[_layout](qmenu.md#optional-_layout)*
-
-___
-
 ###  _rawInlineStyle
 
-• **_rawInlineStyle**: *string* = ""
+• **_rawInlineStyle**: *string*
 
 *Inherited from [QMenu](qmenu.md).[_rawInlineStyle](qmenu.md#_rawinlinestyle)*
 
 ___
 
-###  actions
-
-• **actions**: *Set‹[QAction](qaction.md)›*
-
-*Inherited from [QMenu](qmenu.md).[actions](qmenu.md#actions)*
-
-___
-
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ___
 
 ###  type
 
-• **type**: *string* = "widget"
+• **type**: *string*
 
 *Inherited from [QMenu](qmenu.md).[type](qmenu.md#type)*
 
-## Accessors
-
-###  layout
-
-• **get layout**(): *[NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› | undefined*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
-
-**Returns:** *[NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› | undefined*
-
-• **set layout**(`l`: [NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› | undefined): *void*
-
-*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`l` | [NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› &#124; undefined |
-
-**Returns:** *void*
-
 ## Methods
+
+###  _id
+
+▸ **_id**(): *number*
+
+*Inherited from [QObject](qobject.md).[_id](qobject.md#_id)*
+
+Get an ID identifying the underlying C++ object.
+
+This can be useful when debugging memory problems with help from
+`setLogCreateQObject()` and `setLogDestroyQObject()`. The number is
+hash of the memory address of the C++ object.
+
+**Returns:** *number*
+
+a unique number which is valid for the lifetime of the C++ object.
+
+___
 
 ###  acceptDrops
 
@@ -270,6 +345,26 @@ Name | Type |
 *Inherited from [QMenu](qmenu.md).[acceptDrops](qmenu.md#acceptdrops)*
 
 **Returns:** *boolean*
+
+___
+
+###  accessibleDescription
+
+▸ **accessibleDescription**(): *string*
+
+*Inherited from [QMenu](qmenu.md).[accessibleDescription](qmenu.md#accessibledescription)*
+
+**Returns:** *string*
+
+___
+
+###  accessibleName
+
+▸ **accessibleName**(): *string*
+
+*Inherited from [QMenu](qmenu.md).[accessibleName](qmenu.md#accessiblename)*
+
+**Returns:** *string*
 
 ___
 
@@ -301,7 +396,7 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QStackedWidgetSignals[SignalType]): *void*
+▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QStackedWidgetSignals[SignalType], `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
@@ -315,6 +410,7 @@ Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
 `callback` | QStackedWidgetSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`options?` | [EventListenerOptions](../interfaces/eventlisteneroptions.md) | Extra optional options controlling how this event listener is added. |
 
 **Returns:** *void*
 
@@ -327,7 +423,7 @@ button.addEventListener('clicked',(checked)=>console.log("clicked"));
 // here clicked is a value from QPushButtonSignals interface
 ```
 
-▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function, `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
@@ -337,12 +433,6 @@ button.addEventListener('clicked',(checked)=>console.log("clicked"));
 
 ▪ **callback**: *function*
 
-For example in the case of QPushButton:
-```js
-const button = new QPushButton();
-button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
-```
-
 ▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
@@ -351,19 +441,29 @@ Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
+▪`Optional`  **options**: *[EventListenerOptions](../interfaces/eventlisteneroptions.md)*
+
+Extra optional options controlling how this event listener is added.
+
+For example in the case of QPushButton:
+```js
+const button = new QPushButton();
+button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
+```
+
 **Returns:** *void*
 
 ___
 
 ###  addWidget
 
-▸ **addWidget**(`widget`: [NodeWidget](nodewidget.md)‹any›): *void*
+▸ **addWidget**(`widget`: [QWidget](qwidget.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`widget` | [NodeWidget](nodewidget.md)‹any› |
+`widget` | [QWidget](qwidget.md) |
 
 **Returns:** *void*
 
@@ -379,11 +479,78 @@ ___
 
 ___
 
+###  autoFillBackground
+
+▸ **autoFillBackground**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[autoFillBackground](qmenu.md#autofillbackground)*
+
+**Returns:** *boolean*
+
+___
+
+###  baseSize
+
+▸ **baseSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[baseSize](qmenu.md#basesize)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  childAt
+
+▸ **childAt**(`x`: number, `y`: number): *[QWidget](qwidget.md)*
+
+*Inherited from [QMenu](qmenu.md).[childAt](qmenu.md#childat)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+
+**Returns:** *[QWidget](qwidget.md)*
+
+___
+
+###  children
+
+▸ **children**(): *[QObject](qobject.md)[]*
+
+*Inherited from [QObject](qobject.md).[children](qobject.md#children)*
+
+**Returns:** *[QObject](qobject.md)[]*
+
+___
+
+###  childrenRect
+
+▸ **childrenRect**(): *[QRect](qrect.md)*
+
+*Inherited from [QMenu](qmenu.md).[childrenRect](qmenu.md#childrenrect)*
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
 ###  clearFocus
 
 ▸ **clearFocus**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[clearFocus](qmenu.md#clearfocus)*
+
+**Returns:** *void*
+
+___
+
+###  clearMask
+
+▸ **clearMask**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[clearMask](qmenu.md#clearmask)*
 
 **Returns:** *void*
 
@@ -399,11 +566,165 @@ ___
 
 ___
 
+###  colorCount
+
+▸ **colorCount**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[colorCount](qmenu.md#colorcount)*
+
+**Returns:** *number*
+
+___
+
+###  contentsRect
+
+▸ **contentsRect**(): *[QRect](qrect.md)*
+
+*Inherited from [QMenu](qmenu.md).[contentsRect](qmenu.md#contentsrect)*
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
+###  contextMenuPolicy
+
+▸ **contextMenuPolicy**(): *[ContextMenuPolicy](../enums/contextmenupolicy.md)*
+
+*Inherited from [QMenu](qmenu.md).[contextMenuPolicy](qmenu.md#contextmenupolicy)*
+
+**Returns:** *[ContextMenuPolicy](../enums/contextmenupolicy.md)*
+
+___
+
+###  count
+
+▸ **count**(): *number*
+
+**Returns:** *number*
+
+___
+
 ###  currentIndex
 
 ▸ **currentIndex**(): *number*
 
 **Returns:** *number*
+
+___
+
+###  delete
+
+▸ **delete**(): *void*
+
+*Inherited from [QObject](qobject.md).[delete](qobject.md#delete)*
+
+**Returns:** *void*
+
+___
+
+###  deleteLater
+
+▸ **deleteLater**(): *void*
+
+*Inherited from [QObject](qobject.md).[deleteLater](qobject.md#deletelater)*
+
+**Returns:** *void*
+
+___
+
+###  depth
+
+▸ **depth**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[depth](qmenu.md#depth)*
+
+**Returns:** *number*
+
+___
+
+###  devicePixelRatio
+
+▸ **devicePixelRatio**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[devicePixelRatio](qmenu.md#devicepixelratio)*
+
+**Returns:** *number*
+
+___
+
+###  devicePixelRatioF
+
+▸ **devicePixelRatioF**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[devicePixelRatioF](qmenu.md#devicepixelratiof)*
+
+**Returns:** *number*
+
+___
+
+###  dumpObjectInfo
+
+▸ **dumpObjectInfo**(): *void*
+
+*Inherited from [QObject](qobject.md).[dumpObjectInfo](qobject.md#dumpobjectinfo)*
+
+**Returns:** *void*
+
+___
+
+###  dumpObjectTree
+
+▸ **dumpObjectTree**(): *void*
+
+*Inherited from [QObject](qobject.md).[dumpObjectTree](qobject.md#dumpobjecttree)*
+
+**Returns:** *void*
+
+___
+
+###  ensurePolished
+
+▸ **ensurePolished**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[ensurePolished](qmenu.md#ensurepolished)*
+
+**Returns:** *void*
+
+___
+
+###  eventProcessed
+
+▸ **eventProcessed**(): *boolean*
+
+*Inherited from [EventWidget](eventwidget.md).[eventProcessed](eventwidget.md#eventprocessed)*
+
+Get the state of the event processed flag
+
+See `setEventProcessed()`.
+
+**Returns:** *boolean*
+
+boolean True if the current event is flagged as processed.
+
+___
+
+###  focusProxy
+
+▸ **focusProxy**(): *[QWidget](qwidget.md)*
+
+*Inherited from [QMenu](qmenu.md).[focusProxy](qmenu.md#focusproxy)*
+
+**Returns:** *[QWidget](qwidget.md)*
+
+___
+
+###  focusWidget
+
+▸ **focusWidget**(): *[QWidget](qwidget.md)*
+
+*Inherited from [QMenu](qmenu.md).[focusWidget](qmenu.md#focuswidget)*
+
+**Returns:** *[QWidget](qwidget.md)*
 
 ___
 
@@ -417,11 +738,21 @@ ___
 
 ___
 
+###  frameGeometry
+
+▸ **frameGeometry**(): *[QRect](qrect.md)*
+
+*Inherited from [QMenu](qmenu.md).[frameGeometry](qmenu.md#framegeometry)*
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
 ###  frameRect
 
 ▸ **frameRect**(): *[QRect](qrect.md)*
 
-*Inherited from [NodeFrame](nodeframe.md).[frameRect](nodeframe.md#framerect)*
+*Inherited from [QFrame](qframe.md).[frameRect](qframe.md#framerect)*
 
 **Returns:** *[QRect](qrect.md)*
 
@@ -431,7 +762,7 @@ ___
 
 ▸ **frameShadow**(): *[Shadow](../enums/shadow.md)*
 
-*Inherited from [NodeFrame](nodeframe.md).[frameShadow](nodeframe.md#frameshadow)*
+*Inherited from [QFrame](qframe.md).[frameShadow](qframe.md#frameshadow)*
 
 **Returns:** *[Shadow](../enums/shadow.md)*
 
@@ -441,9 +772,19 @@ ___
 
 ▸ **frameShape**(): *[Shape](../enums/shape.md)*
 
-*Inherited from [NodeFrame](nodeframe.md).[frameShape](nodeframe.md#frameshape)*
+*Inherited from [QFrame](qframe.md).[frameShape](qframe.md#frameshape)*
 
 **Returns:** *[Shape](../enums/shape.md)*
+
+___
+
+###  frameSize
+
+▸ **frameSize**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[frameSize](qmenu.md#framesize)*
+
+**Returns:** *[QSize](qsize.md)*
 
 ___
 
@@ -451,7 +792,7 @@ ___
 
 ▸ **frameStyle**(): *number*
 
-*Inherited from [NodeFrame](nodeframe.md).[frameStyle](nodeframe.md#framestyle)*
+*Inherited from [QFrame](qframe.md).[frameStyle](qframe.md#framestyle)*
 
 **Returns:** *number*
 
@@ -461,7 +802,7 @@ ___
 
 ▸ **frameWidth**(): *number*
 
-*Inherited from [NodeFrame](nodeframe.md).[frameWidth](nodeframe.md#framewidth)*
+*Inherited from [QFrame](qframe.md).[frameWidth](qframe.md#framewidth)*
 
 **Returns:** *number*
 
@@ -487,6 +828,62 @@ ___
 
 ___
 
+###  grab
+
+▸ **grab**(`rect?`: [QRect](qrect.md)): *[QPixmap](qpixmap.md)*
+
+*Inherited from [QMenu](qmenu.md).[grab](qmenu.md#grab)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`rect?` | [QRect](qrect.md) |
+
+**Returns:** *[QPixmap](qpixmap.md)*
+
+___
+
+###  grabKeyboard
+
+▸ **grabKeyboard**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[grabKeyboard](qmenu.md#grabkeyboard)*
+
+**Returns:** *void*
+
+___
+
+###  grabMouse
+
+▸ **grabMouse**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[grabMouse](qmenu.md#grabmouse)*
+
+**Returns:** *void*
+
+___
+
+###  hasFocus
+
+▸ **hasFocus**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[hasFocus](qmenu.md#hasfocus)*
+
+**Returns:** *boolean*
+
+___
+
+###  hasHeightForWidth
+
+▸ **hasHeightForWidth**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[hasHeightForWidth](qmenu.md#hasheightforwidth)*
+
+**Returns:** *boolean*
+
+___
+
 ###  hasMouseTracking
 
 ▸ **hasMouseTracking**(): *boolean*
@@ -494,6 +891,52 @@ ___
 *Inherited from [QMenu](qmenu.md).[hasMouseTracking](qmenu.md#hasmousetracking)*
 
 **Returns:** *boolean*
+
+___
+
+###  hasTabletTracking
+
+▸ **hasTabletTracking**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[hasTabletTracking](qmenu.md#hastablettracking)*
+
+**Returns:** *boolean*
+
+___
+
+###  height
+
+▸ **height**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[height](qmenu.md#height)*
+
+**Returns:** *number*
+
+___
+
+###  heightForWidth
+
+▸ **heightForWidth**(`w`: number): *number*
+
+*Inherited from [QMenu](qmenu.md).[heightForWidth](qmenu.md#heightforwidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`w` | number |
+
+**Returns:** *number*
+
+___
+
+###  heightMM
+
+▸ **heightMM**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[heightMM](qmenu.md#heightmm)*
+
+**Returns:** *number*
 
 ___
 
@@ -511,7 +954,7 @@ ___
 
 ▸ **inherits**(`className`: string): *boolean*
 
-*Inherited from [NodeObject](nodeobject.md).[inherits](nodeobject.md#inherits)*
+*Inherited from [QObject](qobject.md).[inherits](qobject.md#inherits)*
 
 **Parameters:**
 
@@ -523,11 +966,37 @@ Name | Type |
 
 ___
 
+###  inputMethodHints
+
+▸ **inputMethodHints**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[inputMethodHints](qmenu.md#inputmethodhints)*
+
+**Returns:** *number*
+
+___
+
 ###  isActiveWindow
 
 ▸ **isActiveWindow**(): *boolean*
 
 *Inherited from [QMenu](qmenu.md).[isActiveWindow](qmenu.md#isactivewindow)*
+
+**Returns:** *boolean*
+
+___
+
+###  isAncestorOf
+
+▸ **isAncestorOf**(`child`: [QWidget](qwidget.md)): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isAncestorOf](qmenu.md#isancestorof)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`child` | [QWidget](qwidget.md) |
 
 **Returns:** *boolean*
 
@@ -543,6 +1012,72 @@ ___
 
 ___
 
+###  isEnabledTo
+
+▸ **isEnabledTo**(`ancestor`: [QWidget](qwidget.md)): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isEnabledTo](qmenu.md#isenabledto)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`ancestor` | [QWidget](qwidget.md) |
+
+**Returns:** *boolean*
+
+___
+
+###  isFullScreen
+
+▸ **isFullScreen**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isFullScreen](qmenu.md#isfullscreen)*
+
+**Returns:** *boolean*
+
+___
+
+###  isHidden
+
+▸ **isHidden**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isHidden](qmenu.md#ishidden)*
+
+**Returns:** *boolean*
+
+___
+
+###  isMaximized
+
+▸ **isMaximized**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isMaximized](qmenu.md#ismaximized)*
+
+**Returns:** *boolean*
+
+___
+
+###  isMinimized
+
+▸ **isMinimized**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isMinimized](qmenu.md#isminimized)*
+
+**Returns:** *boolean*
+
+___
+
+###  isModal
+
+▸ **isModal**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isModal](qmenu.md#ismodal)*
+
+**Returns:** *boolean*
+
+___
+
 ###  isVisible
 
 ▸ **isVisible**(): *boolean*
@@ -553,11 +1088,93 @@ ___
 
 ___
 
+###  isVisibleTo
+
+▸ **isVisibleTo**(`ancestor`: [QWidget](qwidget.md)): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isVisibleTo](qmenu.md#isvisibleto)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`ancestor` | [QWidget](qwidget.md) |
+
+**Returns:** *boolean*
+
+___
+
+###  isWindow
+
+▸ **isWindow**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isWindow](qmenu.md#iswindow)*
+
+**Returns:** *boolean*
+
+___
+
+###  isWindowModified
+
+▸ **isWindowModified**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[isWindowModified](qmenu.md#iswindowmodified)*
+
+**Returns:** *boolean*
+
+___
+
+###  killTimer
+
+▸ **killTimer**(`timerId`: number): *void*
+
+*Inherited from [QObject](qobject.md).[killTimer](qobject.md#killtimer)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`timerId` | number |
+
+**Returns:** *void*
+
+___
+
+###  layout
+
+▸ **layout**(): *[QLayout](qlayout.md) | null*
+
+*Inherited from [QMenu](qmenu.md).[layout](qmenu.md#layout)*
+
+**Returns:** *[QLayout](qlayout.md) | null*
+
+___
+
 ###  lineWidth
 
 ▸ **lineWidth**(): *number*
 
-*Inherited from [NodeFrame](nodeframe.md).[lineWidth](nodeframe.md#linewidth)*
+*Inherited from [QFrame](qframe.md).[lineWidth](qframe.md#linewidth)*
+
+**Returns:** *number*
+
+___
+
+###  logicalDpiX
+
+▸ **logicalDpiX**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[logicalDpiX](qmenu.md#logicaldpix)*
+
+**Returns:** *number*
+
+___
+
+###  logicalDpiY
+
+▸ **logicalDpiY**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[logicalDpiY](qmenu.md#logicaldpiy)*
 
 **Returns:** *number*
 
@@ -570,6 +1187,23 @@ ___
 *Inherited from [QMenu](qmenu.md).[lower](qmenu.md#lower)*
 
 **Returns:** *void*
+
+___
+
+###  mapFrom
+
+▸ **mapFrom**(`parent`: [QWidget](qwidget.md), `pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapFrom](qmenu.md#mapfrom)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`parent` | [QWidget](qwidget.md) |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
 
 ___
 
@@ -599,6 +1233,23 @@ ___
 
 Name | Type |
 ------ | ------ |
+`pos` | [QPoint](qpoint.md) |
+
+**Returns:** *[QPoint](qpoint.md)*
+
+___
+
+###  mapTo
+
+▸ **mapTo**(`parent`: [QWidget](qwidget.md), `pos`: [QPoint](qpoint.md)): *[QPoint](qpoint.md)*
+
+*Inherited from [QMenu](qmenu.md).[mapTo](qmenu.md#mapto)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`parent` | [QWidget](qwidget.md) |
 `pos` | [QPoint](qpoint.md) |
 
 **Returns:** *[QPoint](qpoint.md)*
@@ -637,6 +1288,16 @@ Name | Type |
 
 ___
 
+###  maximumHeight
+
+▸ **maximumHeight**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[maximumHeight](qmenu.md#maximumheight)*
+
+**Returns:** *number*
+
+___
+
 ###  maximumSize
 
 ▸ **maximumSize**(): *[QSize](qsize.md)*
@@ -647,11 +1308,31 @@ ___
 
 ___
 
+###  maximumWidth
+
+▸ **maximumWidth**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[maximumWidth](qmenu.md#maximumwidth)*
+
+**Returns:** *number*
+
+___
+
 ###  midLineWidth
 
 ▸ **midLineWidth**(): *number*
 
-*Inherited from [NodeFrame](nodeframe.md).[midLineWidth](nodeframe.md#midlinewidth)*
+*Inherited from [QFrame](qframe.md).[midLineWidth](qframe.md#midlinewidth)*
+
+**Returns:** *number*
+
+___
+
+###  minimumHeight
+
+▸ **minimumHeight**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[minimumHeight](qmenu.md#minimumheight)*
 
 **Returns:** *number*
 
@@ -664,6 +1345,26 @@ ___
 *Inherited from [QMenu](qmenu.md).[minimumSize](qmenu.md#minimumsize)*
 
 **Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumSizeHint
+
+▸ **minimumSizeHint**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[minimumSizeHint](qmenu.md#minimumsizehint)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  minimumWidth
+
+▸ **minimumWidth**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[minimumWidth](qmenu.md#minimumwidth)*
+
+**Returns:** *number*
 
 ___
 
@@ -684,13 +1385,93 @@ Name | Type |
 
 ___
 
+###  nativeParentWidget
+
+▸ **nativeParentWidget**(): *[QWidget](qwidget.md)*
+
+*Inherited from [QMenu](qmenu.md).[nativeParentWidget](qmenu.md#nativeparentwidget)*
+
+**Returns:** *[QWidget](qwidget.md)*
+
+___
+
+###  nextInFocusChain
+
+▸ **nextInFocusChain**(): *[QWidget](qwidget.md)*
+
+*Inherited from [QMenu](qmenu.md).[nextInFocusChain](qmenu.md#nextinfocuschain)*
+
+**Returns:** *[QWidget](qwidget.md)*
+
+___
+
+###  normalGeometry
+
+▸ **normalGeometry**(): *[QRect](qrect.md)*
+
+*Inherited from [QMenu](qmenu.md).[normalGeometry](qmenu.md#normalgeometry)*
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
 ###  objectName
 
 ▸ **objectName**(): *string*
 
-*Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
+*Inherited from [QObject](qobject.md).[objectName](qobject.md#objectname)*
 
 **Returns:** *string*
+
+___
+
+###  paintingActive
+
+▸ **paintingActive**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[paintingActive](qmenu.md#paintingactive)*
+
+**Returns:** *boolean*
+
+___
+
+###  parent
+
+▸ **parent**(): *[QObject](qobject.md)*
+
+*Inherited from [QObject](qobject.md).[parent](qobject.md#parent)*
+
+**Returns:** *[QObject](qobject.md)*
+
+___
+
+###  parentWidget
+
+▸ **parentWidget**(): *[QWidget](qwidget.md)*
+
+*Inherited from [QMenu](qmenu.md).[parentWidget](qmenu.md#parentwidget)*
+
+**Returns:** *[QWidget](qwidget.md)*
+
+___
+
+###  physicalDpiX
+
+▸ **physicalDpiX**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[physicalDpiX](qmenu.md#physicaldpix)*
+
+**Returns:** *number*
+
+___
+
+###  physicalDpiY
+
+▸ **physicalDpiY**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[physicalDpiY](qmenu.md#physicaldpiy)*
+
+**Returns:** *number*
 
 ___
 
@@ -708,11 +1489,21 @@ ___
 
 ___
 
+###  previousInFocusChain
+
+▸ **previousInFocusChain**(): *[QWidget](qwidget.md)*
+
+*Inherited from [QMenu](qmenu.md).[previousInFocusChain](qmenu.md#previousinfocuschain)*
+
+**Returns:** *[QWidget](qwidget.md)*
+
+___
+
 ###  property
 
 ▸ **property**(`name`: string): *[QVariant](qvariant.md)*
 
-*Inherited from [NodeObject](nodeobject.md).[property](nodeobject.md#property)*
+*Inherited from [QObject](qobject.md).[property](qobject.md#property)*
 
 **Parameters:**
 
@@ -729,6 +1520,52 @@ ___
 ▸ **raise**(): *void*
 
 *Inherited from [QMenu](qmenu.md).[raise](qmenu.md#raise)*
+
+**Returns:** *void*
+
+___
+
+###  rect
+
+▸ **rect**(): *[QRect](qrect.md)*
+
+*Inherited from [QMenu](qmenu.md).[rect](qmenu.md#rect)*
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
+###  releaseKeyboard
+
+▸ **releaseKeyboard**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[releaseKeyboard](qmenu.md#releasekeyboard)*
+
+**Returns:** *void*
+
+___
+
+###  releaseMouse
+
+▸ **releaseMouse**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[releaseMouse](qmenu.md#releasemouse)*
+
+**Returns:** *void*
+
+___
+
+###  releaseShortcut
+
+▸ **releaseShortcut**(`id`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[releaseShortcut](qmenu.md#releaseshortcut)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`id` | number |
 
 **Returns:** *void*
 
@@ -752,7 +1589,7 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QStackedWidgetSignals[SignalType]): *void*
+▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QStackedWidgetSignals[SignalType], `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
@@ -766,10 +1603,11 @@ Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
 `callback` | QStackedWidgetSignals[SignalType] |
+`options?` | [EventListenerOptions](../interfaces/eventlisteneroptions.md) |
 
 **Returns:** *void*
 
-▸ **removeEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+▸ **removeEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function, `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
@@ -787,19 +1625,21 @@ Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
+▪`Optional`  **options**: *[EventListenerOptions](../interfaces/eventlisteneroptions.md)*
+
 **Returns:** *void*
 
 ___
 
 ###  removeWidget
 
-▸ **removeWidget**(`widget`: [NodeWidget](nodewidget.md)‹any›): *void*
+▸ **removeWidget**(`widget`: [QWidget](qwidget.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`widget` | [NodeWidget](nodewidget.md)‹any› |
+`widget` | [QWidget](qwidget.md) |
 
 **Returns:** *void*
 
@@ -858,6 +1698,38 @@ Name | Type |
 
 ___
 
+###  setAccessibleDescription
+
+▸ **setAccessibleDescription**(`description`: string): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAccessibleDescription](qmenu.md#setaccessibledescription)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`description` | string |
+
+**Returns:** *void*
+
+___
+
+###  setAccessibleName
+
+▸ **setAccessibleName**(`name`: string): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAccessibleName](qmenu.md#setaccessiblename)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`name` | string |
+
+**Returns:** *void*
+
+___
+
 ###  setAttribute
 
 ▸ **setAttribute**(`attribute`: [WidgetAttribute](../enums/widgetattribute.md), `switchOn`: boolean): *void*
@@ -870,6 +1742,57 @@ Name | Type |
 ------ | ------ |
 `attribute` | [WidgetAttribute](../enums/widgetattribute.md) |
 `switchOn` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setAutoFillBackground
+
+▸ **setAutoFillBackground**(`enabled`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setAutoFillBackground](qmenu.md#setautofillbackground)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enabled` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setBaseSize
+
+▸ **setBaseSize**(`size`: [QSize](qsize.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setBaseSize](qmenu.md#setbasesize)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`size` | [QSize](qsize.md) |
+
+**Returns:** *void*
+
+___
+
+###  setContentsMargins
+
+▸ **setContentsMargins**(`left`: number, `top`: number, `right`: number, `bottom`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[setContentsMargins](qmenu.md#setcontentsmargins)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`left` | number |
+`top` | number |
+`right` | number |
+`bottom` | number |
 
 **Returns:** *void*
 
@@ -907,13 +1830,13 @@ ___
 
 ###  setCurrentWidget
 
-▸ **setCurrentWidget**(`widget`: [NodeWidget](nodewidget.md)‹any›): *void*
+▸ **setCurrentWidget**(`widget`: [QWidget](qwidget.md)): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`widget` | [NodeWidget](nodewidget.md)‹any› |
+`widget` | [QWidget](qwidget.md) |
 
 **Returns:** *void*
 
@@ -935,6 +1858,22 @@ Name | Type |
 
 ___
 
+###  setDisabled
+
+▸ **setDisabled**(`disable`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setDisabled](qmenu.md#setdisabled)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`disable` | boolean |
+
+**Returns:** *void*
+
+___
+
 ###  setEnabled
 
 ▸ **setEnabled**(`enabled`: boolean): *void*
@@ -946,6 +1885,49 @@ ___
 Name | Type |
 ------ | ------ |
 `enabled` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setEventProcessed
+
+▸ **setEventProcessed**(`isProcessed`: boolean): *void*
+
+*Inherited from [EventWidget](eventwidget.md).[setEventProcessed](eventwidget.md#seteventprocessed)*
+
+Mark the current event as having been processed
+
+This method is used to indicate that the currently dispatched event
+has been processed and no further processing by superclasses is
+required. It only makes sense to call this method from an event
+handler.
+
+When set, this flag will cause NodeGui's `QObject::event()` method to
+return true and not call the superclass `event()`, effectively preventing
+any further processing on this event.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`isProcessed` | boolean | true if the event has been processed.  |
+
+**Returns:** *void*
+
+___
+
+###  setFixedHeight
+
+▸ **setFixedHeight**(`h`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFixedHeight](qmenu.md#setfixedheight)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`h` | number |
 
 **Returns:** *void*
 
@@ -963,6 +1945,22 @@ Name | Type |
 ------ | ------ |
 `width` | number |
 `height` | number |
+
+**Returns:** *void*
+
+___
+
+###  setFixedWidth
+
+▸ **setFixedWidth**(`w`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFixedWidth](qmenu.md#setfixedwidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`w` | number |
 
 **Returns:** *void*
 
@@ -1018,6 +2016,22 @@ Name | Type |
 
 ___
 
+###  setFocusProxy
+
+▸ **setFocusProxy**(`widget`: [QWidget](qwidget.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setFocusProxy](qmenu.md#setfocusproxy)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`widget` | [QWidget](qwidget.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setFont
 
 ▸ **setFont**(`font`: [QFont](qfont.md)): *void*
@@ -1038,7 +2052,7 @@ ___
 
 ▸ **setFrameRect**(`r`: [QRect](qrect.md)): *void*
 
-*Inherited from [NodeFrame](nodeframe.md).[setFrameRect](nodeframe.md#setframerect)*
+*Inherited from [QFrame](qframe.md).[setFrameRect](qframe.md#setframerect)*
 
 **Parameters:**
 
@@ -1054,7 +2068,7 @@ ___
 
 ▸ **setFrameShadow**(`type`: [Shadow](../enums/shadow.md)): *void*
 
-*Inherited from [NodeFrame](nodeframe.md).[setFrameShadow](nodeframe.md#setframeshadow)*
+*Inherited from [QFrame](qframe.md).[setFrameShadow](qframe.md#setframeshadow)*
 
 **Parameters:**
 
@@ -1070,7 +2084,7 @@ ___
 
 ▸ **setFrameShape**(`type`: [Shape](../enums/shape.md)): *void*
 
-*Inherited from [NodeFrame](nodeframe.md).[setFrameShape](nodeframe.md#setframeshape)*
+*Inherited from [QFrame](qframe.md).[setFrameShape](qframe.md#setframeshape)*
 
 **Parameters:**
 
@@ -1086,7 +2100,7 @@ ___
 
 ▸ **setFrameStyle**(`style`: number): *void*
 
-*Inherited from [NodeFrame](nodeframe.md).[setFrameStyle](nodeframe.md#setframestyle)*
+*Inherited from [QFrame](qframe.md).[setFrameStyle](qframe.md#setframestyle)*
 
 **Parameters:**
 
@@ -1133,17 +2147,50 @@ Name | Type |
 
 ___
 
-###  setInlineStyle
+###  setHidden
 
-▸ **setInlineStyle**(`style`: string): *void*
+▸ **setHidden**(`hidden`: boolean): *void*
 
-*Inherited from [QMenu](qmenu.md).[setInlineStyle](qmenu.md#setinlinestyle)*
+*Inherited from [QMenu](qmenu.md).[setHidden](qmenu.md#sethidden)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`style` | string |
+`hidden` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setInlineStyle
+
+▸ **setInlineStyle**(`style`: string, `postprocess`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setInlineStyle](qmenu.md#setinlinestyle)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`style` | string | - |
+`postprocess` | boolean | true |
+
+**Returns:** *void*
+
+___
+
+###  setInputMethodHints
+
+▸ **setInputMethodHints**(`hints`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[setInputMethodHints](qmenu.md#setinputmethodhints)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`hints` | number |
 
 **Returns:** *void*
 
@@ -1151,7 +2198,7 @@ ___
 
 ###  setLayout
 
-▸ **setLayout**(`parentLayout`: [NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)›): *void*
+▸ **setLayout**(`layout`: [QLayout](qlayout.md)): *void*
 
 *Inherited from [QMenu](qmenu.md).[setLayout](qmenu.md#setlayout)*
 
@@ -1159,7 +2206,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`parentLayout` | [NodeLayout](nodelayout.md)‹[QStackedWidgetSignals](../interfaces/qstackedwidgetsignals.md)› |
+`layout` | [QLayout](qlayout.md) |
 
 **Returns:** *void*
 
@@ -1169,13 +2216,29 @@ ___
 
 ▸ **setLineWidth**(`width`: number): *void*
 
-*Inherited from [NodeFrame](nodeframe.md).[setLineWidth](nodeframe.md#setlinewidth)*
+*Inherited from [QFrame](qframe.md).[setLineWidth](qframe.md#setlinewidth)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `width` | number |
+
+**Returns:** *void*
+
+___
+
+###  setMaximumHeight
+
+▸ **setMaximumHeight**(`maxh`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[setMaximumHeight](qmenu.md#setmaximumheight)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`maxh` | number |
 
 **Returns:** *void*
 
@@ -1198,17 +2261,49 @@ Name | Type |
 
 ___
 
+###  setMaximumWidth
+
+▸ **setMaximumWidth**(`maxw`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[setMaximumWidth](qmenu.md#setmaximumwidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`maxw` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setMidLineWidth
 
 ▸ **setMidLineWidth**(`width`: number): *void*
 
-*Inherited from [NodeFrame](nodeframe.md).[setMidLineWidth](nodeframe.md#setmidlinewidth)*
+*Inherited from [QFrame](qframe.md).[setMidLineWidth](qframe.md#setmidlinewidth)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `width` | number |
+
+**Returns:** *void*
+
+___
+
+###  setMinimumHeight
+
+▸ **setMinimumHeight**(`minh`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[setMinimumHeight](qmenu.md#setminimumheight)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`minh` | number |
 
 **Returns:** *void*
 
@@ -1231,6 +2326,22 @@ Name | Type |
 
 ___
 
+###  setMinimumWidth
+
+▸ **setMinimumWidth**(`minw`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[setMinimumWidth](qmenu.md#setminimumwidth)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`minw` | number |
+
+**Returns:** *void*
+
+___
+
 ###  setMouseTracking
 
 ▸ **setMouseTracking**(`isMouseTracked`: boolean): *void*
@@ -1247,29 +2358,13 @@ Name | Type |
 
 ___
 
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
-
-___
-
 ###  setObjectName
 
 ▸ **setObjectName**(`objectName`: string): *void*
 
 *Inherited from [QMenu](qmenu.md).[setObjectName](qmenu.md#setobjectname)*
 
-*Overrides [NodeObject](nodeobject.md).[setObjectName](nodeobject.md#setobjectname)*
+*Overrides [QObject](qobject.md).[setObjectName](qobject.md#setobjectname)*
 
 **Parameters:**
 
@@ -1281,11 +2376,27 @@ Name | Type |
 
 ___
 
+###  setParent
+
+▸ **setParent**(`parent`: [QObject](qobject.md)): *void*
+
+*Inherited from [QObject](qobject.md).[setParent](qobject.md#setparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`parent` | [QObject](qobject.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setProperty
 
 ▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
 
-*Inherited from [NodeObject](nodeobject.md).[setProperty](nodeobject.md#setproperty)*
+*Inherited from [QObject](qobject.md).[setProperty](qobject.md#setproperty)*
 
 **Parameters:**
 
@@ -1298,17 +2409,214 @@ Name | Type |
 
 ___
 
-###  setStyleSheet
+###  setShortcutAutoRepeat
 
-▸ **setStyleSheet**(`styleSheet`: string): *void*
+▸ **setShortcutAutoRepeat**(`id`: number, `enable`: boolean): *void*
 
-*Inherited from [QMenu](qmenu.md).[setStyleSheet](qmenu.md#setstylesheet)*
+*Inherited from [QMenu](qmenu.md).[setShortcutAutoRepeat](qmenu.md#setshortcutautorepeat)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`id` | number | - |
+`enable` | boolean | true |
+
+**Returns:** *void*
+
+___
+
+###  setShortcutEnabled
+
+▸ **setShortcutEnabled**(`id`: number, `enable`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setShortcutEnabled](qmenu.md#setshortcutenabled)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`id` | number | - |
+`enable` | boolean | true |
+
+**Returns:** *void*
+
+___
+
+###  setSizeIncrement
+
+▸ **setSizeIncrement**(`w_or_size`: [QSize](qsize.md) | number, `h`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[setSizeIncrement](qmenu.md#setsizeincrement)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`w_or_size` | [QSize](qsize.md) &#124; number | - |
+`h` | number | 0 |
+
+**Returns:** *void*
+
+___
+
+###  setSizePolicy
+
+▸ **setSizePolicy**(`horizontal`: [QSizePolicyPolicy](../enums/qsizepolicypolicy.md), `vertical`: [QSizePolicyPolicy](../enums/qsizepolicypolicy.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[setSizePolicy](qmenu.md#setsizepolicy)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`styleSheet` | string |
+`horizontal` | [QSizePolicyPolicy](../enums/qsizepolicypolicy.md) |
+`vertical` | [QSizePolicyPolicy](../enums/qsizepolicypolicy.md) |
+
+**Returns:** *void*
+
+___
+
+###  setStatusTip
+
+▸ **setStatusTip**(`statusTip`: string): *void*
+
+*Inherited from [QMenu](qmenu.md).[setStatusTip](qmenu.md#setstatustip)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`statusTip` | string |
+
+**Returns:** *void*
+
+___
+
+###  setStyleSheet
+
+▸ **setStyleSheet**(`styleSheet`: string, `postprocess`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setStyleSheet](qmenu.md#setstylesheet)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`styleSheet` | string | - |
+`postprocess` | boolean | true |
+
+**Returns:** *void*
+
+___
+
+###  setTabletTracking
+
+▸ **setTabletTracking**(`enable`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setTabletTracking](qmenu.md#settablettracking)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enable` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setToolTip
+
+▸ **setToolTip**(`text`: string): *void*
+
+*Inherited from [QMenu](qmenu.md).[setToolTip](qmenu.md#settooltip)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+
+**Returns:** *void*
+
+___
+
+###  setToolTipDuration
+
+▸ **setToolTipDuration**(`msec`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[setToolTipDuration](qmenu.md#settooltipduration)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`msec` | number |
+
+**Returns:** *void*
+
+___
+
+###  setUpdatesEnabled
+
+▸ **setUpdatesEnabled**(`enable`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setUpdatesEnabled](qmenu.md#setupdatesenabled)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`enable` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setVisible
+
+▸ **setVisible**(`visible`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setVisible](qmenu.md#setvisible)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`visible` | boolean |
+
+**Returns:** *void*
+
+___
+
+###  setWhatsThis
+
+▸ **setWhatsThis**(`whatsThis`: string): *void*
+
+*Inherited from [QMenu](qmenu.md).[setWhatsThis](qmenu.md#setwhatsthis)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`whatsThis` | string |
+
+**Returns:** *void*
+
+___
+
+###  setWindowFilePath
+
+▸ **setWindowFilePath**(`filePath`: string): *void*
+
+*Inherited from [QMenu](qmenu.md).[setWindowFilePath](qmenu.md#setwindowfilepath)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`filePath` | string |
 
 **Returns:** *void*
 
@@ -1347,6 +2655,22 @@ Name | Type |
 
 ___
 
+###  setWindowModified
+
+▸ **setWindowModified**(`modified`: boolean): *void*
+
+*Inherited from [QMenu](qmenu.md).[setWindowModified](qmenu.md#setwindowmodified)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`modified` | boolean |
+
+**Returns:** *void*
+
+___
+
 ###  setWindowOpacity
 
 ▸ **setWindowOpacity**(`opacity`: number): *void*
@@ -1358,6 +2682,22 @@ ___
 Name | Type |
 ------ | ------ |
 `opacity` | number |
+
+**Returns:** *void*
+
+___
+
+###  setWindowRole
+
+▸ **setWindowRole**(`role`: string): *void*
+
+*Inherited from [QMenu](qmenu.md).[setWindowRole](qmenu.md#setwindowrole)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`role` | string |
 
 **Returns:** *void*
 
@@ -1455,6 +2795,79 @@ ___
 
 ___
 
+###  sizeHint
+
+▸ **sizeHint**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[sizeHint](qmenu.md#sizehint)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  sizeIncrement
+
+▸ **sizeIncrement**(): *[QSize](qsize.md)*
+
+*Inherited from [QMenu](qmenu.md).[sizeIncrement](qmenu.md#sizeincrement)*
+
+**Returns:** *[QSize](qsize.md)*
+
+___
+
+###  stackUnder
+
+▸ **stackUnder**(`w`: [QWidget](qwidget.md)): *void*
+
+*Inherited from [QMenu](qmenu.md).[stackUnder](qmenu.md#stackunder)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`w` | [QWidget](qwidget.md) |
+
+**Returns:** *void*
+
+___
+
+###  startTimer
+
+▸ **startTimer**(`intervalMS`: number, `timerType`: [TimerType](../enums/timertype.md)): *number*
+
+*Inherited from [QObject](qobject.md).[startTimer](qobject.md#starttimer)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`intervalMS` | number | - |
+`timerType` | [TimerType](../enums/timertype.md) | TimerType.CoarseTimer |
+
+**Returns:** *number*
+
+___
+
+###  statusTip
+
+▸ **statusTip**(): *string*
+
+*Inherited from [QMenu](qmenu.md).[statusTip](qmenu.md#statustip)*
+
+**Returns:** *string*
+
+___
+
+###  style
+
+▸ **style**(): *[QStyle](qstyle.md)*
+
+*Inherited from [QMenu](qmenu.md).[style](qmenu.md#style)*
+
+**Returns:** *[QStyle](qstyle.md)*
+
+___
+
 ###  styleSheet
 
 ▸ **styleSheet**(): *string*
@@ -1481,6 +2894,66 @@ Name | Type |
 
 ___
 
+###  toolTip
+
+▸ **toolTip**(): *string*
+
+*Inherited from [QMenu](qmenu.md).[toolTip](qmenu.md#tooltip)*
+
+**Returns:** *string*
+
+___
+
+###  toolTipDuration
+
+▸ **toolTipDuration**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[toolTipDuration](qmenu.md#tooltipduration)*
+
+**Returns:** *number*
+
+___
+
+###  underMouse
+
+▸ **underMouse**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[underMouse](qmenu.md#undermouse)*
+
+**Returns:** *boolean*
+
+___
+
+###  unsetCursor
+
+▸ **unsetCursor**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[unsetCursor](qmenu.md#unsetcursor)*
+
+**Returns:** *void*
+
+___
+
+###  unsetLayoutDirection
+
+▸ **unsetLayoutDirection**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[unsetLayoutDirection](qmenu.md#unsetlayoutdirection)*
+
+**Returns:** *void*
+
+___
+
+###  unsetLocale
+
+▸ **unsetLocale**(): *void*
+
+*Inherited from [QMenu](qmenu.md).[unsetLocale](qmenu.md#unsetlocale)*
+
+**Returns:** *void*
+
+___
+
 ###  update
 
 ▸ **update**(): *void*
@@ -1501,6 +2974,112 @@ ___
 
 ___
 
+###  updateMicroFocus
+
+▸ **updateMicroFocus**(`query`: number): *void*
+
+*Inherited from [QMenu](qmenu.md).[updateMicroFocus](qmenu.md#updatemicrofocus)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`query` | number | InputMethodQuery.ImQueryAll |
+
+**Returns:** *void*
+
+___
+
+###  updatesEnabled
+
+▸ **updatesEnabled**(): *boolean*
+
+*Inherited from [QMenu](qmenu.md).[updatesEnabled](qmenu.md#updatesenabled)*
+
+**Returns:** *boolean*
+
+___
+
+###  whatsThis
+
+▸ **whatsThis**(): *string*
+
+*Inherited from [QMenu](qmenu.md).[whatsThis](qmenu.md#whatsthis)*
+
+**Returns:** *string*
+
+___
+
+###  width
+
+▸ **width**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[width](qmenu.md#width)*
+
+**Returns:** *number*
+
+___
+
+###  widthMM
+
+▸ **widthMM**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[widthMM](qmenu.md#widthmm)*
+
+**Returns:** *number*
+
+___
+
+###  winId
+
+▸ **winId**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[winId](qmenu.md#winid)*
+
+**Returns:** *number*
+
+___
+
+###  window
+
+▸ **window**(): *[QWidget](qwidget.md)*
+
+*Inherited from [QMenu](qmenu.md).[window](qmenu.md#window)*
+
+**Returns:** *[QWidget](qwidget.md)*
+
+___
+
+###  windowFilePath
+
+▸ **windowFilePath**(): *string*
+
+*Inherited from [QMenu](qmenu.md).[windowFilePath](qmenu.md#windowfilepath)*
+
+**Returns:** *string*
+
+___
+
+###  windowHandle
+
+▸ **windowHandle**(): *[QWindow](qwindow.md) | null*
+
+*Inherited from [QMenu](qmenu.md).[windowHandle](qmenu.md#windowhandle)*
+
+**Returns:** *[QWindow](qwindow.md) | null*
+
+___
+
+###  windowIcon
+
+▸ **windowIcon**(): *[QIcon](qicon.md)*
+
+*Inherited from [QMenu](qmenu.md).[windowIcon](qmenu.md#windowicon)*
+
+**Returns:** *[QIcon](qicon.md)*
+
+___
+
 ###  windowOpacity
 
 ▸ **windowOpacity**(): *number*
@@ -1511,13 +3090,23 @@ ___
 
 ___
 
+###  windowRole
+
+▸ **windowRole**(): *string*
+
+*Inherited from [QMenu](qmenu.md).[windowRole](qmenu.md#windowrole)*
+
+**Returns:** *string*
+
+___
+
 ###  windowState
 
-▸ **windowState**(): *number*
+▸ **windowState**(): *[WindowState](../enums/windowstate.md)*
 
 *Inherited from [QMenu](qmenu.md).[windowState](qmenu.md#windowstate)*
 
-**Returns:** *number*
+**Returns:** *[WindowState](../enums/windowstate.md)*
 
 ___
 
@@ -1528,3 +3117,23 @@ ___
 *Inherited from [QMenu](qmenu.md).[windowTitle](qmenu.md#windowtitle)*
 
 **Returns:** *string*
+
+___
+
+###  x
+
+▸ **x**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[x](qmenu.md#x)*
+
+**Returns:** *number*
+
+___
+
+###  y
+
+▸ **y**(): *number*
+
+*Inherited from [QMenu](qmenu.md).[y](qmenu.md#y)*
+
+**Returns:** *number*

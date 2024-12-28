@@ -18,28 +18,28 @@ sidebar_label: "DragDropMode"
 
 ###  DragDrop
 
-• **DragDrop**:
+• **DragDrop**: = 3
 
 ___
 
 ###  DragOnly
 
-• **DragOnly**:
+• **DragOnly**: = 1
 
 ___
 
 ###  DropOnly
 
-• **DropOnly**:
+• **DropOnly**: = 2
 
 ___
 
 ###  InternalMove
 
-• **InternalMove**:
+• **InternalMove**: = 4
 
 ___
 
 ###  NoDragDrop
 
-• **NoDragDrop**:
+• **NoDragDrop**: = 0

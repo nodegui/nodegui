@@ -18,19 +18,19 @@ sidebar_label: "SelectionMode"
 
 ###  ContiguousSelection
 
-• **ContiguousSelection**:
+• **ContiguousSelection**: = 4
 
 ___
 
 ###  ExtendedSelection
 
-• **ExtendedSelection**:
+• **ExtendedSelection**: = 3
 
 ___
 
 ###  MultiSelection
 
-• **MultiSelection**:
+• **MultiSelection**: = 2
 
 ___
 

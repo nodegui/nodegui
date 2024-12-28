@@ -25,7 +25,7 @@ centralWidget.setLayout(boxLayout);
 
 ## Hierarchy
 
-  ↳ [NodeLayout](nodelayout.md)‹[QBoxLayoutSignals](../globals.md#qboxlayoutsignals)›
+  ↳ [QLayout](qlayout.md)‹[QBoxLayoutSignals](../globals.md#qboxlayoutsignals)›
 
   ↳ **QBoxLayout**
 
@@ -37,14 +37,12 @@ centralWidget.setLayout(boxLayout);
 
 ### Properties
 
-* [childLayouts](qboxlayout.md#childlayouts)
 * [native](qboxlayout.md#native)
-* [nodeChildren](qboxlayout.md#nodechildren)
-* [nodeParent](qboxlayout.md#optional-nodeparent)
 * [type](qboxlayout.md#type)
 
 ### Methods
 
+* [_id](qboxlayout.md#_id)
 * [activate](qboxlayout.md#activate)
 * [addEventListener](qboxlayout.md#addeventlistener)
 * [addLayout](qboxlayout.md#addlayout)
@@ -52,8 +50,14 @@ centralWidget.setLayout(boxLayout);
 * [addStretch](qboxlayout.md#addstretch)
 * [addStrut](qboxlayout.md#addstrut)
 * [addWidget](qboxlayout.md#addwidget)
+* [children](qboxlayout.md#children)
 * [count](qboxlayout.md#count)
+* [delete](qboxlayout.md#delete)
+* [deleteLater](qboxlayout.md#deletelater)
 * [direction](qboxlayout.md#direction)
+* [dumpObjectInfo](qboxlayout.md#dumpobjectinfo)
+* [dumpObjectTree](qboxlayout.md#dumpobjecttree)
+* [eventProcessed](qboxlayout.md#eventprocessed)
 * [inherits](qboxlayout.md#inherits)
 * [insertLayout](qboxlayout.md#insertlayout)
 * [insertSpacing](qboxlayout.md#insertspacing)
@@ -61,81 +65,51 @@ centralWidget.setLayout(boxLayout);
 * [insertWidget](qboxlayout.md#insertwidget)
 * [invalidate](qboxlayout.md#invalidate)
 * [isEnabled](qboxlayout.md#isenabled)
+* [killTimer](qboxlayout.md#killtimer)
 * [objectName](qboxlayout.md#objectname)
+* [parent](qboxlayout.md#parent)
 * [property](qboxlayout.md#property)
 * [removeEventListener](qboxlayout.md#removeeventlistener)
 * [removeWidget](qboxlayout.md#removewidget)
 * [setContentsMargins](qboxlayout.md#setcontentsmargins)
 * [setDirection](qboxlayout.md#setdirection)
 * [setEnabled](qboxlayout.md#setenabled)
-* [setNodeParent](qboxlayout.md#setnodeparent)
+* [setEventProcessed](qboxlayout.md#seteventprocessed)
 * [setObjectName](qboxlayout.md#setobjectname)
+* [setParent](qboxlayout.md#setparent)
 * [setProperty](qboxlayout.md#setproperty)
 * [setSizeConstraint](qboxlayout.md#setsizeconstraint)
 * [setSpacing](qboxlayout.md#setspacing)
 * [setStretch](qboxlayout.md#setstretch)
 * [sizeConstraint](qboxlayout.md#sizeconstraint)
 * [spacing](qboxlayout.md#spacing)
+* [startTimer](qboxlayout.md#starttimer)
 * [update](qboxlayout.md#update)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QBoxLayout**(`dir`: [Direction](../enums/direction.md)): *[QBoxLayout](qboxlayout.md)*
+\+ **new QBoxLayout**(`arg`: [NativeElement](../globals.md#nativeelement) | [Direction](../enums/direction.md), `parent?`: [QWidget](qwidget.md)): *[QBoxLayout](qboxlayout.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`dir` | [Direction](../enums/direction.md) |
-
-**Returns:** *[QBoxLayout](qboxlayout.md)*
-
-\+ **new QBoxLayout**(`dir`: [Direction](../enums/direction.md), `parent`: [NodeWidget](nodewidget.md)‹any›): *[QBoxLayout](qboxlayout.md)*
-
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [QObject](qobject.md).[constructor](qobject.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`dir` | [Direction](../enums/direction.md) |
-`parent` | [NodeWidget](nodewidget.md)‹any› |
+`arg` | [NativeElement](../globals.md#nativeelement) &#124; [Direction](../enums/direction.md) |
+`parent?` | [QWidget](qwidget.md) |
 
 **Returns:** *[QBoxLayout](qboxlayout.md)*
 
 ## Properties
 
-###  childLayouts
-
-• **childLayouts**: *Set‹[NodeLayout](nodelayout.md)‹any››*
-
-___
-
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ___
 
@@ -143,15 +117,33 @@ ___
 
 • **type**: *string* = "layout"
 
-*Inherited from [NodeLayout](nodelayout.md).[type](nodelayout.md#type)*
+*Inherited from [QLayout](qlayout.md).[type](qlayout.md#type)*
 
 ## Methods
+
+###  _id
+
+▸ **_id**(): *number*
+
+*Inherited from [QObject](qobject.md).[_id](qobject.md#_id)*
+
+Get an ID identifying the underlying C++ object.
+
+This can be useful when debugging memory problems with help from
+`setLogCreateQObject()` and `setLogDestroyQObject()`. The number is
+hash of the memory address of the C++ object.
+
+**Returns:** *number*
+
+a unique number which is valid for the lifetime of the C++ object.
+
+___
 
 ###  activate
 
 ▸ **activate**(): *boolean*
 
-*Inherited from [NodeLayout](nodelayout.md).[activate](nodelayout.md#activate)*
+*Inherited from [QLayout](qlayout.md).[activate](qlayout.md#activate)*
 
 **Returns:** *boolean*
 
@@ -159,7 +151,7 @@ ___
 
 ###  addEventListener
 
-▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QBoxLayoutSignals[SignalType]): *void*
+▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QBoxLayoutSignals[SignalType], `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
@@ -173,6 +165,7 @@ Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
 `callback` | QBoxLayoutSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`options?` | [EventListenerOptions](../interfaces/eventlisteneroptions.md) | Extra optional options controlling how this event listener is added. |
 
 **Returns:** *void*
 
@@ -185,7 +178,7 @@ button.addEventListener('clicked',(checked)=>console.log("clicked"));
 // here clicked is a value from QPushButtonSignals interface
 ```
 
-▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function, `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
@@ -195,12 +188,6 @@ button.addEventListener('clicked',(checked)=>console.log("clicked"));
 
 ▪ **callback**: *function*
 
-For example in the case of QPushButton:
-```js
-const button = new QPushButton();
-button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
-```
-
 ▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
@@ -209,19 +196,29 @@ Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
+▪`Optional`  **options**: *[EventListenerOptions](../interfaces/eventlisteneroptions.md)*
+
+Extra optional options controlling how this event listener is added.
+
+For example in the case of QPushButton:
+```js
+const button = new QPushButton();
+button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
+```
+
 **Returns:** *void*
 
 ___
 
 ###  addLayout
 
-▸ **addLayout**(`layout`: [NodeLayout](nodelayout.md)‹any›, `stretch`: number): *void*
+▸ **addLayout**(`layout`: [QLayout](qlayout.md), `stretch`: number): *void*
 
 **Parameters:**
 
 Name | Type | Default |
 ------ | ------ | ------ |
-`layout` | [NodeLayout](nodelayout.md)‹any› | - |
+`layout` | [QLayout](qlayout.md) | - |
 `stretch` | number | 0 |
 
 **Returns:** *void*
@@ -272,19 +269,29 @@ ___
 
 ###  addWidget
 
-▸ **addWidget**(`widget`: [NodeWidget](nodewidget.md)‹any›, `stretch`: number, `alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
+▸ **addWidget**(`widget`: [QWidget](qwidget.md), `stretch`: number, `alignment`: [AlignmentFlag](../enums/alignmentflag.md)): *void*
 
-*Overrides [NodeLayout](nodelayout.md).[addWidget](nodelayout.md#abstract-addwidget)*
+*Overrides [QLayout](qlayout.md).[addWidget](qlayout.md#abstract-addwidget)*
 
 **Parameters:**
 
 Name | Type | Default |
 ------ | ------ | ------ |
-`widget` | [NodeWidget](nodewidget.md)‹any› | - |
+`widget` | [QWidget](qwidget.md) | - |
 `stretch` | number | 0 |
 `alignment` | [AlignmentFlag](../enums/alignmentflag.md) | 0 |
 
 **Returns:** *void*
+
+___
+
+###  children
+
+▸ **children**(): *[QObject](qobject.md)[]*
+
+*Inherited from [QObject](qobject.md).[children](qobject.md#children)*
+
+**Returns:** *[QObject](qobject.md)[]*
 
 ___
 
@@ -296,6 +303,26 @@ ___
 
 ___
 
+###  delete
+
+▸ **delete**(): *void*
+
+*Inherited from [QObject](qobject.md).[delete](qobject.md#delete)*
+
+**Returns:** *void*
+
+___
+
+###  deleteLater
+
+▸ **deleteLater**(): *void*
+
+*Inherited from [QObject](qobject.md).[deleteLater](qobject.md#deletelater)*
+
+**Returns:** *void*
+
+___
+
 ###  direction
 
 ▸ **direction**(): *[Direction](../enums/direction.md)*
@@ -304,11 +331,47 @@ ___
 
 ___
 
+###  dumpObjectInfo
+
+▸ **dumpObjectInfo**(): *void*
+
+*Inherited from [QObject](qobject.md).[dumpObjectInfo](qobject.md#dumpobjectinfo)*
+
+**Returns:** *void*
+
+___
+
+###  dumpObjectTree
+
+▸ **dumpObjectTree**(): *void*
+
+*Inherited from [QObject](qobject.md).[dumpObjectTree](qobject.md#dumpobjecttree)*
+
+**Returns:** *void*
+
+___
+
+###  eventProcessed
+
+▸ **eventProcessed**(): *boolean*
+
+*Inherited from [EventWidget](eventwidget.md).[eventProcessed](eventwidget.md#eventprocessed)*
+
+Get the state of the event processed flag
+
+See `setEventProcessed()`.
+
+**Returns:** *boolean*
+
+boolean True if the current event is flagged as processed.
+
+___
+
 ###  inherits
 
 ▸ **inherits**(`className`: string): *boolean*
 
-*Inherited from [NodeObject](nodeobject.md).[inherits](nodeobject.md#inherits)*
+*Inherited from [QObject](qobject.md).[inherits](qobject.md#inherits)*
 
 **Parameters:**
 
@@ -322,14 +385,14 @@ ___
 
 ###  insertLayout
 
-▸ **insertLayout**(`index`: number, `layout`: [NodeLayout](nodelayout.md)‹any›, `stretch`: number): *void*
+▸ **insertLayout**(`index`: number, `layout`: [QLayout](qlayout.md), `stretch`: number): *void*
 
 **Parameters:**
 
 Name | Type | Default |
 ------ | ------ | ------ |
 `index` | number | - |
-`layout` | [NodeLayout](nodelayout.md)‹any› | - |
+`layout` | [QLayout](qlayout.md) | - |
 `stretch` | number | 0 |
 
 **Returns:** *void*
@@ -368,14 +431,14 @@ ___
 
 ###  insertWidget
 
-▸ **insertWidget**(`index`: number, `widget`: [NodeWidget](nodewidget.md)‹any›, `stretch`: number): *void*
+▸ **insertWidget**(`index`: number, `widget`: [QWidget](qwidget.md), `stretch`: number): *void*
 
 **Parameters:**
 
 Name | Type | Default |
 ------ | ------ | ------ |
 `index` | number | - |
-`widget` | [NodeWidget](nodewidget.md)‹any› | - |
+`widget` | [QWidget](qwidget.md) | - |
 `stretch` | number | 0 |
 
 **Returns:** *void*
@@ -386,7 +449,7 @@ ___
 
 ▸ **invalidate**(): *void*
 
-*Inherited from [NodeLayout](nodelayout.md).[invalidate](nodelayout.md#invalidate)*
+*Inherited from [QLayout](qlayout.md).[invalidate](qlayout.md#invalidate)*
 
 **Returns:** *void*
 
@@ -396,9 +459,25 @@ ___
 
 ▸ **isEnabled**(): *boolean*
 
-*Inherited from [NodeLayout](nodelayout.md).[isEnabled](nodelayout.md#isenabled)*
+*Inherited from [QLayout](qlayout.md).[isEnabled](qlayout.md#isenabled)*
 
 **Returns:** *boolean*
+
+___
+
+###  killTimer
+
+▸ **killTimer**(`timerId`: number): *void*
+
+*Inherited from [QObject](qobject.md).[killTimer](qobject.md#killtimer)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`timerId` | number |
+
+**Returns:** *void*
 
 ___
 
@@ -406,9 +485,19 @@ ___
 
 ▸ **objectName**(): *string*
 
-*Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
+*Inherited from [QObject](qobject.md).[objectName](qobject.md#objectname)*
 
 **Returns:** *string*
+
+___
+
+###  parent
+
+▸ **parent**(): *[QObject](qobject.md)*
+
+*Inherited from [QObject](qobject.md).[parent](qobject.md#parent)*
+
+**Returns:** *[QObject](qobject.md)*
 
 ___
 
@@ -416,7 +505,7 @@ ___
 
 ▸ **property**(`name`: string): *[QVariant](qvariant.md)*
 
-*Inherited from [NodeObject](nodeobject.md).[property](nodeobject.md#property)*
+*Inherited from [QObject](qobject.md).[property](qobject.md#property)*
 
 **Parameters:**
 
@@ -430,7 +519,7 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QBoxLayoutSignals[SignalType]): *void*
+▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QBoxLayoutSignals[SignalType], `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
@@ -444,10 +533,11 @@ Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
 `callback` | QBoxLayoutSignals[SignalType] |
+`options?` | [EventListenerOptions](../interfaces/eventlisteneroptions.md) |
 
 **Returns:** *void*
 
-▸ **removeEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+▸ **removeEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function, `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
@@ -465,21 +555,23 @@ Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
+▪`Optional`  **options**: *[EventListenerOptions](../interfaces/eventlisteneroptions.md)*
+
 **Returns:** *void*
 
 ___
 
 ###  removeWidget
 
-▸ **removeWidget**(`widget`: [NodeWidget](nodewidget.md)‹any›): *void*
+▸ **removeWidget**(`widget`: [QWidget](qwidget.md)): *void*
 
-*Overrides [NodeLayout](nodelayout.md).[removeWidget](nodelayout.md#abstract-removewidget)*
+*Overrides [QLayout](qlayout.md).[removeWidget](qlayout.md#abstract-removewidget)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`widget` | [NodeWidget](nodewidget.md)‹any› |
+`widget` | [QWidget](qwidget.md) |
 
 **Returns:** *void*
 
@@ -489,7 +581,7 @@ ___
 
 ▸ **setContentsMargins**(`left`: number, `top`: number, `right`: number, `bottom`: number): *void*
 
-*Inherited from [NodeLayout](nodelayout.md).[setContentsMargins](nodelayout.md#setcontentsmargins)*
+*Inherited from [QLayout](qlayout.md).[setContentsMargins](qlayout.md#setcontentsmargins)*
 
 **Parameters:**
 
@@ -522,7 +614,7 @@ ___
 
 ▸ **setEnabled**(`enable`: boolean): *void*
 
-*Inherited from [NodeLayout](nodelayout.md).[setEnabled](nodelayout.md#setenabled)*
+*Inherited from [QLayout](qlayout.md).[setEnabled](qlayout.md#setenabled)*
 
 **Parameters:**
 
@@ -534,17 +626,28 @@ Name | Type |
 
 ___
 
-###  setNodeParent
+###  setEventProcessed
 
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
+▸ **setEventProcessed**(`isProcessed`: boolean): *void*
 
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
+*Inherited from [EventWidget](eventwidget.md).[setEventProcessed](eventwidget.md#seteventprocessed)*
+
+Mark the current event as having been processed
+
+This method is used to indicate that the currently dispatched event
+has been processed and no further processing by superclasses is
+required. It only makes sense to call this method from an event
+handler.
+
+When set, this flag will cause NodeGui's `QObject::event()` method to
+return true and not call the superclass `event()`, effectively preventing
+any further processing on this event.
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
+Name | Type | Description |
+------ | ------ | ------ |
+`isProcessed` | boolean | true if the event has been processed.  |
 
 **Returns:** *void*
 
@@ -554,7 +657,7 @@ ___
 
 ▸ **setObjectName**(`objectName`: string): *void*
 
-*Inherited from [NodeObject](nodeobject.md).[setObjectName](nodeobject.md#setobjectname)*
+*Inherited from [QObject](qobject.md).[setObjectName](qobject.md#setobjectname)*
 
 **Parameters:**
 
@@ -566,11 +669,27 @@ Name | Type |
 
 ___
 
+###  setParent
+
+▸ **setParent**(`parent`: [QObject](qobject.md)): *void*
+
+*Inherited from [QObject](qobject.md).[setParent](qobject.md#setparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`parent` | [QObject](qobject.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setProperty
 
 ▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
 
-*Inherited from [NodeObject](nodeobject.md).[setProperty](nodeobject.md#setproperty)*
+*Inherited from [QObject](qobject.md).[setProperty](qobject.md#setproperty)*
 
 **Parameters:**
 
@@ -587,7 +706,7 @@ ___
 
 ▸ **setSizeConstraint**(`constraint`: [SizeConstraint](../enums/sizeconstraint.md)): *void*
 
-*Inherited from [NodeLayout](nodelayout.md).[setSizeConstraint](nodelayout.md#setsizeconstraint)*
+*Inherited from [QLayout](qlayout.md).[setSizeConstraint](qlayout.md#setsizeconstraint)*
 
 **Parameters:**
 
@@ -603,7 +722,7 @@ ___
 
 ▸ **setSpacing**(`spacing`: number): *void*
 
-*Inherited from [NodeLayout](nodelayout.md).[setSpacing](nodelayout.md#setspacing)*
+*Inherited from [QLayout](qlayout.md).[setSpacing](qlayout.md#setspacing)*
 
 **Parameters:**
 
@@ -634,7 +753,7 @@ ___
 
 ▸ **sizeConstraint**(): *[SizeConstraint](../enums/sizeconstraint.md)*
 
-*Inherited from [NodeLayout](nodelayout.md).[sizeConstraint](nodelayout.md#sizeconstraint)*
+*Inherited from [QLayout](qlayout.md).[sizeConstraint](qlayout.md#sizeconstraint)*
 
 **Returns:** *[SizeConstraint](../enums/sizeconstraint.md)*
 
@@ -644,7 +763,24 @@ ___
 
 ▸ **spacing**(): *number*
 
-*Inherited from [NodeLayout](nodelayout.md).[spacing](nodelayout.md#spacing)*
+*Inherited from [QLayout](qlayout.md).[spacing](qlayout.md#spacing)*
+
+**Returns:** *number*
+
+___
+
+###  startTimer
+
+▸ **startTimer**(`intervalMS`: number, `timerType`: [TimerType](../enums/timertype.md)): *number*
+
+*Inherited from [QObject](qobject.md).[startTimer](qobject.md#starttimer)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`intervalMS` | number | - |
+`timerType` | [TimerType](../enums/timertype.md) | TimerType.CoarseTimer |
 
 **Returns:** *number*
 
@@ -654,6 +790,6 @@ ___
 
 ▸ **update**(): *void*
 
-*Inherited from [NodeLayout](nodelayout.md).[update](nodelayout.md#update)*
+*Inherited from [QLayout](qlayout.md).[update](qlayout.md#update)*
 
 **Returns:** *void*

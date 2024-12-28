@@ -31,8 +31,6 @@ const picture = new QPicture();
 ### Properties
 
 * [native](qpicture.md#native)
-* [nodeChildren](qpicture.md#nodechildren)
-* [nodeParent](qpicture.md#optional-nodeparent)
 
 ### Methods
 
@@ -41,7 +39,6 @@ const picture = new QPicture();
 * [load](qpicture.md#load)
 * [save](qpicture.md#save)
 * [setBoundingRect](qpicture.md#setboundingrect)
-* [setNodeParent](qpicture.md#setnodeparent)
 * [size](qpicture.md#size)
 
 ## Constructors
@@ -82,25 +79,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -157,22 +138,6 @@ ___
 Name | Type |
 ------ | ------ |
 `r` | [QRect](qrect.md) |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

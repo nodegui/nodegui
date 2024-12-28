@@ -42,8 +42,6 @@ listWidget.addItem(listWidgetItem);
 ### Properties
 
 * [native](qlistwidgetitem.md#native)
-* [nodeChildren](qlistwidgetitem.md#nodechildren)
-* [nodeParent](qlistwidgetitem.md#optional-nodeparent)
 
 ### Methods
 
@@ -64,7 +62,6 @@ listWidget.addItem(listWidgetItem);
 * [setForeground](qlistwidgetitem.md#setforeground)
 * [setHidden](qlistwidgetitem.md#sethidden)
 * [setIcon](qlistwidgetitem.md#seticon)
-* [setNodeParent](qlistwidgetitem.md#setnodeparent)
 * [setSelected](qlistwidgetitem.md#setselected)
 * [setSizeHint](qlistwidgetitem.md#setsizehint)
 * [setStatusTip](qlistwidgetitem.md#setstatustip)
@@ -84,13 +81,7 @@ listWidget.addItem(listWidgetItem);
 
 ###  constructor
 
-\+ **new QListWidgetItem**(): *[QListWidgetItem](qlistwidgetitem.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Returns:** *[QListWidgetItem](qlistwidgetitem.md)*
-
-\+ **new QListWidgetItem**(`other`: [QListWidgetItem](qlistwidgetitem.md)): *[QListWidgetItem](qlistwidgetitem.md)*
+\+ **new QListWidgetItem**(`arg?`: [QListWidgetItem](qlistwidgetitem.md) | [NativeElement](../globals.md#nativeelement) | string): *[QListWidgetItem](qlistwidgetitem.md)*
 
 *Overrides [Component](component.md).[constructor](component.md#constructor)*
 
@@ -98,31 +89,7 @@ listWidget.addItem(listWidgetItem);
 
 Name | Type |
 ------ | ------ |
-`other` | [QListWidgetItem](qlistwidgetitem.md) |
-
-**Returns:** *[QListWidgetItem](qlistwidgetitem.md)*
-
-\+ **new QListWidgetItem**(`native`: [NativeElement](../globals.md#nativeelement)): *[QListWidgetItem](qlistwidgetitem.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`native` | [NativeElement](../globals.md#nativeelement) |
-
-**Returns:** *[QListWidgetItem](qlistwidgetitem.md)*
-
-\+ **new QListWidgetItem**(`text`: string): *[QListWidgetItem](qlistwidgetitem.md)*
-
-*Overrides [Component](component.md).[constructor](component.md#constructor)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`text` | string |
+`arg?` | [QListWidgetItem](qlistwidgetitem.md) &#124; [NativeElement](../globals.md#nativeelement) &#124; string |
 
 **Returns:** *[QListWidgetItem](qlistwidgetitem.md)*
 
@@ -130,25 +97,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -338,22 +289,6 @@ ___
 Name | Type |
 ------ | ------ |
 `icon` | [QIcon](qicon.md) |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 

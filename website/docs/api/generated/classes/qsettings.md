@@ -19,12 +19,9 @@ sidebar_label: "QSettings"
 ### Properties
 
 * [native](qsettings.md#native)
-* [nodeChildren](qsettings.md#nodechildren)
-* [nodeParent](qsettings.md#optional-nodeparent)
 
 ### Methods
 
-* [setNodeParent](qsettings.md#setnodeparent)
 * [setValue](qsettings.md#setvalue)
 * [sync](qsettings.md#sync)
 * [value](qsettings.md#value)
@@ -50,43 +47,11 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
-
-___
 
 ###  setValue
 

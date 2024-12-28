@@ -21,7 +21,7 @@ qApp.quit();
 
 ## Hierarchy
 
-  ↳ [NodeObject](nodeobject.md)‹[QApplicationSignals](../interfaces/qapplicationsignals.md)›
+  ↳ [QObject](qobject.md)‹[QApplicationSignals](../interfaces/qapplicationsignals.md)›
 
   ↳ **QApplication**
 
@@ -34,49 +34,66 @@ qApp.quit();
 ### Properties
 
 * [native](qapplication.md#native)
-* [nodeChildren](qapplication.md#nodechildren)
-* [nodeParent](qapplication.md#optional-nodeparent)
 
 ### Methods
 
+* [_id](qapplication.md#_id)
 * [addEventListener](qapplication.md#addeventlistener)
+* [children](qapplication.md#children)
+* [delete](qapplication.md#delete)
+* [deleteLater](qapplication.md#deletelater)
+* [devicePixelRatio](qapplication.md#devicepixelratio)
+* [dumpObjectInfo](qapplication.md#dumpobjectinfo)
+* [dumpObjectTree](qapplication.md#dumpobjecttree)
+* [eventProcessed](qapplication.md#eventprocessed)
 * [exec](qapplication.md#exec)
 * [exit](qapplication.md#exit)
 * [inherits](qapplication.md#inherits)
+* [killTimer](qapplication.md#killtimer)
 * [objectName](qapplication.md#objectname)
+* [palette](qapplication.md#palette)
+* [parent](qapplication.md#parent)
 * [processEvents](qapplication.md#processevents)
 * [property](qapplication.md#property)
 * [quit](qapplication.md#quit)
 * [quitOnLastWindowClosed](qapplication.md#quitonlastwindowclosed)
 * [removeEventListener](qapplication.md#removeeventlistener)
-* [setNodeParent](qapplication.md#setnodeparent)
+* [setEventProcessed](qapplication.md#seteventprocessed)
 * [setObjectName](qapplication.md#setobjectname)
+* [setParent](qapplication.md#setparent)
 * [setProperty](qapplication.md#setproperty)
 * [setQuitOnLastWindowClosed](qapplication.md#setquitonlastwindowclosed)
+* [setStyleSheet](qapplication.md#setstylesheet)
+* [startTimer](qapplication.md#starttimer)
+* [applicationDisplayName](qapplication.md#static-applicationdisplayname)
 * [clipboard](qapplication.md#static-clipboard)
-* [desktop](qapplication.md#static-desktop)
+* [desktopFileName](qapplication.md#static-desktopfilename)
+* [desktopSettingsAware](qapplication.md#static-desktopsettingsaware)
 * [instance](qapplication.md#static-instance)
+* [platformName](qapplication.md#static-platformname)
+* [primaryScreen](qapplication.md#static-primaryscreen)
+* [screens](qapplication.md#static-screens)
+* [setApplicationDisplayName](qapplication.md#static-setapplicationdisplayname)
+* [setDesktopFileName](qapplication.md#static-setdesktopfilename)
+* [setDesktopSettingsAware](qapplication.md#static-setdesktopsettingsaware)
+* [setStyle](qapplication.md#static-setstyle)
+* [setWindowIcon](qapplication.md#static-setwindowicon)
 * [style](qapplication.md#static-style)
+* [windowIcon](qapplication.md#static-windowicon)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new QApplication**(): *[QApplication](qapplication.md)*
+\+ **new QApplication**(`arg?`: [QObject](qobject.md) | [NativeElement](../globals.md#nativeelement)): *[QApplication](qapplication.md)*
 
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
-
-**Returns:** *[QApplication](qapplication.md)*
-
-\+ **new QApplication**(`native`: [NativeElement](../globals.md#nativeelement)): *[QApplication](qapplication.md)*
-
-*Overrides [EventWidget](eventwidget.md).[constructor](eventwidget.md#constructor)*
+*Overrides [QObject](qobject.md).[constructor](qobject.md#constructor)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`native` | [NativeElement](../globals.md#nativeelement) |
+`arg?` | [QObject](qobject.md) &#124; [NativeElement](../globals.md#nativeelement) |
 
 **Returns:** *[QApplication](qapplication.md)*
 
@@ -84,31 +101,33 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
+###  _id
+
+▸ **_id**(): *number*
+
+*Inherited from [QObject](qobject.md).[_id](qobject.md#_id)*
+
+Get an ID identifying the underlying C++ object.
+
+This can be useful when debugging memory problems with help from
+`setLogCreateQObject()` and `setLogDestroyQObject()`. The number is
+hash of the memory address of the C++ object.
+
+**Returns:** *number*
+
+a unique number which is valid for the lifetime of the C++ object.
+
+___
+
 ###  addEventListener
 
-▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QApplicationSignals[SignalType]): *void*
+▸ **addEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QApplicationSignals[SignalType], `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
@@ -122,6 +141,7 @@ Name | Type | Description |
 ------ | ------ | ------ |
 `signalType` | SignalType | SignalType is a signal from the widgets signals interface. |
 `callback` | QApplicationSignals[SignalType] | Corresponding callback for the signal as mentioned in the widget's signal interface |
+`options?` | [EventListenerOptions](../interfaces/eventlisteneroptions.md) | Extra optional options controlling how this event listener is added. |
 
 **Returns:** *void*
 
@@ -134,7 +154,7 @@ button.addEventListener('clicked',(checked)=>console.log("clicked"));
 // here clicked is a value from QPushButtonSignals interface
 ```
 
-▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+▸ **addEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function, `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[addEventListener](eventwidget.md#addeventlistener)*
 
@@ -144,12 +164,6 @@ button.addEventListener('clicked',(checked)=>console.log("clicked"));
 
 ▪ **callback**: *function*
 
-For example in the case of QPushButton:
-```js
-const button = new QPushButton();
-button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
-```
-
 ▸ (`event?`: [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"›): *void*
 
 **Parameters:**
@@ -158,7 +172,91 @@ Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
+▪`Optional`  **options**: *[EventListenerOptions](../interfaces/eventlisteneroptions.md)*
+
+Extra optional options controlling how this event listener is added.
+
+For example in the case of QPushButton:
+```js
+const button = new QPushButton();
+button.addEventListener(WidgetEventTypes.HoverEnter,()=>console.log("hovered"));
+```
+
 **Returns:** *void*
+
+___
+
+###  children
+
+▸ **children**(): *[QObject](qobject.md)[]*
+
+*Inherited from [QObject](qobject.md).[children](qobject.md#children)*
+
+**Returns:** *[QObject](qobject.md)[]*
+
+___
+
+###  delete
+
+▸ **delete**(): *void*
+
+*Inherited from [QObject](qobject.md).[delete](qobject.md#delete)*
+
+**Returns:** *void*
+
+___
+
+###  deleteLater
+
+▸ **deleteLater**(): *void*
+
+*Inherited from [QObject](qobject.md).[deleteLater](qobject.md#deletelater)*
+
+**Returns:** *void*
+
+___
+
+###  devicePixelRatio
+
+▸ **devicePixelRatio**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  dumpObjectInfo
+
+▸ **dumpObjectInfo**(): *void*
+
+*Inherited from [QObject](qobject.md).[dumpObjectInfo](qobject.md#dumpobjectinfo)*
+
+**Returns:** *void*
+
+___
+
+###  dumpObjectTree
+
+▸ **dumpObjectTree**(): *void*
+
+*Inherited from [QObject](qobject.md).[dumpObjectTree](qobject.md#dumpobjecttree)*
+
+**Returns:** *void*
+
+___
+
+###  eventProcessed
+
+▸ **eventProcessed**(): *boolean*
+
+*Inherited from [EventWidget](eventwidget.md).[eventProcessed](eventwidget.md#eventprocessed)*
+
+Get the state of the event processed flag
+
+See `setEventProcessed()`.
+
+**Returns:** *boolean*
+
+boolean True if the current event is flagged as processed.
 
 ___
 
@@ -188,7 +286,7 @@ ___
 
 ▸ **inherits**(`className`: string): *boolean*
 
-*Inherited from [NodeObject](nodeobject.md).[inherits](nodeobject.md#inherits)*
+*Inherited from [QObject](qobject.md).[inherits](qobject.md#inherits)*
 
 **Parameters:**
 
@@ -200,13 +298,47 @@ Name | Type |
 
 ___
 
+###  killTimer
+
+▸ **killTimer**(`timerId`: number): *void*
+
+*Inherited from [QObject](qobject.md).[killTimer](qobject.md#killtimer)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`timerId` | number |
+
+**Returns:** *void*
+
+___
+
 ###  objectName
 
 ▸ **objectName**(): *string*
 
-*Inherited from [NodeObject](nodeobject.md).[objectName](nodeobject.md#objectname)*
+*Inherited from [QObject](qobject.md).[objectName](qobject.md#objectname)*
 
 **Returns:** *string*
+
+___
+
+###  palette
+
+▸ **palette**(): *[QPalette](qpalette.md)*
+
+**Returns:** *[QPalette](qpalette.md)*
+
+___
+
+###  parent
+
+▸ **parent**(): *[QObject](qobject.md)*
+
+*Inherited from [QObject](qobject.md).[parent](qobject.md#parent)*
+
+**Returns:** *[QObject](qobject.md)*
 
 ___
 
@@ -222,7 +354,7 @@ ___
 
 ▸ **property**(`name`: string): *[QVariant](qvariant.md)*
 
-*Inherited from [NodeObject](nodeobject.md).[property](nodeobject.md#property)*
+*Inherited from [QObject](qobject.md).[property](qobject.md#property)*
 
 **Parameters:**
 
@@ -252,7 +384,7 @@ ___
 
 ###  removeEventListener
 
-▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QApplicationSignals[SignalType]): *void*
+▸ **removeEventListener**‹**SignalType**›(`signalType`: SignalType, `callback`: QApplicationSignals[SignalType], `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
@@ -266,10 +398,11 @@ Name | Type |
 ------ | ------ |
 `signalType` | SignalType |
 `callback` | QApplicationSignals[SignalType] |
+`options?` | [EventListenerOptions](../interfaces/eventlisteneroptions.md) |
 
 **Returns:** *void*
 
-▸ **removeEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function): *void*
+▸ **removeEventListener**(`eventType`: [WidgetEventTypes](../enums/widgeteventtypes.md), `callback`: function, `options?`: [EventListenerOptions](../interfaces/eventlisteneroptions.md)): *void*
 
 *Inherited from [EventWidget](eventwidget.md).[removeEventListener](eventwidget.md#removeeventlistener)*
 
@@ -287,21 +420,34 @@ Name | Type |
 ------ | ------ |
 `event?` | [NativeRawPointer](../globals.md#nativerawpointer)‹"QEvent"› |
 
+▪`Optional`  **options**: *[EventListenerOptions](../interfaces/eventlisteneroptions.md)*
+
 **Returns:** *void*
 
 ___
 
-###  setNodeParent
+###  setEventProcessed
 
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
+▸ **setEventProcessed**(`isProcessed`: boolean): *void*
 
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
+*Inherited from [EventWidget](eventwidget.md).[setEventProcessed](eventwidget.md#seteventprocessed)*
+
+Mark the current event as having been processed
+
+This method is used to indicate that the currently dispatched event
+has been processed and no further processing by superclasses is
+required. It only makes sense to call this method from an event
+handler.
+
+When set, this flag will cause NodeGui's `QObject::event()` method to
+return true and not call the superclass `event()`, effectively preventing
+any further processing on this event.
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
+Name | Type | Description |
+------ | ------ | ------ |
+`isProcessed` | boolean | true if the event has been processed.  |
 
 **Returns:** *void*
 
@@ -311,7 +457,7 @@ ___
 
 ▸ **setObjectName**(`objectName`: string): *void*
 
-*Inherited from [NodeObject](nodeobject.md).[setObjectName](nodeobject.md#setobjectname)*
+*Inherited from [QObject](qobject.md).[setObjectName](qobject.md#setobjectname)*
 
 **Parameters:**
 
@@ -323,11 +469,27 @@ Name | Type |
 
 ___
 
+###  setParent
+
+▸ **setParent**(`parent`: [QObject](qobject.md)): *void*
+
+*Inherited from [QObject](qobject.md).[setParent](qobject.md#setparent)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`parent` | [QObject](qobject.md) |
+
+**Returns:** *void*
+
+___
+
 ###  setProperty
 
 ▸ **setProperty**(`name`: string, `value`: [QVariantType](../globals.md#qvarianttype)): *boolean*
 
-*Inherited from [NodeObject](nodeobject.md).[setProperty](nodeobject.md#setproperty)*
+*Inherited from [QObject](qobject.md).[setProperty](qobject.md#setproperty)*
 
 **Parameters:**
 
@@ -354,19 +516,67 @@ Name | Type |
 
 ___
 
-### `Static` clipboard
+###  setStyleSheet
 
-▸ **clipboard**(): *[QClipboard](qclipboard.md)*
+▸ **setStyleSheet**(`styleSheet`: string, `postprocess`: boolean): *void*
 
-**Returns:** *[QClipboard](qclipboard.md)*
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`styleSheet` | string | - |
+`postprocess` | boolean | true |
+
+**Returns:** *void*
 
 ___
 
-### `Static` desktop
+###  startTimer
 
-▸ **desktop**(): *[QDesktopWidget](qdesktopwidget.md)*
+▸ **startTimer**(`intervalMS`: number, `timerType`: [TimerType](../enums/timertype.md)): *number*
 
-**Returns:** *[QDesktopWidget](qdesktopwidget.md)*
+*Inherited from [QObject](qobject.md).[startTimer](qobject.md#starttimer)*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`intervalMS` | number | - |
+`timerType` | [TimerType](../enums/timertype.md) | TimerType.CoarseTimer |
+
+**Returns:** *number*
+
+___
+
+### `Static` applicationDisplayName
+
+▸ **applicationDisplayName**(): *string*
+
+**Returns:** *string*
+
+___
+
+### `Static` clipboard
+
+▸ **clipboard**(): *[QClipboard](qclipboard.md) | null*
+
+**Returns:** *[QClipboard](qclipboard.md) | null*
+
+___
+
+### `Static` desktopFileName
+
+▸ **desktopFileName**(): *string*
+
+**Returns:** *string*
+
+___
+
+### `Static` desktopSettingsAware
+
+▸ **desktopSettingsAware**(): *boolean*
+
+**Returns:** *boolean*
 
 ___
 
@@ -378,8 +588,110 @@ ___
 
 ___
 
+### `Static` platformName
+
+▸ **platformName**(): *string*
+
+**Returns:** *string*
+
+___
+
+### `Static` primaryScreen
+
+▸ **primaryScreen**(): *[QScreen](qscreen.md) | null*
+
+**Returns:** *[QScreen](qscreen.md) | null*
+
+___
+
+### `Static` screens
+
+▸ **screens**(): *[QScreen](qscreen.md)[]*
+
+**Returns:** *[QScreen](qscreen.md)[]*
+
+___
+
+### `Static` setApplicationDisplayName
+
+▸ **setApplicationDisplayName**(`name`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`name` | string |
+
+**Returns:** *void*
+
+___
+
+### `Static` setDesktopFileName
+
+▸ **setDesktopFileName**(`name`: string): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`name` | string |
+
+**Returns:** *void*
+
+___
+
+### `Static` setDesktopSettingsAware
+
+▸ **setDesktopSettingsAware**(`on`: boolean): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`on` | boolean |
+
+**Returns:** *void*
+
+___
+
+### `Static` setStyle
+
+▸ **setStyle**(`style`: [QStyle](qstyle.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`style` | [QStyle](qstyle.md) |
+
+**Returns:** *void*
+
+___
+
+### `Static` setWindowIcon
+
+▸ **setWindowIcon**(`icon`: [QIcon](qicon.md)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`icon` | [QIcon](qicon.md) |
+
+**Returns:** *void*
+
+___
+
 ### `Static` style
 
 ▸ **style**(): *[QStyle](qstyle.md)*
 
 **Returns:** *[QStyle](qstyle.md)*
+
+___
+
+### `Static` windowIcon
+
+▸ **windowIcon**(): *[QIcon](qicon.md)*
+
+**Returns:** *[QIcon](qicon.md)*

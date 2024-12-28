@@ -32,8 +32,6 @@ const image = new QImage();
 ### Properties
 
 * [native](qimage.md#native)
-* [nodeChildren](qimage.md#nodechildren)
-* [nodeParent](qimage.md#optional-nodeparent)
 
 ### Methods
 
@@ -77,7 +75,6 @@ const image = new QImage();
 * [setDevicePixelRatio](qimage.md#setdevicepixelratio)
 * [setDotsPerMeterX](qimage.md#setdotspermeterx)
 * [setDotsPerMeterY](qimage.md#setdotspermetery)
-* [setNodeParent](qimage.md#setnodeparent)
 * [setOffset](qimage.md#setoffset)
 * [setPixel](qimage.md#setpixel)
 * [setPixelColor](qimage.md#setpixelcolor)
@@ -89,6 +86,7 @@ const image = new QImage();
 * [textKeys](qimage.md#textkeys)
 * [valid](qimage.md#valid)
 * [width](qimage.md#width)
+* [fromBuffer](qimage.md#static-frombuffer)
 * [fromQVariant](qimage.md#static-fromqvariant)
 
 ## Constructors
@@ -169,25 +167,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -776,7 +758,7 @@ ___
 
 ###  setDevicePixelRatio
 
-▸ **setDevicePixelRatio**(`scaleFactory`: number): *void*
+▸ **setDevicePixelRatio**(`ratio`: number): *void*
 
 Sets the device pixel ratio for the image. This is the ratio between image pixels
 and device-independent pixels
@@ -785,7 +767,7 @@ and device-independent pixels
 
 Name | Type |
 ------ | ------ |
-`scaleFactory` | number |
+`ratio` | number |
 
 **Returns:** *void*
 
@@ -818,22 +800,6 @@ Sets the number of pixels that fit vertically in a physical meter, to y
 Name | Type |
 ------ | ------ |
 `y` | number |
-
-**Returns:** *void*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
 
 **Returns:** *void*
 
@@ -1035,6 +1001,23 @@ ___
 Returns the width of the image
 
 **Returns:** *number*
+
+___
+
+### `Static` fromBuffer
+
+▸ **fromBuffer**(`buffer`: Buffer, `width`: number, `height`: number, `format`: [QImageFormat](../enums/qimageformat.md)): *[QImage](qimage.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`buffer` | Buffer |
+`width` | number |
+`height` | number |
+`format` | [QImageFormat](../enums/qimageformat.md) |
+
+**Returns:** *[QImage](qimage.md)*
 
 ___
 

@@ -20,40 +20,40 @@ sidebar_label: "InsertPolicy"
 
 ###  InsertAfterCurrent
 
-• **InsertAfterCurrent**:
+• **InsertAfterCurrent**: = 4
 
 ___
 
 ###  InsertAlphabetically
 
-• **InsertAlphabetically**:
+• **InsertAlphabetically**: = 6
 
 ___
 
 ###  InsertAtBottom
 
-• **InsertAtBottom**:
+• **InsertAtBottom**: = 3
 
 ___
 
 ###  InsertAtCurrent
 
-• **InsertAtCurrent**:
+• **InsertAtCurrent**: = 2
 
 ___
 
 ###  InsertAtTop
 
-• **InsertAtTop**:
+• **InsertAtTop**: = 1
 
 ___
 
 ###  InsertBeforeCurrent
 
-• **InsertBeforeCurrent**:
+• **InsertBeforeCurrent**: = 5
 
 ___
 
 ###  NoInsert
 
-• **NoInsert**:
+• **NoInsert**: = 0

@@ -19,29 +19,33 @@ sidebar_label: "QFontMetrics"
 ### Properties
 
 * [native](qfontmetrics.md#native)
-* [nodeChildren](qfontmetrics.md#nodechildren)
-* [nodeParent](qfontmetrics.md#optional-nodeparent)
 
 ### Methods
 
 * [ascent](qfontmetrics.md#ascent)
 * [averageCharWidth](qfontmetrics.md#averagecharwidth)
+* [boundingRect](qfontmetrics.md#boundingrect)
 * [capHeight](qfontmetrics.md#capheight)
 * [descent](qfontmetrics.md#descent)
+* [elidedText](qfontmetrics.md#elidedtext)
 * [fontDpi](qfontmetrics.md#fontdpi)
 * [height](qfontmetrics.md#height)
 * [horizontalAdvance](qfontmetrics.md#horizontaladvance)
 * [inFont](qfontmetrics.md#infont)
+* [inFontUcs4](qfontmetrics.md#infontucs4)
 * [leading](qfontmetrics.md#leading)
 * [leftBearing](qfontmetrics.md#leftbearing)
 * [lineSpacing](qfontmetrics.md#linespacing)
 * [lineWidth](qfontmetrics.md#linewidth)
+* [maxWidth](qfontmetrics.md#maxwidth)
+* [minLeftBearing](qfontmetrics.md#minleftbearing)
+* [minRightBearing](qfontmetrics.md#minrightbearing)
 * [overlinePos](qfontmetrics.md#overlinepos)
 * [rightBearing](qfontmetrics.md#rightbearing)
-* [setNodeParent](qfontmetrics.md#setnodeparent)
 * [size](qfontmetrics.md#size)
 * [strikeOutPos](qfontmetrics.md#strikeoutpos)
 * [swap](qfontmetrics.md#swap)
+* [tightBoundingRect](qfontmetrics.md#tightboundingrect)
 * [underlinePos](qfontmetrics.md#underlinepos)
 * [xHeight](qfontmetrics.md#xheight)
 
@@ -89,25 +93,9 @@ Name | Type |
 
 ###  native
 
-• **native**: *[NativeElement](../globals.md#nativeelement)*
+• **native**: *[NativeElement](../globals.md#nativeelement) | null*
 
-*Overrides [Component](component.md).[native](component.md#abstract-native)*
-
-___
-
-###  nodeChildren
-
-• **nodeChildren**: *Set‹[Component](component.md)›*
-
-*Inherited from [Component](component.md).[nodeChildren](component.md#nodechildren)*
-
-___
-
-### `Optional` nodeParent
-
-• **nodeParent**? : *[Component](component.md)*
-
-*Inherited from [Component](component.md).[nodeParent](component.md#optional-nodeparent)*
+*Inherited from [Component](component.md).[native](component.md#native)*
 
 ## Methods
 
@@ -131,6 +119,20 @@ Returns the average width of glyphs in the font
 
 ___
 
+###  boundingRect
+
+▸ **boundingRect**(`text`: string): *[QRect](qrect.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+
+**Returns:** *[QRect](qrect.md)*
+
+___
+
 ###  capHeight
 
 ▸ **capHeight**(): *number*
@@ -148,6 +150,23 @@ ___
 Returns the descent of the font
 
 **Returns:** *number*
+
+___
+
+###  elidedText
+
+▸ **elidedText**(`text`: string, `mode`: [TextElideMode](../enums/textelidemode.md), `width`: number, `flags`: number): *string*
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`text` | string | - |
+`mode` | [TextElideMode](../enums/textelidemode.md) | - |
+`width` | number | - |
+`flags` | number | 0 |
+
+**Returns:** *string*
 
 ___
 
@@ -204,6 +223,20 @@ Name | Type |
 
 ___
 
+###  inFontUcs4
+
+▸ **inFontUcs4**(`ucs4`: number): *boolean*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`ucs4` | number |
+
+**Returns:** *boolean*
+
+___
+
 ###  leading
 
 ▸ **leading**(): *number*
@@ -250,6 +283,30 @@ Returns the width of the underline and strikeout lines, adjusted for the point s
 
 ___
 
+###  maxWidth
+
+▸ **maxWidth**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  minLeftBearing
+
+▸ **minLeftBearing**(): *number*
+
+**Returns:** *number*
+
+___
+
+###  minRightBearing
+
+▸ **minRightBearing**(): *number*
+
+**Returns:** *number*
+
+___
+
 ###  overlinePos
 
 ▸ **overlinePos**(): *number*
@@ -273,22 +330,6 @@ Name | Type |
 `text` | string |
 
 **Returns:** *number*
-
-___
-
-###  setNodeParent
-
-▸ **setNodeParent**(`parent?`: [Component](component.md)): *void*
-
-*Inherited from [Component](component.md).[setNodeParent](component.md#setnodeparent)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`parent?` | [Component](component.md) |
-
-**Returns:** *void*
 
 ___
 
@@ -335,6 +376,20 @@ Name | Type |
 `other` | [QFontMetrics](qfontmetrics.md) |
 
 **Returns:** *void*
+
+___
+
+###  tightBoundingRect
+
+▸ **tightBoundingRect**(`text`: string): *[QRect](qrect.md)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+
+**Returns:** *[QRect](qrect.md)*
 
 ___
 
