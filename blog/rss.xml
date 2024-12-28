@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>NodeGui Blog</title>
+        <link>https://nodegui.org/blog</link>
+        <description>NodeGui Blog</description>
+        <lastBuildDate>Thu, 30 May 2019 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Welcome]]></title>
+            <link>https://nodegui.org/blog/2019/05/30/welcome</link>
+            <guid>https://nodegui.org/blog/2019/05/30/welcome</guid>
+            <pubDate>Thu, 30 May 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is the new blog site for NodeGui. This will be updated soon.]]></description>
+            <content:encoded><![CDATA[<p>This is the new blog site for NodeGui. This will be updated soon.</p>]]></content:encoded>
+            <category>nodegui</category>
+            <category>hello</category>
+        </item>
+    </channel>
+</rss>

@@ -7,5 +7,5 @@
   <Image width="16" height="16" type="image/x-icon">https://nodegui.org/img/favicon.ico</Image>
   <Url type="text/html" method="get" template="https://nodegui.org/search?q={searchTerms}"/>
   <Url type="application/opensearchdescription+xml" rel="self" template="https://nodegui.org/opensearch.xml" />
-  <moz:SearchForm>https://nodegui.org</moz:SearchForm>
+  <moz:SearchForm>https://nodegui.org/</moz:SearchForm>
 </OpenSearchDescription>

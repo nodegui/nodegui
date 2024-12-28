@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknodegui=self.webpackChunknodegui||[]).push([[8121],{68070:e=>{e.exports=JSON.parse('{"tags":[{"label":"nodegui","permalink":"/blog/tags/nodegui","count":1},{"label":"hello","permalink":"/blog/tags/hello","count":1}]}')}}]);

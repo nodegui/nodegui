@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://nodegui.org/blog</id>
+    <title>NodeGui Blog</title>
+    <updated>2019-05-30T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://nodegui.org/blog"/>
+    <subtitle>NodeGui Blog</subtitle>
+    <icon>https://nodegui.org/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Welcome]]></title>
+        <id>https://nodegui.org/blog/2019/05/30/welcome</id>
+        <link href="https://nodegui.org/blog/2019/05/30/welcome"/>
+        <updated>2019-05-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This is the new blog site for NodeGui. This will be updated soon.]]></summary>
+        <content type="html"><![CDATA[<p>This is the new blog site for NodeGui. This will be updated soon.</p>]]></content>
+        <author>
+            <name>Atul R</name>
+            <uri>https://github.com/master-atul</uri>
+        </author>
+        <category label="nodegui" term="nodegui"/>
+        <category label="hello" term="hello"/>
+    </entry>
+</feed>
