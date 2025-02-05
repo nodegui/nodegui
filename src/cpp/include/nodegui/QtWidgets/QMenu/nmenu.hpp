@@ -30,14 +30,18 @@ class DLL_EXPORT NMenu : public QMenu, public NodeWidget {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
       auto instance = WrapperCache::instance.getWrapper(env, action);
-      this->emitOnNode.Call({Napi::String::New(env, "hovered"), instance});
+      if (instance != nullptr) {
+        this->emitOnNode.Call({Napi::String::New(env, "hovered"), instance});
+      }
     });
 
     QObject::connect(this, &QMenu::triggered, [=](QAction* action) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
       auto instance = WrapperCache::instance.getWrapper(env, action);
-      this->emitOnNode.Call({Napi::String::New(env, "triggered"), instance});
-    });
+      if (instance != nullptr) {
+        this->emitOnNode.Call({Napi::String::New(env, "triggered"), instance});
+      }
+    }); 
   }
 };
