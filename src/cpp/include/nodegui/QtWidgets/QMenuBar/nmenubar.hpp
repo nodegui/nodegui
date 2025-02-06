@@ -18,14 +18,21 @@ class DLL_EXPORT NMenuBar : public QMenuBar, public NodeWidget {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
       auto instance = WrapperCache::instance.getWrapper(env, action);
-      this->emitOnNode.Call({Napi::String::New(env, "hovered"), instance});
-    });
+      // For some reason "instance" becomes a nullptr sometimes, 
+      // Passing in a nullptr CRASHES this
+      // since we don't know which item "hovered" we don't continue with the event.
+      if (instance != nullptr) {
+         this->emitOnNode.Call({Napi::String::New(env, "hovered"), instance});
+      }
+    }); 
 
     QObject::connect(this, &QMenuBar::triggered, [=](QAction* action) {
       Napi::Env env = this->emitOnNode.Env();
       Napi::HandleScope scope(env);
       auto instance = WrapperCache::instance.getWrapper(env, action);
-      this->emitOnNode.Call({Napi::String::New(env, "triggered"), instance});
-    });
+      if (instance != nullptr) {
+        this->emitOnNode.Call({Napi::String::New(env, "triggered"), instance});
+      }
+    }); 
   }
 };
