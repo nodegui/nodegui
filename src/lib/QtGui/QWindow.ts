@@ -32,7 +32,6 @@ export class QWindow extends QObject<QWindowSignals> {
     // TODO:    void 	setMaximumWidth(int w)
     // TODO:    void 	setMinimumHeight(int h)
     // TODO:    void 	setMinimumWidth(int w)
-    // TODO:    void 	setTitle(const QString &)
     // TODO:    void 	setVisible(bool visible)
     // TODO:    void 	setWidth(int arg)
     // TODO:    void 	setX(int arg)
@@ -68,6 +67,12 @@ export class QWindow extends QObject<QWindowSignals> {
     setVisibility(visibility: Visibility): void {
         return this.native.setVisibility(visibility);
     }
+    title(): string {
+        return this.native.windowTitle();
+    }
+    setTitle(title: string): void {
+        return this.native.setWindowTitle(title);
+    }
 }
 wrapperCache.registerWrapper('QWindowWrap', QWindow);
 
@@ -75,6 +80,7 @@ export interface QWindowSignals extends QObjectSignals {
     screenChanged: (screen: QScreen) => void;
     visibilityChanged: (visibility: Visibility) => void;
     windowStateChanged: (windowState: WindowState) => void;
+    windowTitleChanged: (title: string) => void;
 }
 
 registerNativeWrapFunction('QWindowWrap', (native: any) => {
