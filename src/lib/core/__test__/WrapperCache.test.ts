@@ -1,12 +1,8 @@
 import { QObject } from '../../QtCore/QObject';
-import { QApplication } from '../../QtGui/QApplication';
 import { CacheTestQObject } from './CacheTestQObject';
 import { wrapperCache } from '../WrapperCache';
 
 describe('WrapperCache using CacheTestQObject', () => {
-    const qApp = QApplication.instance();
-    qApp.setQuitOnLastWindowClosed(true);
-
     it('Cached foo', () => {
         wrapperCache._flush();
         const a = new CacheTestQObject();
@@ -92,6 +88,4 @@ describe('WrapperCache using CacheTestQObject', () => {
         expect(allKids[0]).toEqual(kid1);
         expect(allKids[1]).toEqual(kid2);
     });
-
-    qApp.quit();
 });
