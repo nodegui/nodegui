@@ -6,7 +6,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os: [ubuntu-20.04, windows-latest, macos-13]
+                os: [ubuntu-22.04, windows-latest, macos-13]
         runs-on: ${{ matrix.os }}
         steps:
             - uses: actions/checkout@v4
@@ -14,7 +14,7 @@ jobs:
               with:
                 node-version: '18.12.1'
             - name: Install ubuntu deps
-              if: contains(matrix.os, 'ubuntu-20.04')
+              if: contains(matrix.os, 'ubuntu-22.04')
               run: sudo apt install mesa-common-dev libglu1-mesa-dev libegl1 libopengl-dev
             - name: Install deps
               run: npm install
