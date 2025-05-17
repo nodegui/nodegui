@@ -38,7 +38,7 @@ https://github.com/nodegui/examples
 
 ## Features
 
--   🧬 **Cross platform.** Works on major Linux flavours, Windows, and MacOS.
+-   🧬 **Cross platform.** Works on major Linux flavours and Windows. Help is requested to bring it to ARM based MacOS. See [issue 1024](https://github.com/nodegui/nodegui/issues/1024)
 -   📉 **Low CPU and memory** footprint. Current CPU stays at 0% on idle and memory usage is under 20MB for a Hello World program.
 -   💅 **Styling with CSS** (includes actual cascading). Also has full support for Flexbox layout (thanks to Yoga).
 -   ✅ **Complete Nodejs API support** (Currently runs on Node v16.x - and is easily upgradable). Hence has access to all Nodejs compatible NPM modules.
