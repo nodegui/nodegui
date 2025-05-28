@@ -14,16 +14,15 @@ Napi::Object QWheelEventWrap::init(Napi::Env env, Napi::Object exports) {
   Napi::Function func = DefineClass(
       env, CLASSNAME,
       {InstanceMethod("angleDelta", &QWheelEventWrap::angleDelta),
-       InstanceMethod("buttons", &QWheelEventWrap::buttons),
-       InstanceMethod("globalPosition", &QWheelEventWrap::globalPosition),
        InstanceMethod("inverted", &QWheelEventWrap::inverted),
        InstanceMethod("phase", &QWheelEventWrap::phase),
        InstanceMethod("pixelDelta", &QWheelEventWrap::pixelDelta),
-       InstanceMethod("position", &QWheelEventWrap::position),
 
        COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(QWheelEventWrap)
            QEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QWheelEventWrap)
-               QINPUTEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QWheelEventWrap)});
+               QINPUTEVENT_WRAPPED_METHODS_EXPORT_DEFINE(QWheelEventWrap)
+                   QSINGLEPOINTEVENT_WRAPPED_METHODS_EXPORT_DEFINE(
+                       QWheelEventWrap)});
   constructor = Napi::Persistent(func);
   exports.Set(CLASSNAME, func);
   return exports;
@@ -61,25 +60,6 @@ Napi::Value QWheelEventWrap::angleDelta(const Napi::CallbackInfo& info) {
   return obj;
 }
 
-Napi::Value QWheelEventWrap::buttons(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  int b = static_cast<int>(this->instance->buttons());
-  return Napi::Number::From(env, b);
-}
-
-Napi::Value QWheelEventWrap::globalPosition(const Napi::CallbackInfo& info) {
-  // Uses QPointF, not QPoint
-  // qreal is typedef double unless configued with -qreal float option
-  Napi::Env env = info.Env();
-  QPointF point = static_cast<QPointF>(this->instance->globalPosition());
-  qreal x = static_cast<qreal>(point.x());
-  qreal y = static_cast<qreal>(point.y());
-  Napi::Object obj = Napi::Object::New(env);
-  obj.Set("x", Napi::Number::From(env, x));
-  obj.Set("y", Napi::Number::From(env, y));
-  return obj;
-}
-
 Napi::Value QWheelEventWrap::inverted(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   bool b = static_cast<bool>(this->instance->inverted());
@@ -98,18 +78,6 @@ Napi::Value QWheelEventWrap::pixelDelta(const Napi::CallbackInfo& info) {
   QPoint point = static_cast<QPoint>(this->instance->pixelDelta());
   int x = static_cast<int>(point.x());
   int y = static_cast<int>(point.y());
-  Napi::Object obj = Napi::Object::New(env);
-  obj.Set("x", Napi::Number::From(env, x));
-  obj.Set("y", Napi::Number::From(env, y));
-  return obj;
-}
-
-Napi::Value QWheelEventWrap::position(const Napi::CallbackInfo& info) {
-  // Uses QPointF
-  Napi::Env env = info.Env();
-  QPointF point = static_cast<QPointF>(this->instance->position());
-  qreal x = static_cast<qreal>(point.x());
-  qreal y = static_cast<qreal>(point.y());
   Napi::Object obj = Napi::Object::New(env);
   obj.Set("x", Napi::Number::From(env, x));
   obj.Set("y", Napi::Number::From(env, y));

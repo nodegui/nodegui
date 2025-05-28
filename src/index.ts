@@ -29,6 +29,7 @@ export { QMouseEvent } from './lib/QtGui/QEvent/QMouseEvent';
 export { QMoveEvent } from './lib/QtGui/QEvent/QMoveEvent';
 export { QWheelEvent } from './lib/QtGui/QEvent/QWheelEvent';
 export { QNativeGestureEvent } from './lib/QtGui/QEvent/QNativeGestureEvent';
+export { QSinglePointEvent } from './lib/QtGui/QEvent/QSinglePointEvent';
 export { QTabletEvent } from './lib/QtGui/QEvent/QTabletEvent';
 export { QTimerEvent } from './lib/QtGui/QEvent/QTimerEvent';
 export { QDrag } from './lib/QtGui/QDrag';
