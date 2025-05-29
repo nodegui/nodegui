@@ -1,5 +1,4 @@
 import { QInputEvent } from './QInputEvent';
-import { QPointF } from '../../QtCore/QPointF';
 
 export abstract class QSinglePointEvent extends QInputEvent {
     button(): number {
