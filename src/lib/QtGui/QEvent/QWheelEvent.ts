@@ -1,9 +1,9 @@
 import addon from '../../utils/addon';
 import { NativeRawPointer } from '../../core/Component';
 import { ScrollPhase } from '../../QtEnums';
-import { QInputEvent } from './QInputEvent';
+import { QSinglePointEvent } from './QSinglePointEvent';
 
-export class QWheelEvent extends QInputEvent {
+export class QWheelEvent extends QSinglePointEvent {
     constructor(event: NativeRawPointer<'QEvent'>) {
         super(new addon.QWheelEvent(event));
     }
@@ -38,9 +38,6 @@ export class QWheelEvent extends QInputEvent {
     angleDelta(): { x: number; y: number } {
         return this.native.angleDelta();
     }
-    buttons(): number {
-        return this.native.buttons();
-    }
     /**
      * Returns the global position of the mouse pointer at the time of
      * the event. This is important on asynchronous window systems such
@@ -73,14 +70,5 @@ export class QWheelEvent extends QInputEvent {
      */
     pixelDelta(): { x: number; y: number } {
         return this.native.pixelDelta();
-    }
-
-    /**
-     * Returns the position of the mouse cursor relative to the widget that received the event.
-     * If you move your widgets around in response to mouse events, use globalPosition() instead of this function.
-     * This function was introduced in Qt 5.14
-     */
-    position(): { x: number; y: number } {
-        return this.native.position();
     }
 }

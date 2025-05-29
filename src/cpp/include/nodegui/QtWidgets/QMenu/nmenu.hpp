@@ -42,6 +42,6 @@ class DLL_EXPORT NMenu : public QMenu, public NodeWidget {
       if (instance != nullptr) {
         this->emitOnNode.Call({Napi::String::New(env, "triggered"), instance});
       }
-    }); 
+    });
   }
 };
