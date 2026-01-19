@@ -58,7 +58,7 @@ export const Try = () => {
                             <Code>cd nodegui-simple-starter</Code>
                             <Code>npm install</Code>
                             <Code>npm run build</Code>
-                            <Code>npm run run</Code>
+                            <Code>npm run start</Code>
                         </Terminal>
                         <SubTitle>
                             2.{' '}

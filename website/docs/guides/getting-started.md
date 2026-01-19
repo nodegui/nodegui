@@ -154,7 +154,7 @@ npm install
 
 npm run build
 
-npm run run
+npm run start
 ```
 
 **Note**: If you encounter errors installing `nodegui`, please check the [FAQs](../faq.md#why-does-installation-fail-at-minimal-qt-setup) for additional help.
