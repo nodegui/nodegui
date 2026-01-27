@@ -10,16 +10,13 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-22.04
+          - os: ubuntu-24.04
             platform: linux
             arch: x64
-          - os: windows-latest
+          - os: windows-2025
             platform: win32
             arch: x64
-          - os: macos-13
-            platform: darwin
-            arch: x64
-          - os: macos-15
+          - os: macos-14
             platform: darwin
             arch: arm64
     runs-on: ${{ matrix.os }}
@@ -30,7 +27,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '18.12.1'
+          node-version: '24.x'
 
       - name: Install ubuntu deps
         if: contains(matrix.platform, 'linux')
@@ -65,7 +62,6 @@ jobs:
           files: |
             ./nodegui_core.node
             ./nodegui_core.lib
-            ./nodegui_core.exp
           outPath: ${{ env.ARCHIVE_FILENAME }}
 
       - uses: actions/upload-artifact@v4
@@ -82,12 +78,12 @@ jobs:
   publish-npm-package:
     needs: precompile
     if: contains(github.event.release.tag_name, 'v0.0.0-latest-master') == false
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '18.12.1'
+          node-version: '24.x'
       - name: Install ubuntu deps
         run: sudo apt update
       - run: sudo apt install mesa-common-dev libglu1-mesa-dev

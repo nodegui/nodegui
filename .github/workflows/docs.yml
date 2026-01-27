@@ -7,12 +7,12 @@ on:
 
 jobs:
     gh-release:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
               with:
-                node-version: '18.12.1'
+                node-version: '24.x'
             - name: Add key to allow access to repository
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
@@ -31,7 +31,7 @@ jobs:
                   USE_SSH: true
                   GIT_USER: git
               run: |
-                  git config --global user.email "actions@gihub.com"
+                  git config --global user.email "actions@github.com"
                   git config --global user.name "gh-actions"
                   npm install --ignore-scripts
                   npm run docs
