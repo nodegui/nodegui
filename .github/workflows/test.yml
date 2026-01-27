@@ -1,6 +1,8 @@
 on:
-    pull_request:
-        types: [opened, synchronize, reopened]
+    workflow_dispatch:
+    # pull_request:
+    #     types: [opened, synchronize, reopened]
+
 jobs:
     build:
         strategy:
