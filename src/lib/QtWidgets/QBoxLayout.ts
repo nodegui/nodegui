@@ -51,7 +51,7 @@ export class QBoxLayout extends QLayout<QBoxLayoutSignals> {
     addStrut(size: number): void {
         this.native.addStrut(size);
     }
-    addWidget(widget: QWidget, stretch = 0, alignment: AlignmentFlag = 0): void {
+    addWidget(widget: QWidget, stretch = 0, alignment = 0 /* AlignmentFlag */): void {
         this.native.addWidget(widget.native, stretch, alignment);
     }
     insertWidget(index: number, widget: QWidget, stretch = 0): void {
