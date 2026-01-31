@@ -88,7 +88,7 @@ function getMiniQtConfig() {
                         name: 'Qt ICU',
                         link: `${MIRROR}/online/qtsdkrepository/linux_x64/desktop/qt6_6102/qt6_6102/qt.qt6.6102.linux_gcc_64/6.10.2-0-202601261212icu-linux-Rhel8.6-x86_64.7z`,
                         skipSetup: checkIfExists(path.resolve(qtHome, 'lib', 'libicuuc.so')),
-                        subDir: subDir,
+                        subDir: subDir + '/lib',
                     },
                 ],
             };
