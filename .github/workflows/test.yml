@@ -6,7 +6,11 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os: [ubuntu-24.04, windows-2025, macos-14]
+                os: [
+                  # ubuntu-24.04,
+                  windows-2025,
+                  # macos-14
+                  ]
         runs-on: ${{ matrix.os }}
         steps:
             - uses: actions/checkout@v4
@@ -21,6 +25,8 @@ jobs:
               run: sudo apt install mesa-common-dev libglu1-mesa-dev libegl1 libopengl-dev
             - name: Install deps
               run: npm install
+              env:
+                CMAKE_BUILD_PARALLEL_LEVEL: 8
             - name: Build nodegui
               run: npm run build
               env:
