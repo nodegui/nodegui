@@ -278,7 +278,6 @@ if (APPLE)
 endif()
 
 target_link_libraries(${CORE_WIDGETS_ADDON} PRIVATE
-    "${CMAKE_JS_LIB}"
     Qt6::Widgets
     Qt6::Core
     Qt6::Gui
