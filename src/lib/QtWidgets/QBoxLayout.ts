@@ -2,7 +2,7 @@ import addon from '../utils/addon';
 import { QWidget } from './QWidget';
 import { QLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
-import { AlignmentFlag, Direction } from '../QtEnums';
+import { Direction } from '../QtEnums';
 import { checkIfNativeElement } from '../utils/helpers';
 import { wrapperCache } from '../core/WrapperCache';
 
