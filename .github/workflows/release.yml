@@ -16,9 +16,12 @@ jobs:
           - os: windows-2025
             platform: win32
             arch: x64
-          - os: macos-14
+          - os: macos-15
             platform: darwin
             arch: arm64
+          - os: macos-15-intel
+            platform: darwin
+            arch: x64
     runs-on: ${{ matrix.os }}
     env:
       ARCHIVE_FILENAME: nodegui-binary-${{github.event.release.tag_name}}-${{ matrix.platform }}-${{ matrix.arch }}.tar.gz

@@ -1,6 +1,6 @@
 {
     "name": "@nodegui/nodegui",
-    "version": "0.74.0",
+    "version": "0.74.1",
     "description": "A cross-platform library to build native desktop apps.",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -34,7 +34,7 @@
     "engineStrict": false,
     "dependencies": {
         "@nodegui/artifact-installer": "^1.1.0",
-        "@nodegui/qode": "24.12.0-rc18",
+        "@nodegui/qode": "24.12.0-rc19",
         "cmake-js": "^7.4.0",
         "cross-env": "^7.0.3",
         "cuid": "^2.1.8",
