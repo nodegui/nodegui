@@ -45,9 +45,8 @@ jobs:
                       nodegui-nodegui-0.0.0-latest-master.tgz:nodegui-master.tgz:application/tar+gzip
                   recreate: true
             - name: Repository Dispatch
-              uses: peter-evans/repository-dispatch@v3
+              uses: peter-evans/repository-dispatch@v4
               with:
-                  token: ${{ secrets.REPO_ACCESS_TOKEN }}
                   repository: nodegui/nodegui
                   event-type: on-demand-build
                   client-payload: '{"ref": "${{ github.ref }}","tag": "v0.0.0-latest-master"}'
