@@ -60,8 +60,8 @@
         "jest": "29.7.0",
         "prettier": "^2.3.2",
         "ts-jest": "29.2.5",
-        "typedoc": "^0.17.8",
-        "typedoc-plugin-markdown": "^2.4.2",
+        "typedoc": "^0.28.9",
+        "typedoc-plugin-markdown": "^4.9.0",
         "typescript": "^5.9.3"
     },
     "binary": {
