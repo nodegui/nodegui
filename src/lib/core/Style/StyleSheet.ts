@@ -1,5 +1,5 @@
 import postcss from 'postcss';
-import cuid from 'cuid';
+import cuid2 from '@paralleldrive/cuid2';
 import nodeguiAutoPrefixer from 'postcss-nodegui-autoprefixer';
 import { QWidget, QWidgetSignals } from '../../QtWidgets/QWidget';
 export class StyleSheet {
@@ -22,7 +22,7 @@ export function prepareInlineStyleSheet<Signals extends QWidgetSignals>(
     // So doing it in multiple passes of event loop allows objectName to be set before using it. The above await solves it.
     let cssId = widget.objectName();
     if (!cssId) {
-        cssId = cuid();
+        cssId = cuid2.createId();
         widget.setObjectName(cssId);
     }
     return `

@@ -35,9 +35,9 @@
     "dependencies": {
         "@nodegui/artifact-installer": "^1.1.0",
         "@nodegui/qode": "24.12.0-rc19",
+        "@paralleldrive/cuid2": "^3.3.0",
         "cmake-js": "^7.4.0",
         "cross-env": "^7.0.3",
-        "cuid": "^2.1.8",
         "manage-path": "^2.0.0",
         "memoize-one": "^5.2.1",
         "mkdirp": "^3.0.1",
