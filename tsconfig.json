@@ -14,17 +14,13 @@
     },
     "include": ["src"],
     "typedocOptions": {
-        "mode": "file",
         "out": "website/docs/api/generated",
         "plugin": ["typedoc-plugin-markdown"],
         "exclude": ["demo.ts"],
         "excludeExternals": true,
-        "excludeNotExported": true,
+        "excludeNotDocumented": true,
         "excludePrivate": true,
         "excludeProtected": true,
-        "includeDeclarations": true,
-        "hideBreadcrumbs": true,
-        "hideSources": true,
-        "theme": "docusaurus2"
+        "disableSources": true
     }
 }
