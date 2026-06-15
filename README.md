@@ -7,13 +7,13 @@
 
 Build **performant**, **native** and **cross-platform** desktop applications with **Node.js** and **CSS like styling**.🚀
 
-NodeGUI is powered by **Qt6** 💚 which makes it CPU and memory efficient as compared to other chromium based solutions like Electron.
+NodeGui is powered by **Qt6** 💚 which makes it CPU and memory efficient as compared to other chromium based solutions like Electron.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png" alt="" width="25"> If you are looking for **React** based version, check out: **[React NodeGUI](https://github.com/nodegui/react-nodegui)**.
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png" alt="" width="25"> If you are looking for a **React**-based version, check out: **[React NodeGui](https://github.com/nodegui/react-nodegui)**.
 
-<img src="https://vuejs.org/images/logo.png" alt="" width="25" /> If you are looking for **Vue** based version, check out: **[Vue NodeGUI](https://github.com/nodegui/vue-nodegui)**.
+<img src="https://vuejs.org/images/logo.png" alt="" width="25" /> If you are looking for **Vue**-based version, check out: **[Vue NodeGui](https://github.com/nodegui/vue-nodegui)**.
 
-<img src="https://github.com/sveltejs/branding/raw/master/svelte-logo.png" alt="" width="25" /> If you are looking for **Svelte** based version, check out: **[Svelte NodeGUI](https://github.com/nodegui/svelte-nodegui)**
+<img src="https://github.com/sveltejs/branding/raw/master/svelte-logo.png" alt="" width="25" /> If you are looking for **Svelte**-based version, check out: **[Svelte NodeGui](https://github.com/nodegui/svelte-nodegui)**
 
 Visit https://nodegui.github.io/nodegui for docs.
 
@@ -22,12 +22,15 @@ Visit https://nodegui.github.io/nodegui for docs.
 ## How does it look?
 
 <div style="display:inline; margin: 0 auto;">
-<img alt="demo_linux" src="https://github.com/nodegui/examples/raw/master/nodegui/calculator/calculator_linux.png" height="280" />
-<img alt="demo_win" src="https://github.com/nodegui/examples/raw/master/nodegui/calculator/calculator_win.jpg" height="280" />
-<img alt="demo_mac" src="https://github.com/nodegui/examples/raw/master/nodegui/calculator/calculator_mac.png" height="280" />
+  <img alt="Calculator demo Linux" src="https://github.com/nodegui/examples/raw/master/nodegui/calculator/calculator_linux.png" height="280" />
+  <img alt="Calculator demo Windows" src="https://github.com/nodegui/examples/raw/master/nodegui/calculator/calculator_win.jpg" height="280" />
+  <img alt="Calculator demo macOS" src="https://github.com/nodegui/examples/raw/master/nodegui/calculator/calculator_mac.png" height="280" />
 </div>
 
-<div style="display:inline; margin: 0 auto;"><img alt="kitchen" src="https://github.com/nodegui/nodegui/raw/master/extras/assets/kitchen.png" height="280" /><img alt="demo_mac" src="https://github.com/nodegui/examples/raw/master/react-nodegui/weather-app-widget/weather_widget_mac.png" height="280" /><img alt="demo_win" src="https://github.com/nodegui/examples/raw/master/react-nodegui/image-view/image_view_win.jpg" height="280" />
+<div style="display:inline; margin: 0 auto;">
+  <img alt="Components kitchen sink" src="https://github.com/nodegui/nodegui/raw/master/extras/assets/kitchen.png" height="280" />
+  <img alt="Weather widget macOS" src="https://github.com/nodegui/examples/raw/master/react-nodegui/weather-app-widget/weather_widget_mac.png" height="280" />
+  <img alt="Image demo Windows" src="https://github.com/nodegui/examples/raw/master/react-nodegui/image-view/image_view_win.jpg" height="280" />
 </div>
 
 ### Code Examples
@@ -38,17 +41,17 @@ https://github.com/nodegui/examples
 
 ## Features
 
--   🧬 **Cross platform.** Works on major Linux flavours and Windows. Help is requested to bring it to ARM based MacOS. See [issue 1024](https://github.com/nodegui/nodegui/issues/1024)
--   📉 **Low CPU and memory** footprint. Current CPU stays at 0% on idle and memory usage is under 20MB for a Hello World program.
--   💅 **Styling with CSS** (includes actual cascading). Also has full support for Flexbox layout (thanks to Yoga).
--   ✅ **Complete Nodejs API support** (Currently runs on Node v24). Hence has access to all Nodejs compatible NPM modules.
--   🎪 **Native widget event listener support.** Supports all events available from Qt / NodeJs.
+-   🧬 **Cross platform.** Works on macOS (Intel x86_64 and Apple Silicon arm64), Windows, and major Linux distributions.
+-   📉 **Low CPU and memory** footprint. CPU utilization stays at 0% on idle and memory usage is under 20MB for a Hello World program.
+-   💅 **Styling with CSS** (includes actual cascading). Also has full support for Flexbox layout (thanks to [Yoga](https://www.yogalayout.dev/)).
+-   ✅ **Complete Node.js API support** (Currently runs on Node v24). Hence has access to all NPM modules.
+-   🎪 **Native widget event listener support.** Supports all events available from Qt / Node.js.
 -   💸 **Can be used for Commercial applications.**
 -   🕵️‍♂️ **Good Devtools support.**
 -   📚 **Good documentation and website.**
 -   🧙‍♂️ **Good documentation for contributors.**
--   🦹🏻‍♀️ **Good support for dark mode (Thanks to Qt).**
--   🏅**First class Typescript support** (Works on regular JS projects too 😉).
+-   🦹🏻‍♀️ **Good support for dark mode (thanks to Qt).**
+-   🏅**First-class TypeScript support** (regular JS works too 😉).
 
 ## Getting Started
 
@@ -60,13 +63,13 @@ https://github.com/nodegui/examples
 
 ## Installation
 
-To install latest stable release:
+To install the latest stable release:
 
 ```
 npm install @nodegui/nodegui
 ```
 
-To install the latest version available on master branch:
+To install the latest version from the `master` branch:
 
 ```
 npm install https://github.com/nodegui/nodegui/releases/download/v0.0.0-latest-master/nodegui-master.tgz
