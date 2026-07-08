@@ -84,6 +84,12 @@ export class QObject<Signals extends QObjectSignals = QObjectSignals> extends Ev
     children(): QObject[] {
         return this.native.children().map((kid: any) => wrapperCache.getWrapper(kid));
     }
+    blockSignals(block: boolean): boolean {
+        return this.native.blockSignals(block);
+    }
+    signalsBlocked(): boolean {
+        return this.native.signalsBlocked();
+    }
 }
 wrapperCache.registerWrapper('QObjectWrap', QObject);
 

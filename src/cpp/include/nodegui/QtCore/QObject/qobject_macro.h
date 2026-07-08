@@ -119,6 +119,17 @@
           WrapperCache::instance.getWrapper(env, children[i]);               \
     }                                                                        \
     return resultArrayNapi;                                                  \
+  }                                                                          \
+  Napi::Value blockSignals(const Napi::CallbackInfo& info) {                 \
+    Napi::Env env = info.Env();                                              \
+    bool value = info[0].As<Napi::Boolean>();                                \
+    bool doesIt = this->instance->blockSignals(value);                       \
+    return Napi::Value::From(env, doesIt);                                   \
+  }                                                                          \
+  Napi::Value signalsBlocked(const Napi::CallbackInfo& info) {               \
+    Napi::Env env = info.Env();                                              \
+    bool doesIt = this->instance->signalsBlocked();                          \
+    return Napi::Value::From(env, doesIt);                                   \
   }
 
 // Ideally this macro below should go in
@@ -166,7 +177,9 @@
       InstanceMethod("parent", &ComponentWrapName::parent),                 \
       InstanceMethod("deleteLater", &ComponentWrapName::deleteLater),       \
       InstanceMethod("delete", &ComponentWrapName::deleteObject),           \
-      InstanceMethod("children", &ComponentWrapName::children),
+      InstanceMethod("children", &ComponentWrapName::children),             \
+      InstanceMethod("blockSignals", &ComponentWrapName::blockSignals),     \
+      InstanceMethod("signalsBlocked", &ComponentWrapName::signalsBlocked),
 
 #endif  // QOBJECT_WRAPPED_METHODS_EXPORT_DEFINE
 

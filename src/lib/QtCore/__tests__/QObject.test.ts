@@ -14,4 +14,15 @@ describe('QObject', () => {
         const variant = component.property('objectName');
         expect(variant.toString()).toEqual('testObjName');
     });
+    it('blockSignals', () => {
+        expect(component.signalsBlocked()).toBe(false);
+        expect(component.blockSignals(true)).toBe(false);
+        expect(component.signalsBlocked()).toBe(true);
+        expect(component.blockSignals(true)).toBe(true);
+        expect(component.signalsBlocked()).toBe(true);
+        expect(component.blockSignals(false)).toBe(true);
+        expect(component.signalsBlocked()).toBe(false);
+        expect(component.blockSignals(false)).toBe(false);
+        expect(component.signalsBlocked()).toBe(false);
+    });
 });
